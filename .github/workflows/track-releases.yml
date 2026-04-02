@@ -1,0 +1,43 @@
+name: Track Claude Code Releases
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Every 1 hour
+  workflow_dispatch:         # Manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch latest CHANGELOG.md
+        run: |
+          curl -sL \
+            https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md \
+            -o CHANGELOG_RAW.md
+
+      - name: Parse and generate outputs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python scripts/parse_changelog.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes detected"
+          else
+            git commit -m "chore: sync claude-code changelog $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi
