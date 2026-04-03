@@ -439,7 +439,7 @@ def generate_readme(entries: list[dict]) -> str:
     lines = [
         "# Claude Code Changelog Dashboard",
         "",
-        f"> Auto-updated every hour | Last sync: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}",
+        f"> Auto-updated every 3 hours | Last sync: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}",
         "",
         "| 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |",
         "|------|------|-------------------|----------|",
@@ -459,7 +459,7 @@ def generate_readme(entries: list[dict]) -> str:
         "",
         "## How it works",
         "",
-        "- GitHub Actions checks [anthropics/claude-code CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) every hour",
+        "- GitHub Actions checks [anthropics/claude-code CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) every 3 hours",
         "- Python script parses new entries and updates this table + [dashboard](https://tryumanshow.github.io/claude-code-changelog)",
         "",
         "## Links",
@@ -769,7 +769,7 @@ def generate_html(entries: list[dict]) -> str:
       <span class="badge">AUTO-SYNC</span>
     </div>
     <p class="meta" data-i18n-html="meta">
-      Updated every hour &middot; Last sync: {updated} &middot;
+      Updated every 3 hours &middot; Last sync: {updated} &middot;
       <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot;
       <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>
     </p>
@@ -845,7 +845,7 @@ def generate_html(entries: list[dict]) -> str:
       stat_latest: 'Latest Release',
       cmds_only: 'Commands only',
       search_placeholder: 'Search version, command, feature...',
-      meta: 'Updated every hour &middot; Last sync: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
+      meta: 'Updated every 3 hours &middot; Last sync: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
       toggle_label: '한국어',
     }},
     ko: {{
@@ -858,7 +858,7 @@ def generate_html(entries: list[dict]) -> str:
       stat_latest: '최신 릴리스',
       cmds_only: '커맨드 있는 버전만',
       search_placeholder: '버전, 커맨드, 기능 검색...',
-      meta: '매시간 자동 업데이트 &middot; 마지막 동기화: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
+      meta: '3시간마다 자동 업데이트 &middot; 마지막 동기화: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
       toggle_label: 'English',
     }},
   }};

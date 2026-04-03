@@ -1,11 +1,11 @@
 # Claude Code Changelog Dashboard
 
-[![Auto Sync](https://img.shields.io/badge/sync-every%201h-blue)](https://github.com/tryumanshow/claude-code-changelog/actions)
+[![Auto Sync](https://img.shields.io/badge/sync-every%203h-blue)](https://github.com/tryumanshow/claude-code-changelog/actions)
 [![GitHub Pages](https://img.shields.io/badge/dashboard-live-green)](https://tryumanshow.github.io/claude-code-changelog)
 
 Auto-tracking dashboard for [Anthropic Claude Code](https://github.com/anthropics/claude-code) release history.
 
-Parses the official CHANGELOG.md **every hour** and extracts new commands, CLI flags, and key features per version.
+Parses the official CHANGELOG.md **every 3 hours** and extracts new commands, CLI flags, and key features per version.
 
 > **English** | [한국어](README_ko.md)
 

@@ -1,11 +1,11 @@
 # Claude Code Changelog Dashboard
 
-[![Auto Sync](https://img.shields.io/badge/sync-매시간-blue)](https://github.com/tryumanshow/claude-code-changelog/actions)
+[![Auto Sync](https://img.shields.io/badge/sync-3시간마다-blue)](https://github.com/tryumanshow/claude-code-changelog/actions)
 [![GitHub Pages](https://img.shields.io/badge/대시보드-live-green)](https://tryumanshow.github.io/claude-code-changelog)
 
 [Anthropic Claude Code](https://github.com/anthropics/claude-code)의 전체 릴리스 히스토리를 자동 추적하는 대시보드.
 
-**매시간** 공식 CHANGELOG.md를 파싱하여 버전별 새 커맨드, CLI 플래그, 주요 기능을 정리합니다.
+**3시간마다** 공식 CHANGELOG.md를 파싱하여 버전별 새 커맨드, CLI 플래그, 주요 기능을 정리합니다.
 
 > [English](README.md) | **한국어**
 
@@ -22,7 +22,7 @@
 ## 동작 방식
 
 ```
-GitHub Actions (매시간 cron)
+GitHub Actions (3시간마다 cron)
   |
   v
 1. anthropics/claude-code CHANGELOG.md fetch (curl)
@@ -37,7 +37,7 @@ GitHub Actions (매시간 cron)
 
 | Source | 용도 | 비고 |
 |--------|------|------|
-| [CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) | 버전, 커맨드, 기능 텍스트 | 매시간 fetch |
+| [CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) | 버전, 커맨드, 기능 텍스트 | 3시간마다 fetch |
 | [GitHub Releases API](https://github.com/anthropics/claude-code/releases) | 릴리스 날짜 | early-exit 캐시 |
 | [npm registry](https://www.npmjs.com/package/@anthropic-ai/claude-code) | 날짜 보충 (GitHub에 없는 버전) | 캐시 200+ 시 skip |
 | OpenAI API | Key Features 한국어 번역 | 번역 캐시로 재호출 최소화 |
@@ -47,7 +47,7 @@ GitHub Actions (매시간 cron)
 ```
 claude-code-changelog/
 ├── .github/workflows/
-│   └── track-releases.yml       # GitHub Actions (매시간 cron)
+│   └── track-releases.yml       # GitHub Actions (3시간마다 cron)
 ├── scripts/
 │   └── parse_changelog.py       # 파서 + 번역 + HTML 생성
 ├── data/

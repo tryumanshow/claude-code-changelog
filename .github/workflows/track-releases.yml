@@ -2,7 +2,7 @@ name: Track Claude Code Releases
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Every 1 hour
+    - cron: '0 */3 * * *'  # Every 3 hours
   workflow_dispatch:         # Manual trigger
 
 permissions:
