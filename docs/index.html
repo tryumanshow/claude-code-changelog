@@ -267,15 +267,15 @@
       <span class="badge">AUTO-SYNC</span>
     </div>
     <p class="meta" data-i18n-html="meta">
-      Updated every hour &middot; Last sync: 2026-04-02 23:35 UTC &middot;
+      Updated every hour &middot; Last sync: 2026-04-03 02:23 UTC &middot;
       <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot;
       <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>
     </p>
   </header>
 
   <div class="stats">
-    <div class="stat"><div class="num">252</div><div class="label" data-i18n="stat_total">Total Versions</div></div>
-    <div class="stat"><div class="num">122</div><div class="label" data-i18n="stat_cmds">With New Commands</div></div>
+    <div class="stat"><div class="num">253</div><div class="label" data-i18n="stat_total">Total Versions</div></div>
+    <div class="stat"><div class="num">123</div><div class="label" data-i18n="stat_cmds">With New Commands</div></div>
     <div class="stat" id="stat-latest"><div class="num">—</div><div class="label" data-i18n="stat_latest">Latest Release</div></div>
   </div>
 
@@ -296,6 +296,7 @@
       </tr>
     </thead>
     <tbody id="tbody">
+    <tr class="has-commands"><td class="mono">v2.1.91</td><td class="nowrap">2026-04-02</td><td class="cmds"><code>/open</code>, <code>--resume</code>, <code>/feedback</code>, <code>/claude-api</code></td><td class="feats"><div class="feat-en"><ul><li>Added MCP tool result persistence override via _meta[&quot;anthropic/maxResultSizeChars&quot;] annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation</li><li>Added disableSkillShellExecution setting to disable inline shell execution in skills, custom slash commands, and plugin commands</li><li>Added support for multi-line prompts in claude-cli://open?q= deep links (encoded newlines %0A no longer rejected)</li><li>Plugins can now ship executables under bin/ and invoke them as bare commands from the Bash tool</li><li>/feedback now explains why it's unavailable instead of disappearing from the slash menu</li><li>Edit tool now uses shorter old_string anchors, reducing output tokens</li></ul></div><div class="feat-ko" style="display:none"><ul><li>_meta[&quot;anthropic/maxResultSizeChars&quot;] 주석을 통해 MCP 도구 결과 지속성 오버라이드를 추가하여 (최대 500K) DB 스키마와 같은 더 큰 결과가 잘리지 않고 통과할 수 있도록 했습니다.</li><li>skills, custom slash commands 및 plugin commands에서 인라인 셸 실행을 비활성화하는 disableSkillShellExecution 설정을 추가했습니다.</li><li>claude-cli://open?q= 딥 링크에서 다중 행 프롬프트를 지원하게 되었습니다 (인코딩된 새 줄 %0A가 더 이상 거부되지 않음).</li><li>이제 플러그인은 bin/ 아래에 실행 파일을 배포하고 Bash 도구에서 기본 명령으로 호출할 수 있습니다.</li><li>/feedback은 더 이상 슬래시 메뉴에서 사라지는 대신 사용 불가능한 이유를 설명합니다.</li><li>Edit 도구는 이제 더 짧은 old_string 앵커를 사용하여 출력 토큰을 줄입니다.</li></ul></div></td></tr>
     <tr class="has-commands"><td class="mono">v2.1.90</td><td class="nowrap">2026-04-01</td><td class="cmds"><code>/powerup</code>, <code>--resume</code>, <code>/model</code>, <code>/config</code>, <code>/resume</code>, <code>/displaydns</code></td><td class="feats"><div class="feat-en"><ul><li>Added /powerup — interactive lessons teaching Claude Code features with animated demos</li><li>Added CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE env var to keep the existing marketplace cache when git pull fails, useful in offline environments</li><li>Added .husky to protected directories (acceptEdits mode)</li><li>Hardened PowerShell tool permission checks: fixed trailing &amp; background job bypass, -ErrorAction Break debugger hang, archive-extraction TOCTOU, and parse-fail fallback deny-rule degradation</li></ul></div><div class="feat-ko" style="display:none"><ul><li>/powerup 추가 — 애니메이션 데모와 함께 Claude Code 기능을 가르치는 인터랙티브 수업</li><li>git pull 실패 시 기존 마켓플레이스 캐시를 유지하는 CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE 환경 변수를 추가, 오프라인 환경에서 유용</li><li>보호된 디렉토리에 .husky 추가 (acceptEdits 모드)</li><li>PowerShell 도구 권한 검사 강화: 후행 및 백그라운드 작업 우회, -ErrorAction Break 디버거 중단, 아카이브 추출 TOCTOU, 파싱 실패 대체 규칙 저하 수정</li></ul></div></td></tr>
     <tr class="has-commands"><td class="mono">v2.1.89</td><td class="nowrap">2026-04-01</td><td class="cmds"><code>--resume</code>, <code>alt+s</code>, <code>--mcp-config</code>, <code>/permissions</code>, <code>/path</code>, <code>/stats</code>, <code>Shift+E</code>, <code>Ctrl+B</code>, <code>/env</code>, <code>/usage</code>, <code>/buddy</code></td><td class="feats"><div class="feat-en"><ul><li>Added &quot;defer&quot; permission decision to PreToolUse hooks — headless sessions can pause at a tool call and resume with -p --resume to have the hook re-evaluate</li><li>Added CLAUDE_CODE_NO_FLICKER=1 environment variable to opt into flicker-free alt-screen rendering with virtualized scrollback</li><li>Added PermissionDenied hook that fires after auto mode classifier denials — return {retry: true} to tell the model it can retry</li><li>Added named subagents to @ mention typeahead suggestions</li><li>Added MCP_CONNECTION_NONBLOCKING=true for -p mode to skip the MCP connection wait entirely, and bounded --mcp-config server connections at 5s instead of blocking on the slowest server</li><li>Auto mode: denied commands now show a notification and appear in /permissions → Recent tab where you can retry with r</li><li>Documented TaskCreated hook event and its blocking behavior</li><li>Preserved task notifications when backgrounding a running command with Ctrl+B</li></ul></div><div class="feat-ko" style="display:none"><ul><li>PreToolUse 훅에 &quot;defer&quot; 권한 결정 추가 — 헤드리스 세션에서 도구 호출 시 일시 중지하고 -p --resume로 후크를 재평가할 수 있음</li><li>가상화된 스크롤백으로 깜빡임 없는 대체 화면 렌더링을 선택할 수 있는 CLAUDE_CODE_NO_FLICKER=1 환경 변수 추가</li><li>자동 모드 분류기 거부 후 실행되는 PermissionDenied 훅 추가 — {retry: true}를 반환하여 모델에 재시도를 알림</li><li>@ 멘션 자동 완성 제안에 명명된 서브 에이전트 추가</li><li>-p 모드에서 MCP 연결 대기를 완전히 건너뛰기 위해 MCP_CONNECTION_NONBLOCKING=true 추가, 느린 서버에서 차단하는 대신 --mcp-config 서버 연결을 5초로 제한</li><li>자동 모드: 거부된 명령은 이제 알림을 표시하고 /permissions → Recent 탭에 나타나며, 여기서 r로 재시도 가능</li><li>TaskCreated 훅 이벤트 및 그 차단 동작 문서화</li><li>Ctrl+B로 실행 중인 명령을 백그라운드로 전환할 때 작업 알림 유지</li></ul></div></td></tr>
     <tr><td class="mono">v2.1.87</td><td class="nowrap">2026-03-29</td><td class="cmds"><span class="dim">—</span></td><td class="feats"><div class="feat-en"><span class="dim">—</span></div><div class="feat-ko" style="display:none"><span class="dim">—</span></div></td></tr>
@@ -595,7 +596,7 @@
       stat_latest: 'Latest Release',
       cmds_only: 'Commands only',
       search_placeholder: 'Search version, command, feature...',
-      meta: 'Updated every hour &middot; Last sync: 2026-04-02 23:35 UTC &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
+      meta: 'Updated every hour &middot; Last sync: 2026-04-03 02:23 UTC &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
       toggle_label: '한국어',
     },
     ko: {
@@ -608,7 +609,7 @@
       stat_latest: '최신 릴리스',
       cmds_only: '커맨드 있는 버전만',
       search_placeholder: '버전, 커맨드, 기능 검색...',
-      meta: '매시간 자동 업데이트 &middot; 마지막 동기화: 2026-04-02 23:35 UTC &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
+      meta: '매시간 자동 업데이트 &middot; 마지막 동기화: 2026-04-03 02:23 UTC &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
       toggle_label: 'English',
     },
   };

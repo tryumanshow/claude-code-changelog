@@ -1,5 +1,31 @@
 [
   {
+    "version": "2.1.91",
+    "date": "2026-04-02",
+    "commands": [
+      "/open",
+      "--resume",
+      "/feedback",
+      "/claude-api"
+    ],
+    "features": [
+      "Added MCP tool result persistence override via _meta[\"anthropic/maxResultSizeChars\"] annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation",
+      "Added disableSkillShellExecution setting to disable inline shell execution in skills, custom slash commands, and plugin commands",
+      "Added support for multi-line prompts in claude-cli://open?q= deep links (encoded newlines %0A no longer rejected)",
+      "Plugins can now ship executables under bin/ and invoke them as bare commands from the Bash tool",
+      "/feedback now explains why it's unavailable instead of disappearing from the slash menu",
+      "Edit tool now uses shorter old_string anchors, reducing output tokens"
+    ],
+    "features_ko": [
+      "_meta[\"anthropic/maxResultSizeChars\"] 주석을 통해 MCP 도구 결과 지속성 오버라이드를 추가하여 (최대 500K) DB 스키마와 같은 더 큰 결과가 잘리지 않고 통과할 수 있도록 했습니다.",
+      "skills, custom slash commands 및 plugin commands에서 인라인 셸 실행을 비활성화하는 disableSkillShellExecution 설정을 추가했습니다.",
+      "claude-cli://open?q= 딥 링크에서 다중 행 프롬프트를 지원하게 되었습니다 (인코딩된 새 줄 %0A가 더 이상 거부되지 않음).",
+      "이제 플러그인은 bin/ 아래에 실행 파일을 배포하고 Bash 도구에서 기본 명령으로 호출할 수 있습니다.",
+      "/feedback은 더 이상 슬래시 메뉴에서 사라지는 대신 사용 불가능한 이유를 설명합니다.",
+      "Edit 도구는 이제 더 짧은 old_string 앵커를 사용하여 출력 토큰을 줄입니다."
+    ]
+  },
+  {
     "version": "2.1.90",
     "date": "2026-04-01",
     "commands": [

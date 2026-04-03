@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated every hour | Last sync: 2026-04-02 23:35 UTC
+> Auto-updated every hour | Last sync: 2026-04-03 02:23 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.91** | 2026-04-02 | `/open`, `--resume`, `/feedback`, `/claude-api` | Added MCP tool result persistence override via _meta["anthropic/maxResultSizeChars"] annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation / Added disa... |
 | **v2.1.90** | 2026-04-01 | `/powerup`, `--resume`, `/model`, `/config`, `/resume`, `/displaydns` | Added /powerup — interactive lessons teaching Claude Code features with animated demos / Added CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE env var to keep the existing marketplace cache when git... |
 | **v2.1.89** | 2026-04-01 | `--resume`, `alt+s`, `--mcp-config`, `/permissions`, `/path`, `/stats`, `Shift+E`, `Ctrl+B`, `/env`, `/usage`, `/buddy` | Added "defer" permission decision to PreToolUse hooks — headless sessions can pause at a tool call and resume with -p --resume to have the hook re-evaluate / Added CLAUDE_CODE_NO_FLICKER=1 environm... |
 | **v2.1.87** | 2026-03-29 | — | — |
@@ -83,7 +84,6 @@
 | **v2.0.74** | 2025-12-19 | `/terminal-setup`, `/theme`, `ctrl+t`, `/plugins discover`, `/plugins`, `/context` | Added LSP (Language Server Protocol) tool for code intelligence features like go-to-definition, find references, and hover documentation / Added /terminal-setup support for Kitty, Alacritty, Zed, a... |
 | **v2.0.73** | 2025-12-19 | `alt+y`, `ctrl+y`, `--session-id`, `--resume`, `--continue`, `--fork-session`, `/theme` | Added clickable [Image #N] links that open attached images in the default viewer / Added alt-y yank-pop to cycle through kill ring history after ctrl-y yank / Added search filtering to the plugin d... |
 | **v2.0.72** | 2025-12-17 | `/context`, `Ctrl+K`, `Ctrl+Y`, `Alt+T` | Added Claude in Chrome (Beta) feature that works with the Chrome extension (https://claude.ai/chrome) to let you control your browser directly from Claude Code / Reduced terminal flickering / Added... |
-| **v2.0.71** | 2025-12-16 | `/config`, `/settings`, `--dangerously-skip-permissions` | Added /config toggle to enable/disable prompt suggestions / Added /settings as an alias for the /config command / Bedrock: Environment variable ANTHROPIC_BEDROCK_BASE_URL is now respected for token... |
 
 ---
 
