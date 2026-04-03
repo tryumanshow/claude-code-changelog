@@ -1,6 +1,6 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated every hour | Last sync: 2026-04-03 02:23 UTC
+> Auto-updated every 3 hours | Last sync: 2026-04-03 07:08 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
@@ -89,7 +89,7 @@
 
 ## How it works
 
-- GitHub Actions checks [anthropics/claude-code CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) every hour
+- GitHub Actions checks [anthropics/claude-code CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) every 3 hours
 - Python script parses new entries and updates this table + [dashboard](https://tryumanshow.github.io/claude-code-changelog)
 
 ## Links
