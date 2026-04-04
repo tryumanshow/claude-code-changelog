@@ -2,7 +2,7 @@
 """
 Parse Claude Code CHANGELOG.md and generate:
   - data/releases.json  (structured data)
-  - README.md           (markdown table)
+  - RELEASES.md         (markdown table)
   - docs/index.html     (dashboard)
 """
 
@@ -750,14 +750,66 @@ def generate_html(entries: list[dict]) -> str:
   }}
   footer a:hover {{ color: var(--accent); }}
   footer .heart {{ color: var(--accent); }}
-  /* Responsive */
+  /* Responsive — card layout on mobile */
   @media (max-width: 768px) {{
-    .container {{ padding: 1.5rem 1rem; }}
+    .container {{ padding: 1rem 0.75rem; }}
+    header h1 {{ font-size: 1.3rem; }}
+    .stats {{ flex-direction: row; gap: 0.5rem; }}
+    .stat {{ padding: 0.7rem 0.8rem; }}
+    .stat .num {{ font-size: 1.3rem; }}
+    .stat .label {{ font-size: 0.6rem; }}
+    .toolbar {{ flex-direction: column; gap: 0.5rem; }}
+    .toolbar input[type="text"] {{ font-size: 16px; }}
+    .table-wrap {{ border: none; border-radius: 0; }}
+    table, thead, tbody {{ display: block; width: 100%; }}
+    thead {{ display: none; }}
+    tbody tr {{
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      margin-bottom: 0.6rem;
+      padding: 0.8rem;
+      overflow: hidden;
+    }}
+    tbody tr.has-commands {{
+      border-left: 3px solid var(--accent);
+      background: var(--accent-dim);
+    }}
+    tbody td {{
+      display: block;
+      border: none;
+      padding: 0;
+    }}
+    tbody td.mono {{
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }}
+    tbody td.nowrap {{
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }}
+    tbody td.cmds {{ margin-bottom: 0.5rem; }}
+    tbody td.cmds .dim {{ display: none; }}
+    .cmds code {{
+      font-size: 0.72rem;
+      padding: 0.12rem 0.35rem;
+      margin: 0.1rem 0.1rem;
+    }}
+    .feats li {{
+      font-size: 0.73rem;
+      line-height: 1.4;
+      margin-bottom: 0.2rem;
+    }}
+    .feats .dim {{ display: none; }}
+    footer {{ padding: 1rem; font-size: 0.7rem; }}
+  }}
+  @media (max-width: 360px) {{
     .stats {{ flex-direction: column; }}
-    .toolbar {{ flex-direction: column; }}
-    table {{ font-size: 0.75rem; }}
-    td, th {{ padding: 0.5rem 0.6rem; }}
-    .feats li {{ font-size: 0.72rem; }}
+    .stat .num {{ font-size: 1.1rem; }}
   }}
 </style>
 </head>
