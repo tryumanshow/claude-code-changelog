@@ -752,8 +752,11 @@ def generate_html(entries: list[dict]) -> str:
   footer .heart {{ color: var(--accent); }}
   /* Responsive — card layout on mobile */
   @media (max-width: 768px) {{
-    .container {{ padding: 1rem 0.75rem; }}
-    header h1 {{ font-size: 1.3rem; }}
+    html, body {{ overflow-x: hidden; max-width: 100vw; }}
+    .container {{ padding: 1rem 0.75rem; max-width: 100vw; overflow-x: hidden; }}
+    header h1 {{ font-size: 1.2rem; }}
+    .header-top {{ flex-wrap: wrap; gap: 0.3rem; }}
+    .meta {{ font-size: 0.7rem; word-break: break-word; }}
     .stats {{ flex-direction: row; gap: 0.5rem; }}
     .stat {{ padding: 0.7rem 0.8rem; }}
     .stat .num {{ font-size: 1.3rem; }}
@@ -771,6 +774,8 @@ def generate_html(entries: list[dict]) -> str:
       margin-bottom: 0.6rem;
       padding: 0.8rem;
       overflow: hidden;
+      max-width: 100%;
+      word-break: break-word;
     }}
     tbody tr.has-commands {{
       border-left: 3px solid var(--accent);
@@ -792,12 +797,13 @@ def generate_html(entries: list[dict]) -> str:
       color: var(--text-muted);
       margin-bottom: 0.5rem;
     }}
-    tbody td.cmds {{ margin-bottom: 0.5rem; }}
+    tbody td.cmds {{ margin-bottom: 0.5rem; overflow-wrap: break-word; }}
     tbody td.cmds .dim {{ display: none; }}
     .cmds code {{
       font-size: 0.72rem;
       padding: 0.12rem 0.35rem;
       margin: 0.1rem 0.1rem;
+      word-break: break-all;
     }}
     .feats li {{
       font-size: 0.73rem;
