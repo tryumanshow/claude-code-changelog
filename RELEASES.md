@@ -1,6 +1,6 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated every 3 hours | Last sync: 2026-04-06 02:30 UTC
+> Auto-updated every 3 hours | Last sync: 2026-04-06 05:24 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
