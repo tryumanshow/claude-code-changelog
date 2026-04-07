@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated every 3 hours | Last sync: 2026-04-07 19:03 UTC
+> Auto-updated every 3 hours | Last sync: 2026-04-07 21:41 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.94** | 2026-04-07 | `/effort`, `Shift+S`, `alt+s`, `--resume` | Added support for Amazon Bedrock powered by Mantle, set CLAUDE_CODE_USE_MANTLE=1 / Added compact Slacked #channel header with a clickable channel link for Slack MCP send-message tool calls / Added ... |
 | **v2.1.92** | 2026-04-04 | `/cost`, `/release-notes`, `--remote-control-session-name-prefix`, `ctrl+e`, `/clear`, `/tag`, `/vim`, `/config` | Added forceRemoteSettingsRefresh policy setting: when set, the CLI blocks startup until remote managed settings are freshly fetched, and exits if the fetch fails (fail-closed) / Added interactive B... |
 | **v2.1.91** | 2026-04-02 | `/open`, `--resume`, `/feedback`, `/claude-api` | Added MCP tool result persistence override via _meta["anthropic/maxResultSizeChars"] annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation / Added disa... |
 | **v2.1.90** | 2026-04-01 | `/powerup`, `--resume`, `/model`, `/config`, `/resume`, `/displaydns` | Added /powerup — interactive lessons teaching Claude Code features with animated demos / Added CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE env var to keep the existing marketplace cache when git... |
@@ -83,7 +84,6 @@
 | **v2.0.76** | 2026-01-07 | — | — |
 | **v2.0.75** | 2025-12-20 | — | Minor bugfixes |
 | **v2.0.74** | 2025-12-19 | `/terminal-setup`, `/theme`, `ctrl+t`, `/plugins discover`, `/plugins`, `/context` | Added LSP (Language Server Protocol) tool for code intelligence features like go-to-definition, find references, and hover documentation / Added /terminal-setup support for Kitty, Alacritty, Zed, a... |
-| **v2.0.73** | 2025-12-19 | `alt+y`, `ctrl+y`, `--session-id`, `--resume`, `--continue`, `--fork-session`, `/theme` | Added clickable [Image #N] links that open attached images in the default viewer / Added alt-y yank-pop to cycle through kill ring history after ctrl-y yank / Added search filtering to the plugin d... |
 
 ---
 

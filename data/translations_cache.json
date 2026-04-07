@@ -747,5 +747,13 @@
   "f4c1fee792e52bf6": "/release-notes가 이제 대화형 버전 선택기로 변경되었습니다.",
   "39665d33618df6bc": "원격 제어 세션 이름이 이제 기본 접두사로 호스트 이름을 사용합니다 (예: myhost-graceful-unicorn), --remote-control-session-name-prefix로 재정의할 수 있습니다.",
   "3164ebf3bd682bf7": "프로 사용자는 프롬프트 캐시가 만료된 후 세션으로 돌아갈 때 다음 턴에서 전송될 캐시되지 않은 토큰 수를 대략적으로 보여주는 바닥글 힌트를 확인할 수 있습니다.",
-  "2c2c1eadc8e818ef": "Linux sandbox는 이제 npm 및 네이티브 빌드 모두에 apply-seccomp 도우미를 포함하여 샌드박스 명령에 대한 unix-socket 차단을 복원합니다."
+  "2c2c1eadc8e818ef": "Linux sandbox는 이제 npm 및 네이티브 빌드 모두에 apply-seccomp 도우미를 포함하여 샌드박스 명령에 대한 unix-socket 차단을 복원합니다.",
+  "796ef0cf71bbb1df": "Amazon Bedrock에 대한 지원이 추가되었습니다. CLAUDE_CODE_USE_MANTLE=1로 설정하세요.",
+  "e7e4f9bb0a30d0c1": "Slack MCP send-message 도구 호출을 위한 클릭 가능한 채널 링크가 있는 간결한 Slacked #channel 헤더가 추가되었습니다.",
+  "1d91a42fede1fb7a": "플러그인 출력 스타일을 위한 keep-coding-instructions frontmatter 필드 지원이 추가되었습니다.",
+  "8f4d936533c63dc4": "세션 제목 설정을 위한 UserPromptSubmit 훅에 hookSpecificOutput.sessionTitle이 추가되었습니다.",
+  "42c72c2ccd61e4a2": "\"skills\": [\"./\"]를 통해 선언된 플러그인 기술은 이제 디렉토리 기본 이름 대신 기술의 frontmatter 이름을 호출 이름으로 사용하여 설치 방법에 관계없이 안정적인 이름을 제공합니다.",
+  "d0bdea008e6b91e8": "[VSCode] 세션 시작 시 콜드 오픈 서브프로세스 작업이 줄어들었습니다.",
+  "4ca96c39f09f5fa6": "[VSCode] 입력 중이나 화살표 키를 사용할 때 마우스가 목록 위에 있을 때 드롭다운 메뉴가 잘못된 항목을 선택하는 문제를 수정했습니다.",
+  "2b10ffcaaa576e85": "[VSCode] settings.json 파일을 파싱하지 못할 때 경고 배너가 추가되어 사용자가 권한 규칙이 적용되지 않음을 알 수 있습니다."
 }
