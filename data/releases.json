@@ -3,8 +3,12 @@
     "version": "2.1.96",
     "date": "2026-04-08",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed Bedrock requests failing with 403 \"Authorization header is missing\" when using AWS_BEARER_TOKEN_BEDROCK or CLAUDE_CODE_SKIP_BEDROCK_AUTH (regression in 2.1.94)"
+    ],
+    "features_ko": [
+      "Fixed Bedrock requests failing with 403 \"Authorization header is missing\" when using AWS_BEARER_TOKEN_BEDROCK or CLAUDE_CODE_SKIP_BEDROCK_AUTH (regression in 2.1.94)"
+    ]
   },
   {
     "version": "2.1.94",
@@ -291,8 +295,12 @@
     "version": "2.1.87",
     "date": "2026-03-29",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed messages in Cowork Dispatch not getting delivered"
+    ],
+    "features_ko": [
+      "Fixed messages in Cowork Dispatch not getting delivered"
+    ]
   },
   {
     "version": "2.1.86",
@@ -1666,15 +1674,23 @@
     "version": "2.1.62",
     "date": "2026-02-27",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed prompt suggestion cache regression that reduced cache hit rates"
+    ],
+    "features_ko": [
+      "Fixed prompt suggestion cache regression that reduced cache hit rates"
+    ]
   },
   {
     "version": "2.1.61",
     "date": "2026-02-26",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed concurrent writes corrupting config file on Windows"
+    ],
+    "features_ko": [
+      "Fixed concurrent writes corrupting config file on Windows"
+    ]
   },
   {
     "version": "2.1.59",
@@ -1726,8 +1742,12 @@
     "version": "2.1.55",
     "date": "2026-02-25",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed BashTool failing on Windows with EINVAL error"
+    ],
+    "features_ko": [
+      "Fixed BashTool failing on Windows with EINVAL error"
+    ]
   },
   {
     "version": "2.1.53",
@@ -1744,8 +1764,26 @@
         "summary": "Fixed `--worktree` sometimes being ignored on first launch"
       }
     ],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed a UI flicker where user input would briefly disappear after submission before the message rendered",
+      "Fixed bulk agent kill (ctrl+f) to send a single aggregate notification instead of one per agent, and to properly clear the command queue",
+      "Fixed graceful shutdown sometimes leaving stale sessions when using Remote Control by parallelizing teardown network calls",
+      "Fixed --worktree sometimes being ignored on first launch",
+      "Fixed a panic (\"switch on corrupted value\") on Windows",
+      "Fixed a crash that could occur when spawning many processes on Windows",
+      "Fixed a crash in the WebAssembly interpreter on Linux x64 & Windows x64",
+      "Fixed a crash that sometimes occurred after 2 minutes on Windows ARM64"
+    ],
+    "features_ko": [
+      "Fixed a UI flicker where user input would briefly disappear after submission before the message rendered",
+      "Fixed bulk agent kill (ctrl+f) to send a single aggregate notification instead of one per agent, and to properly clear the command queue",
+      "Fixed graceful shutdown sometimes leaving stale sessions when using Remote Control by parallelizing teardown network calls",
+      "Fixed --worktree sometimes being ignored on first launch",
+      "Fixed a panic (\"switch on corrupted value\") on Windows",
+      "Fixed a crash that could occur when spawning many processes on Windows",
+      "Fixed a crash in the WebAssembly interpreter on Linux x64 & Windows x64",
+      "Fixed a crash that sometimes occurred after 2 minutes on Windows ARM64"
+    ]
   },
   {
     "version": "2.1.52",
@@ -2027,15 +2065,29 @@
     "version": "2.1.44",
     "date": "2026-02-16",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed ENAMETOOLONG errors for deeply-nested directory paths",
+      "Fixed auth refresh errors"
+    ],
+    "features_ko": [
+      "Fixed ENAMETOOLONG errors for deeply-nested directory paths",
+      "Fixed auth refresh errors"
+    ]
   },
   {
     "version": "2.1.43",
     "date": "",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout",
+      "Fixed spurious warnings for non-agent markdown files in .claude/agents/ directory",
+      "Fixed structured-outputs beta header being sent unconditionally on Vertex/Bedrock"
+    ],
+    "features_ko": [
+      "Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout",
+      "Fixed spurious warnings for non-agent markdown files in .claude/agents/ directory",
+      "Fixed structured-outputs beta header being sent unconditionally on Vertex/Bedrock"
+    ]
   },
   {
     "version": "2.1.42",
@@ -2091,8 +2143,20 @@
     "version": "2.1.39",
     "date": "2026-02-10",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Improved terminal rendering performance",
+      "Fixed fatal errors being swallowed instead of displayed",
+      "Fixed process hanging after session close",
+      "Fixed character loss at terminal screen boundary",
+      "Fixed blank lines in verbose transcript view"
+    ],
+    "features_ko": [
+      "Improved terminal rendering performance",
+      "Fixed fatal errors being swallowed instead of displayed",
+      "Fixed process hanging after session close",
+      "Fixed character loss at terminal screen boundary",
+      "Fixed blank lines in verbose transcript view"
+    ]
   },
   {
     "version": "2.1.38",
@@ -2120,8 +2184,12 @@
         "summary": "Fixed an issue where /fast was not immediately available after enabling /extra-u"
       }
     ],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed an issue where /fast was not immediately available after enabling /extra-usage"
+    ],
+    "features_ko": [
+      "Fixed an issue where /fast was not immediately available after enabling /extra-usage"
+    ]
   },
   {
     "version": "2.1.36",
@@ -2138,8 +2206,14 @@
     "version": "2.1.34",
     "date": "2026-02-06",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed a crash when agent teams setting changed between renders",
+      "Fixed a bug where commands excluded from sandboxing (via sandbox.excludedCommands or dangerouslyDisableSandbox) could bypass the Bash ask permission rule when autoAllowBashIfSandboxed was enabled"
+    ],
+    "features_ko": [
+      "Fixed a crash when agent teams setting changed between renders",
+      "Fixed a bug where commands excluded from sandboxing (via sandbox.excludedCommands or dangerouslyDisableSandbox) could bypass the Bash ask permission rule when autoAllowBashIfSandboxed was enabled"
+    ]
   },
   {
     "version": "2.1.33",
@@ -2313,8 +2387,12 @@
     "version": "2.1.29",
     "date": "2026-01-31",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed startup performance issues when resuming sessions that have saved_hook_context"
+    ],
+    "features_ko": [
+      "Fixed startup performance issues when resuming sessions that have saved_hook_context"
+    ]
   },
   {
     "version": "2.1.27",
@@ -2352,8 +2430,12 @@
     "version": "2.1.25",
     "date": "2026-01-29",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed beta header validation error for gateway users on Bedrock and Vertex, ensuring CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 avoids the error"
+    ],
+    "features_ko": [
+      "Fixed beta header validation error for gateway users on Bedrock and Vertex, ensuring CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 avoids the error"
+    ]
   },
   {
     "version": "2.1.23",
@@ -2372,8 +2454,12 @@
     "version": "2.1.22",
     "date": "2026-01-28",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed structured outputs for non-interactive (-p) mode"
+    ],
+    "features_ko": [
+      "Fixed structured outputs for non-interactive (-p) mode"
+    ]
   },
   {
     "version": "2.1.21",
@@ -2494,8 +2580,12 @@
     "version": "2.1.17",
     "date": "2026-01-22",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed crashes on processors without AVX instruction support"
+    ],
+    "features_ko": [
+      "Fixed crashes on processors without AVX instruction support"
+    ]
   },
   {
     "version": "2.1.16",
@@ -2594,15 +2684,23 @@
     "version": "2.1.12",
     "date": "2026-01-17",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed message rendering bug"
+    ],
+    "features_ko": [
+      "Fixed message rendering bug"
+    ]
   },
   {
     "version": "2.1.11",
     "date": "2026-01-17",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed excessive MCP connection requests for HTTP/SSE transports"
+    ],
+    "features_ko": [
+      "Fixed excessive MCP connection requests for HTTP/SSE transports"
+    ]
   },
   {
     "version": "2.1.10",
@@ -2987,8 +3085,12 @@
     "version": "2.0.76",
     "date": "2026-01-07",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed issue with macOS code-sign warning when using Claude in Chrome integration"
+    ],
+    "features_ko": [
+      "Fixed issue with macOS code-sign warning when using Claude in Chrome integration"
+    ]
   },
   {
     "version": "2.0.75",
@@ -3371,8 +3473,12 @@
     "version": "2.0.61",
     "date": "2025-12-07",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Reverted VSCode support for multiple terminal clients due to responsiveness issues."
+    ],
+    "features_ko": [
+      "Reverted VSCode support for multiple terminal clients due to responsiveness issues."
+    ]
   },
   {
     "version": "2.0.60",
@@ -3470,8 +3576,18 @@
     "version": "2.0.55",
     "date": "2025-11-26",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed proxy DNS resolution being forced on by default. Now opt-in via CLAUDE_CODE_PROXY_RESOLVES_HOSTS=true environment variable",
+      "Fixed keyboard navigation becoming unresponsive when holding down arrow keys in memory location selector",
+      "Improved AskUserQuestion tool to auto-submit single-select questions on the last question, eliminating the extra review screen for simple question flows",
+      "Improved fuzzy matching for @ file suggestions with faster, more accurate results"
+    ],
+    "features_ko": [
+      "Fixed proxy DNS resolution being forced on by default. Now opt-in via CLAUDE_CODE_PROXY_RESOLVES_HOSTS=true environment variable",
+      "Fixed keyboard navigation becoming unresponsive when holding down arrow keys in memory location selector",
+      "Improved AskUserQuestion tool to auto-submit single-select questions on the last question, eliminating the extra review screen for simple question flows",
+      "Improved fuzzy matching for @ file suggestions with faster, more accurate results"
+    ]
   },
   {
     "version": "2.0.54",
@@ -3570,15 +3686,29 @@
         "summary": "Improved error handling in `/usage`"
       }
     ],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Improved error messages and validation for claude --teleport",
+      "Improved error handling in /usage",
+      "Fixed race condition with history entry not getting logged at exit",
+      "Fixed Vertex AI configuration not being applied from settings.json"
+    ],
+    "features_ko": [
+      "Improved error messages and validation for claude --teleport",
+      "Improved error handling in /usage",
+      "Fixed race condition with history entry not getting logged at exit",
+      "Fixed Vertex AI configuration not being applied from settings.json"
+    ]
   },
   {
     "version": "2.0.46",
     "date": "2025-11-19",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed image files being reported with incorrect media type when format cannot be detected from metadata"
+    ],
+    "features_ko": [
+      "Fixed image files being reported with incorrect media type when format cannot be detected from metadata"
+    ]
   },
   {
     "version": "2.0.45",
@@ -3677,8 +3807,16 @@
     "version": "2.0.36",
     "date": "2025-11-07",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed: DISABLE_AUTOUPDATER environment variable now properly disables package manager update notifications",
+      "Fixed queued messages being incorrectly executed as bash commands",
+      "Fixed input being lost when typing while a queued message is processed"
+    ],
+    "features_ko": [
+      "Fixed: DISABLE_AUTOUPDATER environment variable now properly disables package manager update notifications",
+      "Fixed queued messages being incorrectly executed as bash commands",
+      "Fixed input being lost when typing while a queued message is processed"
+    ]
   },
   {
     "version": "2.0.35",
@@ -3869,8 +4007,12 @@
         "summary": "Removed legacy SDK entrypoint. Please migrate to @anthropic-ai/claude-agent-sdk "
       }
     ],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Removed legacy SDK entrypoint. Please migrate to @anthropic-ai/claude-agent-sdk for future SDK updates: https://platform.claude.com/docs/en/agent-sdk/migration-guide"
+    ],
+    "features_ko": [
+      "Removed legacy SDK entrypoint. Please migrate to @anthropic-ai/claude-agent-sdk for future SDK updates: https://platform.claude.com/docs/en/agent-sdk/migration-guide"
+    ]
   },
   {
     "version": "2.0.24",
@@ -3966,8 +4108,14 @@
     "version": "2.0.15",
     "date": "2025-10-14",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed bug with resuming where previously created files needed to be read again before writing",
+      "Fixed bug with -p mode where @-mentioned files needed to be read again before writing"
+    ],
+    "features_ko": [
+      "Fixed bug with resuming where previously created files needed to be read again before writing",
+      "Fixed bug with -p mode where @-mentioned files needed to be read again before writing"
+    ]
   },
   {
     "version": "2.0.14",
@@ -4002,8 +4150,12 @@
         "summary": "Fixed `/plugin` not working on native build"
       }
     ],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed /plugin not working on native build"
+    ],
+    "features_ko": [
+      "Fixed /plugin not working on native build"
+    ]
   },
   {
     "version": "2.0.12",
@@ -5244,8 +5396,12 @@
     "version": "1.0.40",
     "date": "2025-07-01",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed a bug causing API connection errors with UNABLE_TO_GET_ISSUER_CERT_LOCALLY if NODE_EXTRA_CA_CERTS was set"
+    ],
+    "features_ko": [
+      "Fixed a bug causing API connection errors with UNABLE_TO_GET_ISSUER_CERT_LOCALLY if NODE_EXTRA_CA_CERTS was set"
+    ]
   },
   {
     "version": "1.0.39",
@@ -5312,8 +5468,12 @@
     "version": "1.0.34",
     "date": "2025-06-24",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed a memory leak causing a MaxListenersExceededWarning message to appear"
+    ],
+    "features_ko": [
+      "Fixed a memory leak causing a MaxListenersExceededWarning message to appear"
+    ]
   },
   {
     "version": "1.0.33",
@@ -5351,8 +5511,12 @@
     "version": "1.0.31",
     "date": "2025-06-20",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed a bug where ~/.claude.json would get reset when file contained invalid JSON"
+    ],
+    "features_ko": [
+      "Fixed a bug where ~/.claude.json would get reset when file contained invalid JSON"
+    ]
   },
   {
     "version": "1.0.30",
@@ -5382,8 +5546,12 @@
     "version": "1.0.29",
     "date": "2025-06-18",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Improved CJK character support in cursor navigation and rendering"
+    ],
+    "features_ko": [
+      "Improved CJK character support in cursor navigation and rendering"
+    ]
   },
   {
     "version": "1.0.28",
@@ -5450,8 +5618,14 @@
         "summary": "Improved /mcp output"
       }
     ],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Improved /mcp output",
+      "Fixed a bug where settings arrays got overwritten instead of merged"
+    ],
+    "features_ko": [
+      "Improved /mcp output",
+      "Fixed a bug where settings arrays got overwritten instead of merged"
+    ]
   },
   {
     "version": "1.0.23",
@@ -5630,8 +5804,12 @@
     "version": "1.0.4",
     "date": "2025-05-28",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed a bug where MCP tool errors weren't being parsed correctly"
+    ],
+    "features_ko": [
+      "Fixed a bug where MCP tool errors weren't being parsed correctly"
+    ]
   },
   {
     "version": "1.0.1",
@@ -5663,8 +5841,14 @@
     "version": "0.2.125",
     "date": "2025-05-21",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Breaking change: Bedrock ARN passed to ANTHROPIC_MODEL or ANTHROPIC_SMALL_FAST_MODEL should no longer contain an escaped slash (specify / instead of %2F)",
+      "Removed DEBUG=true in favor of ANTHROPIC_LOG=debug, to log all requests"
+    ],
+    "features_ko": [
+      "Breaking change: Bedrock ARN passed to ANTHROPIC_MODEL or ANTHROPIC_SMALL_FAST_MODEL should no longer contain an escaped slash (specify / instead of %2F)",
+      "Removed DEBUG=true in favor of ANTHROPIC_LOG=debug, to log all requests"
+    ]
   },
   {
     "version": "0.2.117",
@@ -5775,8 +5959,12 @@
     "version": "0.2.98",
     "date": "2025-05-01",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed an issue where auto-compact was running twice"
+    ],
+    "features_ko": [
+      "Fixed an issue where auto-compact was running twice"
+    ]
   },
   {
     "version": "0.2.96",
@@ -5872,8 +6060,12 @@
     "version": "0.2.72",
     "date": "2025-04-17",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Updated spinner to indicate tokens loaded and tool usage"
+    ],
+    "features_ko": [
+      "Updated spinner to indicate tokens loaded and tool usage"
+    ]
   },
   {
     "version": "0.2.70",
@@ -5894,8 +6086,14 @@
     "version": "0.2.69",
     "date": "2025-04-11",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed UI glitches with improved Select component behavior",
+      "Enhanced terminal output display with better text truncation logic"
+    ],
+    "features_ko": [
+      "Fixed UI glitches with improved Select component behavior",
+      "Enhanced terminal output display with better text truncation logic"
+    ]
   },
   {
     "version": "0.2.67",
@@ -5929,8 +6127,12 @@
     "version": "0.2.63",
     "date": "",
     "commands": [],
-    "features": [],
-    "features_ko": []
+    "features": [
+      "Fixed an issue where MCP tools were loaded twice, which caused tool call errors"
+    ],
+    "features_ko": [
+      "Fixed an issue where MCP tools were loaded twice, which caused tool call errors"
+    ]
   },
   {
     "version": "0.2.61",

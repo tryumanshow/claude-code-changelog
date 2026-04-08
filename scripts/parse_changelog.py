@@ -453,25 +453,33 @@ def enrich_first_appearances(entries: list[dict], version_bodies: dict[str, str]
                 break
 
 
+def _clean_markdown(text: str) -> str:
+    """Strip backticks, bold, and markdown links from text."""
+    text = re.sub(r"`([^`]+)`", r"\1", text)
+    text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    return text
+
+
 def extract_features(body: str) -> list[str]:
-    """Extract key feature bullet points (non-fix items)."""
+    """Extract key feature bullet points. Prefers non-fix items, but falls back
+    to all items (including fixes) for fix-only versions."""
     features: list[str] = []
+    all_items: list[str] = []
     for line in body.splitlines():
         line = line.strip()
         if not line.startswith(("-", "*")):
             continue
         text = line.lstrip("-* ").strip()
-        # skip fixes, improvements, changes
-        if any(text.lower().startswith(s) for s in SKIP_STARTS):
-            continue
         if len(text) < 10:
             continue
-        # Clean markdown formatting
-        text = re.sub(r"`([^`]+)`", r"\1", text)
-        text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
-        text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
-        features.append(text)
-    return features[:8]  # top 8 per version
+        cleaned = _clean_markdown(text)
+        all_items.append(cleaned)
+        if not any(text.lower().startswith(s) for s in SKIP_STARTS):
+            features.append(cleaned)
+    # Fall back to all items (including fixes) if no non-fix features found
+    result = features if features else all_items
+    return result[:8]
 
 
 # ---------------------------------------------------------------------------
