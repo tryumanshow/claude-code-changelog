@@ -3,10 +3,26 @@
     "version": "2.1.94",
     "date": "2026-04-07",
     "commands": [
-      "/effort",
-      "Shift+S",
-      "alt+s",
-      "--resume"
+      {
+        "name": "/effort",
+        "context": "improved",
+        "summary": "Changed default effort level from medium to high for API-key, Bedrock/Vertex/Fou"
+      },
+      {
+        "name": "Shift+S",
+        "context": "fixed",
+        "summary": "Fixed Shift+Space inserting the literal word \"space\" instead of a space characte"
+      },
+      {
+        "name": "alt+s",
+        "context": "fixed",
+        "summary": "Fixed an alt-screen rendering bug where content height changes mid-scroll could "
+      },
+      {
+        "name": "--resume",
+        "context": "improved",
+        "summary": "Improved `--resume` to resume sessions from other worktrees of the same repo dir"
+      }
     ],
     "features": [
       "Added support for Amazon Bedrock powered by Mantle, set CLAUDE_CODE_USE_MANTLE=1",
@@ -19,14 +35,14 @@
       "[VSCode] Added a warning banner when settings.json files fail to parse, so users know their permission rules are not being applied"
     ],
     "features_ko": [
-      "Amazon Bedrock에 대한 지원이 추가되었습니다. CLAUDE_CODE_USE_MANTLE=1로 설정하세요.",
-      "Slack MCP send-message 도구 호출을 위한 클릭 가능한 채널 링크가 있는 간결한 Slacked #channel 헤더가 추가되었습니다.",
-      "플러그인 출력 스타일을 위한 keep-coding-instructions frontmatter 필드 지원이 추가되었습니다.",
-      "세션 제목 설정을 위한 UserPromptSubmit 훅에 hookSpecificOutput.sessionTitle이 추가되었습니다.",
-      "\"skills\": [\"./\"]를 통해 선언된 플러그인 기술은 이제 디렉토리 기본 이름 대신 기술의 frontmatter 이름을 호출 이름으로 사용하여 설치 방법에 관계없이 안정적인 이름을 제공합니다.",
-      "[VSCode] 세션 시작 시 콜드 오픈 서브프로세스 작업이 줄어들었습니다.",
-      "[VSCode] 입력 중이나 화살표 키를 사용할 때 마우스가 목록 위에 있을 때 드롭다운 메뉴가 잘못된 항목을 선택하는 문제를 수정했습니다.",
-      "[VSCode] settings.json 파일을 파싱하지 못할 때 경고 배너가 추가되어 사용자가 권한 규칙이 적용되지 않음을 알 수 있습니다."
+      "Added support for Amazon Bedrock powered by Mantle, set CLAUDE_CODE_USE_MANTLE=1",
+      "Added compact Slacked #channel header with a clickable channel link for Slack MCP send-message tool calls",
+      "Added keep-coding-instructions frontmatter field support for plugin output styles",
+      "Added hookSpecificOutput.sessionTitle to UserPromptSubmit hooks for setting the session title",
+      "Plugin skills declared via \"skills\": [\"./\"] now use the skill's frontmatter name for the invocation name instead of the directory basename, giving a stable name across install methods",
+      "[VSCode] Reduced cold-open subprocess work on starting a session",
+      "[VSCode] Fixed dropdown menus selecting the wrong item when the mouse was over the list while typing or using arrow keys",
+      "[VSCode] Added a warning banner when settings.json files fail to parse, so users know their permission rules are not being applied"
     ]
   },
   {
