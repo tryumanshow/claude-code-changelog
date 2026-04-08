@@ -650,6 +650,11 @@ def generate_html(entries: list[dict]) -> str:
     justify-content: space-between;
     margin-bottom: 0.5rem;
   }}
+  .header-left {{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }}
   header h1 {{
     font-size: 1.6rem;
     font-weight: 700;
@@ -999,8 +1004,7 @@ def generate_html(entries: list[dict]) -> str:
 <div class="container">
   <header>
     <div class="header-top">
-      <h1><span class="cc">Claude Code</span> Changelog</h1>
-      <span class="badge">AUTO-SYNC</span>
+      <div class="header-left"><h1><span class="cc">Claude Code</span> Changelog</h1><span class="badge">AUTO-SYNC</span></div>
       <iframe src="https://ghbtns.com/github-btn.html?user=tryumanshow&amp;repo=claude-code-changelog&amp;type=star&amp;count=true&amp;size=large" frameborder="0" scrolling="0" width="120" height="30" title="GitHub Stars" style="vertical-align: middle;"></iframe>
     </div>
     <p class="meta" data-i18n-html="meta">
