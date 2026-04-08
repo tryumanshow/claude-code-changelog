@@ -467,10 +467,30 @@ def esc(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
-def _feat_html(items: list[str]) -> str:
-    """Build <ul> from feature list, or dim dash if empty."""
-    inner = "".join(f"<li>{esc(f)}</li>" for f in items)
-    return f"<ul>{inner}</ul>" if inner else '<span class="dim">—</span>'
+def _feat_html(items: list[str], cmd_context: dict[str, str] | None = None) -> str:
+    """Build <ul> from feature list, highlighting commands with context colors."""
+    if not items:
+        return '<span class="dim">—</span>'
+    parts = []
+    for f in items:
+        escaped = esc(f)
+        if cmd_context:
+            escaped = _highlight_cmds_in_text(escaped, cmd_context)
+        parts.append(f"<li>{escaped}</li>")
+    return f'<ul>{"".join(parts)}</ul>'
+
+
+def _highlight_cmds_in_text(text: str, cmd_context: dict[str, str]) -> str:
+    """Replace command mentions in feature text with colored code tags."""
+    for name, ctx in cmd_context.items():
+        css_cls = f"cmd-ref {ctx}" if ctx != "mentioned" else "cmd-ref"
+        # Match both backtick-quoted and bare command names
+        for pattern in [f"`{esc(name)}`", esc(name)]:
+            if pattern in text:
+                replacement = f'<code class="{css_cls}">{esc(name)}</code>'
+                text = text.replace(pattern, replacement, 1)
+                break
+    return text
 
 
 BADGE_LABELS = {"new": "NEW", "fixed": "FIX", "removed": "DEL", "improved": "IMP"}
@@ -535,8 +555,9 @@ def generate_html(entries: list[dict]) -> str:
     rows = ""
     for e in entries:
         cmds = _cmds_html(e["commands"])
-        feats_en_html = _feat_html(e["features"])
-        feats_ko_html = _feat_html(e.get("features_ko", e["features"]))
+        cmd_context = {c["name"]: c["context"] for c in e["commands"]} if e["commands"] else None
+        feats_en_html = _feat_html(e["features"], cmd_context)
+        feats_ko_html = _feat_html(e.get("features_ko", e["features"]), cmd_context)
 
         cls = ' class="has-commands"' if e["commands"] else ""
         rows += (
@@ -801,6 +822,48 @@ def generate_html(entries: list[dict]) -> str:
     color: var(--accent);
     border: 1px solid var(--accent-border);
   }}
+  /* Legend */
+  .legend {{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }}
+  .legend-label {{
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-right: 0.25rem;
+  }}
+  .legend-desc {{
+    margin-right: 0.5rem;
+  }}
+  /* Command references in features */
+  .cmd-ref {{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-secondary);
+  }}
+  .cmd-ref.new {{
+    background: rgba(74,222,128,0.1);
+    color: var(--green);
+  }}
+  .cmd-ref.fixed {{
+    background: rgba(96,165,250,0.1);
+    color: var(--blue);
+  }}
+  .cmd-ref.removed {{
+    background: rgba(248,113,113,0.1);
+    color: #f87171;
+  }}
+  .cmd-ref.improved {{
+    background: rgba(212,165,116,0.08);
+    color: var(--accent);
+  }}
   .feats ul {{
     list-style: none;
     padding: 0;
@@ -934,6 +997,14 @@ def generate_html(entries: list[dict]) -> str:
     <button class="lang-btn" id="lang-toggle">한국어</button>
   </div>
 
+  <div class="legend">
+    <span class="legend-label" data-i18n="legend_label">Badge</span>
+    <span class="cmd-badge new">NEW</span> <span class="legend-desc" data-i18n="legend_new">Added</span>
+    <span class="cmd-badge improved">IMP</span> <span class="legend-desc" data-i18n="legend_imp">Improved</span>
+    <span class="cmd-badge fixed">FIX</span> <span class="legend-desc" data-i18n="legend_fix">Fixed</span>
+    <span class="cmd-badge removed">DEL</span> <span class="legend-desc" data-i18n="legend_del">Removed</span>
+  </div>
+
   <div class="table-wrap">
   <table>
     <thead>
@@ -992,6 +1063,11 @@ def generate_html(entries: list[dict]) -> str:
       stat_latest: 'Latest Release',
       cmds_only: 'Commands only',
       search_placeholder: 'Search version, command, feature...',
+      legend_label: 'Badge',
+      legend_new: 'Added',
+      legend_imp: 'Improved',
+      legend_fix: 'Fixed',
+      legend_del: 'Removed',
       meta: 'Updated every 3 hours &middot; Last sync: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
       toggle_label: '한국어',
     }},
@@ -1005,6 +1081,11 @@ def generate_html(entries: list[dict]) -> str:
       stat_latest: '최신 릴리스',
       cmds_only: '커맨드 있는 버전만',
       search_placeholder: '버전, 커맨드, 기능 검색...',
+      legend_label: '범례',
+      legend_new: '추가',
+      legend_imp: '개선',
+      legend_fix: '수정',
+      legend_del: '삭제',
       meta: '3시간마다 자동 업데이트 &middot; 마지막 동기화: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
       toggle_label: 'English',
     }},
