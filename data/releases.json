@@ -1,5 +1,12 @@
 [
   {
+    "version": "2.1.96",
+    "date": "2026-04-08",
+    "commands": [],
+    "features": [],
+    "features_ko": []
+  },
+  {
     "version": "2.1.94",
     "date": "2026-04-07",
     "commands": [
@@ -35,14 +42,14 @@
       "[VSCode] Added a warning banner when settings.json files fail to parse, so users know their permission rules are not being applied"
     ],
     "features_ko": [
-      "Added support for Amazon Bedrock powered by Mantle, set CLAUDE_CODE_USE_MANTLE=1",
-      "Added compact Slacked #channel header with a clickable channel link for Slack MCP send-message tool calls",
-      "Added keep-coding-instructions frontmatter field support for plugin output styles",
-      "Added hookSpecificOutput.sessionTitle to UserPromptSubmit hooks for setting the session title",
-      "Plugin skills declared via \"skills\": [\"./\"] now use the skill's frontmatter name for the invocation name instead of the directory basename, giving a stable name across install methods",
-      "[VSCode] Reduced cold-open subprocess work on starting a session",
-      "[VSCode] Fixed dropdown menus selecting the wrong item when the mouse was over the list while typing or using arrow keys",
-      "[VSCode] Added a warning banner when settings.json files fail to parse, so users know their permission rules are not being applied"
+      "Amazon Bedrock에 대한 지원이 추가되었습니다. CLAUDE_CODE_USE_MANTLE=1로 설정하세요.",
+      "Slack MCP send-message 도구 호출을 위한 클릭 가능한 채널 링크가 있는 간결한 Slacked #channel 헤더가 추가되었습니다.",
+      "플러그인 출력 스타일을 위한 keep-coding-instructions frontmatter 필드 지원이 추가되었습니다.",
+      "세션 제목 설정을 위한 UserPromptSubmit 훅에 hookSpecificOutput.sessionTitle이 추가되었습니다.",
+      "\"skills\": [\"./\"]를 통해 선언된 플러그인 기술은 이제 디렉토리 기본 이름 대신 기술의 frontmatter 이름을 호출 이름으로 사용하여 설치 방법에 관계없이 안정적인 이름을 제공합니다.",
+      "[VSCode] 세션 시작 시 콜드 오픈 서브프로세스 작업이 줄어들었습니다.",
+      "[VSCode] 입력 중이나 화살표 키를 사용할 때 마우스가 목록 위에 있을 때 드롭다운 메뉴가 잘못된 항목을 선택하는 문제를 수정했습니다.",
+      "[VSCode] settings.json 파일을 파싱하지 못할 때 경고 배너가 추가되어 사용자가 권한 규칙이 적용되지 않음을 알 수 있습니다."
     ]
   },
   {
@@ -100,13 +107,13 @@
       "Linux sandbox now ships the apply-seccomp helper in both npm and native builds, restoring unix-socket blocking for sandboxed commands"
     ],
     "features_ko": [
-      "Added forceRemoteSettingsRefresh policy setting: when set, the CLI blocks startup until remote managed settings are freshly fetched, and exits if the fetch fails (fail-closed)",
-      "Added interactive Bedrock setup wizard accessible from the login screen when selecting \"3rd-party platform\" — guides you through AWS authentication, region configuration, credential verification, and model pinning",
-      "Added per-model and cache-hit breakdown to /cost for subscription users",
-      "/release-notes is now an interactive version picker",
-      "Remote Control session names now use your hostname as the default prefix (e.g. myhost-graceful-unicorn), overridable with --remote-control-session-name-prefix",
-      "Pro users now see a footer hint when returning to a session after the prompt cache has expired, showing roughly how many tokens the next turn will send uncached",
-      "Linux sandbox now ships the apply-seccomp helper in both npm and native builds, restoring unix-socket blocking for sandboxed commands"
+      "forceRemoteSettingsRefresh 정책 설정이 추가되었습니다: 설정 시, CLI는 원격 관리 설정이 새로 가져올 때까지 시작을 차단하며, 가져오기가 실패하면 종료됩니다 (fail-closed).",
+      "\"3rd-party platform\"을 선택할 때 로그인 화면에서 접근할 수 있는 대화형 Bedrock 설정 마법사가 추가되었습니다 — AWS 인증, 지역 구성, 자격 증명 확인 및 모델 핀 고정을 안내합니다.",
+      "구독 사용자에게 /cost에 모델별 및 캐시 적중 세부 정보가 추가되었습니다.",
+      "/release-notes가 이제 대화형 버전 선택기로 변경되었습니다.",
+      "원격 제어 세션 이름이 이제 기본 접두사로 호스트 이름을 사용합니다 (예: myhost-graceful-unicorn), --remote-control-session-name-prefix로 재정의할 수 있습니다.",
+      "프로 사용자는 프롬프트 캐시가 만료된 후 세션으로 돌아갈 때 다음 턴에서 전송될 캐시되지 않은 토큰 수를 대략적으로 보여주는 바닥글 힌트를 확인할 수 있습니다.",
+      "Linux sandbox는 이제 npm 및 네이티브 빌드 모두에 apply-seccomp 도우미를 포함하여 샌드박스 명령에 대한 unix-socket 차단을 복원합니다."
     ]
   },
   {
@@ -143,12 +150,12 @@
       "Edit tool now uses shorter old_string anchors, reducing output tokens"
     ],
     "features_ko": [
-      "Added MCP tool result persistence override via _meta[\"anthropic/maxResultSizeChars\"] annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation",
-      "Added disableSkillShellExecution setting to disable inline shell execution in skills, custom slash commands, and plugin commands",
-      "Added support for multi-line prompts in claude-cli://open?q= deep links (encoded newlines %0A no longer rejected)",
-      "Plugins can now ship executables under bin/ and invoke them as bare commands from the Bash tool",
-      "/feedback now explains why it's unavailable instead of disappearing from the slash menu",
-      "Edit tool now uses shorter old_string anchors, reducing output tokens"
+      "_meta[\"anthropic/maxResultSizeChars\"] 주석을 통해 MCP 도구 결과 지속성 오버라이드를 추가하여 (최대 500K) DB 스키마와 같은 더 큰 결과가 잘리지 않고 통과할 수 있도록 했습니다.",
+      "skills, custom slash commands 및 plugin commands에서 인라인 셸 실행을 비활성화하는 disableSkillShellExecution 설정을 추가했습니다.",
+      "claude-cli://open?q= 딥 링크에서 다중 행 프롬프트를 지원하게 되었습니다 (인코딩된 새 줄 %0A가 더 이상 거부되지 않음).",
+      "이제 플러그인은 bin/ 아래에 실행 파일을 배포하고 Bash 도구에서 기본 명령으로 호출할 수 있습니다.",
+      "/feedback은 더 이상 슬래시 메뉴에서 사라지는 대신 사용 불가능한 이유를 설명합니다.",
+      "Edit 도구는 이제 더 짧은 old_string 앵커를 사용하여 출력 토큰을 줄입니다."
     ]
   },
   {
@@ -193,10 +200,10 @@
       "Hardened PowerShell tool permission checks: fixed trailing & background job bypass, -ErrorAction Break debugger hang, archive-extraction TOCTOU, and parse-fail fallback deny-rule degradation"
     ],
     "features_ko": [
-      "Added /powerup — interactive lessons teaching Claude Code features with animated demos",
-      "Added CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE env var to keep the existing marketplace cache when git pull fails, useful in offline environments",
-      "Added .husky to protected directories (acceptEdits mode)",
-      "Hardened PowerShell tool permission checks: fixed trailing & background job bypass, -ErrorAction Break debugger hang, archive-extraction TOCTOU, and parse-fail fallback deny-rule degradation"
+      "/powerup 추가 — 애니메이션 데모와 함께 Claude Code 기능을 가르치는 인터랙티브 수업",
+      "git pull 실패 시 기존 마켓플레이스 캐시를 유지하는 CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE 환경 변수를 추가, 오프라인 환경에서 유용",
+      "보호된 디렉토리에 .husky 추가 (acceptEdits 모드)",
+      "PowerShell 도구 권한 검사 강화: 후행 및 백그라운드 작업 우회, -ErrorAction Break 디버거 중단, 아카이브 추출 TOCTOU, 파싱 실패 대체 규칙 저하 수정"
     ]
   },
   {
@@ -270,14 +277,14 @@
       "Preserved task notifications when backgrounding a running command with Ctrl+B"
     ],
     "features_ko": [
-      "Added \"defer\" permission decision to PreToolUse hooks — headless sessions can pause at a tool call and resume with -p --resume to have the hook re-evaluate",
-      "Added CLAUDE_CODE_NO_FLICKER=1 environment variable to opt into flicker-free alt-screen rendering with virtualized scrollback",
-      "Added PermissionDenied hook that fires after auto mode classifier denials — return {retry: true} to tell the model it can retry",
-      "Added named subagents to @ mention typeahead suggestions",
-      "Added MCP_CONNECTION_NONBLOCKING=true for -p mode to skip the MCP connection wait entirely, and bounded --mcp-config server connections at 5s instead of blocking on the slowest server",
-      "Auto mode: denied commands now show a notification and appear in /permissions → Recent tab where you can retry with r",
-      "Documented TaskCreated hook event and its blocking behavior",
-      "Preserved task notifications when backgrounding a running command with Ctrl+B"
+      "PreToolUse 훅에 \"defer\" 권한 결정 추가 — 헤드리스 세션에서 도구 호출 시 일시 중지하고 -p --resume로 후크를 재평가할 수 있음",
+      "가상화된 스크롤백으로 깜빡임 없는 대체 화면 렌더링을 선택할 수 있는 CLAUDE_CODE_NO_FLICKER=1 환경 변수 추가",
+      "자동 모드 분류기 거부 후 실행되는 PermissionDenied 훅 추가 — {retry: true}를 반환하여 모델에 재시도를 알림",
+      "@ 멘션 자동 완성 제안에 명명된 서브 에이전트 추가",
+      "-p 모드에서 MCP 연결 대기를 완전히 건너뛰기 위해 MCP_CONNECTION_NONBLOCKING=true 추가, 느린 서버에서 차단하는 대신 --mcp-config 서버 연결을 5초로 제한",
+      "자동 모드: 거부된 명령은 이제 알림을 표시하고 /permissions → Recent 탭에 나타나며, 여기서 r로 재시도 가능",
+      "TaskCreated 훅 이벤트 및 그 차단 동작 문서화",
+      "Ctrl+B로 실행 중인 명령을 백그라운드로 전환할 때 작업 알림 유지"
     ]
   },
   {
@@ -333,14 +340,14 @@
       "[VSCode] Fixed extension incorrectly showing \"Not responding\" during long-running operations"
     ],
     "features_ko": [
-      "Added X-Claude-Code-Session-Id header to API requests so proxies can aggregate requests by session without parsing the body",
-      "Added .jj and .sl to VCS directory exclusion lists so Grep and file autocomplete don't descend into Jujutsu or Sapling metadata",
-      "Reduced startup event-loop stalls when many claude.ai MCP connectors are configured (macOS keychain cache extended from 5s to 30s)",
-      "Reduced token overhead when mentioning files with @ — raw string content no longer JSON-escaped",
-      "Memory filenames in the \"Saved N memories\" notice now highlight on hover and open on click",
-      "Skill descriptions in the /skills listing are now capped at 250 characters to reduce context usage",
-      "Auto mode now shows \"unavailable for your plan\" when disabled by plan restrictions (was \"temporarily unavailable\")",
-      "[VSCode] Fixed extension incorrectly showing \"Not responding\" during long-running operations"
+      "API 요청에 X-Claude-Code-Session-Id 헤더 추가, 프록시가 본문을 파싱하지 않고 세션별로 요청을 집계할 수 있도록",
+      "Grep 및 파일 자동 완성이 Jujutsu 또는 Sapling 메타데이터로 내려가지 않도록 VCS 디렉토리 제외 목록에 .jj 및 .sl 추가",
+      "많은 claude.ai MCP 커넥터가 구성될 때 시작 이벤트 루프 정체 감소 (macOS 키체인 캐시가 5초에서 30초로 연장됨)",
+      "@로 파일을 언급할 때 토큰 오버헤드 감소 — 원시 문자열 내용이 더 이상 JSON 이스케이프되지 않음",
+      "\"Saved N memories\" 알림의 메모리 파일 이름이 이제 마우스 오버 시 강조 표시되고 클릭 시 열림",
+      "/skills 목록의 기술 설명이 이제 250자로 제한되어 컨텍스트 사용량 감소",
+      "자동 모드가 이제 계획 제한으로 비활성화될 때 \"귀하의 계획에 대해 사용할 수 없음\"을 표시 (이전에는 \"일시적으로 사용할 수 없음\")",
+      "[VSCode] 긴 작업 중에 확장이 \"응답하지 않음\"으로 잘못 표시되는 문제 수정"
     ]
   },
   {
@@ -414,14 +421,14 @@
       "PreToolUse hooks can now satisfy AskUserQuestion by returning updatedInput alongside permissionDecision: \"allow\", enabling headless integrations that collect answers via their own UI"
     ],
     "features_ko": [
-      "Added CLAUDE_CODE_MCP_SERVER_NAME and CLAUDE_CODE_MCP_SERVER_URL environment variables to MCP headersHelper scripts, allowing one helper to serve multiple servers",
-      "Added conditional if field for hooks using permission rule syntax (e.g., Bash(git *)) to filter when they run, reducing process spawning overhead",
-      "Added timestamp markers in transcripts when scheduled tasks (/loop, CronCreate) fire",
-      "Added trailing space after [Image #N] placeholder when pasting images",
-      "Deep link queries (claude-cli://open?q=…) now support up to 5,000 characters, with a \"scroll to review\" warning for long pre-filled prompts",
-      "MCP OAuth now follows RFC 9728 Protected Resource Metadata discovery to find the authorization server",
-      "Plugins blocked by organization policy (managed-settings.json) can no longer be installed or enabled, and are hidden from marketplace views",
-      "PreToolUse hooks can now satisfy AskUserQuestion by returning updatedInput alongside permissionDecision: \"allow\", enabling headless integrations that collect answers via their own UI"
+      "여러 서버를 제공할 수 있도록 MCP headersHelper 스크립트에 CLAUDE_CODE_MCP_SERVER_NAME 및 CLAUDE_CODE_MCP_SERVER_URL 환경 변수 추가",
+      "훅이 실행될 때 필터링할 수 있도록 권한 규칙 구문을 사용하는 조건부 if 필드 추가 (예: Bash(git *)), 프로세스 생성 오버헤드 감소",
+      "예약된 작업이 실행될 때 전사에 타임스탬프 마커 추가 (/loop, CronCreate)",
+      "이미지를 붙여넣을 때 [Image #N] 자리 표시자 뒤에 공백 추가",
+      "딥 링크 쿼리(claude-cli://open?q=…)가 이제 최대 5,000자를 지원하며, 긴 미리 채워진 프롬프트에 대해 \"검토하려면 스크롤\" 경고 표시",
+      "MCP OAuth가 이제 RFC 9728 보호된 리소스 메타데이터 검색을 따라 권한 부여 서버를 찾음",
+      "조직 정책(managed-settings.json)으로 차단된 플러그인은 더 이상 설치하거나 활성화할 수 없으며, 마켓플레이스 보기에서 숨김",
+      "PreToolUse 훅이 이제 permissionDecision: \"allow\"와 함께 updatedInput을 반환하여 AskUserQuestion을 충족할 수 있어, 자체 UI를 통해 답변을 수집하는 헤드리스 통합 가능"
     ]
   },
   {
@@ -500,14 +507,14 @@
       "Added idle-return prompt that nudges users returning after 75+ minutes to /clear, reducing unnecessary token re-caching on stale sessions"
     ],
     "features_ko": [
-      "Added PowerShell tool for Windows as an opt-in preview. Learn more at https://code.claude.com/docs/en/tools-reference#powershell-tool",
-      "Added ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTS env vars to override effort/thinking capability detection for pinned default models for 3p (Bedrock, Vertex, Foundry), and _MODEL_NAME/_DESCRIPTION to customize the /model picker label",
-      "Added CLAUDE_STREAM_IDLE_TIMEOUT_MS env var to configure the streaming idle watchdog threshold (default 90s)",
-      "Added TaskCreated hook that fires when a task is created via TaskCreate",
-      "Added WorktreeCreate hook support for type: \"http\" — return the created worktree path via hookSpecificOutput.worktreePath in the response JSON",
-      "Added allowedChannelPlugins managed setting for team/enterprise admins to define a channel plugin allowlist",
-      "Added x-client-request-id header to API requests for debugging timeouts",
-      "Added idle-return prompt that nudges users returning after 75+ minutes to /clear, reducing unnecessary token re-caching on stale sessions"
+      "Windows용 PowerShell 도구를 선택적 미리 보기로 추가. 자세한 내용은 https://code.claude.com/docs/en/tools-reference#powershell-tool에서 확인",
+      "3p(Bedrock, Vertex, Foundry)에 대해 고정된 기본 모델의 노력/사고 능력 감지를 재정의하기 위해 ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTS 환경 변수 추가 및 /model 선택기 레이블을 사용자 정의하기 위한 _MODEL_NAME/_DESCRIPTION 추가",
+      "CLAUDE_STREAM_IDLE_TIMEOUT_MS 환경 변수를 추가하여 스트리밍 유휴 감시 임계값을 설정할 수 있게 했습니다 (기본값 90초)",
+      "TaskCreate를 통해 작업이 생성될 때 실행되는 TaskCreated 훅을 추가했습니다.",
+      "type: \"http\"에 대한 WorktreeCreate 훅 지원을 추가하여 응답 JSON의 hookSpecificOutput.worktreePath를 통해 생성된 작업 트리 경로를 반환합니다.",
+      "팀/기업 관리자가 채널 플러그인 허용 목록을 정의할 수 있도록 allowedChannelPlugins 관리 설정을 추가했습니다.",
+      "디버깅 타임아웃을 위해 API 요청에 x-client-request-id 헤더를 추가했습니다.",
+      "75분 이상 후에 돌아오는 사용자에게 /clear를 안내하는 유휴 반환 프롬프트를 추가하여 오래된 세션에서 불필요한 토큰 재캐싱을 줄였습니다."
     ]
   },
   {
@@ -616,14 +623,14 @@
       "Pasted images now insert an [Image #N] chip at the cursor so you can reference them positionally in your prompt"
     ],
     "features_ko": [
-      "Added managed-settings.d/ drop-in directory alongside managed-settings.json, letting separate teams deploy independent policy fragments that merge alphabetically",
-      "Added CwdChanged and FileChanged hook events for reactive environment management (e.g., direnv)",
-      "Added sandbox.failIfUnavailable setting to exit with an error when sandbox is enabled but cannot start, instead of running unsandboxed",
-      "Added disableDeepLinkRegistration setting to prevent claude-cli:// protocol handler registration",
-      "Added CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1 to strip Anthropic and cloud provider credentials from subprocess environments (Bash tool, hooks, MCP stdio servers)",
-      "Added transcript search — press / in transcript mode (Ctrl+O) to search, n/N to step through matches",
-      "Added Ctrl+X Ctrl+E as an alias for opening the external editor (readline-native binding; Ctrl+G still works)",
-      "Pasted images now insert an [Image #N] chip at the cursor so you can reference them positionally in your prompt"
+      "managed-settings.json과 함께 managed-settings.d/ 드롭인 디렉토리를 추가하여 별도의 팀이 알파벳 순으로 병합되는 독립적인 정책 조각을 배포할 수 있게 했습니다.",
+      "반응형 환경 관리를 위한 CwdChanged 및 FileChanged 훅 이벤트를 추가했습니다 (예: direnv).",
+      "sandbox가 활성화되어 있지만 시작할 수 없을 때 오류와 함께 종료하도록 sandbox.failIfUnavailable 설정을 추가했습니다. 대신 비샌드박스 모드로 실행됩니다.",
+      "claude-cli:// 프로토콜 핸들러 등록을 방지하기 위해 disableDeepLinkRegistration 설정을 추가했습니다.",
+      "CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1을 추가하여 서브프로세스 환경에서 Anthropic 및 클라우드 제공업체 자격 증명을 제거합니다 (Bash 도구, 훅, MCP stdio 서버).",
+      "전사 모드에서 /를 눌러 전사 검색을 추가했습니다 (Ctrl+O), n/N을 눌러 일치 항목을 순차적으로 탐색합니다.",
+      "외부 편집기를 열기 위한 별칭으로 Ctrl+X Ctrl+E를 추가했습니다 (readline-native 바인딩; Ctrl+G는 여전히 작동합니다).",
+      "붙여넣은 이미지는 이제 커서 위치에 [Image #N] 칩을 삽입하여 프롬프트에서 위치적으로 참조할 수 있습니다."
     ]
   },
   {
@@ -675,12 +682,12 @@
       "[VSCode] Fixed Windows PATH inheritance for Bash tool when using Git Bash (regression in v2.1.78)"
     ],
     "features_ko": [
-      "Added --bare flag for scripted -p calls — skips hooks, LSP, plugin sync, and skill directory walks; requires ANTHROPIC_API_KEY or an apiKeyHelper via --settings (OAuth and keychain auth disabled); auto-memory fully disabled",
-      "Added --channels permission relay — channel servers that declare the permission capability can forward tool approval prompts to your phone",
-      "Resuming a session that was in a worktree now switches back to that worktree",
-      "Updated MCP OAuth to support Client ID Metadata Document (CIMD / SEP-991) for servers without Dynamic Client Registration",
-      "Disabled line-by-line response streaming on Windows (including WSL in Windows Terminal) due to rendering issues",
-      "[VSCode] Fixed Windows PATH inheritance for Bash tool when using Git Bash (regression in v2.1.78)"
+      "스크립트된 -p 호출을 위한 --bare 플래그를 추가했습니다 — 훅, LSP, 플러그인 동기화 및 기술 디렉토리 탐색을 건너뜁니다; ANTHROPIC_API_KEY 또는 --settings를 통한 apiKeyHelper가 필요합니다 (OAuth 및 키체인 인증 비활성화); 자동 메모리 완전히 비활성화됨.",
+      "--channels 권한 중계 기능을 추가했습니다 — 권한 기능을 선언한 채널 서버가 도구 승인 프롬프트를 귀하의 전화로 전달할 수 있습니다.",
+      "작업 트리에 있던 세션을 재개하면 해당 작업 트리로 다시 전환됩니다.",
+      "동적 클라이언트 등록이 없는 서버를 위한 클라이언트 ID 메타데이터 문서(CIMD / SEP-991)를 지원하도록 MCP OAuth를 업데이트했습니다.",
+      "렌더링 문제로 인해 Windows(Windows Terminal의 WSL 포함)에서 줄 단위 응답 스트리밍을 비활성화했습니다.",
+      "[VSCode] Git Bash를 사용할 때 Bash 도구의 Windows PATH 상속 문제를 수정했습니다 (v2.1.78에서 회귀)."
     ]
   },
   {
@@ -738,13 +745,13 @@
       "Reduced memory usage on startup in large repositories (~80 MB saved on 250k-file repos)"
     ],
     "features_ko": [
-      "Added rate_limits field to statusline scripts for displaying Claude.ai rate limit usage (5-hour and 7-day windows with used_percentage and resets_at)",
-      "Added source: 'settings' plugin marketplace source — declare plugin entries inline in settings.json",
-      "Added CLI tool usage detection to plugin tips, in addition to file pattern matching",
-      "Added effort frontmatter support for skills and slash commands to override the model effort level when invoked",
-      "Added --channels (research preview) — allow MCP servers to push messages into your session",
-      "Simplified plugin install tips to use a single /plugin install command instead of a two-step flow",
-      "Reduced memory usage on startup in large repositories (~80 MB saved on 250k-file repos)"
+      "Claude.ai의 속도 제한 사용량을 표시하기 위해 statusline 스크립트에 rate_limits 필드를 추가했습니다 (5시간 및 7일 창, used_percentage 및 resets_at 포함).",
+      "settings.json에서 플러그인 항목을 인라인으로 선언할 수 있도록 source: 'settings' 플러그인 마켓플레이스 소스를 추가했습니다.",
+      "파일 패턴 매칭 외에도 플러그인 팁에 CLI 도구 사용 감지를 추가했습니다.",
+      "호출 시 모델 노력 수준을 재정의할 수 있도록 기술 및 슬래시 명령에 대한 effort frontmatter 지원을 추가했습니다.",
+      "--channels (연구 미리보기)를 추가하여 MCP 서버가 귀하의 세션으로 메시지를 푸시할 수 있도록 허용합니다.",
+      "플러그인 설치 팁을 단일 /plugin install 명령을 사용하도록 단순화했습니다.",
+      "대규모 리포지토리에서 시작 시 메모리 사용량을 줄였습니다 (~250k 파일 리포지토리에서 약 80MB 절약)."
     ]
   },
   {
@@ -797,9 +804,9 @@
       "[VSCode] Fixed missing session diff button when opening sessions from the left sidebar"
     ],
     "features_ko": [
-      "Added --console flag to claude auth login for Anthropic Console (API billing) authentication",
-      "Added \"Show turn duration\" toggle to the /config menu",
-      "CLAUDE_CODE_PLUGIN_SEED_DIR now supports multiple seed directories separated by the platform path delimiter (: on Unix, ; on Windows)",
+      "Anthropic Console (API 청구) 인증을 위한 claude auth login에 --console 플래그를 추가했습니다.",
+      "/config 메뉴에 \"턴 지속 시간 표시\" 토글을 추가했습니다.",
+      "CLAUDE_CODE_PLUGIN_SEED_DIR가 이제 플랫폼 경로 구분자(:는 Unix, ;는 Windows)로 구분된 여러 시드 디렉토리를 지원합니다.",
       "[VSCode] Added /remote-control — bridge your session to claude.ai/code to continue from a browser or phone",
       "[VSCode] Session tabs now get AI-generated titles based on your first message",
       "[VSCode] Fixed the thinking pill showing \"Thinking\" instead of \"Thought for Ns\" after a response completes",
@@ -1060,10 +1067,10 @@
     "features_ko": [
       "Added 1M context window for Opus 4.6 by default for Max, Team, and Enterprise plans (previously required extra usage)",
       "Added /color command for all users to set a prompt-bar color for your session",
-      "Added session name display on the prompt bar when using /rename",
-      "Added last-modified timestamps to memory files, helping Claude reason about which memories are fresh vs. stale",
-      "Added hook source display (settings/plugin/skill) in permission prompts when a hook requires confirmation",
-      "Suppressed async hook completion messages by default (visible with --verbose or transcript mode)"
+      "/rename 사용 시 프롬프트 바에 세션 이름 표시 추가",
+      "메모리 파일에 마지막 수정 타임스탬프 추가, Claude가 어떤 메모리가 최신인지 구분하는 데 도움",
+      "후크가 확인을 요구할 때 권한 프롬프트에 후크 소스 표시 추가 (settings/plugin/skill)",
+      "기본적으로 비동기 후크 완료 메시지 억제 ( --verbose 또는 transcript 모드에서 확인 가능)"
     ]
   },
   {
@@ -1108,10 +1115,10 @@
       "[VSCode] Improved scroll wheel responsiveness in the integrated terminal with terminal-aware acceleration"
     ],
     "features_ko": [
-      "Added actionable suggestions to /context command — identifies context-heavy tools, memory bloat, and capacity warnings with specific optimization tips",
-      "Added autoMemoryDirectory setting to configure a custom directory for auto-memory storage",
-      "[VSCode] Fixed delete button not working for Untitled sessions",
-      "[VSCode] Improved scroll wheel responsiveness in the integrated terminal with terminal-aware acceleration"
+      "/context 명령에 실행 가능한 제안 추가 — 컨텍스트가 많은 도구, 메모리 부풀림, 용량 경고를 특정 최적화 팁과 함께 식별",
+      "autoMemoryDirectory 설정 추가로 자동 메모리 저장을 위한 사용자 지정 디렉토리 구성",
+      "[VSCode] 제목 없는 세션에 대해 삭제 버튼이 작동하지 않는 문제 수정",
+      "[VSCode] 통합 터미널에서 스크롤 휠 반응성 개선 (터미널 인식 가속 포함)"
     ]
   },
   {
@@ -1175,9 +1182,9 @@
       "VSCode: Fixed HTTP 400 errors for users behind proxies or on Bedrock/Vertex with Claude 4.5 models"
     ],
     "features_ko": [
-      "Added modelOverrides setting to map model picker entries to custom provider model IDs (e.g. Bedrock inference profile ARNs)",
-      "Added actionable guidance when OAuth login or connectivity checks fail due to SSL certificate errors (corporate proxies, NODE_EXTRA_CA_CERTS)",
-      "VSCode: Fixed HTTP 400 errors for users behind proxies or on Bedrock/Vertex with Claude 4.5 models"
+      "modelOverrides 설정 추가로 모델 선택기 항목을 사용자 지정 제공자 모델 ID에 매핑 (예: Bedrock 추론 프로필 ARNs)",
+      "OAuth 로그인 또는 연결 확인이 SSL 인증서 오류로 실패할 때 실행 가능한 안내 추가 (기업 프록시, NODE_EXTRA_CA_CERTS)",
+      "VSCode: Claude 4.5 모델을 사용하는 프록시 뒤의 사용자 또는 Bedrock/Vertex 사용자에 대한 HTTP 400 오류 수정"
     ]
   },
   {
@@ -1266,14 +1273,14 @@
       "Reduced bundle size by ~510 KB"
     ],
     "features_ko": [
-      "Added w key in /copy to write the focused selection directly to a file, bypassing the clipboard (useful over SSH)",
-      "Added optional description argument to /plan (e.g., /plan fix the auth bug) that enters plan mode and immediately starts",
-      "Added ExitWorktree tool to leave an EnterWorktree session",
-      "Added CLAUDE_CODE_DISABLE_CRON environment variable to immediately stop scheduled cron jobs mid-session",
-      "Added lsof, pgrep, tput, ss, fd, and fdfind to the bash auto-approval allowlist, reducing permission prompts for common read-only operations",
-      "Restored the model parameter on the Agent tool for per-invocation model overrides",
-      "Simplified effort levels to low/medium/high (removed max) with new symbols (○ ◐ ●) and a brief notification instead of a persistent icon. Use /effort auto to reset to default",
-      "Reduced bundle size by ~510 KB"
+      "/copy에서 w 키 추가로 포커스된 선택을 클립보드를 우회하여 파일에 직접 작성 (SSH에서 유용)",
+      "/plan에 선택적 설명 인수 추가 (예: /plan fix the auth bug)로 계획 모드에 진입하고 즉시 시작",
+      "EnterWorktree 세션을 종료하기 위한 ExitWorktree 도구 추가",
+      "CLAUDE_CODE_DISABLE_CRON 환경 변수 추가로 세션 중에 예약된 cron 작업 즉시 중지",
+      "lsof, pgrep, tput, ss, fd, fdfind를 bash 자동 승인 허용 목록에 추가하여 일반적인 읽기 전용 작업에 대한 권한 프롬프트 감소",
+      "호출별 모델 오버라이드를 위한 Agent 도구의 모델 매개변수 복원",
+      "노력 수준을 낮음/중간/높음으로 단순화 (최대 제거)하고 새로운 기호 (○ ◐ ●)와 간단한 알림으로 대체, 지속 아이콘 대신. /effort auto로 기본값으로 재설정",
+      "번들 크기를 약 510 KB 줄임"
     ]
   },
   {
@@ -1324,11 +1331,11 @@
       "Updated /debug to toggle debug logging on mid-session, since debug logs are no longer written by default"
     ],
     "features_ko": [
-      "Added /loop command to run a prompt or slash command on a recurring interval (e.g. /loop 5m check the deploy)",
-      "Added cron scheduling tools for recurring prompts within a session",
-      "Added voice:pushToTalk keybinding to make the voice activation key rebindable in keybindings.json (default: space) — modifier+letter combos like meta+k have zero typing interference",
-      "Added fmt, comm, cmp, numfmt, expr, test, printf, getconf, seq, tsort, and pr to the bash auto-approval allowlist",
-      "Updated /debug to toggle debug logging on mid-session, since debug logs are no longer written by default"
+      "프롬프트 또는 슬래시 명령을 반복 간격으로 실행하는 /loop 명령 추가 (예: /loop 5m 배포 확인)",
+      "세션 내에서 반복 프롬프트를 위한 cron 스케줄링 도구 추가",
+      "voice:pushToTalk 키 바인딩 추가로 keybindings.json에서 음성 활성화 키 재바인딩 가능 (기본값: space) — modifier+letter 조합은 입력 간섭 없음",
+      "fmt, comm, cmp, numfmt, expr, test, printf, getconf, seq, tsort, pr를 bash 자동 승인 허용 목록에 추가",
+      "/debug를 업데이트하여 세션 중에 디버그 로깅을 전환, 디버그 로그가 더 이상 기본적으로 기록되지 않음"
     ]
   },
   {
@@ -1400,12 +1407,12 @@
       "[VSCode] Added native MCP server management dialog — use /mcp in the chat panel to enable/disable servers, reconnect, and manage OAuth authentication without switching to the terminal"
     ],
     "features_ko": [
-      "Reduced prompt input re-renders during turns by ~74%",
-      "Reduced startup memory by ~426KB for users without custom CA certificates",
-      "Reduced Remote Control /poll rate to once per 10 minutes while connected (was 1–2s), cutting server load ~300×. Reconnection is unaffected — transport loss immediately wakes fast polling.",
-      "[VSCode] Added spark icon in VS Code activity bar that lists all Claude Code sessions, with sessions opening as full editors",
-      "[VSCode] Added full markdown document view for plans in VS Code, with support for adding comments to provide feedback",
-      "[VSCode] Added native MCP server management dialog — use /mcp in the chat panel to enable/disable servers, reconnect, and manage OAuth authentication without switching to the terminal"
+      "턴 중 프롬프트 입력 재렌더링을 약 74% 줄임",
+      "사용자 지정 CA 인증서가 없는 사용자에 대해 시작 메모리를 약 426KB 줄임",
+      "원격 제어 /poll 비율을 연결 중 10분에 한 번으로 줄임 (이전 1–2초), 서버 부하 약 300배 감소. 재연결에는 영향 없음 — 전송 손실 즉시 빠른 폴링을 깨움.",
+      "[VSCode] 모든 Claude Code 세션을 나열하는 VS Code 활동 바에 스파크 아이콘 추가, 세션이 전체 편집기로 열림",
+      "[VSCode] VS Code에서 계획에 대한 전체 마크다운 문서 보기 추가, 피드백 제공을 위한 댓글 추가 지원",
+      "[VSCode] 기본 MCP 서버 관리 대화상자 추가 — 채팅 패널에서 /mcp를 사용하여 서버를 활성화/비활성화하고, 재연결하며, 터미널로 전환하지 않고 OAuth 인증 관리"
     ]
   },
   {
@@ -1559,14 +1566,14 @@
       "Added sandbox.enableWeakerNetworkIsolation setting (macOS only) to allow Go programs like gh, gcloud, and terraform to verify TLS certificates when using a custom MITM proxy with httpProxyPort"
     ],
     "features_ko": [
-      "Added the /claude-api skill for building applications with the Claude API and Anthropic SDK",
-      "Added Ctrl+U on an empty bash prompt (!) to exit bash mode, matching escape and backspace",
-      "Added numeric keypad support for selecting options in Claude's interview questions (previously only the number row above QWERTY worked)",
-      "Added optional name argument to /remote-control and claude remote-control (/remote-control My Project or --name \"My Project\") to set a custom session title visible in claude.ai/code",
-      "Added Voice STT support for 10 new languages (20 total) — Russian, Polish, Turkish, Dutch, Ukrainian, Greek, Czech, Danish, Swedish, Norwegian",
-      "Added effort level display (e.g., \"with low effort\") to the logo and spinner, making it easier to see which effort setting is active",
-      "Added agent name display in terminal title when using claude --agent",
-      "Added sandbox.enableWeakerNetworkIsolation setting (macOS only) to allow Go programs like gh, gcloud, and terraform to verify TLS certificates when using a custom MITM proxy with httpProxyPort"
+      "Claude API와 Anthropic SDK로 애플리케이션을 구축하기 위한 /claude-api 스킬이 추가되었습니다.",
+      "빈 bash 프롬프트 (!)에서 Ctrl+U를 추가하여 bash 모드를 종료할 수 있게 하였습니다.",
+      "Claude의 인터뷰 질문에서 옵션 선택을 위한 숫자 키패드 지원이 추가되었습니다 (이전에는 QWERTY 위의 숫자 행만 작동했습니다).",
+      "/remote-control 및 claude remote-control에 선택적 이름 인수 추가 (/remote-control My Project 또는 --name \"My Project\")로 claude.ai/code에서 사용자 정의 세션 제목을 설정할 수 있습니다.",
+      "10개 새로운 언어(총 20개)에 대한 Voice STT 지원이 추가되었습니다 — 러시아어, 폴란드어, 터키어, 네덜란드어, 우크라이나어, 그리스어, 체코어, 덴마크어, 스웨덴어, 노르웨이어.",
+      "로고와 스피너에 노력 수준 표시(예: \"낮은 노력으로\")가 추가되어 어떤 노력 설정이 활성화되어 있는지 쉽게 확인할 수 있습니다.",
+      "claude --agent를 사용할 때 터미널 제목에 에이전트 이름 표시가 추가되었습니다.",
+      "macOS 전용 sandbox.enableWeakerNetworkIsolation 설정이 추가되어 gh, gcloud, terraform과 같은 Go 프로그램이 httpProxyPort와 함께 사용자 정의 MITM 프록시를 사용할 때 TLS 인증서를 검증할 수 있습니다."
     ]
   },
   {
@@ -1584,8 +1591,8 @@
       "Re-introduced the \"ultrathink\" keyword to enable high effort for the next turn"
     ],
     "features_ko": [
-      "Opus 4.6 now defaults to medium effort for Max and Team subscribers. Medium effort works well for most tasks — it's the sweet spot between speed and thoroughness. You can change this anytime with /model",
-      "Re-introduced the \"ultrathink\" keyword to enable high effort for the next turn"
+      "Opus 4.6은 이제 Max 및 Team 구독자에게 중간 노력을 기본값으로 설정합니다. 중간 노력은 대부분의 작업에 잘 작동하며, 속도와 철저함의 균형을 이룹니다. 언제든지 /model로 변경할 수 있습니다.",
+      "다음 턴에 높은 노력을 활성화하기 위해 \"ultrathink\" 키워드가 재도입되었습니다."
     ]
   },
   {
@@ -1596,7 +1603,7 @@
       "Reduced spurious error logging"
     ],
     "features_ko": [
-      "Reduced spurious error logging"
+      "불필요한 오류 로그가 줄어들었습니다."
     ]
   },
   {
@@ -1645,14 +1652,14 @@
       "VSCode: Added session rename and remove actions to the sessions list"
     ],
     "features_ko": [
-      "Added /simplify and /batch bundled slash commands",
-      "Project configs & auto memory now shared across git worktrees of the same repository",
-      "Added ENABLE_CLAUDEAI_MCP_SERVERS=false env var to opt out from making claude.ai MCP servers available",
-      "Added HTTP hooks, which can POST JSON to a URL and receive JSON instead of running a shell command",
-      "Added manual URL paste fallback during MCP OAuth authentication. If the automatic localhost redirect doesn't work, you can paste the callback URL to complete authentication.",
-      "VSCode: Fixed remote sessions not appearing in conversation history",
-      "Added \"Always copy full response\" option to the /copy picker. When selected, future /copy commands will skip the code block picker and copy the full response directly.",
-      "VSCode: Added session rename and remove actions to the sessions list"
+      "/simplify 및 /batch 번들 슬래시 명령이 추가되었습니다.",
+      "프로젝트 구성 및 자동 메모리가 동일한 리포지토리의 git 작업 트리 간에 공유됩니다.",
+      "claude.ai MCP 서버를 사용할 수 없도록 설정하는 ENABLE_CLAUDEAI_MCP_SERVERS=false 환경 변수가 추가되었습니다.",
+      "URL에 JSON을 POST하고 JSON을 수신할 수 있는 HTTP 훅이 추가되어 셸 명령을 실행하는 대신 사용할 수 있습니다.",
+      "MCP OAuth 인증 중 수동 URL 붙여넣기 대체 기능이 추가되었습니다. 자동 localhost 리디렉션이 작동하지 않으면 콜백 URL을 붙여넣어 인증을 완료할 수 있습니다.",
+      "VSCode: 원격 세션이 대화 기록에 나타나지 않는 문제를 수정했습니다.",
+      "/copy 선택기에서 \"항상 전체 응답 복사\" 옵션이 추가되었습니다. 선택 시, 향후 /copy 명령은 코드 블록 선택기를 건너뛰고 전체 응답을 직접 복사합니다.",
+      "VSCode: 세션 목록에 세션 이름 변경 및 제거 작업이 추가되었습니다."
     ]
   },
   {
@@ -1689,8 +1696,8 @@
       "Added /copy command to show an interactive picker when code blocks are present, allowing selection of individual code blocks or the full response."
     ],
     "features_ko": [
-      "Claude automatically saves useful context to auto-memory. Manage with /memory",
-      "Added /copy command to show an interactive picker when code blocks are present, allowing selection of individual code blocks or the full response."
+      "Claude는 유용한 컨텍스트를 자동 메모리에 자동으로 저장합니다. /memory로 관리할 수 있습니다.",
+      "코드 블록이 있을 때 대화형 선택기를 표시하는 /copy 명령이 추가되어 개별 코드 블록 또는 전체 응답을 선택할 수 있습니다."
     ]
   },
   {
@@ -1701,7 +1708,7 @@
       "Expand Remote Control to more users"
     ],
     "features_ko": [
-      "Expand Remote Control to more users"
+      "원격 제어를 더 많은 사용자로 확장합니다."
     ]
   },
   {
@@ -1712,7 +1719,7 @@
       "VS Code: Fixed another cause of \"command 'claude-vscode.editor.openLast' not found\" crashes"
     ],
     "features_ko": [
-      "VS Code: Fixed another cause of \"command 'claude-vscode.editor.openLast' not found\" crashes"
+      "VS Code: \"command 'claude-vscode.editor.openLast' not found\" 충돌의 또 다른 원인을 수정했습니다."
     ]
   },
   {
@@ -1748,7 +1755,7 @@
       "VS Code: Fixed extension crash on Windows (\"command 'claude-vscode.editor.openLast' not found\")"
     ],
     "features_ko": [
-      "VS Code: Fixed extension crash on Windows (\"command 'claude-vscode.editor.openLast' not found\")"
+      "VS Code: Windows에서 확장 충돌(\"command 'claude-vscode.editor.openLast' not found\")을 수정했습니다."
     ]
   },
   {
@@ -1772,14 +1779,14 @@
       "Managed settings can now be set via macOS plist or Windows Registry. Learn more at https://code.claude.com/docs/en/settings#settings-files"
     ],
     "features_ko": [
-      "Added claude remote-control subcommand for external builds, enabling local environment serving for all users.",
-      "Updated plugin marketplace default git timeout from 30s to 120s and added CLAUDE_CODE_PLUGIN_GIT_TIMEOUT_MS to configure.",
-      "Added support for custom npm registries and specific version pinning when installing plugins from npm sources",
-      "BashTool now skips login shell (-l flag) by default when a shell snapshot is available, improving command execution performance. Previously this required setting CLAUDE_BASH_NO_LOGIN=true.",
-      "Tool results larger than 50K characters are now persisted to disk (previously 100K). This reduces context window usage and improves conversation longevity.",
-      "Added CLAUDE_CODE_ACCOUNT_UUID, CLAUDE_CODE_USER_EMAIL, and CLAUDE_CODE_ORGANIZATION_UUID environment variables for SDK callers to provide account info synchronously, eliminating a race condition where early telemetry events lacked account metadata.",
-      "The /model picker now shows human-readable labels (e.g., \"Sonnet 4.5\") instead of raw model IDs for pinned model versions, with an upgrade hint when a newer version is available.",
-      "Managed settings can now be set via macOS plist or Windows Registry. Learn more at https://code.claude.com/docs/en/settings#settings-files"
+      "외부 빌드를 위한 claude remote-control 하위 명령이 추가되어 모든 사용자를 위한 로컬 환경 제공이 가능해졌습니다.",
+      "플러그인 마켓플레이스의 기본 git 타임아웃을 30초에서 120초로 업데이트하고 CLAUDE_CODE_PLUGIN_GIT_TIMEOUT_MS를 추가하여 구성할 수 있습니다.",
+      "npm 소스에서 플러그인을 설치할 때 사용자 정의 npm 레지스트리 및 특정 버전 고정을 지원합니다.",
+      "BashTool은 이제 셸 스냅샷이 있을 때 기본적으로 로그인 셸(-l 플래그)을 건너뛰어 명령 실행 성능을 개선합니다. 이전에는 CLAUDE_BASH_NO_LOGIN=true를 설정해야 했습니다.",
+      "50K 문자보다 큰 도구 결과가 이제 디스크에 지속적으로 저장됩니다 (이전에는 100K). 이는 컨텍스트 창 사용을 줄이고 대화의 지속성을 향상시킵니다.",
+      "SDK 호출자가 계정 정보를 동기적으로 제공할 수 있도록 CLAUDE_CODE_ACCOUNT_UUID, CLAUDE_CODE_USER_EMAIL 및 CLAUDE_CODE_ORGANIZATION_UUID 환경 변수가 추가되어 초기 텔레메트리 이벤트에서 계정 메타데이터가 부족한 경쟁 조건을 없앴습니다.",
+      "/model 선택기가 이제 고정된 모델 버전에 대해 원시 모델 ID 대신 사람이 읽을 수 있는 레이블(예: \"Sonnet 4.5\")을 표시하며, 새 버전이 사용 가능할 때 업그레이드 힌트를 제공합니다.",
+      "관리 설정을 이제 macOS plist 또는 Windows Registry를 통해 설정할 수 있습니다. 자세한 내용은 https://code.claude.com/docs/en/settings#settings-files에서 확인하세요."
     ]
   },
   {
@@ -1813,14 +1820,14 @@
       "Opus 4.6 (fast mode) now includes the full 1M context window"
     ],
     "features_ko": [
-      "Added support for startupTimeout configuration for LSP servers",
-      "Added WorktreeCreate and WorktreeRemove hook events, enabling custom VCS setup and teardown when agent worktree isolation creates or removes worktrees.",
-      "Linux: Fixed native modules not loading on systems with glibc older than 2.30 (e.g., RHEL 8)",
-      "Added support for isolation: worktree in agent definitions, allowing agents to declaratively run in isolated git worktrees.",
-      "CLAUDE_CODE_SIMPLE mode now also disables MCP tools, attachments, hooks, and CLAUDE.md file loading for a fully minimal experience.",
-      "Added claude agents CLI command to list all configured agents",
-      "Added CLAUDE_CODE_DISABLE_1M_CONTEXT environment variable to disable 1M context window support",
-      "Opus 4.6 (fast mode) now includes the full 1M context window"
+      "LSP 서버에 대한 startupTimeout 구성 지원이 추가되었습니다.",
+      "WorktreeCreate 및 WorktreeRemove 후크 이벤트가 추가되어 에이전트 작업 트리 격리가 작업 트리를 생성하거나 제거할 때 사용자 정의 VCS 설정 및 해제를 가능하게 합니다.",
+      "Linux: glibc 2.30보다 오래된 시스템(RHEL 8 등)에서 네이티브 모듈이 로드되지 않는 문제를 수정했습니다.",
+      "에이전트 정의에 isolation: worktree 지원이 추가되어 에이전트가 격리된 git 작업 트리에서 선언적으로 실행할 수 있습니다.",
+      "CLAUDE_CODE_SIMPLE 모드는 이제 완전히 최소한의 경험을 위해 MCP 도구, 첨부 파일, 후크 및 CLAUDE.md 파일 로드를 비활성화합니다.",
+      "구성된 모든 에이전트를 나열하는 claude agents CLI 명령이 추가되었습니다.",
+      "1M 컨텍스트 창 지원을 비활성화하는 CLAUDE_CODE_DISABLE_1M_CONTEXT 환경 변수가 추가되었습니다.",
+      "Opus 4.6(빠른 모드)에는 이제 전체 1M 컨텍스트 창이 포함됩니다."
     ]
   },
   {
@@ -1879,14 +1886,14 @@
       "Sonnet 4.5 with 1M context is being removed from the Max plan in favor of our frontier Sonnet 4.6 model, which now has 1M context. Please switch in /model."
     ],
     "features_ko": [
-      "Added --worktree (-w) flag to start Claude in an isolated git worktree",
-      "Subagents support isolation: \"worktree\" for working in a temporary git worktree",
-      "Added Ctrl+F keybinding to kill background agents (two-press confirmation)",
-      "Agent definitions support background: true to always run as a background task",
-      "Plugins can ship settings.json for default configuration",
-      "Simple mode (CLAUDE_CODE_SIMPLE) now includes the file edit tool in addition to the Bash tool, allowing direct file editing in simple mode.",
-      "Permission suggestions are now populated when safety checks trigger an ask response, enabling SDK consumers to display permission options",
-      "Sonnet 4.5 with 1M context is being removed from the Max plan in favor of our frontier Sonnet 4.6 model, which now has 1M context. Please switch in /model."
+      "Claude를 격리된 git 작업 트리에서 시작하기 위해 --worktree (-w) 플래그가 추가되었습니다.",
+      "서브 에이전트는 임시 git 작업 트리에서 작업하기 위해 isolation: \"worktree\"를 지원합니다.",
+      "백그라운드 에이전트를 종료하기 위한 Ctrl+F 키 바인딩이 추가되었습니다(두 번 누르는 확인).",
+      "에이전트 정의는 항상 백그라운드 작업으로 실행되도록 background: true를 지원합니다.",
+      "플러그인은 기본 구성을 위한 settings.json을 제공할 수 있습니다.",
+      "간단 모드(CLAUDE_CODE_SIMPLE)에는 Bash 도구 외에 파일 편집 도구가 추가되어 간단 모드에서 직접 파일 편집이 가능합니다.",
+      "안전 검사로 인해 요청 응답이 발생할 때 권한 제안이 이제 채워져 SDK 소비자가 권한 옵션을 표시할 수 있습니다.",
+      "1M 컨텍스트가 포함된 Sonnet 4.5가 Max 플랜에서 제거되고, 이제 1M 컨텍스트가 있는 최전선 Sonnet 4.6 모델로 대체됩니다. /model에서 전환해 주세요."
     ]
   },
   {
@@ -1970,14 +1977,14 @@
       "Increased initial session count in resume picker from 10 to 50 for faster session discovery (anthropics/claude-code#26123)"
     ],
     "features_ko": [
-      "Search patterns in collapsed tool results are now displayed in quotes for clarity",
-      "Windows: Fixed CWD tracking temp files never being cleaned up, causing them to accumulate indefinitely (anthropics/claude-code#17600)",
-      "Use ctrl+f to kill all background agents instead of double-pressing ESC. Background agents now continue running when you press ESC to cancel the main thread, giving you more control over agent lifecycle.",
-      "Simplified teammate navigation to use only Shift+Down (with wrapping) instead of both Shift+Up and Shift+Down.",
-      "Added last_assistant_message field to Stop and SubagentStop hook inputs, providing the final assistant response text so hooks can access it without parsing transcript files.",
-      "Added chat:newline keybinding action for configurable multi-line input (anthropics/claude-code#26075)",
-      "Added added_dirs to the statusline JSON workspace section, exposing directories added via /add-dir to external scripts (anthropics/claude-code#26096)",
-      "Increased initial session count in resume picker from 10 to 50 for faster session discovery (anthropics/claude-code#26123)"
+      "축소된 도구 결과의 검색 패턴이 명확성을 위해 이제 따옴표로 표시됩니다.",
+      "Windows: CWD 추적 임시 파일이 정리되지 않아 무한히 축적되는 문제를 수정했습니다(anthropics/claude-code#17600).",
+      "ESC를 두 번 누르는 대신 ctrl+f를 사용하여 모든 백그라운드 에이전트를 종료하세요. 이제 ESC를 눌러 메인 스레드를 취소해도 백그라운드 에이전트가 계속 실행되어 에이전트 생명 주기를 더 잘 제어할 수 있습니다.",
+      "팀원 탐색을 Shift+Down만 사용하도록 단순화하여 Shift+Up과 Shift+Down을 모두 사용할 필요가 없게 했습니다.",
+      "Stop 및 SubagentStop 후크 입력에 last_assistant_message 필드가 추가되어 최종 어시스턴트 응답 텍스트를 제공하여 후크가 전사 파일을 파싱하지 않고도 접근할 수 있습니다.",
+      "구성 가능한 다중 행 입력을 위한 chat:newline 키 바인딩 작업이 추가되었습니다(anthropics/claude-code#26075).",
+      "statusline JSON 작업 공간 섹션에 added_dirs가 추가되어 /add-dir를 통해 추가된 디렉토리를 외부 스크립트에 노출합니다(anthropics/claude-code#26096).",
+      "세션 선택기에서 초기 세션 수를 10에서 50으로 늘려 세션 발견 속도를 높였습니다(anthropics/claude-code#26123)."
     ]
   },
   {
@@ -1988,7 +1995,7 @@
       "Added support for using claude.ai MCP connectors in Claude Code"
     ],
     "features_ko": [
-      "Added support for using claude.ai MCP connectors in Claude Code"
+      "Claude Code에서 claude.ai MCP 커넥터 사용 지원이 추가되었습니다."
     ]
   },
   {
@@ -2009,11 +2016,11 @@
       "[VSCode] Improved permission destination choice (project/user/session) to persist across sessions"
     ],
     "features_ko": [
-      "Added support for Claude Sonnet 4.6",
-      "Added support for reading enabledPlugins and extraKnownMarketplaces from --add-dir directories",
-      "Added spinnerTipsOverride setting to customize spinner tips — configure tips with an array of custom tip strings, and optionally set excludeDefault: true to show only your custom tips instead of the built-in ones",
-      "Added SDKRateLimitInfo and SDKRateLimitEvent types to the SDK, enabling consumers to receive rate limit status updates including utilization, reset times, and overage information",
-      "[VSCode] Improved permission destination choice (project/user/session) to persist across sessions"
+      "Claude Sonnet 4.6 지원이 추가되었습니다.",
+      "--add-dir 디렉토리에서 enabledPlugins 및 extraKnownMarketplaces를 읽는 지원이 추가되었습니다.",
+      "spinnerTipsOverride 설정이 추가되어 스피너 팁을 사용자 정의할 수 있습니다. 사용자 정의 팁 문자열 배열로 팁을 구성하고, excludeDefault: true를 설정하여 기본 팁 대신 사용자 정의 팁만 표시할 수 있습니다.",
+      "SDK에 SDKRateLimitInfo 및 SDKRateLimitEvent 유형이 추가되어 소비자가 사용량, 재설정 시간 및 초과 정보 등 속도 제한 상태 업데이트를 받을 수 있게 되었습니다.",
+      "[VSCode] 세션 간 지속되는 권한 대상 선택(프로젝트/사용자/세션)이 개선되었습니다."
     ]
   },
   {
@@ -2049,7 +2056,7 @@
       "Added one-time Opus 4.6 effort callout for eligible users"
     ],
     "features_ko": [
-      "Added one-time Opus 4.6 effort callout for eligible users"
+      "자격이 있는 사용자에게 Opus 4.6의 일회성 호출이 추가되었습니다."
     ]
   },
   {
@@ -2074,10 +2081,10 @@
       "Added Windows ARM64 (win32-arm64) native binary support"
     ],
     "features_ko": [
-      "Added guard against launching Claude Code inside another Claude Code session",
-      "Added speed attribute to OTel events and trace spans for fast mode visibility",
-      "Added claude auth login, claude auth status, and claude auth logout CLI subcommands",
-      "Added Windows ARM64 (win32-arm64) native binary support"
+      "다른 Claude Code 세션 내에서 Claude Code를 실행하지 않도록 방어가 추가되었습니다.",
+      "빠른 모드 가시성을 위해 OTel 이벤트 및 추적 스팬에 속도 속성이 추가되었습니다.",
+      "claude auth login, claude auth status, claude auth logout CLI 하위 명령이 추가되었습니다.",
+      "Windows ARM64 (win32-arm64) 네이티브 바이너리 지원이 추가되었습니다."
     ]
   },
   {
@@ -2095,7 +2102,7 @@
       "Blocked writes to .claude/skills directory in sandbox mode"
     ],
     "features_ko": [
-      "Blocked writes to .claude/skills directory in sandbox mode"
+      "샌드박스 모드에서 .claude/skills 디렉토리에 대한 쓰기가 차단되었습니다."
     ]
   },
   {
@@ -2124,7 +2131,7 @@
       "Fast mode is now available for Opus 4.6. Learn more at https://code.claude.com/docs/en/fast-mode"
     ],
     "features_ko": [
-      "Fast mode is now available for Opus 4.6. Learn more at https://code.claude.com/docs/en/fast-mode"
+      "Opus 4.6에 대해 빠른 모드가 이제 사용 가능합니다. 자세한 내용은 https://code.claude.com/docs/en/fast-mode에서 확인하세요."
     ]
   },
   {
@@ -2160,14 +2167,14 @@
       "VSCode: Fixed scroll-to-bottom under-scrolling on initial session load and session switch"
     ],
     "features_ko": [
-      "Added TeammateIdle and TaskCompleted hook events for multi-agent workflows",
-      "Added support for restricting which sub-agents can be spawned via Task(agent_type) syntax in agent \"tools\" frontmatter",
-      "Added memory frontmatter field support for agents, enabling persistent memory with user, project, or local scope",
-      "Added plugin name to skill descriptions and /skills menu for better discoverability",
-      "Errors from invalid managed settings are now surfaced",
-      "VSCode: Added support for remote sessions, allowing OAuth users to browse and resume sessions from claude.ai",
-      "VSCode: Added git branch and message count to the session picker, with support for searching by branch name",
-      "VSCode: Fixed scroll-to-bottom under-scrolling on initial session load and session switch"
+      "다중 에이전트 워크플로우를 위한 TeammateIdle 및 TaskCompleted 후크 이벤트가 추가되었습니다.",
+      "에이전트 \"tools\" 프론트 매터에서 Task(agent_type) 구문을 통해 생성할 수 있는 하위 에이전트를 제한하는 지원이 추가되었습니다.",
+      "에이전트에 대한 메모리 프론트 매터 필드 지원이 추가되어 사용자, 프로젝트 또는 로컬 범위에서 지속적인 메모리를 사용할 수 있게 되었습니다.",
+      "더 나은 발견 가능성을 위해 기술 설명 및 /skills 메뉴에 플러그인 이름이 추가되었습니다.",
+      "잘못된 관리 설정으로 인한 오류가 이제 표시됩니다.",
+      "VSCode: 원격 세션 지원이 추가되어 OAuth 사용자가 claude.ai에서 세션을 탐색하고 재개할 수 있게 되었습니다.",
+      "VSCode: 세션 선택기에 git 브랜치 및 메시지 수가 추가되었으며, 브랜치 이름으로 검색할 수 있는 지원이 포함되었습니다.",
+      "VSCode: 초기 세션 로드 및 세션 전환 시 아래로 스크롤 문제를 수정했습니다."
     ]
   },
   {
@@ -2191,14 +2198,14 @@
       "VSCode: Fixed slash commands incorrectly being executed when pressing Enter with preceding text in the input field"
     ],
     "features_ko": [
-      "Claude Opus 4.6 is now available!",
-      "Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)",
-      "Claude now automatically records and recalls memories as it works",
-      "Added \"Summarize from here\" to the message selector, allowing partial conversation summarization.",
-      "Skills defined in .claude/skills/ within additional directories (--add-dir) are now loaded automatically.",
-      "Updated --resume to re-use --agent value specified in previous conversation by default.",
-      "Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions without truncation",
-      "VSCode: Fixed slash commands incorrectly being executed when pressing Enter with preceding text in the input field"
+      "Claude Opus 4.6이 이제 사용 가능합니다!",
+      "다중 에이전트 협업을 위한 연구 미리보기 에이전트 팀 기능이 추가되었습니다(토큰 집약적인 기능, CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 설정 필요).",
+      "Claude는 작업 중 자동으로 메모리를 기록하고 회상합니다.",
+      "메시지 선택기에 \"여기서 요약\" 기능이 추가되어 부분 대화 요약이 가능합니다.",
+      "추가 디렉토리(--add-dir) 내의 .claude/skills/에 정의된 기술이 이제 자동으로 로드됩니다.",
+      "--resume이 기본적으로 이전 대화에서 지정된 --agent 값을 재사용하도록 업데이트되었습니다.",
+      "기술 문자 예산이 이제 컨텍스트 창에 따라 조정되어, 더 큰 컨텍스트 창을 가진 사용자가 잘림 없이 더 많은 기술 설명을 볼 수 있습니다.",
+      "VSCode: 입력 필드에 앞선 텍스트가 있을 때 Enter를 눌러 슬래시 명령이 잘못 실행되는 문제를 수정했습니다."
     ]
   },
   {
@@ -2211,9 +2218,9 @@
       "Reduced layout jitter in the terminal when the spinner appears and disappears during streaming"
     ],
     "features_ko": [
-      "Added session resume hint on exit, showing how to continue your conversation later",
-      "Added support for full-width (zenkaku) space input from Japanese IME in checkbox selection",
-      "Reduced layout jitter in the terminal when the spinner appears and disappears during streaming"
+      "종료 시 세션 재개 힌트가 추가되어 나중에 대화를 계속하는 방법을 보여줍니다.",
+      "체크박스 선택에서 일본어 IME의 전각(zenkaku) 공백 입력을 지원합니다.",
+      "스트리밍 중 스피너가 나타나고 사라질 때 터미널의 레이아웃 떨림이 줄어들었습니다."
     ]
   },
   {
@@ -2292,14 +2299,14 @@
       "[VSCode] Fixed duplicate sessions appearing in the session list when starting a new conversation"
     ],
     "features_ko": [
-      "Added pages parameter to the Read tool for PDFs, allowing specific page ranges to be read (e.g., pages: \"1-5\"). Large PDFs (>10 pages) now return a lightweight reference when @ mentioned instead of being inlined into context.",
-      "Added pre-configured OAuth client credentials for MCP servers that don't support Dynamic Client Registration (e.g., Slack). Use --client-id and --client-secret with claude mcp add.",
-      "Added /debug for Claude to help troubleshoot the current session",
-      "Added support for additional git log and git show flags in read-only mode (e.g., --topo-order, --cherry-pick, --format, --raw)",
-      "Added token count, tool uses, and duration metrics to Task tool results",
-      "Added reduced motion mode to the config",
-      "[VSCode] Added multiline input support to the \"Other\" text input in question dialogs (use Shift+Enter for new lines)",
-      "[VSCode] Fixed duplicate sessions appearing in the session list when starting a new conversation"
+      "PDF용 Read 도구에 pages 매개변수가 추가되어 특정 페이지 범위를 읽을 수 있게 되었습니다(예: pages: \"1-5\"). 큰 PDF(10페이지 초과)는 @ 언급 시 경량 참조를 반환하며, 컨텍스트에 인라인되지 않습니다.",
+      "동적 클라이언트 등록을 지원하지 않는 MCP 서버(예: Slack)를 위한 미리 구성된 OAuth 클라이언트 자격 증명이 추가되었습니다. claude mcp add와 함께 --client-id 및 --client-secret을 사용하세요.",
+      "현재 세션 문제 해결을 위한 /debug 추가",
+      "읽기 전용 모드에서 추가 git log 및 git show 플래그 지원 추가 (예: --topo-order, --cherry-pick, --format, --raw)",
+      "Task 도구 결과에 토큰 수, 도구 사용 및 지속 시간 메트릭 추가",
+      "설정에 감소된 모션 모드 추가",
+      "[VSCode] 질문 대화 상자의 \"기타\" 텍스트 입력에 다중 입력 지원 추가 (새 줄은 Shift+Enter 사용)",
+      "[VSCode] 새 대화를 시작할 때 세션 목록에 중복 세션이 나타나는 문제 수정"
     ]
   },
   {
@@ -2333,12 +2340,12 @@
       "VSCode: Fixed OAuth token expiration causing 401 errors after extended sessions"
     ],
     "features_ko": [
-      "Added tool call failures and denials to debug logs",
-      "Added --from-pr flag to resume sessions linked to a specific GitHub PR number or URL",
-      "Sessions are now automatically linked to PRs when created via gh pr create",
-      "Windows: Fixed bash command execution failing for users with .bashrc files",
-      "Windows: Fixed console windows flashing when spawning child processes",
-      "VSCode: Fixed OAuth token expiration causing 401 errors after extended sessions"
+      "디버그 로그에 도구 호출 실패 및 거부 추가",
+      "특정 GitHub PR 번호 또는 URL에 연결된 세션을 재개하기 위한 --from-pr 플래그 추가",
+      "gh pr create를 통해 생성된 세션이 이제 자동으로 PR에 연결됨",
+      "Windows: .bashrc 파일이 있는 사용자의 bash 명령 실행 실패 문제 수정",
+      "Windows: 자식 프로세스를 생성할 때 콘솔 창이 깜박이는 문제 수정",
+      "VSCode: 연장된 세션 후 OAuth 토큰 만료로 인한 401 오류 수정"
     ]
   },
   {
@@ -2357,8 +2364,8 @@
       "[IDE] Fixed model options displaying incorrect region strings for Bedrock users in headless mode"
     ],
     "features_ko": [
-      "Added customizable spinner verbs setting (spinnerVerbs)",
-      "[IDE] Fixed model options displaying incorrect region strings for Bedrock users in headless mode"
+      "사용자 정의 가능한 스피너 동사 설정 추가 (spinnerVerbs)",
+      "[IDE] 헤드리스 모드에서 Bedrock 사용자의 모델 옵션에 잘못된 지역 문자열 표시 문제 수정"
     ]
   },
   {
@@ -2378,9 +2385,9 @@
       "[VSCode] Fixed message action buttons having incorrect background colors"
     ],
     "features_ko": [
-      "Added support for full-width (zenkaku) number input from Japanese IME in option selection prompts",
-      "[VSCode] Added automatic Python virtual environment activation, ensuring python and pip commands use the correct interpreter (configurable via claudeCode.usePythonEnvironment setting)",
-      "[VSCode] Fixed message action buttons having incorrect background colors"
+      "옵션 선택 프롬프트에서 일본어 IME의 전폭(전각) 숫자 입력 지원 추가",
+      "[VSCode] Python 가상 환경 자동 활성화 추가, python 및 pip 명령이 올바른 인터프리터를 사용하도록 보장 (claudeCode.usePythonEnvironment 설정을 통해 구성 가능)",
+      "[VSCode] 메시지 액션 버튼의 잘못된 배경색 문제 수정"
     ]
   },
   {
@@ -2426,11 +2433,11 @@
       "Added ability to delete tasks via the TaskUpdate tool"
     ],
     "features_ko": [
-      "Added arrow key history navigation in vim normal mode when cursor cannot move further",
-      "Added external editor shortcut (Ctrl+G) to the help menu for better discoverability",
-      "Added PR review status indicator to the prompt footer, showing the current branch's PR state (approved, changes requested, pending, or draft) as a colored dot with a clickable link",
-      "Added support for loading CLAUDE.md files from additional directories specified via --add-dir flag (requires setting CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1)",
-      "Added ability to delete tasks via the TaskUpdate tool"
+      "커서가 더 이상 이동할 수 없을 때 vim 일반 모드에서 화살표 키로 히스토리 탐색 추가",
+      "더 나은 발견 가능성을 위한 도움말 메뉴에 외부 편집기 단축키 (Ctrl+G) 추가",
+      "프롬프트 바닥글에 PR 리뷰 상태 표시기 추가, 현재 브랜치의 PR 상태(승인, 변경 요청, 보류 또는 초안)를 클릭 가능한 링크와 함께 색상 점으로 표시",
+      "--add-dir 플래그를 통해 지정된 추가 디렉토리에서 CLAUDE.md 파일을 로드하는 지원 추가 (CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1 설정 필요)",
+      "TaskUpdate 도구를 통해 작업 삭제 기능 추가"
     ]
   },
   {
@@ -2460,10 +2467,10 @@
       "[VSCode] Enabled session forking and rewind functionality for all users"
     ],
     "features_ko": [
-      "Added env var CLAUDE_CODE_ENABLE_TASKS, set to false to keep the old system temporarily",
-      "Added shorthand $0, $1, etc. for accessing individual arguments in custom commands",
-      "[SDK] Added replay of queued_command attachment messages as SDKUserMessageReplay events when replayUserMessages is enabled",
-      "[VSCode] Enabled session forking and rewind functionality for all users"
+      "이전 시스템을 임시로 유지하기 위해 false로 설정된 환경 변수 CLAUDE_CODE_ENABLE_TASKS 추가",
+      "사용자 정의 명령에서 개별 인수에 접근하기 위한 약식 $0, $1 등 추가",
+      "[SDK] replayUserMessages가 활성화된 경우 queued_command 첨부 메시지를 SDKUserMessageReplay 이벤트로 재생하는 기능 추가",
+      "[VSCode] 모든 사용자에 대한 세션 포크 및 되감기 기능 활성화"
     ]
   },
   {
@@ -2480,7 +2487,7 @@
       "Added customizable keyboard shortcuts. Configure keybindings per context, create chord sequences, and personalize your workflow. Run /keybindings to get started. Learn more at https://code.claude.com/docs/en/keybindings"
     ],
     "features_ko": [
-      "Added customizable keyboard shortcuts. Configure keybindings per context, create chord sequences, and personalize your workflow. Run /keybindings to get started. Learn more at https://code.claude.com/docs/en/keybindings"
+      "사용자 정의 가능한 키보드 단축키 추가. 컨텍스트별로 키 바인딩을 구성하고, 코드 시퀀스를 생성하며, 워크플로를 개인화하세요. 시작하려면 /keybindings를 실행하세요. 자세한 내용은 https://code.claude.com/docs/en/keybindings에서 확인하세요."
     ]
   },
   {
@@ -2507,10 +2514,10 @@
       "[IDE] Fixed a race condition on Windows where the Claude Code sidebar view container would not appear on start"
     ],
     "features_ko": [
-      "Added new task management system, including new capabilities like dependency tracking",
-      "[VSCode] Added native plugin management support",
-      "[VSCode] Added ability for OAuth users to browse and resume remote Claude sessions from the Sessions dialog",
-      "[IDE] Fixed a race condition on Windows where the Claude Code sidebar view container would not appear on start"
+      "종속성 추적과 같은 새로운 기능을 포함한 새로운 작업 관리 시스템 추가",
+      "[VSCode] 네이티브 플러그인 관리 지원 추가",
+      "[VSCode] OAuth 사용자가 세션 대화 상자에서 원격 Claude 세션을 탐색하고 재개할 수 있는 기능 추가",
+      "[IDE] 시작 시 Claude Code 사이드바 뷰 컨테이너가 나타나지 않는 Windows의 경쟁 조건을 수정했습니다."
     ]
   },
   {
@@ -2527,7 +2534,7 @@
       "Added deprecation notification for npm installations - run claude install or see https://docs.anthropic.com/en/docs/claude-code/getting-started for more options"
     ],
     "features_ko": [
-      "Added deprecation notification for npm installations - run claude install or see https://docs.anthropic.com/en/docs/claude-code/getting-started for more options"
+      "npm 설치에 대한 사용 중단 알림을 추가했습니다 - claude install을 실행하거나 https://docs.anthropic.com/en/docs/claude-code/getting-started를 참조하여 더 많은 옵션을 확인하세요."
     ]
   },
   {
@@ -2577,10 +2584,10 @@
       "[VSCode] Added /usage command to display current plan usage"
     ],
     "features_ko": [
-      "Added history-based autocomplete in bash mode (!) - type a partial command and press Tab to complete from your bash command history",
-      "Added search to installed plugins list - type to filter by name or description",
-      "Added support for pinning plugins to specific git commit SHAs, allowing marketplace entries to install exact versions",
-      "[VSCode] Added /usage command to display current plan usage"
+      "bash 모드에서 이력 기반 자동 완성을 추가했습니다 (!) - 부분 명령어를 입력하고 Tab을 눌러 bash 명령어 이력에서 완성하세요.",
+      "설치된 플러그인 목록에 검색 기능을 추가했습니다 - 이름이나 설명으로 필터링하려면 입력하세요.",
+      "특정 git 커밋 SHA에 플러그인을 고정할 수 있는 지원을 추가하여 마켓플레이스 항목이 정확한 버전을 설치할 수 있게 했습니다.",
+      "[VSCode] 현재 요금제 사용량을 표시하는 /usage 명령어를 추가했습니다."
     ]
   },
   {
@@ -2624,10 +2631,10 @@
       "[VSCode] Added trust warning when installing plugins"
     ],
     "features_ko": [
-      "Added new Setup hook event that can be triggered via --init, --init-only, or --maintenance CLI flags for repository setup and maintenance operations",
-      "Added keyboard shortcut 'c' to copy OAuth URL when browser doesn't open automatically during login",
-      "[VSCode] Added install count display to plugin listings",
-      "[VSCode] Added trust warning when installing plugins"
+      "저장소 설정 및 유지 관리 작업을 위해 --init, --init-only 또는 --maintenance CLI 플래그를 통해 트리거할 수 있는 새로운 Setup 훅 이벤트를 추가했습니다.",
+      "로그인 중 브라우저가 자동으로 열리지 않을 때 OAuth URL을 복사하는 'c' 키보드 단축키를 추가했습니다.",
+      "[VSCode] 플러그인 목록에 설치 수 표시를 추가했습니다.",
+      "[VSCode] 플러그인 설치 시 신뢰 경고를 추가했습니다."
     ]
   },
   {
@@ -2654,12 +2661,12 @@
       "Added ${CLAUDE_SESSION_ID} string substitution for skills to access the current session ID"
     ],
     "features_ko": [
-      "Added auto:N syntax for configuring the MCP tool search auto-enable threshold, where N is the context window percentage (0-100)",
-      "Added plansDirectory setting to customize where plan files are stored",
-      "Added external editor support (Ctrl+G) in AskUserQuestion \"Other\" input field",
-      "Added session URL attribution to commits and PRs created from web sessions",
-      "Added support for PreToolUse hooks to return additionalContext to the model",
-      "Added ${CLAUDE_SESSION_ID} string substitution for skills to access the current session ID"
+      "MCP 도구 검색 자동 활성화 임계값을 구성하기 위한 auto:N 구문을 추가했습니다. 여기서 N은 컨텍스트 창 비율(0-100)입니다.",
+      "계획 파일이 저장되는 위치를 사용자 정의할 수 있는 plansDirectory 설정을 추가했습니다.",
+      "AskUserQuestion \"기타\" 입력 필드에서 외부 편집기 지원(Ctrl+G)을 추가했습니다.",
+      "웹 세션에서 생성된 커밋 및 PR에 세션 URL 속성을 추가했습니다.",
+      "모델에 additionalContext를 반환하는 PreToolUse 훅 지원을 추가했습니다.",
+      "현재 세션 ID에 접근하기 위한 기술용 ${CLAUDE_SESSION_ID} 문자열 치환을 추가했습니다."
     ]
   },
   {
@@ -2685,11 +2692,11 @@
       "[VSCode] Fixed claudeProcessWrapper setting passing the wrapper path instead of the Claude binary path"
     ],
     "features_ko": [
-      "Added showTurnDuration setting to hide turn duration messages (e.g., \"Cooked for 1m 6s\")",
-      "Added ability to provide feedback when accepting permission prompts",
-      "Added inline display of agent's final response in task notifications, making it easier to see results without reading the full transcript file",
-      "Enabled MCP tool search auto mode by default for all users. When MCP tool descriptions exceed 10% of the context window, they are automatically deferred and discovered via the MCPSearch tool instead of being loaded upfront. This reduces context usage for users with many MCP tools configured. Users can disable this by adding MCPSearch to disallowedTools in their settings.",
-      "[VSCode] Fixed claudeProcessWrapper setting passing the wrapper path instead of the Claude binary path"
+      "턴 지속 시간 메시지(예: \"1m 6s 동안 요리됨\")를 숨기기 위한 showTurnDuration 설정을 추가했습니다.",
+      "권한 요청 수락 시 피드백을 제공할 수 있는 기능을 추가했습니다.",
+      "작업 알림에서 에이전트의 최종 응답을 인라인으로 표시하여 전체 전사 파일을 읽지 않고도 결과를 쉽게 볼 수 있도록 했습니다.",
+      "모든 사용자에 대해 MCP 도구 검색 자동 모드를 기본으로 활성화했습니다. MCP 도구 설명이 컨텍스트 창의 10%를 초과하면 자동으로 연기되고 MCPSearch 도구를 통해 발견됩니다. 이는 많은 MCP 도구가 구성된 사용자에게 컨텍스트 사용량을 줄여줍니다. 사용자는 설정의 disallowedTools에 MCPSearch를 추가하여 이를 비활성화할 수 있습니다.",
+      "[VSCode] claudeProcessWrapper 설정이 Claude 바이너리 경로 대신 래퍼 경로를 전달하는 문제를 수정했습니다."
     ]
   },
   {
@@ -2738,14 +2745,14 @@
       "[VSCode] Fixed usage indicator not updating after manual compact"
     ],
     "features_ko": [
-      "Added search functionality to /config command for quickly filtering settings",
-      "Added Updates section to /doctor showing auto-update channel and available npm versions (stable/latest)",
-      "Added date range filtering to /stats command - press r to cycle between Last 7 days, Last 30 days, and All time",
-      "Added automatic discovery of skills from nested .claude/skills directories when working with files in subdirectories",
-      "Added context_window.used_percentage and context_window.remaining_percentage fields to status line input for easier context window display",
-      "Added an error display when the editor fails during Ctrl+G",
-      "Updated \"Help improve Claude\" setting fetch to refresh OAuth and retry when it fails due to a stale OAuth token",
-      "[VSCode] Fixed usage indicator not updating after manual compact"
+      "설정을 빠르게 필터링하기 위한 /config 명령어에 검색 기능을 추가했습니다.",
+      "/doctor에 자동 업데이트 채널 및 사용 가능한 npm 버전(안정/최신)을 표시하는 Updates 섹션을 추가했습니다.",
+      "/stats 명령어에 날짜 범위 필터링을 추가했습니다 - r을 눌러 지난 7일, 지난 30일 및 전체 기간 사이를 순환하세요.",
+      "하위 디렉토리의 파일 작업 시 중첩된 .claude/skills 디렉토리에서 기술을 자동으로 발견하는 기능을 추가했습니다.",
+      "컨텍스트 창 표시를 쉽게 하기 위해 status line 입력에 context_window.used_percentage 및 context_window.remaining_percentage 필드를 추가했습니다.",
+      "Ctrl+G 중 편집기가 실패할 때 오류 표시를 추가했습니다.",
+      "\"Claude 개선에 도움 주기\" 설정 가져오기를 업데이트하여 OAuth를 새로 고치고 오래된 OAuth 토큰으로 인해 실패할 경우 재시도하도록 했습니다.",
+      "[VSCode] 수동 압축 후 사용량 표시기가 업데이트되지 않는 문제를 수정했습니다."
     ]
   },
   {
@@ -2756,7 +2763,7 @@
       "Added CLAUDE_CODE_TMPDIR environment variable to override the temp directory used for internal temp files, useful for environments with custom temp directory requirements"
     ],
     "features_ko": [
-      "Added CLAUDE_CODE_TMPDIR environment variable to override the temp directory used for internal temp files, useful for environments with custom temp directory requirements"
+      "내부 임시 파일에 사용되는 임시 디렉토리를 재정의하기 위한 CLAUDE_CODE_TMPDIR 환경 변수를 추가했습니다. 이는 사용자 정의 임시 디렉토리 요구 사항이 있는 환경에서 유용합니다."
     ]
   },
   {
@@ -2773,7 +2780,7 @@
       "Added CLAUDE_CODE_DISABLE_BACKGROUND_TASKS environment variable to disable all background task functionality including auto-backgrounding and the Ctrl+B shortcut"
     ],
     "features_ko": [
-      "Added CLAUDE_CODE_DISABLE_BACKGROUND_TASKS environment variable to disable all background task functionality including auto-backgrounding and the Ctrl+B shortcut"
+      "모든 백그라운드 작업 기능을 비활성화하는 CLAUDE_CODE_DISABLE_BACKGROUND_TASKS 환경 변수를 추가했습니다. 여기에는 자동 백그라운딩 및 Ctrl+B 단축키가 포함됩니다."
     ]
   },
   {
@@ -2803,10 +2810,10 @@
       "[VSCode] Added clickable destination selector for permission requests, allowing you to choose where settings are saved (this project, all projects, shared with team, or session only)"
     ],
     "features_ko": [
-      "Merged slash commands and skills, simplifying the mental model with no change in behavior",
-      "Added release channel (stable or latest) toggle to /config",
-      "Added detection and warnings for unreachable permission rules, with warnings in /doctor and after saving rules that include the source of each rule and actionable fix guidance",
-      "[VSCode] Added clickable destination selector for permission requests, allowing you to choose where settings are saved (this project, all projects, shared with team, or session only)"
+      "슬래시 명령과 스킬을 통합하여 행동 변화 없이 정신 모델을 단순화했습니다.",
+      "/config에 릴리스 채널(안정적 또는 최신) 전환 기능을 추가했습니다.",
+      "도달할 수 없는 권한 규칙에 대한 감지 및 경고를 추가했습니다. 경고는 /doctor와 규칙을 저장한 후 각 규칙의 출처 및 실행 가능한 수정 안내를 포함합니다.",
+      "[VSCode] 권한 요청을 위한 클릭 가능한 목적지 선택기를 추가하여 설정이 저장될 위치를 선택할 수 있게 했습니다(이 프로젝트, 모든 프로젝트, 팀과 공유, 또는 세션 전용)."
     ]
   },
   {
@@ -2845,14 +2852,14 @@
       "[VSCode] Fixed usage display not updating after manual compact"
     ],
     "features_ko": [
-      "Added source path metadata to images dragged onto the terminal, helping Claude understand where images originated",
-      "Added clickable hyperlinks for file paths in tool output in terminals that support OSC 8 (like iTerm)",
-      "Added support for Windows Package Manager (winget) installations with automatic detection and update instructions",
-      "Added Shift+Tab keyboard shortcut in plan mode to quickly select \"auto-accept edits\" option",
-      "Added FORCE_AUTOUPDATE_PLUGINS environment variable to allow plugin autoupdate even when the main auto-updater is disabled",
-      "Added agent_type to SessionStart hook input, populated if --agent is specified",
-      "[SDK] Changed minimum zod peer dependency to ^4.0.0",
-      "[VSCode] Fixed usage display not updating after manual compact"
+      "터미널에 드래그된 이미지에 소스 경로 메타데이터를 추가하여 Claude가 이미지의 출처를 이해하는 데 도움을 줍니다.",
+      "OSC 8을 지원하는 터미널에서 도구 출력의 파일 경로에 클릭 가능한 하이퍼링크를 추가했습니다(iTerm과 같은).",
+      "Windows Package Manager(winget) 설치에 대한 지원을 추가하고 자동 감지 및 업데이트 지침을 제공합니다.",
+      "계획 모드에서 Shift+Tab 단축키를 추가하여 \"자동 수락 편집\" 옵션을 빠르게 선택할 수 있게 했습니다.",
+      "주 자동 업데이트가 비활성화되어도 플러그인 자동 업데이트를 허용하는 FORCE_AUTOUPDATE_PLUGINS 환경 변수를 추가했습니다.",
+      "SessionStart 훅 입력에 agent_type을 추가했습니다. --agent가 지정된 경우 채워집니다.",
+      "[SDK] 최소 zod 동료 종속성을 ^4.0.0으로 변경했습니다.",
+      "[VSCode] 수동 압축 후 사용량 표시가 업데이트되지 않는 문제를 수정했습니다."
     ]
   },
   {
@@ -2966,14 +2973,14 @@
       "Added wildcard pattern matching for Bash tool permissions using * at any position in rules (e.g., Bash(npm *), Bash(* install), Bash(git * main))"
     ],
     "features_ko": [
-      "Added automatic skill hot-reload - skills created or modified in ~/.claude/skills or .claude/skills are now immediately available without restarting the session",
-      "Added support for running skills and slash commands in a forked sub-agent context using context: fork in skill frontmatter",
-      "Added support for agent field in skills to specify agent type for execution",
-      "Added language setting to configure Claude's response language (e.g., language: \"japanese\")",
-      "Added respectGitignore support in settings.json for per-project control over @-mention file picker behavior",
-      "Added IS_DEMO environment variable to hide email and organization from the UI, useful for streaming or recording sessions",
-      "Reduced permission prompts for complex bash commands",
-      "Added wildcard pattern matching for Bash tool permissions using * at any position in rules (e.g., Bash(npm *), Bash(* install), Bash(git * main))"
+      "자동 스킬 핫 리로드 기능을 추가했습니다. ~/.claude/skills 또는 .claude/skills에서 생성되거나 수정된 스킬은 세션을 재시작하지 않고 즉시 사용할 수 있습니다.",
+      "스킬 프론트 매터에서 context: fork를 사용하여 포크된 서브 에이전트 컨텍스트에서 스킬 및 슬래시 명령을 실행하는 지원을 추가했습니다.",
+      "실행을 위한 에이전트 유형을 지정하기 위해 스킬에 agent 필드 지원을 추가했습니다.",
+      "Claude의 응답 언어를 구성하는 언어 설정을 추가했습니다(예: language: \"japanese\").",
+      "@-mention 파일 선택기 동작에 대한 프로젝트별 제어를 위해 settings.json에 respectGitignore 지원을 추가했습니다.",
+      "UI에서 이메일과 조직을 숨기기 위한 IS_DEMO 환경 변수를 추가했습니다. 이는 스트리밍 또는 녹화 세션에 유용합니다.",
+      "복잡한 bash 명령에 대한 권한 프롬프트를 줄였습니다.",
+      "규칙의 모든 위치에서 *를 사용하여 Bash 도구 권한에 대한 와일드카드 패턴 매칭을 추가했습니다(예: Bash(npm *), Bash(* install), Bash(git * main))."
     ]
   },
   {
@@ -2991,7 +2998,7 @@
       "Minor bugfixes"
     ],
     "features_ko": [
-      "Minor bugfixes"
+      "사소한 버그 수정"
     ]
   },
   {
@@ -3039,13 +3046,13 @@
       "[VSCode] Added gift tag pictogram for year-end promotion message"
     ],
     "features_ko": [
-      "Added LSP (Language Server Protocol) tool for code intelligence features like go-to-definition, find references, and hover documentation",
-      "Added /terminal-setup support for Kitty, Alacritty, Zed, and Warp terminals",
-      "Added ctrl+t shortcut in /theme to toggle syntax highlighting on/off",
-      "Added syntax highlighting info to theme picker",
-      "Added guidance for macOS users when Alt shortcuts fail due to terminal configuration",
-      "[Windows] Fixed issue with improper rendering",
-      "[VSCode] Added gift tag pictogram for year-end promotion message"
+      "정의로 이동, 참조 찾기 및 호버 문서와 같은 코드 인텔리전스 기능을 위한 LSP(언어 서버 프로토콜) 도구를 추가했습니다.",
+      "Kitty, Alacritty, Zed 및 Warp 터미널에 대한 /terminal-setup 지원을 추가했습니다.",
+      "/theme에서 구문 강조를 켜고 끌 수 있는 ctrl+t 단축키를 추가했습니다.",
+      "테마 선택기에 구문 강조 정보 추가.",
+      "터미널 구성으로 인해 Alt 단축키가 실패할 때 macOS 사용자에 대한 안내를 추가했습니다.",
+      "[Windows] 잘못된 렌더링 문제를 수정했습니다.",
+      "[VSCode] 연말 프로모션 메시지를 위한 기프트 태그 픽토그램을 추가했습니다."
     ]
   },
   {
@@ -3096,11 +3103,11 @@
       "[VSCode] Added tab icon badges showing pending permissions (blue) and unread completions (orange)"
     ],
     "features_ko": [
-      "Added clickable [Image #N] links that open attached images in the default viewer",
-      "Added alt-y yank-pop to cycle through kill ring history after ctrl-y yank",
-      "Added search filtering to the plugin discover screen (type to filter by name, description, or marketplace)",
-      "Added support for custom session IDs when forking sessions with --session-id combined with --resume or --continue and --fork-session",
-      "[VSCode] Added tab icon badges showing pending permissions (blue) and unread completions (orange)"
+      "기본 뷰어에서 첨부된 이미지를 열 수 있는 클릭 가능한 [Image #N] 링크를 추가했습니다.",
+      "ctrl-y yank 후 kill ring 기록을 순환하기 위해 alt-y yank-pop 추가",
+      "플러그인 발견 화면에 검색 필터링 추가 (이름, 설명 또는 마켓플레이스별로 필터링)",
+      "--session-id와 --resume 또는 --continue 및 --fork-session을 조합하여 세션을 포크할 때 사용자 정의 세션 ID 지원 추가",
+      "[VSCode] 대기 중인 권한(파란색) 및 읽지 않은 완료(주황색)를 표시하는 탭 아이콘 배지 추가"
     ]
   },
   {
@@ -3135,10 +3142,10 @@
       "Added loading indicator when resuming conversations for better feedback"
     ],
     "features_ko": [
-      "Added Claude in Chrome (Beta) feature that works with the Chrome extension (https://claude.ai/chrome) to let you control your browser directly from Claude Code",
-      "Reduced terminal flickering",
-      "Added scannable QR code to mobile app tip for quick app downloads",
-      "Added loading indicator when resuming conversations for better feedback"
+      "Claude Code에서 브라우저를 직접 제어할 수 있도록 Chrome 확장 프로그램(https://claude.ai/chrome)과 함께 작동하는 Claude in Chrome (Beta) 기능 추가",
+      "터미널 깜박임 감소",
+      "빠른 앱 다운로드를 위한 모바일 앱 팁에 스캔 가능한 QR 코드 추가",
+      "대화를 재개할 때 더 나은 피드백을 위한 로딩 표시기 추가"
     ]
   },
   {
@@ -3168,10 +3175,10 @@
       "New syntax highlighting engine for native build"
     ],
     "features_ko": [
-      "Added /config toggle to enable/disable prompt suggestions",
-      "Added /settings as an alias for the /config command",
-      "Bedrock: Environment variable ANTHROPIC_BEDROCK_BASE_URL is now respected for token counting and inference profile listing",
-      "New syntax highlighting engine for native build"
+      "프롬프트 제안을 활성화/비활성화하는 /config 토글 추가",
+      "/config 명령의 별칭으로 /settings 추가",
+      "Bedrock: 토큰 계산 및 추론 프로필 목록을 위해 환경 변수 ANTHROPIC_BEDROCK_BASE_URL이 이제 존중됨",
+      "네이티브 빌드를 위한 새로운 구문 강조 엔진"
     ]
   },
   {
@@ -3198,12 +3205,12 @@
       "Improve UI for file creation permission dialog"
     ],
     "features_ko": [
-      "Added Enter key to accept and submit prompt suggestions immediately (tab still accepts for editing)",
-      "Added wildcard syntax mcp__server__* for MCP tool permissions to allow or deny all tools from a server",
-      "Added auto-update toggle for plugin marketplaces, allowing per-marketplace control over automatic updates",
-      "Added current_usage field to status line input, enabling accurate context window percentage calculations",
-      "Fix thinking mode toggle in /config not persisting correctly",
-      "Improve UI for file creation permission dialog"
+      "프롬프트 제안을 즉시 수락하고 제출하기 위해 Enter 키 추가 (탭은 여전히 편집을 위해 수락)",
+      "서버에서 모든 도구를 허용하거나 거부하기 위한 MCP 도구 권한에 대한 와일드카드 구문 mcp__server__* 추가",
+      "플러그인 마켓플레이스에 대한 자동 업데이트 토글 추가, 마켓플레이스별로 자동 업데이트 제어 가능",
+      "상태 줄 입력에 current_usage 필드 추가, 정확한 컨텍스트 창 비율 계산 가능",
+      "/config에서 생각 모드 토글이 올바르게 유지되지 않는 문제 수정",
+      "파일 생성 권한 대화 상자의 UI 개선"
     ]
   },
   {
@@ -3214,7 +3221,7 @@
       "Minor bugfixes"
     ],
     "features_ko": [
-      "Minor bugfixes"
+      "사소한 버그 수정"
     ]
   },
   {
@@ -3225,7 +3232,7 @@
       "Add support for enterprise managed settings. Contact your Anthropic account team to enable this feature."
     ],
     "features_ko": [
-      "Add support for enterprise managed settings. Contact your Anthropic account team to enable this feature."
+      "기업 관리 설정 지원 추가. 이 기능을 활성화하려면 Anthropic 계정 팀에 문의하십시오."
     ]
   },
   {
@@ -3256,11 +3263,11 @@
       "Windows: Fixed plugin MCP servers failing due to colons in log directory paths"
     ],
     "features_ko": [
-      "Thinking mode is now enabled by default for Opus 4.5",
-      "Thinking mode configuration has moved to /config",
-      "Added search functionality to /permissions command with / keyboard shortcut for filtering rules by tool name",
-      "Show reason why autoupdater is disabled in /doctor",
-      "Windows: Fixed plugin MCP servers failing due to colons in log directory paths"
+      "Opus 4.5에 대해 생각 모드가 기본적으로 활성화됨",
+      "생각 모드 구성은 /config로 이동",
+      "/permissions 명령에 검색 기능 추가, 도구 이름별로 규칙 필터링을 위한 / 키보드 단축키",
+      "/doctor에서 자동 업데이트기가 비활성화된 이유 표시",
+      "Windows: 로그 디렉토리 경로의 콜론으로 인해 플러그인 MCP 서버가 실패하는 문제 수정"
     ]
   },
   {
@@ -3280,10 +3287,10 @@
       "Added CLAUDE_CODE_SHELL environment variable to override automatic shell detection (useful when login shell differs from actual working shell)"
     ],
     "features_ko": [
-      "Added ability to switch models while writing a prompt using alt+p (linux, windows), option+p (macos).",
-      "Added context window information to status line input",
-      "Added fileSuggestion setting for custom @ file search commands",
-      "Added CLAUDE_CODE_SHELL environment variable to override automatic shell detection (useful when login shell differs from actual working shell)"
+      "프롬프트 작성 중 alt+p (리눅스, 윈도우), option+p (macos)를 사용하여 모델 전환 기능 추가",
+      "상태 줄 입력에 컨텍스트 창 정보 추가",
+      "사용자 정의 @ 파일 검색 명령을 위한 fileSuggestion 설정 추가",
+      "자동 셸 감지를 무시하기 위한 CLAUDE_CODE_SHELL 환경 변수 추가 (로그인 셸과 실제 작업 셸이 다를 때 유용)"
     ]
   },
   {
@@ -3337,14 +3344,14 @@
       "VSCode: Fixed extension not working on Windows ARM64 by falling back to x64 binary via emulation"
     ],
     "features_ko": [
-      "Made auto-compacting instant",
-      "Agents and bash commands can run asynchronously and send messages to wake up the main agent",
-      "/stats now provides users with interesting CC stats, such as favorite model, usage graph, usage streak",
-      "Added named session support: use /rename to name sessions, /resume <name> in REPL or claude --resume <name> from the terminal to resume them",
-      "Added support for .claude/rules/`.  See https://code.claude.com/docs/en/memory for details.",
-      "Added image dimension metadata when images are resized, enabling accurate coordinate mappings for large images",
-      "VSCode: Added copy-to-clipboard button on code blocks and bash tool inputs",
-      "VSCode: Fixed extension not working on Windows ARM64 by falling back to x64 binary via emulation"
+      "자동 압축 즉시 수행",
+      "에이전트와 bash 명령어가 비동기적으로 실행되고 메인 에이전트를 깨우기 위해 메시지를 보낼 수 있습니다.",
+      "/stats는 이제 사용자가 선호하는 모델, 사용 그래프, 사용 연속성 등의 흥미로운 CC 통계를 제공합니다.",
+      "이름이 지정된 세션 지원 추가: 세션 이름을 지정하려면 /rename을 사용하고, REPL에서 /resume <name> 또는 터미널에서 claude --resume <name>을 사용하여 세션을 재개합니다.",
+      ".claude/rules/에 대한 지원 추가. 자세한 내용은 https://code.claude.com/docs/en/memory를 참조하세요.",
+      "이미지 크기 조정 시 이미지 차원 메타데이터가 추가되어 대형 이미지에 대한 정확한 좌표 매핑이 가능해졌습니다.",
+      "VSCode: 코드 블록 및 bash 도구 입력에 클립보드 복사 버튼 추가",
+      "VSCode: 에뮬레이션을 통해 x64 바이너리로 대체하여 Windows ARM64에서 확장이 작동하지 않는 문제 수정"
     ]
   },
   {
@@ -3356,8 +3363,8 @@
       "Added attribution setting to customize commit and PR bylines (deprecates includeCoAuthoredBy)"
     ],
     "features_ko": [
-      "Added \"(Recommended)\" indicator for multiple-choice questions, with the recommended option moved to the top of the list",
-      "Added attribution setting to customize commit and PR bylines (deprecates includeCoAuthoredBy)"
+      "다중 선택 질문에 \"(추천)\" 표시가 추가되었으며, 추천 옵션이 목록 상단으로 이동했습니다.",
+      "커밋 및 PR 바이라인을 사용자 정의할 수 있는 저작권 설정 추가 (includeCoAuthoredBy는 더 이상 사용되지 않음)"
     ]
   },
   {
@@ -3391,12 +3398,12 @@
       "VSCode: Added support for multiple terminal clients connecting to the IDE server simultaneously"
     ],
     "features_ko": [
-      "Added background agent support. Agents run in the background while you work",
-      "Added --disable-slash-commands CLI flag to disable all slash commands",
-      "Added model name to \"Co-Authored-By\" commit messages",
-      "Enabled \"/mcp enable [server-name]\" or \"/mcp disable [server-name]\" to quickly toggle all servers",
-      "Updated Fetch to skip summarization for pre-approved websites",
-      "VSCode: Added support for multiple terminal clients connecting to the IDE server simultaneously"
+      "백그라운드 에이전트 지원 추가. 에이전트는 작업 중에 백그라운드에서 실행됩니다.",
+      "모든 슬래시 명령어를 비활성화하는 --disable-slash-commands CLI 플래그 추가",
+      "\"Co-Authored-By\" 커밋 메시지에 모델 이름 추가",
+      "\"/mcp enable [server-name]\" 또는 \"/mcp disable [server-name]\"을 사용하여 모든 서버를 빠르게 전환할 수 있습니다.",
+      "Fetch를 업데이트하여 사전 승인된 웹사이트에 대한 요약 생략",
+      "VSCode: IDE 서버에 동시에 연결할 수 있는 여러 터미널 클라이언트 지원 추가"
     ]
   },
   {
@@ -3415,9 +3422,9 @@
       "VS Code: Fixed .claude.json config file being read from incorrect location"
     ],
     "features_ko": [
-      "Added --agent CLI flag to override the agent setting for the current session",
-      "Added agent setting to configure main thread with a specific agent's system prompt, tool restrictions, and model",
-      "VS Code: Fixed .claude.json config file being read from incorrect location"
+      "현재 세션의 에이전트 설정을 무시하는 --agent CLI 플래그 추가",
+      "특정 에이전트의 시스템 프롬프트, 도구 제한 및 모델로 메인 스레드를 구성하는 에이전트 설정 추가",
+      "VS Code: .claude.json 구성 파일이 잘못된 위치에서 읽히는 문제 수정"
     ]
   },
   {
@@ -3429,8 +3436,8 @@
       "Windows: Managed settings now prefer C:\\Program Files\\ClaudeCode if it exists. Support for C:\\ProgramData\\ClaudeCode will be removed in a future version."
     ],
     "features_ko": [
-      "Pro users now have access to Opus 4.5 as part of their subscription!",
-      "Windows: Managed settings now prefer C:\\Program Files\\ClaudeCode if it exists. Support for C:\\ProgramData\\ClaudeCode will be removed in a future version."
+      "프로 사용자들은 이제 구독의 일환으로 Opus 4.5에 접근할 수 있습니다!",
+      "Windows: 관리 설정은 C:\\Program Files\\ClaudeCode가 존재할 경우 이를 우선시합니다. C:\\ProgramData\\ClaudeCode에 대한 지원은 향후 버전에서 제거될 예정입니다."
     ]
   },
   {
@@ -3442,8 +3449,8 @@
       "VSCode: Added streaming message support for real-time response display"
     ],
     "features_ko": [
-      "Added feedback input when rejecting plans, allowing users to tell Claude what to change",
-      "VSCode: Added streaming message support for real-time response display"
+      "계획을 거부할 때 피드백 입력을 추가하여 사용자가 Claude에게 변경할 내용을 전달할 수 있도록 함",
+      "VSCode: 실시간 응답 표시를 위한 스트리밍 메시지 지원 추가"
     ]
   },
   {
@@ -3455,8 +3462,8 @@
       "VSCode Extension: Added support for VS Code's secondary sidebar (VS Code 1.97+), allowing Claude Code to be displayed in the right sidebar while keeping the file explorer on the left. Requires setting sidebar as Preferred Location in the config."
     ],
     "features_ko": [
-      "Added setting to enable/disable terminal progress bar (OSC 9;4)",
-      "VSCode Extension: Added support for VS Code's secondary sidebar (VS Code 1.97+), allowing Claude Code to be displayed in the right sidebar while keeping the file explorer on the left. Requires setting sidebar as Preferred Location in the config."
+      "터미널 진행 표시줄을 활성화/비활성화하는 설정 추가 (OSC 9;4)",
+      "VSCode 확장: VS Code의 보조 사이드바(VS Code 1.97+) 지원 추가, 파일 탐색기를 왼쪽에 두고 Claude Code를 오른쪽 사이드바에 표시할 수 있습니다. 구성에서 사이드바를 선호하는 위치로 설정해야 합니다."
     ]
   },
   {
@@ -3475,8 +3482,8 @@
       "Fix issue with excessive iTerm notifications"
     ],
     "features_ko": [
-      "Hooks: Enable PermissionRequest hooks to process 'always allow' suggestions and apply permission updates",
-      "Fix issue with excessive iTerm notifications"
+      "Hooks: '항상 허용' 제안을 처리하고 권한 업데이트를 적용하기 위해 PermissionRequest 훅을 활성화합니다.",
+      "과도한 iTerm 알림 문제 수정"
     ]
   },
   {
@@ -3493,7 +3500,7 @@
       "Permit some uses of $! in bash commands"
     ],
     "features_ko": [
-      "Permit some uses of $! in bash commands"
+      "bash 명령어에서 $!의 일부 사용을 허용합니다."
     ]
   },
   {
@@ -3516,13 +3523,13 @@
       "Switched /usage back to \"% used\""
     ],
     "features_ko": [
-      "Added Opus 4.5! https://www.anthropic.com/news/claude-opus-4-5",
-      "Introducing Claude Code for Desktop: https://claude.com/download",
-      "To give you room to try out our new model, we've updated usage limits for Claude Code users. See the Claude Opus 4.5 blog for full details",
-      "Pro users can now purchase extra usage for access to Opus 4.5 in Claude Code",
-      "Plan Mode now builds more precise plans and executes more thoroughly",
-      "Usage limit notifications now easier to understand",
-      "Switched /usage back to \"% used\""
+      "Opus 4.5 추가! https://www.anthropic.com/news/claude-opus-4-5",
+      "데스크탑용 Claude Code 소개: https://claude.com/download",
+      "새로운 모델을 시도할 수 있도록 Claude Code 사용자에 대한 사용 한도를 업데이트했습니다. 전체 세부 사항은 Claude Opus 4.5 블로그를 참조하세요.",
+      "프로 사용자들은 이제 Claude Code에서 Opus 4.5에 대한 추가 사용량을 구매할 수 있습니다.",
+      "Plan Mode가 이제 더 정확한 계획을 세우고 더 철저하게 실행합니다.",
+      "사용 한도 알림이 이제 더 이해하기 쉬워졌습니다.",
+      "/usage를 \"% used\"로 되돌렸습니다."
     ]
   },
   {
@@ -3533,7 +3540,7 @@
       "Silenced a noisy but harmless error during upgrades"
     ],
     "features_ko": [
-      "Silenced a noisy but harmless error during upgrades"
+      "업그레이드 중에 발생하는 시끄럽지만 무해한 오류를 무시했습니다."
     ]
   },
   {
@@ -3550,7 +3557,7 @@
       "Added readline-style ctrl-y for pasting deleted text"
     ],
     "features_ko": [
-      "Added readline-style ctrl-y for pasting deleted text"
+      "삭제된 텍스트를 붙여넣기 위한 readline 스타일의 ctrl-y를 추가했습니다."
     ]
   },
   {
@@ -3583,9 +3590,9 @@
       "Send background tasks to Claude Code on the web by starting a message with &"
     ],
     "features_ko": [
-      "Added support for Microsoft Foundry! See https://code.claude.com/docs/en/azure-ai-foundry",
-      "Added PermissionRequest hook to automatically approve or deny tool permission requests with custom logic",
-      "Send background tasks to Claude Code on the web by starting a message with &"
+      "Microsoft Foundry에 대한 지원을 추가했습니다! https://code.claude.com/docs/en/azure-ai-foundry를 참조하세요.",
+      "사용자 정의 로직으로 도구 권한 요청을 자동으로 승인하거나 거부하는 PermissionRequest 훅을 추가했습니다.",
+      "&로 메시지를 시작하여 웹에서 Claude Code로 백그라운드 작업을 보낼 수 있습니다."
     ]
   },
   {
@@ -3599,10 +3606,10 @@
       "Added the SubagentStart hook event"
     ],
     "features_ko": [
-      "Added permissionMode field for custom agents",
-      "Added tool_use_id field to PreToolUseHookInput and PostToolUseHookInput types",
-      "Added skills frontmatter field to declare skills to auto-load for subagents",
-      "Added the SubagentStart hook event"
+      "사용자 정의 에이전트를 위한 permissionMode 필드를 추가했습니다.",
+      "PreToolUseHookInput 및 PostToolUseHookInput 유형에 tool_use_id 필드를 추가했습니다.",
+      "하위 에이전트를 위해 자동 로드할 기술을 선언하는 skills frontmatter 필드를 추가했습니다.",
+      "SubagentStart 훅 이벤트를 추가했습니다."
     ]
   },
   {
@@ -3613,7 +3620,7 @@
       "Added agent_id and agent_transcript_path fields to SubagentStop hooks."
     ],
     "features_ko": [
-      "Added agent_id and agent_transcript_path fields to SubagentStop hooks."
+      "SubagentStop 훅에 agent_id 및 agent_transcript_path 필드를 추가했습니다."
     ]
   },
   {
@@ -3645,12 +3652,12 @@
       "Teleporting a session from web will automatically set the upstream branch"
     ],
     "features_ko": [
-      "Added model parameter to prompt-based stop hooks, allowing users to specify a custom model for hook evaluation",
-      "ctrl-r history search landing on a slash command no longer cancels the search",
-      "SDK: Support custom timeouts for hooks",
-      "Allow more safe git commands to run without approval",
-      "Plugins: Added support for sharing and installing output styles",
-      "Teleporting a session from web will automatically set the upstream branch"
+      "사용자 정의 모델을 훅 평가에 지정할 수 있도록 프롬프트 기반 중지 훅에 model 매개변수를 추가했습니다.",
+      "ctrl-r 이력 검색이 슬래시 명령에 착륙해도 검색이 취소되지 않습니다.",
+      "SDK: 훅에 대한 사용자 정의 타임아웃을 지원합니다.",
+      "승인 없이 더 안전한 git 명령을 실행할 수 있도록 허용합니다.",
+      "플러그인: 출력 스타일 공유 및 설치 지원을 추가했습니다.",
+      "웹에서 세션을 텔레포트하면 자동으로 업스트림 브랜치가 설정됩니다."
     ]
   },
   {
@@ -3662,8 +3669,8 @@
       "Output Styles: Added keep-coding-instructions option to frontmatter"
     ],
     "features_ko": [
-      "Hooks: Added matcher values for Notification hook events",
-      "Output Styles: Added keep-coding-instructions option to frontmatter"
+      "훅: Notification 훅 이벤트에 대한 매처 값을 추가했습니다.",
+      "출력 스타일: frontmatter에 keep-coding-instructions 옵션을 추가했습니다."
     ]
   },
   {
@@ -3689,9 +3696,9 @@
       "Migrated ignorePatterns from project config to deny permissions in the localSettings."
     ],
     "features_ko": [
-      "Improve fuzzy search results when searching commands",
-      "Added CLAUDE_CODE_EXIT_AFTER_STOP_DELAY environment variable to automatically exit SDK mode after a specified idle duration, useful for automated workflows and scripts",
-      "Migrated ignorePatterns from project config to deny permissions in the localSettings."
+      "명령 검색 시 퍼지 검색 결과를 개선했습니다.",
+      "지정된 유휴 기간 후에 SDK 모드를 자동으로 종료하는 CLAUDE_CODE_EXIT_AFTER_STOP_DELAY 환경 변수를 추가했습니다. 이는 자동화된 워크플로우 및 스크립트에 유용합니다.",
+      "ignorePatterns를 프로젝트 구성에서 로컬 설정의 권한 거부로 마이그레이션했습니다."
     ]
   },
   {
@@ -3702,7 +3709,7 @@
       "VSCode Extension: Added setting to configure the initial permission mode for new conversations"
     ],
     "features_ko": [
-      "VSCode Extension: Added setting to configure the initial permission mode for new conversations"
+      "VSCode 확장: 새로운 대화에 대한 초기 권한 모드를 구성하는 설정을 추가했습니다."
     ]
   },
   {
@@ -3713,7 +3720,7 @@
       "Native binary installs now launch quicker."
     ],
     "features_ko": [
-      "Native binary installs now launch quicker."
+      "네이티브 바이너리 설치가 이제 더 빠르게 시작됩니다."
     ]
   },
   {
@@ -3725,8 +3732,8 @@
       "Added companyAnnouncements setting for displaying announcements on startup"
     ],
     "features_ko": [
-      "Un-deprecate output styles based on community feedback",
-      "Added companyAnnouncements setting for displaying announcements on startup"
+      "커뮤니티 피드백을 기반으로 출력 스타일을 다시 활성화했습니다.",
+      "시작 시 공지를 표시하기 위한 companyAnnouncements 설정을 추가했습니다."
     ]
   },
   {
@@ -3755,9 +3762,9 @@
       "VSCode: Adding the respectGitIgnore configuration to include .gitignored files in file searches (defaults to true)"
     ],
     "features_ko": [
-      "Windows: native installation uses shift+tab as shortcut for mode switching, instead of alt+m",
-      "Vertex: add support for Web Search on supported models",
-      "VSCode: Adding the respectGitIgnore configuration to include .gitignored files in file searches (defaults to true)"
+      "Windows: 네이티브 설치는 모드 전환을 위한 단축키로 shift+tab을 사용합니다. alt+m 대신에.",
+      "Vertex: 지원되는 모델에서 웹 검색 지원 추가",
+      "VSCode: .gitignored 파일을 파일 검색에 포함시키기 위한 respectGitIgnore 구성 추가 (기본값: true)"
     ]
   },
   {
@@ -3790,13 +3797,13 @@
       "VSCode: Restored selection indicator in input footer showing current file or code selection status"
     ],
     "features_ko": [
-      "Added helpful hint to run security unlock-keychain when encountering API key errors on macOS with locked keychain",
-      "Added allowUnsandboxedCommands sandbox setting to disable the dangerouslyDisableSandbox escape hatch at policy level",
-      "Added disallowedTools field to custom agent definitions for explicit tool blocking",
-      "Added prompt-based stop hooks",
-      "VSCode: Added respectGitIgnore configuration to include .gitignored files in file searches (defaults to true)",
-      "Enabled SSE MCP servers on native build",
-      "VSCode: Restored selection indicator in input footer showing current file or code selection status"
+      "macOS에서 잠긴 키체인으로 API 키 오류가 발생할 때 security unlock-keychain 실행을 위한 유용한 힌트 추가",
+      "정책 수준에서 dangerouslyDisableSandbox 탈출구를 비활성화하기 위한 allowUnsandboxedCommands 샌드박스 설정 추가",
+      "명시적 도구 차단을 위한 사용자 정의 에이전트 정의에 disallowedTools 필드 추가",
+      "프롬프트 기반 중지 훅 추가",
+      "VSCode: .gitignored 파일을 파일 검색에 포함시키기 위한 respectGitIgnore 구성 추가 (기본값: true)",
+      "네이티브 빌드에서 SSE MCP 서버 활성화",
+      "VSCode: 현재 파일 또는 코드 선택 상태를 보여주는 입력 바닥글의 선택 표시기 복원"
     ]
   },
   {
@@ -3820,14 +3827,14 @@
       "Various other bug fixes"
     ],
     "features_ko": [
-      "Plan mode: introduced new Plan subagent",
-      "Subagents: claude can now choose to resume subagents",
-      "Subagents: claude can dynamically choose the model used by its subagents",
-      "SDK: added --max-budget-usd flag",
-      "Discovery of custom slash commands, subagents, and output styles no longer respects .gitignore",
-      "Stop /terminal-setup from adding backslash to Shift + Enter in VS Code",
-      "Add branch and tag support for git-based plugins and marketplaces using fragment syntax (e.g., owner/repo#branch)",
-      "Various other bug fixes"
+      "계획 모드: 새로운 Plan 하위 에이전트 도입",
+      "하위 에이전트: claude가 이제 하위 에이전트를 재개할 수 있음",
+      "하위 에이전트: claude가 하위 에이전트에서 사용할 모델을 동적으로 선택할 수 있음",
+      "SDK: --max-budget-usd 플래그 추가",
+      "사용자 정의 슬래시 명령, 하위 에이전트 및 출력 스타일의 발견이 더 이상 .gitignore를 존중하지 않음",
+      "VS Code에서 Shift + Enter에 백슬래시가 추가되지 않도록 /terminal-setup 중지",
+      "조각 구문을 사용하여 git 기반 플러그인 및 마켓플레이스에 대한 브랜치 및 태그 지원 추가 (예: owner/repo#branch)",
+      "기타 다양한 버그 수정"
     ]
   },
   {
@@ -3841,10 +3848,10 @@
       "VSCode Extension: Bug fixes for unrelated 'Warmup' conversations, and configuration/settings occasionally being reset to defaults"
     ],
     "features_ko": [
-      "New UI for permission prompts",
-      "Added current branch filtering and search to session resume screen for easier navigation",
-      "VSCode Extension: Add config setting to include .gitignored files in file searches",
-      "VSCode Extension: Bug fixes for unrelated 'Warmup' conversations, and configuration/settings occasionally being reset to defaults"
+      "권한 프롬프트를 위한 새로운 UI",
+      "세션 재개 화면에 현재 브랜치 필터링 및 검색 추가로 탐색 용이성 향상",
+      "VSCode 확장: 파일 검색에 .gitignored 파일을 포함시키기 위한 구성 설정 추가",
+      "VSCode 확장: 관련 없는 'Warmup' 대화 및 구성/설정이 가끔 기본값으로 재설정되는 버그 수정"
     ]
   },
   {
@@ -3870,9 +3877,9 @@
       "Bedrock: Display awsAuthRefresh output when auth is required"
     ],
     "features_ko": [
-      "Claude Code Web: Support for Web -> CLI teleport",
-      "Sandbox: Releasing a sandbox mode for the BashTool on Linux & Mac",
-      "Bedrock: Display awsAuthRefresh output when auth is required"
+      "Claude Code Web: Web -> CLI 텔레포트 지원",
+      "샌드박스: Linux 및 Mac에서 BashTool을 위한 샌드박스 모드 출시",
+      "Bedrock: 인증이 필요할 때 awsAuthRefresh 출력 표시"
     ]
   },
   {
@@ -3885,9 +3892,9 @@
       "Add support for enterprise managed MCP allowlist and denylist"
     ],
     "features_ko": [
-      "IDE: Add toggle to enable/disable thinking.",
-      "Fix bug causing duplicate permission prompts with parallel tool calls",
-      "Add support for enterprise managed MCP allowlist and denylist"
+      "IDE: 생각을 활성화/비활성화하는 토글 추가",
+      "병렬 도구 호출로 인해 중복 권한 프롬프트가 발생하는 버그 수정",
+      "기업 관리 MCP 허용 목록 및 거부 목록 지원 추가"
     ]
   },
   {
@@ -3901,10 +3908,10 @@
       "Added Haiku 4.5 as a model option for Pro users"
     ],
     "features_ko": [
-      "Support MCP structuredContent field in tool responses",
-      "Added an interactive question tool",
-      "Claude will now ask you questions more often in plan mode",
-      "Added Haiku 4.5 as a model option for Pro users"
+      "도구 응답에서 MCP structuredContent 필드 지원",
+      "대화형 질문 도구 추가",
+      "Claude가 이제 계획 모드에서 질문을 더 자주 할 것입니다.",
+      "Pro 사용자용 모델 옵션으로 Haiku 4.5 추가"
     ]
   },
   {
@@ -3915,7 +3922,7 @@
       "Added support for Claude Skills"
     ],
     "features_ko": [
-      "Added support for Claude Skills"
+      "Claude Skills 지원 추가"
     ]
   },
   {
@@ -3926,7 +3933,7 @@
       "Auto-background long-running bash commands instead of killing them. Customize with BASH_DEFAULT_TIMEOUT_MS"
     ],
     "features_ko": [
-      "Auto-background long-running bash commands instead of killing them. Customize with BASH_DEFAULT_TIMEOUT_MS"
+      "긴 실행 중인 bash 명령을 종료하는 대신 자동으로 백그라운드로 실행. BASH_DEFAULT_TIMEOUT_MS로 사용자 정의 가능"
     ]
   },
   {
@@ -3942,12 +3949,12 @@
       "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC now disables release notes fetching"
     ],
     "features_ko": [
-      "Added Haiku 4.5 to model selector!",
-      "Haiku 4.5 automatically uses Sonnet in plan mode, and Haiku for execution (i.e. SonnetPlan by default)",
-      "3P (Bedrock and Vertex) are not automatically upgraded yet. Manual upgrading can be done through setting ANTHROPIC_DEFAULT_HAIKU_MODEL",
-      "Introducing the Explore subagent. Powered by Haiku it'll search through your codebase efficiently to save context!",
-      "OTEL: support HTTP_PROXY and HTTPS_PROXY",
-      "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC now disables release notes fetching"
+      "모델 선택기에 Haiku 4.5 추가!",
+      "Haiku 4.5는 계획 모드에서 Sonnet을 자동으로 사용하고 실행 시 Haiku를 사용합니다 (즉, 기본적으로 SonnetPlan)",
+      "3P (Bedrock 및 Vertex)는 아직 자동으로 업그레이드되지 않습니다. ANTHROPIC_DEFAULT_HAIKU_MODEL을 설정하여 수동으로 업그레이드할 수 있습니다.",
+      "Explore 서브 에이전트 소개. Haiku로 구동되어 코드베이스를 효율적으로 검색하여 컨텍스트를 저장합니다!",
+      "OTEL: HTTP_PROXY 및 HTTPS_PROXY 지원",
+      "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC 이제 릴리스 노트 가져오기를 비활성화합니다."
     ]
   },
   {
@@ -3971,13 +3978,13 @@
       "Plugins UI polish"
     ],
     "features_ko": [
-      "Fix @-mentioning MCP servers to toggle them on/off",
-      "Improve permission checks for bash with inline env vars",
-      "Fix ultrathink + thinking toggle",
-      "Reduce unnecessary logins",
-      "Document --system-prompt",
-      "Several improvements to rendering",
-      "Plugins UI polish"
+      "MCP 서버를 @-멘션하여 켜고 끌 수 있도록 수정",
+      "인라인 env 변수를 사용한 bash의 권한 검사 개선",
+      "ultrathink + thinking 토글 수정",
+      "불필요한 로그인 감소",
+      "--system-prompt 문서화",
+      "렌더링에 대한 여러 개선 사항",
+      "플러그인 UI 다듬기"
     ]
   },
   {
@@ -4054,14 +4061,14 @@
       "Avoid flickering in /model selector"
     ],
     "features_ko": [
-      "Plugin System Released**: Extend Claude Code with custom commands, agents, hooks, and MCP servers from marketplaces",
-      "/plugin install, /plugin enable/disable, /plugin marketplace commands for plugin management",
-      "Repository-level plugin configuration via extraKnownMarketplaces for team collaboration",
-      "/plugin validate command for validating plugin structure and configuration",
-      "Plugin announcement blog post at https://www.anthropic.com/news/claude-code-plugins",
-      "Plugin documentation available at https://code.claude.com/docs/en/plugins",
-      "Comprehensive error messages and diagnostics via /doctor command",
-      "Avoid flickering in /model selector"
+      "플러그인 시스템 출시**: 맞춤 명령, 에이전트, 후크 및 마켓플레이스의 MCP 서버로 Claude Code 확장",
+      "플러그인 관리를 위한 /plugin install, /plugin enable/disable, /plugin marketplace 명령",
+      "팀 협업을 위한 extraKnownMarketplaces를 통한 리포지토리 수준 플러그인 구성",
+      "플러그인 구조 및 구성을 검증하기 위한 /plugin validate 명령",
+      "플러그인 발표 블로그 포스트: https://www.anthropic.com/news/claude-code-plugins",
+      "플러그인 문서: https://code.claude.com/docs/en/plugins",
+      "/doctor 명령을 통한 포괄적인 오류 메시지 및 진단",
+      "/model 선택기에서 깜박임 방지"
     ]
   },
   {
@@ -4079,8 +4086,8 @@
       "IDE: Fixed keyboard shortcuts and focus issues for smoother interaction"
     ],
     "features_ko": [
-      "Reduced system prompt size by 1.4k tokens",
-      "IDE: Fixed keyboard shortcuts and focus issues for smoother interaction"
+      "시스템 프롬프트 크기를 1.4k 토큰 줄임",
+      "IDE: 더 부드러운 상호작용을 위한 키보드 단축키 및 포커스 문제 수정"
     ]
   },
   {
@@ -4107,12 +4114,12 @@
       "Fixes for bash permission checks with environment variables in the command"
     ],
     "features_ko": [
-      "Rewrote terminal renderer for buttery smooth UI",
-      "Enable/disable MCP servers by @mentioning, or in /mcp",
-      "Added tab completion for shell commands in bash mode",
-      "PreToolUse hooks can now modify tool inputs",
-      "Press Ctrl-G to edit your prompt in your system's configured text editor",
-      "Fixes for bash permission checks with environment variables in the command"
+      "부드러운 UI를 위한 터미널 렌더러 재작성",
+      "@멘션하거나 /mcp에서 MCP 서버를 활성화/비활성화",
+      "bash 모드에서 셸 명령에 대한 탭 완성 추가",
+      "PreToolUse 후크가 이제 도구 입력을 수정할 수 있습니다.",
+      "시스템에 설정된 텍스트 편집기에서 프롬프트를 편집하려면 Ctrl-G를 누르세요.",
+      "명령의 환경 변수에 대한 bash 권한 검사 수정"
     ]
   },
   {
@@ -4123,7 +4130,7 @@
       "Fix regression where bash backgrounding stopped working"
     ],
     "features_ko": [
-      "Fix regression where bash backgrounding stopped working"
+      "bash 백그라운딩이 작동을 멈춘 회귀 수정"
     ]
   },
   {
@@ -4144,11 +4151,11 @@
       "Remove deprecated .claude.json allowedTools, ignorePatterns, env, and todoFeatureEnabled config options (instead, configure these in your settings.json)"
     ],
     "features_ko": [
-      "Update Bedrock default Sonnet model to global.anthropic.claude-sonnet-4-5-20250929-v1:0",
-      "IDE: Add drag-and-drop support for files and folders in chat",
-      "/context: Fix counting for thinking blocks",
-      "Improve message rendering for users with light themes on dark terminals",
-      "Remove deprecated .claude.json allowedTools, ignorePatterns, env, and todoFeatureEnabled config options (instead, configure these in your settings.json)"
+      "Bedrock 기본 Sonnet 모델을 global.anthropic.claude-sonnet-4-5-20250929-v1:0으로 업데이트",
+      "IDE: 채팅에서 파일 및 폴더에 대한 드래그 앤 드롭 지원 추가",
+      "/context: 사고 블록의 카운팅 수정",
+      "어두운 터미널에서 밝은 테마를 사용하는 사용자에 대한 메시지 렌더링 개선",
+      "더 이상 사용되지 않는 .claude.json의 allowedTools, ignorePatterns, env 및 todoFeatureEnabled 구성 옵션 제거 (대신 settings.json에서 구성)"
     ]
   },
   {
@@ -4162,10 +4169,10 @@
       "SDK: Added SDKUserMessageReplay.isReplay to prevent duplicate messages"
     ],
     "features_ko": [
-      "IDE: Fix IME unintended message submission with Enter and Tab",
-      "IDE: Add \"Open in Terminal\" link in login screen",
-      "Fix unhandled OAuth expiration 401 API errors",
-      "SDK: Added SDKUserMessageReplay.isReplay to prevent duplicate messages"
+      "IDE: Enter 및 Tab으로 인한 IME 의도하지 않은 메시지 제출 수정",
+      "IDE: 로그인 화면에 \"터미널에서 열기\" 링크 추가",
+      "처리되지 않은 OAuth 만료 401 API 오류 수정",
+      "SDK: 중복 메시지를 방지하기 위해 SDKUserMessageReplay.isReplay 추가"
     ]
   },
   {
@@ -4177,8 +4184,8 @@
       "Various bug fixes and presentation improvements"
     ],
     "features_ko": [
-      "Skip Sonnet 4.5 default model setting change for Bedrock and Vertex",
-      "Various bug fixes and presentation improvements"
+      "Bedrock 및 Vertex에 대한 Sonnet 4.5 기본 모델 설정 변경 건너뛰기",
+      "다양한 버그 수정 및 프레젠테이션 개선"
     ]
   },
   {
@@ -4217,14 +4224,14 @@
       "Hooks: Reduced PostToolUse 'tool_use' ids were found without 'tool_result' blocks errors"
     ],
     "features_ko": [
-      "New native VS Code extension",
-      "Fresh coat of paint throughout the whole app",
-      "/rewind a conversation to undo code changes",
-      "/usage command to see plan limits",
-      "Tab to toggle thinking (sticky across sessions)",
-      "Ctrl-R to search history",
-      "Unshipped claude config command",
-      "Hooks: Reduced PostToolUse 'tool_use' ids were found without 'tool_result' blocks errors"
+      "새로운 네이티브 VS Code 확장",
+      "전체 앱에 새로운 디자인 적용",
+      "대화를 /rewind하여 코드 변경 사항을 취소",
+      "계획 한계를 보려면 /usage 명령 사용",
+      "생각 전환을 위해 Tab 키 사용 (세션 간 유지)",
+      "Ctrl-R로 기록 검색",
+      "배포되지 않은 claude 구성 명령",
+      "Hooks: 'tool_result' 블록 없이 발견된 PostToolUse 'tool_use' ID 감소 오류 수정"
     ]
   },
   {
@@ -4242,8 +4249,8 @@
       "Add mTLS support for HTTP-based OpenTelemetry exporters"
     ],
     "features_ko": [
-      "Enable /context command for Bedrock and Vertex",
-      "Add mTLS support for HTTP-based OpenTelemetry exporters"
+      "Bedrock 및 Vertex에 대해 /context 명령 활성화",
+      "HTTP 기반 OpenTelemetry 내보내기에 대한 mTLS 지원 추가"
     ]
   },
   {
@@ -4256,9 +4263,9 @@
       "No longer inform Claude of the list of allowed tools when permission is denied"
     ],
     "features_ko": [
-      "Set CLAUDE_BASH_NO_LOGIN environment variable to 1 or true to to skip login shell for BashTool",
-      "Fix Bedrock and Vertex environment variables evaluating all strings as truthy",
-      "No longer inform Claude of the list of allowed tools when permission is denied"
+      "CLAUDE_BASH_NO_LOGIN 환경 변수를 1 또는 true로 설정하여 BashTool의 로그인 셸을 건너뛰기",
+      "Bedrock 및 Vertex 환경 변수가 모든 문자열을 truthy로 평가하는 문제 수정",
+      "권한이 거부될 때 Claude에 허용된 도구 목록을 더 이상 알리지 않음"
     ]
   },
   {
@@ -4271,9 +4278,9 @@
       "Migrated --debug logging to a file, to enable easy tailing & filtering"
     ],
     "features_ko": [
-      "Bash permission rules now support output redirections when matching (e.g., Bash(python:*) matches python script.py > output.txt)",
-      "Added SlashCommand tool, which enables Claude to invoke your slash commands. https://code.claude.com/docs/en/slash-commands#SlashCommand-tool",
-      "Migrated --debug logging to a file, to enable easy tailing & filtering"
+      "bash 권한 규칙이 일치할 때 출력 리디렉션을 지원하도록 업데이트 (예: Bash(python:*)는 python script.py > output.txt와 일치)",
+      "SlashCommand 도구 추가, 이를 통해 Claude가 슬래시 명령을 호출할 수 있습니다. https://code.claude.com/docs/en/slash-commands#SlashCommand-tool",
+      "--debug 로깅을 파일로 마이그레이션하여 쉽게 tailing 및 필터링 가능하게 함"
     ]
   },
   {
@@ -4284,7 +4291,7 @@
       "Fix input lag during typing, especially noticeable with large prompts"
     ],
     "features_ko": [
-      "Fix input lag during typing, especially noticeable with large prompts"
+      "입력 지연 문제를 수정하였으며, 특히 큰 프롬프트에서 눈에 띄게 개선되었습니다."
     ]
   },
   {
@@ -4298,10 +4305,10 @@
       "Fix slash commands now properly update allowed tools instead of replacing them"
     ],
     "features_ko": [
-      "Fix Windows issue where process visually freezes on entering interactive mode",
-      "Support dynamic headers for MCP servers via headersHelper configuration",
-      "Fix thinking mode not working in headless sessions",
-      "Fix slash commands now properly update allowed tools instead of replacing them"
+      "대화형 모드로 진입 시 프로세스가 시각적으로 멈추는 Windows 문제를 수정하였습니다.",
+      "headersHelper 구성을 통해 MCP 서버에 대한 동적 헤더를 지원합니다.",
+      "헤드리스 세션에서 작동하지 않는 사고 모드를 수정하였습니다.",
+      "슬래시 명령이 이제 도구를 대체하는 대신 올바르게 업데이트됩니다."
     ]
   },
   {
@@ -4327,11 +4334,11 @@
       "Add permissions management hint to /add-dir output"
     ],
     "features_ko": [
-      "Add Ctrl-R history search to recall previous commands like bash/zsh",
-      "Fix input lag while typing, especially on Windows",
-      "Add sed command to auto-allowed commands in acceptEdits mode",
-      "Fix Windows PATH comparison to be case-insensitive for drive letters",
-      "Add permissions management hint to /add-dir output"
+      "bash/zsh처럼 이전 명령을 호출할 수 있는 Ctrl-R 히스토리 검색을 추가하였습니다.",
+      "입력 중 지연 문제를 수정하였으며, 특히 Windows에서 개선되었습니다.",
+      "acceptEdits 모드에서 자동 허용 명령에 sed 명령을 추가하였습니다.",
+      "Windows의 PATH 비교를 드라이브 문자에 대해 대소문자를 구분하지 않도록 수정하였습니다.",
+      "/add-dir 출력에 권한 관리 힌트를 추가하였습니다."
     ]
   },
   {
@@ -4353,12 +4360,12 @@
       "Improve UI consistency for permission request dialogs"
     ],
     "features_ko": [
-      "Improve thinking mode display with enhanced visual effects",
-      "Type /t to temporarily disable thinking mode in your prompt",
-      "Improve path validation for glob and grep tools",
-      "Show condensed output for post-tool hooks to reduce visual clutter",
-      "Fix visual feedback when loading state completes",
-      "Improve UI consistency for permission request dialogs"
+      "향상된 시각 효과로 사고 모드 디스플레이를 개선하였습니다.",
+      "프롬프트에서 사고 모드를 일시적으로 비활성화하려면 /t를 입력하세요.",
+      "glob 및 grep 도구에 대한 경로 유효성 검사를 개선하였습니다.",
+      "시각적 혼잡을 줄이기 위해 포스트 도구 후크의 압축된 출력을 표시합니다.",
+      "로딩 상태 완료 시 시각적 피드백을 수정하였습니다.",
+      "권한 요청 대화 상자의 UI 일관성을 개선하였습니다."
     ]
   },
   {
@@ -4380,7 +4387,7 @@
       "Move Ctrl+R keybinding for toggling transcript to Ctrl+O"
     ],
     "features_ko": [
-      "Move Ctrl+R keybinding for toggling transcript to Ctrl+O"
+      "전사 전환을 위한 Ctrl+R 키 바인딩을 Ctrl+O로 이동하였습니다."
     ]
   },
   {
@@ -4401,11 +4408,11 @@
       "IDE: Various improvements and bug fixes"
     ],
     "features_ko": [
-      "Transcript mode (Ctrl+R): Added the model used to generate each assistant message",
-      "Addressed issue where some Claude Max users were incorrectly recognized as Claude Pro users",
-      "Hooks: Added systemMessage support for SessionEnd hooks",
-      "Added spinnerTipsEnabled setting to disable spinner tips",
-      "IDE: Various improvements and bug fixes"
+      "전사 모드(Ctrl+R): 각 어시스턴트 메시지를 생성하는 데 사용된 모델을 추가하였습니다.",
+      "일부 Claude Max 사용자가 잘못 인식되는 문제를 해결하였습니다.",
+      "후크: SessionEnd 후크에 대한 systemMessage 지원을 추가하였습니다.",
+      "스피너 팁을 비활성화하는 spinnerTipsEnabled 설정을 추가하였습니다.",
+      "IDE: 다양한 개선 사항 및 버그 수정을 진행하였습니다."
     ]
   },
   {
@@ -4422,7 +4429,7 @@
       "/model now validates provided model names"
     ],
     "features_ko": [
-      "/model now validates provided model names"
+      "/model이 제공된 모델 이름을 이제 검증합니다."
     ]
   },
   {
@@ -4440,8 +4447,8 @@
       "MCP: OAuth tokens now proactively refresh before expiration"
     ],
     "features_ko": [
-      "/terminal-setup command now supports WezTerm",
-      "MCP: OAuth tokens now proactively refresh before expiration"
+      "/terminal-setup 명령이 이제 WezTerm을 지원합니다.",
+      "MCP: OAuth 토큰이 만료 전에 능동적으로 새로 고쳐집니다."
     ]
   },
   {
@@ -4458,7 +4465,7 @@
       "SDK: Added partial message streaming support via --include-partial-messages CLI flag"
     ],
     "features_ko": [
-      "SDK: Added partial message streaming support via --include-partial-messages CLI flag"
+      "SDK: --include-partial-messages CLI 플래그를 통해 부분 메시지 스트리밍 지원을 추가하였습니다."
     ]
   },
   {
@@ -4469,7 +4476,7 @@
       "Windows: Fixed path permission matching to consistently use POSIX format (e.g., Read(//c/Users/...))"
     ],
     "features_ko": [
-      "Windows: Fixed path permission matching to consistently use POSIX format (e.g., Read(//c/Users/...))"
+      "Windows: 경로 권한 일치를 일관되게 POSIX 형식(예: Read(//c/Users/...))을 사용하도록 수정하였습니다."
     ]
   },
   {
@@ -4486,7 +4493,7 @@
       "Settings: /doctor now validates permission rule syntax and suggests corrections"
     ],
     "features_ko": [
-      "Settings: /doctor now validates permission rule syntax and suggests corrections"
+      "설정: /doctor가 이제 권한 규칙 구문을 검증하고 수정 사항을 제안합니다."
     ]
   },
   {
@@ -4511,10 +4518,10 @@
       "Added /todos command to list current todo items"
     ],
     "features_ko": [
-      "Vertex: add support for global endpoints for supported models",
-      "/memory command now allows direct editing of all imported memory files",
-      "SDK: Add custom tools as callbacks",
-      "Added /todos command to list current todo items"
+      "Vertex: 지원되는 모델에 대한 글로벌 엔드포인트 지원을 추가하였습니다.",
+      "/memory 명령이 이제 모든 가져온 메모리 파일을 직접 편집할 수 있도록 허용합니다.",
+      "SDK: 콜백으로 사용자 정의 도구 추가",
+      "현재 todo 항목을 나열하는 /todos 명령 추가"
     ]
   },
   {
@@ -4526,8 +4533,8 @@
       "Support NO_PROXY environment variable to bypass proxy for specified hostnames and IPs"
     ],
     "features_ko": [
-      "Windows: Add alt + v shortcut for pasting images from clipboard",
-      "Support NO_PROXY environment variable to bypass proxy for specified hostnames and IPs"
+      "Windows: 클립보드에서 이미지를 붙여넣기 위한 alt + v 단축키 추가",
+      "지정된 호스트 이름과 IP에 대해 프록시를 우회하는 NO_PROXY 환경 변수 지원"
     ]
   },
   {
@@ -4538,7 +4545,7 @@
       "Settings file changes take effect immediately - no restart required"
     ],
     "features_ko": [
-      "Settings file changes take effect immediately - no restart required"
+      "설정 파일 변경 사항이 즉시 적용됨 - 재시작 필요 없음"
     ]
   },
   {
@@ -4557,9 +4564,9 @@
       "Bedrock: Updated default Sonnet model to Sonnet 4"
     ],
     "features_ko": [
-      "Status line input now includes exceeds_200k_tokens",
-      "Introduced ANTHROPIC_DEFAULT_SONNET_MODEL and ANTHROPIC_DEFAULT_OPUS_MODEL for controlling model aliases opusplan, opus, and sonnet.",
-      "Bedrock: Updated default Sonnet model to Sonnet 4"
+      "상태 줄 입력에 exceeds_200k_tokens 포함",
+      "모델 별칭 opusplan, opus 및 sonnet을 제어하기 위한 ANTHROPIC_DEFAULT_SONNET_MODEL 및 ANTHROPIC_DEFAULT_OPUS_MODEL 도입",
+      "Bedrock: 기본 Sonnet 모델을 Sonnet 4로 업데이트"
     ]
   },
   {
@@ -4583,9 +4590,9 @@
       "SDK: Added --replay-user-messages to replay user messages back to stdout"
     ],
     "features_ko": [
-      "Added /context to help users self-serve debug context issues",
-      "SDK: Added UUID support for all SDK messages",
-      "SDK: Added --replay-user-messages to replay user messages back to stdout"
+      "사용자가 디버그 컨텍스트 문제를 스스로 해결할 수 있도록 /context 추가",
+      "SDK: 모든 SDK 메시지에 대한 UUID 지원 추가",
+      "SDK: 사용자 메시지를 stdout으로 다시 재생하기 위한 --replay-user-messages 추가"
     ]
   },
   {
@@ -4597,8 +4604,8 @@
       "Hooks: Introduced SessionEnd hook"
     ],
     "features_ko": [
-      "Status line input now includes session cost info",
-      "Hooks: Introduced SessionEnd hook"
+      "상태 줄 입력에 세션 비용 정보 포함",
+      "Hooks: SessionEnd 훅 도입"
     ]
   },
   {
@@ -4612,10 +4619,10 @@
       "Use built-in ripgrep by default; to opt out of this behavior, set USE_BUILTIN_RIPGREP=0"
     ],
     "features_ko": [
-      "Fix tool_use/tool_result id mismatch error when network is unstable",
-      "Fix Claude sometimes ignoring real-time steering when wrapping up a task",
-      "@-mention: Add ~/.claude/\\* files to suggestions for easier agent, output style, and slash command editing",
-      "Use built-in ripgrep by default; to opt out of this behavior, set USE_BUILTIN_RIPGREP=0"
+      "네트워크가 불안정할 때 tool_use/tool_result ID 불일치 오류 수정",
+      "Claude가 작업을 마무리할 때 실시간 조정을 무시하는 경우 수정",
+      "@-mention: 에이전트, 출력 스타일 및 슬래시 명령 편집을 쉽게 하기 위해 ~/.claude/* 파일을 제안에 추가",
+      "기본적으로 내장된 ripgrep 사용; 이 동작을 비활성화하려면 USE_BUILTIN_RIPGREP=0 설정"
     ]
   },
   {
@@ -4627,8 +4634,8 @@
       "New shimmering spinner"
     ],
     "features_ko": [
-      "@-mention: Support files with spaces in path",
-      "New shimmering spinner"
+      "@-mention: 경로에 공백이 있는 파일 지원",
+      "새로운 반짝이는 스피너"
     ]
   },
   {
@@ -4643,11 +4650,11 @@
       "Bash: Fix crash when Claude tries to automatically read large files"
     ],
     "features_ko": [
-      "SDK: Add request cancellation support",
-      "SDK: New additionalDirectories option to search custom paths, improved slash command processing",
-      "Settings: Validation prevents invalid fields in .claude/settings.json files",
-      "MCP: Improve tool name consistency",
-      "Bash: Fix crash when Claude tries to automatically read large files"
+      "SDK: 요청 취소 지원 추가",
+      "SDK: 사용자 정의 경로 검색을 위한 새로운 additionalDirectories 옵션, 슬래시 명령 처리 개선",
+      "설정: .claude/settings.json 파일에서 유효하지 않은 필드를 방지하는 검증",
+      "MCP: 도구 이름 일관성 개선",
+      "Bash: Claude가 자동으로 큰 파일을 읽으려고 할 때 충돌 수정"
     ]
   },
   {
@@ -4659,8 +4666,8 @@
       "Agents: Fix custom agent loading when agent files are unparsable"
     ],
     "features_ko": [
-      "Released output styles, including new built-in educational output styles \"Explanatory\" and \"Learning\". Docs: https://code.claude.com/docs/en/output-styles",
-      "Agents: Fix custom agent loading when agent files are unparsable"
+      "새로운 내장 교육 출력 스타일 \"Explanatory\" 및 \"Learning\"을 포함한 출력 스타일 출시. 문서: https://code.claude.com/docs/en/output-styles",
+      "에이전트: 에이전트 파일이 구문 분석할 수 없을 때 사용자 정의 에이전트 로딩 수정"
     ]
   },
   {
@@ -4671,7 +4678,7 @@
       "UI improvements: Fix text contrast for custom subagent colors and spinner rendering issues"
     ],
     "features_ko": [
-      "UI improvements: Fix text contrast for custom subagent colors and spinner rendering issues"
+      "UI 개선: 사용자 정의 서브 에이전트 색상 및 스피너 렌더링 문제에 대한 텍스트 대비 수정"
     ]
   },
   {
@@ -4691,10 +4698,10 @@
       "Opus Plan Mode: New setting in /model to run Opus only in plan mode, Sonnet otherwise"
     ],
     "features_ko": [
-      "Bash tool: Fix heredoc and multiline string escaping, improve stderr redirection handling",
-      "SDK: Add session support and permission denial tracking",
-      "Fix token limit errors in conversation summarization",
-      "Opus Plan Mode: New setting in /model to run Opus only in plan mode, Sonnet otherwise"
+      "Bash 도구: heredoc 및 다중 문자열 이스케이프 수정, stderr 리디렉션 처리 개선",
+      "SDK: 세션 지원 및 권한 거부 추적 추가",
+      "대화 요약에서 토큰 제한 오류 수정",
+      "Opus 계획 모드: /model에서 Opus를 계획 모드로만 실행하고, 그렇지 않으면 Sonnet을 실행하는 새로운 설정"
     ]
   },
   {
@@ -4709,11 +4716,11 @@
       "Linux: Added support for Alpine and musl-based distributions (requires separate ripgrep installation)"
     ],
     "features_ko": [
-      "MCP: Support multiple config files with --mcp-config file1.json file2.json",
-      "MCP: Press Esc to cancel OAuth authentication flows",
-      "Bash: Improved command validation and reduced false security warnings",
-      "UI: Enhanced spinner animations and status line visual hierarchy",
-      "Linux: Added support for Alpine and musl-based distributions (requires separate ripgrep installation)"
+      "MCP: --mcp-config file1.json file2.json으로 여러 구성 파일 지원",
+      "MCP: Esc 키를 눌러 OAuth 인증 흐름 취소",
+      "Bash: 명령 유효성 검사 개선 및 잘못된 보안 경고 감소",
+      "UI: 스피너 애니메이션 및 상태 줄 시각적 계층 구조 향상",
+      "Linux: Alpine 및 musl 기반 배포판 지원 추가 (별도의 ripgrep 설치 필요)"
     ]
   },
   {
@@ -4730,7 +4737,7 @@
       "Ask permissions: have Claude Code always ask for confirmation to use specific tools with /permissions"
     ],
     "features_ko": [
-      "Ask permissions: have Claude Code always ask for confirmation to use specific tools with /permissions"
+      "권한 요청: Claude Code가 항상 /permissions로 특정 도구 사용에 대한 확인을 요청하도록 설정"
     ]
   },
   {
@@ -4753,8 +4760,8 @@
       "Customizable status line: add your terminal prompt to Claude Code with /statusline"
     ],
     "features_ko": [
-      "Background commands: (Ctrl-b) to run any Bash command in the background so Claude can keep working (great for dev servers, tailing logs, etc.)",
-      "Customizable status line: add your terminal prompt to Claude Code with /statusline"
+      "백그라운드 명령: (Ctrl-b)로 Bash 명령을 백그라운드에서 실행하여 Claude가 계속 작업할 수 있도록 (개발 서버, 로그 테일링 등에 유용)",
+      "사용자 정의 상태 줄: /statusline으로 Claude Code에 터미널 프롬프트 추가"
     ]
   },
   {
@@ -4767,9 +4774,9 @@
       "Added support for @-mentions in slash command arguments"
     ],
     "features_ko": [
-      "Performance: Optimized message rendering for better performance with large contexts",
-      "Windows: Fixed native file search, ripgrep, and subagent functionality",
-      "Added support for @-mentions in slash command arguments"
+      "성능: 대규모 컨텍스트에서 더 나은 성능을 위한 메시지 렌더링 최적화",
+      "Windows: 네이티브 파일 검색, ripgrep 및 서브 에이전트 기능 수정",
+      "슬래시 명령 인수에서 @-멘션 지원 추가"
     ]
   },
   {
@@ -4780,7 +4787,7 @@
       "Upgraded Opus to version 4.1"
     ],
     "features_ko": [
-      "Upgraded Opus to version 4.1"
+      "Opus를 버전 4.1로 업그레이드"
     ]
   },
   {
@@ -4806,11 +4813,11 @@
       "Added disableAllHooks setting"
     ],
     "features_ko": [
-      "Fix incorrect model names being used for certain commands like /pr-comments",
-      "Windows: improve permissions checks for allow / deny tools and project trust. This may create a new project entry in .claude.json - manually merge the history field if desired.",
-      "Windows: improve sub-process spawning to eliminate \"No such file or directory\" when running commands like pnpm",
-      "SDK: Added canUseTool callback support for tool confirmation",
-      "Added disableAllHooks setting"
+      "/pr-comments와 같은 특정 명령에 잘못된 모델 이름 사용 수정",
+      "Windows: 도구 허용/거부 및 프로젝트 신뢰에 대한 권한 검사 개선. .claude.json에 새로운 프로젝트 항목이 생성될 수 있으며, 원할 경우 히스토리 필드를 수동으로 병합",
+      "Windows: pnpm과 같은 명령 실행 시 \"No such file or directory\" 오류 제거를 위한 서브 프로세스 생성 개선",
+      "SDK: 도구 확인을 위한 canUseTool 콜백 지원 추가",
+      "disableAllHooks 설정 추가"
     ]
   },
   {
@@ -4822,8 +4829,8 @@
       "Windows: Fixed shell environment setup for users without .bashrc files"
     ],
     "features_ko": [
-      "IDE: Fixed connection stability issues and error handling for diagnostics",
-      "Windows: Fixed shell environment setup for users without .bashrc files"
+      "IDE: 진단을 위한 연결 안정성 문제 및 오류 처리 수정",
+      "Windows: .bashrc 파일이 없는 사용자에 대한 셸 환경 설정 수정"
     ]
   },
   {
@@ -4838,11 +4845,11 @@
       "Added hidden files to file search and @-mention suggestions"
     ],
     "features_ko": [
-      "Agents: Added model customization support - you can now specify which model an agent should use",
-      "Agents: Fixed unintended access to the recursive agent tool",
-      "Hooks: Added systemMessage field to hook JSON output for displaying warnings and context",
-      "SDK: Fixed user input tracking across multi-turn conversations",
-      "Added hidden files to file search and @-mention suggestions"
+      "에이전트: 모델 사용자 정의 지원 추가 - 이제 에이전트가 사용할 모델을 지정할 수 있음",
+      "에이전트: 재귀 에이전트 도구에 대한 의도치 않은 접근 수정",
+      "Hooks: 경고 및 컨텍스트 표시를 위한 hook JSON 출력에 systemMessage 필드 추가",
+      "SDK: 다중 턴 대화에서 사용자 입력 추적 수정",
+      "파일 검색 및 @-멘션 제안에 숨김 파일 추가"
     ]
   },
   {
@@ -4853,7 +4860,7 @@
       "Windows: Fixed file search, @agent mentions, and custom slash commands functionality"
     ],
     "features_ko": [
-      "Windows: Fixed file search, @agent mentions, and custom slash commands functionality"
+      "Windows: 파일 검색, @agent 멘션 및 사용자 정의 슬래시 명령 기능 수정"
     ]
   },
   {
@@ -4872,9 +4879,9 @@
       "/add-dir command now supports typeahead for directory paths"
     ],
     "features_ko": [
-      "Added @-mention support with typeahead for custom agents. @<your-custom-agent> to invoke it",
-      "Hooks: Added SessionStart hook for new session initialization",
-      "/add-dir command now supports typeahead for directory paths"
+      "사용자 정의 에이전트에 대한 typeahead와 함께 @-멘션 지원 추가. @<your-custom-agent>로 호출",
+      "Hooks: 새로운 세션 초기화를 위한 SessionStart hook 추가",
+      "/add-dir 명령이 이제 디렉토리 경로에 대한 typeahead를 지원"
     ]
   },
   {
@@ -4903,14 +4910,14 @@
       "Added CLAUDE_CODE_SHELL_PREFIX for wrapping Claude and user-provided shell commands run by Claude Code"
     ],
     "features_ko": [
-      "Transcript mode (Ctrl+R): Changed Esc to exit transcript mode rather than interrupt",
-      "Settings: Added --settings flag to load settings from a JSON file",
-      "Settings: Fixed resolution of settings files paths that are symlinks",
-      "OTEL: Fixed reporting of wrong organization after authentication changes",
-      "Slash commands: Fixed permissions checking for allowed-tools with Bash",
-      "IDE: Added support for pasting images in VSCode MacOS using ⌘+V",
-      "IDE: Added CLAUDE_CODE_AUTO_CONNECT_IDE=false for disabling IDE auto-connection",
-      "Added CLAUDE_CODE_SHELL_PREFIX for wrapping Claude and user-provided shell commands run by Claude Code"
+      "전사 모드 (Ctrl+R): Esc를 눌러 전사 모드를 종료하도록 변경",
+      "설정: JSON 파일에서 설정을 로드하기 위해 --settings 플래그를 추가했습니다.",
+      "설정: 심볼릭 링크인 설정 파일 경로의 해상도를 수정했습니다.",
+      "OTEL: 인증 변경 후 잘못된 조직 보고를 수정했습니다.",
+      "슬래시 명령: Bash에서 allowed-tools에 대한 권한 확인을 수정했습니다.",
+      "IDE: ⌘+V를 사용하여 VSCode MacOS에서 이미지를 붙여넣는 기능을 추가했습니다.",
+      "IDE: IDE 자동 연결을 비활성화하기 위해 CLAUDE_CODE_AUTO_CONNECT_IDE=false를 추가했습니다.",
+      "Claude와 사용자 제공 셸 명령을 감싸기 위해 CLAUDE_CODE_SHELL_PREFIX를 추가했습니다."
     ]
   },
   {
@@ -4927,7 +4934,7 @@
       "You can now create custom subagents for specialized tasks! Run /agents to get started"
     ],
     "features_ko": [
-      "You can now create custom subagents for specialized tasks! Run /agents to get started"
+      "이제 전문화된 작업을 위한 사용자 정의 서브 에이전트를 만들 수 있습니다! /agents를 실행하여 시작하세요."
     ]
   },
   {
@@ -4941,10 +4948,10 @@
       "Hooks: UserPromptSubmit now supports additionalContext in advanced JSON output"
     ],
     "features_ko": [
-      "SDK: Added tool confirmation support with canUseTool callback",
-      "SDK: Allow specifying env for spawned process",
-      "Hooks: Exposed PermissionDecision to hooks (including \"ask\")",
-      "Hooks: UserPromptSubmit now supports additionalContext in advanced JSON output"
+      "SDK: canUseTool 콜백을 사용한 도구 확인 지원을 추가했습니다.",
+      "SDK: 생성된 프로세스에 대한 env를 지정할 수 있도록 허용했습니다.",
+      "후크: PermissionDecision을 후크에 노출했습니다(“ask” 포함).",
+      "후크: UserPromptSubmit이 이제 고급 JSON 출력에서 additionalContext를 지원합니다."
     ]
   },
   {
@@ -4957,9 +4964,9 @@
       "Hooks: Added CLAUDE_PROJECT_DIR env var for hook commands"
     ],
     "features_ko": [
-      "Added support for reading PDFs",
-      "MCP: Improved server health status display in 'claude mcp list'",
-      "Hooks: Added CLAUDE_PROJECT_DIR env var for hook commands"
+      "PDF 읽기 지원을 추가했습니다.",
+      "MCP: 'claude mcp list'에서 서버 상태 표시를 개선했습니다.",
+      "후크: 후크 명령을 위한 CLAUDE_PROJECT_DIR 환경 변수를 추가했습니다."
     ]
   },
   {
@@ -4971,8 +4978,8 @@
       "Fix: Remove trailing newlines from bash output in terminal wrapping"
     ],
     "features_ko": [
-      "Added support for specifying a model in slash commands",
-      "Fix: Remove trailing newlines from bash output in terminal wrapping"
+      "슬래시 명령에서 모델을 지정하는 지원을 추가했습니다.",
+      "수정: 터미널 래핑에서 bash 출력의 후행 줄 바꿈을 제거했습니다."
     ]
   },
   {
@@ -4991,9 +4998,9 @@
       "Fix an issue causing awsRefreshHelper changes to .aws directory not to be picked up"
     ],
     "features_ko": [
-      "Windows: Enabled shift+tab for mode switching on versions of Node.js that support terminal VT mode",
-      "Fixes for WSL IDE detection",
-      "Fix an issue causing awsRefreshHelper changes to .aws directory not to be picked up"
+      "Windows: 터미널 VT 모드를 지원하는 Node.js 버전에서 모드 전환을 위해 shift+tab을 활성화했습니다.",
+      "WSL IDE 감지에 대한 수정 사항",
+      ".aws 디렉토리에 대한 awsRefreshHelper 변경 사항이 반영되지 않는 문제를 수정했습니다."
     ]
   },
   {
@@ -5013,10 +5020,10 @@
       "Add --system-prompt-file option to override system prompt in print mode"
     ],
     "features_ko": [
-      "Clarified knowledge cutoff for Opus 4 and Sonnet 4 models",
-      "Windows: fixed Ctrl+Z crash",
-      "SDK: Added ability to capture error logging",
-      "Add --system-prompt-file option to override system prompt in print mode"
+      "Opus 4 및 Sonnet 4 모델의 지식 컷오프를 명확히 했습니다.",
+      "Windows: Ctrl+Z 충돌을 수정했습니다.",
+      "SDK: 오류 로깅 캡처 기능을 추가했습니다.",
+      "인쇄 모드에서 시스템 프롬프트를 재정의하기 위해 --system-prompt-file 옵션을 추가했습니다."
     ]
   },
   {
@@ -5031,11 +5038,11 @@
       "Shell: Switch to in-memory shell snapshot to fix file-related errors"
     ],
     "features_ko": [
-      "Hooks: Added UserPromptSubmit hook and the current working directory to hook inputs",
-      "Custom slash commands: Added argument-hint to frontmatter",
-      "Windows: OAuth uses port 45454 and properly constructs browser URL",
-      "Windows: mode switching now uses alt + m, and plan mode renders properly",
-      "Shell: Switch to in-memory shell snapshot to fix file-related errors"
+      "후크: UserPromptSubmit 후크와 현재 작업 디렉토리를 후크 입력에 추가했습니다.",
+      "사용자 정의 슬래시 명령: frontmatter에 argument-hint를 추가했습니다.",
+      "Windows: OAuth가 포트 45454를 사용하고 브라우저 URL을 올바르게 구성합니다.",
+      "Windows: 모드 전환이 이제 alt + m을 사용하며, 계획 모드가 제대로 렌더링됩니다.",
+      "셸: 파일 관련 오류를 수정하기 위해 인메모리 셸 스냅샷으로 전환합니다."
     ]
   },
   {
@@ -5047,8 +5054,8 @@
       "Add helper script settings for AWS token refresh: awsAuthRefresh (for foreground operations like aws sso login) and awsCredentialExport (for background operation with STS-like response)."
     ],
     "features_ko": [
-      "Updated @-mention file truncation from 100 lines to 2000 lines",
-      "Add helper script settings for AWS token refresh: awsAuthRefresh (for foreground operations like aws sso login) and awsCredentialExport (for background operation with STS-like response)."
+      "@-mention 파일 잘림을 100줄에서 2000줄로 업데이트했습니다.",
+      "AWS 토큰 갱신을 위한 헬퍼 스크립트 설정 추가: awsAuthRefresh (aws sso login과 같은 포그라운드 작업용) 및 awsCredentialExport (STS와 유사한 응답을 가진 백그라운드 작업용)."
     ]
   },
   {
@@ -5059,7 +5066,7 @@
       "Added support for MCP server instructions"
     ],
     "features_ko": [
-      "Added support for MCP server instructions"
+      "MCP 서버 지침 지원 추가"
     ]
   },
   {
@@ -5088,14 +5095,14 @@
       "Plan mode: Fixed issue where rejected plan from sub-task would get discarded"
     ],
     "features_ko": [
-      "Added support for native Windows (requires Git for Windows)",
-      "Added support for Bedrock API keys through environment variable AWS_BEARER_TOKEN_BEDROCK",
-      "Settings: /doctor can now help you identify and fix invalid setting files",
-      "--append-system-prompt can now be used in interactive mode, not just --print/-p.",
-      "Increased auto-compact warning threshold from 60% to 80%",
-      "OTEL resource now includes os.type, os.version, host.arch, and wsl.version (if running on Windows Subsystem for Linux)",
-      "Custom slash commands: Fixed user-level commands in subdirectories",
-      "Plan mode: Fixed issue where rejected plan from sub-task would get discarded"
+      "네이티브 Windows 지원 추가 (Windows용 Git 필요)",
+      "환경 변수 AWS_BEARER_TOKEN_BEDROCK을 통한 Bedrock API 키 지원 추가",
+      "설정: /doctor가 이제 잘못된 설정 파일을 식별하고 수정하는 데 도움을 줄 수 있습니다.",
+      "--append-system-prompt가 이제 대화형 모드에서 사용할 수 있으며, --print/-p만이 아닙니다.",
+      "자동 압축 경고 임계값을 60%에서 80%로 증가시켰습니다.",
+      "OTEL 리소스에 os.type, os.version, host.arch 및 wsl.version이 포함되었습니다 (Windows Subsystem for Linux에서 실행 중인 경우).",
+      "사용자 수준 명령이 하위 디렉토리에서 수정된 사용자 정의 슬래시 명령",
+      "계획 모드: 하위 작업에서 거부된 계획이 폐기되는 문제 수정"
     ]
   },
   {
@@ -5110,11 +5117,11 @@
       "Vim mode: Added c, f/F, t/T"
     ],
     "features_ko": [
-      "Added progress messages to Bash tool based on the last 5 lines of command output",
-      "Added expanding variables support for MCP server configuration",
-      "Moved shell snapshots from /tmp to ~/.claude for more reliable Bash tool calls",
-      "Hooks: Added a PreCompact hook",
-      "Vim mode: Added c, f/F, t/T"
+      "Bash 도구에 명령 출력의 마지막 5줄을 기반으로 한 진행 메시지 추가",
+      "MCP 서버 구성에 대한 확장 변수 지원 추가",
+      "더 신뢰할 수 있는 Bash 도구 호출을 위해 /tmp에서 ~/.claude로 셸 스냅샷 이동",
+      "후크: PreCompact 후크 추가",
+      "Vim 모드: c, f/F, t/T 추가"
     ]
   },
   {
@@ -5140,11 +5147,11 @@
       "Custom slash commands: Restored namespacing in command names based on subdirectories. For example, .claude/commands/frontend/component.md is now /frontend:component, not /component."
     ],
     "features_ko": [
-      "Redesigned Search (Grep) tool with new tool input parameters and features",
-      "Disabled IDE diffs for notebook files, fixing \"Timeout waiting after 1000ms\" error",
-      "Updated prompt input undo to Ctrl+\\_ to avoid breaking existing Ctrl+U behavior, matching zsh's undo shortcut",
-      "Stop Hooks: Fixed transcript path after /clear and fixed triggering when loop ends with tool call",
-      "Custom slash commands: Restored namespacing in command names based on subdirectories. For example, .claude/commands/frontend/component.md is now /frontend:component, not /component."
+      "새로운 도구 입력 매개변수와 기능으로 Search (Grep) 도구 재설계",
+      "노트북 파일에 대한 IDE 차이 비활성화, \"1000ms 후 대기 시간 초과\" 오류 수정",
+      "기존 Ctrl+U 동작을 깨지 않도록 프롬프트 입력 실행 취소를 Ctrl+\\_로 업데이트, zsh의 실행 취소 단축키와 일치",
+      "Stop Hooks: /clear 후 전사 경로 수정 및 도구 호출로 루프가 끝날 때 트리거 수정",
+      "사용자 정의 슬래시 명령: 하위 디렉토리를 기반으로 명령 이름의 네임스페이싱 복원. 예를 들어, .claude/commands/frontend/component.md는 이제 /frontend:component가 되며, /component가 아닙니다."
     ]
   },
   {
@@ -5178,9 +5185,9 @@
       "MCP: tool annotations and tool titles now display in /mcp view"
     ],
     "features_ko": [
-      "New /export command lets you quickly export a conversation for sharing",
-      "MCP: resource_link tool results are now supported",
-      "MCP: tool annotations and tool titles now display in /mcp view"
+      "새로운 /export 명령으로 대화를 빠르게 내보낼 수 있습니다.",
+      "MCP: resource_link 도구 결과가 이제 지원됩니다.",
+      "MCP: 도구 주석 및 도구 제목이 이제 /mcp 보기에서 표시됩니다."
     ]
   },
   {
@@ -5191,7 +5198,7 @@
       "Hooks: Added EPIPE system error handling"
     ],
     "features_ko": [
-      "Hooks: Added EPIPE system error handling"
+      "후크: EPIPE 시스템 오류 처리 추가"
     ]
   },
   {
@@ -5208,7 +5215,7 @@
       "Added tilde (~) expansion support to /add-dir command"
     ],
     "features_ko": [
-      "Added tilde (~) expansion support to /add-dir command"
+      "/add-dir 명령에 물결표 (~) 확장 지원 추가"
     ]
   },
   {
@@ -5222,10 +5229,10 @@
       "New tool parameters JSON for Bash tool in tool_decision event"
     ],
     "features_ko": [
-      "Hooks: Split Stop hook triggering into Stop and SubagentStop",
-      "Hooks: Enabled optional timeout configuration for each command",
-      "Hooks: Added \"hook_event_name\" to hook input",
-      "New tool parameters JSON for Bash tool in tool_decision event"
+      "후크: Stop 후크 트리거링을 Stop과 SubagentStop으로 분리",
+      "후크: 각 명령에 대한 선택적 타임아웃 구성 활성화",
+      "후크: 후크 입력에 \"hook_event_name\" 추가",
+      "tool_decision 이벤트에서 Bash 도구에 대한 새로운 도구 매개변수 JSON"
     ]
   },
   {
@@ -5243,7 +5250,7 @@
       "New Active Time metric in OpenTelemetry logging"
     ],
     "features_ko": [
-      "New Active Time metric in OpenTelemetry logging"
+      "OpenTelemetry 로깅에서 새로운 Active Time 메트릭 추가"
     ]
   },
   {
@@ -5260,7 +5267,7 @@
       "Released hooks. Special thanks to community input in https://github.com/anthropics/claude-code/issues/712. Docs: https://code.claude.com/docs/en/hooks"
     ],
     "features_ko": [
-      "Released hooks. Special thanks to community input in https://github.com/anthropics/claude-code/issues/712. Docs: https://code.claude.com/docs/en/hooks"
+      "후크가 출시되었습니다. https://github.com/anthropics/claude-code/issues/712에서 커뮤니티의 의견에 특별히 감사드립니다. 문서: https://code.claude.com/docs/en/hooks"
     ]
   },
   {
@@ -5271,7 +5278,7 @@
       "Remove ability to set Proxy-Authorization header via ANTHROPIC_AUTH_TOKEN or apiKeyHelper"
     ],
     "features_ko": [
-      "Remove ability to set Proxy-Authorization header via ANTHROPIC_AUTH_TOKEN or apiKeyHelper"
+      "ANTHROPIC_AUTH_TOKEN 또는 apiKeyHelper를 통해 Proxy-Authorization 헤더를 설정하는 기능이 제거되었습니다."
     ]
   },
   {
@@ -5282,7 +5289,7 @@
       "Web search now takes today's date into context"
     ],
     "features_ko": [
-      "Web search now takes today's date into context"
+      "웹 검색이 이제 오늘 날짜를 고려합니다."
     ]
   },
   {
@@ -5293,7 +5300,7 @@
       "Added support for MCP OAuth Authorization Server discovery"
     ],
     "features_ko": [
-      "Added support for MCP OAuth Authorization Server discovery"
+      "MCP OAuth 인증 서버 검색 지원이 추가되었습니다."
     ]
   },
   {
@@ -5318,8 +5325,8 @@
       "Improvements to plan mode"
     ],
     "features_ko": [
-      "Added prompt input undo functionality (Ctrl+Z and vim 'u' command)",
-      "Improvements to plan mode"
+      "프롬프트 입력 실행 취소 기능이 추가되었습니다 (Ctrl+Z 및 vim 'u' 명령).",
+      "계획 모드 개선 사항이 있습니다."
     ]
   },
   {
@@ -5331,8 +5338,8 @@
       "Added forceLoginMethod setting to bypass login selection screen"
     ],
     "features_ko": [
-      "Updated loopback config for litellm",
-      "Added forceLoginMethod setting to bypass login selection screen"
+      "litellm에 대한 루프백 구성 업데이트.",
+      "로그인 선택 화면을 우회하기 위한 forceLoginMethod 설정이 추가되었습니다."
     ]
   },
   {
@@ -5362,8 +5369,8 @@
       "Added timestamps in Ctrl-r mode and fixed Ctrl-c handling"
     ],
     "features_ko": [
-      "Custom slash commands: Run bash output, @-mention files, enable thinking with thinking keywords",
-      "Added timestamps in Ctrl-r mode and fixed Ctrl-c handling"
+      "사용자 정의 슬래시 명령: bash 출력 실행, @-멘션 파일, 사고 키워드를 사용한 사고 활성화.",
+      "Ctrl-r 모드에 타임스탬프가 추가되었고 Ctrl-c 처리도 수정되었습니다."
     ]
   },
   {
@@ -5385,11 +5392,11 @@
       "New attributes (terminal.type, language) in OpenTelemetry logging"
     ],
     "features_ko": [
-      "Slash commands: Fix selector display during history navigation",
-      "Resizes images before upload to prevent API size limit errors",
-      "Added XDG_CONFIG_HOME support to configuration directory",
-      "Performance optimizations for memory usage",
-      "New attributes (terminal.type, language) in OpenTelemetry logging"
+      "슬래시 명령: 기록 탐색 중 선택기 표시 수정.",
+      "API 크기 제한 오류를 방지하기 위해 업로드 전에 이미지를 크기 조정합니다.",
+      "구성 디렉토리에 XDG_CONFIG_HOME 지원이 추가되었습니다.",
+      "메모리 사용에 대한 성능 최적화가 이루어졌습니다.",
+      "OpenTelemetry 로깅에 새로운 속성(terminal.type, language)이 추가되었습니다."
     ]
   },
   {
@@ -5409,10 +5416,10 @@
       "/resume slash command to switch conversations within Claude Code"
     ],
     "features_ko": [
-      "Streamable HTTP MCP servers are now supported",
-      "Remote MCP servers (SSE and HTTP) now support OAuth",
-      "MCP resources can now be @-mentioned",
-      "/resume slash command to switch conversations within Claude Code"
+      "스트리밍 가능한 HTTP MCP 서버가 이제 지원됩니다.",
+      "원격 MCP 서버(SSE 및 HTTP)가 이제 OAuth를 지원합니다.",
+      "MCP 리소스를 이제 @-멘션할 수 있습니다.",
+      "Claude Code 내에서 대화를 전환하는 /resume 슬래시 명령."
     ]
   },
   {
@@ -5424,8 +5431,8 @@
       "Slash commands: improved reliability for command discovery"
     ],
     "features_ko": [
-      "Slash commands: moved \"project\" and \"user\" prefixes to descriptions",
-      "Slash commands: improved reliability for command discovery"
+      "슬래시 명령: \"project\" 및 \"user\" 접두사를 설명으로 이동했습니다.",
+      "슬래시 명령: 명령 발견의 신뢰성을 개선했습니다."
     ]
   },
   {
@@ -5450,8 +5457,8 @@
       "Released Python SDK: pip install claude-code-sdk to get started"
     ],
     "features_ko": [
-      "Released TypeScript SDK: import @anthropic-ai/claude-code to get started",
-      "Released Python SDK: pip install claude-code-sdk to get started"
+      "TypeScript SDK가 출시되었습니다: 시작하려면 @anthropic-ai/claude-code를 가져오세요.",
+      "Python SDK가 출시되었습니다: 시작하려면 pip install claude-code-sdk를 사용하세요."
     ]
   },
   {
@@ -5462,7 +5469,7 @@
       "SDK: Renamed total_cost to total_cost_usd"
     ],
     "features_ko": [
-      "SDK: Renamed total_cost to total_cost_usd"
+      "SDK: total_cost를 total_cost_usd로 이름 변경."
     ]
   },
   {
@@ -5473,7 +5480,7 @@
       "Fix for tool_use without matching tool_result errors"
     ],
     "features_ko": [
-      "Fix for tool_use without matching tool_result errors"
+      "일치하는 tool_result 없이 tool_use 오류 수정."
     ]
   },
   {
@@ -5500,12 +5507,12 @@
       "Added auto-reconnection for MCP SSE connections on disconnect"
     ],
     "features_ko": [
-      "Added --add-dir CLI argument for specifying additional working directories",
-      "Added streaming input support without require -p flag",
-      "Added CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR environment variable to freeze working directory for bash commands",
-      "Added detailed MCP server tools display (/mcp)",
-      "MCP authentication and permission improvements",
-      "Added auto-reconnection for MCP SSE connections on disconnect"
+      "추가 작업 디렉토리를 지정하기 위한 --add-dir CLI 인수가 추가되었습니다.",
+      "-p 플래그 없이 스트리밍 입력 지원이 추가되었습니다.",
+      "bash 명령을 위한 작업 디렉토리를 고정하는 CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR 환경 변수가 추가되었습니다.",
+      "상세한 MCP 서버 도구 표시가 추가되었습니다 (/mcp).",
+      "MCP 인증 및 권한 개선 사항이 있습니다.",
+      "MCP SSE 연결이 끊어졌을 때 자동 재연결 기능 추가"
     ]
   },
   {
@@ -5518,9 +5525,9 @@
       "Update Claude Code process title to display \"claude\" instead of \"node\""
     ],
     "features_ko": [
-      "We now emit messages from sub-tasks in -p mode (look for the parent_tool_use_id property)",
-      "MCP server list UI improvements",
-      "Update Claude Code process title to display \"claude\" instead of \"node\""
+      "이제 -p 모드에서 하위 작업의 메시지를 전송합니다 (parent_tool_use_id 속성을 확인하세요)",
+      "MCP 서버 목록 UI 개선",
+      "Claude Code 프로세스 제목을 \"node\" 대신 \"claude\"로 표시하도록 업데이트"
     ]
   },
   {
@@ -5538,8 +5545,8 @@
       "Added /upgrade for smoother switching to Claude Max plans"
     ],
     "features_ko": [
-      "Claude Code can now also be used with a Claude Pro subscription",
-      "Added /upgrade for smoother switching to Claude Max plans"
+      "이제 Claude Pro 구독으로도 Claude Code를 사용할 수 있습니다",
+      "Claude Max 플랜으로 부드럽게 전환하기 위해 /upgrade 추가"
     ]
   },
   {
@@ -5550,7 +5557,7 @@
       "Added markdown table support"
     ],
     "features_ko": [
-      "Added markdown table support"
+      "markdown 테이블 지원 추가"
     ]
   },
   {
@@ -5562,8 +5569,8 @@
       "Added support for triggering thinking non-English languages"
     ],
     "features_ko": [
-      "Increased default otel interval from 1s -> 5s",
-      "Added support for triggering thinking non-English languages"
+      "기본 otel 간격을 1초에서 5초로 증가",
+      "비영어 언어에서 사고 트리거 지원 추가"
     ]
   },
   {
@@ -5592,9 +5599,9 @@
       "Bugfixes, UI polish, and tool reliability improvements"
     ],
     "features_ko": [
-      "Renamed /allowed-tools -> /permissions",
-      "Migrated allowedTools and ignorePatterns from .claude.json -> settings.json",
-      "Bugfixes, UI polish, and tool reliability improvements"
+      "/allowed-tools의 이름을 /permissions로 변경",
+      "allowedTools와 ignorePatterns를 .claude.json에서 settings.json으로 마이그레이션",
+      "버그 수정, UI 다듬기 및 도구 신뢰성 개선"
     ]
   },
   {
@@ -5608,10 +5615,10 @@
       "Bugfixes, UI polish, and tool reliability improvements"
     ],
     "features_ko": [
-      "Respect CLAUDE_CONFIG_DIR everywhere",
-      "Reduced unnecessary tool permission prompts",
-      "Added support for symlinks in @file typeahead",
-      "Bugfixes, UI polish, and tool reliability improvements"
+      "모든 곳에서 CLAUDE_CONFIG_DIR 존중",
+      "불필요한 도구 권한 요청 감소",
+      "@file 타입어헤드에서 심볼릭 링크 지원 추가",
+      "버그 수정, UI 다듬기 및 도구 신뢰성 개선"
     ]
   },
   {
@@ -5630,8 +5637,8 @@
       "Updated documentation links and OAuth process descriptions"
     ],
     "features_ko": [
-      "Added DISABLE_INTERLEAVED_THINKING to give users the option to opt out of interleaved thinking.",
-      "Updated documentation links and OAuth process descriptions"
+      "사용자가 인터리브드 사고를 선택 해제할 수 있도록 DISABLE_INTERLEAVED_THINKING 추가",
+      "문서 링크 및 OAuth 프로세스 설명 업데이트"
     ]
   },
   {
@@ -5643,8 +5650,8 @@
       "Introducing Sonnet 4 and Opus 4 models"
     ],
     "features_ko": [
-      "Claude Code is now generally available",
-      "Introducing Sonnet 4 and Opus 4 models"
+      "Claude Code가 이제 일반적으로 사용 가능",
+      "Sonnet 4 및 Opus 4 모델 소개"
     ]
   },
   {
@@ -5670,9 +5677,9 @@
       "Introduced --debug mode"
     ],
     "features_ko": [
-      "Introduced settings.cleanupPeriodDays",
-      "Introduced CLAUDE_CODE_API_KEY_HELPER_TTL_MS env var",
-      "Introduced --debug mode"
+      "settings.cleanupPeriodDays 추가",
+      "CLAUDE_CODE_API_KEY_HELPER_TTL_MS 환경 변수 추가",
+      "--debug 모드 도입"
     ]
   },
   {
@@ -5690,8 +5697,8 @@
       "Introduced BASH_DEFAULT_TIMEOUT_MS and BASH_MAX_TIMEOUT_MS env vars"
     ],
     "features_ko": [
-      "You can now send messages to Claude while it works to steer Claude in real-time",
-      "Introduced BASH_DEFAULT_TIMEOUT_MS and BASH_MAX_TIMEOUT_MS env vars"
+      "Claude가 작업하는 동안 실시간으로 Claude를 조정하기 위해 메시지를 보낼 수 있습니다",
+      "BASH_DEFAULT_TIMEOUT_MS 및 BASH_MAX_TIMEOUT_MS 환경 변수 추가"
     ]
   },
   {
@@ -5702,7 +5709,7 @@
       "CLAUDE.md files can now import other files. Add @path/to/file.md to ./CLAUDE.md to load additional files on launch"
     ],
     "features_ko": [
-      "CLAUDE.md files can now import other files. Add @path/to/file.md to ./CLAUDE.md to load additional files on launch"
+      "CLAUDE.md 파일이 이제 다른 파일을 가져올 수 있습니다. ./CLAUDE.md에 @path/to/file.md를 추가하여 추가 파일을 로드하세요"
     ]
   },
   {
@@ -5713,7 +5720,7 @@
       "MCP SSE server configs can now specify custom headers"
     ],
     "features_ko": [
-      "MCP SSE server configs can now specify custom headers"
+      "MCP SSE 서버 구성에서 사용자 정의 헤더를 지정할 수 있습니다"
     ]
   },
   {
@@ -5732,9 +5739,9 @@
       "Added word movement keybindings for Vim"
     ],
     "features_ko": [
-      "Claude can now search the web",
-      "Moved system & account status to /status",
-      "Added word movement keybindings for Vim"
+      "Claude가 이제 웹 검색을 할 수 있습니다",
+      "시스템 및 계정 상태를 /status로 이동",
+      "Vim을 위한 단어 이동 키 바인딩 추가"
     ]
   },
   {
@@ -5745,7 +5752,7 @@
       "You can now paste multiple large chunks into one prompt"
     ],
     "features_ko": [
-      "You can now paste multiple large chunks into one prompt"
+      "이제 여러 개의 큰 덩어리를 하나의 프롬프트에 붙여넣을 수 있습니다."
     ]
   },
   {
@@ -5756,7 +5763,7 @@
       "Made db storage optional; missing db support disables --continue and --resume"
     ],
     "features_ko": [
-      "Made db storage optional; missing db support disables --continue and --resume"
+      "db 저장소를 선택 사항으로 만들었습니다; db 지원이 없으면 --continue와 --resume이 비활성화됩니다."
     ]
   },
   {
@@ -5774,7 +5781,7 @@
       "Claude Code can now also be used with a Claude Max subscription (https://claude.ai/upgrade)"
     ],
     "features_ko": [
-      "Claude Code can now also be used with a Claude Max subscription (https://claude.ai/upgrade)"
+      "Claude Code는 이제 Claude Max 구독과 함께 사용할 수 있습니다 (https://claude.ai/upgrade)."
     ]
   },
   {
@@ -5797,8 +5804,8 @@
       "Claude now has access to a Todo list that helps it stay on track and be more organized"
     ],
     "features_ko": [
-      "Resume conversations from where you left off from with \"claude --continue\" and \"claude --resume\"",
-      "Claude now has access to a Todo list that helps it stay on track and be more organized"
+      "\"claude --continue\"와 \"claude --resume\"을 사용하여 대화를 중단한 지점에서 재개할 수 있습니다.",
+      "Claude는 이제 Todo 목록에 접근하여 더 체계적이고 정리된 상태를 유지할 수 있습니다."
     ]
   },
   {
@@ -5816,8 +5823,8 @@
       "Renamed tools for consistency: LSTool -> LS, View -> Read, etc."
     ],
     "features_ko": [
-      "Added support for --disallowedTools",
-      "Renamed tools for consistency: LSTool -> LS, View -> Read, etc."
+      "--disallowedTools에 대한 지원이 추가되었습니다.",
+      "일관성을 위해 도구 이름이 변경되었습니다: LSTool -> LS, View -> Read 등."
     ]
   },
   {
@@ -5837,10 +5844,10 @@
       "Run one-off MCP servers with claude --mcp-config <path-to-file>"
     ],
     "features_ko": [
-      "Hit Enter to queue up additional messages while Claude is working",
-      "Drag in or copy/paste image files directly into the prompt",
-      "@-mention files to directly add them to context",
-      "Run one-off MCP servers with claude --mcp-config <path-to-file>"
+      "Claude가 작업하는 동안 Enter 키를 눌러 추가 메시지를 대기열에 추가하세요.",
+      "이미지 파일을 프롬프트에 직접 드래그하거나 복사/붙여넣기 할 수 있습니다.",
+      "@-멘션 파일을 사용하여 컨텍스트에 직접 추가하세요.",
+      "claude --mcp-config <path-to-file>로 일회성 MCP 서버를 실행하세요."
     ]
   },
   {
@@ -5852,8 +5859,8 @@
       "Task tool can now perform writes and run bash commands"
     ],
     "features_ko": [
-      "Added support for refreshing dynamically generated API keys (via apiKeyHelper), with a 5 minute TTL",
-      "Task tool can now perform writes and run bash commands"
+      "5분 TTL을 가진 동적으로 생성된 API 키를 새로 고치는 지원이 추가되었습니다 (apiKeyHelper를 통해).",
+      "Task 도구는 이제 쓰기 작업과 bash 명령을 실행할 수 있습니다."
     ]
   },
   {
@@ -5873,9 +5880,9 @@
       "Pressing ESC once immediately interrupts Claude in Auto-accept mode"
     ],
     "features_ko": [
-      "Network commands like curl are now available for Claude to use",
-      "Claude can now run multiple web queries in parallel",
-      "Pressing ESC once immediately interrupts Claude in Auto-accept mode"
+      "curl과 같은 네트워크 명령이 이제 Claude에서 사용할 수 있습니다.",
+      "Claude는 이제 여러 웹 쿼리를 병렬로 실행할 수 있습니다.",
+      "ESC 키를 한 번 누르면 Auto-accept 모드에서 Claude가 즉시 중단됩니다."
     ]
   },
   {
@@ -5893,7 +5900,7 @@
       "Shared project permission rules can be saved in .claude/settings.json"
     ],
     "features_ko": [
-      "Shared project permission rules can be saved in .claude/settings.json"
+      "공유 프로젝트 권한 규칙은 .claude/settings.json에 저장할 수 있습니다."
     ]
   },
   {
@@ -5910,7 +5917,7 @@
       "Print mode (-p) now supports streaming output via --output-format=stream-json"
     ],
     "features_ko": [
-      "Print mode (-p) now supports streaming output via --output-format=stream-json"
+      "인쇄 모드 (-p)는 이제 --output-format=stream-json을 통해 스트리밍 출력을 지원합니다."
     ]
   },
   {
@@ -5934,7 +5941,7 @@
       "Navigate menus with vim-style keys (j/k) or bash/emacs shortcuts (Ctrl+n/p) for faster interaction"
     ],
     "features_ko": [
-      "Navigate menus with vim-style keys (j/k) or bash/emacs shortcuts (Ctrl+n/p) for faster interaction"
+      "vim 스타일 키(j/k) 또는 bash/emacs 단축키(Ctrl+n/p)를 사용하여 메뉴를 탐색하여 더 빠르게 상호작용하세요."
     ]
   },
   {
@@ -5946,8 +5953,8 @@
       "Bugfixes for non-interactive mode (-p)"
     ],
     "features_ko": [
-      "Copy+paste images directly into your prompt",
-      "Bugfixes for non-interactive mode (-p)"
+      "이미지를 프롬프트에 직접 복사+붙여넣기 하세요.",
+      "비대화형 모드 (-p)에 대한 버그 수정이 이루어졌습니다."
     ]
   },
   {
@@ -5966,9 +5973,9 @@
       "Added support for MCP SSE transport"
     ],
     "features_ko": [
-      "Quickly add to Memory by starting your message with '#'",
-      "Press ctrl+r to see full output for long tool results",
-      "Added support for MCP SSE transport"
+      "메시지를 '#'로 시작하여 메모리에 빠르게 추가하세요.",
+      "긴 도구 결과에 대한 전체 출력을 보려면 ctrl+r을 누르세요.",
+      "MCP SSE 전송에 대한 지원이 추가되었습니다."
     ]
   },
   {
@@ -5979,7 +5986,7 @@
       "New web fetch tool lets Claude view URLs that you paste in"
     ],
     "features_ko": [
-      "New web fetch tool lets Claude view URLs that you paste in"
+      "새로운 웹 가져오기 도구를 사용하면 Claude가 붙여넣은 URL을 볼 수 있습니다."
     ]
   },
   {
@@ -5990,7 +5997,7 @@
       "New MCP \"project\" scope now allows you to add MCP servers to .mcp.json files and commit them to your repository"
     ],
     "features_ko": [
-      "New MCP \"project\" scope now allows you to add MCP servers to .mcp.json files and commit them to your repository"
+      "새로운 MCP \"project\" 범위는 이제 .mcp.json 파일에 MCP 서버를 추가하고 이를 리포지토리에 커밋할 수 있게 해줍니다."
     ]
   },
   {
@@ -6001,7 +6008,7 @@
       "Previous MCP server scopes have been renamed: previous \"project\" scope is now \"local\" and \"global\" scope is now \"user\""
     ],
     "features_ko": [
-      "Previous MCP server scopes have been renamed: previous \"project\" scope is now \"local\" and \"global\" scope is now \"user\""
+      "이전 MCP 서버 범위의 이름이 변경되었습니다: 이전 \"project\" 범위는 이제 \"local\"이고 \"global\" 범위는 이제 \"user\"입니다."
     ]
   },
   {
@@ -6020,9 +6027,9 @@
       "Automatic conversation compaction for infinite conversation length (toggle with /config)"
     ],
     "features_ko": [
-      "Press Tab to auto-complete file and folder names",
-      "Press Shift + Tab to toggle auto-accept for file edits",
-      "Automatic conversation compaction for infinite conversation length (toggle with /config)"
+      "Tab 키를 눌러 파일 및 폴더 이름을 자동 완성하세요.",
+      "Shift + Tab 키를 눌러 파일 편집에 대한 자동 수락을 전환하세요.",
+      "무한 대화 길이에 대한 자동 대화 압축 (/config로 전환 가능)."
     ]
   },
   {
@@ -6033,7 +6040,7 @@
       "Ask Claude to make a plan with thinking mode: just say 'think' or 'think harder' or even 'ultrathink'"
     ],
     "features_ko": [
-      "Ask Claude to make a plan with thinking mode: just say 'think' or 'think harder' or even 'ultrathink'"
+      "Claude에게 'think' 또는 'think harder', 심지어 'ultrathink'라고 말해 계획을 세우게 하세요."
     ]
   },
   {
@@ -6045,8 +6052,8 @@
       "MCP server startup no longer blocks the app from starting up"
     ],
     "features_ko": [
-      "MCP server startup timeout can now be configured via MCP_TIMEOUT environment variable",
-      "MCP server startup no longer blocks the app from starting up"
+      "MCP 서버 시작 시간 초과를 이제 MCP_TIMEOUT 환경 변수를 통해 설정할 수 있습니다.",
+      "MCP 서버 시작이 더 이상 앱 시작을 차단하지 않습니다."
     ]
   },
   {
@@ -6064,8 +6071,8 @@
       "claude config add/remove commands now accept multiple values separated by commas or spaces"
     ],
     "features_ko": [
-      "New /release-notes command lets you view release notes at any time",
-      "claude config add/remove commands now accept multiple values separated by commas or spaces"
+      "새로운 /release-notes 명령으로 언제든지 릴리스 노트를 볼 수 있습니다.",
+      "claude config add/remove 명령은 이제 쉼표나 공백으로 구분된 여러 값을 허용합니다."
     ]
   },
   {
@@ -6077,8 +6084,8 @@
       "Add MCP servers as JSON strings with claude mcp add-json <n> <json>"
     ],
     "features_ko": [
-      "Import MCP servers from Claude Desktop with claude mcp add-from-claude-desktop",
-      "Add MCP servers as JSON strings with claude mcp add-json <n> <json>"
+      "claude mcp add-from-claude-desktop 명령으로 Claude Desktop에서 MCP 서버를 가져옵니다.",
+      "claude mcp add-json <n> <json> 명령으로 JSON 문자열로 MCP 서버를 추가합니다."
     ]
   },
   {
@@ -6100,7 +6107,7 @@
       "Vim bindings for text input - enable with /vim or /config"
     ],
     "features_ko": [
-      "Vim bindings for text input - enable with /vim or /config"
+      "텍스트 입력을 위한 Vim 바인딩 - /vim 또는 /config로 활성화합니다."
     ]
   },
   {
@@ -6112,8 +6119,8 @@
       "Fix for some PersistentShell issues"
     ],
     "features_ko": [
-      "Interactive MCP setup wizard: Run \"claude mcp add\" to add MCP servers with a step-by-step interface",
-      "Fix for some PersistentShell issues"
+      "인터랙티브 MCP 설정 마법사: \"claude mcp add\"를 실행하여 단계별 인터페이스로 MCP 서버를 추가합니다.",
+      "일부 PersistentShell 문제 수정"
     ]
   },
   {
@@ -6125,8 +6132,8 @@
       "MCP debug mode: Run with --mcp-debug flag to get more information about MCP server errors"
     ],
     "features_ko": [
-      "Custom slash commands: Markdown files in .claude/commands/ directories now appear as custom slash commands to insert prompts into your conversation",
-      "MCP debug mode: Run with --mcp-debug flag to get more information about MCP server errors"
+      "사용자 정의 슬래시 명령: .claude/commands/ 디렉토리의 Markdown 파일이 이제 대화에 프롬프트를 삽입하는 사용자 정의 슬래시 명령으로 나타납니다.",
+      "MCP 디버그 모드: --mcp-debug 플래그로 실행하여 MCP 서버 오류에 대한 더 많은 정보를 얻습니다."
     ]
   },
   {
@@ -6138,8 +6145,8 @@
       "(Mac-only) API keys are now stored in macOS Keychain"
     ],
     "features_ko": [
-      "Added ANSI color theme for better terminal compatibility",
-      "(Mac-only) API keys are now stored in macOS Keychain"
+      "더 나은 터미널 호환성을 위한 ANSI 색상 테마 추가",
+      "(Mac 전용) API 키가 이제 macOS Keychain에 저장됩니다."
     ]
   },
   {
@@ -6158,9 +6165,9 @@
       "Fuzzy matching for slash commands"
     ],
     "features_ko": [
-      "New /approved-tools command for managing tool permissions",
-      "Word-level diff display for improved code readability",
-      "Fuzzy matching for slash commands"
+      "도구 권한 관리를 위한 새로운 /approved-tools 명령",
+      "코드 가독성을 향상시키기 위한 단어 수준 diff 표시",
+      "슬래시 명령에 대한 퍼지 매칭"
     ]
   },
   {
@@ -6177,7 +6184,7 @@
       "Fuzzy matching for /commands"
     ],
     "features_ko": [
-      "Fuzzy matching for /commands"
+      "/commands에 대한 퍼지 매칭"
     ]
   }
 ]
