@@ -481,15 +481,18 @@ def _feat_html(items: list[str], cmd_context: dict[str, str] | None = None) -> s
 
 
 def _highlight_cmds_in_text(text: str, cmd_context: dict[str, str]) -> str:
-    """Replace command mentions in feature text with colored code tags."""
-    for name, ctx in cmd_context.items():
+    """Replace command mentions in pre-escaped feature text with colored code tags.
+    Sorts by name length descending to prevent partial matches (/t matching inside /task)."""
+    for name, ctx in sorted(cmd_context.items(), key=lambda x: -len(x[0])):
         css_cls = f"cmd-ref {ctx}" if ctx != "mentioned" else "cmd-ref"
-        # Match both backtick-quoted and bare command names
-        for pattern in [f"`{esc(name)}`", esc(name)]:
-            if pattern in text:
-                replacement = f'<code class="{css_cls}">{esc(name)}</code>'
-                text = text.replace(pattern, replacement, 1)
-                break
+        escaped_name = esc(name)
+        replacement = f'<code class="{css_cls}">{escaped_name}</code>'
+        # Try backtick-quoted first (more specific), then bare name with boundary check
+        backtick_pat = f"`{escaped_name}`"
+        if backtick_pat in text:
+            text = text.replace(backtick_pat, replacement, 1)
+        else:
+            text = re.sub(r"(?<!\w)" + re.escape(escaped_name) + r"(?!\w)", replacement, text, count=1)
     return text
 
 
