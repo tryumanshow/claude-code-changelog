@@ -322,46 +322,78 @@ SKIP_STARTS = (
 )
 
 
-def extract_commands(body: str) -> list[str]:
-    """Extract ALL slash commands, CLI flags, keyboard shortcuts from the FULL body text.
-    Scans every line (including fixes/improvements) to never miss a command mention."""
-    commands: list[str] = []
+# Context priority: higher index wins when same command appears in multiple lines
+CONTEXT_PRIORITY = {"mentioned": 0, "fixed": 1, "improved": 2, "removed": 3, "new": 4}
 
-    def _add(candidate: str) -> None:
-        if candidate not in commands and candidate not in COMMAND_BLOCKLIST:
-            commands.append(candidate)
+
+def _detect_context(line: str) -> str:
+    """Detect the context type of a changelog line based on its prefix."""
+    stripped = line.strip().lstrip("-* ")
+    lower = stripped.lower()
+    if any(lower.startswith(s) for s in ("fixed", "fix ")):
+        return "fixed"
+    if any(lower.startswith(s) for s in ("removed", "remove ")):
+        return "removed"
+    if any(lower.startswith(s) for s in (
+        "improved", "changed", "enhanced", "updated",
+        "security", "deprecated", "reverted",
+    )):
+        return "improved"
+    if any(lower.startswith(s) for s in NEW_FEATURE_STARTS):
+        return "new"
+    # "`/cmd` is now ..." or "`--flag` now ..." patterns → improved
+    if re.match(r"^`[/\-].*`\s+(is\s+now|now)\b", stripped):
+        return "improved"
+    return "mentioned"
+
+
+def extract_commands(body: str) -> list[dict]:
+    """Extract ALL slash commands, CLI flags, keyboard shortcuts from the FULL body text.
+    Returns list of {"name": str, "context": str, "summary": str}."""
+    commands: dict[str, dict] = {}  # name -> {name, context, summary}
+
+    def _add(candidate: str, context: str, summary: str) -> None:
+        if candidate in COMMAND_BLOCKLIST:
+            return
+        if candidate in commands:
+            existing = commands[candidate]
+            if CONTEXT_PRIORITY.get(context, 0) > CONTEXT_PRIORITY.get(existing["context"], 0):
+                existing["context"] = context
+                existing["summary"] = summary
+        else:
+            commands[candidate] = {"name": candidate, "context": context, "summary": summary}
 
     for line in body.splitlines():
+        ctx = _detect_context(line)
+        summary = line.strip().lstrip("-* ")[:80]
+
         # 1. Backtick-quoted commands from ALL lines (most reliable)
         for m in COMMAND_PATTERN.finditer(line):
             candidate = m.group(1).strip()
             if candidate.startswith("/") or candidate.startswith("--"):
-                _add(candidate)
+                _add(candidate, ctx, summary)
             elif any(candidate.startswith(p) for p in ("Ctrl+", "Alt+", "Option+", "Shift+")):
-                _add(candidate)
+                _add(candidate, ctx, summary)
 
         # 2. Unquoted slash commands from ALL lines
         for m in UNQUOTED_SLASH.finditer(line):
             c = m.group(1)
             if len(c) > 2:
-                _add(c)
+                _add(c, ctx, summary)
 
         # 3. Unquoted flags (only from new-feature lines to avoid noise)
-        line_stripped = line.strip().lstrip("-* ")
-        lower = line_stripped.lower()
-        is_new_feature = any(lower.startswith(s) for s in NEW_FEATURE_STARTS)
-        if is_new_feature:
+        if ctx == "new":
             for m in UNQUOTED_FLAG.finditer(line):
                 c = m.group(1)
                 if len(c) > 3:
-                    _add(c)
+                    _add(c, ctx, summary)
 
         # 4. Keyboard shortcuts from ALL lines (Ctrl+X, Ctrl-b, etc.)
         for m in CTRL_PATTERN.finditer(line):
             c = m.group(1).replace("-", "+")
-            _add(c)
+            _add(c, ctx, summary)
 
-    return commands
+    return list(commands.values())
 
 
 # ---------------------------------------------------------------------------
@@ -382,6 +414,11 @@ KNOWN_SLASH_COMMANDS = {
 }
 
 
+def _cmd_names(commands: list[dict]) -> set[str]:
+    """Get set of command names from commands list."""
+    return {c["name"] for c in commands}
+
+
 def enrich_first_appearances(entries: list[dict], version_bodies: dict[str, str]) -> None:
     """For known slash commands, find the EARLIEST version that mentions them
     (in any context) and ensure they appear in that version's commands list."""
@@ -394,8 +431,8 @@ def enrich_first_appearances(entries: list[dict], version_bodies: dict[str, str]
             # Check both backticked and bare mentions
             if f"`{cmd}`" in body or f" {cmd} " in body or f" {cmd}," in body or body.startswith(cmd[1:]):
                 if cmd not in already_assigned:
-                    if cmd not in entry["commands"]:
-                        entry["commands"].append(cmd)
+                    if cmd not in _cmd_names(entry["commands"]):
+                        entry["commands"].append({"name": cmd, "context": "mentioned", "summary": ""})
                     already_assigned.add(cmd)
                 break
 
@@ -435,6 +472,24 @@ def _feat_html(items: list[str]) -> str:
     inner = "".join(f"<li>{esc(f)}</li>" for f in items)
     return f"<ul>{inner}</ul>" if inner else '<span class="dim">—</span>'
 
+
+BADGE_LABELS = {"new": "NEW", "fixed": "FIX", "removed": "DEL", "improved": "IMP"}
+
+
+def _cmds_html(commands: list[dict]) -> str:
+    """Build command badges HTML."""
+    if not commands:
+        return '<span class="dim">—</span>'
+    parts = []
+    for c in commands:
+        ctx = c.get("context", "mentioned")
+        badge = ""
+        if ctx in BADGE_LABELS:
+            badge = f'<span class="cmd-badge {ctx}">{BADGE_LABELS[ctx]}</span>'
+        summary_attr = f' title="{esc(c["summary"])}"' if c.get("summary") else ""
+        parts.append(f'<span class="cmd-item"{summary_attr}><code>{esc(c["name"])}</code>{badge}</span>')
+    return " ".join(parts)
+
 def generate_readme(entries: list[dict]) -> str:
     lines = [
         "# Claude Code Changelog Dashboard",
@@ -447,7 +502,7 @@ def generate_readme(entries: list[dict]) -> str:
     for e in entries[:80]:
         ver = f"**v{e['version']}**"
         date = e["date"] or "—"
-        cmds = ", ".join(f"`{c}`" for c in e["commands"]) if e["commands"] else "—"
+        cmds = ", ".join(f"`{c['name']}`" for c in e["commands"]) if e["commands"] else "—"
         feats = " / ".join(e["features"][:3]) if e["features"] else "—"
         if len(feats) > 200:
             feats = feats[:197] + "..."
@@ -479,7 +534,7 @@ def generate_html(entries: list[dict]) -> str:
     """Generate a self-contained HTML dashboard."""
     rows = ""
     for e in entries:
-        cmds = ", ".join(f"<code>{esc(c)}</code>" for c in e["commands"]) if e["commands"] else '<span class="dim">—</span>'
+        cmds = _cmds_html(e["commands"])
         feats_en_html = _feat_html(e["features"])
         feats_ko_html = _feat_html(e.get("features_ko", e["features"]))
 
@@ -701,6 +756,12 @@ def generate_html(entries: list[dict]) -> str:
     font-size: 0.78rem;
     color: var(--text-secondary);
   }}
+  .cmd-item {{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin: 0.1rem 0.15rem;
+  }}
   .cmds code {{
     display: inline-block;
     background: rgba(212,165,116,0.12);
@@ -709,7 +770,35 @@ def generate_html(entries: list[dict]) -> str:
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     color: var(--accent);
-    margin: 0.1rem 0.15rem;
+    border: 1px solid var(--accent-border);
+  }}
+  .cmd-badge {{
+    font-size: 0.55rem;
+    font-weight: 600;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    white-space: nowrap;
+  }}
+  .cmd-badge.new {{
+    background: rgba(74,222,128,0.15);
+    color: var(--green);
+    border: 1px solid rgba(74,222,128,0.3);
+  }}
+  .cmd-badge.fixed {{
+    background: rgba(96,165,250,0.15);
+    color: var(--blue);
+    border: 1px solid rgba(96,165,250,0.3);
+  }}
+  .cmd-badge.removed {{
+    background: rgba(248,113,113,0.15);
+    color: #f87171;
+    border: 1px solid rgba(248,113,113,0.3);
+  }}
+  .cmd-badge.improved {{
+    background: var(--accent-dim);
+    color: var(--accent);
     border: 1px solid var(--accent-border);
   }}
   .feats ul {{
@@ -909,7 +998,7 @@ def generate_html(entries: list[dict]) -> str:
     ko: {{
       th_version: '버전',
       th_date: '날짜',
-      th_commands: '추가된 커맨드 / 플래그',
+      th_commands: '커맨드 / 플래그',
       th_features: '주요 기능',
       stat_total: '전체 버전 수',
       stat_cmds: '커맨드 추가된 버전',
@@ -975,6 +1064,12 @@ def main():
     enrich_first_appearances(entries, version_bodies)
     total_cmds = sum(len(e["commands"]) for e in entries)
     print(f"Total commands across all versions: {total_cmds}")
+    ctx_counts = {}
+    for e in entries:
+        for c in e["commands"]:
+            ctx = c.get("context", "mentioned")
+            ctx_counts[ctx] = ctx_counts.get(ctx, 0) + 1
+    print(f"Command contexts: {ctx_counts}")
 
     # Enrich with release dates from GitHub API
     dates = fetch_release_dates()
