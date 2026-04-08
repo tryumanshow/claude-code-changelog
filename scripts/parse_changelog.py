@@ -329,7 +329,9 @@ CONTEXT_PRIORITY = {"mentioned": 0, "fixed": 1, "improved": 2, "removed": 3, "ne
 def _detect_context(line: str) -> str:
     """Detect the context type of a changelog line based on its prefix."""
     stripped = line.strip().lstrip("-* ")
-    lower = stripped.lower()
+    # Strip leading platform/tool tags: [VSCode], Windows:, SDK:, MCP:, etc.
+    cleaned = re.sub(r"^(\[[^\]]+\]\s*|[\w]+:\s+)", "", stripped)
+    lower = cleaned.lower()
     if any(lower.startswith(s) for s in ("fixed", "fix ")):
         return "fixed"
     if any(lower.startswith(s) for s in ("removed", "remove ")):
@@ -337,12 +339,18 @@ def _detect_context(line: str) -> str:
     if any(lower.startswith(s) for s in (
         "improved", "changed", "enhanced", "updated",
         "security", "deprecated", "reverted",
+        "simplified", "renamed", "moved", "switched",
+        "reduced", "avoid", "suppressed", "enable ",
+        "show ", "stop ", "preserved",
     )):
         return "improved"
     if any(lower.startswith(s) for s in NEW_FEATURE_STARTS):
         return "new"
-    # "`/cmd` is now ..." or "`--flag` now ..." patterns → improved
-    if re.match(r"^`[/\-].*`\s+(is\s+now|now)\b", stripped):
+    # "`/cmd` now ..." or "`Ctrl+X` now ..." patterns → improved
+    if re.match(r"^`[^`]+`\s+(is\s+now|now|no\s+longer)\b", cleaned):
+        return "improved"
+    # "X now ..." pattern (e.g. "Stats screenshot now works", "/stats now provides")
+    if re.search(r"\bnow\b", lower) and not lower.startswith(("fixed", "fix ")):
         return "improved"
     return "mentioned"
 
@@ -432,7 +440,15 @@ def enrich_first_appearances(entries: list[dict], version_bodies: dict[str, str]
             if f"`{cmd}`" in body or f" {cmd} " in body or f" {cmd}," in body or body.startswith(cmd[1:]):
                 if cmd not in already_assigned:
                     if cmd not in _cmd_names(entry["commands"]):
-                        entry["commands"].append({"name": cmd, "context": "mentioned", "summary": ""})
+                        # Find the line that mentions this command for summary and context
+                        summary = ""
+                        ctx = "mentioned"
+                        for bline in body.splitlines():
+                            if f"`{cmd}`" in bline or f" {cmd} " in bline or f" {cmd}," in bline:
+                                summary = bline.strip().lstrip("-* ")[:80]
+                                ctx = _detect_context(bline)
+                                break
+                        entry["commands"].append({"name": cmd, "context": ctx, "summary": summary})
                     already_assigned.add(cmd)
                 break
 
