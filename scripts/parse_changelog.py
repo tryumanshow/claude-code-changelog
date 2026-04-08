@@ -1001,6 +1001,7 @@ def generate_html(entries: list[dict]) -> str:
     <div class="header-top">
       <h1><span class="cc">Claude Code</span> Changelog</h1>
       <span class="badge">AUTO-SYNC</span>
+      <iframe src="https://ghbtns.com/github-btn.html?user=tryumanshow&amp;repo=claude-code-changelog&amp;type=star&amp;count=true&amp;size=large" frameborder="0" scrolling="0" width="120" height="30" title="GitHub Stars" style="vertical-align: middle;"></iframe>
     </div>
     <p class="meta" data-i18n-html="meta">
       Updated every 3 hours &middot; Last sync: {updated} &middot;
