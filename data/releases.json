@@ -1,5 +1,77 @@
 [
   {
+    "version": "2.1.97",
+    "date": "2026-04-08",
+    "commands": [
+      {
+        "name": "Ctrl+O",
+        "context": "new",
+        "summary": "Added focus view toggle (`Ctrl+O`) in `NO_FLICKER` mode showing prompt, one-line"
+      },
+      {
+        "name": "/agents",
+        "context": "new",
+        "summary": "Added `● N running` indicator in `/agents` next to agent types with live subagen"
+      },
+      {
+        "name": "--dangerously-skip-permissions",
+        "context": "fixed",
+        "summary": "Fixed `--dangerously-skip-permissions` being silently downgraded to accept-edits"
+      },
+      {
+        "name": "--add-dir",
+        "context": "fixed",
+        "summary": "Fixed removing a directory from `settings.permissions.additionalDirectories` rev"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed several `/resume` picker issues: `--resume <name>` opening uneditable, Ctr"
+      },
+      {
+        "name": "--resume <name>",
+        "context": "fixed",
+        "summary": "Fixed several `/resume` picker issues: `--resume <name>` opening uneditable, Ctr"
+      },
+      {
+        "name": "Ctrl+A",
+        "context": "fixed",
+        "summary": "Fixed several `/resume` picker issues: `--resume <name>` opening uneditable, Ctr"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed file-edit diffs disappearing on `--resume` when the edited file was larger"
+      },
+      {
+        "name": "Shift+E",
+        "context": "fixed",
+        "summary": "Fixed Shift+Enter and Alt/Cmd+arrow shortcuts not working in Warp with `NO_FLICK"
+      },
+      {
+        "name": "/claude-api",
+        "context": "improved",
+        "summary": "Updated `/claude-api` skill to cover Managed Agents alongside the Claude API"
+      }
+    ],
+    "features": [
+      "Added focus view toggle (Ctrl+O) in NO_FLICKER mode showing prompt, one-line tool summary with edit diffstats, and final response",
+      "Added refreshInterval status line setting to re-run the status line command every N seconds",
+      "Added workspace.git_worktree to the status line JSON input, set when the current directory is inside a linked git worktree",
+      "Added ● N running indicator in /agents next to agent types with live subagent instances",
+      "Added syntax highlighting for Cedar policy files (.cedar, .cedarpolicy)",
+      "Updated /claude-api skill to cover Managed Agents alongside the Claude API"
+    ],
+    "features_ko": [
+      "NO_FLICKER 모드에서 프롬프트, 한 줄 도구 요약 및 편집 diffstats와 함께 포커스 뷰 토글(Ctrl+O)을 추가했습니다.",
+      "N초마다 상태 줄 명령을 다시 실행하는 refreshInterval 상태 줄 설정을 추가했습니다.",
+      "현재 디렉토리가 연결된 git worktree 안에 있을 때 설정되는 status line JSON 입력에 workspace.git_worktree를 추가했습니다.",
+      "라이브 서브 에이전트 인스턴스와 함께 에이전트 유형 옆에 /agents에서 ● N 실행 지시기를 추가했습니다.",
+      "Cedar 정책 파일(.cedar, .cedarpolicy)에 대한 구문 강조를 추가했습니다.",
+      "Claude API와 함께 관리형 에이전트를 포함하도록 /claude-api 스킬을 업데이트했습니다."
+    ]
+  },
+  {
     "version": "2.1.96",
     "date": "2026-04-08",
     "commands": [],

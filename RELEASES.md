@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated every 3 hours | Last sync: 2026-04-08 21:40 UTC
+> Auto-updated every 3 hours | Last sync: 2026-04-09 02:12 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.97** | 2026-04-08 | `Ctrl+O`, `/agents`, `--dangerously-skip-permissions`, `--add-dir`, `/resume`, `--resume <name>`, `Ctrl+A`, `--resume`, `Shift+E`, `/claude-api` | Added focus view toggle (Ctrl+O) in NO_FLICKER mode showing prompt, one-line tool summary with edit diffstats, and final response / Added refreshInterval status line setting to re-run the status li... |
 | **v2.1.96** | 2026-04-08 | — | Fixed Bedrock requests failing with 403 "Authorization header is missing" when using AWS_BEARER_TOKEN_BEDROCK or CLAUDE_CODE_SKIP_BEDROCK_AUTH (regression in 2.1.94) |
 | **v2.1.94** | 2026-04-07 | `/effort`, `Shift+S`, `alt+s`, `--resume` | Added support for Amazon Bedrock powered by Mantle, set CLAUDE_CODE_USE_MANTLE=1 / Added compact Slacked #channel header with a clickable channel link for Slack MCP send-message tool calls / Added ... |
 | **v2.1.92** | 2026-04-04 | `/cost`, `/release-notes`, `--remote-control-session-name-prefix`, `ctrl+e`, `/clear`, `/tag`, `/vim`, `/config` | Added forceRemoteSettingsRefresh policy setting: when set, the CLI blocks startup until remote managed settings are freshly fetched, and exits if the fetch fails (fail-closed) / Added interactive B... |
@@ -83,7 +84,6 @@
 | **v2.1.2** | 2026-01-09 | `Shift+T`, `--agent`, `/tasks`, `/plugins` | Added source path metadata to images dragged onto the terminal, helping Claude understand where images originated / Added clickable hyperlinks for file paths in tool output in terminals that suppor... |
 | **v2.1.0** | 2026-01-07 | `Shift+E`, `--resume`, `Ctrl+R`, `Ctrl+B`, `/teleport`, `/remote-env`, `--disallowedTools`, `/plan`, `--tools`, `Ctrl+V`, `Ctrl+O`, `Alt+B`, `Alt+F`, `/path`, `/context`, `--model haiku`, `/hooks`, `/skills`, `/stats` | Added automatic skill hot-reload - skills created or modified in ~/.claude/skills or .claude/skills are now immediately available without restarting the session / Added support for running skills a... |
 | **v2.0.76** | 2026-01-07 | — | Fixed issue with macOS code-sign warning when using Claude in Chrome integration |
-| **v2.0.75** | 2025-12-20 | — | Minor bugfixes |
 
 ---
 
