@@ -825,5 +825,13 @@
   "714e8c56eccd31ae": "현재 디렉토리가 연결된 git worktree 안에 있을 때 설정되는 status line JSON 입력에 workspace.git_worktree를 추가했습니다.",
   "d5647e609be9483f": "라이브 서브 에이전트 인스턴스와 함께 에이전트 유형 옆에 /agents에서 ● N 실행 지시기를 추가했습니다.",
   "05f1b91b2d96891c": "Cedar 정책 파일(.cedar, .cedarpolicy)에 대한 구문 강조를 추가했습니다.",
-  "9a4a478c46377761": "Claude API와 함께 관리형 에이전트를 포함하도록 /claude-api 스킬을 업데이트했습니다."
+  "9a4a478c46377761": "Claude API와 함께 관리형 에이전트를 포함하도록 /claude-api 스킬을 업데이트했습니다.",
+  "f4dc4b0f1d34b59c": "\"3rd-party platform\"을 선택할 때 로그인 화면에서 접근할 수 있는 대화형 Google Vertex AI 설정 마법사를 추가하여 GCP 인증, 프로젝트 및 지역 구성, 자격 증명 확인, 모델 고정을 안내합니다.",
+  "73a47f4d395c210f": "CLAUDE_CODE_PERFORCE_MODE 환경 변수를 추가했습니다: 설정 시, Edit/Write/NotebookEdit이 읽기 전용 파일에서 p4 edit 힌트와 함께 실패하며, 조용히 덮어쓰지 않습니다.",
+  "9626b87b52d9709a": "백그라운드 스크립트에서 이벤트를 스트리밍하기 위한 Monitor 도구를 추가했습니다.",
+  "77238ee211f27e91": "CLAUDE_CODE_SUBPROCESS_ENV_SCRUB가 설정된 경우 Linux에서 PID 네임스페이스 격리를 통한 서브프로세스 샌드박싱을 추가하고, 세션당 스크립트 호출을 제한하는 CLAUDE_CODE_SCRIPT_CAPS 환경 변수를 추가했습니다.",
+  "a21f705590682d78": "사용자 간 프롬프트 캐싱 개선을 위해 인쇄 모드에 --exclude-dynamic-system-prompt-sections 플래그를 추가했습니다.",
+  "d2f0fdae00a102c6": "현재 디렉토리가 연결된 git worktree 내부에 있을 때마다 status line JSON 입력에 workspace.git_worktree를 추가했습니다.",
+  "b58b2f6e9e8449ae": "OTEL 추적이 활성화된 경우 Bash 도구 서브프로세스에 W3C TRACEPARENT 환경 변수를 추가하여 자식 프로세스의 span이 Claude Code의 추적 트리에 올바르게 부모로 연결되도록 했습니다.",
+  "a5f7e44d2b9d53c4": "LSP: Claude Code가 이제 initialize 요청의 clientInfo를 통해 언어 서버에 자신을 식별합니다."
 }

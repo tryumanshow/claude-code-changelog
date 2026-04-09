@@ -1,5 +1,101 @@
 [
   {
+    "version": "2.1.98",
+    "date": "2026-04-09",
+    "commands": [
+      {
+        "name": "--exclude-dynamic-system-prompt-sections",
+        "context": "new",
+        "summary": "Added `--exclude-dynamic-system-prompt-sections` flag to print mode for improved"
+      },
+      {
+        "name": "--dangerously-skip-permissions",
+        "context": "fixed",
+        "summary": "Fixed `--dangerously-skip-permissions` being silently downgraded to accept-edits"
+      },
+      {
+        "name": "--add-dir",
+        "context": "fixed",
+        "summary": "Fixed removing a directory from `additionalDirectories` revoking access to the s"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed file-edit diffs disappearing from the UI on `--resume` when the edited fil"
+      },
+      {
+        "name": "/resume",
+        "context": "improved",
+        "summary": "Improved `/resume` filter hint labels and added project/worktree/branch names in"
+      },
+      {
+        "name": "--resume <name>",
+        "context": "fixed",
+        "summary": "Fixed several `/resume` picker issues: `--resume <name>` opening uneditable, fil"
+      },
+      {
+        "name": "/export",
+        "context": "fixed",
+        "summary": "Fixed `/export` not honoring absolute paths and `~`, and silently rewriting user"
+      },
+      {
+        "name": "/effort max",
+        "context": "fixed",
+        "summary": "Fixed `/effort max` being denied for unknown or future model IDs"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed `/effort max` being denied for unknown or future model IDs"
+      },
+      {
+        "name": "/agents",
+        "context": "improved",
+        "summary": "Improved `/agents` with a tabbed layout: a Running tab shows live subagents, and"
+      },
+      {
+        "name": "/reload-plugins",
+        "context": "improved",
+        "summary": "Improved `/reload-plugins` to pick up plugin-provided skills without requiring a"
+      },
+      {
+        "name": "--debug",
+        "context": "improved",
+        "summary": "Improved hook errors in the transcript to include the first line of stderr for s"
+      },
+      {
+        "name": "/claude-api",
+        "context": "improved",
+        "summary": "Updated the `/claude-api` skill to cover Managed Agents alongside Claude API"
+      },
+      {
+        "name": "/compact",
+        "context": "mentioned",
+        "summary": "Dropped `/compact` hints when `DISABLE_COMPACT` is set."
+      }
+    ],
+    "features": [
+      "Added interactive Google Vertex AI setup wizard accessible from the login screen when selecting \"3rd-party platform\", guiding you through GCP authentication, project and region configuration, credential verification, and model pinning",
+      "Added CLAUDE_CODE_PERFORCE_MODE env var: when set, Edit/Write/NotebookEdit fail on read-only files with a p4 edit hint instead of silently overwriting them",
+      "Added Monitor tool for streaming events from background scripts",
+      "Added subprocess sandboxing with PID namespace isolation on Linux when CLAUDE_CODE_SUBPROCESS_ENV_SCRUB is set, and CLAUDE_CODE_SCRIPT_CAPS env var to limit per-session script invocations",
+      "Added --exclude-dynamic-system-prompt-sections flag to print mode for improved cross-user prompt caching",
+      "Added workspace.git_worktree to the status line JSON input, set whenever the current directory is inside a linked git worktree",
+      "Added W3C TRACEPARENT env var to Bash tool subprocesses when OTEL tracing is enabled, so child-process spans correctly parent to Claude Code's trace tree",
+      "LSP: Claude Code now identifies itself to language servers via clientInfo in the initialize request"
+    ],
+    "features_ko": [
+      "\"3rd-party platform\"을 선택할 때 로그인 화면에서 접근할 수 있는 대화형 Google Vertex AI 설정 마법사를 추가하여 GCP 인증, 프로젝트 및 지역 구성, 자격 증명 확인, 모델 고정을 안내합니다.",
+      "CLAUDE_CODE_PERFORCE_MODE 환경 변수를 추가했습니다: 설정 시, Edit/Write/NotebookEdit이 읽기 전용 파일에서 p4 edit 힌트와 함께 실패하며, 조용히 덮어쓰지 않습니다.",
+      "백그라운드 스크립트에서 이벤트를 스트리밍하기 위한 Monitor 도구를 추가했습니다.",
+      "CLAUDE_CODE_SUBPROCESS_ENV_SCRUB가 설정된 경우 Linux에서 PID 네임스페이스 격리를 통한 서브프로세스 샌드박싱을 추가하고, 세션당 스크립트 호출을 제한하는 CLAUDE_CODE_SCRIPT_CAPS 환경 변수를 추가했습니다.",
+      "사용자 간 프롬프트 캐싱 개선을 위해 인쇄 모드에 --exclude-dynamic-system-prompt-sections 플래그를 추가했습니다.",
+      "현재 디렉토리가 연결된 git worktree 내부에 있을 때마다 status line JSON 입력에 workspace.git_worktree를 추가했습니다.",
+      "OTEL 추적이 활성화된 경우 Bash 도구 서브프로세스에 W3C TRACEPARENT 환경 변수를 추가하여 자식 프로세스의 span이 Claude Code의 추적 트리에 올바르게 부모로 연결되도록 했습니다.",
+      "LSP: Claude Code가 이제 initialize 요청의 clientInfo를 통해 언어 서버에 자신을 식별합니다."
+    ]
+  },
+  {
     "version": "2.1.97",
     "date": "2026-04-08",
     "commands": [
