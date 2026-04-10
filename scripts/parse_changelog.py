@@ -191,7 +191,11 @@ def translate_batch_openai(texts: list[str], api_key: str) -> list[str]:
 
 
 def translate_features(entries: list[dict], api_key: str) -> None:
-    """Add 'features_ko' to each entry, using cache + OpenAI API."""
+    """Add 'features_ko' to each entry, using cache + OpenAI API.
+
+    Cache is always consulted first. If api_key is empty, untranslated features
+    fall back to the English text instead of being silently overwritten.
+    """
     cache = load_translation_cache()
     to_translate: list[tuple[int, int, str]] = []  # (entry_idx, feat_idx, text)
 
@@ -208,6 +212,14 @@ def translate_features(entries: list[dict], api_key: str) -> None:
 
     if not to_translate:
         print(f"Translation: all {sum(len(e['features']) for e in entries)} features cached, 0 API calls needed")
+        return
+
+    if not api_key:
+        # No API key — leave cached translations as-is, fall back to English for misses
+        for ei, fi, original in to_translate:
+            entries[ei]["features_ko"][fi] = original
+        cached = sum(len(e["features"]) for e in entries) - len(to_translate)
+        print(f"Translation: OPENAI_API_KEY not set — used {cached} cached, fell back to English for {len(to_translate)} uncached features")
         return
 
     print(f"Translation: {len(to_translate)} new features to translate...")
@@ -1217,14 +1229,9 @@ def main():
     dated = sum(1 for e in entries if e["date"])
     print(f"Dates resolved: {dated}/{len(entries)}")
 
-    # Translate features to Korean (if API key available)
+    # Translate features to Korean (always consults cache; API only if key present)
     openai_key = os.environ.get("OPENAI_API_KEY", "")
-    if openai_key:
-        translate_features(entries, openai_key)
-    else:
-        print("Translation: OPENAI_API_KEY not set, skipping (features_ko = features)")
-        for e in entries:
-            e["features_ko"] = e["features"]
+    translate_features(entries, openai_key)
 
     # Save JSON
     JSON_FILE.parent.mkdir(parents=True, exist_ok=True)
