@@ -1,5 +1,150 @@
 [
   {
+    "version": "2.1.101",
+    "date": "2026-04-10",
+    "commands": [
+      {
+        "name": "/team-onboarding",
+        "context": "new",
+        "summary": "Added `/team-onboarding` command to generate a teammate ramp-up guide from your "
+      },
+      {
+        "name": "/ultraplan",
+        "context": "improved",
+        "summary": "`/ultraplan` and other remote-session features now auto-create a default cloud e"
+      },
+      {
+        "name": "/rename",
+        "context": "improved",
+        "summary": "Improved `claude -p --resume <name>` to accept session titles set via `/rename` "
+      },
+      {
+        "name": "--name",
+        "context": "improved",
+        "summary": "Improved `claude -p --resume <name>` to accept session titles set via `/rename` "
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "Improved `/plugin` and `claude plugin update` to show a warning when the marketp"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed `--resume`/`--continue` losing conversation context on large sessions when"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed `--resume`/`--continue` losing conversation context on large sessions when"
+      },
+      {
+        "name": "--setting-sources",
+        "context": "fixed",
+        "summary": "Fixed `--setting-sources` without `user` causing background cleanup to ignore `c"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed several `/resume` picker issues: narrow default view hiding sessions from "
+      },
+      {
+        "name": "/btw",
+        "context": "fixed",
+        "summary": "Fixed `/btw` writing a copy of the entire conversation to disk on every use"
+      },
+      {
+        "name": "/context",
+        "context": "fixed",
+        "summary": "Fixed `/context` Free space and Messages breakdown disagreeing with the header p"
+      },
+      {
+        "name": "/plugin update",
+        "context": "fixed",
+        "summary": "Fixed several plugin issues: slash commands resolving to the wrong plugin with d"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed the `/mcp` menu offering OAuth-specific actions for MCP servers configured"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed `/login` OAuth URL rendering with padding that prevented clean mouse selec"
+      },
+      {
+        "name": "/add-dir --remember",
+        "context": "fixed",
+        "summary": "Fixed in-app settings writes (e.g. `/add-dir --remember`, `/config`) not refresh"
+      },
+      {
+        "name": "/config",
+        "context": "fixed",
+        "summary": "Fixed in-app settings writes (e.g. `/add-dir --remember`, `/config`) not refresh"
+      },
+      {
+        "name": "/add-dir",
+        "context": "fixed",
+        "summary": "Fixed in-app settings writes (e.g. `/add-dir --remember`, `/config`) not refresh"
+      },
+      {
+        "name": "/remote-control",
+        "context": "fixed",
+        "summary": "Fixed several Remote Control issues: worktrees removed on session crash, connect"
+      },
+      {
+        "name": "/insights",
+        "context": "fixed",
+        "summary": "Fixed `/insights` sometimes omitting the report file link from its response"
+      }
+    ],
+    "features": [
+      "Added /team-onboarding command to generate a teammate ramp-up guide from your local Claude Code usage",
+      "Added OS CA certificate store trust by default, so enterprise TLS proxies work without extra setup (set CLAUDE_CODE_CERT_STORE=bundled to use only bundled CAs)",
+      "/ultraplan and other remote-session features now auto-create a default cloud environment instead of requiring web setup first",
+      "Improved claude -p --resume <name> to accept session titles set via /rename or --name",
+      "Improved /plugin and claude plugin update to show a warning when the marketplace could not be refreshed, instead of silently reporting a stale version",
+      "Fixed --resume/--continue losing conversation context on large sessions when the loader anchored on a dead-end branch instead of the live conversation",
+      "Fixed --resume chain recovery bridging into an unrelated subagent conversation when a subagent message landed near a main-chain write gap",
+      "Fixed a crash on --resume when a persisted Edit/Write tool result was missing its file_path",
+      "Fixed --setting-sources without user causing background cleanup to ignore cleanupPeriodDays and delete conversation history older than 30 days",
+      "Fixed several /resume picker issues: narrow default view hiding sessions from other projects, unreachable preview on Windows Terminal, incorrect cwd in worktrees, session-not-found errors not surfacing in stderr, terminal title not being set, and resume hint overlapping the prompt input",
+      "Fixed /btw writing a copy of the entire conversation to disk on every use",
+      "Fixed /context Free space and Messages breakdown disagreeing with the header percentage",
+      "Fixed several plugin issues: slash commands resolving to the wrong plugin with duplicate name: frontmatter, /plugin update failing with ENAMETOOLONG, Discover showing already-installed plugins, directory-source plugins loading from a stale version cache, and skills not honoring context: fork and agent frontmatter fields",
+      "Fixed the /mcp menu offering OAuth-specific actions for MCP servers configured with headersHelper; Reconnect is now offered instead to re-invoke the helper script",
+      "Fixed /login OAuth URL rendering with padding that prevented clean mouse selection",
+      "Fixed in-app settings writes (e.g. /add-dir --remember, /config) not refreshing the in-memory snapshot, preventing removed directories from being revoked mid-session",
+      "Fixed claude --continue -p not correctly continuing sessions created by -p or the SDK",
+      "Fixed several Remote Control issues: worktrees removed on session crash, connection failures not persisting in the transcript, spurious \"Disconnected\" indicator in brief mode for local sessions, and /remote-control failing over SSH when only CLAUDE_CODE_ORGANIZATION_UUID is set",
+      "Fixed /insights sometimes omitting the report file link from its response",
+      "[VSCode] Fixed the file attachment below the chat input not clearing when the last editor tab is closed"
+    ],
+    "features_ko": [
+      "/team-onboarding 명령어를 추가하여 로컬 Claude Code 사용에서 팀원 온보딩 가이드를 생성합니다.",
+      "기본적으로 OS CA 인증서 저장소 신뢰를 추가하여 기업 TLS 프록시가 추가 설정 없이 작동합니다 (CLAUDE_CODE_CERT_STORE=bundled로 설정하여 번들된 CA만 사용).",
+      "/ultraplan 및 기타 원격 세션 기능이 이제 웹 설정 없이 기본 클라우드 환경을 자동으로 생성합니다.",
+      "/rename 또는 --name을 통해 설정된 세션 제목을 수용하도록 claude -p --resume <name>을 개선했습니다.",
+      "/plugin 및 claude plugin update가 마켓플레이스를 새로 고칠 수 없을 때 경고를 표시하도록 개선했습니다.",
+      "--resume/--continue가 로더가 라이브 대화 대신 막다른 가지에 고정될 때 큰 세션에서 대화 맥락을 잃는 문제를 수정했습니다.",
+      "--resume 체인 복구가 서브 에이전트 메시지가 메인 체인 쓰기 간격 근처에 도착할 때 관련 없는 서브 에이전트 대화로 연결되는 문제를 수정했습니다.",
+      "지속된 Edit/Write 도구 결과의 file_path가 누락될 때 --resume에서 충돌하는 문제를 수정했습니다.",
+      "사용자 없이 --setting-sources가 백그라운드 정리를 cleanupPeriodDays를 무시하고 30일 이상 된 대화 기록을 삭제하는 문제를 수정했습니다.",
+      "여러 /resume 선택기 문제를 수정했습니다: 기본 보기에서 다른 프로젝트의 세션 숨기기, Windows Terminal에서 접근할 수 없는 미리보기, worktrees에서 잘못된 cwd, stderr에 나타나지 않는 session-not-found 오류, 터미널 제목이 설정되지 않음, 그리고 resume 힌트가 프롬프트 입력과 겹치는 문제.",
+      "/btw가 매번 전체 대화의 복사본을 디스크에 쓰는 문제를 수정했습니다.",
+      "/context의 Free space와 Messages breakdown이 헤더 비율과 일치하지 않는 문제를 수정했습니다.",
+      "여러 플러그인 문제를 수정했습니다: 중복 이름으로 잘못된 플러그인으로 해석되는 슬래시 명령어: frontmatter, /plugin update가 ENAMETOOLONG으로 실패, Discover가 이미 설치된 플러그인을 표시, 디렉토리 소스 플러그인이 오래된 버전 캐시에서 로드, 그리고 skills가 context: fork 및 agent frontmatter 필드를 존중하지 않는 문제.",
+      "/mcp 메뉴가 headersHelper로 구성된 MCP 서버에 대해 OAuth 특정 작업을 제공하는 문제를 수정했습니다; 이제 helper 스크립트를 다시 호출하기 위해 Reconnect가 제공됩니다.",
+      "/login OAuth URL 렌더링에서 패딩으로 인해 깔끔한 마우스 선택이 방해받는 문제를 수정했습니다.",
+      "인앱 설정 쓰기 (예: /add-dir --remember, /config)가 메모리 내 스냅샷을 새로 고치지 않아 세션 중 제거된 디렉토리가 취소되지 않는 문제를 수정했습니다.",
+      "claude --continue -p가 -p 또는 SDK로 생성된 세션을 올바르게 계속하지 않는 문제를 수정했습니다.",
+      "여러 원격 제어 문제를 수정했습니다: 세션 충돌 시 worktrees 제거, 전사에 연결 실패가 지속되지 않음, 로컬 세션의 간단 모드에서 잘못된 \"Disconnected\" 표시기, 그리고 CLAUDE_CODE_ORGANIZATION_UUID만 설정된 경우 SSH에서 /remote-control이 실패하는 문제.",
+      "/insights가 때때로 응답에서 보고서 파일 링크를 생략하는 문제를 수정했습니다.",
+      "[VSCode] 마지막 편집기 탭이 닫힐 때 채팅 입력 아래의 파일 첨부가 지워지지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.98",
     "date": "2026-04-09",
     "commands": [
