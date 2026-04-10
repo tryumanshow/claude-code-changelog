@@ -254,11 +254,12 @@ def parse_changelog(text: str) -> tuple[list[dict], dict[str, str]]:
     version_bodies: dict[str, str] = {}
     for version, body in pairs:
         version_bodies[version] = body
+        commands = extract_commands(body)
         entries.append({
             "version": version,
             "date": extract_date(body),
-            "commands": extract_commands(body),
-            "features": extract_features(body),
+            "commands": commands,
+            "features": extract_features(body, commands),
         })
     return entries, version_bodies
 
@@ -461,11 +462,27 @@ def _clean_markdown(text: str) -> str:
     return text
 
 
-def extract_features(body: str) -> list[str]:
-    """Extract key feature bullet points. Prefers non-fix items, but falls back
-    to all items (including fixes) for fix-only versions."""
-    features: list[str] = []
+def extract_features(body: str, commands: list[dict] | None = None) -> list[str]:
+    """Extract key feature bullet points.
+
+    Rules:
+    - Bullets that mention any command listed in the Commands/Flags column are
+      ALWAYS included (so readers can see what changed about each command).
+    - Non-fix bullets are included up to MAX_NON_FIX.
+    - If a version is fix-only (no new/improved bullets and no commands),
+      fall back to all bullets.
+    """
+    MAX_NON_FIX = 8
+    cmd_names = sorted(
+        ({c["name"] for c in commands} if commands else set()),
+        key=len,
+        reverse=True,
+    )
+    result: list[str] = []
+    seen: set[str] = set()
     all_items: list[str] = []
+    non_fix_count = 0
+
     for line in body.splitlines():
         line = line.strip()
         if not line.startswith(("-", "*")):
@@ -475,11 +492,22 @@ def extract_features(body: str) -> list[str]:
             continue
         cleaned = _clean_markdown(text)
         all_items.append(cleaned)
-        if not any(text.lower().startswith(s) for s in SKIP_STARTS):
-            features.append(cleaned)
-    # Fall back to all items (including fixes) if no non-fix features found
-    result = features if features else all_items
-    return result[:8]
+        has_cmd = any(name in cleaned for name in cmd_names)
+        is_fix = any(text.lower().startswith(s) for s in SKIP_STARTS)
+
+        if has_cmd:
+            if cleaned not in seen:
+                result.append(cleaned)
+                seen.add(cleaned)
+        elif not is_fix and non_fix_count < MAX_NON_FIX:
+            if cleaned not in seen:
+                result.append(cleaned)
+                seen.add(cleaned)
+                non_fix_count += 1
+
+    if not result:
+        result = all_items[:8]
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -538,7 +566,7 @@ def generate_readme(entries: list[dict]) -> str:
     lines = [
         "# Claude Code Changelog Dashboard",
         "",
-        f"> Auto-updated every 3 hours | Last sync: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}",
+        f"> Auto-updated daily at 06:00 KST | Last sync: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}",
         "",
         "| 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |",
         "|------|------|-------------------|----------|",
@@ -558,7 +586,7 @@ def generate_readme(entries: list[dict]) -> str:
         "",
         "## How it works",
         "",
-        "- GitHub Actions checks [anthropics/claude-code CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) every 3 hours",
+        "- GitHub Actions checks [anthropics/claude-code CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) daily at 06:00 KST",
         "- Python script parses new entries and updates this table + [dashboard](https://tryumanshow.github.io/claude-code-changelog)",
         "",
         "## Links",
@@ -1008,7 +1036,7 @@ def generate_html(entries: list[dict]) -> str:
       <iframe src="https://ghbtns.com/github-btn.html?user=tryumanshow&amp;repo=claude-code-changelog&amp;type=star&amp;count=true&amp;size=large" frameborder="0" scrolling="0" width="120" height="30" title="GitHub Stars" style="vertical-align: middle;"></iframe>
     </div>
     <p class="meta" data-i18n-html="meta">
-      Updated every 3 hours &middot; Last sync: {updated} &middot;
+      Updated daily at 06:00 KST &middot; Last sync: {updated} &middot;
       <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot;
       <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>
     </p>
@@ -1097,7 +1125,7 @@ def generate_html(entries: list[dict]) -> str:
       legend_imp: 'Improved',
       legend_fix: 'Fixed',
       legend_del: 'Removed',
-      meta: 'Updated every 3 hours &middot; Last sync: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
+      meta: 'Updated daily at 06:00 KST &middot; Last sync: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
       toggle_label: '한국어',
     }},
     ko: {{
@@ -1115,7 +1143,7 @@ def generate_html(entries: list[dict]) -> str:
       legend_imp: '개선',
       legend_fix: '수정',
       legend_del: '삭제',
-      meta: '3시간마다 자동 업데이트 &middot; 마지막 동기화: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
+      meta: '매일 오전 6시(KST) 자동 업데이트 &middot; 마지막 동기화: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
       toggle_label: 'English',
     }},
   }};

@@ -1,13 +1,13 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated every 3 hours | Last sync: 2026-04-10 07:27 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-04-10 08:57 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
 | **v2.1.98** | 2026-04-09 | `--exclude-dynamic-system-prompt-sections`, `--dangerously-skip-permissions`, `--add-dir`, `--resume`, `/resume`, `--resume <name>`, `/export`, `/effort max`, `/effort`, `/agents`, `/reload-plugins`, `--debug`, `/claude-api`, `/compact` | Added interactive Google Vertex AI setup wizard accessible from the login screen when selecting "3rd-party platform", guiding you through GCP authentication, project and region configuration, crede... |
 | **v2.1.97** | 2026-04-08 | `Ctrl+O`, `/agents`, `--dangerously-skip-permissions`, `--add-dir`, `/resume`, `--resume <name>`, `Ctrl+A`, `--resume`, `Shift+E`, `/claude-api` | Added focus view toggle (Ctrl+O) in NO_FLICKER mode showing prompt, one-line tool summary with edit diffstats, and final response / Added refreshInterval status line setting to re-run the status li... |
 | **v2.1.96** | 2026-04-08 | — | Fixed Bedrock requests failing with 403 "Authorization header is missing" when using AWS_BEARER_TOKEN_BEDROCK or CLAUDE_CODE_SKIP_BEDROCK_AUTH (regression in 2.1.94) |
-| **v2.1.94** | 2026-04-07 | `/effort`, `Shift+S`, `alt+s`, `--resume` | Added support for Amazon Bedrock powered by Mantle, set CLAUDE_CODE_USE_MANTLE=1 / Added compact Slacked #channel header with a clickable channel link for Slack MCP send-message tool calls / Added ... |
+| **v2.1.94** | 2026-04-07 | `/effort`, `Shift+S`, `alt+s`, `--resume` | Added support for Amazon Bedrock powered by Mantle, set CLAUDE_CODE_USE_MANTLE=1 / Changed default effort level from medium to high for API-key, Bedrock/Vertex/Foundry, Team, and Enterprise users (... |
 | **v2.1.92** | 2026-04-04 | `/cost`, `/release-notes`, `--remote-control-session-name-prefix`, `ctrl+e`, `/clear`, `/tag`, `/vim`, `/config` | Added forceRemoteSettingsRefresh policy setting: when set, the CLI blocks startup until remote managed settings are freshly fetched, and exits if the fetch fails (fail-closed) / Added interactive B... |
 | **v2.1.91** | 2026-04-02 | `/open`, `--resume`, `/feedback`, `/claude-api` | Added MCP tool result persistence override via _meta["anthropic/maxResultSizeChars"] annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation / Added disa... |
 | **v2.1.90** | 2026-04-01 | `/powerup`, `--resume`, `/model`, `/config`, `/resume`, `/displaydns` | Added /powerup — interactive lessons teaching Claude Code features with animated demos / Added CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE env var to keep the existing marketplace cache when git... |
@@ -19,7 +19,7 @@
 | **v2.1.83** | 2026-03-25 | `Ctrl+O`, `Ctrl+X`, `Ctrl+E`, `Ctrl+G`, `--mcp-config`, `--print`, `/config`, `--channels`, `Ctrl+B`, `--resume`, `/status`, `Ctrl+F`, `Ctrl+K`, `Ctrl+L`, `Ctrl+U`, `--bare -p`, `--worktree`, `/rewind` | Added managed-settings.d/ drop-in directory alongside managed-settings.json, letting separate teams deploy independent policy fragments that merge alphabetically / Added CwdChanged and FileChanged ... |
 | **v2.1.81** | 2026-03-20 | `--bare`, `--settings`, `--channels`, `/btw`, `/rename`, `/exit`, `Ctrl+O` | Added --bare flag for scripted -p calls — skips hooks, LSP, plugin sync, and skill directory walks; requires ANTHROPIC_API_KEY or an apiKeyHelper via --settings (OAuth and keychain auth disabled); ... |
 | **v2.1.80** | 2026-03-19 | `--channels`, `--resume`, `/remote-control`, `/sandbox`, `/effort`, `/permissions`, `/plugin install`, `/plugin` | Added rate_limits field to statusline scripts for displaying Claude.ai rate limit usage (5-hour and 7-day windows with used_percentage and resets_at) / Added source: 'settings' plugin marketplace s... |
-| **v2.1.79** | 2026-03-18 | `--console`, `/config`, `Ctrl+C`, `/btw`, `/permissions`, `/resume`, `/remote-control` | Added --console flag to claude auth login for Anthropic Console (API billing) authentication / Added "Show turn duration" toggle to the /config menu / CLAUDE_CODE_PLUGIN_SEED_DIR now supports multi... |
+| **v2.1.79** | 2026-03-18 | `--console`, `/config`, `Ctrl+C`, `/btw`, `/permissions`, `/resume`, `/remote-control` | Added --console flag to claude auth login for Anthropic Console (API billing) authentication / Added "Show turn duration" toggle to the /config menu / Fixed Ctrl+C not working in -p (print) mode |
 | **v2.1.78** | 2026-03-17 | `/plugin uninstall`, `/plugin`, `--resume`, `/sandbox`, `ctrl+u`, `ctrl+d`, `ctrl+k`, `--worktree`, `/model` | Added StopFailure hook event that fires when the turn ends due to an API error (rate limit, auth failure, etc.) / Added ${CLAUDE_PLUGIN_DATA} variable for plugin persistent state that survives plug... |
 | **v2.1.77** | 2026-03-17 | `/copy`, `/copy N`, `--resume`, `/feedback`, `Ctrl+D`, `/mcp`, `/fork`, `/branch` | Increased default maximum output token limits for Claude Opus 4.6 to 64k tokens, and the upper bound for Opus 4.6 and Sonnet 4.6 models to 128k tokens / Added allowRead sandbox filesystem setting t... |
 | **v2.1.76** | 2026-03-14 | `--name <name>`, `--name`, `--worktree`, `/effort`, `/voice`, `/export`, `--plugin-dir` | Added MCP elicitation support — MCP servers can now request structured input mid-task via an interactive dialog (form fields or browser URL) / Added new Elicitation and ElicitationResult hooks to i... |
@@ -28,18 +28,18 @@
 | **v2.1.73** | 2026-03-11 | `/resume`, `/ide`, `/loop`, `--resume`, `--continue`, `/heapdump`, `/effort`, `/model`, `/output-style`, `/config` | Added modelOverrides setting to map model picker entries to custom provider model IDs (e.g. Bedrock inference profile ARNs) / Added actionable guidance when OAuth login or connectivity checks fail ... |
 | **v2.1.72** | 2026-03-10 | `/copy`, `/plan`, `/effort auto`, `/effort`, `/config`, `--continue`, `--compact`, `--effort`, `/clear`, `Ctrl+B`, `/model`, `Ctrl+C`, `Shift+E`, `/anthropic` | Added w key in /copy to write the focused selection directly to a file, bypassing the clipboard (useful over SSH) / Added optional description argument to /plan (e.g., /plan fix the auth bug) that ... |
 | **v2.1.71** | 2026-03-07 | `/loop`, `/fork`, `/plugin`, `/permissions`, `--print`, `/plugin uninstall`, `/debug` | Added /loop command to run a prompt or slash command on a recurring interval (e.g. /loop 5m check the deploy) / Added cron scheduling tools for recurring prompts within a session / Added voice:push... |
-| **v2.1.70** | 2026-03-06 | `/plugin`, `/security-review`, `/color`, `/color default`, `/color gray`, `/color reset`, `/color none`, `--resume`, `/rename`, `/poll`, `/mcp` | Reduced prompt input re-renders during turns by ~74% / Reduced startup memory by ~426KB for users without custom CA certificates / Reduced Remote Control /poll rate to once per 10 minutes while con... |
+| **v2.1.70** | 2026-03-06 | `/plugin`, `/security-review`, `/color`, `/color default`, `/color gray`, `/color reset`, `/color none`, `--resume`, `/rename`, `/poll`, `/mcp` | Fixed plugins showing as inaccurately installed in /plugin / Fixed /security-review command failing with unknown option merge-base on older git versions / Fixed /color command having no way to rese... |
 | **v2.1.69** | 2026-03-05 | `/claude-api`, `Ctrl+U`, `/remote-control`, `--name`, `--agent`, `/reload-plugins`, `--worktree`, `--model claude-opus-4-0`, `--model claude-opus-4-1`, `/login`, `Shift+E`, `Ctrl+S`, `ctrl+o`, `/stats`, `--setting-sources user`, `/plugin`, `/compact`, `/voice`, `/cost`, `/clear`, `--mcp-config`, `/context`, `Ctrl+O`, `/config`, `--append-system-prompt-file`, `--system-prompt-file`, `/resume` | Added the /claude-api skill for building applications with the Claude API and Anthropic SDK / Added Ctrl+U on an empty bash prompt (!) to exit bash mode, matching escape and backspace / Added numer... |
 | **v2.1.68** | 2026-03-04 | `/model` | Opus 4.6 now defaults to medium effort for Max and Team subscribers. Medium effort works well for most tasks — it's the sweet spot between speed and thoroughness. You can change this anytime with /... |
 | **v2.1.66** | 2026-03-04 | — | Reduced spurious error logging |
-| **v2.1.63** | 2026-02-28 | `/simplify`, `/batch`, `/cost`, `/model`, `/copy`, `/clear` | Added /simplify and /batch bundled slash commands / Project configs & auto memory now shared across git worktrees of the same repository / Added ENABLE_CLAUDEAI_MCP_SERVERS=false env var to opt out... |
+| **v2.1.63** | 2026-02-28 | `/simplify`, `/batch`, `/cost`, `/model`, `/copy`, `/clear` | Added /simplify and /batch bundled slash commands / Fixed local slash command output like /cost appearing as user-sent messages instead of system messages in the UI / Project configs & auto memory ... |
 | **v2.1.62** | 2026-02-27 | — | Fixed prompt suggestion cache regression that reduced cache hit rates |
 | **v2.1.61** | 2026-02-26 | — | Fixed concurrent writes corrupting config file on Windows |
 | **v2.1.59** | 2026-02-26 | `/memory`, `/copy` | Claude automatically saves useful context to auto-memory. Manage with /memory / Added /copy command to show an interactive picker when code blocks are present, allowing selection of individual code... |
 | **v2.1.58** | 2026-02-25 | — | Expand Remote Control to more users |
 | **v2.1.56** | 2026-02-25 | — | VS Code: Fixed another cause of "command 'claude-vscode.editor.openLast' not found" crashes |
 | **v2.1.55** | 2026-02-25 | — | Fixed BashTool failing on Windows with EINVAL error |
-| **v2.1.53** | 2026-02-25 | `ctrl+f`, `--worktree` | Fixed a UI flicker where user input would briefly disappear after submission before the message rendered / Fixed bulk agent kill (ctrl+f) to send a single aggregate notification instead of one per ... |
+| **v2.1.53** | 2026-02-25 | `ctrl+f`, `--worktree` | Fixed bulk agent kill (ctrl+f) to send a single aggregate notification instead of one per agent, and to properly clear the command queue / Fixed --worktree sometimes being ignored on first launch |
 | **v2.1.52** | 2026-02-24 | — | VS Code: Fixed extension crash on Windows ("command 'claude-vscode.editor.openLast' not found") |
 | **v2.1.51** | 2026-02-24 | `/model` | Added claude remote-control subcommand for external builds, enabling local environment serving for all users. / Updated plugin marketplace default git timeout from 30s to 120s and added CLAUDE_CODE... |
 | **v2.1.50** | 2026-02-20 | `/mcp reconnect`, `/mcp`, `/extra-usage` | Added support for startupTimeout configuration for LSP servers / Added WorktreeCreate and WorktreeRemove hook events, enabling custom VCS setup and teardown when agent worktree isolation creates or... |
@@ -49,8 +49,8 @@
 | **v2.1.45** | 2026-02-17 | `--add-dir` | Added support for Claude Sonnet 4.6 / Added support for reading enabledPlugins and extraKnownMarketplaces from --add-dir directories / Added spinnerTipsOverride setting to customize spinner tips — ... |
 | **v2.1.44** | 2026-02-16 | — | Fixed ENAMETOOLONG errors for deeply-nested directory paths / Fixed auth refresh errors |
 | **v2.1.43** | — | — | Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout / Fixed spurious warnings for non-agent markdown files in .claude/agents/ directory / Fixed structured-outputs beta header b... |
-| **v2.1.42** | 2026-02-13 | `/resume`, `/compact` | Added one-time Opus 4.6 effort callout for eligible users |
-| **v2.1.41** | 2026-02-13 | `/resume`, `/rename` | Added guard against launching Claude Code inside another Claude Code session / Added speed attribute to OTel events and trace spans for fast mode visibility / Added claude auth login, claude auth s... |
+| **v2.1.42** | 2026-02-13 | `/resume`, `/compact` | Added one-time Opus 4.6 effort callout for eligible users / Fixed /resume showing interrupt messages as session titles / Fixed image dimension limit errors to suggest /compact |
+| **v2.1.41** | 2026-02-13 | `/resume`, `/rename` | Added guard against launching Claude Code inside another Claude Code session / Fixed /resume session previews showing raw XML tags instead of readable command names / Added speed attribute to OTel ... |
 | **v2.1.39** | 2026-02-10 | — | Improved terminal rendering performance / Fixed fatal errors being swallowed instead of displayed / Fixed process hanging after session close |
 | **v2.1.38** | 2026-02-10 | — | Blocked writes to .claude/skills directory in sandbox mode |
 | **v2.1.37** | 2026-02-07 | `/fast`, `/extra-usage` | Fixed an issue where /fast was not immediately available after enabling /extra-usage |
@@ -67,11 +67,11 @@
 | **v2.1.22** | 2026-01-28 | — | Fixed structured outputs for non-interactive (-p) mode |
 | **v2.1.21** | 2026-01-28 | — | Added support for full-width (zenkaku) number input from Japanese IME in option selection prompts / [VSCode] Added automatic Python virtual environment activation, ensuring python and pip commands ... |
 | **v2.1.20** | 2026-01-27 | `Ctrl+G`, `--add-dir`, `/context`, `/sandbox`, `/commit-push-pr`, `/copy` | Added arrow key history navigation in vim normal mode when cursor cannot move further / Added external editor shortcut (Ctrl+G) to the help menu for better discoverability / Added PR review status ... |
-| **v2.1.19** | 2026-01-23 | `/rename`, `/tag`, `Ctrl+S` | Added env var CLAUDE_CODE_ENABLE_TASKS, set to false to keep the old system temporarily / Added shorthand $0, $1, etc. for accessing individual arguments in custom commands / [SDK] Added replay of ... |
+| **v2.1.19** | 2026-01-23 | `/rename`, `/tag`, `Ctrl+S` | Added env var CLAUDE_CODE_ENABLE_TASKS, set to false to keep the old system temporarily / Added shorthand $0, $1, etc. for accessing individual arguments in custom commands / Fixed /rename and /tag... |
 | **v2.1.18** | 2026-01-22 | `/keybindings` | Added customizable keyboard shortcuts. Configure keybindings per context, create chord sequences, and personalize your workflow. Run /keybindings to get started. Learn more at https://code.claude.c... |
 | **v2.1.17** | 2026-01-22 | — | Fixed crashes on processors without AVX instruction support |
 | **v2.1.16** | 2026-01-22 | `/compact` | Added new task management system, including new capabilities like dependency tracking / [VSCode] Added native plugin management support / [VSCode] Added ability for OAuth users to browse and resume... |
-| **v2.1.15** | 2026-01-21 | `/compact` | Added deprecation notification for npm installations - run claude install or see https://docs.anthropic.com/en/docs/claude-code/getting-started for more options |
+| **v2.1.15** | 2026-01-21 | `/compact` | Added deprecation notification for npm installations - run claude install or see https://docs.anthropic.com/en/docs/claude-code/getting-started for more options / Fixed the "Context left until auto... |
 | **v2.1.14** | 2026-01-20 | `/feedback`, `/context`, `/config`, `/model`, `/todos`, `/compact`, `/usage` | Added history-based autocomplete in bash mode (!) - type a partial command and press Tab to complete from your bash command history / Added search to installed plugins list - type to filter by name... |
 | **v2.1.12** | 2026-01-17 | — | Fixed message rendering bug |
 | **v2.1.11** | 2026-01-17 | — | Fixed excessive MCP connection requests for HTTP/SSE transports |
@@ -89,7 +89,7 @@
 
 ## How it works
 
-- GitHub Actions checks [anthropics/claude-code CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) every 3 hours
+- GitHub Actions checks [anthropics/claude-code CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) daily at 06:00 KST
 - Python script parses new entries and updates this table + [dashboard](https://tryumanshow.github.io/claude-code-changelog)
 
 ## Links

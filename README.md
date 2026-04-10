@@ -1,11 +1,11 @@
 # Claude Code Changelog Dashboard
 
-[![Auto Sync](https://img.shields.io/badge/sync-every%203h-blue)](https://github.com/tryumanshow/claude-code-changelog/actions)
+[![Auto Sync](https://img.shields.io/badge/sync-daily-blue)](https://github.com/tryumanshow/claude-code-changelog/actions)
 [![GitHub Pages](https://img.shields.io/badge/dashboard-live-green)](https://tryumanshow.github.io/claude-code-changelog)
 
 Auto-tracking dashboard for [Anthropic Claude Code](https://github.com/anthropics/claude-code) release history.
 
-Parses the official CHANGELOG.md **every 3 hours** and extracts new commands, CLI flags, and key features per version.
+Parses the official CHANGELOG.md **daily at 06:00 KST** and extracts new commands, CLI flags, and key features per version.
 
 > **English** | [한국어](README_ko.md)
 
@@ -22,7 +22,7 @@ Parses the official CHANGELOG.md **every 3 hours** and extracts new commands, CL
 ## How it works
 
 ```
-GitHub Actions (hourly cron)
+GitHub Actions (daily cron, 06:00 KST)
   |
   v
 1. Fetch CHANGELOG.md from anthropics/claude-code (curl)
@@ -37,7 +37,7 @@ GitHub Actions (hourly cron)
 
 | Source | Purpose | Notes |
 |--------|---------|-------|
-| [CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) | Versions, commands, feature text | Fetched hourly |
+| [CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) | Versions, commands, feature text | Fetched daily |
 | [GitHub Releases API](https://github.com/anthropics/claude-code/releases) | Release dates | Early-exit cache |
 | [npm registry](https://www.npmjs.com/package/@anthropic-ai/claude-code) | Date backfill (versions not on GitHub) | Skipped when cache > 200 |
 | OpenAI API | Korean translation of key features | Translation cache minimizes API calls |
@@ -47,7 +47,7 @@ GitHub Actions (hourly cron)
 ```
 claude-code-changelog/
 ├── .github/workflows/
-│   └── track-releases.yml       # GitHub Actions (hourly cron)
+│   └── track-releases.yml       # GitHub Actions (daily cron, 06:00 KST)
 ├── scripts/
 │   └── parse_changelog.py       # Parser + translator + HTML generator
 ├── data/
