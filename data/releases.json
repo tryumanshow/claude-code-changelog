@@ -1,5 +1,90 @@
 [
   {
+    "version": "2.1.105",
+    "date": "2026-04-13",
+    "commands": [
+      {
+        "name": "/proactive",
+        "context": "improved",
+        "summary": "`/proactive` is now an alias for `/loop`"
+      },
+      {
+        "name": "/loop",
+        "context": "improved",
+        "summary": "`/proactive` is now an alias for `/loop`"
+      },
+      {
+        "name": "/doctor",
+        "context": "improved",
+        "summary": "Improved `/doctor` layout with status icons; press `f` to have Claude fix report"
+      },
+      {
+        "name": "/config",
+        "context": "improved",
+        "summary": "Improved `/config` labels and descriptions for clarity"
+      },
+      {
+        "name": "alt+e",
+        "context": "fixed",
+        "summary": "Fixed alt+enter not inserting a newline in terminals using ESC-prefix alt encodi"
+      },
+      {
+        "name": "Ctrl+J",
+        "context": "fixed",
+        "summary": "Fixed alt+enter not inserting a newline in terminals using ESC-prefix alt encodi"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed \"Resume this session with...\" hint not printing on exit after `/resume`, `"
+      },
+      {
+        "name": "--worktree",
+        "context": "fixed",
+        "summary": "Fixed \"Resume this session with...\" hint not printing on exit after `/resume`, `"
+      },
+      {
+        "name": "/branch",
+        "context": "fixed",
+        "summary": "Fixed \"Resume this session with...\" hint not printing on exit after `/resume`, `"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed `/model` picker on AWS Bedrock in non-US regions persisting invalid `us.*`"
+      },
+      {
+        "name": "/help",
+        "context": "fixed",
+        "summary": "Fixed `/help` dropping the tab bar, Shortcuts heading, and footer at short termi"
+      }
+    ],
+    "features": [
+      "Added path parameter to the EnterWorktree tool to switch into an existing worktree of the current repository",
+      "Added PreCompact hook support: hooks can now block compaction by exiting with code 2 or returning {\"decision\":\"block\"}",
+      "Added background monitor support for plugins via a top-level monitors manifest key that auto-arms at session start or on skill invoke",
+      "/proactive is now an alias for /loop",
+      "Improved /doctor layout with status icons; press f to have Claude fix reported issues",
+      "Improved /config labels and descriptions for clarity",
+      "Fixed alt+enter not inserting a newline in terminals using ESC-prefix alt encoding, and Ctrl+J not inserting a newline (regression in 2.1.100)",
+      "Fixed \"Resume this session with...\" hint not printing on exit after /resume, --worktree, or /branch",
+      "Fixed /model picker on AWS Bedrock in non-US regions persisting invalid us.* model IDs to settings.json when inference profile discovery is still in-flight",
+      "Fixed /help dropping the tab bar, Shortcuts heading, and footer at short terminal heights"
+    ],
+    "features_ko": [
+      "현재 리포지토리의 기존 worktree로 전환하기 위해 EnterWorktree 도구에 path 매개변수를 추가했습니다.",
+      "PreCompact 훅 지원을 추가했습니다: 이제 훅은 코드 2로 종료하거나 {\"decision\":\"block\"}을 반환하여 압축을 차단할 수 있습니다.",
+      "세션 시작 시 또는 기술 호출 시 자동으로 활성화되는 최상위 monitors 매니페스트 키를 통해 플러그인에 대한 백그라운드 모니터 지원을 추가했습니다.",
+      "/proactive가 이제 /loop의 별칭이 되었습니다.",
+      "상태 아이콘으로 개선된 /doctor 레이아웃; f를 눌러 Claude가 보고된 문제를 수정하도록 할 수 있습니다.",
+      "명확성을 위해 /config 레이블과 설명을 개선했습니다.",
+      "ESC 접두사 alt 인코딩을 사용하는 터미널에서 alt+enter가 줄 바꿈을 삽입하지 않는 문제와 Ctrl+J가 줄 바꿈을 삽입하지 않는 문제(2.1.100에서의 회귀)를 수정했습니다.",
+      "/resume, --worktree 또는 /branch 후 종료 시 \"이 세션을 ...로 재개\" 힌트가 출력되지 않는 문제를 수정했습니다.",
+      "AWS Bedrock에서 비미국 지역의 /model 선택기가 추론 프로필 검색이 진행 중일 때 settings.json에 유효하지 않은 us.* 모델 ID를 지속적으로 저장하는 문제를 수정했습니다.",
+      "짧은 터미널 높이에서 /help가 탭 바, 단축키 제목 및 바닥글을 제거하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.101",
     "date": "2026-04-10",
     "commands": [

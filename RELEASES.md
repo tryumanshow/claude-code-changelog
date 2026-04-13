@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-04-12 21:43 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-04-13 21:55 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.105** | 2026-04-13 | `/proactive`, `/loop`, `/doctor`, `/config`, `alt+e`, `Ctrl+J`, `/resume`, `--worktree`, `/branch`, `/model`, `/help` | Added path parameter to the EnterWorktree tool to switch into an existing worktree of the current repository / Added PreCompact hook support: hooks can now block compaction by exiting with code 2 o... |
 | **v2.1.101** | 2026-04-10 | `/team-onboarding`, `/ultraplan`, `/rename`, `--name`, `/plugin`, `--resume`, `--continue`, `--setting-sources`, `/resume`, `/btw`, `/context`, `/plugin update`, `/mcp`, `/login`, `/add-dir --remember`, `/config`, `/add-dir`, `/remote-control`, `/insights` | Added /team-onboarding command to generate a teammate ramp-up guide from your local Claude Code usage / Added OS CA certificate store trust by default, so enterprise TLS proxies work without extra ... |
 | **v2.1.98** | 2026-04-09 | `--exclude-dynamic-system-prompt-sections`, `--dangerously-skip-permissions`, `--add-dir`, `--resume`, `/resume`, `--resume <name>`, `/export`, `/effort max`, `/effort`, `/agents`, `/reload-plugins`, `--debug`, `/claude-api`, `/compact` | Added interactive Google Vertex AI setup wizard accessible from the login screen when selecting "3rd-party platform", guiding you through GCP authentication, project and region configuration, crede... |
 | **v2.1.97** | 2026-04-08 | `Ctrl+O`, `/agents`, `--dangerously-skip-permissions`, `--add-dir`, `/resume`, `--resume <name>`, `Ctrl+A`, `--resume`, `Shift+E`, `/claude-api` | Added focus view toggle (Ctrl+O) in NO_FLICKER mode showing prompt, one-line tool summary with edit diffstats, and final response / Added refreshInterval status line setting to re-run the status li... |
@@ -83,7 +84,6 @@
 | **v2.1.5** | 2026-01-12 | — | Added CLAUDE_CODE_TMPDIR environment variable to override the temp directory used for internal temp files, useful for environments with custom temp directory requirements |
 | **v2.1.4** | 2026-01-11 | `Ctrl+B` | Added CLAUDE_CODE_DISABLE_BACKGROUND_TASKS environment variable to disable all background task functionality including auto-backgrounding and the Ctrl+B shortcut |
 | **v2.1.3** | 2026-01-09 | `/config`, `/doctor`, `/clear` | Merged slash commands and skills, simplifying the mental model with no change in behavior / Added release channel (stable or latest) toggle to /config / Added detection and warnings for unreachable... |
-| **v2.1.2** | 2026-01-09 | `Shift+T`, `--agent`, `/tasks`, `/plugins` | Added source path metadata to images dragged onto the terminal, helping Claude understand where images originated / Added clickable hyperlinks for file paths in tool output in terminals that suppor... |
 
 ---
 
