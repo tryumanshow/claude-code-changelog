@@ -1,5 +1,141 @@
 [
   {
+    "version": "2.1.108",
+    "date": "2026-04-14",
+    "commands": [
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Added recap feature to provide context when returning to a session, configurable"
+      },
+      {
+        "name": "/recap",
+        "context": "new",
+        "summary": "Added recap feature to provide context when returning to a session, configurable"
+      },
+      {
+        "name": "/init",
+        "context": "improved",
+        "summary": "The model can now discover and invoke built-in slash commands like `/init`, `/re"
+      },
+      {
+        "name": "/review",
+        "context": "improved",
+        "summary": "The model can now discover and invoke built-in slash commands like `/init`, `/re"
+      },
+      {
+        "name": "/security-review",
+        "context": "improved",
+        "summary": "The model can now discover and invoke built-in slash commands like `/init`, `/re"
+      },
+      {
+        "name": "/undo",
+        "context": "improved",
+        "summary": "`/undo` is now an alias for `/rewind`"
+      },
+      {
+        "name": "/rewind",
+        "context": "improved",
+        "summary": "`/undo` is now an alias for `/rewind`"
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "Improved `/model` to warn before switching models mid-conversation, since the ne"
+      },
+      {
+        "name": "/resume",
+        "context": "improved",
+        "summary": "Improved `/resume` picker to default to sessions from the current directory; pre"
+      },
+      {
+        "name": "Ctrl+A",
+        "context": "improved",
+        "summary": "Improved `/resume` picker to default to sessions from the current directory; pre"
+      },
+      {
+        "name": "Ctrl+O",
+        "context": "new",
+        "summary": "Added \"verbose\" indicator when viewing the detailed transcript (`Ctrl+O`)"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed paste not working in the `/login` code prompt (regression in 2.1.105)"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed `claude --resume <session-id>` losing the session's custom name and color "
+      },
+      {
+        "name": "--teleport",
+        "context": "fixed",
+        "summary": "Fixed terminal escape codes appearing as garbage text in the prompt input after "
+      },
+      {
+        "name": "/feedback",
+        "context": "fixed",
+        "summary": "Fixed `/feedback` retry: pressing Enter to resubmit after a failure now works wi"
+      },
+      {
+        "name": "--resume <id>",
+        "context": "fixed",
+        "summary": "Fixed `--teleport` and `--resume <id>` precondition errors (e.g. dirty git tree,"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed `--resume` truncating sessions when the transcript contained a self-refere"
+      }
+    ],
+    "features": [
+      "Added ENABLE_PROMPT_CACHING_1H env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (ENABLE_PROMPT_CACHING_1H_BEDROCK is deprecated but still honored), and FORCE_PROMPT_CACHING_5M to force 5-minute TTL",
+      "Added recap feature to provide context when returning to a session, configurable in /config and manually invocable with /recap; force with CLAUDE_CODE_ENABLE_AWAY_SUMMARY if telemetry disabled.",
+      "The model can now discover and invoke built-in slash commands like /init, /review, and /security-review via the Skill tool",
+      "/undo is now an alias for /rewind",
+      "Improved /model to warn before switching models mid-conversation, since the next response re-reads the full history uncached",
+      "Improved /resume picker to default to sessions from the current directory; press Ctrl+A to show all projects",
+      "Reduced memory footprint for file reads, edits, and syntax highlighting by loading language grammars on demand",
+      "Added \"verbose\" indicator when viewing the detailed transcript (Ctrl+O)",
+      "Added a warning at startup when prompt caching is disabled via DISABLE_PROMPT_CACHING* environment variables",
+      "Fixed paste not working in the /login code prompt (regression in 2.1.105)",
+      "Fixed claude --resume <session-id> losing the session's custom name and color set via /rename",
+      "Fixed terminal escape codes appearing as garbage text in the prompt input after --teleport",
+      "Fixed /feedback retry: pressing Enter to resubmit after a failure now works without first editing the description",
+      "Fixed --teleport and --resume <id> precondition errors (e.g. dirty git tree, session not found) exiting silently instead of showing the error message",
+      "Fixed --resume truncating sessions when the transcript contained a self-referencing message"
+    ],
+    "features_ko": [
+      "API 키, Bedrock, Vertex, Foundry에서 1시간 프롬프트 캐시 TTL을 선택할 수 있도록 ENABLE_PROMPT_CACHING_1H 환경 변수를 추가했습니다(ENABLE_PROMPT_CACHING_1H_BEDROCK은 더 이상 사용되지 않지만 여전히 지원됨) 및 5분 TTL을 강제로 설정하는 FORCE_PROMPT_CACHING_5M을 추가했습니다.",
+      "세션으로 돌아갈 때 컨텍스트를 제공하는 recap 기능을 추가했습니다. /config에서 구성 가능하며 /recap로 수동으로 호출할 수 있습니다; 텔레메트리가 비활성화된 경우 CLAUDE_CODE_ENABLE_AWAY_SUMMARY로 강제할 수 있습니다.",
+      "이제 모델이 Skill 도구를 통해 /init, /review, /security-review와 같은 내장 슬래시 명령을 발견하고 호출할 수 있습니다.",
+      "/undo는 이제 /rewind의 별칭입니다.",
+      "대화 중 모델을 전환하기 전에 경고하도록 /model을 개선했습니다. 다음 응답은 전체 기록을 캐시 없이 다시 읽기 때문입니다.",
+      "/resume 선택기를 현재 디렉토리의 세션으로 기본 설정하도록 개선했습니다; Ctrl+A를 눌러 모든 프로젝트를 표시합니다.",
+      "언어 문법을 필요에 따라 로드하여 파일 읽기, 편집 및 구문 강조의 메모리 사용량을 줄였습니다.",
+      "자세한 전사 내용을 볼 때 \"verbose\" 표시기를 추가했습니다(Ctrl+O).",
+      "DISABLE_PROMPT_CACHING* 환경 변수를 통해 프롬프트 캐싱이 비활성화될 때 시작 시 경고를 추가했습니다.",
+      "/login 코드 프롬프트에서 붙여넣기가 작동하지 않는 문제를 수정했습니다(2.1.105에서 회귀).",
+      "claude --resume <session-id>가 /rename을 통해 설정한 세션의 사용자 정의 이름과 색상을 잃어버리는 문제를 수정했습니다.",
+      "--teleport 이후 프롬프트 입력에서 터미널 이스케이프 코드가 쓰레기 텍스트로 나타나는 문제를 수정했습니다.",
+      "/feedback 재시도: 실패 후 Enter를 눌러 다시 제출할 수 있도록 수정했습니다. 이제 설명을 먼저 편집하지 않아도 됩니다.",
+      "--teleport 및 --resume <id>의 전제 조건 오류(예: 더러운 git 트리, 세션을 찾을 수 없음)가 오류 메시지를 표시하지 않고 조용히 종료되는 문제를 수정했습니다.",
+      "전사에 자기 참조 메시지가 포함된 경우 --resume이 세션을 잘라내는 문제를 수정했습니다."
+    ]
+  },
+  {
+    "version": "2.1.107",
+    "date": "2026-04-14",
+    "commands": [],
+    "features": [
+      "Show thinking hints sooner during long operations"
+    ],
+    "features_ko": [
+      "긴 작업 중에 사고 힌트를 더 빨리 표시합니다."
+    ]
+  },
+  {
     "version": "2.1.105",
     "date": "2026-04-13",
     "commands": [

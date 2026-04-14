@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-04-13 21:55 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-04-14 21:58 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.108** | 2026-04-14 | `/config`, `/recap`, `/init`, `/review`, `/security-review`, `/undo`, `/rewind`, `/model`, `/resume`, `Ctrl+A`, `Ctrl+O`, `/login`, `/rename`, `--teleport`, `/feedback`, `--resume <id>`, `--resume` | Added ENABLE_PROMPT_CACHING_1H env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (ENABLE_PROMPT_CACHING_1H_BEDROCK is deprecated but still honored), and FORCE_PRO... |
+| **v2.1.107** | 2026-04-14 | — | Show thinking hints sooner during long operations |
 | **v2.1.105** | 2026-04-13 | `/proactive`, `/loop`, `/doctor`, `/config`, `alt+e`, `Ctrl+J`, `/resume`, `--worktree`, `/branch`, `/model`, `/help` | Added path parameter to the EnterWorktree tool to switch into an existing worktree of the current repository / Added PreCompact hook support: hooks can now block compaction by exiting with code 2 o... |
 | **v2.1.101** | 2026-04-10 | `/team-onboarding`, `/ultraplan`, `/rename`, `--name`, `/plugin`, `--resume`, `--continue`, `--setting-sources`, `/resume`, `/btw`, `/context`, `/plugin update`, `/mcp`, `/login`, `/add-dir --remember`, `/config`, `/add-dir`, `/remote-control`, `/insights` | Added /team-onboarding command to generate a teammate ramp-up guide from your local Claude Code usage / Added OS CA certificate store trust by default, so enterprise TLS proxies work without extra ... |
 | **v2.1.98** | 2026-04-09 | `--exclude-dynamic-system-prompt-sections`, `--dangerously-skip-permissions`, `--add-dir`, `--resume`, `/resume`, `--resume <name>`, `/export`, `/effort max`, `/effort`, `/agents`, `/reload-plugins`, `--debug`, `/claude-api`, `/compact` | Added interactive Google Vertex AI setup wizard accessible from the login screen when selecting "3rd-party platform", guiding you through GCP authentication, project and region configuration, crede... |
@@ -82,8 +84,6 @@
 | **v2.1.7** | 2026-01-14 | `/model`, `/theme` | Added showTurnDuration setting to hide turn duration messages (e.g., "Cooked for 1m 6s") / Added ability to provide feedback when accepting permission prompts / Added inline display of agent's fina... |
 | **v2.1.6** | 2026-01-13 | `/config`, `/doctor`, `/stats`, `Ctrl+G`, `/tasks`, `/mcp` | Added search functionality to /config command for quickly filtering settings / Added Updates section to /doctor showing auto-update channel and available npm versions (stable/latest) / Added date r... |
 | **v2.1.5** | 2026-01-12 | — | Added CLAUDE_CODE_TMPDIR environment variable to override the temp directory used for internal temp files, useful for environments with custom temp directory requirements |
-| **v2.1.4** | 2026-01-11 | `Ctrl+B` | Added CLAUDE_CODE_DISABLE_BACKGROUND_TASKS environment variable to disable all background task functionality including auto-backgrounding and the Ctrl+B shortcut |
-| **v2.1.3** | 2026-01-09 | `/config`, `/doctor`, `/clear` | Merged slash commands and skills, simplifying the mental model with no change in behavior / Added release channel (stable or latest) toggle to /config / Added detection and warnings for unreachable... |
 
 ---
 
