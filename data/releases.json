@@ -1,5 +1,16 @@
 [
   {
+    "version": "2.1.109",
+    "date": "2026-04-15",
+    "commands": [],
+    "features": [
+      "Improved the extended-thinking indicator with a rotating progress hint"
+    ],
+    "features_ko": [
+      "회전하는 진행 상황 힌트로 확장 사고 지표를 개선했습니다."
+    ]
+  },
+  {
     "version": "2.1.108",
     "date": "2026-04-14",
     "commands": [

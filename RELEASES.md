@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-04-14 21:58 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-04-15 21:58 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.109** | 2026-04-15 | — | Improved the extended-thinking indicator with a rotating progress hint |
 | **v2.1.108** | 2026-04-14 | `/config`, `/recap`, `/init`, `/review`, `/security-review`, `/undo`, `/rewind`, `/model`, `/resume`, `Ctrl+A`, `Ctrl+O`, `/login`, `/rename`, `--teleport`, `/feedback`, `--resume <id>`, `--resume` | Added ENABLE_PROMPT_CACHING_1H env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (ENABLE_PROMPT_CACHING_1H_BEDROCK is deprecated but still honored), and FORCE_PRO... |
 | **v2.1.107** | 2026-04-14 | — | Show thinking hints sooner during long operations |
 | **v2.1.105** | 2026-04-13 | `/proactive`, `/loop`, `/doctor`, `/config`, `alt+e`, `Ctrl+J`, `/resume`, `--worktree`, `/branch`, `/model`, `/help` | Added path parameter to the EnterWorktree tool to switch into an existing worktree of the current repository / Added PreCompact hook support: hooks can now block compaction by exiting with code 2 o... |
@@ -83,7 +84,6 @@
 | **v2.1.9** | 2026-01-16 | `Ctrl+G`, `Ctrl+Z` | Added auto:N syntax for configuring the MCP tool search auto-enable threshold, where N is the context window percentage (0-100) / Added plansDirectory setting to customize where plan files are stor... |
 | **v2.1.7** | 2026-01-14 | `/model`, `/theme` | Added showTurnDuration setting to hide turn duration messages (e.g., "Cooked for 1m 6s") / Added ability to provide feedback when accepting permission prompts / Added inline display of agent's fina... |
 | **v2.1.6** | 2026-01-13 | `/config`, `/doctor`, `/stats`, `Ctrl+G`, `/tasks`, `/mcp` | Added search functionality to /config command for quickly filtering settings / Added Updates section to /doctor showing auto-update channel and available npm versions (stable/latest) / Added date r... |
-| **v2.1.5** | 2026-01-12 | — | Added CLAUDE_CODE_TMPDIR environment variable to override the temp directory used for internal temp files, useful for environments with custom temp directory requirements |
 
 ---
 
