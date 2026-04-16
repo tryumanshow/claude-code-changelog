@@ -1,5 +1,285 @@
 [
   {
+    "version": "2.1.112",
+    "date": "2026-04-16",
+    "commands": [],
+    "features": [
+      "Fixed \"claude-opus-4-7 is temporarily unavailable\" for auto mode"
+    ],
+    "features_ko": [
+      "자동 모드에서 \"claude-opus-4-7이 일시적으로 사용할 수 없습니다\" 오류를 수정했습니다."
+    ]
+  },
+  {
+    "version": "2.1.111",
+    "date": "2026-04-16",
+    "commands": [
+      {
+        "name": "/effort",
+        "context": "new",
+        "summary": "Added `xhigh` effort level for Opus 4.7, sitting between `high` and `max`. Avail"
+      },
+      {
+        "name": "--effort",
+        "context": "new",
+        "summary": "Added `xhigh` effort level for Opus 4.7, sitting between `high` and `max`. Avail"
+      },
+      {
+        "name": "/theme",
+        "context": "new",
+        "summary": "Added \"Auto (match terminal)\" theme option that matches your terminal's dark/lig"
+      },
+      {
+        "name": "/less-permission-prompts",
+        "context": "new",
+        "summary": "Added `/less-permission-prompts` skill — scans transcripts for common read-only "
+      },
+      {
+        "name": "/ultrareview",
+        "context": "new",
+        "summary": "Added `/ultrareview` for running comprehensive code review in the cloud using pa"
+      },
+      {
+        "name": "--enable-auto-mode",
+        "context": "mentioned",
+        "summary": "Auto mode no longer requires `--enable-auto-mode`"
+      },
+      {
+        "name": "/setup-vertex",
+        "context": "improved",
+        "summary": "Improved `/setup-vertex` and `/setup-bedrock` to show the actual `settings.json`"
+      },
+      {
+        "name": "/setup-bedrock",
+        "context": "improved",
+        "summary": "Improved `/setup-vertex` and `/setup-bedrock` to show the actual `settings.json`"
+      },
+      {
+        "name": "/skills",
+        "context": "improved",
+        "summary": "`/skills` menu now supports sorting by estimated token count — press `t` to togg"
+      },
+      {
+        "name": "Ctrl+U",
+        "context": "improved",
+        "summary": "`Ctrl+U` now clears the entire input buffer (previously: delete to start of line"
+      },
+      {
+        "name": "Ctrl+Y",
+        "context": "improved",
+        "summary": "`Ctrl+U` now clears the entire input buffer (previously: delete to start of line"
+      },
+      {
+        "name": "Ctrl+L",
+        "context": "improved",
+        "summary": "`Ctrl+L` now forces a full screen redraw in addition to clearing the prompt inpu"
+      },
+      {
+        "name": "--output-format stream-json",
+        "context": "improved",
+        "summary": "Headless `--output-format stream-json` now includes `plugin_errors` on the init "
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed tab-completing `/resume` immediately resuming an arbitrary titled session "
+      },
+      {
+        "name": "/context",
+        "context": "fixed",
+        "summary": "Fixed `/context` grid rendering with extra blank lines between rows"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed `/clear` dropping the session name set by `/rename`, causing statusline ou"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed `/clear` dropping the session name set by `/rename`, causing statusline ou"
+      },
+      {
+        "name": "/commit",
+        "context": "fixed",
+        "summary": "Fixed Claude calling a non-existent `commit` skill and showing \"Unknown skill: c"
+      }
+    ],
+    "features": [
+      "Claude Opus 4.7 xhigh is now available! Use /effort to tune speed vs. intelligence",
+      "Auto mode is now available for Max subscribers when using Opus 4.7",
+      "Added xhigh effort level for Opus 4.7, sitting between high and max. Available via /effort, --effort, and the model picker; other models fall back to high",
+      "/effort now opens an interactive slider when called without arguments, with arrow-key navigation between levels and Enter to confirm",
+      "Added \"Auto (match terminal)\" theme option that matches your terminal's dark/light mode — select it from /theme",
+      "Added /less-permission-prompts skill — scans transcripts for common read-only Bash and MCP tool calls and proposes a prioritized allowlist for .claude/settings.json",
+      "Added /ultrareview for running comprehensive code review in the cloud using parallel multi-agent analysis and critique — invoke with no arguments to review your current branch, or /ultrareview <PR#> to fetch and review a specific GitHub PR",
+      "Auto mode no longer requires --enable-auto-mode",
+      "Windows: PowerShell tool is progressively rolling out. Opt in or out with CLAUDE_CODE_USE_POWERSHELL_TOOL. On Linux and macOS, enable with CLAUDE_CODE_USE_POWERSHELL_TOOL=1 (requires pwsh on PATH)",
+      "Read-only bash commands with glob patterns (e.g. ls *.ts) and commands starting with cd <project-dir> && no longer trigger a permission prompt",
+      "Suggest the closest matching subcommand when claude <word> is invoked with a near-miss typo (e.g. claude udpate → \"Did you mean claude update?\")",
+      "Plan files are now named after your prompt (e.g. fix-auth-race-snug-otter.md) instead of purely random words",
+      "Improved /setup-vertex and /setup-bedrock to show the actual settings.json path when CLAUDE_CONFIG_DIR is set, seed model candidates from existing pins on re-run, and offer a \"with 1M context\" option for supported models",
+      "/skills menu now supports sorting by estimated token count — press t to toggle",
+      "Ctrl+U now clears the entire input buffer (previously: delete to start of line); press Ctrl+Y to restore",
+      "Ctrl+L now forces a full screen redraw in addition to clearing the prompt input",
+      "Transcript view footer now shows [ (dump to scrollback) and v (open in editor) shortcuts",
+      "The \"+N lines\" marker for truncated long pastes is now a full-width rule for easier scanning",
+      "Headless --output-format stream-json now includes plugin_errors on the init event when plugins are demoted for unsatisfied dependencies",
+      "Added OTEL_LOG_RAW_API_BODIES environment variable to emit full API request and response bodies as OpenTelemetry log events for debugging",
+      "Fixed tab-completing /resume immediately resuming an arbitrary titled session instead of showing the session picker",
+      "Fixed /context grid rendering with extra blank lines between rows",
+      "Fixed /clear dropping the session name set by /rename, causing statusline output to lose session_name",
+      "Fixed Claude calling a non-existent commit skill and showing \"Unknown skill: commit\" for users without a custom /commit command"
+    ],
+    "features_ko": [
+      "Claude Opus 4.7 xhigh가 이제 사용 가능합니다! /effort를 사용하여 속도와 지능을 조정하세요.",
+      "Opus 4.7을 사용할 때 Max 구독자에게 자동 모드가 이제 제공됩니다.",
+      "Opus 4.7에 xhigh 노력 수준이 추가되었습니다. 이는 high와 max 사이에 위치하며, /effort, --effort 및 모델 선택기를 통해 사용할 수 있습니다; 다른 모델은 high로 돌아갑니다.",
+      "/effort는 인수가 없는 경우 대화형 슬라이더를 열며, 레벨 간 화살표 키 탐색과 Enter로 확인할 수 있습니다.",
+      "터미널의 어두운/밝은 모드에 맞는 \"Auto (match terminal)\" 테마 옵션이 추가되었습니다 — /theme에서 선택하세요.",
+      "/less-permission-prompts 스킬이 추가되었습니다 — 일반적인 읽기 전용 Bash 및 MCP 도구 호출을 스캔하고 .claude/settings.json에 대한 우선 순위 허용 목록을 제안합니다.",
+      "/ultrareview가 추가되어 병렬 다중 에이전트 분석 및 비평을 사용하여 클라우드에서 포괄적인 코드 리뷰를 실행합니다 — 인수가 없는 경우 현재 브랜치를 리뷰하거나 /ultrareview <PR#>로 특정 GitHub PR을 가져와 리뷰하세요.",
+      "자동 모드는 더 이상 --enable-auto-mode를 요구하지 않습니다.",
+      "Windows: PowerShell 도구가 점진적으로 배포되고 있습니다. CLAUDE_CODE_USE_POWERSHELL_TOOL로 선택할 수 있습니다. Linux 및 macOS에서는 CLAUDE_CODE_USE_POWERSHELL_TOOL=1로 활성화하세요 (pwsh가 PATH에 필요).",
+      "glob 패턴을 사용하는 읽기 전용 bash 명령(예: ls *.ts) 및 cd <project-dir> &&로 시작하는 명령은 더 이상 권한 프롬프트를 트리거하지 않습니다.",
+      "claude <word>가 비슷한 오타로 호출될 때 가장 가까운 하위 명령을 제안합니다 (예: claude udpate → \"Did you mean claude update?\").",
+      "계획 파일은 이제 무작위 단어 대신 프롬프트 이름으로 명명됩니다 (예: fix-auth-race-snug-otter.md).",
+      "/setup-vertex 및 /setup-bedrock가 개선되어 CLAUDE_CONFIG_DIR이 설정된 경우 실제 settings.json 경로를 표시하고, 재실행 시 기존 핀에서 모델 후보를 시드하며, 지원되는 모델에 대해 \"1M 컨텍스트와 함께\" 옵션을 제공합니다.",
+      "/skills 메뉴가 예상 토큰 수로 정렬을 지원합니다 — t를 눌러 전환하세요.",
+      "Ctrl+U가 이제 전체 입력 버퍼를 지웁니다 (이전: 줄 시작까지 삭제); Ctrl+Y를 눌러 복원하세요.",
+      "Ctrl+L이 이제 프롬프트 입력을 지우는 것 외에 전체 화면을 강제로 다시 그립니다.",
+      "전사 보기 바닥글에 [ (스크롤백으로 덤프) 및 v (편집기에서 열기) 단축키가 표시됩니다.",
+      "잘린 긴 붙여넣기에 대한 \"+N lines\" 마커가 이제 더 쉽게 스캔할 수 있도록 전체 폭 규칙으로 변경되었습니다.",
+      "Headless --output-format stream-json이 이제 플러그인이 충족되지 않은 종속성으로 강등될 때 init 이벤트에서 plugin_errors를 포함합니다.",
+      "OTEL_LOG_RAW_API_BODIES 환경 변수가 추가되어 디버깅을 위해 전체 API 요청 및 응답 본문을 OpenTelemetry 로그 이벤트로 방출합니다.",
+      "/resume의 탭 완성이 임의의 제목 세션을 즉시 재개하는 대신 세션 선택기를 표시하도록 수정되었습니다.",
+      "/context 그리드 렌더링에서 행 사이에 여분의 빈 줄이 생기는 문제를 수정했습니다.",
+      "/clear가 /rename으로 설정된 세션 이름을 삭제하여 상태줄 출력에서 session_name을 잃게 하는 문제를 수정했습니다.",
+      "Claude가 존재하지 않는 commit 스킬을 호출하고 사용자에게 사용자 정의 /commit 명령이 없는 경우 \"Unknown skill: commit\"을 표시하는 문제를 수정했습니다."
+    ]
+  },
+  {
+    "version": "2.1.110",
+    "date": "2026-04-15",
+    "commands": [
+      {
+        "name": "/tui",
+        "context": "new",
+        "summary": "Added `/tui` command and `tui` setting — run `/tui fullscreen` to switch to flic"
+      },
+      {
+        "name": "/tui fullscreen",
+        "context": "new",
+        "summary": "Added `/tui` command and `tui` setting — run `/tui fullscreen` to switch to flic"
+      },
+      {
+        "name": "/focus",
+        "context": "improved",
+        "summary": "Changed `Ctrl+O` to toggle between normal and verbose transcript only; focus vie"
+      },
+      {
+        "name": "Ctrl+O",
+        "context": "improved",
+        "summary": "Changed `Ctrl+O` to toggle between normal and verbose transcript only; focus vie"
+      },
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Added option to show Claude's last response as commented context in the `Ctrl+G`"
+      },
+      {
+        "name": "Ctrl+G",
+        "context": "new",
+        "summary": "Added option to show Claude's last response as commented context in the `Ctrl+G`"
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "Improved `/plugin` Installed tab — items needing attention and favorites appear "
+      },
+      {
+        "name": "/doctor",
+        "context": "improved",
+        "summary": "Improved `/doctor` to warn when an MCP server is defined in multiple config scop"
+      },
+      {
+        "name": "--resume",
+        "context": "improved",
+        "summary": "`--resume`/`--continue` now resurrects unexpired scheduled tasks"
+      },
+      {
+        "name": "--continue",
+        "context": "improved",
+        "summary": "`--resume`/`--continue` now resurrects unexpired scheduled tasks"
+      },
+      {
+        "name": "/context",
+        "context": "improved",
+        "summary": "`/context`, `/exit`, and `/reload-plugins` now work from Remote Control (mobile/"
+      },
+      {
+        "name": "/exit",
+        "context": "improved",
+        "summary": "`/context`, `/exit`, and `/reload-plugins` now work from Remote Control (mobile/"
+      },
+      {
+        "name": "/reload-plugins",
+        "context": "improved",
+        "summary": "`/context`, `/exit`, and `/reload-plugins` now work from Remote Control (mobile/"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed `--resume` sometimes showing the first prompt instead of the `/rename` nam"
+      },
+      {
+        "name": "/skills",
+        "context": "fixed",
+        "summary": "Fixed `/skills` menu not scrolling when the list overflows the modal in fullscre"
+      }
+    ],
+    "features": [
+      "Added /tui command and tui setting — run /tui fullscreen to switch to flicker-free rendering in the same conversation",
+      "Added push notification tool — Claude can send mobile push notifications when Remote Control and \"Push when Claude decides\" config are enabled",
+      "Changed Ctrl+O to toggle between normal and verbose transcript only; focus view is now toggled separately with the new /focus command",
+      "Added autoScrollEnabled config to disable conversation auto-scroll in fullscreen mode",
+      "Added option to show Claude's last response as commented context in the Ctrl+G external editor (enable via /config)",
+      "Improved /plugin Installed tab — items needing attention and favorites appear at the top, disabled items are hidden behind a fold, and f favorites the selected item",
+      "Improved /doctor to warn when an MCP server is defined in multiple config scopes with different endpoints",
+      "--resume/--continue now resurrects unexpired scheduled tasks",
+      "/context, /exit, and /reload-plugins now work from Remote Control (mobile/web) clients",
+      "Write tool now informs the model when you edit the proposed content in the IDE diff before accepting",
+      "Bash tool now enforces the documented maximum timeout instead of accepting arbitrarily large values",
+      "SDK/headless sessions now read TRACEPARENT/TRACESTATE from the environment for distributed trace linking",
+      "Session recap is now enabled for users with telemetry disabled (Bedrock, Vertex, Foundry, DISABLE_TELEMETRY). Opt out via /config or CLAUDE_CODE_ENABLE_AWAY_SUMMARY=0.",
+      "Fixed plugin install not honoring dependencies declared in plugin.json when the marketplace entry omits them; /plugin install now lists auto-installed dependencies",
+      "Fixed --resume sometimes showing the first prompt instead of the /rename name for sessions still running or exited uncleanly",
+      "Fixed dropped keystrokes after the CLI relaunches (e.g. /tui, provider setup wizards)",
+      "Hardened \"Open in editor\" actions against command injection from untrusted filenames",
+      "Fixed /skills menu not scrolling when the list overflows the modal in fullscreen mode"
+    ],
+    "features_ko": [
+      "/tui 명령 및 tui 설정이 추가되었습니다 — /tui fullscreen을 실행하여 같은 대화에서 깜박임 없는 렌더링으로 전환하세요.",
+      "푸시 알림 도구가 추가되었습니다 — 원격 제어 및 \"Claude가 결정할 때 푸시\" 구성이 활성화되면 Claude가 모바일 푸시 알림을 보낼 수 있습니다.",
+      "Ctrl+O가 이제 일반 및 자세한 전사 전용 간 전환하도록 변경되었습니다; 포커스 보기는 이제 새로운 /focus 명령으로 별도로 전환됩니다.",
+      "전체 화면 모드에서 대화 자동 스크롤을 비활성화하는 autoScrollEnabled 구성이 추가되었습니다.",
+      "Ctrl+G 외부 편집기에서 Claude의 마지막 응답을 주석 처리된 컨텍스트로 표시하는 옵션이 추가되었습니다 ( /config를 통해 활성화).",
+      "개선된 /plugin Installed 탭 — 주의가 필요한 항목과 즐겨찾기가 상단에 표시되며, 비활성 항목은 접혀서 숨겨지고, 선택된 항목이 즐겨찾기로 추가됩니다.",
+      "여러 구성 범위에서 서로 다른 엔드포인트로 MCP 서버가 정의된 경우 경고하도록 /doctor가 개선되었습니다.",
+      "--resume/--continue가 이제 만료되지 않은 예약 작업을 다시 활성화합니다.",
+      "/context, /exit, /reload-plugins가 이제 원격 제어(모바일/웹) 클라이언트에서 작동합니다.",
+      "작성 도구가 이제 수락하기 전에 IDE diff에서 제안된 내용을 편집할 때 모델에 알립니다.",
+      "Bash 도구가 이제 임의로 큰 값을 수용하는 대신 문서화된 최대 타임아웃을 강제합니다.",
+      "SDK/headless 세션이 이제 분산 추적 링크를 위해 환경에서 TRACEPARENT/TRACESTATE를 읽습니다.",
+      "세션 요약이 이제 원격 측정이 비활성화된 사용자(Bedrock, Vertex, Foundry, DISABLE_TELEMETRY)에게 활성화되었습니다. /config 또는 CLAUDE_CODE_ENABLE_AWAY_SUMMARY=0을 통해 선택 해제할 수 있습니다.",
+      "마켓플레이스 항목이 종속성을 생략할 때 plugin.json에 선언된 종속성을 무시하지 않도록 플러그인 설치가 수정되었습니다; /plugin install이 이제 자동 설치된 종속성을 나열합니다.",
+      "--resume가 때때로 세션이 여전히 실행 중이거나 비정상적으로 종료된 경우 /rename 이름 대신 첫 번째 프롬프트를 표시하는 문제를 수정했습니다.",
+      "CLI가 다시 시작된 후 키 입력이 누락되는 문제를 수정했습니다(예: /tui, 공급자 설정 마법사).",
+      "신뢰할 수 없는 파일 이름으로부터의 명령 주입에 대해 \"Open in editor\" 작업을 강화했습니다.",
+      "/skills 메뉴가 전체 화면 모드에서 목록이 넘칠 때 스크롤되지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.109",
     "date": "2026-04-15",
     "commands": [],

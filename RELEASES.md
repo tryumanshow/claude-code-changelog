@@ -1,9 +1,12 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-04-15 21:58 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-04-16 21:52 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.112** | 2026-04-16 | — | Fixed "claude-opus-4-7 is temporarily unavailable" for auto mode |
+| **v2.1.111** | 2026-04-16 | `/effort`, `--effort`, `/theme`, `/less-permission-prompts`, `/ultrareview`, `--enable-auto-mode`, `/setup-vertex`, `/setup-bedrock`, `/skills`, `Ctrl+U`, `Ctrl+Y`, `Ctrl+L`, `--output-format stream-json`, `/resume`, `/context`, `/clear`, `/rename`, `/commit` | Claude Opus 4.7 xhigh is now available! Use /effort to tune speed vs. intelligence / Auto mode is now available for Max subscribers when using Opus 4.7 / Added xhigh effort level for Opus 4.7, sitt... |
+| **v2.1.110** | 2026-04-15 | `/tui`, `/tui fullscreen`, `/focus`, `Ctrl+O`, `/config`, `Ctrl+G`, `/plugin`, `/doctor`, `--resume`, `--continue`, `/context`, `/exit`, `/reload-plugins`, `/rename`, `/skills` | Added /tui command and tui setting — run /tui fullscreen to switch to flicker-free rendering in the same conversation / Added push notification tool — Claude can send mobile push notifications when... |
 | **v2.1.109** | 2026-04-15 | — | Improved the extended-thinking indicator with a rotating progress hint |
 | **v2.1.108** | 2026-04-14 | `/config`, `/recap`, `/init`, `/review`, `/security-review`, `/undo`, `/rewind`, `/model`, `/resume`, `Ctrl+A`, `Ctrl+O`, `/login`, `/rename`, `--teleport`, `/feedback`, `--resume <id>`, `--resume` | Added ENABLE_PROMPT_CACHING_1H env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (ENABLE_PROMPT_CACHING_1H_BEDROCK is deprecated but still honored), and FORCE_PRO... |
 | **v2.1.107** | 2026-04-14 | — | Show thinking hints sooner during long operations |
@@ -81,9 +84,6 @@
 | **v2.1.12** | 2026-01-17 | — | Fixed message rendering bug |
 | **v2.1.11** | 2026-01-17 | — | Fixed excessive MCP connection requests for HTTP/SSE transports |
 | **v2.1.10** | 2026-01-17 | `--init`, `--init-only`, `--maintenance` | Added new Setup hook event that can be triggered via --init, --init-only, or --maintenance CLI flags for repository setup and maintenance operations / Added keyboard shortcut 'c' to copy OAuth URL ... |
-| **v2.1.9** | 2026-01-16 | `Ctrl+G`, `Ctrl+Z` | Added auto:N syntax for configuring the MCP tool search auto-enable threshold, where N is the context window percentage (0-100) / Added plansDirectory setting to customize where plan files are stor... |
-| **v2.1.7** | 2026-01-14 | `/model`, `/theme` | Added showTurnDuration setting to hide turn duration messages (e.g., "Cooked for 1m 6s") / Added ability to provide feedback when accepting permission prompts / Added inline display of agent's fina... |
-| **v2.1.6** | 2026-01-13 | `/config`, `/doctor`, `/stats`, `Ctrl+G`, `/tasks`, `/mcp` | Added search functionality to /config command for quickly filtering settings / Added Updates section to /doctor showing auto-update channel and available npm versions (stable/latest) / Added date r... |
 
 ---
 
