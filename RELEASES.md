@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-04-16 21:52 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-04-17 21:53 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.113** | 2026-04-17 | `Ctrl+A`, `Ctrl+E`, `Ctrl+B`, `/loop`, `/extra-usage`, `/ultrareview`, `/private`, `Ctrl+U`, `/copy`, `/effort auto`, `/effort`, `/insights` | Added sandbox.network.deniedDomains setting to block specific domains even when a broader allowedDomains wildcard would otherwise permit them / Fullscreen mode: Shift+↑/↓ now scrolls the viewport w... |
 | **v2.1.112** | 2026-04-16 | — | Fixed "claude-opus-4-7 is temporarily unavailable" for auto mode |
 | **v2.1.111** | 2026-04-16 | `/effort`, `--effort`, `/theme`, `/less-permission-prompts`, `/ultrareview`, `--enable-auto-mode`, `/setup-vertex`, `/setup-bedrock`, `/skills`, `Ctrl+U`, `Ctrl+Y`, `Ctrl+L`, `--output-format stream-json`, `/resume`, `/context`, `/clear`, `/rename`, `/commit` | Claude Opus 4.7 xhigh is now available! Use /effort to tune speed vs. intelligence / Auto mode is now available for Max subscribers when using Opus 4.7 / Added xhigh effort level for Opus 4.7, sitt... |
 | **v2.1.110** | 2026-04-15 | `/tui`, `/tui fullscreen`, `/focus`, `Ctrl+O`, `/config`, `Ctrl+G`, `/plugin`, `/doctor`, `--resume`, `--continue`, `/context`, `/exit`, `/reload-plugins`, `/rename`, `/skills` | Added /tui command and tui setting — run /tui fullscreen to switch to flicker-free rendering in the same conversation / Added push notification tool — Claude can send mobile push notifications when... |
@@ -83,7 +84,6 @@
 | **v2.1.14** | 2026-01-20 | `/feedback`, `/context`, `/config`, `/model`, `/todos`, `/compact`, `/usage` | Added history-based autocomplete in bash mode (!) - type a partial command and press Tab to complete from your bash command history / Added search to installed plugins list - type to filter by name... |
 | **v2.1.12** | 2026-01-17 | — | Fixed message rendering bug |
 | **v2.1.11** | 2026-01-17 | — | Fixed excessive MCP connection requests for HTTP/SSE transports |
-| **v2.1.10** | 2026-01-17 | `--init`, `--init-only`, `--maintenance` | Added new Setup hook event that can be triggered via --init, --init-only, or --maintenance CLI flags for repository setup and maintenance operations / Added keyboard shortcut 'c' to copy OAuth URL ... |
 
 ---
 

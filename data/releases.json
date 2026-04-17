@@ -1,5 +1,109 @@
 [
   {
+    "version": "2.1.113",
+    "date": "2026-04-17",
+    "commands": [
+      {
+        "name": "Ctrl+A",
+        "context": "improved",
+        "summary": "`Ctrl+A` and `Ctrl+E` now move to the start/end of the current logical line in m"
+      },
+      {
+        "name": "Ctrl+E",
+        "context": "improved",
+        "summary": "`Ctrl+A` and `Ctrl+E` now move to the start/end of the current logical line in m"
+      },
+      {
+        "name": "Ctrl+B",
+        "context": "improved",
+        "summary": "Windows: `Ctrl+Backspace` now deletes the previous word"
+      },
+      {
+        "name": "/loop",
+        "context": "improved",
+        "summary": "Improved `/loop`: pressing Esc now cancels pending wakeups, and wakeups display "
+      },
+      {
+        "name": "/extra-usage",
+        "context": "improved",
+        "summary": "`/extra-usage` now works from Remote Control (mobile/web) clients"
+      },
+      {
+        "name": "/ultrareview",
+        "context": "improved",
+        "summary": "Improved `/ultrareview`: faster launch with parallelized checks, diffstat in the"
+      },
+      {
+        "name": "/private",
+        "context": "improved",
+        "summary": "Security: on macOS, `/private/{etc,var,tmp,home}` paths are now treated as dange"
+      },
+      {
+        "name": "Ctrl+U",
+        "context": "fixed",
+        "summary": "Fixed Cmd-backspace / `Ctrl+U` to once again delete from the cursor to the start"
+      },
+      {
+        "name": "/copy",
+        "context": "fixed",
+        "summary": "Fixed `/copy` \"Full response\" not aligning markdown table columns for pasting in"
+      },
+      {
+        "name": "/effort auto",
+        "context": "fixed",
+        "summary": "Fixed `/effort auto` confirmation — now says \"Effort level set to max\" to match "
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed `/effort auto` confirmation — now says \"Effort level set to max\" to match "
+      },
+      {
+        "name": "/insights",
+        "context": "fixed",
+        "summary": "Fixed `/insights` crashing with `EBUSY` on Windows"
+      }
+    ],
+    "features": [
+      "Added sandbox.network.deniedDomains setting to block specific domains even when a broader allowedDomains wildcard would otherwise permit them",
+      "Fullscreen mode: Shift+↑/↓ now scrolls the viewport when extending a selection past the visible edge",
+      "Ctrl+A and Ctrl+E now move to the start/end of the current logical line in multiline input, matching readline behavior",
+      "Windows: Ctrl+Backspace now deletes the previous word",
+      "Long URLs in responses and bash output stay clickable when they wrap across lines (in terminals with OSC 8 hyperlinks)",
+      "Improved /loop: pressing Esc now cancels pending wakeups, and wakeups display as \"Claude resuming /loop wakeup\" for clarity",
+      "/extra-usage now works from Remote Control (mobile/web) clients",
+      "Remote Control clients can now query @-file autocomplete suggestions",
+      "Improved /ultrareview: faster launch with parallelized checks, diffstat in the launch dialog, and animated launching state",
+      "Subagents that stall mid-stream now fail with a clear error after 10 minutes instead of hanging silently",
+      "Bash tool: multi-line commands whose first line is a comment now show the full command in the transcript, closing a UI-spoofing vector",
+      "Running cd <current-directory> && git … no longer triggers a permission prompt when the cd is a no-op",
+      "Security: on macOS, /private/{etc,var,tmp,home} paths are now treated as dangerous removal targets under Bash(rm:*) allow rules",
+      "Fixed Cmd-backspace / Ctrl+U to once again delete from the cursor to the start of the line",
+      "Fixed /copy \"Full response\" not aligning markdown table columns for pasting into GitHub, Notion, or Slack",
+      "Fixed /effort auto confirmation — now says \"Effort level set to max\" to match the status bar label",
+      "Fixed /insights crashing with EBUSY on Windows"
+    ],
+    "features_ko": [
+      "sandbox.network.deniedDomains 설정이 추가되어, 더 넓은 allowedDomains 와일드카드가 허용하더라도 특정 도메인을 차단할 수 있습니다.",
+      "전체 화면 모드: Shift+↑/↓를 눌러 선택 영역을 보이는 가장자리 넘어로 확장할 때 뷰포트를 스크롤합니다.",
+      "Ctrl+A와 Ctrl+E가 이제 멀티라인 입력에서 현재 논리적 줄의 시작/끝으로 이동하며, readline 동작과 일치합니다.",
+      "Windows: Ctrl+Backspace가 이제 이전 단어를 삭제합니다.",
+      "응답 및 bash 출력의 긴 URL은 줄을 넘어 감싸일 때도 클릭 가능 상태를 유지합니다 (OSC 8 하이퍼링크가 있는 터미널에서).",
+      "/loop 개선: Esc를 누르면 대기 중인 웨이크업이 취소되며, 웨이크업은 \"Claude가 /loop 웨이크업을 재개합니다\"로 표시되어 명확해집니다.",
+      "/extra-usage가 이제 원격 제어(모바일/웹) 클라이언트에서 작동합니다.",
+      "원격 제어 클라이언트가 이제 @-file 자동 완성 제안을 조회할 수 있습니다.",
+      "/ultrareview 개선: 병렬화된 체크로 더 빠른 시작, 시작 대화 상자의 diffstat, 애니메이션 시작 상태가 추가되었습니다.",
+      "스트림 중에 멈춘 서브 에이전트는 이제 10분 후 명확한 오류로 실패하며 조용히 멈추지 않습니다.",
+      "Bash 도구: 첫 번째 줄이 주석인 멀티라인 명령이 이제 전사에서 전체 명령을 표시하여 UI 스푸핑 벡터를 차단합니다.",
+      "cd <current-directory> && git …를 실행할 때 cd가 no-op일 경우 더 이상 권한 프롬프트가 표시되지 않습니다.",
+      "보안: macOS에서 /private/{etc,var,tmp,home} 경로가 이제 Bash(rm:*) 허용 규칙 하에 위험한 제거 대상으로 처리됩니다.",
+      "Cmd-backspace / Ctrl+U가 다시 한 번 커서에서 줄의 시작까지 삭제하도록 수정되었습니다.",
+      "/copy \"Full response\"가 GitHub, Notion 또는 Slack에 붙여넣기 위해 마크다운 테이블 열을 정렬하지 않는 문제를 수정했습니다.",
+      "/effort 자동 확인 수정 — 이제 상태 표시줄 레이블과 일치하도록 \"Effort level set to max\"라고 표시됩니다.",
+      "/insights가 Windows에서 EBUSY로 충돌하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.112",
     "date": "2026-04-16",
     "commands": [],
