@@ -1223,5 +1223,6 @@
   "f7c46594caa814d2": "Cmd-backspace / Ctrl+U가 다시 한 번 커서에서 줄의 시작까지 삭제하도록 수정되었습니다.",
   "795bb0f6cae4dbfe": "/copy \"Full response\"가 GitHub, Notion 또는 Slack에 붙여넣기 위해 마크다운 테이블 열을 정렬하지 않는 문제를 수정했습니다.",
   "7d4f0fbe9837ee69": "/effort 자동 확인 수정 — 이제 상태 표시줄 레이블과 일치하도록 \"Effort level set to max\"라고 표시됩니다.",
-  "2e0a0ef2bf5043af": "/insights가 Windows에서 EBUSY로 충돌하는 문제를 수정했습니다."
+  "2e0a0ef2bf5043af": "/insights가 Windows에서 EBUSY로 충돌하는 문제를 수정했습니다.",
+  "8196a91e5570f108": "에이전트 팀의 동료가 도구 권한을 요청할 때 권한 대화상자에서 발생하는 충돌을 수정했습니다."
 }

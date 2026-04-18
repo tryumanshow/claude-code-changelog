@@ -1,5 +1,16 @@
 [
   {
+    "version": "2.1.114",
+    "date": "2026-04-18",
+    "commands": [],
+    "features": [
+      "Fixed a crash in the permission dialog when an agent teams teammate requested tool permission"
+    ],
+    "features_ko": [
+      "에이전트 팀의 동료가 도구 권한을 요청할 때 권한 대화상자에서 발생하는 충돌을 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.113",
     "date": "2026-04-17",
     "commands": [
