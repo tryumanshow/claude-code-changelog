@@ -1,5 +1,102 @@
 [
   {
+    "version": "2.1.116",
+    "date": "2026-04-20",
+    "commands": [
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed `/resume` silently showing an empty conversation on large session files in"
+      },
+      {
+        "name": "/terminal-setup",
+        "context": "improved",
+        "summary": "Smoother fullscreen scrolling in VS Code, Cursor, and Windsurf terminals — `/ter"
+      },
+      {
+        "name": "/config",
+        "context": "improved",
+        "summary": "`/config` search now matches option values (e.g. searching \"vim\" finds the Edito"
+      },
+      {
+        "name": "/doctor",
+        "context": "improved",
+        "summary": "`/doctor` can now be opened while Claude is responding, without waiting for the "
+      },
+      {
+        "name": "/reload-plugins",
+        "context": "improved",
+        "summary": "`/reload-plugins` and background plugin auto-update now auto-install missing plu"
+      },
+      {
+        "name": "--agent",
+        "context": "improved",
+        "summary": "Agent frontmatter `hooks:` now fire when running as a main-thread agent via `--a"
+      },
+      {
+        "name": "Ctrl+Z",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+Z hanging the terminal when Claude Code is launched via a wrapper pro"
+      },
+      {
+        "name": "/branch",
+        "context": "fixed",
+        "summary": "Fixed `/branch` rejecting conversations with transcripts larger than 50MB"
+      },
+      {
+        "name": "/plugin",
+        "context": "fixed",
+        "summary": "Fixed `/plugin` Installed tab showing the same item twice when it appears under "
+      },
+      {
+        "name": "/update",
+        "context": "fixed",
+        "summary": "Fixed `/update` and `/tui` not working after entering a worktree mid-session"
+      },
+      {
+        "name": "/tui",
+        "context": "fixed",
+        "summary": "Fixed `/update` and `/tui` not working after entering a worktree mid-session"
+      }
+    ],
+    "features": [
+      "/resume on large sessions is significantly faster (up to 67% on 40MB+ sessions) and handles sessions with many dead-fork entries more efficiently",
+      "Faster MCP startup when multiple stdio servers are configured; resources/templates/list is now deferred to first @-mention",
+      "Smoother fullscreen scrolling in VS Code, Cursor, and Windsurf terminals — /terminal-setup now configures the editor's scroll sensitivity",
+      "Thinking spinner now shows progress inline (\"still thinking\", \"thinking more\", \"almost done thinking\"), replacing the separate hint row",
+      "/config search now matches option values (e.g. searching \"vim\" finds the Editor mode setting)",
+      "/doctor can now be opened while Claude is responding, without waiting for the current turn to finish",
+      "/reload-plugins and background plugin auto-update now auto-install missing plugin dependencies from marketplaces you've already added",
+      "Bash tool now surfaces a hint when gh commands hit GitHub's API rate limit, so agents can back off instead of retrying",
+      "The Usage tab in Settings now shows your 5-hour and weekly usage immediately and no longer fails when the usage endpoint is rate-limited",
+      "Agent frontmatter hooks: now fire when running as a main-thread agent via --agent",
+      "Slash command menu now shows \"No commands match\" when your filter has zero results, instead of disappearing",
+      "Fixed Ctrl+Z hanging the terminal when Claude Code is launched via a wrapper process (e.g. npx, bun run)",
+      "Fixed /branch rejecting conversations with transcripts larger than 50MB",
+      "Fixed /resume silently showing an empty conversation on large session files instead of reporting the load error",
+      "Fixed /plugin Installed tab showing the same item twice when it appears under Needs attention or Favorites",
+      "Fixed /update and /tui not working after entering a worktree mid-session"
+    ],
+    "features_ko": [
+      "대형 세션에서 /resume이 상당히 빨라졌습니다 (40MB 이상의 세션에서 최대 67% 향상) 및 많은 dead-fork 항목이 있는 세션을 더 효율적으로 처리합니다.",
+      "여러 stdio 서버가 구성된 경우 MCP 시작 속도가 빨라졌습니다; resources/templates/list는 이제 첫 번째 @-mention으로 연기됩니다.",
+      "VS Code, Cursor 및 Windsurf 터미널에서 전체 화면 스크롤이 더 부드러워졌습니다 — /terminal-setup이 이제 편집기의 스크롤 감도를 설정합니다.",
+      "Thinking spinner가 이제 진행 상황을 인라인으로 표시합니다 (\"아직 생각 중\", \"더 생각 중\", \"거의 다 생각함\"), 별도의 힌트 행을 대체합니다.",
+      "/config 검색이 이제 옵션 값을 일치시킵니다 (예: \"vim\" 검색 시 Editor mode 설정을 찾습니다).",
+      "/doctor는 이제 Claude가 응답하는 동안 열 수 있으며, 현재 턴이 끝날 때까지 기다릴 필요가 없습니다.",
+      "/reload-plugins 및 백그라운드 플러그인 자동 업데이트가 이제 이미 추가한 마켓플레이스에서 누락된 플러그인 종속성을 자동 설치합니다.",
+      "Bash 도구가 이제 gh 명령이 GitHub의 API 속도 제한에 도달할 때 힌트를 표시하여 에이전트가 재시도하는 대신 대기할 수 있도록 합니다.",
+      "설정의 Usage 탭이 이제 5시간 및 주간 사용량을 즉시 표시하며, 사용량 엔드포인트가 속도 제한에 걸릴 때 더 이상 실패하지 않습니다.",
+      "에이전트 프론트매터 훅: 이제 --agent를 통해 메인 스레드 에이전트로 실행할 때 작동합니다.",
+      "슬래시 명령 메뉴가 이제 필터에 결과가 없을 때 \"일치하는 명령이 없습니다\"를 표시하며 사라지지 않습니다.",
+      "Ctrl+Z가 래퍼 프로세스(예: npx, bun run)를 통해 Claude Code가 실행될 때 터미널을 멈추는 문제를 수정했습니다.",
+      "/branch가 50MB보다 큰 전사와의 대화를 거부하는 문제를 수정했습니다.",
+      "/resume이 대형 세션 파일에서 로드 오류를 보고하는 대신 빈 대화를 조용히 표시하는 문제를 수정했습니다.",
+      "/plugin Installed 탭이 Needs attention 또는 Favorites 아래에 나타날 때 동일한 항목을 두 번 표시하는 문제를 수정했습니다.",
+      "/update 및 /tui가 세션 중간에 worktree에 들어간 후 작동하지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.114",
     "date": "2026-04-18",
     "commands": [],
