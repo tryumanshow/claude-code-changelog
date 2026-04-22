@@ -1,5 +1,80 @@
 [
   {
+    "version": "2.1.117",
+    "date": "2026-04-22",
+    "commands": [
+      {
+        "name": "--agent",
+        "context": "improved",
+        "summary": "Agent frontmatter `mcpServers` are now loaded for main-thread agent sessions via"
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "Improved `/model`: selections now persist across restarts even when the project "
+      },
+      {
+        "name": "/resume",
+        "context": "improved",
+        "summary": "The `/resume` command now offers to summarize stale, large sessions before re-re"
+      },
+      {
+        "name": "--resume",
+        "context": "improved",
+        "summary": "The `/resume` command now offers to summarize stale, large sessions before re-re"
+      },
+      {
+        "name": "/compact",
+        "context": "improved",
+        "summary": "Advisor Tool (experimental): dialog now carries an \"experimental\" label, learn-m"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed Plain-CLI OAuth sessions dying with \"Please run /login\" when the access to"
+      },
+      {
+        "name": "/context",
+        "context": "fixed",
+        "summary": "Fixed Opus 4.7 sessions showing inflated `/context` percentages and autocompacti"
+      }
+    ],
+    "features": [
+      "Forked subagents can now be enabled on external builds by setting CLAUDE_CODE_FORK_SUBAGENT=1",
+      "Agent frontmatter mcpServers are now loaded for main-thread agent sessions via --agent",
+      "Improved /model: selections now persist across restarts even when the project pins a different model, and the startup header shows when the active model comes from a project or managed-settings pin",
+      "The /resume command now offers to summarize stale, large sessions before re-reading them, matching the existing --resume behavior",
+      "Faster startup when both local and claude.ai MCP servers are configured (concurrent connect now default)",
+      "plugin install on an already-installed plugin now installs any missing dependencies instead of stopping at \"already installed\"",
+      "Plugin dependency errors now say \"not installed\" with an install hint, and claude plugin marketplace add now auto-resolves missing dependencies from configured marketplaces",
+      "Managed-settings blockedMarketplaces and strictKnownMarketplaces are now enforced on plugin install, update, refresh, and autoupdate",
+      "Advisor Tool (experimental): dialog now carries an \"experimental\" label, learn-more link, and startup notification when enabled; sessions no longer get stuck with \"Advisor tool result content could not be processed\" errors on every prompt and /compact",
+      "The cleanupPeriodDays retention sweep now also covers ~/.claude/tasks/, ~/.claude/shell-snapshots/, and ~/.claude/backups/",
+      "OpenTelemetry: user_prompt events now include command_name and command_source for slash commands; cost.usage, token.usage, api_request, and api_error now include an effort attribute when the model supports effort levels. Custom/MCP command names are redacted unless OTEL_LOG_TOOL_DETAILS=1 is set",
+      "Native builds on macOS and Linux: the Glob and Grep tools are replaced by embedded bfs and ugrep available through the Bash tool — faster searches without a separate tool round-trip (Windows and npm-installed builds unchanged)",
+      "Fixed Plain-CLI OAuth sessions dying with \"Please run /login\" when the access token expires mid-session — the token is now refreshed reactively on 401",
+      "Fixed /login having no effect when launched with CLAUDE_CODE_OAUTH_TOKEN env var and that token expires",
+      "Fixed Opus 4.7 sessions showing inflated /context percentages and autocompacting too early — Claude Code was computing against a 200K context window instead of Opus 4.7's native 1M"
+    ],
+    "features_ko": [
+      "외부 빌드에서 CLAUDE_CODE_FORK_SUBAGENT=1을 설정하여 포크된 서브 에이전트를 활성화할 수 있습니다.",
+      "에이전트 프론트매터 mcpServers가 이제 --agent를 통해 메인 스레드 에이전트 세션에 로드됩니다.",
+      "개선된 /model: 선택 사항이 프로젝트가 다른 모델을 고정하더라도 재시작 간에 지속되며, 시작 헤더는 활성 모델이 프로젝트 또는 관리 설정 핀에서 오는지 표시합니다.",
+      "/resume 명령은 이제 기존 --resume 동작에 맞춰 재읽기 전에 오래된 대규모 세션을 요약할 것을 제안합니다.",
+      "로컬 및 claude.ai MCP 서버가 모두 구성된 경우 더 빠른 시작이 가능합니다 (동시 연결이 기본값).",
+      "이미 설치된 플러그인에 대해 plugin install을 실행하면 \"already installed\"에서 멈추지 않고 누락된 종속성을 설치합니다.",
+      "플러그인 종속성 오류는 이제 \"not installed\"와 설치 힌트를 표시하며, claude plugin marketplace add는 구성된 마켓플레이스에서 누락된 종속성을 자동으로 해결합니다.",
+      "관리 설정의 blockedMarketplaces 및 strictKnownMarketplaces가 이제 플러그인 설치, 업데이트, 새로 고침 및 자동 업데이트에 적용됩니다.",
+      "Advisor Tool(실험적): 대화 상자에 \"실험적\" 레이블, 자세히 알아보기 링크 및 활성화 시 시작 알림이 표시됩니다; 세션이 더 이상 모든 프롬프트와 /compact에서 \"Advisor tool result content could not be processed\" 오류로 멈추지 않습니다.",
+      "cleanupPeriodDays 보존 스윕이 이제 ~/.claude/tasks/, ~/.claude/shell-snapshots/, 및 ~/.claude/backups/도 포함합니다.",
+      "OpenTelemetry: user_prompt 이벤트가 이제 슬래시 명령에 대한 command_name 및 command_source를 포함합니다; cost.usage, token.usage, api_request, 및 api_error는 모델이 노력 수준을 지원할 때 effort 속성을 포함합니다. OTEL_LOG_TOOL_DETAILS=1이 설정되지 않으면 Custom/MCP 명령 이름은 비공개 처리됩니다.",
+      "macOS 및 Linux의 네이티브 빌드: Glob 및 Grep 도구가 Bash 도구를 통해 제공되는 내장 bfs 및 ugrep으로 대체되어 별도의 도구 왕복 없이 더 빠른 검색이 가능합니다 (Windows 및 npm 설치 빌드는 변경되지 않음).",
+      "Plain-CLI OAuth 세션이 액세스 토큰이 세션 중간에 만료될 때 \"Please run /login\"으로 종료되는 문제를 수정했습니다 — 이제 토큰이 401에서 반응적으로 갱신됩니다.",
+      "CLAUDE_CODE_OAUTH_TOKEN 환경 변수를 사용하여 시작할 때 /login이 효과가 없고 해당 토큰이 만료되는 문제를 수정했습니다.",
+      "Opus 4.7 세션이 부풀려진 /context 비율을 표시하고 너무 일찍 자동 압축되는 문제를 수정했습니다 — Claude Code가 Opus 4.7의 기본 1M 대신 200K 컨텍스트 창에 대해 계산하고 있었습니다."
+    ]
+  },
+  {
     "version": "2.1.116",
     "date": "2026-04-20",
     "commands": [
