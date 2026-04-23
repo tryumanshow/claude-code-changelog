@@ -1,11 +1,12 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-04-22 21:57 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-04-23 21:53 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.118** | 2026-04-23 | `/cost`, `/stats`, `/usage`, `/theme`, `--continue`, `--resume`, `/add-dir`, `/color`, `/model`, `/doctor`, `/plugin`, `/mcp`, `/login`, `--dangerously-skip-permissions`, `/fork`, `Alt+K`, `Alt+X` | Added vim visual mode (v) and visual-line mode (V) with selection, operators, and visual feedback / Merged /cost and /stats into /usage — both remain as typing shortcuts that open the relevant tab ... |
 | **v2.1.117** | 2026-04-22 | `--agent`, `/model`, `/resume`, `--resume`, `/compact`, `/login`, `/context` | Forked subagents can now be enabled on external builds by setting CLAUDE_CODE_FORK_SUBAGENT=1 / Agent frontmatter mcpServers are now loaded for main-thread agent sessions via --agent / Improved /mo... |
-| **v2.1.116** | 2026-04-20 | `/resume`, `/terminal-setup`, `/config`, `/doctor`, `/reload-plugins`, `--agent`, `Ctrl+Z`, `/branch`, `/plugin`, `/update`, `/tui` | /resume on large sessions is significantly faster (up to 67% on 40MB+ sessions) and handles sessions with many dead-fork entries more efficiently / Faster MCP startup when multiple stdio servers ar... |
+| **v2.1.116** | 2026-04-20 | `/resume`, `/terminal-setup`, `/config`, `/doctor`, `/reload-plugins`, `--agent`, `/storage`, `Ctrl+Z`, `/branch`, `/plugin`, `/update`, `/tui` | /resume on large sessions is significantly faster (up to 67% on 40MB+ sessions) and handles sessions with many dead-fork entries more efficiently / Faster MCP startup when multiple stdio servers ar... |
 | **v2.1.114** | 2026-04-18 | — | Fixed a crash in the permission dialog when an agent teams teammate requested tool permission |
 | **v2.1.113** | 2026-04-17 | `Ctrl+A`, `Ctrl+E`, `Ctrl+B`, `/loop`, `/extra-usage`, `/ultrareview`, `/private`, `Ctrl+U`, `/copy`, `/effort auto`, `/effort`, `/insights` | Added sandbox.network.deniedDomains setting to block specific domains even when a broader allowedDomains wildcard would otherwise permit them / Fullscreen mode: Shift+↑/↓ now scrolls the viewport w... |
 | **v2.1.112** | 2026-04-16 | — | Fixed "claude-opus-4-7 is temporarily unavailable" for auto mode |
@@ -83,7 +84,6 @@
 | **v2.1.18** | 2026-01-22 | `/keybindings` | Added customizable keyboard shortcuts. Configure keybindings per context, create chord sequences, and personalize your workflow. Run /keybindings to get started. Learn more at https://code.claude.c... |
 | **v2.1.17** | 2026-01-22 | — | Fixed crashes on processors without AVX instruction support |
 | **v2.1.16** | 2026-01-22 | `/compact` | Added new task management system, including new capabilities like dependency tracking / [VSCode] Added native plugin management support / [VSCode] Added ability for OAuth users to browse and resume... |
-| **v2.1.15** | 2026-01-21 | `/compact` | Added deprecation notification for npm installations - run claude install or see https://docs.anthropic.com/en/docs/claude-code/getting-started for more options / Fixed the "Context left until auto... |
 
 ---
 

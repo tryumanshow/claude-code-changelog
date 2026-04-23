@@ -1,5 +1,140 @@
 [
   {
+    "version": "2.1.118",
+    "date": "2026-04-23",
+    "commands": [
+      {
+        "name": "/cost",
+        "context": "mentioned",
+        "summary": "Merged `/cost` and `/stats` into `/usage` — both remain as typing shortcuts that"
+      },
+      {
+        "name": "/stats",
+        "context": "mentioned",
+        "summary": "Merged `/cost` and `/stats` into `/usage` — both remain as typing shortcuts that"
+      },
+      {
+        "name": "/usage",
+        "context": "mentioned",
+        "summary": "Merged `/cost` and `/stats` into `/usage` — both remain as typing shortcuts that"
+      },
+      {
+        "name": "/theme",
+        "context": "mentioned",
+        "summary": "Create and switch between named custom themes from `/theme`, or hand-edit JSON f"
+      },
+      {
+        "name": "--continue",
+        "context": "improved",
+        "summary": "`--continue`/`--resume` now find sessions that added the current directory via `"
+      },
+      {
+        "name": "--resume",
+        "context": "improved",
+        "summary": "`--continue`/`--resume` now find sessions that added the current directory via `"
+      },
+      {
+        "name": "/add-dir",
+        "context": "improved",
+        "summary": "`--continue`/`--resume` now find sessions that added the current directory via `"
+      },
+      {
+        "name": "/color",
+        "context": "improved",
+        "summary": "`/color` now syncs the session accent color to claude.ai/code when Remote Contro"
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "The `/model` picker now honors `ANTHROPIC_DEFAULT_*_MODEL_NAME`/`_DESCRIPTION` o"
+      },
+      {
+        "name": "/doctor",
+        "context": "improved",
+        "summary": "When auto-update skips a plugin due to another plugin's version constraint, the "
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "When auto-update skips a plugin due to another plugin's version constraint, the "
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed `/mcp` menu hiding OAuth Authenticate/Re-authenticate actions for servers "
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed macOS keychain race where a concurrent MCP token refresh could overwrite a"
+      },
+      {
+        "name": "--dangerously-skip-permissions",
+        "context": "fixed",
+        "summary": "Fixed plan acceptance dialog offering \"auto mode\" instead of \"bypass permissions"
+      },
+      {
+        "name": "/fork",
+        "context": "fixed",
+        "summary": "Fixed `/fork` writing the full parent conversation to disk per fork — now writes"
+      },
+      {
+        "name": "Alt+K",
+        "context": "fixed",
+        "summary": "Fixed Alt+K / Alt+X / Alt+^ / Alt+_ freezing keyboard input"
+      },
+      {
+        "name": "Alt+X",
+        "context": "fixed",
+        "summary": "Fixed Alt+K / Alt+X / Alt+^ / Alt+_ freezing keyboard input"
+      }
+    ],
+    "features": [
+      "Added vim visual mode (v) and visual-line mode (V) with selection, operators, and visual feedback",
+      "Merged /cost and /stats into /usage — both remain as typing shortcuts that open the relevant tab",
+      "Create and switch between named custom themes from /theme, or hand-edit JSON files in ~/.claude/themes/; plugins can also ship themes via a themes/ directory",
+      "Hooks can now invoke MCP tools directly via type: \"mcp_tool\"",
+      "Added DISABLE_UPDATES env var to completely block all update paths including manual claude update — stricter than DISABLE_AUTOUPDATER",
+      "WSL on Windows can now inherit Windows-side managed settings via the wslInheritsWindowsSettings policy key",
+      "Auto mode: include \"$defaults\" in autoMode.allow, autoMode.soft_deny, or autoMode.environment to add custom rules alongside the built-in list instead of replacing it",
+      "Added a \"Don't ask again\" option to the auto mode opt-in prompt",
+      "Added claude plugin tag to create release git tags for plugins with version validation",
+      "--continue/--resume now find sessions that added the current directory via /add-dir",
+      "/color now syncs the session accent color to claude.ai/code when Remote Control is connected",
+      "The /model picker now honors ANTHROPIC_DEFAULT_*_MODEL_NAME/_DESCRIPTION overrides when using a custom ANTHROPIC_BASE_URL gateway",
+      "When auto-update skips a plugin due to another plugin's version constraint, the skip now appears in /doctor and the /plugin Errors tab",
+      "Fixed /mcp menu hiding OAuth Authenticate/Re-authenticate actions for servers configured with headersHelper, and HTTP/SSE MCP servers with custom headers being stuck in \"needs authentication\" after a transient 401",
+      "Fixed macOS keychain race where a concurrent MCP token refresh could overwrite a freshly-refreshed OAuth token, causing unexpected \"Please run /login\" prompts",
+      "Fixed /login having no effect in a session launched with CLAUDE_CODE_OAUTH_TOKEN — the env token is now cleared so disk credentials take effect",
+      "Fixed unreadable text in the \"new messages\" scroll pill and /plugin badges",
+      "Fixed plan acceptance dialog offering \"auto mode\" instead of \"bypass permissions\" when running with --dangerously-skip-permissions",
+      "Fixed /fork writing the full parent conversation to disk per fork — now writes a pointer and hydrates on read",
+      "Fixed Alt+K / Alt+X / Alt+^ / Alt+_ freezing keyboard input"
+    ],
+    "features_ko": [
+      "선택, 연산자 및 시각적 피드백이 포함된 vim 시각 모드(v) 및 시각-라인 모드(V)를 추가했습니다.",
+      "/cost와 /stats를 /usage로 병합했습니다 — 두 가지 모두 관련 탭을 여는 입력 단축키로 남아 있습니다.",
+      "/theme에서 이름이 지정된 사용자 정의 테마를 생성하고 전환하거나, ~/.claude/themes/의 JSON 파일을 수동으로 편집할 수 있습니다; 플러그인은 themes/ 디렉토리를 통해 테마를 제공할 수도 있습니다.",
+      "이제 Hooks는 type: \"mcp_tool\"을 통해 MCP 도구를 직접 호출할 수 있습니다.",
+      "모든 업데이트 경로를 완전히 차단하는 DISABLE_UPDATES 환경 변수를 추가했습니다 — DISABLE_AUTOUPDATER보다 더 엄격합니다.",
+      "Windows의 WSL은 이제 wslInheritsWindowsSettings 정책 키를 통해 Windows 측 관리 설정을 상속받을 수 있습니다.",
+      "자동 모드: autoMode.allow, autoMode.soft_deny 또는 autoMode.environment에 \"$defaults\"를 포함하여 기본 목록을 대체하는 대신 사용자 정의 규칙을 추가할 수 있습니다.",
+      "자동 모드 선택 프롬프트에 \"다시 묻지 않기\" 옵션을 추가했습니다.",
+      "버전 검증이 있는 플러그인에 대해 릴리스 git 태그를 생성하는 claude 플러그인 태그를 추가했습니다.",
+      "--continue/--resume은 이제 /add-dir를 통해 현재 디렉토리를 추가한 세션을 찾습니다.",
+      "/color는 이제 Remote Control이 연결될 때 세션 강조 색상을 claude.ai/code와 동기화합니다.",
+      "/model 선택기는 이제 사용자 정의 ANTHROPIC_BASE_URL 게이트웨이를 사용할 때 ANTHROPIC_DEFAULT_*_MODEL_NAME/_DESCRIPTION 재정의를 존중합니다.",
+      "자동 업데이트가 다른 플러그인의 버전 제약으로 인해 플러그인을 건너뛸 경우, 건너뛰기가 이제 /doctor 및 /plugin 오류 탭에 나타납니다.",
+      "/mcp 메뉴에서 headersHelper로 구성된 서버에 대해 OAuth 인증/재인증 작업을 숨기는 문제를 수정했습니다. 또한, 사용자 정의 헤더가 있는 HTTP/SSE MCP 서버가 일시적인 401 후 \"인증 필요\" 상태에 갇히는 문제를 수정했습니다.",
+      "동시 MCP 토큰 새로 고침이 새로 고쳐진 OAuth 토큰을 덮어쓸 수 있는 macOS 키체인 경합 문제를 수정했습니다. 이로 인해 예기치 않은 \"로그인 명령어를 실행하세요\" 프롬프트가 발생했습니다.",
+      "CLAUDE_CODE_OAUTH_TOKEN으로 시작된 세션에서 /login이 효과가 없던 문제를 수정했습니다 — 이제 env 토큰이 지워져서 디스크 자격 증명이 적용됩니다.",
+      "\"새 메시지\" 스크롤 필과 /plugin 배지에서 읽을 수 없는 텍스트 문제를 수정했습니다.",
+      "--dangerously-skip-permissions로 실행할 때 \"권한 우회\" 대신 \"자동 모드\"를 제공하는 계획 수락 대화 상자를 수정했습니다.",
+      "/fork가 각 포크에 대해 전체 부모 대화를 디스크에 쓰는 문제를 수정했습니다 — 이제 포인터를 쓰고 읽을 때 하이드레이트합니다.",
+      "Alt+K / Alt+X / Alt+^ / Alt+_가 키보드 입력을 멈추는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.117",
     "date": "2026-04-22",
     "commands": [
@@ -109,6 +244,11 @@
         "summary": "Agent frontmatter `hooks:` now fire when running as a main-thread agent via `--a"
       },
       {
+        "name": "/storage",
+        "context": "new",
+        "summary": "Claude Code and installer now use `https://downloads.claude.ai/claude-code-relea"
+      },
+      {
         "name": "Ctrl+Z",
         "context": "fixed",
         "summary": "Fixed Ctrl+Z hanging the terminal when Claude Code is launched via a wrapper pro"
@@ -146,6 +286,7 @@
       "The Usage tab in Settings now shows your 5-hour and weekly usage immediately and no longer fails when the usage endpoint is rate-limited",
       "Agent frontmatter hooks: now fire when running as a main-thread agent via --agent",
       "Slash command menu now shows \"No commands match\" when your filter has zero results, instead of disappearing",
+      "Claude Code and installer now use https://downloads.claude.ai/claude-code-releases instead of https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases",
       "Fixed Ctrl+Z hanging the terminal when Claude Code is launched via a wrapper process (e.g. npx, bun run)",
       "Fixed /branch rejecting conversations with transcripts larger than 50MB",
       "Fixed /resume silently showing an empty conversation on large session files instead of reporting the load error",
@@ -164,6 +305,7 @@
       "설정의 Usage 탭이 이제 5시간 및 주간 사용량을 즉시 표시하며, 사용량 엔드포인트가 속도 제한에 걸릴 때 더 이상 실패하지 않습니다.",
       "에이전트 프론트매터 훅: 이제 --agent를 통해 메인 스레드 에이전트로 실행할 때 작동합니다.",
       "슬래시 명령 메뉴가 이제 필터에 결과가 없을 때 \"일치하는 명령이 없습니다\"를 표시하며 사라지지 않습니다.",
+      "Claude Code 및 설치 관리자는 이제 https://downloads.claude.ai/claude-code-releases를 사용하고 https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases 대신 사용합니다.",
       "Ctrl+Z가 래퍼 프로세스(예: npx, bun run)를 통해 Claude Code가 실행될 때 터미널을 멈추는 문제를 수정했습니다.",
       "/branch가 50MB보다 큰 전사와의 대화를 거부하는 문제를 수정했습니다.",
       "/resume이 대형 세션 파일에서 로드 오류를 보고하는 대신 빈 대화를 조용히 표시하는 문제를 수정했습니다.",
