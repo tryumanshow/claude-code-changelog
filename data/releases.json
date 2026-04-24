@@ -1,5 +1,127 @@
 [
   {
+    "version": "2.1.119",
+    "date": "2026-04-23",
+    "commands": [
+      {
+        "name": "/config",
+        "context": "improved",
+        "summary": "`/config` settings (theme, editor mode, verbose, etc.) now persist to `~/.claude"
+      },
+      {
+        "name": "--from-pr",
+        "context": "improved",
+        "summary": "`--from-pr` now accepts GitLab merge-request, Bitbucket pull-request, and GitHub"
+      },
+      {
+        "name": "--print",
+        "context": "improved",
+        "summary": "`--print` mode now honors the agent's `tools:` and `disallowedTools:` frontmatte"
+      },
+      {
+        "name": "--agent <name>",
+        "context": "improved",
+        "summary": "`--agent <name>` now honors the agent definition's `permissionMode` for built-in"
+      },
+      {
+        "name": "--client-secret",
+        "context": "fixed",
+        "summary": "Fixed MCP OAuth client secret stored via `--client-secret` not being sent during"
+      },
+      {
+        "name": "/skills",
+        "context": "fixed",
+        "summary": "Fixed `/skills` Enter key closing the dialog instead of pre-filling `/<skill-nam"
+      },
+      {
+        "name": "/agents",
+        "context": "fixed",
+        "summary": "Fixed `/agents` detail view mislabeling built-in tools unavailable to subagents "
+      },
+      {
+        "name": "/export",
+        "context": "fixed",
+        "summary": "Fixed `/export` showing the current default model instead of the model the conve"
+      },
+      {
+        "name": "/usage",
+        "context": "fixed",
+        "summary": "Fixed `/usage` progress bars overlapping with their \"Resets …\" labels"
+      },
+      {
+        "name": "/plan",
+        "context": "fixed",
+        "summary": "Fixed `/plan` and `/plan open` not acting on the existing plan when entering pla"
+      },
+      {
+        "name": "/plan open",
+        "context": "fixed",
+        "summary": "Fixed `/plan` and `/plan open` not acting on the existing plan when entering pla"
+      },
+      {
+        "name": "/reload-plugins",
+        "context": "fixed",
+        "summary": "Fixed `/reload-plugins` and `/doctor` reporting load errors for disabled plugins"
+      },
+      {
+        "name": "/doctor",
+        "context": "fixed",
+        "summary": "Fixed `/reload-plugins` and `/doctor` reporting load errors for disabled plugins"
+      },
+      {
+        "name": "/status",
+        "context": "fixed",
+        "summary": "Fixed disabled MCP servers appearing as \"failed\" in `/status`"
+      }
+    ],
+    "features": [
+      "/config settings (theme, editor mode, verbose, etc.) now persist to ~/.claude/settings.json and participate in project/local/policy override precedence",
+      "Added prUrlTemplate setting to point the footer PR badge at a custom code-review URL instead of github.com",
+      "Added CLAUDE_CODE_HIDE_CWD environment variable to hide the working directory in the startup logo",
+      "--from-pr now accepts GitLab merge-request, Bitbucket pull-request, and GitHub Enterprise PR URLs",
+      "--print mode now honors the agent's tools: and disallowedTools: frontmatter, matching interactive-mode behavior",
+      "--agent <name> now honors the agent definition's permissionMode for built-in agents",
+      "PowerShell tool commands can now be auto-approved in permission mode, matching Bash behavior",
+      "Hooks: PostToolUse and PostToolUseFailure hook inputs now include duration_ms (tool execution time, excluding permission prompts and PreToolUse hooks)",
+      "Subagent and SDK MCP server reconfiguration now connects servers in parallel instead of serially",
+      "Plugins pinned by another plugin's version constraint now auto-update to the highest satisfying git tag",
+      "Vim mode: Esc in INSERT no longer pulls a queued message back into the input; press Esc again to interrupt",
+      "Slash command suggestions now highlight the characters that matched your query",
+      "Fixed MCP OAuth client secret stored via --client-secret not being sent during token exchange for servers requiring client_secret_post",
+      "Fixed /skills Enter key closing the dialog instead of pre-filling /<skill-name> in the prompt",
+      "Fixed /agents detail view mislabeling built-in tools unavailable to subagents as \"Unrecognized\"",
+      "Fixed /export showing the current default model instead of the model the conversation actually used",
+      "Fixed /usage progress bars overlapping with their \"Resets …\" labels",
+      "Fixed /plan and /plan open not acting on the existing plan when entering plan mode",
+      "Fixed /reload-plugins and /doctor reporting load errors for disabled plugins",
+      "Fixed disabled MCP servers appearing as \"failed\" in /status",
+      "Fixed /doctor warning about MCP server entries overridden by a higher-precedence scope"
+    ],
+    "features_ko": [
+      "/config 설정(theme, editor mode, verbose 등)이 이제 ~/.claude/settings.json에 저장되며 프로젝트/로컬/정책 오버라이드 우선순위에 참여합니다.",
+      "footer PR 배지를 github.com 대신 사용자 정의 코드 리뷰 URL로 가리키는 prUrlTemplate 설정이 추가되었습니다.",
+      "시작 로고에서 작업 디렉토리를 숨기기 위해 CLAUDE_CODE_HIDE_CWD 환경 변수가 추가되었습니다.",
+      "--from-pr이 이제 GitLab merge-request, Bitbucket pull-request, 및 GitHub Enterprise PR URL을 수용합니다.",
+      "--print 모드는 이제 에이전트의 tools: 및 disallowedTools: frontmatter를 존중하며, 인터랙티브 모드 동작과 일치합니다.",
+      "--agent <name>이 이제 내장 에이전트의 permissionMode를 존중합니다.",
+      "PowerShell 도구 명령이 이제 권한 모드에서 자동 승인될 수 있으며, Bash 동작과 일치합니다.",
+      "Hooks: PostToolUse 및 PostToolUseFailure 훅 입력에 이제 duration_ms(권한 프롬프트 및 PreToolUse 훅을 제외한 도구 실행 시간)가 포함됩니다.",
+      "Subagent 및 SDK MCP 서버 재구성이 이제 직렬이 아닌 병렬로 서버를 연결합니다.",
+      "다른 플러그인의 버전 제약으로 고정된 플러그인이 이제 가장 높은 만족하는 git 태그로 자동 업데이트됩니다.",
+      "Vim 모드: INSERT에서 Esc가 더 이상 대기 중인 메시지를 입력으로 가져오지 않으며, 다시 Esc를 눌러 중단할 수 있습니다.",
+      "슬래시 명령 제안이 이제 쿼리와 일치하는 문자를 강조 표시합니다.",
+      "--client-secret를 통해 저장된 MCP OAuth 클라이언트 비밀이 client_secret_post가 필요한 서버의 토큰 교환 중에 전송되지 않는 문제를 수정했습니다.",
+      "/skills에서 Enter 키가 프롬프트에 /<skill-name>을 미리 채우는 대신 대화 상자를 닫는 문제를 수정했습니다.",
+      "/agents 상세 보기에서 서브 에이전트에 사용할 수 없는 내장 도구를 \"인식되지 않음\"으로 잘못 표시하는 문제를 수정했습니다.",
+      "/export가 현재 기본 모델 대신 대화에서 실제로 사용된 모델을 표시하는 문제를 수정했습니다.",
+      "/usage 진행 바가 \"Resets …\" 레이블과 겹치는 문제를 수정했습니다.",
+      "/plan 및 /plan open이 계획 모드에 들어갈 때 기존 계획에 작용하지 않는 문제를 수정했습니다.",
+      "/reload-plugins 및 /doctor가 비활성화된 플러그인에 대한 로드 오류를 보고하는 문제를 수정했습니다.",
+      "비활성화된 MCP 서버가 /status에서 \"실패\"로 표시되는 문제를 수정했습니다.",
+      "/doctor가 더 높은 우선순위 범위에 의해 오버라이드된 MCP 서버 항목에 대해 경고하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.118",
     "date": "2026-04-23",
     "commands": [

@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-04-23 21:53 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-04-24 21:54 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.119** | 2026-04-23 | `/config`, `--from-pr`, `--print`, `--agent <name>`, `--client-secret`, `/skills`, `/agents`, `/export`, `/usage`, `/plan`, `/plan open`, `/reload-plugins`, `/doctor`, `/status` | /config settings (theme, editor mode, verbose, etc.) now persist to ~/.claude/settings.json and participate in project/local/policy override precedence / Added prUrlTemplate setting to point the fo... |
 | **v2.1.118** | 2026-04-23 | `/cost`, `/stats`, `/usage`, `/theme`, `--continue`, `--resume`, `/add-dir`, `/color`, `/model`, `/doctor`, `/plugin`, `/mcp`, `/login`, `--dangerously-skip-permissions`, `/fork`, `Alt+K`, `Alt+X` | Added vim visual mode (v) and visual-line mode (V) with selection, operators, and visual feedback / Merged /cost and /stats into /usage — both remain as typing shortcuts that open the relevant tab ... |
 | **v2.1.117** | 2026-04-22 | `--agent`, `/model`, `/resume`, `--resume`, `/compact`, `/login`, `/context` | Forked subagents can now be enabled on external builds by setting CLAUDE_CODE_FORK_SUBAGENT=1 / Agent frontmatter mcpServers are now loaded for main-thread agent sessions via --agent / Improved /mo... |
 | **v2.1.116** | 2026-04-20 | `/resume`, `/terminal-setup`, `/config`, `/doctor`, `/reload-plugins`, `--agent`, `/storage`, `Ctrl+Z`, `/branch`, `/plugin`, `/update`, `/tui` | /resume on large sessions is significantly faster (up to 67% on 40MB+ sessions) and handles sessions with many dead-fork entries more efficiently / Faster MCP startup when multiple stdio servers ar... |
@@ -83,7 +84,6 @@
 | **v2.1.19** | 2026-01-23 | `/rename`, `/tag`, `Ctrl+S` | Added env var CLAUDE_CODE_ENABLE_TASKS, set to false to keep the old system temporarily / Added shorthand $0, $1, etc. for accessing individual arguments in custom commands / Fixed /rename and /tag... |
 | **v2.1.18** | 2026-01-22 | `/keybindings` | Added customizable keyboard shortcuts. Configure keybindings per context, create chord sequences, and personalize your workflow. Run /keybindings to get started. Learn more at https://code.claude.c... |
 | **v2.1.17** | 2026-01-22 | — | Fixed crashes on processors without AVX instruction support |
-| **v2.1.16** | 2026-01-22 | `/compact` | Added new task management system, including new capabilities like dependency tracking / [VSCode] Added native plugin management support / [VSCode] Added ability for OAuth users to browse and resume... |
 
 ---
 
