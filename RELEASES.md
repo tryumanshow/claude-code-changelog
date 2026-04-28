@@ -1,9 +1,12 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-04-27 22:00 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-04-28 22:06 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.122** | 2026-04-28 | `/resume`, `/mcp`, `/branch`, `/model` | Added ANTHROPIC_BEDROCK_SERVICE_TIER environment variable to select a Bedrock service tier (default, flex, or priority), sent as the X-Amzn-Bedrock-Service-Tier header / Pasting a PR URL into the /... |
+| **v2.1.121** | 2026-04-28 | `--prune`, `/skills`, `--dangerously-skip-permissions`, `/terminal-setup`, `/copy`, `ctrl+o`, `/context`, `/usage`, `--resume`, `Ctrl+L`, `/focus` | Added alwaysLoad option to MCP server config — when true, all tools from that server skip tool-search deferral and are always available / Added claude plugin prune to remove orphaned auto-installed... |
+| **v2.1.120** | — | `/ultrareview`, `--json`, `/rewind`, `/plugin`, `/usage` | Windows: Git for Windows (Git Bash) is no longer required — when absent, Claude Code uses PowerShell as the shell tool / Added claude ultrareview [target] subcommand to run /ultrareview non-interac... |
 | **v2.1.119** | 2026-04-23 | `/config`, `--from-pr`, `--print`, `--agent <name>`, `--client-secret`, `/skills`, `/agents`, `/export`, `/usage`, `/plan`, `/plan open`, `/reload-plugins`, `/doctor`, `/status` | /config settings (theme, editor mode, verbose, etc.) now persist to ~/.claude/settings.json and participate in project/local/policy override precedence / Added prUrlTemplate setting to point the fo... |
 | **v2.1.118** | 2026-04-23 | `/cost`, `/stats`, `/usage`, `/theme`, `--continue`, `--resume`, `/add-dir`, `/color`, `/model`, `/doctor`, `/plugin`, `/mcp`, `/login`, `--dangerously-skip-permissions`, `/fork`, `Alt+K`, `Alt+X` | Added vim visual mode (v) and visual-line mode (V) with selection, operators, and visual feedback / Merged /cost and /stats into /usage — both remain as typing shortcuts that open the relevant tab ... |
 | **v2.1.117** | 2026-04-22 | `--agent`, `/model`, `/resume`, `--resume`, `/compact`, `/login`, `/context` | Forked subagents can now be enabled on external builds by setting CLAUDE_CODE_FORK_SUBAGENT=1 / Agent frontmatter mcpServers are now loaded for main-thread agent sessions via --agent / Improved /mo... |
@@ -81,9 +84,6 @@
 | **v2.1.22** | 2026-01-28 | — | Fixed structured outputs for non-interactive (-p) mode |
 | **v2.1.21** | 2026-01-28 | — | Added support for full-width (zenkaku) number input from Japanese IME in option selection prompts / [VSCode] Added automatic Python virtual environment activation, ensuring python and pip commands ... |
 | **v2.1.20** | 2026-01-27 | `Ctrl+G`, `--add-dir`, `/context`, `/sandbox`, `/commit-push-pr`, `/copy` | Added arrow key history navigation in vim normal mode when cursor cannot move further / Added external editor shortcut (Ctrl+G) to the help menu for better discoverability / Added PR review status ... |
-| **v2.1.19** | 2026-01-23 | `/rename`, `/tag`, `Ctrl+S` | Added env var CLAUDE_CODE_ENABLE_TASKS, set to false to keep the old system temporarily / Added shorthand $0, $1, etc. for accessing individual arguments in custom commands / Fixed /rename and /tag... |
-| **v2.1.18** | 2026-01-22 | `/keybindings` | Added customizable keyboard shortcuts. Configure keybindings per context, create chord sequences, and personalize your workflow. Run /keybindings to get started. Learn more at https://code.claude.c... |
-| **v2.1.17** | 2026-01-22 | — | Fixed crashes on processors without AVX instruction support |
 
 ---
 
