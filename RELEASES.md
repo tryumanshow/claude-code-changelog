@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-04-28 22:06 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-04-29 22:06 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.123** | 2026-04-29 | — | Fixed OAuth authentication failing with a 401 retry loop when CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 is set |
 | **v2.1.122** | 2026-04-28 | `/resume`, `/mcp`, `/branch`, `/model` | Added ANTHROPIC_BEDROCK_SERVICE_TIER environment variable to select a Bedrock service tier (default, flex, or priority), sent as the X-Amzn-Bedrock-Service-Tier header / Pasting a PR URL into the /... |
 | **v2.1.121** | 2026-04-28 | `--prune`, `/skills`, `--dangerously-skip-permissions`, `/terminal-setup`, `/copy`, `ctrl+o`, `/context`, `/usage`, `--resume`, `Ctrl+L`, `/focus` | Added alwaysLoad option to MCP server config — when true, all tools from that server skip tool-search deferral and are always available / Added claude plugin prune to remove orphaned auto-installed... |
 | **v2.1.120** | — | `/ultrareview`, `--json`, `/rewind`, `/plugin`, `/usage` | Windows: Git for Windows (Git Bash) is no longer required — when absent, Claude Code uses PowerShell as the shell tool / Added claude ultrareview [target] subcommand to run /ultrareview non-interac... |
@@ -83,7 +84,6 @@
 | **v2.1.23** | 2026-01-29 | — | Added customizable spinner verbs setting (spinnerVerbs) / [IDE] Fixed model options displaying incorrect region strings for Bedrock users in headless mode |
 | **v2.1.22** | 2026-01-28 | — | Fixed structured outputs for non-interactive (-p) mode |
 | **v2.1.21** | 2026-01-28 | — | Added support for full-width (zenkaku) number input from Japanese IME in option selection prompts / [VSCode] Added automatic Python virtual environment activation, ensuring python and pip commands ... |
-| **v2.1.20** | 2026-01-27 | `Ctrl+G`, `--add-dir`, `/context`, `/sandbox`, `/commit-push-pr`, `/copy` | Added arrow key history navigation in vim normal mode when cursor cannot move further / Added external editor shortcut (Ctrl+G) to the help menu for better discoverability / Added PR review status ... |
 
 ---
 
