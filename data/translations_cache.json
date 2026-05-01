@@ -1340,5 +1340,21 @@
   "aeb2d46461a78b35": "claude --resume로 시작한 후 /rewind 및 기타 대화형 오버레이가 키보드 입력에 반응하지 않는 문제를 수정했습니다.",
   "5c8aed7d52f63f29": "인식되지 않는 소스 형식을 사용하는 항목이 있을 때 /plugin marketplace가 로드되지 않는 문제를 수정했습니다 — 해당 항목은 표시되지만 설치 시 업데이트를 요청합니다.",
   "6f4b380e285f89ff": "[VSCode] /usage가 이제 일반 텍스트 세션 비용을 반환하는 대신 기본 계정 및 사용 대화 상자를 엽니다.",
-  "3722b49c28e83691": "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1로 설정할 때 OAuth 인증이 401 재시도 루프에서 실패하는 문제를 수정했습니다."
+  "3722b49c28e83691": "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1로 설정할 때 OAuth 인증이 401 재시도 루프에서 실패하는 문제를 수정했습니다.",
+  "2d95d98c1c89de2c": "/model 선택기가 ANTHROPIC_BASE_URL가 Anthropic 호환 게이트웨이를 가리킬 때 게이트웨이의 /v1/models 엔드포인트에서 모델을 나열합니다.",
+  "2d51a9263552696c": "claude project purge [path]를 추가하여 프로젝트의 모든 Claude Code 상태(전사, 작업, 파일 이력, 구성 항목)를 삭제합니다 — --dry-run, -y/--yes, -i/--interactive, --all을 지원합니다.",
+  "544930e7a795797f": "--dangerously-skip-permissions가 이제 .claude/, .git/, .vscode/, 셸 구성 파일 및 기타 이전에 보호된 경로에 대한 쓰기 프롬프트를 우회합니다(재앙적인 제거 명령은 여전히 안전망으로 프롬프트를 표시합니다).",
+  "d8cc3d49a360f306": "claude auth login이 이제 브라우저 콜백이 localhost에 도달할 수 없을 때 터미널에 붙여넣은 OAuth 코드를 수락합니다(WSL2, SSH, 컨테이너).",
+  "9e304fedcb86b4f7": "claude_code.skill_activated OpenTelemetry 이벤트가 이제 사용자 입력 슬래시 명령에 대해 발생하며 새로운 invocation_trigger 속성(\"user-slash\", \"claude-proactive\" 또는 \"nested-skill\")을 포함합니다.",
+  "5cf0148fa8b84c89": "자동 모드: 권한 확인이 지연될 때 스피너가 빨간색으로 변하며, 도구가 실행 중인 것처럼 보이지 않습니다.",
+  "af468889b07c64ef": "호스트 관리 배포(CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST)가 더 이상 Bedrock/Vertex/Foundry에서 분석을 자동으로 비활성화하지 않습니다.",
+  "fff44bb397c6b402": "Windows: Microsoft Store를 통해 설치된 PowerShell 7, PATH 없이 MSI 또는 .NET 글로벌 도구가 이제 감지됩니다.",
+  "825bd0f2162e7d9b": "Windows: PowerShell 도구가 활성화되면 Claude가 이제 기본적으로 Bash 대신 PowerShell을 기본 셸로 취급합니다.",
+  "98e95766b0931e69": "읽기 도구: 레거시 모델에서 잘못된 거부와 \"이것은 악성 코드가 아닙니다\"라는 주석을 유발할 수 있는 파일별 악성 코드 평가 알림을 제거했습니다.",
+  "5f84ec5f60c4fd4b": "Ctrl+L이 프롬프트 입력을 지우는 문제를 수정했습니다 — 이제 화면 새로 고침만 강제하며 readline 동작과 일치합니다.",
+  "23635e14e3313749": "--channels로 시작된 대화형 세션에서 plan-mode 도구가 사용할 수 없는 문제를 수정했습니다.",
+  "e50691e718e56bfe": "/plugin Uninstall이 \"Uninstalled\" 대신 \"Enabled\"로 보고하는 문제를 수정했습니다.",
+  "af4675e5fee4e363": "린터가 여러 파일을 동시에 수정할 때 파일 수정 알림의 총 크기를 제한했습니다.",
+  "4d99b661394b4f16": "/remote-control 재시도가 \"connecting…\"에서 멈춘 것처럼 보이는 문제를 수정했습니다 — 각 재시도가 이제 결과를 표시합니다.",
+  "36db236abfb0535c": "PowerShell 도구: bare -- (예: git diff -- file)가 더 이상 --% 구문 분석 중지 토큰으로 잘못 표시되지 않습니다."
 }
