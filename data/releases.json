@@ -1,5 +1,133 @@
 [
   {
+    "version": "2.1.128",
+    "date": "2026-05-04",
+    "commands": [
+      {
+        "name": "/color",
+        "context": "improved",
+        "summary": "Bare `/color` (no args) now picks a random session color"
+      },
+      {
+        "name": "/mcp",
+        "context": "improved",
+        "summary": "`/mcp` now shows the tool count for connected servers and flags servers that con"
+      },
+      {
+        "name": "--plugin-dir",
+        "context": "improved",
+        "summary": "`--plugin-dir` now accepts `.zip` plugin archives in addition to directories"
+      },
+      {
+        "name": "--channels",
+        "context": "improved",
+        "summary": "`--channels` now works with console (API key) authentication — console orgs with"
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "Updated `/model` picker: collapsed duplicate Opus 4.7 entries, and current Opus "
+      },
+      {
+        "name": "/compact",
+        "context": "improved",
+        "summary": "Auto mode: when the classifier can't evaluate an action, the error now includes "
+      },
+      {
+        "name": "--debug",
+        "context": "improved",
+        "summary": "Auto mode: when the classifier can't evaluate an action, the error now includes "
+      },
+      {
+        "name": "/exit",
+        "context": "fixed",
+        "summary": "Fixed stray \"4;0;\" desktop notification on every `/exit` in Kitty and other term"
+      },
+      {
+        "name": "/plugin",
+        "context": "fixed",
+        "summary": "Fixed `/plugin` Components panel showing \"Marketplace 'inline' not found\" for pl"
+      },
+      {
+        "name": "/config",
+        "context": "fixed",
+        "summary": "Fixed tab navigation in `/config` stranding focus — the tab header now stays foc"
+      },
+      {
+        "name": "/fast",
+        "context": "fixed",
+        "summary": "Fixed `/fast` on 3P providers fuzzy-matching to an unrelated skill instead of sh"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed `/rename` without args failing on resumed sessions whose last entry is a c"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed stale \"remote-control is active\" status lines from prior sessions appearin"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed stale \"remote-control is active\" status lines from prior sessions appearin"
+      },
+      {
+        "name": "/plugin update",
+        "context": "fixed",
+        "summary": "Fixed `/plugin update` never detecting new versions of npm-sourced plugins"
+      },
+      {
+        "name": "--output-format stream-json",
+        "context": "improved",
+        "summary": "Headless `--output-format stream-json`: `init.plugin_errors` now includes `--plu"
+      }
+    ],
+    "features": [
+      "Bare /color (no args) now picks a random session color",
+      "/mcp now shows the tool count for connected servers and flags servers that connected with 0 tools",
+      "--plugin-dir now accepts .zip plugin archives in addition to directories",
+      "--channels now works with console (API key) authentication — console orgs with managed settings must set channelsEnabled: true to enable",
+      "Updated /model picker: collapsed duplicate Opus 4.7 entries, and current Opus now shows as \"Opus\" instead of \"Opus 4.7\"",
+      "Subprocesses (Bash, hooks, MCP, LSP) no longer inherit OTEL_* environment variables, so OTEL-instrumented apps run via the Bash tool no longer pick up the CLI's own OTLP endpoint",
+      "MCP: workspace is now a reserved server name — existing servers with that name will be skipped with a warning",
+      "Reconnecting MCP servers no longer flood the conversation with full tool-name lists on every reconnect — re-announced tools are summarized by server prefix",
+      "SDK hosts now receive a persistent localSettings suggestion for Bash permission prompts, so \"Always allow\" writes to .claude/settings.local.json",
+      "EnterWorktree now creates the new branch from local HEAD as documented, instead of origin/<default-branch> — unpushed commits are no longer dropped",
+      "Auto mode: when the classifier can't evaluate an action, the error now includes a hint (retry, /compact, or run with --debug)",
+      "Fixed stray \"4;0;\" desktop notification on every /exit in Kitty and other terminals that interpret OSC 9 as a notification",
+      "Fixed /plugin Components panel showing \"Marketplace 'inline' not found\" for plugins loaded via --plugin-dir",
+      "Fixed tab navigation in /config stranding focus — the tab header now stays focused so arrows and Esc keep working",
+      "Fixed /fast on 3P providers fuzzy-matching to an unrelated skill instead of showing \"not available\"",
+      "Fixed /rename without args failing on resumed sessions whose last entry is a compact boundary",
+      "Fixed stale \"remote-control is active\" status lines from prior sessions appearing after --resume/--continue",
+      "Fixed /plugin update never detecting new versions of npm-sourced plugins",
+      "Headless --output-format stream-json: init.plugin_errors now includes --plugin-dir load failures in addition to dependency demotions"
+    ],
+    "features_ko": [
+      "Bare /color (인자 없음) 이제 무작위 세션 색상을 선택합니다.",
+      "/mcp 이제 연결된 서버의 도구 수를 표시하고 0개의 도구로 연결된 서버를 플래그합니다.",
+      "--plugin-dir 이제 디렉토리 외에 .zip 플러그인 아카이브를 허용합니다.",
+      "--channels 이제 콘솔 (API 키) 인증과 함께 작동합니다 — 관리 설정이 있는 콘솔 조직은 channelsEnabled: true를 설정해야 활성화됩니다.",
+      "/model 선택기를 업데이트했습니다: 중복된 Opus 4.7 항목을 축소하고 현재 Opus는 \"Opus\"로 표시됩니다.",
+      "서브프로세스 (Bash, hooks, MCP, LSP)는 더 이상 OTEL_* 환경 변수를 상속받지 않으므로 OTEL로 계측된 앱이 Bash 도구를 통해 실행될 때 CLI의 OTLP 엔드포인트를 더 이상 사용하지 않습니다.",
+      "MCP: workspace는 이제 예약된 서버 이름입니다 — 해당 이름을 가진 기존 서버는 경고와 함께 건너뜁니다.",
+      "재연결된 MCP 서버는 매번 재연결 시 전체 도구 이름 목록으로 대화를 넘치게 하지 않습니다 — 재공지된 도구는 서버 접두사로 요약됩니다.",
+      "SDK 호스트는 이제 Bash 권한 프롬프트에 대한 지속적인 localSettings 제안을 받으며, \"항상 허용\"은 .claude/settings.local.json에 기록됩니다.",
+      "EnterWorktree는 이제 문서화된 대로 로컬 HEAD에서 새 브랜치를 생성하며, origin/<default-branch> 대신에 — 푸시되지 않은 커밋이 더 이상 삭제되지 않습니다.",
+      "자동 모드: 분류기가 작업을 평가할 수 없을 때, 오류에 힌트가 포함됩니다 (재시도, /compact 또는 --debug로 실행).",
+      "Kitty 및 OSC 9를 알림으로 해석하는 다른 터미널에서 매번 /exit 시 발생하는 \"4;0;\" 데스크탑 알림을 수정했습니다.",
+      "--plugin-dir를 통해 로드된 플러그인에 대해 \"Marketplace 'inline' not found\"를 표시하는 /plugin Components 패널을 수정했습니다.",
+      "/config에서 탭 탐색이 포커스를 잃는 문제를 수정했습니다 — 탭 헤더가 이제 포커스를 유지하여 화살표와 Esc가 계속 작동합니다.",
+      "/fast가 3P 제공업체에서 관련 없는 기술에 퍼지 매칭되는 문제를 수정했습니다 — \"not available\"을 표시합니다.",
+      "인자가 없는 /rename이 마지막 항목이 compact boundary인 재개된 세션에서 실패하는 문제를 수정했습니다.",
+      "--resume/--continue 후 이전 세션에서 나타나는 오래된 \"remote-control is active\" 상태 줄을 수정했습니다.",
+      "/plugin update가 npm 소스 플러그인의 새 버전을 감지하지 못하는 문제를 수정했습니다.",
+      "Headless --output-format stream-json: init.plugin_errors는 이제 의존성 강등 외에 --plugin-dir 로드 실패를 포함합니다."
+    ]
+  },
+  {
     "version": "2.1.126",
     "date": "2026-05-01",
     "commands": [
