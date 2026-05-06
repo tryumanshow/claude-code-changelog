@@ -1,5 +1,136 @@
 [
   {
+    "version": "2.1.131",
+    "date": "2026-05-06",
+    "commands": [],
+    "features": [
+      "Fixed VS Code extension failing to activate on Windows due to a hardcoded build path in the bundled SDK (createRequire polyfill bug)",
+      "Fixed Mantle endpoint authentication failing with missing x-api-key header"
+    ],
+    "features_ko": [
+      "Windows에서 번들된 SDK의 하드코딩된 빌드 경로로 인해 VS Code 확장이 활성화되지 않는 문제를 수정했습니다. (createRequire polyfill 버그)",
+      "x-api-key 헤더가 누락되어 Mantle 엔드포인트 인증이 실패하는 문제를 수정했습니다."
+    ]
+  },
+  {
+    "version": "2.1.129",
+    "date": "2026-05-06",
+    "commands": [
+      {
+        "name": "--plugin-url <url>",
+        "context": "new",
+        "summary": "Added `--plugin-url <url>` flag to fetch a plugin `.zip` archive from a URL for "
+      },
+      {
+        "name": "--plugin-url",
+        "context": "new",
+        "summary": "Added `--plugin-url <url>` flag to fetch a plugin `.zip` archive from a URL for "
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "Gateway `/v1/models` discovery for the `/model` picker is now opt-in via `CLAUDE"
+      },
+      {
+        "name": "Ctrl+R",
+        "context": "improved",
+        "summary": "Ctrl+R history picker now defaults to searching all prompts across all projects,"
+      },
+      {
+        "name": "Ctrl+S",
+        "context": "improved",
+        "summary": "Ctrl+R history picker now defaults to searching all prompts across all projects,"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed `/clear` not resetting the terminal tab title after a conversation"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed session title chip from `/rename` disappearing while a permission or other"
+      },
+      {
+        "name": "Ctrl+G",
+        "context": "fixed",
+        "summary": "Fixed external-editor handoff (Ctrl+G) blanking the conversation history above t"
+      },
+      {
+        "name": "/context",
+        "context": "fixed",
+        "summary": "Fixed `/context` dumping its rendered ASCII visualization grid into the conversa"
+      },
+      {
+        "name": "/agents",
+        "context": "fixed",
+        "summary": "Fixed `/agents` Library list arrow-key navigation: the highlighted agent now sta"
+      },
+      {
+        "name": "/branch",
+        "context": "fixed",
+        "summary": "Fixed `/branch` success message not including the new branch's session id for `/"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed `/branch` success message not including the new branch's session id for `/"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed cache-miss warning appearing spuriously after `/clear` or compaction when "
+      },
+      {
+        "name": "--debug",
+        "context": "fixed",
+        "summary": "Fixed harmless WebSocket warning being logged as an error in `--debug` during vo"
+      }
+    ],
+    "features": [
+      "Added --plugin-url <url> flag to fetch a plugin .zip archive from a URL for the current session",
+      "Added CLAUDE_CODE_FORCE_SYNC_OUTPUT=1 env var to force-enable synchronized output on terminals that auto-detection misses (e.g. Emacs eat)",
+      "Added CLAUDE_CODE_PACKAGE_MANAGER_AUTO_UPDATE: when set on Homebrew or WinGet installations, Claude Code runs the upgrade command in the background and prompts to restart",
+      "Plugin manifests: themes and monitors should now be declared under \"experimental\": { ... }. Top-level declarations still work but claude plugin validate will warn",
+      "Gateway /v1/models discovery for the /model picker is now opt-in via CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1 (was automatic in 2.1.126–2.1.128)",
+      "Ctrl+R history picker now defaults to searching all prompts across all projects, matching pre-2.1.124 behavior. Press Ctrl+S to narrow to the current project or session",
+      "Third-party deployments (Bedrock, Vertex, Foundry, or ANTHROPIC_BASE_URL gateway) no longer see spinner tips pointing at first-party Anthropic surfaces",
+      "skillOverrides setting now works: off hides from model and /, user-invocable-only hides from model only, name-only collapses description",
+      "The claude_code.pull_request.count OTel metric now counts PRs/MRs created via MCP tools, not just shell commands",
+      "Policy refusal error messages now include the API Request ID for easier support debugging",
+      "Fixed /clear not resetting the terminal tab title after a conversation",
+      "Fixed session title chip from /rename disappearing while a permission or other dialog is active",
+      "Fixed external-editor handoff (Ctrl+G) blanking the conversation history above the prompt",
+      "Fixed /context dumping its rendered ASCII visualization grid into the conversation, wasting ~1.6k tokens per call",
+      "Fixed /agents Library list arrow-key navigation: the highlighted agent now stays visible when the list exceeds the viewport",
+      "Fixed /branch success message not including the new branch's session id for /resume",
+      "Fixed cache-miss warning appearing spuriously after /clear or compaction when changing /effort or /model",
+      "Fixed harmless WebSocket warning being logged as an error in --debug during voice mode",
+      "[VSCode] Fixed /clear not clearing the conversation context and displayed transcript"
+    ],
+    "features_ko": [
+      "현재 세션을 위해 URL에서 플러그인 .zip 아카이브를 가져오는 --plugin-url <url> 플래그를 추가했습니다.",
+      "자동 감지가 실패하는 터미널에서 동기화 출력을 강제로 활성화하는 CLAUDE_CODE_FORCE_SYNC_OUTPUT=1 환경 변수를 추가했습니다. (예: Emacs eat)",
+      "CLAUDE_CODE_PACKAGE_MANAGER_AUTO_UPDATE를 추가했습니다: Homebrew 또는 WinGet 설치에서 설정하면 Claude Code가 백그라운드에서 업그레이드 명령을 실행하고 재시작을 요청합니다.",
+      "플러그인 매니페스트: 테마와 모니터는 이제 \"experimental\": { ... } 아래에 선언되어야 합니다. 최상위 선언은 여전히 작동하지만 claude plugin validate가 경고합니다.",
+      "/model 선택기를 위한 Gateway /v1/models 검색이 이제 CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1을 통해 선택적으로 활성화됩니다. (2.1.126–2.1.128에서는 자동이었습니다.)",
+      "Ctrl+R 히스토리 선택기가 이제 모든 프로젝트의 모든 프롬프트를 검색하는 것으로 기본 설정됩니다. 이는 2.1.124 이전의 동작과 일치합니다. Ctrl+S를 눌러 현재 프로젝트나 세션으로 좁힐 수 있습니다.",
+      "서드파티 배포(Bedrock, Vertex, Foundry 또는 ANTHROPIC_BASE_URL 게이트웨이)는 더 이상 첫 번째 당사자 Anthropic 표면을 가리키는 스피너 팁을 보지 않습니다.",
+      "skillOverrides 설정이 이제 작동합니다: off는 모델과 /에서 숨기고, user-invocable-only는 모델에서만 숨기며, name-only는 설명을 축소합니다.",
+      "claude_code.pull_request.count OTel 메트릭이 이제 MCP 도구를 통해 생성된 PRs/MRs를 세며, 단순히 셸 명령만 세지 않습니다.",
+      "정책 거부 오류 메시지에 API 요청 ID가 포함되어 지원 디버깅이 용이해졌습니다.",
+      "대화 후 /clear가 터미널 탭 제목을 재설정하지 않는 문제를 수정했습니다.",
+      "권한 또는 기타 대화 상자가 활성화된 동안 /rename에서 세션 제목 칩이 사라지는 문제를 수정했습니다.",
+      "외부 편집기 전환(Ctrl+G)이 프롬프트 위의 대화 기록을 지우는 문제를 수정했습니다.",
+      "/context가 렌더링된 ASCII 시각화 그리드를 대화에 덤프하여 호출당 약 1.6k 토큰을 낭비하는 문제를 수정했습니다.",
+      "/agents 라이브러리 목록 화살표 키 탐색을 수정했습니다: 강조된 에이전트가 목록이 뷰포트를 초과할 때도 계속 표시됩니다.",
+      "/branch 성공 메시지에 /resume을 위한 새 브랜치의 세션 ID가 포함되지 않는 문제를 수정했습니다.",
+      "/clear 또는 압축 후 /effort 또는 /model 변경 시 캐시 미스 경고가 불필요하게 나타나는 문제를 수정했습니다.",
+      "음성 모드에서 --debug 중에 무해한 WebSocket 경고가 오류로 기록되는 문제를 수정했습니다.",
+      "[VSCode] /clear가 대화 컨텍스트와 표시된 전사를 지우지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.128",
     "date": "2026-05-04",
     "commands": [

@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-05-05 22:06 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-05-06 22:03 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.131** | 2026-05-06 | — | Fixed VS Code extension failing to activate on Windows due to a hardcoded build path in the bundled SDK (createRequire polyfill bug) / Fixed Mantle endpoint authentication failing with missing x-ap... |
+| **v2.1.129** | 2026-05-06 | `--plugin-url <url>`, `--plugin-url`, `/model`, `Ctrl+R`, `Ctrl+S`, `/clear`, `/rename`, `Ctrl+G`, `/context`, `/agents`, `/branch`, `/resume`, `/effort`, `--debug` | Added --plugin-url <url> flag to fetch a plugin .zip archive from a URL for the current session / Added CLAUDE_CODE_FORCE_SYNC_OUTPUT=1 env var to force-enable synchronized output on terminals that... |
 | **v2.1.128** | 2026-05-04 | `/color`, `/mcp`, `--plugin-dir`, `--channels`, `/model`, `/compact`, `--debug`, `/exit`, `/plugin`, `/config`, `/fast`, `/rename`, `--resume`, `--continue`, `/plugin update`, `--output-format stream-json` | Bare /color (no args) now picks a random session color / /mcp now shows the tool count for connected servers and flags servers that connected with 0 tools / --plugin-dir now accepts .zip plugin arc... |
 | **v2.1.126** | 2026-05-01 | `/model`, `--dry-run`, `--all`, `--yes`, `--interactive`, `--dangerously-skip-permissions`, `Ctrl+L`, `--channels`, `/plugin`, `/remote-control`, `--` | The /model picker now lists models from your gateway's /v1/models endpoint when ANTHROPIC_BASE_URL points at an Anthropic-compatible gateway / Added claude project purge [path] to delete all Claude... |
 | **v2.1.123** | 2026-04-29 | — | Fixed OAuth authentication failing with a 401 retry loop when CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 is set |
@@ -82,8 +84,6 @@
 | **v2.1.30** | 2026-02-03 | `--client-id`, `--client-secret`, `/debug`, `--topo-order`, `--cherry-pick`, `--format`, `--raw`, `/login`, `/upgrade`, `--resume`, `/model`, `Shift+E` | Added pages parameter to the Read tool for PDFs, allowing specific page ranges to be read (e.g., pages: "1-5"). Large PDFs (>10 pages) now return a lightweight reference when @ mentioned instead of... |
 | **v2.1.29** | 2026-01-31 | — | Fixed startup performance issues when resuming sessions that have saved_hook_context |
 | **v2.1.27** | 2026-01-30 | `--from-pr`, `/context` | Added tool call failures and denials to debug logs / Added --from-pr flag to resume sessions linked to a specific GitHub PR number or URL / Sessions are now automatically linked to PRs when created... |
-| **v2.1.25** | 2026-01-29 | — | Fixed beta header validation error for gateway users on Bedrock and Vertex, ensuring CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 avoids the error |
-| **v2.1.23** | 2026-01-29 | — | Added customizable spinner verbs setting (spinnerVerbs) / [IDE] Fixed model options displaying incorrect region strings for Bedrock users in headless mode |
 
 ---
 
