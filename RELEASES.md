@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-05-07 22:09 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-05-08 22:04 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.136** | 2026-05-08 | `/clear`, `--resume`, `--continue`, `Ctrl+B`, `Ctrl+G`, `/usage`, `/insights`, `/resume`, `/branch`, `/install-github-app`, `/desktop`, `/web-setup`, `/doctor`, `/myplugin review`, `/myplugin`, `/clear <name>`, `/release-notes`, `/mcp`, `/settings`, `/terminal-setup`, `--worktree` | Added CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL to re-enable the session quality survey for enterprises capturing responses through OpenTelemetry / Added settings.autoMode.hard_deny for auto mode... |
+| **v2.1.133** | 2026-05-07 | `--worktree`, `--add-dir`, `/effort`, `--remote-control`, `--remote-control-session-name-prefix` | Added worktree.baseRef setting (fresh | head) to choose whether --worktree, EnterWorktree, and agent-isolation worktrees branch from origin/<default> or local HEAD. Note: the default fresh changes ... |
 | **v2.1.132** | 2026-05-06 | `Ctrl+V`, `--resume`, `--permission-mode`, `Ctrl+Z`, `Ctrl+E`, `/usage`, `Ctrl+S`, `/terminal-setup`, `Shift+E`, `/effort`, `/status`, `Alt+T`, `/mcp`, `/login`, `/upgrade`, `/extra-usage`, `/tui fullscreen`, `/tui` | Added CLAUDE_CODE_SESSION_ID environment variable to the Bash tool subprocess environment, matching the session_id passed to hooks / Added CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1 env var to opt out ... |
 | **v2.1.131** | 2026-05-06 | — | Fixed VS Code extension failing to activate on Windows due to a hardcoded build path in the bundled SDK (createRequire polyfill bug) / Fixed Mantle endpoint authentication failing with missing x-ap... |
 | **v2.1.129** | 2026-05-06 | `--plugin-url <url>`, `--plugin-url`, `/model`, `Ctrl+R`, `Ctrl+S`, `/clear`, `/rename`, `Ctrl+G`, `/context`, `/agents`, `/branch`, `/resume`, `/effort`, `--debug` | Added --plugin-url <url> flag to fetch a plugin .zip archive from a URL for the current session / Added CLAUDE_CODE_FORCE_SYNC_OUTPUT=1 env var to force-enable synchronized output on terminals that... |
@@ -82,8 +84,6 @@
 | **v2.1.33** | 2026-02-06 | `/skills`, `/resume` | Added TeammateIdle and TaskCompleted hook events for multi-agent workflows / Added support for restricting which sub-agents can be spawned via Task(agent_type) syntax in agent "tools" frontmatter /... |
 | **v2.1.32** | 2026-02-05 | `--add-dir` | Claude Opus 4.6 is now available! / Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1) / Cla... |
 | **v2.1.31** | 2026-02-04 | — | Added session resume hint on exit, showing how to continue your conversation later / Added support for full-width (zenkaku) space input from Japanese IME in checkbox selection / Reduced layout jitt... |
-| **v2.1.30** | 2026-02-03 | `--client-id`, `--client-secret`, `/debug`, `--topo-order`, `--cherry-pick`, `--format`, `--raw`, `/login`, `/upgrade`, `--resume`, `/model`, `Shift+E` | Added pages parameter to the Read tool for PDFs, allowing specific page ranges to be read (e.g., pages: "1-5"). Large PDFs (>10 pages) now return a lightweight reference when @ mentioned instead of... |
-| **v2.1.29** | 2026-01-31 | — | Fixed startup performance issues when resuming sessions that have saved_hook_context |
 
 ---
 

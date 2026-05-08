@@ -1,5 +1,209 @@
 [
   {
+    "version": "2.1.136",
+    "date": "2026-05-08",
+    "commands": [
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed MCP servers configured in `.mcp.json`, plugins, and claude.ai connectors s"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed `--resume` / `--continue` not finding sessions when the project path conta"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed `--resume` / `--continue` not finding sessions when the project path conta"
+      },
+      {
+        "name": "Ctrl+B",
+        "context": "fixed",
+        "summary": "Fixed Backspace and Ctrl+Backspace getting swapped after using Ctrl+G to open an"
+      },
+      {
+        "name": "Ctrl+G",
+        "context": "fixed",
+        "summary": "Fixed Backspace and Ctrl+Backspace getting swapped after using Ctrl+G to open an"
+      },
+      {
+        "name": "/usage",
+        "context": "fixed",
+        "summary": "Fixed `/usage` weekly reset showing time of day instead of the calendar date"
+      },
+      {
+        "name": "/insights",
+        "context": "fixed",
+        "summary": "Fixed `/insights` crash when session history contains tool calls with malformed "
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed env vars from `CLAUDE_ENV_FILE` SessionStart hooks going stale after `/res"
+      },
+      {
+        "name": "/branch",
+        "context": "fixed",
+        "summary": "Fixed `/branch` saving a multi-line session title when given a pasted multi-line"
+      },
+      {
+        "name": "/install-github-app",
+        "context": "fixed",
+        "summary": "Fixed Esc not dismissing dialogs in `/install-github-app`, `/desktop`, `/resume`"
+      },
+      {
+        "name": "/desktop",
+        "context": "fixed",
+        "summary": "Fixed Esc not dismissing dialogs in `/install-github-app`, `/desktop`, `/resume`"
+      },
+      {
+        "name": "/web-setup",
+        "context": "fixed",
+        "summary": "Fixed Esc not dismissing dialogs in `/install-github-app`, `/desktop`, `/resume`"
+      },
+      {
+        "name": "/doctor",
+        "context": "fixed",
+        "summary": "Fixed `/doctor` MCP schema errors not naming the missing field or showing the so"
+      },
+      {
+        "name": "/myplugin review",
+        "context": "fixed",
+        "summary": "Fixed plugin slash commands with spaces (e.g. `/myplugin review`) not resolving "
+      },
+      {
+        "name": "/myplugin",
+        "context": "fixed",
+        "summary": "Fixed plugin slash commands with spaces (e.g. `/myplugin review`) not resolving "
+      },
+      {
+        "name": "/clear <name>",
+        "context": "fixed",
+        "summary": "Fixed `/clear <name>` not labeling the cleared session for `/resume`"
+      },
+      {
+        "name": "/release-notes",
+        "context": "fixed",
+        "summary": "Fixed `/release-notes` getting stuck on an old version after a failed changelog "
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed `/mcp` server list not scrolling when there are more servers than fit in t"
+      },
+      {
+        "name": "/settings",
+        "context": "fixed",
+        "summary": "Fixed `/settings` language change being reverted on Escape after confirming"
+      },
+      {
+        "name": "/terminal-setup",
+        "context": "fixed",
+        "summary": "Fixed `/terminal-setup` only appearing in autocomplete on exact name match inste"
+      },
+      {
+        "name": "--worktree",
+        "context": "improved",
+        "summary": "Improved error message when `--worktree` collides with an existing or stale work"
+      }
+    ],
+    "features": [
+      "Added CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL to re-enable the session quality survey for enterprises capturing responses through OpenTelemetry",
+      "Added settings.autoMode.hard_deny for auto mode classifier rules that block unconditionally regardless of user intent or allow exceptions",
+      "Fixed MCP servers configured in .mcp.json, plugins, and claude.ai connectors silently disappearing after /clear in the VS Code extension, JetBrains plugin, and Agent SDK",
+      "Fixed --resume / --continue not finding sessions when the project path contains underscores",
+      "WSL2: image paste from Windows clipboard now works via a PowerShell fallback when xclip/wl-paste cannot read image data",
+      "Fixed Backspace and Ctrl+Backspace getting swapped after using Ctrl+G to open an external editor on terminals with persistent extended-key modes",
+      "Fixed /usage weekly reset showing time of day instead of the calendar date",
+      "Fixed /insights crash when session history contains tool calls with malformed input fields",
+      "Fixed env vars from CLAUDE_ENV_FILE SessionStart hooks going stale after /resume or /clear",
+      "Fixed /branch saving a multi-line session title when given a pasted multi-line name",
+      "Fixed Esc not dismissing dialogs in /install-github-app, /desktop, /resume, and /web-setup",
+      "Fixed /doctor MCP schema errors not naming the missing field or showing the source file path",
+      "Fixed plugin slash commands with spaces (e.g. /myplugin review) not resolving to their namespaced form",
+      "Fixed /clear <name> not labeling the cleared session for /resume",
+      "Fixed /release-notes getting stuck on an old version after a failed changelog refresh",
+      "Fixed /mcp server list not scrolling when there are more servers than fit in the terminal",
+      "Fixed /settings language change being reverted on Escape after confirming",
+      "Fixed /terminal-setup only appearing in autocomplete on exact name match instead of partial prefixes",
+      "Improved error message when --worktree collides with an existing or stale worktree"
+    ],
+    "features_ko": [
+      "OpenTelemetry를 통해 응답을 수집하는 기업을 위한 세션 품질 설문조사를 다시 활성화하기 위해 CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL을 추가했습니다.",
+      "사용자 의도와 관계없이 무조건 차단하거나 예외를 허용하는 자동 모드 분류기 규칙을 위한 settings.autoMode.hard_deny를 추가했습니다.",
+      "VS Code 확장, JetBrains 플러그인 및 Agent SDK에서 /clear 후 .mcp.json, plugins 및 claude.ai 커넥터로 구성된 MCP 서버가 조용히 사라지는 문제를 수정했습니다.",
+      "프로젝트 경로에 밑줄이 포함된 경우 --resume / --continue가 세션을 찾지 못하는 문제를 수정했습니다.",
+      "WSL2: xclip/wl-paste가 이미지 데이터를 읽지 못할 때 PowerShell 대체를 통해 Windows 클립보드에서 이미지 붙여넣기가 이제 작동합니다.",
+      "지속적인 확장 키 모드의 터미널에서 Ctrl+G를 사용하여 외부 편집기를 열면 Backspace와 Ctrl+Backspace가 서로 바뀌는 문제를 수정했습니다.",
+      "/usage 주간 초기화가 달력 날짜 대신 하루의 시간을 표시하는 문제를 수정했습니다.",
+      "세션 기록에 잘못된 입력 필드가 있는 도구 호출이 포함된 경우 /insights가 충돌하는 문제를 수정했습니다.",
+      "/resume 또는 /clear 후 CLAUDE_ENV_FILE SessionStart 훅에서 env 변수가 오래된 상태로 남는 문제를 수정했습니다.",
+      "붙여넣은 다중 행 이름이 주어졌을 때 /branch가 다중 행 세션 제목을 저장하는 문제를 수정했습니다.",
+      "/install-github-app, /desktop, /resume 및 /web-setup에서 Esc가 대화 상자를 닫지 않는 문제를 수정했습니다.",
+      "/doctor MCP 스키마 오류가 누락된 필드를 명시하지 않거나 소스 파일 경로를 표시하지 않는 문제를 수정했습니다.",
+      "공백이 있는 플러그인 슬래시 명령(예: /myplugin review)이 네임스페이스 형식으로 해결되지 않는 문제를 수정했습니다.",
+      "/clear <name>이 /resume을 위한 지워진 세션에 레이블을 붙이지 않는 문제를 수정했습니다.",
+      "실패한 changelog 새로 고침 후 /release-notes가 이전 버전에서 멈추는 문제를 수정했습니다.",
+      "/mcp 서버 목록이 터미널에 맞지 않는 서버가 더 많을 때 스크롤되지 않는 문제를 수정했습니다.",
+      "/settings 언어 변경이 확인 후 Escape를 누르면 되돌려지는 문제를 수정했습니다.",
+      "/terminal-setup이 부분 접두사 대신 정확한 이름 일치에서만 자동 완성에 나타나는 문제를 수정했습니다.",
+      "--worktree가 기존 또는 오래된 worktree와 충돌할 때 오류 메시지를 개선했습니다."
+    ]
+  },
+  {
+    "version": "2.1.133",
+    "date": "2026-05-07",
+    "commands": [
+      {
+        "name": "--worktree",
+        "context": "new",
+        "summary": "Added `worktree.baseRef` setting (`fresh` | `head`) to choose whether `--worktre"
+      },
+      {
+        "name": "--add-dir",
+        "context": "fixed",
+        "summary": "Fixed Read/Write/Edit being denied on mapped network drives passed via `--add-di"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed `/effort` in one session unexpectedly changing the effort level of other c"
+      },
+      {
+        "name": "--remote-control",
+        "context": "improved",
+        "summary": "`claude --help` now lists `--remote-control` alongside `--remote-control-session"
+      },
+      {
+        "name": "--remote-control-session-name-prefix",
+        "context": "improved",
+        "summary": "`claude --help` now lists `--remote-control` alongside `--remote-control-session"
+      }
+    ],
+    "features": [
+      "Added worktree.baseRef setting (fresh | head) to choose whether --worktree, EnterWorktree, and agent-isolation worktrees branch from origin/<default> or local HEAD. Note: the default fresh changes EnterWorktree's base back to origin/<default> (it has been local HEAD since 2.1.128) — set worktree.baseRef: \"head\" to keep unpushed commits in new worktrees",
+      "Added sandbox.bwrapPath and sandbox.socatPath managed settings (Linux/WSL) to specify custom bubblewrap and socat binary locations",
+      "Added parentSettingsBehavior admin-tier key ('first-wins' | 'merge') to let admins opt SDK managedSettings (parent tier) into the policy merge",
+      "Hooks now receive the active effort level via the effort.level JSON input field and the $CLAUDE_EFFORT environment variable, and Bash tool commands can read $CLAUDE_EFFORT",
+      "Fixed Read/Write/Edit being denied on mapped network drives passed via --add-dir / SDK additionalDirectories",
+      "Fixed /effort in one session unexpectedly changing the effort level of other concurrent sessions, and a related issue where an IDE effort change could be silently dropped",
+      "claude --help now lists --remote-control alongside --remote-control-session-name-prefix",
+      "[VSCode] Fixed claudeCode.claudeProcessWrapper failing with \"Unsupported platform\" when the extension build doesn't bundle a Claude binary"
+    ],
+    "features_ko": [
+      "--worktree, EnterWorktree 및 agent-isolation worktrees가 origin/<default> 또는 local HEAD에서 분기하도록 선택할 수 있는 worktree.baseRef 설정(fresh | head)을 추가했습니다. 참고: 기본값 fresh는 EnterWorktree의 기준을 origin/<default>로 되돌립니다(2.1.128 이후로 local HEAD였습니다) — 새로운 worktrees에서 푸시되지 않은 커밋을 유지하려면 worktree.baseRef: \"head\"로 설정하세요.",
+      "사용자 지정 bubblewrap 및 socat 이진 파일 위치를 지정하기 위한 sandbox.bwrapPath 및 sandbox.socatPath 관리 설정(Linux/WSL)을 추가했습니다.",
+      "관리자가 SDK managedSettings(부모 계층)를 정책 병합에 선택할 수 있도록 parentSettingsBehavior 관리자 계층 키('first-wins' | 'merge')를 추가했습니다.",
+      "훅이 이제 effort.level JSON 입력 필드와 $CLAUDE_EFFORT 환경 변수를 통해 활성 노력 수준을 수신하며, Bash 도구 명령은 $CLAUDE_EFFORT를 읽을 수 있습니다.",
+      "--add-dir / SDK additionalDirectories를 통해 전달된 매핑된 네트워크 드라이브에서 Read/Write/Edit가 거부되는 문제를 수정했습니다.",
+      "한 세션에서 /effort가 다른 동시 세션의 노력 수준을 예기치 않게 변경하는 문제와 IDE의 노력 변경이 조용히 무시될 수 있는 관련 문제를 수정했습니다.",
+      "claude --help가 이제 --remote-control과 함께 --remote-control-session-name-prefix를 나열합니다.",
+      "[VSCode] 확장 빌드가 Claude 이진 파일을 번들하지 않을 때 \"Unsupported platform\" 오류로 claudeCode.claudeProcessWrapper가 실패하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.132",
     "date": "2026-05-06",
     "commands": [
