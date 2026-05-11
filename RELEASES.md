@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-05-10 21:55 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-05-11 22:13 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.139** | 2026-05-11 | `/goal`, `/scroll-speed`, `/mcp`, `/context all`, `/context`, `/plugin`, `/schedule`, `/model`, `--print`, `Ctrl+S` | Added agent view (Research Preview): a single list of every Claude Code session — running, blocked on you, or done. Run claude agents to get started. See https://code.claude.com/docs/en/agent-view ... |
 | **v2.1.138** | 2026-05-09 | — | Internal fixes |
 | **v2.1.137** | 2026-05-09 | — | [VSCode] Fixed extension failing to activate on Windows |
 | **v2.1.136** | 2026-05-08 | `/clear`, `--resume`, `--continue`, `Ctrl+B`, `Ctrl+G`, `/usage`, `/insights`, `/resume`, `/branch`, `/install-github-app`, `/desktop`, `/web-setup`, `/doctor`, `/myplugin review`, `/myplugin`, `/clear <name>`, `/release-notes`, `/mcp`, `/settings`, `/terminal-setup`, `--worktree` | Added CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL to re-enable the session quality survey for enterprises capturing responses through OpenTelemetry / Added settings.autoMode.hard_deny for auto mode... |
@@ -83,7 +84,6 @@
 | **v2.1.37** | 2026-02-07 | `/fast`, `/extra-usage` | Fixed an issue where /fast was not immediately available after enabling /extra-usage |
 | **v2.1.36** | 2026-02-07 | — | Fast mode is now available for Opus 4.6. Learn more at https://code.claude.com/docs/en/fast-mode |
 | **v2.1.34** | 2026-02-06 | — | Fixed a crash when agent teams setting changed between renders / Fixed a bug where commands excluded from sandboxing (via sandbox.excludedCommands or dangerouslyDisableSandbox) could bypass the Bas... |
-| **v2.1.33** | 2026-02-06 | `/skills`, `/resume` | Added TeammateIdle and TaskCompleted hook events for multi-agent workflows / Added support for restricting which sub-agents can be spawned via Task(agent_type) syntax in agent "tools" frontmatter /... |
 
 ---
 
