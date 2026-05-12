@@ -1,5 +1,43 @@
 [
   {
+    "version": "2.1.140",
+    "date": "2026-05-12",
+    "commands": [
+      {
+        "name": "/goal",
+        "context": "fixed",
+        "summary": "Fixed `/goal` silently hanging when `disableAllHooks` or `allowManagedHooksOnly`"
+      },
+      {
+        "name": "/loop",
+        "context": "fixed",
+        "summary": "Fixed `/loop` scheduling redundant wakeups to poll for background tasks that alr"
+      },
+      {
+        "name": "/doctor",
+        "context": "improved",
+        "summary": "Plugins now warn when a default component folder (e.g. `commands/`) is silently "
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "Plugins now warn when a default component folder (e.g. `commands/`) is silently "
+      }
+    ],
+    "features": [
+      "Updated agent color palette",
+      "Fixed /goal silently hanging when disableAllHooks or allowManagedHooksOnly is set — now shows a clear message instead of an indicator that never resolves",
+      "Fixed /loop scheduling redundant wakeups to poll for background tasks that already notify on completion",
+      "Plugins now warn when a default component folder (e.g. commands/) is silently ignored because plugin.json sets the matching key. Shown in /doctor, claude plugin list, and /plugin."
+    ],
+    "features_ko": [
+      "에이전트 색상 팔레트를 업데이트했습니다.",
+      "disableAllHooks 또는 allowManagedHooksOnly가 설정될 때 /goal이 조용히 멈추는 문제를 수정했습니다 — 이제 해결되지 않는 표시 대신 명확한 메시지를 표시합니다.",
+      "/loop가 이미 완료를 알리는 백그라운드 작업을 폴링하기 위해 중복으로 깨우는 문제를 수정했습니다.",
+      "plugins가 plugin.json에서 일치하는 키가 설정되어 기본 구성 폴더(예: commands/)가 조용히 무시될 때 경고합니다. /doctor, claude plugin list, 및 /plugin에서 표시됩니다."
+    ]
+  },
+  {
     "version": "2.1.139",
     "date": "2026-05-11",
     "commands": [

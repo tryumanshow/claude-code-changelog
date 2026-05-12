@@ -1459,5 +1459,9 @@
   "7486d90b3d08458e": "ANTHROPIC_API_KEY / apiKeyHelper / ANTHROPIC_AUTH_TOKEN이 설정되면 Remote Control, /schedule, claude.ai MCP 커넥터 및 알림 기본 설정이 비활성화됩니다. Claude.ai 로그인도 존재하더라도 마찬가지입니다. 이러한 기능을 사용하려면 API 키를 해제하세요.",
   "93c7b914bd50a8a4": "/model picker의 \"Default\" 행이 ANTHROPIC_DEFAULT_OPUS_MODEL/ANTHROPIC_DEFAULT_SONNET_MODEL 오버라이드를 반영하지 않는 문제를 수정했습니다.",
   "a161447bcd2d3013": "--print 모드에서 claude_code.active_time.total OpenTelemetry 메트릭이 방출되지 않는 문제를 수정했습니다.",
-  "211d1c27ab6d08e6": "[VSCode] Cmd/Ctrl+Shift+T를 눌러 가장 최근에 닫힌 세션 탭을 다시 열 수 있으며, 이는 claudeCode.enableReopenClosedSessionShortcut을 통해 구성할 수 있습니다."
+  "211d1c27ab6d08e6": "[VSCode] Cmd/Ctrl+Shift+T를 눌러 가장 최근에 닫힌 세션 탭을 다시 열 수 있으며, 이는 claudeCode.enableReopenClosedSessionShortcut을 통해 구성할 수 있습니다.",
+  "1468b789c9970086": "에이전트 색상 팔레트를 업데이트했습니다.",
+  "dc97f13cd3bb5603": "disableAllHooks 또는 allowManagedHooksOnly가 설정될 때 /goal이 조용히 멈추는 문제를 수정했습니다 — 이제 해결되지 않는 표시 대신 명확한 메시지를 표시합니다.",
+  "3fb89e1ff962bfba": "/loop가 이미 완료를 알리는 백그라운드 작업을 폴링하기 위해 중복으로 깨우는 문제를 수정했습니다.",
+  "232f71dbe9d127f1": "plugins가 plugin.json에서 일치하는 키가 설정되어 기본 구성 폴더(예: commands/)가 조용히 무시될 때 경고합니다. /doctor, claude plugin list, 및 /plugin에서 표시됩니다."
 }
