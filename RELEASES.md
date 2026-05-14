@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-05-13 22:20 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-05-14 22:16 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.141** | 2026-05-13 | `--cwd`, `/feedback`, `/bg`, `/doctor`, `/model`, `Ctrl+C`, `ctrl+e`, `/tui`, `/mcp`, `/login`, `Alt+V` | Added terminalSequence field to hook JSON output so hooks can emit desktop notifications, window titles, and bells without a controlling terminal / Added CLAUDE_CODE_PLUGIN_PREFER_HTTPS to clone Gi... |
 | **v2.1.140** | 2026-05-12 | `/goal`, `/loop`, `/doctor`, `/plugin` | Updated agent color palette / Fixed /goal silently hanging when disableAllHooks or allowManagedHooksOnly is set — now shows a clear message instead of an indicator that never resolves / Fixed /loop... |
 | **v2.1.139** | 2026-05-11 | `/goal`, `/scroll-speed`, `/mcp`, `/context all`, `/context`, `/plugin`, `/schedule`, `/model`, `--print`, `Ctrl+S` | Added agent view (Research Preview): a single list of every Claude Code session — running, blocked on you, or done. Run claude agents to get started. See https://code.claude.com/docs/en/agent-view ... |
 | **v2.1.138** | 2026-05-09 | — | Internal fixes |
@@ -83,7 +84,6 @@
 | **v2.1.39** | 2026-02-10 | — | Improved terminal rendering performance / Fixed fatal errors being swallowed instead of displayed / Fixed process hanging after session close |
 | **v2.1.38** | 2026-02-10 | — | Blocked writes to .claude/skills directory in sandbox mode |
 | **v2.1.37** | 2026-02-07 | `/fast`, `/extra-usage` | Fixed an issue where /fast was not immediately available after enabling /extra-usage |
-| **v2.1.36** | 2026-02-07 | — | Fast mode is now available for Opus 4.6. Learn more at https://code.claude.com/docs/en/fast-mode |
 
 ---
 

@@ -1,5 +1,112 @@
 [
   {
+    "version": "2.1.141",
+    "date": "2026-05-13",
+    "commands": [
+      {
+        "name": "--cwd",
+        "context": "new",
+        "summary": "Added `claude agents --cwd <path>` to scope the session list to a directory"
+      },
+      {
+        "name": "/feedback",
+        "context": "improved",
+        "summary": "`/feedback` can now include recent sessions (last 24 hours or 7 days) for issues"
+      },
+      {
+        "name": "/bg",
+        "context": "improved",
+        "summary": "Background agents launched via `/bg` or `←←` now preserve the current permission"
+      },
+      {
+        "name": "/doctor",
+        "context": "fixed",
+        "summary": "Fixed `claude daemon status` and `/doctor` on Windows throwing when the daemon p"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed `/model` in one session silently changing the autocompact threshold in oth"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "fixed",
+        "summary": "Fixed prompts cancelled with Ctrl+C/Esc before any response being dropped from U"
+      },
+      {
+        "name": "ctrl+e",
+        "context": "fixed",
+        "summary": "Fixed alternative `chat:submit` keybindings (e.g. `meta+enter`, `ctrl+enter`) no"
+      },
+      {
+        "name": "/tui",
+        "context": "fixed",
+        "summary": "Fixed `/tui` silently dropping running background shells and subagents — now ref"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed `/mcp` server list not keeping the focused server visible in short termina"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed Remote Control automatically re-enrolling a trusted device when the server"
+      },
+      {
+        "name": "Alt+V",
+        "context": "fixed",
+        "summary": "Fixed Windows Alt+V image paste reporting \"no image found\" when the clipboard co"
+      }
+    ],
+    "features": [
+      "Added terminalSequence field to hook JSON output so hooks can emit desktop notifications, window titles, and bells without a controlling terminal",
+      "Added CLAUDE_CODE_PLUGIN_PREFER_HTTPS to clone GitHub plugin sources over HTTPS instead of SSH, for environments without a GitHub SSH key",
+      "Added ANTHROPIC_WORKSPACE_ID environment variable for workload identity federation — scopes the minted token to a specific workspace when the federation rule covers more than one",
+      "Added claude agents --cwd <path> to scope the session list to a directory",
+      "/feedback can now include recent sessions (last 24 hours or 7 days) for issues spanning more than the current session",
+      "Rewind menu: added \"Summarize up to here\" to compress earlier context while keeping recent turns intact",
+      "Auto mode permission dialog now explains when a permissions.ask rule caused the prompt",
+      "Restored the \"view diff in your IDE\" option on file-edit permission prompts when an IDE is connected",
+      "Background agents launched via /bg or ←← now preserve the current permission mode instead of reverting to default",
+      "claude agents: agents that finish work but leave a background shell running now move to Completed instead of staying under Working",
+      "Fixed claude daemon status and /doctor on Windows throwing when the daemon pipe key file is locked or unreadable — now shows the underlying error instead of an opaque failure",
+      "Fixed /model in one session silently changing the autocompact threshold in other concurrent sessions",
+      "Fixed prompts cancelled with Ctrl+C/Esc before any response being dropped from Up-arrow history",
+      "Fixed Ctrl+C not interrupting a running turn while in vim INSERT/VISUAL mode",
+      "Fixed alternative chat:submit keybindings (e.g. meta+enter, ctrl+enter) not working when enter is rebound to chat:newline",
+      "Fixed /tui silently dropping running background shells and subagents — now refuses and asks to wait for them to finish",
+      "Fixed /mcp server list not keeping the focused server visible in short terminals in fullscreen mode",
+      "Fixed redaction in /feedback bundles producing invalid JSON for quoted values like session IDs",
+      "Fixed Remote Control automatically re-enrolling a trusted device when the server rejects a stale token, instead of looping through /login",
+      "Fixed Windows Alt+V image paste reporting \"no image found\" when the clipboard contains a screenshot",
+      "Bedrock: awsCredentialExport now always runs when configured instead of being skipped when ambient AWS credentials resolve, fixing auth for cross-account access"
+    ],
+    "features_ko": [
+      "제어 터미널 없이 후크가 데스크탑 알림, 창 제목 및 벨을 발신할 수 있도록 hook JSON 출력에 terminalSequence 필드를 추가했습니다.",
+      "GitHub SSH 키가 없는 환경을 위해 GitHub 플러그인 소스를 SSH 대신 HTTPS로 복제하는 CLAUDE_CODE_PLUGIN_PREFER_HTTPS를 추가했습니다.",
+      "여러 개의 작업 공간을 포함하는 연합 규칙에 따라 발급된 토큰을 특정 작업 공간으로 범위 지정하기 위한 ANTHROPIC_WORKSPACE_ID 환경 변수를 추가했습니다.",
+      "세션 목록을 디렉터리로 범위 지정하기 위해 claude agents --cwd <path>를 추가했습니다.",
+      "/feedback은 이제 현재 세션을 초과하는 문제에 대해 최근 세션(지난 24시간 또는 7일)을 포함할 수 있습니다.",
+      "되감기 메뉴: 최근 턴을 유지하면서 이전 컨텍스트를 압축하기 위해 \"여기까지 요약\"을 추가했습니다.",
+      "자동 모드 권한 대화 상자는 permissions.ask 규칙이 프롬프트를 유발한 경우를 설명합니다.",
+      "IDE가 연결된 경우 파일 편집 권한 프롬프트에서 \"IDE에서 diff 보기\" 옵션을 복원했습니다.",
+      "/bg 또는 ←←를 통해 시작된 백그라운드 에이전트는 기본값으로 되돌아가지 않고 현재 권한 모드를 유지합니다.",
+      "작업을 마친 에이전트가 백그라운드 셸을 실행한 경우 이제 Working 아래에 머무르지 않고 Completed로 이동합니다.",
+      "Windows에서 claude daemon 상태와 /doctor가 데몬 파이프 키 파일이 잠기거나 읽을 수 없을 때 오류를 발생시키는 문제를 수정했습니다 — 이제 불투명한 실패 대신 기본 오류를 표시합니다.",
+      "한 세션에서 /model이 다른 동시 세션의 autocompact 임계값을 조용히 변경하는 문제를 수정했습니다.",
+      "응답이 없을 때 Ctrl+C/Esc로 취소된 프롬프트가 Up-arrow 기록에서 삭제되는 문제를 수정했습니다.",
+      "vim INSERT/VISUAL 모드에서 실행 중인 턴을 Ctrl+C로 중단하지 않는 문제를 수정했습니다.",
+      "enter가 chat:newline으로 다시 바인딩될 때 대체 chat:submit 키 바인딩(예: meta+enter, ctrl+enter)이 작동하지 않는 문제를 수정했습니다.",
+      "/tui가 실행 중인 백그라운드 셸과 하위 에이전트를 조용히 삭제하는 문제를 수정했습니다 — 이제 거부하고 완료될 때까지 기다리도록 요청합니다.",
+      "전체 화면 모드에서 짧은 터미널에서 포커스된 서버를 표시하지 않는 /mcp 서버 목록 문제를 수정했습니다.",
+      "/feedback 번들에서 세션 ID와 같은 인용된 값에 대해 유효하지 않은 JSON을 생성하는 수정된 문제를 해결했습니다.",
+      "서버가 오래된 토큰을 거부할 때 Remote Control이 신뢰할 수 있는 장치를 자동으로 다시 등록하는 문제를 수정했습니다 — 이제 /login을 반복하지 않습니다.",
+      "Windows에서 Alt+V 이미지 붙여넣기가 클립보드에 스크린샷이 있을 때 \"이미지를 찾을 수 없음\"을 보고하는 문제를 수정했습니다.",
+      "Bedrock: awsCredentialExport는 이제 환경 AWS 자격 증명이 해결될 때 건너뛰지 않고 항상 구성된 대로 실행되어 교차 계정 액세스에 대한 인증을 수정합니다."
+    ]
+  },
+  {
     "version": "2.1.140",
     "date": "2026-05-12",
     "commands": [
