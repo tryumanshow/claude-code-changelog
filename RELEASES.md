@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-05-14 22:16 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-05-15 22:04 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.142** | 2026-05-14 | `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, `--dangerously-skip-permissions`, `/plugin`, `/web-setup`, `Ctrl+C`, `/model`, `/model claude-sonnet-4-20250514` | Added new claude agents flags: --add-dir, --settings, --mcp-config, --plugin-dir, --permission-mode, --model, --effort, and --dangerously-skip-permissions to configure dispatched background session... |
 | **v2.1.141** | 2026-05-13 | `--cwd`, `/feedback`, `/bg`, `/doctor`, `/model`, `Ctrl+C`, `ctrl+e`, `/tui`, `/mcp`, `/login`, `Alt+V` | Added terminalSequence field to hook JSON output so hooks can emit desktop notifications, window titles, and bells without a controlling terminal / Added CLAUDE_CODE_PLUGIN_PREFER_HTTPS to clone Gi... |
 | **v2.1.140** | 2026-05-12 | `/goal`, `/loop`, `/doctor`, `/plugin` | Updated agent color palette / Fixed /goal silently hanging when disableAllHooks or allowManagedHooksOnly is set — now shows a clear message instead of an indicator that never resolves / Fixed /loop... |
 | **v2.1.139** | 2026-05-11 | `/goal`, `/scroll-speed`, `/mcp`, `/context all`, `/context`, `/plugin`, `/schedule`, `/model`, `--print`, `Ctrl+S` | Added agent view (Research Preview): a single list of every Claude Code session — running, blocked on you, or done. Run claude agents to get started. See https://code.claude.com/docs/en/agent-view ... |
@@ -83,7 +84,6 @@
 | **v2.1.41** | 2026-02-13 | `/resume`, `/rename` | Added guard against launching Claude Code inside another Claude Code session / Fixed /resume session previews showing raw XML tags instead of readable command names / Added speed attribute to OTel ... |
 | **v2.1.39** | 2026-02-10 | — | Improved terminal rendering performance / Fixed fatal errors being swallowed instead of displayed / Fixed process hanging after session close |
 | **v2.1.38** | 2026-02-10 | — | Blocked writes to .claude/skills directory in sandbox mode |
-| **v2.1.37** | 2026-02-07 | `/fast`, `/extra-usage` | Fixed an issue where /fast was not immediately available after enabling /extra-usage |
 
 ---
 

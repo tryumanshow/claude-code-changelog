@@ -1484,5 +1484,15 @@
   "fb84b3d8151c25f2": "/feedback 번들에서 세션 ID와 같은 인용된 값에 대해 유효하지 않은 JSON을 생성하는 수정된 문제를 해결했습니다.",
   "65eea7f47598f339": "서버가 오래된 토큰을 거부할 때 Remote Control이 신뢰할 수 있는 장치를 자동으로 다시 등록하는 문제를 수정했습니다 — 이제 /login을 반복하지 않습니다.",
   "302b0c6f68bd59ab": "Windows에서 Alt+V 이미지 붙여넣기가 클립보드에 스크린샷이 있을 때 \"이미지를 찾을 수 없음\"을 보고하는 문제를 수정했습니다.",
-  "5e0c4ba2cde30916": "Bedrock: awsCredentialExport는 이제 환경 AWS 자격 증명이 해결될 때 건너뛰지 않고 항상 구성된 대로 실행되어 교차 계정 액세스에 대한 인증을 수정합니다."
+  "5e0c4ba2cde30916": "Bedrock: awsCredentialExport는 이제 환경 AWS 자격 증명이 해결될 때 건너뛰지 않고 항상 구성된 대로 실행되어 교차 계정 액세스에 대한 인증을 수정합니다.",
+  "4628d6fdb566d5a3": "새로운 claude agents 플래그가 추가되었습니다: --add-dir, --settings, --mcp-config, --plugin-dir, --permission-mode, --model, --effort, --dangerously-skip-permissions, 배경 세션 구성을 위해",
+  "66fed6e8d1c1aba8": "빠른 모드는 이제 기본적으로 Opus 4.7을 사용합니다 (이전에는 Opus 4.6). CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE=1을 설정하여 빠른 모드를 Opus 4.6으로 고정할 수 있습니다.",
+  "25a00bb99273cb80": "루트 수준의 SKILL.md가 있고 skills/ 하위 디렉토리가 없는 플러그인은 이제 스킬로 표시됩니다.",
+  "8d2ca4b0063cadd8": "/plugin 세부 정보 창과 claude 플러그인 세부 정보에서 플러그인이 제공하는 LSP 서버가 표시됩니다.",
+  "aa289e9b7465b325": "/web-setup은 기존 GitHub App 연결을 교체하기 전에 경고합니다.",
+  "3a51c64aac55b97f": "Windows에서 네트워크 드라이브 작업 디렉토리로 인해 claude agents가 교착 상태에 빠지는 문제를 수정했습니다; 이제 Ctrl+C가 시작 중에 작동합니다.",
+  "bdc160f7685210d1": "claude --bg --dangerously-skip-permissions가 retire/wake 간에 지속되지 않는 문제를 수정했습니다.",
+  "b58af343b5c18bb9": "원격 클라이언트에서 중복된 /model breadcrumbs를 전사에 주입하는 중복 set_model 요청 문제를 수정했습니다.",
+  "98c421e62a93389f": "/plugin 탐색 창에서 새로 게시된 플러그인에 대해 \"0 installs\"가 표시되는 문제를 수정했습니다.",
+  "cb5d2c26f4cd476b": "사용 정책 거부 메시지에서 오래된 /model claude-sonnet-4-20250514 제안을 제거했습니다."
 }
