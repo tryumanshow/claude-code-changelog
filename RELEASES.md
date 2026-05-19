@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-05-18 22:07 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-05-19 22:20 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.145** | 2026-05-19 | `--json`, `/plugin`, `alt+t`, `/review` | Added claude agents --json to list live Claude sessions as JSON for scripting (tmux-resurrect, status bars, session pickers) / Added agent_id and parent_agent_id attributes to claude_code.tool OTEL... |
+| **v2.1.144** | 2026-05-19 | `/resume`, `--bg`, `/plugin`, `/model`, `/extra-usage`, `/usage-credits`, `Ctrl+L`, `/branch`, `Ctrl+O`, `/bg`, `/add-dir`, `Ctrl+R`, `/doctor`, `/feedback` | Added /resume support for background sessions — sessions started via claude --bg or agent view now appear alongside interactive ones, marked with bg / Added elapsed duration to background subagent ... |
 | **v2.1.143** | 2026-05-15 | `/plugin`, `Shift+T`, `/loop`, `Ctrl+C`, `/goal`, `/bg`, `--agent <name>`, `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, `--dangerously-skip-permissions`, `--strict-mcp-config`, `--fallback-model`, `--allow-dangerously-skip-permissions` | Added plugin dependency enforcement: claude plugin disable now refuses when another enabled plugin depends on the target (with a copy-pasteable disable-chain hint), and claude plugin enable force-e... |
 | **v2.1.142** | 2026-05-14 | `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, `--dangerously-skip-permissions`, `/plugin`, `/web-setup`, `Ctrl+C`, `/model`, `/model claude-sonnet-4-20250514` | Added new claude agents flags: --add-dir, --settings, --mcp-config, --plugin-dir, --permission-mode, --model, --effort, and --dangerously-skip-permissions to configure dispatched background session... |
 | **v2.1.141** | 2026-05-13 | `--cwd`, `/feedback`, `/bg`, `/doctor`, `/model`, `Ctrl+C`, `ctrl+e`, `/tui`, `/mcp`, `/login`, `Alt+V` | Added terminalSequence field to hook JSON output so hooks can emit desktop notifications, window titles, and bells without a controlling terminal / Added CLAUDE_CODE_PLUGIN_PREFER_HTTPS to clone Gi... |
@@ -82,8 +84,6 @@
 | **v2.1.44** | 2026-02-16 | — | Fixed ENAMETOOLONG errors for deeply-nested directory paths / Fixed auth refresh errors |
 | **v2.1.43** | — | — | Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout / Fixed spurious warnings for non-agent markdown files in .claude/agents/ directory / Fixed structured-outputs beta header b... |
 | **v2.1.42** | 2026-02-13 | `/resume`, `/compact` | Added one-time Opus 4.6 effort callout for eligible users / Fixed /resume showing interrupt messages as session titles / Fixed image dimension limit errors to suggest /compact |
-| **v2.1.41** | 2026-02-13 | `/resume`, `/rename` | Added guard against launching Claude Code inside another Claude Code session / Fixed /resume session previews showing raw XML tags instead of readable command names / Added speed attribute to OTel ... |
-| **v2.1.39** | 2026-02-10 | — | Improved terminal rendering performance / Fixed fatal errors being swallowed instead of displayed / Fixed process hanging after session close |
 
 ---
 
