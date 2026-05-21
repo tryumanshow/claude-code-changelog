@@ -1,5 +1,107 @@
 [
   {
+    "version": "2.1.147",
+    "date": "2026-05-21",
+    "commands": [
+      {
+        "name": "Ctrl+T",
+        "context": "improved",
+        "summary": "Pinned background sessions (`Ctrl+T` in `claude agents`) now stay alive when idl"
+      },
+      {
+        "name": "/simplify",
+        "context": "improved",
+        "summary": "Renamed `/simplify` to `/code-review`. It now reports correctness bugs at a chos"
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "Renamed `/simplify` to `/code-review`. It now reports correctness bugs at a chos"
+      },
+      {
+        "name": "/code-review high",
+        "context": "improved",
+        "summary": "Renamed `/simplify` to `/code-review`. It now reports correctness bugs at a chos"
+      },
+      {
+        "name": "--comment",
+        "context": "improved",
+        "summary": "Renamed `/simplify` to `/code-review`. It now reports correctness bugs at a chos"
+      },
+      {
+        "name": "/help",
+        "context": "fixed",
+        "summary": "Fixed `/help` rendering a broken tab header and showing only one command per pag"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed `/effort` opening with the slider on the wrong level — it now starts at yo"
+      },
+      {
+        "name": "/background",
+        "context": "fixed",
+        "summary": "Fixed `/background` refusing sessions whose only typed input was a skill or cust"
+      },
+      {
+        "name": "/theme",
+        "context": "fixed",
+        "summary": "Fixed `/theme` \"New custom theme\" and color editor dialogs not responding to Esc"
+      },
+      {
+        "name": "/plugin",
+        "context": "fixed",
+        "summary": "Fixed plugin component counts in `claude plugin details` and `/plugin` being dou"
+      },
+      {
+        "name": "/status",
+        "context": "fixed",
+        "summary": "Fixed several spacing and layout glitches in the `/plugin`, `/status`, `/mobile`"
+      },
+      {
+        "name": "/mobile",
+        "context": "fixed",
+        "summary": "Fixed several spacing and layout glitches in the `/plugin`, `/status`, `/mobile`"
+      },
+      {
+        "name": "/sandbox",
+        "context": "fixed",
+        "summary": "Fixed several spacing and layout glitches in the `/plugin`, `/status`, `/mobile`"
+      },
+      {
+        "name": "/permissions",
+        "context": "fixed",
+        "summary": "Fixed several spacing and layout glitches in the `/plugin`, `/status`, `/mobile`"
+      }
+    ],
+    "features": [
+      "Added the Workflow tool for deterministic multi-agent orchestration. It is off by default — set CLAUDE_CODE_WORKFLOWS=1 to enable",
+      "Pinned background sessions (Ctrl+T in claude agents) now stay alive when idle, are restarted in place to apply Claude Code updates, and are shed under memory pressure only after non-pinned sessions",
+      "Renamed /simplify to /code-review. It now reports correctness bugs at a chosen effort level (e.g., /code-review high); pass --comment to post findings as inline GitHub PR comments. The old cleanup-and-fix behavior has been removed",
+      "Hardened REPL and Workflow tool sandboxes against prototype-pollution and thenable-based escapes",
+      "Prompt history no longer records consecutive duplicate entries — recalling a prompt with arrow-up and submitting it again won't add another copy",
+      "Fixed /help rendering a broken tab header and showing only one command per page on small terminals when not in fullscreen mode",
+      "Fixed /effort opening with the slider on the wrong level — it now starts at your current effort",
+      "Fixed /background refusing sessions whose only typed input was a skill or custom slash command",
+      "Fixed /theme \"New custom theme\" and color editor dialogs not responding to Esc",
+      "Fixed plugin component counts in claude plugin details and /plugin being doubled when a plugin's manifest listed paths overlapping its default directories",
+      "Fixed several spacing and layout glitches in the /plugin, /status, /mobile, /sandbox, and /permissions menus"
+    ],
+    "features_ko": [
+      "결정론적 다중 에이전트 오케스트레이션을 위한 Workflow 도구가 추가되었습니다. 기본적으로 비활성화되어 있으며, CLAUDE_CODE_WORKFLOWS=1로 설정하여 활성화할 수 있습니다.",
+      "고정된 백그라운드 세션(Ctrl+T in claude agents)은 이제 유휴 상태에서도 살아 있으며, Claude Code 업데이트를 적용하기 위해 제자리에서 재시작되고, 메모리 압박이 있을 때 비고정 세션 이후에만 종료됩니다.",
+      "/simplify가 /code-review로 이름이 변경되었습니다. 이제 선택한 노력 수준(예: /code-review high)에서 정확성 버그를 보고하며, --comment를 전달하여 발견 사항을 인라인 GitHub PR 댓글로 게시할 수 있습니다. 이전의 정리 및 수정 동작은 제거되었습니다.",
+      "REPL 및 Workflow 도구 샌드박스가 프로토타입 오염 및 thenable 기반 탈출에 대해 강화되었습니다.",
+      "프롬프트 기록이 더 이상 연속적인 중복 항목을 기록하지 않습니다 — 화살표 위로 프롬프트를 호출하고 다시 제출해도 또 다른 복사본이 추가되지 않습니다.",
+      "/help가 작은 터미널에서 전체 화면 모드가 아닐 때 깨진 탭 헤더를 렌더링하고 페이지당 하나의 명령만 표시하는 문제를 수정했습니다.",
+      "/effort가 슬라이더가 잘못된 수준에서 열리는 문제를 수정했습니다 — 이제 현재 노력 수준에서 시작합니다.",
+      "/background가 입력된 내용이 기술 또는 사용자 정의 슬래시 명령뿐인 세션을 거부하는 문제를 수정했습니다.",
+      "/theme \"New custom theme\" 및 색상 편집기 대화 상자가 Esc에 반응하지 않는 문제를 수정했습니다.",
+      "claude plugin 세부정보에서 플러그인 구성 요소 수가 두 배로 표시되고, 플러그인의 매니페스트에 기본 디렉토리와 겹치는 경로가 나열될 때 /plugin이 두 배로 표시되는 문제를 수정했습니다.",
+      "/plugin, /status, /mobile, /sandbox, /permissions 메뉴에서 여러 개의 간격 및 레이아웃 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.145",
     "date": "2026-05-19",
     "commands": [

@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-05-20 22:26 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-05-21 22:24 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.147** | 2026-05-21 | `Ctrl+T`, `/simplify`, `/code-review`, `/code-review high`, `--comment`, `/help`, `/effort`, `/background`, `/theme`, `/plugin`, `/status`, `/mobile`, `/sandbox`, `/permissions` | Added the Workflow tool for deterministic multi-agent orchestration. It is off by default — set CLAUDE_CODE_WORKFLOWS=1 to enable / Pinned background sessions (Ctrl+T in claude agents) now stay ali... |
 | **v2.1.145** | 2026-05-19 | `--json`, `/plugin`, `alt+t`, `/review` | Added claude agents --json to list live Claude sessions as JSON for scripting (tmux-resurrect, status bars, session pickers) / Added agent_id and parent_agent_id attributes to claude_code.tool OTEL... |
 | **v2.1.144** | 2026-05-19 | `/resume`, `--bg`, `/plugin`, `/model`, `/extra-usage`, `/usage-credits`, `Ctrl+L`, `/branch`, `Ctrl+O`, `/bg`, `/add-dir`, `Ctrl+R`, `/doctor`, `/feedback` | Added /resume support for background sessions — sessions started via claude --bg or agent view now appear alongside interactive ones, marked with bg / Added elapsed duration to background subagent ... |
 | **v2.1.143** | 2026-05-15 | `/plugin`, `Shift+T`, `/loop`, `Ctrl+C`, `/goal`, `/bg`, `--agent <name>`, `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, `--dangerously-skip-permissions`, `--strict-mcp-config`, `--fallback-model`, `--allow-dangerously-skip-permissions` | Added plugin dependency enforcement: claude plugin disable now refuses when another enabled plugin depends on the target (with a copy-pasteable disable-chain hint), and claude plugin enable force-e... |
@@ -83,7 +84,6 @@
 | **v2.1.45** | 2026-02-17 | `--add-dir` | Added support for Claude Sonnet 4.6 / Added support for reading enabledPlugins and extraKnownMarketplaces from --add-dir directories / Added spinnerTipsOverride setting to customize spinner tips — ... |
 | **v2.1.44** | 2026-02-16 | — | Fixed ENAMETOOLONG errors for deeply-nested directory paths / Fixed auth refresh errors |
 | **v2.1.43** | — | — | Fixed AWS auth refresh hanging indefinitely by adding a 3-minute timeout / Fixed spurious warnings for non-agent markdown files in .claude/agents/ directory / Fixed structured-outputs beta header b... |
-| **v2.1.42** | 2026-02-13 | `/resume`, `/compact` | Added one-time Opus 4.6 effort callout for eligible users / Fixed /resume showing interrupt messages as session titles / Fixed image dimension limit errors to suggest /compact |
 
 ---
 
