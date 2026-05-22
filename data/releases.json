@@ -1,5 +1,93 @@
 [
   {
+    "version": "2.1.149",
+    "date": "2026-05-22",
+    "commands": [
+      {
+        "name": "/usage",
+        "context": "improved",
+        "summary": "`/usage` now shows a per-category breakdown of what's driving your limits usage "
+      },
+      {
+        "name": "/diff",
+        "context": "improved",
+        "summary": "`/diff` detail view can now be scrolled with the keyboard (arrows, `j`/`k`, `PgU"
+      },
+      {
+        "name": "/ultraplan",
+        "context": "fixed",
+        "summary": "Fixed `/ultraplan` and remote session creation failing with \"Could not capture u"
+      },
+      {
+        "name": "/doctor",
+        "context": "fixed",
+        "summary": "Fixed `otelHeadersHelper` failing silently when the script path contains spaces;"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed the status bar showing the user's baseline `/effort` setting instead of th"
+      },
+      {
+        "name": "Ctrl+O",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+O transcript view freezing at the moment it was opened instead of tai"
+      },
+      {
+        "name": "/config",
+        "context": "fixed",
+        "summary": "Fixed `/config` exit summary reporting phantom changes to auto-compact and theme"
+      },
+      {
+        "name": "/insights",
+        "context": "fixed",
+        "summary": "Fixed `/insights` crashing when cached session-meta files are missing optional f"
+      },
+      {
+        "name": "/feedback",
+        "context": "improved",
+        "summary": "Improved `/feedback` reports to include the conversation that happened before co"
+      }
+    ],
+    "features": [
+      "/usage now shows a per-category breakdown of what's driving your limits usage — skills, subagents, plugins, and per-MCP-server cost",
+      "/diff detail view can now be scrolled with the keyboard (arrows, j/k, PgUp/PgDn, Space, Home/End)",
+      "Markdown output now renders GFM task list checkboxes (- [ ] todo / - [x] done) instead of plain bullets",
+      "Enterprise: added the allowAllClaudeAiMcps managed setting to load claude.ai cloud MCP connectors alongside managed-mcp.json",
+      "Fixed /ultraplan and remote session creation failing with \"Could not capture uncommitted changes\" when the working tree has no real changes",
+      "Fixed otelHeadersHelper failing silently when the script path contains spaces; helper failures are now reported in /doctor and the debug log",
+      "Fixed the status bar showing the user's baseline /effort setting instead of the effort level applied by skill/agent effort: frontmatter",
+      "Fixed Ctrl+O transcript view freezing at the moment it was opened instead of tailing new messages",
+      "Fixed /config exit summary reporting phantom changes to auto-compact and theme when toggling unrelated settings",
+      "Fixed /insights crashing when cached session-meta files are missing optional fields",
+      "Improved /feedback reports to include the conversation that happened before context compaction, making issues from earlier in long sessions easier to triage"
+    ],
+    "features_ko": [
+      "/usage는 이제 한 카테고리별로 한계 사용량을 유도하는 요소 — 기술, 서브에이전트, 플러그인, 및 per-MCP-server 비용을 보여줍니다.",
+      "/diff 상세 보기는 이제 키보드로 스크롤할 수 있습니다 (화살표, j/k, PgUp/PgDn, Space, Home/End).",
+      "Markdown 출력은 이제 일반 총알 대신 GFM 작업 목록 체크박스 (- [ ] todo / - [x] done)를 렌더링합니다.",
+      "Enterprise: managed-mcp.json과 함께 claude.ai 클라우드 MCP 커넥터를 로드하기 위해 allowAllClaudeAiMcps 관리 설정이 추가되었습니다.",
+      "작업 트리에 실제 변경 사항이 없을 때 \"Could not capture uncommitted changes\" 오류로 /ultraplan 및 원격 세션 생성이 실패하는 문제를 수정했습니다.",
+      "스크립트 경로에 공백이 포함될 때 otelHeadersHelper가 조용히 실패하는 문제를 수정했습니다; 헬퍼 실패는 이제 /doctor와 디버그 로그에 보고됩니다.",
+      "상태 표시줄이 기술/에이전트 노력에 의해 적용된 노력 수준 대신 사용자의 기준선 /effort 설정을 표시하는 문제를 수정했습니다.",
+      "Ctrl+O 전사 보기에서 열릴 때 새 메시지를 tail하지 않고 멈추는 문제를 수정했습니다.",
+      "/config 종료 요약이 관련 없는 설정을 전환할 때 자동 압축 및 테마에 대한 유령 변경 사항을 보고하는 문제를 수정했습니다.",
+      "캐시된 session-meta 파일에 선택적 필드가 누락될 때 /insights가 충돌하는 문제를 수정했습니다.",
+      "/feedback 보고서를 개선하여 컨텍스트 압축 이전에 발생한 대화를 포함시켜 긴 세션에서 이전 문제를 더 쉽게 분류할 수 있도록 했습니다."
+    ]
+  },
+  {
+    "version": "2.1.148",
+    "date": "2026-05-22",
+    "commands": [],
+    "features": [
+      "Fixed the Bash tool returning exit code 127 on every command for some users (a regression introduced in 2.1.147)"
+    ],
+    "features_ko": [
+      "일부 사용자에게 Bash 도구가 모든 명령에 대해 종료 코드 127을 반환하는 문제를 수정했습니다 (2.1.147에서 도입된 회귀)."
+    ]
+  },
+  {
     "version": "2.1.147",
     "date": "2026-05-21",
     "commands": [
@@ -75,10 +163,8 @@
       }
     ],
     "features": [
-      "Added the Workflow tool for deterministic multi-agent orchestration. It is off by default — set CLAUDE_CODE_WORKFLOWS=1 to enable",
       "Pinned background sessions (Ctrl+T in claude agents) now stay alive when idle, are restarted in place to apply Claude Code updates, and are shed under memory pressure only after non-pinned sessions",
       "Renamed /simplify to /code-review. It now reports correctness bugs at a chosen effort level (e.g., /code-review high); pass --comment to post findings as inline GitHub PR comments. The old cleanup-and-fix behavior has been removed",
-      "Hardened REPL and Workflow tool sandboxes against prototype-pollution and thenable-based escapes",
       "Prompt history no longer records consecutive duplicate entries — recalling a prompt with arrow-up and submitting it again won't add another copy",
       "Fixed /help rendering a broken tab header and showing only one command per page on small terminals when not in fullscreen mode",
       "Fixed /effort opening with the slider on the wrong level — it now starts at your current effort",
@@ -88,10 +174,8 @@
       "Fixed several spacing and layout glitches in the /plugin, /status, /mobile, /sandbox, and /permissions menus"
     ],
     "features_ko": [
-      "결정론적 다중 에이전트 오케스트레이션을 위한 Workflow 도구가 추가되었습니다. 기본적으로 비활성화되어 있으며, CLAUDE_CODE_WORKFLOWS=1로 설정하여 활성화할 수 있습니다.",
       "고정된 백그라운드 세션(Ctrl+T in claude agents)은 이제 유휴 상태에서도 살아 있으며, Claude Code 업데이트를 적용하기 위해 제자리에서 재시작되고, 메모리 압박이 있을 때 비고정 세션 이후에만 종료됩니다.",
       "/simplify가 /code-review로 이름이 변경되었습니다. 이제 선택한 노력 수준(예: /code-review high)에서 정확성 버그를 보고하며, --comment를 전달하여 발견 사항을 인라인 GitHub PR 댓글로 게시할 수 있습니다. 이전의 정리 및 수정 동작은 제거되었습니다.",
-      "REPL 및 Workflow 도구 샌드박스가 프로토타입 오염 및 thenable 기반 탈출에 대해 강화되었습니다.",
       "프롬프트 기록이 더 이상 연속적인 중복 항목을 기록하지 않습니다 — 화살표 위로 프롬프트를 호출하고 다시 제출해도 또 다른 복사본이 추가되지 않습니다.",
       "/help가 작은 터미널에서 전체 화면 모드가 아닐 때 깨진 탭 헤더를 렌더링하고 페이지당 하나의 명령만 표시하는 문제를 수정했습니다.",
       "/effort가 슬라이더가 잘못된 수준에서 열리는 문제를 수정했습니다 — 이제 현재 노력 수준에서 시작합니다.",

@@ -1556,5 +1556,17 @@
   "8c6e9cc556f77642": "/background가 입력된 내용이 기술 또는 사용자 정의 슬래시 명령뿐인 세션을 거부하는 문제를 수정했습니다.",
   "b2cef934fd2864bd": "/theme \"New custom theme\" 및 색상 편집기 대화 상자가 Esc에 반응하지 않는 문제를 수정했습니다.",
   "6307fd455cf6750e": "claude plugin 세부정보에서 플러그인 구성 요소 수가 두 배로 표시되고, 플러그인의 매니페스트에 기본 디렉토리와 겹치는 경로가 나열될 때 /plugin이 두 배로 표시되는 문제를 수정했습니다.",
-  "9fad83a1d1795185": "/plugin, /status, /mobile, /sandbox, /permissions 메뉴에서 여러 개의 간격 및 레이아웃 문제를 수정했습니다."
+  "9fad83a1d1795185": "/plugin, /status, /mobile, /sandbox, /permissions 메뉴에서 여러 개의 간격 및 레이아웃 문제를 수정했습니다.",
+  "7c51df440e6556ba": "/usage는 이제 한 카테고리별로 한계 사용량을 유도하는 요소 — 기술, 서브에이전트, 플러그인, 및 per-MCP-server 비용을 보여줍니다.",
+  "09df90c2524db331": "/diff 상세 보기는 이제 키보드로 스크롤할 수 있습니다 (화살표, j/k, PgUp/PgDn, Space, Home/End).",
+  "796ee8f15e80354a": "Markdown 출력은 이제 일반 총알 대신 GFM 작업 목록 체크박스 (- [ ] todo / - [x] done)를 렌더링합니다.",
+  "2ce470dde04c3ded": "Enterprise: managed-mcp.json과 함께 claude.ai 클라우드 MCP 커넥터를 로드하기 위해 allowAllClaudeAiMcps 관리 설정이 추가되었습니다.",
+  "6ac7bf7ed0561f71": "작업 트리에 실제 변경 사항이 없을 때 \"Could not capture uncommitted changes\" 오류로 /ultraplan 및 원격 세션 생성이 실패하는 문제를 수정했습니다.",
+  "597955a8d335fdb3": "스크립트 경로에 공백이 포함될 때 otelHeadersHelper가 조용히 실패하는 문제를 수정했습니다; 헬퍼 실패는 이제 /doctor와 디버그 로그에 보고됩니다.",
+  "2c9cc5faaf8183b0": "상태 표시줄이 기술/에이전트 노력에 의해 적용된 노력 수준 대신 사용자의 기준선 /effort 설정을 표시하는 문제를 수정했습니다.",
+  "38284afb67163cb1": "Ctrl+O 전사 보기에서 열릴 때 새 메시지를 tail하지 않고 멈추는 문제를 수정했습니다.",
+  "97081127f98af19c": "/config 종료 요약이 관련 없는 설정을 전환할 때 자동 압축 및 테마에 대한 유령 변경 사항을 보고하는 문제를 수정했습니다.",
+  "4b79d142a0d02fb9": "캐시된 session-meta 파일에 선택적 필드가 누락될 때 /insights가 충돌하는 문제를 수정했습니다.",
+  "148bb8e4e4cee528": "/feedback 보고서를 개선하여 컨텍스트 압축 이전에 발생한 대화를 포함시켜 긴 세션에서 이전 문제를 더 쉽게 분류할 수 있도록 했습니다.",
+  "e72752474d3df123": "일부 사용자에게 Bash 도구가 모든 명령에 대해 종료 코드 127을 반환하는 문제를 수정했습니다 (2.1.147에서 도입된 회귀)."
 }
