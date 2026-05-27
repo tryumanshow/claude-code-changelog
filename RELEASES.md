@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-05-26 22:25 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-05-27 22:45 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.152** | 2026-05-27 | `/code-review --fix`, `/simplify`, `/code-review`, `/reload-skills`, `--fallback-model`, `Ctrl+R`, `/usage`, `Ctrl+O`, `/doctor`, `--bare` | /code-review --fix now applies review findings to your working tree after the review, surfacing reuse, simplification, and efficiency suggestions; /simplify now invokes /code-review --fix / Skills ... |
 | **v2.1.150** | 2026-05-23 | — | Internal infrastructure improvements (no user-facing changes) |
 | **v2.1.149** | 2026-05-22 | `/usage`, `/diff`, `/ultraplan`, `/doctor`, `/effort`, `Ctrl+O`, `/config`, `/insights`, `/feedback` | /usage now shows a per-category breakdown of what's driving your limits usage — skills, subagents, plugins, and per-MCP-server cost / /diff detail view can now be scrolled with the keyboard (arrows... |
 | **v2.1.148** | 2026-05-22 | — | Fixed the Bash tool returning exit code 127 on every command for some users (a regression introduced in 2.1.147) |
@@ -83,7 +84,6 @@
 | **v2.1.50** | 2026-02-20 | `/mcp reconnect`, `/mcp`, `/extra-usage` | Added support for startupTimeout configuration for LSP servers / Added WorktreeCreate and WorktreeRemove hook events, enabling custom VCS setup and teardown when agent worktree isolation creates or... |
 | **v2.1.49** | 2026-02-19 | `--worktree`, `Ctrl+F`, `Ctrl+C`, `--scope`, `/model`, `/config`, `--resume`, `/clear` | Added --worktree (-w) flag to start Claude in an isolated git worktree / Subagents support isolation: "worktree" for working in a temporary git worktree / Added Ctrl+F keybinding to kill background... |
 | **v2.1.47** | 2026-02-18 | `ctrl+f`, `Shift+D`, `Shift+U`, `/rename`, `/help`, `/model`, `/compact`, `/clear`, `/resume`, `/add-dir`, `Shift+E`, `/resume <session-id>`, `/fork` | Search patterns in collapsed tool results are now displayed in quotes for clarity / Windows: Fixed CWD tracking temp files never being cleaned up, causing them to accumulate indefinitely (anthropic... |
-| **v2.1.46** | — | — | Added support for using claude.ai MCP connectors in Claude Code |
 
 ---
 

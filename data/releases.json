@@ -1,5 +1,97 @@
 [
   {
+    "version": "2.1.152",
+    "date": "2026-05-27",
+    "commands": [
+      {
+        "name": "/code-review --fix",
+        "context": "improved",
+        "summary": "`/code-review --fix` now applies review findings to your working tree after the "
+      },
+      {
+        "name": "/simplify",
+        "context": "improved",
+        "summary": "`/code-review --fix` now applies review findings to your working tree after the "
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "`/code-review --fix` now applies review findings to your working tree after the "
+      },
+      {
+        "name": "/reload-skills",
+        "context": "new",
+        "summary": "Added `/reload-skills` command to re-scan skill directories without restarting t"
+      },
+      {
+        "name": "--fallback-model",
+        "context": "new",
+        "summary": "Claude Code now switches to your configured `--fallback-model` for the rest of t"
+      },
+      {
+        "name": "Ctrl+R",
+        "context": "new",
+        "summary": "Vim mode: `/` in NORMAL mode now opens reverse history search (like Ctrl+R), mat"
+      },
+      {
+        "name": "/usage",
+        "context": "improved",
+        "summary": "The `/usage` breakdown now includes large session files; files are scanned with "
+      },
+      {
+        "name": "Ctrl+O",
+        "context": "improved",
+        "summary": "Thinking summaries in the collapsed group now stay readable for at least 3 secon"
+      },
+      {
+        "name": "/doctor",
+        "context": "fixed",
+        "summary": "Fixed `/doctor` reporting \"marketplace not found\" or \"plugin not found\" for stal"
+      },
+      {
+        "name": "--bare",
+        "context": "fixed",
+        "summary": "Fixed the Agent tool description referencing an agent list that is never deliver"
+      }
+    ],
+    "features": [
+      "/code-review --fix now applies review findings to your working tree after the review, surfacing reuse, simplification, and efficiency suggestions; /simplify now invokes /code-review --fix",
+      "Skills and slash commands can now set disallowed-tools in frontmatter to remove tools from the model while the skill is active",
+      "Added /reload-skills command to re-scan skill directories without restarting the session",
+      "SessionStart hooks can now return reloadSkills: true to re-scan skill directories, making skills installed by the hook available in the same session",
+      "SessionStart hooks can now set the session title via hookSpecificOutput.sessionTitle on startup and resume",
+      "Added a MessageDisplay hook event that lets hooks transform or hide assistant message text as it is displayed",
+      "Added pluginSuggestionMarketplaces managed setting: admins can allowlist org marketplaces whose plugins may be suggested via context-aware tips",
+      "claude plugin marketplace remove now accepts --scope user|project|local for symmetry with marketplace add, install, and uninstall",
+      "Claude Code now switches to your configured --fallback-model for the rest of the session when the primary model is not found, instead of failing every request",
+      "Auto mode no longer requires opt-in consent",
+      "Vim mode: / in NORMAL mode now opens reverse history search (like Ctrl+R), matching bash/zsh vi-mode",
+      "The /usage breakdown now includes large session files; files are scanned with a streaming read so memory usage stays flat",
+      "Thinking summaries in the collapsed group now stay readable for at least 3 seconds, render as markdown, and cap at 10 lines (Ctrl+O shows the full thinking)",
+      "In fullscreen mode, the \"Thinking for Ns\" indicator now counts up live while the model is thinking, and keeps its value if you interrupt mid-thought",
+      "Fixed /doctor reporting \"marketplace not found\" or \"plugin not found\" for stale enabledPlugins entries referencing removed marketplaces or dropped plugins",
+      "Fixed the Agent tool description referencing an agent list that is never delivered when running with --bare or with attachments disabled"
+    ],
+    "features_ko": [
+      "/code-review --fix는 이제 리뷰 후 작업 트리에 리뷰 결과를 적용하여 재사용, 단순화 및 효율성 제안을 표시합니다; /simplify는 이제 /code-review --fix를 호출합니다.",
+      "기술 및 슬래시 명령은 이제 skill이 활성화된 동안 frontmatter에서 disallowed-tools를 설정하여 모델에서 도구를 제거할 수 있습니다.",
+      "세션을 재시작하지 않고 skill 디렉토리를 다시 스캔할 수 있는 /reload-skills 명령이 추가되었습니다.",
+      "SessionStart 훅은 이제 skill 디렉토리를 다시 스캔하기 위해 reloadSkills: true를 반환할 수 있어, 훅에 의해 설치된 skill을 같은 세션에서 사용할 수 있습니다.",
+      "SessionStart 훅은 이제 시작 및 재개 시 hookSpecificOutput.sessionTitle을 통해 세션 제목을 설정할 수 있습니다.",
+      "메시지 표시 훅 이벤트가 추가되어 훅이 표시되는 동안 어시스턴트 메시지 텍스트를 변환하거나 숨길 수 있습니다.",
+      "pluginSuggestionMarketplaces 관리 설정이 추가되었습니다: 관리자는 컨텍스트 인식 팁을 통해 제안될 수 있는 플러그인을 가진 조직 마켓플레이스를 허용할 수 있습니다.",
+      "claude plugin marketplace remove는 이제 marketplace add, install 및 uninstall과의 대칭성을 위해 --scope user|project|local을 허용합니다.",
+      "Claude Code는 이제 기본 모델을 찾을 수 없을 때 세션의 나머지 동안 구성된 --fallback-model로 전환되며, 모든 요청이 실패하지 않습니다.",
+      "자동 모드는 더 이상 선택적 동의가 필요하지 않습니다.",
+      "Vim 모드: NORMAL 모드에서 /는 이제 역 이력 검색을 열며 (Ctrl+R과 유사), bash/zsh vi-mode와 일치합니다.",
+      "/usage 세분화에는 이제 대형 세션 파일이 포함됩니다; 파일은 스트리밍 읽기로 스캔되어 메모리 사용량이 평탄하게 유지됩니다.",
+      "축소된 그룹의 사고 요약은 이제 최소 3초 동안 읽을 수 있으며, 마크다운으로 렌더링되고 10줄로 제한됩니다 (Ctrl+O는 전체 사고를 표시합니다).",
+      "전체 화면 모드에서 \"Thinking for Ns\" 지표는 모델이 사고하는 동안 실시간으로 카운트되며, 사고 중간에 중단하더라도 값을 유지합니다.",
+      "/doctor가 제거된 마켓플레이스나 삭제된 플러그인을 참조하는 오래된 enabledPlugins 항목에 대해 \"marketplace not found\" 또는 \"plugin not found\"를 보고하는 문제를 수정했습니다.",
+      "--bare 또는 첨부 파일 비활성화 상태에서 실행할 때 전달되지 않는 에이전트 목록을 참조하는 Agent 도구 설명을 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.150",
     "date": "2026-05-23",
     "commands": [],
