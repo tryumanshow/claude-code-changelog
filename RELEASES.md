@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-05-27 22:45 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-05-28 22:43 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.154** | 2026-05-28 | `/effort`, `/workflows`, `/simplify`, `/code-review --fix`, `/code-review`, `/logout`, `/chrome`, `/plugin`, `/remote-control`, `/claude-api`, `/fast on`, `/model`, `/fast`, `/command`, `ctrl+o`, `/mcp` | Opus 4.8 is here! Now defaults to high effort · /effort xhigh for your hardest tasks / Introducing dynamic workflows: ask Claude to create a workflow and it orchestrates work across tens to hundred... |
+| **v2.1.153** | 2026-05-28 | `/doctor`, `--strict-mcp-config`, `--bare`, `--agents`, `/bg`, `/btw`, `/copy`, `/rename`, `/model` | Added skipLfs option to github/git plugin marketplace sources to skip Git LFS downloads during clone and update / Claude Code now shows a one-time notice when your npm global install can't auto-upd... |
 | **v2.1.152** | 2026-05-27 | `/code-review --fix`, `/simplify`, `/code-review`, `/reload-skills`, `--fallback-model`, `Ctrl+R`, `/usage`, `Ctrl+O`, `/doctor`, `--bare` | /code-review --fix now applies review findings to your working tree after the review, surfacing reuse, simplification, and efficiency suggestions; /simplify now invokes /code-review --fix / Skills ... |
 | **v2.1.150** | 2026-05-23 | — | Internal infrastructure improvements (no user-facing changes) |
 | **v2.1.149** | 2026-05-22 | `/usage`, `/diff`, `/ultraplan`, `/doctor`, `/effort`, `Ctrl+O`, `/config`, `/insights`, `/feedback` | /usage now shows a per-category breakdown of what's driving your limits usage — skills, subagents, plugins, and per-MCP-server cost / /diff detail view can now be scrolled with the keyboard (arrows... |
@@ -82,8 +84,6 @@
 | **v2.1.52** | 2026-02-24 | — | VS Code: Fixed extension crash on Windows ("command 'claude-vscode.editor.openLast' not found") |
 | **v2.1.51** | 2026-02-24 | `/model` | Added claude remote-control subcommand for external builds, enabling local environment serving for all users. / Updated plugin marketplace default git timeout from 30s to 120s and added CLAUDE_CODE... |
 | **v2.1.50** | 2026-02-20 | `/mcp reconnect`, `/mcp`, `/extra-usage` | Added support for startupTimeout configuration for LSP servers / Added WorktreeCreate and WorktreeRemove hook events, enabling custom VCS setup and teardown when agent worktree isolation creates or... |
-| **v2.1.49** | 2026-02-19 | `--worktree`, `Ctrl+F`, `Ctrl+C`, `--scope`, `/model`, `/config`, `--resume`, `/clear` | Added --worktree (-w) flag to start Claude in an isolated git worktree / Subagents support isolation: "worktree" for working in a temporary git worktree / Added Ctrl+F keybinding to kill background... |
-| **v2.1.47** | 2026-02-18 | `ctrl+f`, `Shift+D`, `Shift+U`, `/rename`, `/help`, `/model`, `/compact`, `/clear`, `/resume`, `/add-dir`, `Shift+E`, `/resume <session-id>`, `/fork` | Search patterns in collapsed tool results are now displayed in quotes for clarity / Windows: Fixed CWD tracking temp files never being cleaned up, causing them to accumulate indefinitely (anthropic... |
 
 ---
 

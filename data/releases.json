@@ -1,5 +1,228 @@
 [
   {
+    "version": "2.1.154",
+    "date": "2026-05-28",
+    "commands": [
+      {
+        "name": "/effort",
+        "context": "improved",
+        "summary": "Opus 4.8 is here! Now defaults to high effort · /effort xhigh for your hardest t"
+      },
+      {
+        "name": "/workflows",
+        "context": "new",
+        "summary": "Introducing dynamic workflows: ask Claude to create a workflow and it orchestrat"
+      },
+      {
+        "name": "/simplify",
+        "context": "improved",
+        "summary": "`/simplify` now runs a cleanup-only review (reuse, simplification, efficiency, a"
+      },
+      {
+        "name": "/code-review --fix",
+        "context": "improved",
+        "summary": "`/simplify` now runs a cleanup-only review (reuse, simplification, efficiency, a"
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "`/simplify` now runs a cleanup-only review (reuse, simplification, efficiency, a"
+      },
+      {
+        "name": "/logout",
+        "context": "improved",
+        "summary": "`claude agents`: `/logout` now signs you out instead of being sent to a backgrou"
+      },
+      {
+        "name": "/chrome",
+        "context": "mentioned",
+        "summary": "Claude in Chrome: pick which connected browser to use via `/chrome` → \"Select br"
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "Plugins can now declare `defaultEnabled: false` in `plugin.json` or a marketplac"
+      },
+      {
+        "name": "/remote-control",
+        "context": "improved",
+        "summary": "`/remote-control` autocomplete now shows \"Disconnect Remote Control\" when Remote"
+      },
+      {
+        "name": "/claude-api",
+        "context": "new",
+        "summary": "Added Claude Opus 4.8 support and 4.7 → 4.8 migration guidance to the `/claude-a"
+      },
+      {
+        "name": "/fast on",
+        "context": "improved",
+        "summary": "Deprecated `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE` (will be removed on 06/01)."
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "Deprecated `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE` (will be removed on 06/01)."
+      },
+      {
+        "name": "/fast",
+        "context": "improved",
+        "summary": "Deprecated `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE` (will be removed on 06/01)."
+      },
+      {
+        "name": "/command",
+        "context": "fixed",
+        "summary": "Fixed background-session classifier losing the user's goal when a scheduled `/co"
+      },
+      {
+        "name": "ctrl+o",
+        "context": "fixed",
+        "summary": "Fixed a phantom expand/click affordance on colored tool output: short ANSI-color"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed /mcp tools list and tool detail rendering when MCP servers have long or mu"
+      }
+    ],
+    "features": [
+      "Opus 4.8 is here! Now defaults to high effort · /effort xhigh for your hardest tasks",
+      "Introducing dynamic workflows: ask Claude to create a workflow and it orchestrates work across tens to hundreds of agents in the background, so you can take on larger, more complex tasks. Run /workflows to view your runs",
+      "Fast mode on Opus 4.8 is now available at a fraction of its previous cost: 2x the standard rate for 2.5x the speed",
+      "The lean system prompt is now the default for all models except Haiku, Sonnet, and Opus 4.7 and earlier",
+      "Claude now reserves the multiple-choice question prompt for decisions it genuinely cannot make itself, instead of asking when it already has enough context to proceed",
+      "/simplify now runs a cleanup-only review (reuse, simplification, efficiency, altitude) and applies the fixes, instead of running the full /code-review --fix bug-hunting review",
+      "Renamed the /effort slider labels from \"Speed\"/\"Intelligence\" to \"Faster\"/\"Smarter\" for clarity",
+      "claude agents: type ! <command> to run a shell command as a background session you can attach to and detach from. Also available as claude --bg --exec '<command>'",
+      "claude agents: /logout now signs you out instead of being sent to a background session",
+      "←← to open the agents view now works on Bedrock, Vertex, Foundry, and with telemetry disabled",
+      "Claude in Chrome: pick which connected browser to use via /chrome → \"Select browser…\", or in-chat when a browser action runs with multiple connected",
+      "Plugins can now declare defaultEnabled: false in plugin.json or a marketplace entry; enable them with /plugin or claude plugin enable. Dependencies of enabled plugins are still enabled automatically",
+      "The /plugin Discover tab now pins plugins whose relevance signals match the current directory with a \"suggested for this directory\" annotation",
+      "Streaming tool execution is now always enabled, including when telemetry is disabled or on Bedrock/Vertex/Foundry (previously behind a feature flag)",
+      "Stdio MCP server subprocesses now receive CLAUDE_CODE_SESSION_ID and CLAUDECODE=1 in their environment",
+      "claude mcp list/get now show unapproved .mcp.json servers as ⏸ Pending approval instead of auto-approving and connecting when output is piped",
+      "/remote-control autocomplete now shows \"Disconnect Remote Control\" when Remote Control is already active",
+      "Added Claude Opus 4.8 support and 4.7 → 4.8 migration guidance to the /claude-api skill",
+      "Deprecated CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE (will be removed on 06/01). To use fast mode on Opus 4.6, switch with /model claude-opus-4-6[1m] and then /fast on",
+      "Fixed background-session classifier losing the user's goal when a scheduled /command fires",
+      "Fixed a phantom expand/click affordance on colored tool output: short ANSI-colored lines that fit on screen no longer show a \"ctrl+o to expand\" hint",
+      "Fixed /mcp tools list and tool detail rendering when MCP servers have long or multi-line tool names or long descriptions",
+      "Fixed the /model picker not showing fast mode pricing on the Default option for API (pay-as-you-go) users when fast mode is on"
+    ],
+    "features_ko": [
+      "Opus 4.8이 출시되었습니다! 이제 가장 어려운 작업을 위해 기본값이 high effort · /effort xhigh로 설정됩니다.",
+      "동적 워크플로우를 소개합니다: Claude에게 워크플로우 생성을 요청하면 백그라운드에서 수십에서 수백 개의 에이전트가 작업을 조율하여 더 크고 복잡한 작업을 수행할 수 있습니다. /workflows를 실행하여 실행 내역을 확인하세요.",
+      "Opus 4.8의 빠른 모드가 이제 이전 비용의 일부로 제공됩니다: 2.5배의 속도에 대해 표준 요금의 2배입니다.",
+      "lean 시스템 프롬프트가 이제 Haiku, Sonnet, Opus 4.7 및 이전 모델을 제외한 모든 모델의 기본값이 되었습니다.",
+      "Claude는 이제 스스로 결정을 내릴 수 없는 경우에만 다중 선택 질문 프롬프트를 예약하며, 충분한 맥락이 있을 때는 질문하지 않습니다.",
+      "/simplify는 이제 정리 전용 검토(재사용, 단순화, 효율성, 고도)를 실행하고 수정 사항을 적용하며, 전체 /code-review --fix 버그 사냥 검토를 실행하지 않습니다.",
+      "/effort 슬라이더 레이블을 \"Speed\"/\"Intelligence\"에서 \"Faster\"/\"Smarter\"로 변경하여 명확성을 높였습니다.",
+      "claude agents: ! <command>를 입력하여 백그라운드 세션으로 셸 명령을 실행할 수 있으며, 이 세션에 연결하거나 분리할 수 있습니다. 또한 claude --bg --exec '<command>'로도 사용 가능합니다.",
+      "claude agents: /logout은 이제 백그라운드 세션으로 전송되는 대신 로그아웃합니다.",
+      "←←를 눌러 에이전트 뷰를 여는 기능이 이제 Bedrock, Vertex, Foundry 및 텔레메트리가 비활성화된 상태에서도 작동합니다.",
+      "Chrome에서의 Claude: /chrome → \"Select browser…\"를 통해 사용할 연결된 브라우저를 선택하거나, 여러 개의 연결된 브라우저가 있을 때 채팅 중 브라우저 작업이 실행될 때 선택할 수 있습니다.",
+      "플러그인은 이제 plugin.json 또는 마켓플레이스 항목에서 defaultEnabled: false를 선언할 수 있으며, /plugin 또는 claude plugin enable로 활성화할 수 있습니다. 활성화된 플러그인의 종속성은 여전히 자동으로 활성화됩니다.",
+      "/plugin Discover 탭은 이제 현재 디렉토리와 관련 신호가 일치하는 플러그인을 \"이 디렉토리에 추천됨\" 주석과 함께 고정합니다.",
+      "스트리밍 도구 실행이 이제 항상 활성화되며, 텔레메트리가 비활성화되거나 Bedrock/Vertex/Foundry에서 실행될 때도 포함됩니다(이전에는 기능 플래그 뒤에 있었습니다).",
+      "Stdio MCP 서버 서브프로세스는 이제 환경에서 CLAUDE_CODE_SESSION_ID와 CLAUDECODE=1을 수신합니다.",
+      "claude mcp list/get은 이제 승인되지 않은 .mcp.json 서버를 ⏸ Pending approval로 표시하며, 출력이 파이프될 때 자동 승인 및 연결되지 않습니다.",
+      "/remote-control 자동 완성이 이제 Remote Control이 이미 활성화된 경우 \"Disconnect Remote Control\"을 표시합니다.",
+      "Claude Opus 4.8 지원 및 4.7 → 4.8 마이그레이션 가이드를 /claude-api 스킬에 추가했습니다.",
+      "CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE가 더 이상 사용되지 않습니다(06/01에 제거될 예정). Opus 4.6에서 빠른 모드를 사용하려면 /model claude-opus-4-6[1m]로 전환한 후 /fast를 실행하세요.",
+      "예약된 /command가 실행될 때 백그라운드 세션 분류기가 사용자의 목표를 잃는 문제를 수정했습니다.",
+      "색상이 있는 도구 출력에서 유령 확장/클릭 가능성을 수정했습니다: 화면에 맞는 짧은 ANSI 색상 줄은 더 이상 \"ctrl+o to expand\" 힌트를 표시하지 않습니다.",
+      "MCP 서버에 긴 또는 여러 줄의 도구 이름이나 긴 설명이 있을 때 /mcp tools list 및 도구 세부 정보 렌더링을 수정했습니다.",
+      "빠른 모드가 활성화된 경우 API(사용한 만큼 지불) 사용자의 기본 옵션에서 /model 선택기가 빠른 모드 가격을 표시하지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
+    "version": "2.1.153",
+    "date": "2026-05-28",
+    "commands": [
+      {
+        "name": "/doctor",
+        "context": "new",
+        "summary": "Claude Code now shows a one-time notice when your npm global install can't auto-"
+      },
+      {
+        "name": "--strict-mcp-config",
+        "context": "improved",
+        "summary": "`--strict-mcp-config` no longer strips inline `mcpServers` from explicitly-passe"
+      },
+      {
+        "name": "--bare",
+        "context": "fixed",
+        "summary": "Fixed subagent (Agent tool) frontmatter MCP servers ignoring `--strict-mcp-confi"
+      },
+      {
+        "name": "--agents",
+        "context": "improved",
+        "summary": "`--strict-mcp-config` no longer strips inline `mcpServers` from explicitly-passe"
+      },
+      {
+        "name": "/bg",
+        "context": "improved",
+        "summary": "`/bg` while Claude is responding now continues the response in the background se"
+      },
+      {
+        "name": "/btw",
+        "context": "fixed",
+        "summary": "Fixed `/btw` keyboard shortcuts becoming unresponsive in background sessions whi"
+      },
+      {
+        "name": "/copy",
+        "context": "fixed",
+        "summary": "Fixed `/copy` and copy-on-select silently failing to update the system clipboard"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed `/rename` in background sessions not updating the session banner immediate"
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "`/model` now saves your selection as the default for new sessions (matching the "
+      }
+    ],
+    "features": [
+      "Added skipLfs option to github/git plugin marketplace sources to skip Git LFS downloads during clone and update",
+      "Claude Code now shows a one-time notice when your npm global install can't auto-update; /doctor lists the fixes",
+      "Status line commands now receive COLUMNS and LINES environment variables so scripts can size output to the terminal width",
+      "claude agents: autocomplete in the dispatch input now suggests native slash commands and bundled skills, not just project skills",
+      "claude agents: PR column now shows PR #N for a single PR or N PRs for multiple",
+      "claude doctor now shows the result of your last update attempt",
+      "Combined the separate \"needs authentication\" startup notifications for MCP servers and connectors into a single message",
+      "macOS: background agents now appear as \"Claude Code\" in Privacy & Security and keep their permission grants across upgrades",
+      "Fixed subagent (Agent tool) frontmatter MCP servers ignoring --strict-mcp-config, --bare, remote mode, enterprise managed MCP config, and managed-settings MCP server allow/deny policies",
+      "--strict-mcp-config no longer strips inline mcpServers from explicitly-passed agent definitions (--agents / SDK agents), and blocked subagent MCP servers now surface a visible warning",
+      "/bg while Claude is responding now continues the response in the background session instead of dropping it",
+      "Fixed /btw keyboard shortcuts becoming unresponsive in background sessions while a task is running",
+      "Fixed /copy and copy-on-select silently failing to update the system clipboard when attached to a background session inside tmux",
+      "Fixed /rename in background sessions not updating the session banner immediately",
+      "[VSCode] Fixed Claude Code processes not shutting down cleanly when VS Code closed on Windows, causing false \"unclean exit\" reports and orphaned MCP servers",
+      "/model now saves your selection as the default for new sessions (matching the IDE). Press s in the picker to switch models for the current session only."
+    ],
+    "features_ko": [
+      "github/git 플러그인 마켓플레이스 소스에 skipLfs 옵션을 추가하여 클론 및 업데이트 중 Git LFS 다운로드를 건너뛰도록 했습니다.",
+      "Claude Code는 이제 npm 글로벌 설치가 자동 업데이트되지 않을 때 일회성 알림을 표시합니다; /doctor는 수정 사항을 나열합니다.",
+      "상태 줄 명령은 이제 COLUMNS 및 LINES 환경 변수를 수신하여 스크립트가 출력 크기를 터미널 너비에 맞출 수 있도록 합니다.",
+      "claude agents: 배포 입력의 자동 완성이 이제 프로젝트 스킬뿐만 아니라 네이티브 슬래시 명령 및 번들 스킬을 제안합니다.",
+      "claude agents: PR 열은 이제 단일 PR의 경우 PR #N을, 여러 PR의 경우 N PR을 표시합니다.",
+      "claude doctor는 이제 마지막 업데이트 시도의 결과를 표시합니다.",
+      "MCP 서버 및 커넥터에 대한 별도의 \"인증 필요\" 시작 알림을 단일 메시지로 통합했습니다.",
+      "macOS: 이제 백그라운드 에이전트가 Privacy & Security에서 \"Claude Code\"로 표시되며 업그레이드 간에 권한 부여를 유지합니다.",
+      "서브 에이전트(Agent tool) 프론트매터 MCP 서버가 --strict-mcp-config, --bare, 원격 모드, 엔터프라이즈 관리 MCP 구성 및 관리 설정 MCP 서버 허용/거부 정책을 무시하는 문제를 수정했습니다.",
+      "--strict-mcp-config가 명시적으로 전달된 에이전트 정의(--agents / SDK agents)에서 인라인 mcpServers를 더 이상 제거하지 않으며, 차단된 서브 에이전트 MCP 서버는 이제 가시적인 경고를 표시합니다.",
+      "Claude가 응답하는 동안 /bg는 응답을 드롭하지 않고 백그라운드 세션에서 계속 진행됩니다.",
+      "작업이 실행되는 동안 백그라운드 세션에서 /btw 키보드 단축키가 반응하지 않는 문제를 수정했습니다.",
+      "tmux 내의 백그라운드 세션에 연결될 때 /copy 및 copy-on-select가 시스템 클립보드를 업데이트하지 않는 문제를 수정했습니다.",
+      "백그라운드 세션에서 /rename이 세션 배너를 즉시 업데이트하지 않는 문제를 수정했습니다.",
+      "[VSCode] Windows에서 VS Code가 닫힐 때 Claude Code 프로세스가 정상적으로 종료되지 않아 잘못된 \"비정상 종료\" 보고서와 고아 MCP 서버가 발생하는 문제를 수정했습니다.",
+      "/model은 이제 선택한 내용을 새 세션의 기본값으로 저장합니다(IDE와 일치). 선택기에서 s를 눌러 현재 세션에 대해서만 모델을 전환합니다."
+    ]
+  },
+  {
     "version": "2.1.152",
     "date": "2026-05-27",
     "commands": [
