@@ -1,5 +1,126 @@
 [
   {
+    "version": "2.1.157",
+    "date": "2026-05-29",
+    "commands": [
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added autocomplete for `/plugin` arguments: subcommands, installed plugin names,"
+      },
+      {
+        "name": "--agent <name>",
+        "context": "improved",
+        "summary": "`claude agents`: the `agent` field in `settings.json` is now honored for dispatc"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed `--resume` not reporting background subagents that were running when the p"
+      },
+      {
+        "name": "--worktree",
+        "context": "fixed",
+        "summary": "Fixed `--worktree` and `--worktree --tmux` returning to the canonical repo root "
+      },
+      {
+        "name": "--worktree --tmux",
+        "context": "fixed",
+        "summary": "Fixed `--worktree` and `--worktree --tmux` returning to the canonical repo root "
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed the `/model` picker showing an incorrect \"Newer version available\" hint wh"
+      },
+      {
+        "name": "alt+v",
+        "context": "fixed",
+        "summary": "WSL: fixed image paste (`alt+v` keybinding), screenshot paste on Windows 11, and"
+      },
+      {
+        "name": "/terminal-setup",
+        "context": "improved",
+        "summary": "`/terminal-setup` now disables GPU acceleration in VS Code/Cursor/Windsurf integ"
+      },
+      {
+        "name": "/status",
+        "context": "removed",
+        "summary": "Removed the \"bash commands will be sandboxed\" startup banner — sandbox status st"
+      },
+      {
+        "name": "/ide",
+        "context": "removed",
+        "summary": "Removed the \"/ide for …\" startup hint toast"
+      },
+      {
+        "name": "alt+w",
+        "context": "improved",
+        "summary": "Pressing backspace right after a workflow trigger keyword now dismisses the work"
+      },
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Added a \"Workflow keyword trigger\" setting in /config to stop the word \"workflow"
+      }
+    ],
+    "features": [
+      "Plugins in .claude/skills directories are now automatically loaded, no marketplace required",
+      "Added claude plugin init <name> to scaffold a new plugin in .claude/skills",
+      "Added autocomplete for /plugin arguments: subcommands, installed plugin names, and plugins from known marketplaces",
+      "claude agents: the agent field in settings.json is now honored for dispatched sessions, with --agent <name> to override it",
+      "EnterWorktree can now switch between Claude-managed worktrees mid-session",
+      "tool_decision telemetry events now include tool_parameters (bash commands, MCP/skill names) when OTEL_LOG_TOOL_DETAILS=1",
+      "Worktrees managed by Claude are now left unlocked when the agent finishes, so git worktree remove/prune can clean them up",
+      "Fixed --resume not reporting background subagents that were running when the previous Claude Code process exited",
+      "Fixed the --resume session picker leaving its contents on the terminal after exiting in fullscreen mode",
+      "Fixed --worktree and --worktree --tmux returning to the canonical repo root instead of the current linked worktree",
+      "Fixed the /model picker showing an incorrect \"Newer version available\" hint when the selected model is already the newest in its family; the pinned-model row now shows the model's description instead of its raw ID",
+      "WSL: fixed image paste (alt+v keybinding), screenshot paste on Windows 11, and added support for dragging images from Windows Explorer",
+      "/terminal-setup now disables GPU acceleration in VS Code/Cursor/Windsurf integrated terminals to prevent garbled-text rendering",
+      "The Feature of the Week credit-claim status now appears as a notification in the status area instead of a line above the prompt",
+      "claude agents: slash-command autocomplete in the dispatch input now matches substrings",
+      "Removed the \"bash commands will be sandboxed\" startup banner — sandbox status still shows in /status and when a command is blocked",
+      "Removed the \"/ide for …\" startup hint toast",
+      "[IDE] Fixed clicking Stop while a background subagent is running not actually stopping it",
+      "Pressing backspace right after a workflow trigger keyword now dismisses the workflow request (same as alt+w) instead of deleting a character",
+      "Added a \"Workflow keyword trigger\" setting in /config to stop the word \"workflow\" in a prompt from triggering a dynamic workflow"
+    ],
+    "features_ko": [
+      ".claude/skills 디렉토리의 플러그인이 이제 자동으로 로드되며, 마켓플레이스가 필요하지 않습니다.",
+      ".claude/skills에 새 플러그인을 스캐폴딩하기 위해 claude plugin init <name>가 추가되었습니다.",
+      "/plugin 인수에 대한 자동 완성이 추가되었습니다: 서브커맨드, 설치된 플러그인 이름, 알려진 마켓플레이스의 플러그인.",
+      "claude agents: settings.json의 agent 필드가 이제 배포된 세션에 대해 적용되며, --agent <name>으로 이를 재정의할 수 있습니다.",
+      "EnterWorktree는 이제 세션 중 Claude가 관리하는 작업 트리 간에 전환할 수 있습니다.",
+      "tool_decision 텔레메트리 이벤트는 이제 OTEL_LOG_TOOL_DETAILS=1일 때 tool_parameters(배쉬 명령어, MCP/skill 이름)를 포함합니다.",
+      "Claude가 관리하는 작업 트리는 에이전트가 완료되면 잠금 해제되어 git worktree remove/prune로 정리할 수 있습니다.",
+      "--resume이 이전 Claude Code 프로세스가 종료될 때 실행 중이던 백그라운드 서브 에이전트를 보고하지 않는 문제를 수정했습니다.",
+      "--resume 세션 선택기가 전체 화면 모드에서 종료된 후 터미널에 내용을 남기는 문제를 수정했습니다.",
+      "--worktree 및 --worktree --tmux가 현재 연결된 작업 트리 대신 표준 리포지토리 루트로 돌아가는 문제를 수정했습니다.",
+      "/model 선택기가 선택된 모델이 이미 해당 계열에서 최신일 때 잘못된 \"새 버전 사용 가능\" 힌트를 표시하는 문제를 수정했습니다; 고정 모델 행은 이제 모델의 설명을 표시합니다.",
+      "WSL: 이미지 붙여넣기(alt+v 키 바인딩), Windows 11에서 스크린샷 붙여넣기 문제를 수정하고 Windows 탐색기에서 이미지를 드래그하는 기능을 추가했습니다.",
+      "/terminal-setup은 이제 VS Code/Cursor/Windsurf 통합 터미널에서 GPU 가속을 비활성화하여 텍스트가 깨지는 문제를 방지합니다.",
+      "이번 주의 기능 크레딧 청구 상태가 이제 프롬프트 위의 줄 대신 상태 영역에 알림으로 표시됩니다.",
+      "claude agents: 배포 입력에서 슬래시 명령어 자동 완성이 이제 부분 문자열과 일치합니다.",
+      "\"bash 명령어는 샌드박스화됩니다\" 시작 배너를 제거했습니다 — 샌드박스 상태는 여전히 /status 및 명령어가 차단될 때 표시됩니다.",
+      "\"/ide for …\" 시작 힌트 토스트를 제거했습니다.",
+      "[IDE] 백그라운드 서브 에이전트가 실행 중일 때 Stop을 클릭해도 실제로 중지되지 않는 문제를 수정했습니다.",
+      "워크플로우 트리거 키워드 바로 뒤에 backspace를 누르면 문자를 삭제하는 대신 워크플로우 요청이 해제됩니다(alt+w와 동일).",
+      "/config에 \"워크플로우 키워드 트리거\" 설정을 추가하여 프롬프트에서 \"workflow\"라는 단어가 동적 워크플로우를 트리거하지 않도록 합니다."
+    ]
+  },
+  {
+    "version": "2.1.156",
+    "date": "2026-05-29",
+    "commands": [],
+    "features": [
+      "Fixed an issue when using Opus 4.8 where thinking blocks were modified, leading to API errors."
+    ],
+    "features_ko": [
+      "Opus 4.8을 사용할 때 사고 블록이 수정되어 API 오류가 발생하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.154",
     "date": "2026-05-28",
     "commands": [

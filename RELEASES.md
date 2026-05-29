@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-05-28 22:43 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-05-29 22:40 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.157** | 2026-05-29 | `/plugin`, `--agent <name>`, `--resume`, `--worktree`, `--worktree --tmux`, `/model`, `alt+v`, `/terminal-setup`, `/status`, `/ide`, `alt+w`, `/config` | Plugins in .claude/skills directories are now automatically loaded, no marketplace required / Added claude plugin init <name> to scaffold a new plugin in .claude/skills / Added autocomplete for /pl... |
+| **v2.1.156** | 2026-05-29 | — | Fixed an issue when using Opus 4.8 where thinking blocks were modified, leading to API errors. |
 | **v2.1.154** | 2026-05-28 | `/effort`, `/workflows`, `/simplify`, `/code-review --fix`, `/code-review`, `/logout`, `/chrome`, `/plugin`, `/remote-control`, `/claude-api`, `/fast on`, `/model`, `/fast`, `/command`, `ctrl+o`, `/mcp` | Opus 4.8 is here! Now defaults to high effort · /effort xhigh for your hardest tasks / Introducing dynamic workflows: ask Claude to create a workflow and it orchestrates work across tens to hundred... |
 | **v2.1.153** | 2026-05-28 | `/doctor`, `--strict-mcp-config`, `--bare`, `--agents`, `/bg`, `/btw`, `/copy`, `/rename`, `/model` | Added skipLfs option to github/git plugin marketplace sources to skip Git LFS downloads during clone and update / Claude Code now shows a one-time notice when your npm global install can't auto-upd... |
 | **v2.1.152** | 2026-05-27 | `/code-review --fix`, `/simplify`, `/code-review`, `/reload-skills`, `--fallback-model`, `Ctrl+R`, `/usage`, `Ctrl+O`, `/doctor`, `--bare` | /code-review --fix now applies review findings to your working tree after the review, surfacing reuse, simplification, and efficiency suggestions; /simplify now invokes /code-review --fix / Skills ... |
@@ -82,8 +84,6 @@
 | **v2.1.55** | 2026-02-25 | — | Fixed BashTool failing on Windows with EINVAL error |
 | **v2.1.53** | 2026-02-25 | `ctrl+f`, `--worktree` | Fixed bulk agent kill (ctrl+f) to send a single aggregate notification instead of one per agent, and to properly clear the command queue / Fixed --worktree sometimes being ignored on first launch |
 | **v2.1.52** | 2026-02-24 | — | VS Code: Fixed extension crash on Windows ("command 'claude-vscode.editor.openLast' not found") |
-| **v2.1.51** | 2026-02-24 | `/model` | Added claude remote-control subcommand for external builds, enabling local environment serving for all users. / Updated plugin marketplace default git timeout from 30s to 120s and added CLAUDE_CODE... |
-| **v2.1.50** | 2026-02-20 | `/mcp reconnect`, `/mcp`, `/extra-usage` | Added support for startupTimeout configuration for LSP servers / Added WorktreeCreate and WorktreeRemove hook events, enabling custom VCS setup and teardown when agent worktree isolation creates or... |
 
 ---
 
