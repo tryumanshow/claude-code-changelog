@@ -1,5 +1,16 @@
 [
   {
+    "version": "2.1.158",
+    "date": "2026-05-30",
+    "commands": [],
+    "features": [
+      "Auto mode is now available on Bedrock, Vertex, and Foundry for Opus 4.7 and Opus 4.8. Opt in by setting CLAUDE_CODE_ENABLE_AUTO_MODE=1"
+    ],
+    "features_ko": [
+      "이제 Opus 4.7 및 Opus 4.8의 Bedrock, Vertex 및 Foundry에서 자동 모드를 사용할 수 있습니다. CLAUDE_CODE_ENABLE_AUTO_MODE=1로 설정하여 활성화하세요."
+    ]
+  },
+  {
     "version": "2.1.157",
     "date": "2026-05-29",
     "commands": [
