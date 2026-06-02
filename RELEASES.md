@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-01 23:04 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-02 23:05 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.161** | 2026-06-02 | `/mcp`, `/effort`, `--output-format text`, `/usage-credits`, `/autofix-pr`, `--resume`, `/terminal-setup` | OTEL_RESOURCE_ATTRIBUTES values are now included as labels on metric datapoints, so you can slice usage metrics by custom dimensions like team or repo / claude agents rows now show done/total befor... |
+| **v2.1.160** | 2026-06-02 | `/effort ultracode`, `/effort`, `--model` | Added a prompt before writing to shell startup files (.zshenv, .zlogin, .bash_login) and ~/.config/git/, which could otherwise lead to unintended command execution / acceptEdits mode now prompts be... |
 | **v2.1.159** | 2026-05-31 | — | Internal infrastructure improvements (no user-facing changes) |
 | **v2.1.158** | 2026-05-30 | — | Auto mode is now available on Bedrock, Vertex, and Foundry for Opus 4.7 and Opus 4.8. Opt in by setting CLAUDE_CODE_ENABLE_AUTO_MODE=1 |
 | **v2.1.157** | 2026-05-29 | `/plugin`, `--agent <name>`, `--resume`, `--worktree`, `--worktree --tmux`, `/model`, `alt+v`, `/terminal-setup`, `/status`, `/ide`, `alt+w`, `/config` | Plugins in .claude/skills directories are now automatically loaded, no marketplace required / Added claude plugin init <name> to scaffold a new plugin in .claude/skills / Added autocomplete for /pl... |
@@ -82,8 +84,6 @@
 | **v2.1.61** | 2026-02-26 | — | Fixed concurrent writes corrupting config file on Windows |
 | **v2.1.59** | 2026-02-26 | `/memory`, `/copy` | Claude automatically saves useful context to auto-memory. Manage with /memory / Added /copy command to show an interactive picker when code blocks are present, allowing selection of individual code... |
 | **v2.1.58** | 2026-02-25 | — | Expand Remote Control to more users |
-| **v2.1.56** | 2026-02-25 | — | VS Code: Fixed another cause of "command 'claude-vscode.editor.openLast' not found" crashes |
-| **v2.1.55** | 2026-02-25 | — | Fixed BashTool failing on Windows with EINVAL error |
 
 ---
 
