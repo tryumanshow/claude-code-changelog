@@ -1,5 +1,69 @@
 [
   {
+    "version": "2.1.162",
+    "date": "2026-06-03",
+    "commands": [
+      {
+        "name": "--tools",
+        "context": "improved",
+        "summary": "`--tools`: explicitly listing Grep/Glob now provides the dedicated search tools "
+      },
+      {
+        "name": "/effort",
+        "context": "improved",
+        "summary": "`/effort` now confirms when your chosen level will persist as the default for ne"
+      },
+      {
+        "name": "/ide",
+        "context": "improved",
+        "summary": "Renamed Windsurf to Devin Desktop in the `/ide` menu, `/terminal-setup`, and `/s"
+      },
+      {
+        "name": "/terminal-setup",
+        "context": "improved",
+        "summary": "Renamed Windsurf to Devin Desktop in the `/ide` menu, `/terminal-setup`, and `/s"
+      },
+      {
+        "name": "/scroll-speed",
+        "context": "improved",
+        "summary": "Renamed Windsurf to Devin Desktop in the `/ide` menu, `/terminal-setup`, and `/s"
+      },
+      {
+        "name": "Ctrl+V",
+        "context": "fixed",
+        "summary": "Fixed `claude agents` Ctrl+V image paste doing nothing in the dispatch input and"
+      }
+    ],
+    "features": [
+      "claude agents --json now includes waitingFor showing what a waiting session is blocked on (e.g. permission prompt)",
+      "--tools: explicitly listing Grep/Glob now provides the dedicated search tools on native builds with embedded search (previously these names were silently ignored)",
+      "/effort now confirms when your chosen level will persist as the default for new sessions",
+      "Clicking a slash command in the autocomplete menu now fills it into your prompt instead of running it immediately; press Enter to run",
+      "Remote Control now shows as a persistent footer pill (with a link to the session) instead of a startup message",
+      "Renamed Windsurf to Devin Desktop in the /ide menu, /terminal-setup, and /scroll-speed, following the editor's rebrand",
+      "Fixed claude agents Ctrl+V image paste doing nothing in the dispatch input and the session reply box; pasting with no image now shows a hint",
+      "Quieter startup: notices group by severity, and session info and announcements share a single line per launch",
+      "Startup warnings rewritten to be shorter and clearer, each with a concrete fix",
+      "Launch-prompt warnings (deep link/pre-filled prompt) now stay pinned below the input until you act instead of scrolling away",
+      "Failed turns now show a compact warning line instead of a multi-line red error block",
+      "Background dispatch spawn failures now report the error class name when no errno is available"
+    ],
+    "features_ko": [
+      "claude agents --json은 이제 대기 세션이 무엇에 의해 차단되고 있는지를 보여주는 waitingFor를 포함합니다 (예: 권한 프롬프트).",
+      "--tools: Grep/Glob을 명시적으로 나열하면 이제 내장 검색이 있는 네이티브 빌드에서 전용 검색 도구를 제공합니다 (이전에는 이 이름들이 무시되었습니다).",
+      "/effort는 선택한 수준이 새로운 세션의 기본값으로 유지될 것임을 확인합니다.",
+      "자동 완성 메뉴에서 슬래시 명령을 클릭하면 즉시 실행하는 대신 프롬프트에 채워집니다; 실행하려면 Enter를 누르세요.",
+      "원격 제어는 이제 시작 메시지 대신 세션에 대한 링크가 있는 지속적인 바닥글로 표시됩니다.",
+      "/ide 메뉴, /terminal-setup 및 /scroll-speed에서 Windsurf를 Devin Desktop으로 이름을 변경했습니다, 편집기의 리브랜딩에 따라.",
+      "claude agents에서 Ctrl+V 이미지 붙여넣기가 배치 입력 및 세션 응답 상자에서 아무것도 하지 않던 문제를 수정했습니다; 이미지 없이 붙여넣으면 힌트가 표시됩니다.",
+      "조용한 시작: 공지사항이 심각도별로 그룹화되고, 세션 정보 및 발표가 각 실행마다 한 줄로 공유됩니다.",
+      "시작 경고가 더 짧고 명확하게 다시 작성되었으며, 각 경고에는 구체적인 수정 사항이 포함됩니다.",
+      "실행 프롬프트 경고(딥 링크/미리 채워진 프롬프트)는 이제 입력 아래에 고정되어 있으며, 사용자가 조치를 취할 때까지 스크롤되지 않습니다.",
+      "실패한 턴은 이제 다중 줄 빨간 오류 블록 대신 간결한 경고 줄로 표시됩니다.",
+      "백그라운드 배치 생성 실패는 errno가 없을 때 오류 클래스 이름을 보고합니다."
+    ]
+  },
+  {
     "version": "2.1.161",
     "date": "2026-06-02",
     "commands": [

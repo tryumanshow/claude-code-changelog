@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-02 23:05 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-03 23:08 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.162** | 2026-06-03 | `--tools`, `/effort`, `/ide`, `/terminal-setup`, `/scroll-speed`, `Ctrl+V` | claude agents --json now includes waitingFor showing what a waiting session is blocked on (e.g. permission prompt) / --tools: explicitly listing Grep/Glob now provides the dedicated search tools on... |
 | **v2.1.161** | 2026-06-02 | `/mcp`, `/effort`, `--output-format text`, `/usage-credits`, `/autofix-pr`, `--resume`, `/terminal-setup` | OTEL_RESOURCE_ATTRIBUTES values are now included as labels on metric datapoints, so you can slice usage metrics by custom dimensions like team or repo / claude agents rows now show done/total befor... |
 | **v2.1.160** | 2026-06-02 | `/effort ultracode`, `/effort`, `--model` | Added a prompt before writing to shell startup files (.zshenv, .zlogin, .bash_login) and ~/.config/git/, which could otherwise lead to unintended command execution / acceptEdits mode now prompts be... |
 | **v2.1.159** | 2026-05-31 | — | Internal infrastructure improvements (no user-facing changes) |
@@ -83,7 +84,6 @@
 | **v2.1.62** | 2026-02-27 | — | Fixed prompt suggestion cache regression that reduced cache hit rates |
 | **v2.1.61** | 2026-02-26 | — | Fixed concurrent writes corrupting config file on Windows |
 | **v2.1.59** | 2026-02-26 | `/memory`, `/copy` | Claude automatically saves useful context to auto-memory. Manage with /memory / Added /copy command to show an interactive picker when code blocks are present, allowing selection of individual code... |
-| **v2.1.58** | 2026-02-25 | — | Expand Remote Control to more users |
 
 ---
 
