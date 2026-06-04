@@ -1,5 +1,77 @@
 [
   {
+    "version": "2.1.163",
+    "date": "2026-06-04",
+    "commands": [
+      {
+        "name": "/plugin list",
+        "context": "new",
+        "summary": "Added `/plugin list` command to list installed plugins, with `--enabled`/`--disa"
+      },
+      {
+        "name": "--enabled",
+        "context": "new",
+        "summary": "Added `/plugin list` command to list installed plugins, with `--enabled`/`--disa"
+      },
+      {
+        "name": "--disabled",
+        "context": "new",
+        "summary": "Added `/plugin list` command to list installed plugins, with `--enabled`/`--disa"
+      },
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added `/plugin list` command to list installed plugins, with `--enabled`/`--disa"
+      },
+      {
+        "name": "/btw",
+        "context": "new",
+        "summary": "Added a \"c to copy\" shortcut to `/btw` that copies the raw markdown answer to th"
+      },
+      {
+        "name": "--resume",
+        "context": "improved",
+        "summary": "stdio MCP servers now receive the same `CLAUDE_CODE_SESSION_ID` as hooks/Bash on"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed a stray \"(no content)\" line left in the transcript after closing panel dia"
+      },
+      {
+        "name": "/plugins",
+        "context": "fixed",
+        "summary": "Fixed a stray \"(no content)\" line left in the transcript after closing panel dia"
+      }
+    ],
+    "features": [
+      "Added requiredMinimumVersion and requiredMaximumVersion managed settings — Claude Code refuses to start if its version is outside the allowed range and directs the user to an approved version",
+      "Added /plugin list command to list installed plugins, with --enabled/--disabled filters",
+      "Added a \"c to copy\" shortcut to /btw that copies the raw markdown answer to the clipboard, preserving formatting when pasted elsewhere",
+      "Hooks: Stop and SubagentStop hooks can now return hookSpecificOutput.additionalContext to give Claude feedback and keep the turn going without being labeled a hook error",
+      "Skills: added \\$ escape syntax to include a literal $ before a digit in command bodies",
+      "stdio MCP servers now receive the same CLAUDE_CODE_SESSION_ID as hooks/Bash on --resume",
+      "Fixed a stray \"(no content)\" line left in the transcript after closing panel dialogs like /mcp and /plugins",
+      "Background agent sessions now update to a new Claude Code version in the background, so opening a session after an update no longer waits on a cold restart",
+      "Clearer descriptions for built-in commands and skills in the / menu",
+      "The subscription-switch suggestion now shows in the startup announcement slot instead of a toast",
+      "claude agents dispatching from the state-grouped view now starts the session in the directory the agent view was opened from"
+    ],
+    "features_ko": [
+      "requiredMinimumVersion 및 requiredMaximumVersion 관리 설정이 추가되었습니다 — Claude Code는 버전이 허용 범위를 벗어나면 시작을 거부하고 승인된 버전으로 안내합니다.",
+      "설치된 플러그인을 나열하는 /plugin list 명령이 추가되었으며, --enabled/--disabled 필터가 포함됩니다.",
+      "/btw에 \"c to copy\" 단축키가 추가되어 원본 markdown 답변을 클립보드에 복사하며, 다른 곳에 붙여넣을 때 형식이 유지됩니다.",
+      "Hooks: Stop 및 SubagentStop 훅은 이제 hookSpecificOutput.additionalContext를 반환하여 Claude에 피드백을 제공하고 훅 오류로 표시되지 않고 턴을 계속 진행할 수 있습니다.",
+      "Skills: 명령 본문에서 숫자 앞에 리터럴 $를 포함하기 위한 \\$ 이스케이프 구문이 추가되었습니다.",
+      "stdio MCP 서버는 이제 --resume에서 훅/Bash와 동일한 CLAUDE_CODE_SESSION_ID를 수신합니다.",
+      "/mcp 및 /plugins와 같은 패널 대화 상자를 닫은 후 전사에 남아 있는 \"(no content)\" 줄이 수정되었습니다.",
+      "백그라운드 에이전트 세션은 이제 백그라운드에서 새로운 Claude Code 버전으로 업데이트되므로 업데이트 후 세션을 열 때 더 이상 콜드 재시작을 기다리지 않습니다.",
+      "/ 메뉴의 내장 명령 및 기술에 대한 설명이 더 명확해졌습니다.",
+      "구독 전환 제안이 이제 토스트 대신 시작 알림 슬롯에 표시됩니다.",
+      "상태 그룹화된 뷰에서 배포되는 claude agents는 이제 에이전트 뷰가 열린 디렉토리에서 세션을 시작합니다."
+    ]
+  },
+  {
     "version": "2.1.162",
     "date": "2026-06-03",
     "commands": [
