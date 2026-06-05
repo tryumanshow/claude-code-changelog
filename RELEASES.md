@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-04 22:25 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-05 22:20 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.165** | 2026-06-05 | — | Bug fixes and reliability improvements |
 | **v2.1.163** | 2026-06-04 | `/plugin list`, `--enabled`, `--disabled`, `/plugin`, `/btw`, `--resume`, `/mcp`, `/plugins` | Added requiredMinimumVersion and requiredMaximumVersion managed settings — Claude Code refuses to start if its version is outside the allowed range and directs the user to an approved version / Add... |
 | **v2.1.162** | 2026-06-03 | `--tools`, `/effort`, `/ide`, `/terminal-setup`, `/scroll-speed`, `Ctrl+V` | claude agents --json now includes waitingFor showing what a waiting session is blocked on (e.g. permission prompt) / --tools: explicitly listing Grep/Glob now provides the dedicated search tools on... |
 | **v2.1.161** | 2026-06-02 | `/mcp`, `/effort`, `--output-format text`, `/usage-credits`, `/autofix-pr`, `--resume`, `/terminal-setup` | OTEL_RESOURCE_ATTRIBUTES values are now included as labels on metric datapoints, so you can slice usage metrics by custom dimensions like team or repo / claude agents rows now show done/total befor... |
@@ -83,7 +84,6 @@
 | **v2.1.66** | 2026-03-04 | — | Reduced spurious error logging |
 | **v2.1.63** | 2026-02-28 | `/simplify`, `/batch`, `/cost`, `/model`, `/copy`, `/clear` | Added /simplify and /batch bundled slash commands / Fixed local slash command output like /cost appearing as user-sent messages instead of system messages in the UI / Project configs & auto memory ... |
 | **v2.1.62** | 2026-02-27 | — | Fixed prompt suggestion cache regression that reduced cache hit rates |
-| **v2.1.61** | 2026-02-26 | — | Fixed concurrent writes corrupting config file on Windows |
 
 ---
 
