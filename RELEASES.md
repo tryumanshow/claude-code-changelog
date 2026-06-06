@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-05 22:20 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-06 22:10 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.167** | 2026-06-06 | — | Bug fixes and reliability improvements |
+| **v2.1.166** | 2026-06-06 | `--fallback-model`, `--thinking disabled`, `Shift+n`, `/login`, `/voice`, `Ctrl+O`, `/doctor` | Added fallbackModel setting to configure up to three fallback models tried in order when the primary model is overloaded or unavailable; --fallback-model now also applies to interactive sessions / ... |
 | **v2.1.165** | 2026-06-05 | — | Bug fixes and reliability improvements |
 | **v2.1.163** | 2026-06-04 | `/plugin list`, `--enabled`, `--disabled`, `/plugin`, `/btw`, `--resume`, `/mcp`, `/plugins` | Added requiredMinimumVersion and requiredMaximumVersion managed settings — Claude Code refuses to start if its version is outside the allowed range and directs the user to an approved version / Add... |
 | **v2.1.162** | 2026-06-03 | `--tools`, `/effort`, `/ide`, `/terminal-setup`, `/scroll-speed`, `Ctrl+V` | claude agents --json now includes waitingFor showing what a waiting session is blocked on (e.g. permission prompt) / --tools: explicitly listing Grep/Glob now provides the dedicated search tools on... |
@@ -82,8 +84,6 @@
 | **v2.1.69** | 2026-03-05 | `/claude-api`, `Ctrl+U`, `/remote-control`, `--name`, `--agent`, `/reload-plugins`, `--worktree`, `--model claude-opus-4-0`, `--model claude-opus-4-1`, `/login`, `Shift+E`, `Ctrl+S`, `ctrl+o`, `/stats`, `--setting-sources user`, `/plugin`, `/compact`, `/voice`, `/cost`, `/clear`, `--mcp-config`, `/context`, `Ctrl+O`, `/config`, `--append-system-prompt-file`, `--system-prompt-file`, `/resume` | Added the /claude-api skill for building applications with the Claude API and Anthropic SDK / Added Ctrl+U on an empty bash prompt (!) to exit bash mode, matching escape and backspace / Added numer... |
 | **v2.1.68** | 2026-03-04 | `/model` | Opus 4.6 now defaults to medium effort for Max and Team subscribers. Medium effort works well for most tasks — it's the sweet spot between speed and thoroughness. You can change this anytime with /... |
 | **v2.1.66** | 2026-03-04 | — | Reduced spurious error logging |
-| **v2.1.63** | 2026-02-28 | `/simplify`, `/batch`, `/cost`, `/model`, `/copy`, `/clear` | Added /simplify and /batch bundled slash commands / Fixed local slash command output like /cost appearing as user-sent messages instead of system messages in the UI / Project configs & auto memory ... |
-| **v2.1.62** | 2026-02-27 | — | Fixed prompt suggestion cache regression that reduced cache hit rates |
 
 ---
 
