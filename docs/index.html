@@ -406,14 +406,14 @@
       <iframe src="https://ghbtns.com/github-btn.html?user=tryumanshow&amp;repo=claude-code-changelog&amp;type=star&amp;count=true&amp;size=large" frameborder="0" scrolling="0" width="120" height="30" title="GitHub Stars" style="vertical-align: middle;"></iframe>
     </div>
     <p class="meta" data-i18n-html="meta">
-      Updated daily at 06:00 KST &middot; Last sync: 2026-06-06 22:10 UTC &middot;
+      Updated daily at 06:00 KST &middot; Last sync: 2026-06-07 22:11 UTC &middot;
       <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot;
       <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>
     </p>
   </header>
 
   <div class="stats">
-    <div class="stat"><div class="num">310</div><div class="label" data-i18n="stat_total">Total Versions</div></div>
+    <div class="stat"><div class="num">311</div><div class="label" data-i18n="stat_total">Total Versions</div></div>
     <div class="stat"><div class="num">164</div><div class="label" data-i18n="stat_cmds">With New Commands</div></div>
     <div class="stat" id="stat-latest"><div class="num">—</div><div class="label" data-i18n="stat_latest">Latest Release</div></div>
   </div>
@@ -443,6 +443,7 @@
       </tr>
     </thead>
     <tbody id="tbody">
+    <tr><td class="mono">v2.1.168</td><td class="nowrap">2026-06-06</td><td class="cmds"><span class="dim">—</span></td><td class="feats"><div class="feat-en"><ul><li>Bug fixes and reliability improvements</li></ul></div><div class="feat-ko" style="display:none"><ul><li>버그 수정 및 안정성 향상</li></ul></div></td></tr>
     <tr><td class="mono">v2.1.167</td><td class="nowrap">2026-06-06</td><td class="cmds"><span class="dim">—</span></td><td class="feats"><div class="feat-en"><ul><li>Bug fixes and reliability improvements</li></ul></div><div class="feat-ko" style="display:none"><ul><li>버그 수정 및 안정성 향상</li></ul></div></td></tr>
     <tr class="has-commands"><td class="mono">v2.1.166</td><td class="nowrap">2026-06-06</td><td class="cmds"><span class="cmd-item" title="Added `fallbackModel` setting to configure up to three fallback models tried in "><code>--fallback-model</code><span class="cmd-badge new">NEW</span></span> <span class="cmd-item" title="`MAX_THINKING_TOKENS=0`, `--thinking disabled`, and the per-model thinking toggl"><code>--thinking disabled</code><span class="cmd-badge improved">IMP</span></span> <span class="cmd-item" title="Fixed Shift+non-ASCII characters (e.g. Shift+ä → Ä) being dropped in terminals u"><code>Shift+n</code><span class="cmd-badge fixed">FIX</span></span> <span class="cmd-item" title="Fixed voice mode requiring `/login` to clear a stale auth check after toggling `"><code>/login</code><span class="cmd-badge fixed">FIX</span></span> <span class="cmd-item" title="Fixed voice mode requiring `/login` to clear a stale auth check after toggling `"><code>/voice</code><span class="cmd-badge fixed">FIX</span></span> <span class="cmd-item" title="Fixed duplicated thinking text in the Ctrl+O transcript view while streaming"><code>Ctrl+O</code><span class="cmd-badge fixed">FIX</span></span> <span class="cmd-item" title="Fixed `/doctor` showing a contradictory failed &quot;Not inside a remote session&quot; che"><code>/doctor</code><span class="cmd-badge fixed">FIX</span></span></td><td class="feats"><div class="feat-en"><ul><li>Added fallbackModel setting to configure up to three fallback models tried in order when the primary model is overloaded or unavailable; <code class="cmd-ref new">--fallback-model</code> now also applies to interactive sessions</li><li>Added glob pattern support in deny rule tool-name position (&quot;*&quot; denies all tools); allow rules reject non-MCP globs, and unknown tool names in deny rules warn at startup</li><li>Hardened cross-session messaging: messages relayed via SendMessage from other Claude sessions no longer carry user authority — receivers refuse relayed permission requests, and auto mode blocks them</li><li>MAX_THINKING_TOKENS=0, <code class="cmd-ref improved">--thinking disabled</code>, and the per-model thinking toggle now disable thinking on models that think by default via the Claude API (3P providers unchanged)</li><li>Claude Code now retries a turn once on the fallback model when the API rejects an unexpected non-retryable error; auth, rate-limit, request-size, and transport errors still surface immediately</li><li>claude update now announces the target version before downloading instead of going silent</li><li>claude agents: typing a URL into the list now filters to the session whose first prompt contained it</li><li>Fixed Shift+non-ASCII characters (e.g. Shift+ä → Ä) being dropped in terminals using the Kitty keyboard protocol (WezTerm, Ghostty, kitty)</li><li>Fixed voice mode requiring <code class="cmd-ref fixed">/login</code> to clear a stale auth check after toggling <code class="cmd-ref fixed">/voice</code></li><li>Fixed duplicated thinking text in the <code class="cmd-ref fixed">Ctrl+O</code> transcript view while streaming</li><li>Fixed <code class="cmd-ref fixed">/doctor</code> showing a contradictory failed &quot;Not inside a remote session&quot; check when run inside a remote session</li></ul></div><div class="feat-ko" style="display:none"><ul><li>기본 모델이 과부하되거나 사용할 수 없을 때 순서대로 최대 세 개의 fallback 모델을 시도하도록 fallbackModel 설정을 추가했습니다; --fallback-model은 이제 대화형 세션에도 적용됩니다.</li><li>deny 규칙의 tool-name 위치에 glob 패턴 지원을 추가했습니다 (&quot;*&quot;는 모든 도구를 거부합니다); allow 규칙은 비-MCP glob을 거부하며, deny 규칙의 알 수 없는 도구 이름은 시작 시 경고합니다.</li><li>세션 간 메시징을 강화했습니다: 다른 Claude 세션에서 SendMessage를 통해 전달된 메시지는 더 이상 사용자 권한을 포함하지 않으며 — 수신자는 전달된 권한 요청을 거부하고 자동 모드는 이를 차단합니다.</li><li>MAX_THINKING_TOKENS=0, --thinking이 비활성화되었으며, 모델별 사고 전환 스위치는 이제 Claude API를 통해 기본적으로 사고하는 모델에서 사고를 비활성화합니다 (3P 제공자는 변경되지 않음).</li><li>Claude Code는 API가 예상치 못한 비재시도 오류를 거부할 때 fallback 모델에서 한 번 턴을 재시도합니다; 인증, 속도 제한, 요청 크기 및 전송 오류는 여전히 즉시 나타납니다.</li><li>claude update는 다운로드 전에 대상 버전을 발표하며 더 이상 침묵하지 않습니다.</li><li>claude agents: 목록에 URL을 입력하면 해당 URL이 포함된 첫 번째 프롬프트가 있는 세션으로 필터링됩니다.</li><li>Kitty 키보드 프로토콜을 사용하는 터미널에서 Shift+비ASCII 문자 (예: Shift+ä → Ä)가 누락되는 문제를 수정했습니다 (WezTerm, Ghostty, kitty).</li><li>voice 모드에서 /voice를 전환한 후 오래된 인증 검사를 지우기 위해 /login이 필요했던 문제를 수정했습니다.</li><li>스트리밍 중 <code class="cmd-ref fixed">Ctrl+O</code> 전사 보기에서 중복된 사고 텍스트가 나타나는 문제를 수정했습니다.</li><li>원격 세션 내에서 실행할 때 모순된 &quot;원격 세션 내에 없음&quot; 체크가 실패하는 <code class="cmd-ref fixed">/doctor</code> 문제를 수정했습니다.</li></ul></div></td></tr>
     <tr><td class="mono">v2.1.165</td><td class="nowrap">2026-06-05</td><td class="cmds"><span class="dim">—</span></td><td class="feats"><div class="feat-en"><ul><li>Bug fixes and reliability improvements</li></ul></div><div class="feat-ko" style="display:none"><ul><li>버그 수정 및 안정성 향상</li></ul></div></td></tr>
@@ -805,7 +806,7 @@
       legend_imp: 'Improved',
       legend_fix: 'Fixed',
       legend_del: 'Removed',
-      meta: 'Updated daily at 06:00 KST &middot; Last sync: 2026-06-06 22:10 UTC &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
+      meta: 'Updated daily at 06:00 KST &middot; Last sync: 2026-06-07 22:11 UTC &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
       toggle_label: '한국어',
     },
     ko: {
@@ -823,7 +824,7 @@
       legend_imp: '개선',
       legend_fix: '수정',
       legend_del: '삭제',
-      meta: '매일 오전 6시(KST) 자동 업데이트 &middot; 마지막 동기화: 2026-06-06 22:10 UTC &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
+      meta: '매일 오전 6시(KST) 자동 업데이트 &middot; 마지막 동기화: 2026-06-07 22:11 UTC &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
       toggle_label: 'English',
     },
   };

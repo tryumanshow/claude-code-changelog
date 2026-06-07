@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-06 22:10 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-07 22:11 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.168** | 2026-06-06 | — | Bug fixes and reliability improvements |
 | **v2.1.167** | 2026-06-06 | — | Bug fixes and reliability improvements |
 | **v2.1.166** | 2026-06-06 | `--fallback-model`, `--thinking disabled`, `Shift+n`, `/login`, `/voice`, `Ctrl+O`, `/doctor` | Added fallbackModel setting to configure up to three fallback models tried in order when the primary model is overloaded or unavailable; --fallback-model now also applies to interactive sessions / ... |
 | **v2.1.165** | 2026-06-05 | — | Bug fixes and reliability improvements |
@@ -83,7 +84,6 @@
 | **v2.1.70** | 2026-03-06 | `/plugin`, `/security-review`, `/color`, `/color default`, `/color gray`, `/color reset`, `/color none`, `--resume`, `/rename`, `/poll`, `/mcp` | Fixed plugins showing as inaccurately installed in /plugin / Fixed /security-review command failing with unknown option merge-base on older git versions / Fixed /color command having no way to rese... |
 | **v2.1.69** | 2026-03-05 | `/claude-api`, `Ctrl+U`, `/remote-control`, `--name`, `--agent`, `/reload-plugins`, `--worktree`, `--model claude-opus-4-0`, `--model claude-opus-4-1`, `/login`, `Shift+E`, `Ctrl+S`, `ctrl+o`, `/stats`, `--setting-sources user`, `/plugin`, `/compact`, `/voice`, `/cost`, `/clear`, `--mcp-config`, `/context`, `Ctrl+O`, `/config`, `--append-system-prompt-file`, `--system-prompt-file`, `/resume` | Added the /claude-api skill for building applications with the Claude API and Anthropic SDK / Added Ctrl+U on an empty bash prompt (!) to exit bash mode, matching escape and backspace / Added numer... |
 | **v2.1.68** | 2026-03-04 | `/model` | Opus 4.6 now defaults to medium effort for Max and Team subscribers. Medium effort works well for most tasks — it's the sweet spot between speed and thoroughness. You can change this anytime with /... |
-| **v2.1.66** | 2026-03-04 | — | Reduced spurious error logging |
 
 ---
 
