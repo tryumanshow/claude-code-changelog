@@ -1,10 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-08 22:43 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-09 22:41 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
-| **v2.1.169** | 2026-06-08 | `--safe-mode`, `/cd`, `--mcp-config`, `--all`, `/workflows`, `--ide`, `--chrome`, `--bare`, `--remote-control` | Added --safe-mode flag (and CLAUDE_CODE_SAFE_MODE) to start Claude Code with all customizations (CLAUDE.md, plugins, skills, hooks, MCP servers) disabled for troubleshooting / Added /cd command to ... |
+| **v2.1.170** | 2026-06-09 | — | Introducing Claude Fable 5: a Mythos-class model that we’ve made safe for general use. Fable’s capabilities exceed those of any model we’ve ever made generally available. Update to version 2.1.170 ... |
+| **v2.1.169** | 2026-06-08 | `--safe-mode`, `/cd`, `--mcp-config`, `--all`, `/workflows`, `--ide`, `--chrome`, `--bare`, `--remote-control` | Self-hosted runner: added a post-session lifecycle hook that runs after the session ends and before the workspace is deleted, so you can snapshot uncommitted work or export logs; also made the chil... |
 | **v2.1.168** | 2026-06-06 | — | Bug fixes and reliability improvements |
 | **v2.1.167** | 2026-06-06 | — | Bug fixes and reliability improvements |
 | **v2.1.166** | 2026-06-06 | `--fallback-model`, `--thinking disabled`, `Shift+n`, `/login`, `/voice`, `Ctrl+O`, `/doctor` | Added fallbackModel setting to configure up to three fallback models tried in order when the primary model is overloaded or unavailable; --fallback-model now also applies to interactive sessions / ... |
@@ -83,7 +84,6 @@
 | **v2.1.72** | 2026-03-10 | `/copy`, `/plan`, `/effort auto`, `/effort`, `/config`, `--continue`, `--compact`, `--effort`, `/clear`, `Ctrl+B`, `/model`, `Ctrl+C`, `Shift+E`, `/anthropic` | Added w key in /copy to write the focused selection directly to a file, bypassing the clipboard (useful over SSH) / Added optional description argument to /plan (e.g., /plan fix the auth bug) that ... |
 | **v2.1.71** | 2026-03-07 | `/loop`, `/fork`, `/plugin`, `/permissions`, `--print`, `/plugin uninstall`, `/debug` | Added /loop command to run a prompt or slash command on a recurring interval (e.g. /loop 5m check the deploy) / Added cron scheduling tools for recurring prompts within a session / Added voice:push... |
 | **v2.1.70** | 2026-03-06 | `/plugin`, `/security-review`, `/color`, `/color default`, `/color gray`, `/color reset`, `/color none`, `--resume`, `/rename`, `/poll`, `/mcp` | Fixed plugins showing as inaccurately installed in /plugin / Fixed /security-review command failing with unknown option merge-base on older git versions / Fixed /color command having no way to rese... |
-| **v2.1.69** | 2026-03-05 | `/claude-api`, `Ctrl+U`, `/remote-control`, `--name`, `--agent`, `/reload-plugins`, `--worktree`, `--model claude-opus-4-0`, `--model claude-opus-4-1`, `/login`, `Shift+E`, `Ctrl+S`, `ctrl+o`, `/stats`, `--setting-sources user`, `/plugin`, `/compact`, `/voice`, `/cost`, `/clear`, `--mcp-config`, `/context`, `Ctrl+O`, `/config`, `--append-system-prompt-file`, `--system-prompt-file`, `/resume` | Added the /claude-api skill for building applications with the Claude API and Anthropic SDK / Added Ctrl+U on an empty bash prompt (!) to exit bash mode, matching escape and backspace / Added numer... |
 
 ---
 
