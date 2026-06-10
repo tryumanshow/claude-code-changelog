@@ -1,5 +1,85 @@
 [
   {
+    "version": "2.1.172",
+    "date": "2026-06-10",
+    "commands": [
+      {
+        "name": "/status",
+        "context": "improved",
+        "summary": "Amazon Bedrock now reads the AWS region from `~/.aws` config files when `AWS_REG"
+      },
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added a search bar when browsing a marketplace's plugins in `/plugin`"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed `/model` suggestions in the `claude agents` dispatch input rendering with "
+      },
+      {
+        "name": "/config",
+        "context": "fixed",
+        "summary": "Fixed `WebFetch(domain:*.example.com)` wildcard domain rules never matching subd"
+      },
+      {
+        "name": "/goal",
+        "context": "improved",
+        "summary": "Reduced idle CPU usage: `/goal` status chip no longer re-renders the terminal at"
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "`/code-review` now keeps the `ultra` option visible when you're not signed in to"
+      },
+      {
+        "name": "/rc",
+        "context": "mentioned",
+        "summary": "Shortened the Remote Control footer indicator to \"/rc active\" and hid it on narr"
+      },
+      {
+        "name": "/loop",
+        "context": "mentioned",
+        "summary": "Stopped promoting `/loop` in remote sessions, where pending loops don't keep the"
+      }
+    ],
+    "features": [
+      "Sub-agents can now spawn their own sub-agents (up to 5 levels deep)",
+      "Amazon Bedrock now reads the AWS region from ~/.aws config files when AWS_REGION isn't set, matching AWS SDK precedence; /status shows where the region came from",
+      "Added a search bar when browsing a marketplace's plugins in /plugin",
+      "Added model attribute to the claude_code.lines_of_code.count OTEL metric",
+      "Fixed /model suggestions in the claude agents dispatch input rendering with a misleading slash prefix and showing models disabled for your org",
+      "Fixed availableModels allowlists hiding the /model picker's Opus and Sonnet 1M rows when entries use version-specific IDs like claude-opus-4-8",
+      "Fixed the /model picker on Bedrock offering models the provider doesn't serve — selecting one silently switched the session model and lit the selection marker on multiple rows",
+      "Fixed WebFetch(domain:*.example.com) wildcard domain rules never matching subdomains in allow, deny, and ask position, and file permission rules with mid-pattern wildcards (e.g. Read(secrets-*/config.json)) being rejected at startup",
+      "Disable mouse tracking on Windows consoles that don't fully support it",
+      "Fixed the /plugin marketplace list losing its cursor after backing out of a long plugin list, and Esc from the plugin browser returning to the wrong tab",
+      "Reduced idle CPU usage: /goal status chip no longer re-renders the terminal at 5 Hz while idle, and fewer UI re-renders while subagents run in parallel",
+      "/code-review now keeps the ultra option visible when you're not signed in to claude.ai, with an explanation that the cloud review requires a claude.ai account",
+      "Shortened the Remote Control footer indicator to \"/rc active\" and hid it on narrow terminals",
+      "Stopped promoting /loop in remote sessions, where pending loops don't keep the container alive",
+      "[VSCode] Fixed PowerShell tool calls rendering as raw JSON instead of a proper command display and permission dialog, and stripped ANSI escape codes from displayed shell output"
+    ],
+    "features_ko": [
+      "서브 에이전트가 이제 자신의 서브 에이전트(최대 5단계 깊이)를 생성할 수 있습니다.",
+      "Amazon Bedrock는 이제 AWS_REGION이 설정되지 않은 경우 ~/.aws 구성 파일에서 AWS 리전을 읽어오며, AWS SDK 우선 순위와 일치합니다; /status에서 리전의 출처를 확인할 수 있습니다.",
+      "/plugin에서 마켓플레이스의 플러그인을 탐색할 때 검색 바가 추가되었습니다.",
+      "claude_code.lines_of_code.count OTEL 메트릭에 모델 속성이 추가되었습니다.",
+      "claude 에이전트의 입력 렌더링에서 /model 제안이 잘못된 슬래시 접두사를 사용하고 귀하의 조직에 대해 비활성화된 모델을 표시하는 문제를 수정했습니다.",
+      "version-specific ID(예: claude-opus-4-8)를 사용하는 항목으로 인해 /model 선택기의 Opus 및 Sonnet 1M 행이 숨겨지는 availableModels allowlist 문제를 수정했습니다.",
+      "Bedrock에서 제공하지 않는 모델을 제공하는 /model 선택기 문제를 수정했습니다 — 하나를 선택하면 세션 모델이 조용히 전환되고 여러 행에서 선택 마커가 활성화되었습니다.",
+      "WebFetch(domain:*.example.com) 와일드카드 도메인 규칙이 allow, deny 및 ask 위치에서 서브도메인과 일치하지 않으며, 중간 패턴 와일드카드(예: Read(secrets-*/config.json))를 가진 파일 권한 규칙이 시작 시 거부되는 문제를 수정했습니다.",
+      "완전히 지원되지 않는 Windows 콘솔에서 마우스 추적을 비활성화했습니다.",
+      "긴 플러그인 목록에서 뒤로 나올 때 /plugin 마켓플레이스 목록의 커서가 사라지는 문제와 플러그인 브라우저에서 Esc를 눌렀을 때 잘못된 탭으로 돌아가는 문제를 수정했습니다.",
+      "유휴 CPU 사용량을 줄였습니다: /goal status 칩이 유휴 상태에서 5Hz로 터미널을 다시 렌더링하지 않으며, 서브 에이전트가 병렬로 실행되는 동안 UI 재렌더링이 줄어들었습니다.",
+      "/code-review는 이제 claude.ai에 로그인하지 않은 경우에도 ultra 옵션을 표시하며, 클라우드 리뷰에는 claude.ai 계정이 필요하다는 설명이 추가되었습니다.",
+      "원격 제어 바닥글 표시기를 \"/rc active\"로 단축하고 좁은 터미널에서는 숨겼습니다.",
+      "보류 중인 루프가 컨테이너를 유지하지 않는 원격 세션에서 /loop 홍보를 중단했습니다.",
+      "[VSCode] PowerShell 도구 호출이 적절한 명령 표시 및 권한 대화 상자가 아닌 원시 JSON으로 렌더링되는 문제를 수정하고 표시된 셸 출력에서 ANSI 이스케이프 코드를 제거했습니다."
+    ]
+  },
+  {
     "version": "2.1.170",
     "date": "2026-06-09",
     "commands": [],
