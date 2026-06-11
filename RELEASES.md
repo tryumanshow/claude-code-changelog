@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-10 22:54 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-11 22:51 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.173** | 2026-06-11 | — | Fixed Fable 5 model names with a [1m] suffix not being normalized — Fable 5 includes 1M context by default, so the suffix is now stripped automatically / Fixed a spurious "sandbox dependencies miss... |
 | **v2.1.172** | 2026-06-10 | `/status`, `/plugin`, `/model`, `/config`, `/goal`, `/code-review`, `/rc`, `/loop` | Sub-agents can now spawn their own sub-agents (up to 5 levels deep) / Amazon Bedrock now reads the AWS region from ~/.aws config files when AWS_REGION isn't set, matching AWS SDK precedence; /statu... |
 | **v2.1.170** | 2026-06-09 | — | Introducing Claude Fable 5: a Mythos-class model that we’ve made safe for general use. Fable’s capabilities exceed those of any model we’ve ever made generally available. Update to version 2.1.170 ... |
 | **v2.1.169** | 2026-06-08 | `--safe-mode`, `/cd`, `--mcp-config`, `--all`, `/workflows`, `--ide`, `--chrome`, `--bare`, `--remote-control` | Self-hosted runner: added a post-session lifecycle hook that runs after the session ends and before the workspace is deleted, so you can snapshot uncommitted work or export logs; also made the chil... |
@@ -83,7 +84,6 @@
 | **v2.1.74** | 2026-03-12 | `/context`, `--agents`, `--model`, `/plugin install`, `/plugin`, `--plugin-dir` | Added actionable suggestions to /context command — identifies context-heavy tools, memory bloat, and capacity warnings with specific optimization tips / Added autoMemoryDirectory setting to configu... |
 | **v2.1.73** | 2026-03-11 | `/resume`, `/ide`, `/loop`, `--resume`, `--continue`, `/heapdump`, `/effort`, `/model`, `/output-style`, `/config` | Added modelOverrides setting to map model picker entries to custom provider model IDs (e.g. Bedrock inference profile ARNs) / Added actionable guidance when OAuth login or connectivity checks fail ... |
 | **v2.1.72** | 2026-03-10 | `/copy`, `/plan`, `/effort auto`, `/effort`, `/config`, `--continue`, `--compact`, `--effort`, `/clear`, `Ctrl+B`, `/model`, `Ctrl+C`, `Shift+E`, `/anthropic` | Added w key in /copy to write the focused selection directly to a file, bypassing the clipboard (useful over SSH) / Added optional description argument to /plan (e.g., /plan fix the auth bug) that ... |
-| **v2.1.71** | 2026-03-07 | `/loop`, `/fork`, `/plugin`, `/permissions`, `--print`, `/plugin uninstall`, `/debug` | Added /loop command to run a prompt or slash command on a recurring interval (e.g. /loop 5m check the deploy) / Added cron scheduling tools for recurring prompts within a session / Added voice:push... |
 
 ---
 
