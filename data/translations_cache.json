@@ -1731,5 +1731,19 @@
   "0ed31611048b4a83": "보류 중인 루프가 컨테이너를 유지하지 않는 원격 세션에서 /loop 홍보를 중단했습니다.",
   "fc90e7d91d5b289c": "[VSCode] PowerShell 도구 호출이 적절한 명령 표시 및 권한 대화 상자가 아닌 원시 JSON으로 렌더링되는 문제를 수정하고 표시된 셸 출력에서 ANSI 이스케이프 코드를 제거했습니다.",
   "c969a12121927efc": "[1m] 접미사가 있는 Fable 5 모델 이름이 정규화되지 않는 문제를 수정했습니다. — Fable 5는 기본적으로 1M 컨텍스트를 포함하므로, 이제 접미사가 자동으로 제거됩니다.",
-  "1cabc1bdc03cac95": "설정에서 sandbox가 활성화된 경우 Windows에서 발생하는 \"sandbox dependencies missing\" 잘못된 시작 경고를 수정했습니다."
+  "1cabc1bdc03cac95": "설정에서 sandbox가 활성화된 경우 Windows에서 발생하는 \"sandbox dependencies missing\" 잘못된 시작 경고를 수정했습니다.",
+  "2ca2e64b15199b7e": "세션 제목이 이제 대화의 언어로 생성됩니다 (특정 언어를 고정하려면 언어 설정을 설정하세요)",
+  "3f16ebae352b4a43": "사용자 또는 관리 설정을 통해 구성 가능한 footerLinksRegexes 설정이 추가되었습니다.",
+  "824dadc6c560ff53": "availableModels 강제 적용을 수정했습니다: alias 모델 선택이 더 이상 ANTHROPIC_DEFAULT_*_MODEL 환경 변수를 통해 차단된 모델로 리디렉션될 수 없으며, /fast는 허용 목록 외의 모델로 전환할 때 토글을 거부합니다.",
+  "7cf7142fedff61ef": "/copy 및 마우스 선택 복사가 SSH를 통해 tmux 내에서 시스템 클립보드에 도달하지 않으며, tmux 붙여넣기 버퍼가 3.2 이전 버전에서 로드되지 않는 문제를 수정했습니다.",
+  "72609214d5d23e3b": "/cd 및 worktree 이동이 세션에서 이전 디렉토리의 git 브랜치를 보고하는 문제를 수정했습니다.",
+  "9103f2a4552a1986": "/bg 중간에 계속할 것이 없을 때 백그라운드 세션이 \"작업 중\"으로 영원히 표시되는 문제를 수정했습니다.",
+  "f5bafc57073e95b2": "자동 업데이트 중 열린 창이 응답을 제출할 수 없을 때 백그라운드 세션이 더 명확한 안내를 표시하며, claude daemon 상태가 버전 불일치 동작을 설명합니다.",
+  "458c84fb1e2755a2": "enforceAvailableModels 관리 설정이 추가되었습니다 — 활성화되면 availableModels 허용 목록이 Default 모델도 제한하며 (허용되지 않는 모델로 해결되는 Default는 이제 첫 번째 허용 모델로 대체됩니다), 사용자 또는 프로젝트 설정이 관리되는 availableModels 목록을 확장할 수 없습니다.",
+  "8d587fb335e66bd1": "전체 화면 모드에서 마우스 휠 스크롤 가속을 비활성화하는 wheelScrollAccelerationEnabled 설정이 추가되었습니다.",
+  "93f2c02fc8223e3e": "/model 선택기가 Default가 해결하는 모델 계열을 숨기는 문제를 수정했습니다 — Opus는 Max/Team Premium/Enterprise 플랜에서 자체 행으로 나타나고, Sonnet는 Pro/Team 플랜에서, Opus는 종량제 API 계정에서 나타납니다.",
+  "d4bca07da4517345": "/model 선택기가 ANTHROPIC_DEFAULT_SONNET_MODEL이 다른 Sonnet을 고정할 때 하드코딩된 Sonnet 버전 레이블을 표시하는 문제를 수정했습니다.",
+  "48314dbb6d9c2152": "백그라운드 세션이 백그라운드 데몬을 시작한 셸에서 다른 세션의 ANTHROPIC_* 공급자 환경(게이트웨이 URL, 사용자 정의 헤더, /model 별칭)을 상속하는 문제를 수정했습니다.",
+  "c5076b1db96dad5e": "/advisor 대화 상자가 availableModels 허용 목록에 의해 차단된 저장된 advisor 모델을 미리 선택하는 문제를 수정했습니다.",
+  "c10618c846dcc8c4": "[VSCode] 캐시 미스, 긴 컨텍스트, 서브 에이전트, 기술/에이전트/플러그인/MCP별 세분화를 지난 24시간 또는 7일 동안 보여주는 계정 및 사용 대화 상자(/usage)에 사용량 귀속이 추가되었습니다."
 }

@@ -1,9 +1,12 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-11 22:51 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-12 22:41 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.176** | 2026-06-12 | `/fast`, `/copy`, `/cd`, `/bg` | Session titles are now generated in the language of your conversation (set the language setting to pin a specific language) / Added footerLinksRegexes setting for regex-matched link badges in the f... |
+| **v2.1.175** | 2026-06-12 | — | Added enforceAvailableModels managed setting — when enabled, the availableModels allowlist also constrains the Default model (a Default that would resolve to a disallowed model now falls back to th... |
+| **v2.1.174** | 2026-06-12 | `/model`, `/advisor`, `/usage` | Added wheelScrollAccelerationEnabled setting to disable mouse-wheel scroll acceleration in fullscreen mode / Fixed the /model picker hiding the model family that Default resolves to — Opus now appe... |
 | **v2.1.173** | 2026-06-11 | — | Fixed Fable 5 model names with a [1m] suffix not being normalized — Fable 5 includes 1M context by default, so the suffix is now stripped automatically / Fixed a spurious "sandbox dependencies miss... |
 | **v2.1.172** | 2026-06-10 | `/status`, `/plugin`, `/model`, `/config`, `/goal`, `/code-review`, `/rc`, `/loop` | Sub-agents can now spawn their own sub-agents (up to 5 levels deep) / Amazon Bedrock now reads the AWS region from ~/.aws config files when AWS_REGION isn't set, matching AWS SDK precedence; /statu... |
 | **v2.1.170** | 2026-06-09 | — | Introducing Claude Fable 5: a Mythos-class model that we’ve made safe for general use. Fable’s capabilities exceed those of any model we’ve ever made generally available. Update to version 2.1.170 ... |
@@ -81,9 +84,6 @@
 | **v2.1.77** | 2026-03-17 | `/copy`, `/copy N`, `--resume`, `/feedback`, `Ctrl+D`, `/mcp`, `/fork`, `/branch` | Increased default maximum output token limits for Claude Opus 4.6 to 64k tokens, and the upper bound for Opus 4.6 and Sonnet 4.6 models to 128k tokens / Added allowRead sandbox filesystem setting t... |
 | **v2.1.76** | 2026-03-14 | `--name <name>`, `--name`, `--worktree`, `/effort`, `/voice`, `/export`, `--plugin-dir` | Added MCP elicitation support — MCP servers can now request structured input mid-task via an interactive dialog (form fields or browser URL) / Added new Elicitation and ElicitationResult hooks to i... |
 | **v2.1.75** | 2026-03-13 | `/color`, `/rename`, `/voice`, `/model`, `/plugin`, `/resume`, `/status`, `--verbose` | Added 1M context window for Opus 4.6 by default for Max, Team, and Enterprise plans (previously required extra usage) / Added /color command for all users to set a prompt-bar color for your session... |
-| **v2.1.74** | 2026-03-12 | `/context`, `--agents`, `--model`, `/plugin install`, `/plugin`, `--plugin-dir` | Added actionable suggestions to /context command — identifies context-heavy tools, memory bloat, and capacity warnings with specific optimization tips / Added autoMemoryDirectory setting to configu... |
-| **v2.1.73** | 2026-03-11 | `/resume`, `/ide`, `/loop`, `--resume`, `--continue`, `/heapdump`, `/effort`, `/model`, `/output-style`, `/config` | Added modelOverrides setting to map model picker entries to custom provider model IDs (e.g. Bedrock inference profile ARNs) / Added actionable guidance when OAuth login or connectivity checks fail ... |
-| **v2.1.72** | 2026-03-10 | `/copy`, `/plan`, `/effort auto`, `/effort`, `/config`, `--continue`, `--compact`, `--effort`, `/clear`, `Ctrl+B`, `/model`, `Ctrl+C`, `Shift+E`, `/anthropic` | Added w key in /copy to write the focused selection directly to a file, bypassing the clipboard (useful over SSH) / Added optional description argument to /plan (e.g., /plan fix the auth bug) that ... |
 
 ---
 
