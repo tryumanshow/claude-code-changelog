@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-14 22:18 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-15 23:06 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.178** | 2026-06-15 | `/doctor`, `/rc`, `/bug`, `ctrl+b`, `--fallback-model`, `/bg` | Added Tool(param:value) syntax for permission rules to match a tool's input parameters (with * wildcard), e.g. Agent(model:opus) to block Opus subagents / Skills in nested .claude/skills directorie... |
 | **v2.1.176** | 2026-06-12 | `/fast`, `/copy`, `/cd`, `/bg` | Session titles are now generated in the language of your conversation (set the language setting to pin a specific language) / Added footerLinksRegexes setting for regex-matched link badges in the f... |
 | **v2.1.175** | 2026-06-12 | — | Added enforceAvailableModels managed setting — when enabled, the availableModels allowlist also constrains the Default model (a Default that would resolve to a disallowed model now falls back to th... |
 | **v2.1.174** | 2026-06-12 | `/model`, `/advisor`, `/usage` | Added wheelScrollAccelerationEnabled setting to disable mouse-wheel scroll acceleration in fullscreen mode / Fixed the /model picker hiding the model family that Default resolves to — Opus now appe... |
@@ -83,7 +84,6 @@
 | **v2.1.78** | 2026-03-17 | `/plugin uninstall`, `/plugin`, `--resume`, `/sandbox`, `ctrl+u`, `ctrl+d`, `ctrl+k`, `--worktree`, `/model` | Added StopFailure hook event that fires when the turn ends due to an API error (rate limit, auth failure, etc.) / Added ${CLAUDE_PLUGIN_DATA} variable for plugin persistent state that survives plug... |
 | **v2.1.77** | 2026-03-17 | `/copy`, `/copy N`, `--resume`, `/feedback`, `Ctrl+D`, `/mcp`, `/fork`, `/branch` | Increased default maximum output token limits for Claude Opus 4.6 to 64k tokens, and the upper bound for Opus 4.6 and Sonnet 4.6 models to 128k tokens / Added allowRead sandbox filesystem setting t... |
 | **v2.1.76** | 2026-03-14 | `--name <name>`, `--name`, `--worktree`, `/effort`, `/voice`, `/export`, `--plugin-dir` | Added MCP elicitation support — MCP servers can now request structured input mid-task via an interactive dialog (form fields or browser URL) / Added new Elicitation and ElicitationResult hooks to i... |
-| **v2.1.75** | 2026-03-13 | `/color`, `/rename`, `/voice`, `/model`, `/plugin`, `/resume`, `/status`, `--verbose` | Added 1M context window for Opus 4.6 by default for Max, Team, and Enterprise plans (previously required extra usage) / Added /color command for all users to set a prompt-bar color for your session... |
 
 ---
 

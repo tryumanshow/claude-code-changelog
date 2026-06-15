@@ -1,5 +1,65 @@
 [
   {
+    "version": "2.1.178",
+    "date": "2026-06-15",
+    "commands": [
+      {
+        "name": "/doctor",
+        "context": "improved",
+        "summary": "Improved `/doctor` with consistent flat tree layout across all sections, clearer"
+      },
+      {
+        "name": "/rc",
+        "context": "improved",
+        "summary": "Improved Remote Control error messages: connection failures now show a persisten"
+      },
+      {
+        "name": "/bug",
+        "context": "improved",
+        "summary": "`/bug` now requires a description before submitting, and no longer uses model-re"
+      },
+      {
+        "name": "ctrl+b",
+        "context": "fixed",
+        "summary": "Fixed several subagent issues: viewing a subagent's transcript now shows tool re"
+      },
+      {
+        "name": "--fallback-model",
+        "context": "fixed",
+        "summary": "Fixed compaction not honoring `--fallback-model`: compaction now falls back to t"
+      },
+      {
+        "name": "/bg",
+        "context": "fixed",
+        "summary": "Fixed background sessions created with `/bg` or `←←` after a turn finished showi"
+      }
+    ],
+    "features": [
+      "Added Tool(param:value) syntax for permission rules to match a tool's input parameters (with * wildcard), e.g. Agent(model:opus) to block Opus subagents",
+      "Skills in nested .claude/skills directories now load when working on files there; on a name clash, the nested skill appears as <dir>:<name> so both stay available",
+      "Nested .claude/ directories: the agent, workflow, and output-style closest to the working directory now wins when names collide; project-scope workflow saves now target the closest existing .claude/workflows/",
+      "Improved /doctor with consistent flat tree layout across all sections, clearer section status icons, and highlighted command names",
+      "Improved Remote Control error messages: connection failures now show a persistent red \"/rc failed\" indicator in the footer, and the \"not yet enabled\" error now explains whether it's a gate, a check failure, stale entitlement, or org policy",
+      "/bug now requires a description before submitting, and no longer uses model-refusal text as the GitHub issue title",
+      "Fixed several subagent issues: viewing a subagent's transcript now shows tool results and live progress, messages sent while it finishes its turn are no longer dropped, and backgrounding a running subagent (ctrl+b) no longer restarts it from scratch",
+      "Fixed compaction not honoring --fallback-model: compaction now falls back to the configured fallback model chain on overload or model-availability errors",
+      "Fixed background sessions created with /bg or ←← after a turn finished showing \"Working\" forever in the agents list",
+      "[VSCode] Fixed pressing Esc to dismiss a CJK IME candidate window canceling the running Claude task"
+    ],
+    "features_ko": [
+      "도구의 입력 매개변수와 일치하는 권한 규칙을 위한 Tool(param:value) 구문이 추가되었습니다 (예: Agent(model:opus)로 Opus 하위 에이전트를 차단).",
+      "중첩된 .claude/skills 디렉토리의 기술이 이제 해당 파일 작업 시 로드됩니다; 이름 충돌 시 중첩된 기술은 <dir>:<name>으로 표시되어 둘 다 사용 가능합니다.",
+      "중첩된 .claude/ 디렉토리: 이름이 충돌할 경우 작업 디렉토리에 가장 가까운 에이전트, 워크플로우 및 출력 스타일이 우선합니다; 프로젝트 범위 워크플로우 저장은 이제 가장 가까운 기존 .claude/workflows/를 대상으로 합니다.",
+      "/doctor를 개선하여 모든 섹션에서 일관된 평면 트리 레이아웃, 더 명확한 섹션 상태 아이콘 및 강조된 명령어 이름을 제공합니다.",
+      "원격 제어 오류 메시지를 개선했습니다: 연결 실패 시 바닥글에 지속적인 빨간색 \"/rc failed\" 표시기가 나타나며, \"아직 활성화되지 않음\" 오류는 게이트, 체크 실패, 오래된 권한 또는 조직 정책인지 설명합니다.",
+      "/bug는 제출 전에 설명을 요구하며, 더 이상 GitHub 문제 제목으로 모델 거부 텍스트를 사용하지 않습니다.",
+      "여러 하위 에이전트 문제를 수정했습니다: 하위 에이전트의 전사 보기 시 도구 결과와 실시간 진행 상황이 표시되며, 턴이 끝나는 동안 전송된 메시지가 더 이상 누락되지 않고, 실행 중인 하위 에이전트를 백그라운드로 전환(ctrl+b)해도 처음부터 다시 시작되지 않습니다.",
+      "--fallback-model을 준수하지 않는 압축 문제를 수정했습니다: 압축은 이제 과부하 또는 모델 가용성 오류 시 구성된 폴백 모델 체인으로 되돌아갑니다.",
+      "턴이 끝난 후 /bg 또는 ←←로 생성된 백그라운드 세션이 에이전트 목록에서 \"작업 중\"으로 영원히 표시되는 문제를 수정했습니다.",
+      "[VSCode] Esc를 눌러 CJK IME 후보 창을 닫으면 실행 중인 Claude 작업이 취소되는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.176",
     "date": "2026-06-12",
     "commands": [
