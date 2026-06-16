@@ -1,5 +1,22 @@
 [
   {
+    "version": "2.1.179",
+    "date": "2026-06-16",
+    "commands": [
+      {
+        "name": "Ctrl+O",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+O not showing the subagent's transcript when viewing a subagent"
+      }
+    ],
+    "features": [
+      "Fixed Ctrl+O not showing the subagent's transcript when viewing a subagent"
+    ],
+    "features_ko": [
+      "서브 에이전트를 볼 때 Ctrl+O가 서브 에이전트의 기록을 표시하지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.178",
     "date": "2026-06-15",
     "commands": [
