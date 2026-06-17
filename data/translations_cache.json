@@ -1756,5 +1756,18 @@
   "a403d558ce6ca746": "--fallback-model을 준수하지 않는 압축 문제를 수정했습니다: 압축은 이제 과부하 또는 모델 가용성 오류 시 구성된 폴백 모델 체인으로 되돌아갑니다.",
   "cab689db68241482": "턴이 끝난 후 /bg 또는 ←←로 생성된 백그라운드 세션이 에이전트 목록에서 \"작업 중\"으로 영원히 표시되는 문제를 수정했습니다.",
   "76b21f7079fdeca8": "[VSCode] Esc를 눌러 CJK IME 후보 창을 닫으면 실행 중인 Claude 작업이 취소되는 문제를 수정했습니다.",
-  "d00aabf31b9b445a": "서브 에이전트를 볼 때 Ctrl+O가 서브 에이전트의 기록을 표시하지 않는 문제를 수정했습니다."
+  "d00aabf31b9b445a": "서브 에이전트를 볼 때 Ctrl+O가 서브 에이전트의 기록을 표시하지 않는 문제를 수정했습니다.",
+  "777e56b8ef56d27e": "프롬프트에서 설정을 설정할 수 있는 /config key=value 구문 추가 (예: /config thinking=false) — 인터랙티브, -p, Remote Control에서 작동",
+  "dfae1592f5804643": "sandbox.allowAppleEvents 선택적 설정 추가: 샌드박스된 명령이 macOS에서 Apple Events를 보낼 수 있게 함",
+  "78486cf8337b76ff": "CLAUDE_CLIENT_PRESENCE_FILE 환경 변수 추가: 마커 파일을 지정하여 기계에서 작업 중일 때 모바일 푸시 알림을 억제",
+  "489cbf6178c4bc99": "번들된 Bun 런타임을 1.4로 업그레이드",
+  "40fa554afbe2a662": "전체 화면 모드에서 URL 열기를 Cmd+click (macOS) / Ctrl+click로 변경하여 기본 터미널 동작과 일치",
+  "97fd5676ef34d646": "Spotlight가 재색인 중일 때 세션 시작 시 macOS TUI가 멈추는 문제 수정 (Ctrl+C 반응 없음)",
+  "7069b699e9fb5b42": "모델 전환 직후 /recap 및 대화 분기가 이전 모델을 사용하는 문제 수정",
+  "897ff688da42645f": "/remote-control이 오래된 \"connecting…\" 줄을 남기는 문제 수정; 연결되면 이제 전사에서 확인",
+  "2d91663a4b59df71": "~/.claude/settings.json이 심볼릭 링크 아래의 상대 심볼릭 링크일 때 /effort 또는 /model과 같은 설정 변경이 ENOENT로 실패하는 문제 수정",
+  "82869bc6fa840d16": "네이티브 터미널 선택 후 전체 화면에서 Ctrl+C가 앱의 이전 선택으로 클립보드를 덮어쓰는 문제 수정",
+  "fdd92a6abb30b323": "Ctrl+V가 클립보드에 텍스트가 있을 때 \"No image found in clipboard\"를 표시하는 문제 수정",
+  "ba56a4458f9a1a89": "/stats \"가장 활발한 날\" 및 일일 토큰 차트 날짜가 UTC-부정 시간대에서 하루 일찍 표시되는 문제 수정",
+  "3cbc3808f5f0fcbd": "Linux에서 /copy 및 copy-on-select가 Claude Code 시작 후 설치된 클립보드 유틸리티를 감지하지 못하는 문제 수정"
 }
