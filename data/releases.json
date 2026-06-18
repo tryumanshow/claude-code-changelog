@@ -138,6 +138,7 @@
       }
     ],
     "features": [
+      "Agent teams: removed the TeamCreate and TeamDelete tools. With CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 set, every session now has one implicit team — spawn teammates directly with the Agent tool's name parameter, no setup step needed. The team_name parameter on the Agent tool is still accepted but ignored.",
       "Added Tool(param:value) syntax for permission rules to match a tool's input parameters (with * wildcard), e.g. Agent(model:opus) to block Opus subagents",
       "Skills in nested .claude/skills directories now load when working on files there; on a name clash, the nested skill appears as <dir>:<name> so both stay available",
       "Nested .claude/ directories: the agent, workflow, and output-style closest to the working directory now wins when names collide; project-scope workflow saves now target the closest existing .claude/workflows/",
@@ -150,6 +151,7 @@
       "[VSCode] Fixed pressing Esc to dismiss a CJK IME candidate window canceling the running Claude task"
     ],
     "features_ko": [
+      "에이전트 팀: TeamCreate 및 TeamDelete 도구가 제거되었습니다. CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1이 설정되면, 모든 세션은 이제 하나의 암묵적인 팀을 가지며, 에이전트 도구의 name 매개변수를 사용하여 동료를 직접 생성할 수 있습니다. 설정 단계는 필요하지 않습니다. Agent 도구의 team_name 매개변수는 여전히 허용되지만 무시됩니다.",
       "도구의 입력 매개변수와 일치하는 권한 규칙을 위한 Tool(param:value) 구문이 추가되었습니다 (예: Agent(model:opus)로 Opus 하위 에이전트를 차단).",
       "중첩된 .claude/skills 디렉토리의 기술이 이제 해당 파일 작업 시 로드됩니다; 이름 충돌 시 중첩된 기술은 <dir>:<name>으로 표시되어 둘 다 사용 가능합니다.",
       "중첩된 .claude/ 디렉토리: 이름이 충돌할 경우 작업 디렉토리에 가장 가까운 에이전트, 워크플로우 및 출력 스타일이 우선합니다; 프로젝트 범위 워크플로우 저장은 이제 가장 가까운 기존 .claude/workflows/를 대상으로 합니다.",

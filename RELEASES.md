@@ -1,12 +1,12 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-17 22:48 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-18 22:59 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
 | **v2.1.181** | 2026-06-17 | `/config`, `Ctrl+c`, `Ctrl+C`, `/recap`, `/remote-control`, `/effort`, `/model`, `Ctrl+V`, `/stats`, `/copy` | Added /config key=value syntax to set any setting from the prompt (e.g. /config thinking=false) — works in interactive, -p, and Remote Control / Added sandbox.allowAppleEvents opt-in setting that l... |
 | **v2.1.179** | 2026-06-16 | `Ctrl+O` | Fixed Ctrl+O not showing the subagent's transcript when viewing a subagent |
-| **v2.1.178** | 2026-06-15 | `/doctor`, `/rc`, `/bug`, `ctrl+b`, `--fallback-model`, `/bg` | Added Tool(param:value) syntax for permission rules to match a tool's input parameters (with * wildcard), e.g. Agent(model:opus) to block Opus subagents / Skills in nested .claude/skills directorie... |
+| **v2.1.178** | 2026-06-15 | `/doctor`, `/rc`, `/bug`, `ctrl+b`, `--fallback-model`, `/bg` | Agent teams: removed the TeamCreate and TeamDelete tools. With CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 set, every session now has one implicit team — spawn teammates directly with the Agent tool's n... |
 | **v2.1.176** | 2026-06-12 | `/fast`, `/copy`, `/cd`, `/bg` | Session titles are now generated in the language of your conversation (set the language setting to pin a specific language) / Added footerLinksRegexes setting for regex-matched link badges in the f... |
 | **v2.1.175** | 2026-06-12 | — | Added enforceAvailableModels managed setting — when enabled, the availableModels allowlist also constrains the Default model (a Default that would resolve to a disallowed model now falls back to th... |
 | **v2.1.174** | 2026-06-12 | `/model`, `/advisor`, `/usage` | Added wheelScrollAccelerationEnabled setting to disable mouse-wheel scroll acceleration in fullscreen mode / Fixed the /model picker hiding the model family that Default resolves to — Opus now appe... |
