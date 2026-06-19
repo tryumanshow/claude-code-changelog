@@ -1770,5 +1770,10 @@
   "fdd92a6abb30b323": "Ctrl+V가 클립보드에 텍스트가 있을 때 \"No image found in clipboard\"를 표시하는 문제 수정",
   "ba56a4458f9a1a89": "/stats \"가장 활발한 날\" 및 일일 토큰 차트 날짜가 UTC-부정 시간대에서 하루 일찍 표시되는 문제 수정",
   "3cbc3808f5f0fcbd": "Linux에서 /copy 및 copy-on-select가 Claude Code 시작 후 설치된 클립보드 유틸리티를 감지하지 못하는 문제 수정",
-  "9a1c04b260680ebb": "에이전트 팀: TeamCreate 및 TeamDelete 도구가 제거되었습니다. CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1이 설정되면, 모든 세션은 이제 하나의 암묵적인 팀을 가지며, 에이전트 도구의 name 매개변수를 사용하여 동료를 직접 생성할 수 있습니다. 설정 단계는 필요하지 않습니다. Agent 도구의 team_name 매개변수는 여전히 허용되지만 무시됩니다."
+  "9a1c04b260680ebb": "에이전트 팀: TeamCreate 및 TeamDelete 도구가 제거되었습니다. CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1이 설정되면, 모든 세션은 이제 하나의 암묵적인 팀을 가지며, 에이전트 도구의 name 매개변수를 사용하여 동료를 직접 생성할 수 있습니다. 설정 단계는 필요하지 않습니다. Agent 도구의 team_name 매개변수는 여전히 허용되지만 무시됩니다.",
+  "8eef22667d7ef3fe": "요청한 모델이 더 이상 사용되지 않거나 자동으로 최신 모델로 업데이트될 때 경고를 추가했습니다. 이는 print 모드(-p)에서 stderr에 표시되며, 이제 에이전트 frontmatter에 설정된 모델도 포함됩니다.",
+  "d9c3bdb98bb86792": "attribution.sessionUrl 설정을 추가하여 web 및 Remote Control 세션에서 commits와 PR에서 claude.ai 세션 링크를 생략할 수 있게 했습니다.",
+  "fe8b953f1c2d04df": "/config --help를 추가하여 /config key=value에 대한 모든 사용 가능한 약어 키를 나열합니다.",
+  "b8fe5c39bb3b0dc7": "/config 토글 동작을 변경했습니다: Enter와 Space 모두 선택된 설정을 변경하며, Esc는 이제 되돌리기 대신 저장하고 닫습니다.",
+  "f69255ee1666fe9f": "로고 아래의 시작 \"setup issues\" 문구를 제거했습니다 — 구성 문제를 보려면 /doctor를 실행하거나 --debug를 사용하세요."
 }

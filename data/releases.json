@@ -1,5 +1,50 @@
 [
   {
+    "version": "2.1.183",
+    "date": "2026-06-19",
+    "commands": [
+      {
+        "name": "/config --help",
+        "context": "new",
+        "summary": "Added `/config --help` to list all available shorthand keys for `/config key=val"
+      },
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Added `/config --help` to list all available shorthand keys for `/config key=val"
+      },
+      {
+        "name": "--help",
+        "context": "new",
+        "summary": "Added `/config --help` to list all available shorthand keys for `/config key=val"
+      },
+      {
+        "name": "/doctor",
+        "context": "removed",
+        "summary": "Removed the startup \"setup issues\" line under the logo — run `/doctor` to see co"
+      },
+      {
+        "name": "--debug",
+        "context": "removed",
+        "summary": "Removed the startup \"setup issues\" line under the logo — run `/doctor` to see co"
+      }
+    ],
+    "features": [
+      "Added a warning when the requested model is deprecated or automatically updated to a newer model, shown on stderr in print mode (-p) and now also covering models set in agent frontmatter",
+      "Added attribution.sessionUrl setting to omit the claude.ai session link from commits and PRs in web and Remote Control sessions",
+      "Added /config --help to list all available shorthand keys for /config key=value",
+      "Changed /config toggle behavior: Enter and Space both change the selected setting, and Esc now saves and closes instead of reverting",
+      "Removed the startup \"setup issues\" line under the logo — run /doctor to see configuration issues or use --debug"
+    ],
+    "features_ko": [
+      "요청한 모델이 더 이상 사용되지 않거나 자동으로 최신 모델로 업데이트될 때 경고를 추가했습니다. 이는 print 모드(-p)에서 stderr에 표시되며, 이제 에이전트 frontmatter에 설정된 모델도 포함됩니다.",
+      "attribution.sessionUrl 설정을 추가하여 web 및 Remote Control 세션에서 commits와 PR에서 claude.ai 세션 링크를 생략할 수 있게 했습니다.",
+      "/config --help를 추가하여 /config key=value에 대한 모든 사용 가능한 약어 키를 나열합니다.",
+      "/config 토글 동작을 변경했습니다: Enter와 Space 모두 선택된 설정을 변경하며, Esc는 이제 되돌리기 대신 저장하고 닫습니다.",
+      "로고 아래의 시작 \"setup issues\" 문구를 제거했습니다 — 구성 문제를 보려면 /doctor를 실행하거나 --debug를 사용하세요."
+    ]
+  },
+  {
     "version": "2.1.181",
     "date": "2026-06-17",
     "commands": [

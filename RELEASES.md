@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-18 22:59 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-19 22:10 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.183** | 2026-06-19 | `/config --help`, `/config`, `--help`, `/doctor`, `--debug` | Added a warning when the requested model is deprecated or automatically updated to a newer model, shown on stderr in print mode (-p) and now also covering models set in agent frontmatter / Added at... |
 | **v2.1.181** | 2026-06-17 | `/config`, `Ctrl+c`, `Ctrl+C`, `/recap`, `/remote-control`, `/effort`, `/model`, `Ctrl+V`, `/stats`, `/copy` | Added /config key=value syntax to set any setting from the prompt (e.g. /config thinking=false) — works in interactive, -p, and Remote Control / Added sandbox.allowAppleEvents opt-in setting that l... |
 | **v2.1.179** | 2026-06-16 | `Ctrl+O` | Fixed Ctrl+O not showing the subagent's transcript when viewing a subagent |
 | **v2.1.178** | 2026-06-15 | `/doctor`, `/rc`, `/bug`, `ctrl+b`, `--fallback-model`, `/bg` | Agent teams: removed the TeamCreate and TeamDelete tools. With CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 set, every session now has one implicit team — spawn teammates directly with the Agent tool's n... |
@@ -83,7 +84,6 @@
 | **v2.1.81** | 2026-03-20 | `--bare`, `--settings`, `--channels`, `/btw`, `/rename`, `/exit`, `Ctrl+O` | Added --bare flag for scripted -p calls — skips hooks, LSP, plugin sync, and skill directory walks; requires ANTHROPIC_API_KEY or an apiKeyHelper via --settings (OAuth and keychain auth disabled); ... |
 | **v2.1.80** | 2026-03-19 | `--channels`, `--resume`, `/remote-control`, `/sandbox`, `/effort`, `/permissions`, `/plugin install`, `/plugin` | Added rate_limits field to statusline scripts for displaying Claude.ai rate limit usage (5-hour and 7-day windows with used_percentage and resets_at) / Added source: 'settings' plugin marketplace s... |
 | **v2.1.79** | 2026-03-18 | `--console`, `/config`, `Ctrl+C`, `/btw`, `/permissions`, `/resume`, `/remote-control` | Added --console flag to claude auth login for Anthropic Console (API billing) authentication / Added "Show turn duration" toggle to the /config menu / Fixed Ctrl+C not working in -p (print) mode |
-| **v2.1.78** | 2026-03-17 | `/plugin uninstall`, `/plugin`, `--resume`, `/sandbox`, `ctrl+u`, `ctrl+d`, `ctrl+k`, `--worktree`, `/model` | Added StopFailure hook event that fires when the turn ends due to an API error (rate limit, auth failure, etc.) / Added ${CLAUDE_PLUGIN_DATA} variable for plugin persistent state that survives plug... |
 
 ---
 
