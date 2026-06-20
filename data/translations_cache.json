@@ -1775,5 +1775,6 @@
   "d9c3bdb98bb86792": "attribution.sessionUrl 설정을 추가하여 web 및 Remote Control 세션에서 commits와 PR에서 claude.ai 세션 링크를 생략할 수 있게 했습니다.",
   "fe8b953f1c2d04df": "/config --help를 추가하여 /config key=value에 대한 모든 사용 가능한 약어 키를 나열합니다.",
   "b8fe5c39bb3b0dc7": "/config 토글 동작을 변경했습니다: Enter와 Space 모두 선택된 설정을 변경하며, Esc는 이제 되돌리기 대신 저장하고 닫습니다.",
-  "f69255ee1666fe9f": "로고 아래의 시작 \"setup issues\" 문구를 제거했습니다 — 구성 문제를 보려면 /doctor를 실행하거나 --debug를 사용하세요."
+  "f69255ee1666fe9f": "로고 아래의 시작 \"setup issues\" 문구를 제거했습니다 — 구성 문제를 보려면 /doctor를 실행하거나 --debug를 사용하세요.",
+  "02260857c5d92f11": "스트림 정지 힌트가 이제 \"API 응답 대기 중 · …초 후 재시도\"로 변경되었으며, 10초 대신 20초의 침묵 후에 트리거됩니다."
 }
