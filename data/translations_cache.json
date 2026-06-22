@@ -1776,5 +1776,16 @@
   "fe8b953f1c2d04df": "/config --help를 추가하여 /config key=value에 대한 모든 사용 가능한 약어 키를 나열합니다.",
   "b8fe5c39bb3b0dc7": "/config 토글 동작을 변경했습니다: Enter와 Space 모두 선택된 설정을 변경하며, Esc는 이제 되돌리기 대신 저장하고 닫습니다.",
   "f69255ee1666fe9f": "로고 아래의 시작 \"setup issues\" 문구를 제거했습니다 — 구성 문제를 보려면 /doctor를 실행하거나 --debug를 사용하세요.",
-  "02260857c5d92f11": "스트림 정지 힌트가 이제 \"API 응답 대기 중 · …초 후 재시도\"로 변경되었으며, 10초 대신 20초의 침묵 후에 트리거됩니다."
+  "02260857c5d92f11": "스트림 정지 힌트가 이제 \"API 응답 대기 중 · …초 후 재시도\"로 변경되었으며, 10초 대신 20초의 침묵 후에 트리거됩니다.",
+  "4dd9e0336a22fe8c": "CLI에서 대화형 /mcp 메뉴를 열지 않고 MCP 서버를 인증하기 위해 claude mcp login <name> 및 claude mcp logout <name>를 추가했으며, SSH를 통해 완료할 수 있도록 --no-browser stdin 리디렉션을 지원합니다.",
+  "25932ecacb7c1c9c": "/workflows 에이전트 세부 정보 보기에서 상태 필터링(press f)을 추가했습니다.",
+  "ba3b6cffa01d156b": "/plugin Installed 탭에 \"Skills\" 섹션을 추가했습니다.",
+  "5a5d82c5d5511ca2": "it2 CLI를 찾을 수 없을 때 경고와 함께 teammateMode: \"iterm2\" 설정을 추가했습니다.",
+  "38cfb114524b1a55": "awsAuthRefresh가 구성된 경우 /login에 \"Claude Platform on AWS - refresh credentials\" 옵션을 추가했습니다.",
+  "7f3780bde27eeb52": "! bash 명령이 이제 Claude가 출력에 자동으로 응답하도록 트리거합니다; 이전의 컨텍스트 전용 동작을 유지하려면 settings.json에서 \"respondToBashCommands\": false로 설정하세요.",
+  "16f5d74a42bccf01": "주요 턴이 끝난 후에도 백그라운드 에이전트가 실행 중일 때 Esc 및 Ctrl+C가 응답하지 않는 문제를 수정했습니다.",
+  "724ea19e4b45da70": "이미 맨 위로 스크롤된 상태에서 /plugin Installed가 \"more above\" 표시기를 보여주는 문제를 수정했습니다.",
+  "83bd114a572790d6": "--tools가 플래그가 로드되기 전에 기능 제한 도구가 통과하는 것을 허용하는 문제를 수정했습니다.",
+  "d27d1d9d921dd114": "tmux/pane 백엔드를 통해 생성된 팀원들이 이제 리더의 --effort 수준을 상속받도록 에이전트 팀을 수정했습니다.",
+  "edaa84d8e0606255": "/review <pr>가 /code-review medium과 동일한 리뷰 엔진을 사용하도록 변경했습니다."
 }

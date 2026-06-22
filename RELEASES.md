@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-21 22:19 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-22 22:50 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.186** | 2026-06-22 | `/mcp`, `--no-browser`, `/workflows`, `/plugin`, `/login`, `Ctrl+C`, `--tools`, `--effort`, `/review <pr>`, `/code-review medium`, `/review`, `/code-review` | Added claude mcp login <name> and claude mcp logout <name> to authenticate MCP servers from the CLI without opening the interactive /mcp menu, with --no-browser stdin redirect support for completin... |
 | **v2.1.185** | 2026-06-20 | — | The stream-stall hint now reads "Waiting for API response · will retry in …" instead of "No response from API · Retrying in …", and triggers after 20s of silence instead of 10s |
 | **v2.1.183** | 2026-06-19 | `/config --help`, `/config`, `--help`, `/doctor`, `--debug` | Added a warning when the requested model is deprecated or automatically updated to a newer model, shown on stderr in print mode (-p) and now also covering models set in agent frontmatter / Added at... |
 | **v2.1.181** | 2026-06-17 | `/config`, `Ctrl+c`, `Ctrl+C`, `/recap`, `/remote-control`, `/effort`, `/model`, `Ctrl+V`, `/stats`, `/copy` | Added /config key=value syntax to set any setting from the prompt (e.g. /config thinking=false) — works in interactive, -p, and Remote Control / Added sandbox.allowAppleEvents opt-in setting that l... |
@@ -83,7 +84,6 @@
 | **v2.1.84** | 2026-03-26 | `/model`, `/clear`, `Ctrl+U`, `ctrl+x`, `ctrl+k`, `--json-schema`, `/voice`, `/mobile`, `/chrome`, `/upgrade`, `/stats`, `Ctrl+S` | Added PowerShell tool for Windows as an opt-in preview. Learn more at https://code.claude.com/docs/en/tools-reference#powershell-tool / Added ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTS en... |
 | **v2.1.83** | 2026-03-25 | `Ctrl+O`, `Ctrl+X`, `Ctrl+E`, `Ctrl+G`, `--mcp-config`, `--print`, `/config`, `--channels`, `Ctrl+B`, `--resume`, `/status`, `Ctrl+F`, `Ctrl+K`, `Ctrl+L`, `Ctrl+U`, `--bare -p`, `--worktree`, `/rewind` | Added managed-settings.d/ drop-in directory alongside managed-settings.json, letting separate teams deploy independent policy fragments that merge alphabetically / Added CwdChanged and FileChanged ... |
 | **v2.1.81** | 2026-03-20 | `--bare`, `--settings`, `--channels`, `/btw`, `/rename`, `/exit`, `Ctrl+O` | Added --bare flag for scripted -p calls — skips hooks, LSP, plugin sync, and skill directory walks; requires ANTHROPIC_API_KEY or an apiKeyHelper via --settings (OAuth and keychain auth disabled); ... |
-| **v2.1.80** | 2026-03-19 | `--channels`, `--resume`, `/remote-control`, `/sandbox`, `/effort`, `/permissions`, `/plugin install`, `/plugin` | Added rate_limits field to statusline scripts for displaying Claude.ai rate limit usage (5-hour and 7-day windows with used_percentage and resets_at) / Added source: 'settings' plugin marketplace s... |
 
 ---
 

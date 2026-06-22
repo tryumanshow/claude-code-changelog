@@ -1,5 +1,97 @@
 [
   {
+    "version": "2.1.186",
+    "date": "2026-06-22",
+    "commands": [
+      {
+        "name": "/mcp",
+        "context": "new",
+        "summary": "Added `claude mcp login <name>` and `claude mcp logout <name>` to authenticate M"
+      },
+      {
+        "name": "--no-browser",
+        "context": "new",
+        "summary": "Added `claude mcp login <name>` and `claude mcp logout <name>` to authenticate M"
+      },
+      {
+        "name": "/workflows",
+        "context": "new",
+        "summary": "Added status filtering (press `f`) to the `/workflows` agent detail view"
+      },
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added a \"Skills\" section to the `/plugin` Installed tab"
+      },
+      {
+        "name": "/login",
+        "context": "new",
+        "summary": "Added \"Claude Platform on AWS - refresh credentials\" option to `/login` when `aw"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "fixed",
+        "summary": "Fixed Esc and Ctrl+C not responding while background agents are still running af"
+      },
+      {
+        "name": "--tools",
+        "context": "fixed",
+        "summary": "Fixed `--tools` allowing feature-gated tools to slip through before flags loaded"
+      },
+      {
+        "name": "--effort",
+        "context": "fixed",
+        "summary": "Fixed agent teams: teammates spawned via tmux/pane backends now inherit the lead"
+      },
+      {
+        "name": "/review <pr>",
+        "context": "improved",
+        "summary": "Changed `/review <pr>` to use the same review engine as `/code-review medium`"
+      },
+      {
+        "name": "/code-review medium",
+        "context": "improved",
+        "summary": "Changed `/review <pr>` to use the same review engine as `/code-review medium`"
+      },
+      {
+        "name": "/review",
+        "context": "improved",
+        "summary": "Changed `/review <pr>` to use the same review engine as `/code-review medium`"
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "Changed `/review <pr>` to use the same review engine as `/code-review medium`"
+      }
+    ],
+    "features": [
+      "Added claude mcp login <name> and claude mcp logout <name> to authenticate MCP servers from the CLI without opening the interactive /mcp menu, with --no-browser stdin redirect support for completing over SSH",
+      "Added status filtering (press f) to the /workflows agent detail view",
+      "Added a \"Skills\" section to the /plugin Installed tab",
+      "Added teammateMode: \"iterm2\" setting with a warning when auto mode cannot find the it2 CLI",
+      "Added \"Claude Platform on AWS - refresh credentials\" option to /login when awsAuthRefresh is configured",
+      "! bash commands now trigger Claude to respond to the output automatically; set \"respondToBashCommands\": false in settings.json to keep the previous context-only behavior",
+      "Fixed Esc and Ctrl+C not responding while background agents are still running after the main turn ends",
+      "Fixed /plugin Installed showing a \"more above\" indicator when already scrolled to the top",
+      "Fixed --tools allowing feature-gated tools to slip through before flags loaded on a cold first launch",
+      "Fixed agent teams: teammates spawned via tmux/pane backends now inherit the leader's --effort level",
+      "Changed /review <pr> to use the same review engine as /code-review medium"
+    ],
+    "features_ko": [
+      "CLI에서 대화형 /mcp 메뉴를 열지 않고 MCP 서버를 인증하기 위해 claude mcp login <name> 및 claude mcp logout <name>를 추가했으며, SSH를 통해 완료할 수 있도록 --no-browser stdin 리디렉션을 지원합니다.",
+      "/workflows 에이전트 세부 정보 보기에서 상태 필터링(press f)을 추가했습니다.",
+      "/plugin Installed 탭에 \"Skills\" 섹션을 추가했습니다.",
+      "it2 CLI를 찾을 수 없을 때 경고와 함께 teammateMode: \"iterm2\" 설정을 추가했습니다.",
+      "awsAuthRefresh가 구성된 경우 /login에 \"Claude Platform on AWS - refresh credentials\" 옵션을 추가했습니다.",
+      "! bash 명령이 이제 Claude가 출력에 자동으로 응답하도록 트리거합니다; 이전의 컨텍스트 전용 동작을 유지하려면 settings.json에서 \"respondToBashCommands\": false로 설정하세요.",
+      "주요 턴이 끝난 후에도 백그라운드 에이전트가 실행 중일 때 Esc 및 Ctrl+C가 응답하지 않는 문제를 수정했습니다.",
+      "이미 맨 위로 스크롤된 상태에서 /plugin Installed가 \"more above\" 표시기를 보여주는 문제를 수정했습니다.",
+      "--tools가 플래그가 로드되기 전에 기능 제한 도구가 통과하는 것을 허용하는 문제를 수정했습니다.",
+      "tmux/pane 백엔드를 통해 생성된 팀원들이 이제 리더의 --effort 수준을 상속받도록 에이전트 팀을 수정했습니다.",
+      "/review <pr>가 /code-review medium과 동일한 리뷰 엔진을 사용하도록 변경했습니다."
+    ]
+  },
+  {
     "version": "2.1.185",
     "date": "2026-06-20",
     "commands": [],
