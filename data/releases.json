@@ -1,5 +1,121 @@
 [
   {
+    "version": "2.1.187",
+    "date": "2026-06-23",
+    "commands": [
+      {
+        "name": "--model",
+        "context": "new",
+        "summary": "Added org-configured model restrictions to the model picker, `--model`, `/model`"
+      },
+      {
+        "name": "/model",
+        "context": "new",
+        "summary": "Added org-configured model restrictions to the model picker, `--model`, `/model`"
+      },
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Added mouse click support to select menus (permission prompts, `/model`, `/confi"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed `--resume` failing with \"No conversation found\" when the original `-p` run"
+      },
+      {
+        "name": "--json-schema",
+        "context": "fixed",
+        "summary": "Fixed `--json-schema` and workflow `agent({schema})` structured output: the mode"
+      },
+      {
+        "name": "/update",
+        "context": "fixed",
+        "summary": "Fixed `/update` over Remote Control hanging when a startup trust dialog would ha"
+      },
+      {
+        "name": "/bg",
+        "context": "fixed",
+        "summary": "Fixed channel connections dropping after navigating to the agents view and back,"
+      },
+      {
+        "name": "/tui",
+        "context": "fixed",
+        "summary": "Fixed channel connections dropping after navigating to the agents view and back,"
+      },
+      {
+        "name": "--bg",
+        "context": "fixed",
+        "summary": "Fixed `claude --help` not listing the `--bg`/`--background` flag"
+      },
+      {
+        "name": "--background",
+        "context": "fixed",
+        "summary": "Fixed `claude --help` not listing the `--bg`/`--background` flag"
+      },
+      {
+        "name": "/share",
+        "context": "fixed",
+        "summary": "Fixed Esc, Ctrl-C, and Ctrl-D not working while `/share` is uploading"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "fixed",
+        "summary": "Fixed Esc, Ctrl-C, and Ctrl-D not working while `/share` is uploading"
+      },
+      {
+        "name": "Ctrl+D",
+        "context": "fixed",
+        "summary": "Fixed Esc, Ctrl-C, and Ctrl-D not working while `/share` is uploading"
+      },
+      {
+        "name": "/install-github-app",
+        "context": "improved",
+        "summary": "Improved `/install-github-app`: GitHub Actions workflow setup is now optional — "
+      },
+      {
+        "name": "/btw",
+        "context": "improved",
+        "summary": "Improved `/btw` with ←/→ arrow navigation to step through earlier answers"
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "Improved `/plugin` to surface plugins you haven't used recently so you can clean"
+      }
+    ],
+    "features": [
+      "Added sandbox.credentials setting to block sandboxed commands from reading credential files and secret environment variables",
+      "Added org-configured model restrictions to the model picker, --model, /model, and ANTHROPIC_MODEL, with a \"restricted by your organization's settings\" message when a restricted model is selected",
+      "Added mouse click support to select menus (permission prompts, /model, /config, etc.) in fullscreen mode",
+      "Fixed --resume failing with \"No conversation found\" when the original -p run produced no model turns",
+      "Fixed --json-schema and workflow agent({schema}) structured output: the model can no longer re-call StructuredOutput indefinitely after a successful call, and follow-up turns now reliably return structured output",
+      "Fixed /update over Remote Control hanging when a startup trust dialog would have shown",
+      "Fixed channel connections dropping after navigating to the agents view and back, and after /bg, /tui, or /update",
+      "Fixed claude --help not listing the --bg/--background flag",
+      "Fixed Esc, Ctrl-C, and Ctrl-D not working while /share is uploading",
+      "Improved /install-github-app: GitHub Actions workflow setup is now optional — you can install just the GitHub App and skip the workflow/secret steps",
+      "Improved /btw with ←/→ arrow navigation to step through earlier answers",
+      "Improved /plugin to surface plugins you haven't used recently so you can clean them up",
+      "[VSCode] Fixed extension becoming unresponsive when resuming a large session"
+    ],
+    "features_ko": [
+      "sandbox.credentials 설정을 추가하여 샌드박스 명령이 자격 증명 파일 및 비밀 환경 변수를 읽지 못하도록 차단했습니다.",
+      "모델 선택기, --model, /model 및 ANTHROPIC_MODEL에 조직 구성 모델 제한을 추가하고, 제한된 모델이 선택될 때 \"귀하의 조직 설정에 의해 제한됨\" 메시지를 표시합니다.",
+      "전체 화면 모드에서 선택 메뉴(권한 프롬프트, /model, /config 등)에 대한 마우스 클릭 지원을 추가했습니다.",
+      "원래 -p 실행에서 모델 턴이 생성되지 않았을 때 \"대화가 없습니다\"라는 오류와 함께 --resume이 실패하는 문제를 수정했습니다.",
+      "--json-schema 및 workflow agent({schema}) 구조화된 출력 문제를 수정했습니다: 모델이 성공적인 호출 후 StructuredOutput를 무한히 다시 호출할 수 없으며, 후속 턴이 이제 신뢰성 있게 구조화된 출력을 반환합니다.",
+      "시작 신뢰 대화 상자가 표시될 수 있는 경우 /update가 원격 제어에서 멈추는 문제를 수정했습니다.",
+      "에이전트 뷰로 이동한 후 및 /bg, /tui 또는 /update 후에 채널 연결이 끊어지는 문제를 수정했습니다.",
+      "claude --help에서 --bg/--background 플래그가 나열되지 않는 문제를 수정했습니다.",
+      "/share가 업로드되는 동안 Esc, Ctrl-C 및 Ctrl-D가 작동하지 않는 문제를 수정했습니다.",
+      "/install-github-app을 개선했습니다: 이제 GitHub Actions 워크플로우 설정이 선택 사항이며, GitHub App만 설치하고 워크플로우/비밀 단계를 건너뛸 수 있습니다.",
+      "/btw를 개선하여 ←/→ 화살표 탐색으로 이전 답변을 단계별로 확인할 수 있습니다.",
+      "/plugin을 개선하여 최근에 사용하지 않은 플러그인을 표시하여 정리할 수 있도록 했습니다.",
+      "[VSCode] 큰 세션을 재개할 때 확장이 응답하지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.186",
     "date": "2026-06-22",
     "commands": [
