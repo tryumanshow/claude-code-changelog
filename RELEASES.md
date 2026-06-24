@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-23 22:19 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-24 22:23 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.191** | 2026-06-24 | `/rewind`, `/clear`, `/voice`, `/login`, `/usage`, `/permissions` | Added /rewind support for resuming a conversation from before /clear was run / Fixed /voice showing a generic "not available" message when disabled by an organization's policy — it now explains the... |
+| **v2.1.190** | 2026-06-24 | — | Bug fixes and reliability improvements |
 | **v2.1.187** | 2026-06-23 | `--model`, `/model`, `/config`, `--resume`, `--json-schema`, `/update`, `/bg`, `/tui`, `--bg`, `--background`, `/share`, `Ctrl+C`, `Ctrl+D`, `/install-github-app`, `/btw`, `/plugin` | Added sandbox.credentials setting to block sandboxed commands from reading credential files and secret environment variables / Added org-configured model restrictions to the model picker, --model, ... |
 | **v2.1.186** | 2026-06-22 | `/mcp`, `--no-browser`, `/workflows`, `/plugin`, `/login`, `Ctrl+C`, `--tools`, `--effort`, `/review <pr>`, `/code-review medium`, `/review`, `/code-review` | Added claude mcp login <name> and claude mcp logout <name> to authenticate MCP servers from the CLI without opening the interactive /mcp menu, with --no-browser stdin redirect support for completin... |
 | **v2.1.185** | 2026-06-20 | — | The stream-stall hint now reads "Waiting for API response · will retry in …" instead of "No response from API · Retrying in …", and triggers after 20s of silence instead of 10s |
@@ -82,8 +84,6 @@
 | **v2.1.87** | 2026-03-29 | — | Fixed messages in Cowork Dispatch not getting delivered |
 | **v2.1.86** | 2026-03-27 | `--resume`, `/feedback`, `--bare`, `/model`, `/plugin`, `/skills` | Added X-Claude-Code-Session-Id header to API requests so proxies can aggregate requests by session without parsing the body / Added .jj and .sl to VCS directory exclusion lists so Grep and file aut... |
 | **v2.1.85** | 2026-03-26 | `/loop`, `/open`, `/compact`, `/plugin enable`, `/plugin disable`, `/plugin`, `--worktree`, `--mcp-config`, `shift+e`, `Ctrl+C`, `Ctrl+D` | Added CLAUDE_CODE_MCP_SERVER_NAME and CLAUDE_CODE_MCP_SERVER_URL environment variables to MCP headersHelper scripts, allowing one helper to serve multiple servers / Added conditional if field for h... |
-| **v2.1.84** | 2026-03-26 | `/model`, `/clear`, `Ctrl+U`, `ctrl+x`, `ctrl+k`, `--json-schema`, `/voice`, `/mobile`, `/chrome`, `/upgrade`, `/stats`, `Ctrl+S` | Added PowerShell tool for Windows as an opt-in preview. Learn more at https://code.claude.com/docs/en/tools-reference#powershell-tool / Added ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL_SUPPORTS en... |
-| **v2.1.83** | 2026-03-25 | `Ctrl+O`, `Ctrl+X`, `Ctrl+E`, `Ctrl+G`, `--mcp-config`, `--print`, `/config`, `--channels`, `Ctrl+B`, `--resume`, `/status`, `Ctrl+F`, `Ctrl+K`, `Ctrl+L`, `Ctrl+U`, `--bare -p`, `--worktree`, `/rewind` | Added managed-settings.d/ drop-in directory alongside managed-settings.json, letting separate teams deploy independent policy fragments that merge alphabetically / Added CwdChanged and FileChanged ... |
 
 ---
 

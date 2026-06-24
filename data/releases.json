@@ -1,5 +1,70 @@
 [
   {
+    "version": "2.1.191",
+    "date": "2026-06-24",
+    "commands": [
+      {
+        "name": "/rewind",
+        "context": "new",
+        "summary": "Added `/rewind` support for resuming a conversation from before `/clear` was run"
+      },
+      {
+        "name": "/clear",
+        "context": "new",
+        "summary": "Added `/rewind` support for resuming a conversation from before `/clear` was run"
+      },
+      {
+        "name": "/voice",
+        "context": "fixed",
+        "summary": "Fixed `/voice` showing a generic \"not available\" message when disabled by an org"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed `/login` URL opening truncated in Windows Terminal when it wraps across li"
+      },
+      {
+        "name": "/usage",
+        "context": "fixed",
+        "summary": "Fixed `claude agents` sending builtin slash commands like `/usage` to background"
+      },
+      {
+        "name": "/permissions",
+        "context": "fixed",
+        "summary": "Fixed `/permissions` Recently-denied tab: approving a denial now persists on clo"
+      }
+    ],
+    "features": [
+      "Added /rewind support for resuming a conversation from before /clear was run",
+      "Fixed /voice showing a generic \"not available\" message when disabled by an organization's policy — it now explains the restriction",
+      "Fixed /login URL opening truncated in Windows Terminal when it wraps across lines",
+      "Fixed claude agents sending builtin slash commands like /usage to background sessions as prompt text instead of showing a hint",
+      "Fixed /permissions Recently-denied tab: approving a denial now persists on close instead of being silently discarded",
+      "Reduced CPU usage during streaming responses by ~37% by coalescing text updates to 100ms",
+      "Reduced long-session memory growth from terminal output cache"
+    ],
+    "features_ko": [
+      "/clear가 실행되기 전의 대화를 재개하기 위한 /rewind 지원 추가",
+      "조직 정책에 의해 비활성화될 때 /voice가 일반적인 \"사용할 수 없음\" 메시지를 표시하는 문제 수정 — 이제 제한 사항을 설명함",
+      "Windows Terminal에서 /login URL이 줄 바꿈 시 잘리는 문제 수정",
+      "claude agents가 /usage와 같은 내장 슬래시 명령을 프롬프트 텍스트로 백그라운드 세션에 전송하는 문제 수정",
+      "/permissions Recently-denied 탭 수정: 거부를 승인하면 닫을 때 유지되며 조용히 폐기되지 않음",
+      "텍스트 업데이트를 100ms로 통합하여 스트리밍 응답 중 CPU 사용량을 약 37% 감소",
+      "터미널 출력 캐시로 인한 장기 세션 메모리 증가 감소"
+    ]
+  },
+  {
+    "version": "2.1.190",
+    "date": "2026-06-24",
+    "commands": [],
+    "features": [
+      "Bug fixes and reliability improvements"
+    ],
+    "features_ko": [
+      "버그 수정 및 안정성 향상"
+    ]
+  },
+  {
     "version": "2.1.187",
     "date": "2026-06-23",
     "commands": [
