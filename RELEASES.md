@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-24 22:23 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-25 22:25 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.193** | 2026-06-25 | `/permissions`, `/mcp`, `/model`, `/login`, `/add-dir` | Added autoMode.classifyAllShell setting to route all Bash/PowerShell commands through the auto-mode classifier instead of only arbitrary-code-execution patterns / Added auto-mode denial reasons to ... |
 | **v2.1.191** | 2026-06-24 | `/rewind`, `/clear`, `/voice`, `/login`, `/usage`, `/permissions` | Added /rewind support for resuming a conversation from before /clear was run / Fixed /voice showing a generic "not available" message when disabled by an organization's policy — it now explains the... |
 | **v2.1.190** | 2026-06-24 | — | Bug fixes and reliability improvements |
 | **v2.1.187** | 2026-06-23 | `--model`, `/model`, `/config`, `--resume`, `--json-schema`, `/update`, `/bg`, `/tui`, `--bg`, `--background`, `/share`, `Ctrl+C`, `Ctrl+D`, `/install-github-app`, `/btw`, `/plugin` | Added sandbox.credentials setting to block sandboxed commands from reading credential files and secret environment variables / Added org-configured model restrictions to the model picker, --model, ... |
@@ -83,7 +84,6 @@
 | **v2.1.89** | 2026-04-01 | `--resume`, `alt+s`, `--mcp-config`, `/permissions`, `/path`, `/stats`, `Shift+E`, `Ctrl+B`, `/env`, `/usage`, `/buddy` | Added "defer" permission decision to PreToolUse hooks — headless sessions can pause at a tool call and resume with -p --resume to have the hook re-evaluate / Added CLAUDE_CODE_NO_FLICKER=1 environm... |
 | **v2.1.87** | 2026-03-29 | — | Fixed messages in Cowork Dispatch not getting delivered |
 | **v2.1.86** | 2026-03-27 | `--resume`, `/feedback`, `--bare`, `/model`, `/plugin`, `/skills` | Added X-Claude-Code-Session-Id header to API requests so proxies can aggregate requests by session without parsing the body / Added .jj and .sl to VCS directory exclusion lists so Grep and file aut... |
-| **v2.1.85** | 2026-03-26 | `/loop`, `/open`, `/compact`, `/plugin enable`, `/plugin disable`, `/plugin`, `--worktree`, `--mcp-config`, `shift+e`, `Ctrl+C`, `Ctrl+D` | Added CLAUDE_CODE_MCP_SERVER_NAME and CLAUDE_CODE_MCP_SERVER_URL environment variables to MCP headersHelper scripts, allowing one helper to serve multiple servers / Added conditional if field for h... |
 
 ---
 

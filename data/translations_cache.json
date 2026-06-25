@@ -1807,5 +1807,13 @@
   "8617f881e4c28522": "claude agents가 /usage와 같은 내장 슬래시 명령을 프롬프트 텍스트로 백그라운드 세션에 전송하는 문제 수정",
   "07a5fc2af2dd7225": "/permissions Recently-denied 탭 수정: 거부를 승인하면 닫을 때 유지되며 조용히 폐기되지 않음",
   "4f4119f57297d0ca": "텍스트 업데이트를 100ms로 통합하여 스트리밍 응답 중 CPU 사용량을 약 37% 감소",
-  "da34e0be81e4a33b": "터미널 출력 캐시로 인한 장기 세션 메모리 증가 감소"
+  "da34e0be81e4a33b": "터미널 출력 캐시로 인한 장기 세션 메모리 증가 감소",
+  "6aca290a6bd0afbd": "모든 Bash/PowerShell 명령을 임의 코드 실행 패턴이 아닌 auto-mode 분류기를 통해 라우팅하도록 autoMode.classifyAllShell 설정을 추가했습니다.",
+  "0f08b46200e6193a": "전사, 거부 토스트 및 /permissions 최근 거부에 auto-mode 거부 사유를 추가했습니다.",
+  "a94bc7447c4550ea": "모델의 응답 텍스트를 포함하는 claude_code.assistant_response OpenTelemetry 로그 이벤트를 추가했습니다. OTEL_LOG_ASSISTANT_RESPONSES=1이 아닌 경우에는 수정됩니다; 해당 변수가 설정되지 않으면 OTEL_LOG_USER_PROMPTS를 따르므로, 이미 프롬프트 내용을 기록하는 배포는 업그레이드 시 응답 내용을 받기 시작합니다 — 프롬프트 전용으로 유지하려면 OTEL_LOG_ASSISTANT_RESPONSES=0으로 설정하세요.",
+  "d2eb3aaf99385d19": "bash 모드에 실시간 파일 경로 자동 완성을 추가했습니다 (!)",
+  "1de4fcabddb20370": "MCP 서버에 인증이 필요할 때 /mcp를 가리키는 시작 알림을 추가했습니다.",
+  "5c710b64d13823cc": "유휴 백그라운드 셸 명령에 대한 자동 메모리 압력 수확을 추가했습니다 (CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP=1로 비활성화 가능).",
+  "7e18685c41f2af4f": "/login 직후 /model 및 기타 클라이언트 데이터 제한 UI가 오래되거나 비어 있는 상태를 표시하는 문제를 수정했습니다.",
+  "ef6547f2c6014f6f": "디렉토리가 이미 작업 디렉토리일 때 /add-dir 메시지를 개선했습니다."
 }

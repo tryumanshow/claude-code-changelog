@@ -1,5 +1,56 @@
 [
   {
+    "version": "2.1.193",
+    "date": "2026-06-25",
+    "commands": [
+      {
+        "name": "/permissions",
+        "context": "new",
+        "summary": "Added auto-mode denial reasons to the transcript, the denial toast, and `/permis"
+      },
+      {
+        "name": "/mcp",
+        "context": "new",
+        "summary": "Added a startup notice when MCP servers need authentication, pointing at `/mcp`"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed `/model` and other client-data-gated UI showing stale/empty state immediat"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed `/model` and other client-data-gated UI showing stale/empty state immediat"
+      },
+      {
+        "name": "/add-dir",
+        "context": "improved",
+        "summary": "Improved `/add-dir` message when the directory is already a working directory"
+      }
+    ],
+    "features": [
+      "Added autoMode.classifyAllShell setting to route all Bash/PowerShell commands through the auto-mode classifier instead of only arbitrary-code-execution patterns",
+      "Added auto-mode denial reasons to the transcript, the denial toast, and /permissions recent denials",
+      "Added claude_code.assistant_response OpenTelemetry log event containing the model's response text. Redacted unless OTEL_LOG_ASSISTANT_RESPONSES=1; when that var is unset it follows OTEL_LOG_USER_PROMPTS, so deployments that already log prompt content will start receiving response content on upgrade — set OTEL_LOG_ASSISTANT_RESPONSES=0 to keep prompts-only.",
+      "Added live file path autocomplete to bash mode (!)",
+      "Added a startup notice when MCP servers need authentication, pointing at /mcp",
+      "Added automatic memory-pressure reaping for idle background shell commands (disable with CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP=1)",
+      "Fixed /model and other client-data-gated UI showing stale/empty state immediately after /login",
+      "Improved /add-dir message when the directory is already a working directory"
+    ],
+    "features_ko": [
+      "모든 Bash/PowerShell 명령을 임의 코드 실행 패턴이 아닌 auto-mode 분류기를 통해 라우팅하도록 autoMode.classifyAllShell 설정을 추가했습니다.",
+      "전사, 거부 토스트 및 /permissions 최근 거부에 auto-mode 거부 사유를 추가했습니다.",
+      "모델의 응답 텍스트를 포함하는 claude_code.assistant_response OpenTelemetry 로그 이벤트를 추가했습니다. OTEL_LOG_ASSISTANT_RESPONSES=1이 아닌 경우에는 수정됩니다; 해당 변수가 설정되지 않으면 OTEL_LOG_USER_PROMPTS를 따르므로, 이미 프롬프트 내용을 기록하는 배포는 업그레이드 시 응답 내용을 받기 시작합니다 — 프롬프트 전용으로 유지하려면 OTEL_LOG_ASSISTANT_RESPONSES=0으로 설정하세요.",
+      "bash 모드에 실시간 파일 경로 자동 완성을 추가했습니다 (!)",
+      "MCP 서버에 인증이 필요할 때 /mcp를 가리키는 시작 알림을 추가했습니다.",
+      "유휴 백그라운드 셸 명령에 대한 자동 메모리 압력 수확을 추가했습니다 (CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP=1로 비활성화 가능).",
+      "/login 직후 /model 및 기타 클라이언트 데이터 제한 UI가 오래되거나 비어 있는 상태를 표시하는 문제를 수정했습니다.",
+      "디렉토리가 이미 작업 디렉토리일 때 /add-dir 메시지를 개선했습니다."
+    ]
+  },
+  {
     "version": "2.1.191",
     "date": "2026-06-24",
     "commands": [
