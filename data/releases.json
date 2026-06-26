@@ -1,5 +1,24 @@
 [
   {
+    "version": "2.1.195",
+    "date": "2026-06-26",
+    "commands": [
+      {
+        "name": "/plugin",
+        "context": "fixed",
+        "summary": "Fixed `/plugin` Enable/Disable not working when a plugin's `plugin.json` `name` "
+      }
+    ],
+    "features": [
+      "Added CLAUDE_CODE_DISABLE_MOUSE_CLICKS to disable mouse click/drag/hover in fullscreen mode while keeping wheel scroll",
+      "Fixed /plugin Enable/Disable not working when a plugin's plugin.json name differs from its marketplace entry name"
+    ],
+    "features_ko": [
+      "전체 화면 모드에서 휠 스크롤은 유지하면서 마우스 클릭/드래그/호버를 비활성화하는 CLAUDE_CODE_DISABLE_MOUSE_CLICKS가 추가되었습니다.",
+      "플러그인의 plugin.json 이름이 마켓플레이스 항목 이름과 다를 때 /plugin Enable/Disable이 작동하지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.193",
     "date": "2026-06-25",
     "commands": [

@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-06-25 22:25 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-06-26 22:19 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.195** | 2026-06-26 | `/plugin` | Added CLAUDE_CODE_DISABLE_MOUSE_CLICKS to disable mouse click/drag/hover in fullscreen mode while keeping wheel scroll / Fixed /plugin Enable/Disable not working when a plugin's plugin.json name di... |
 | **v2.1.193** | 2026-06-25 | `/permissions`, `/mcp`, `/model`, `/login`, `/add-dir` | Added autoMode.classifyAllShell setting to route all Bash/PowerShell commands through the auto-mode classifier instead of only arbitrary-code-execution patterns / Added auto-mode denial reasons to ... |
 | **v2.1.191** | 2026-06-24 | `/rewind`, `/clear`, `/voice`, `/login`, `/usage`, `/permissions` | Added /rewind support for resuming a conversation from before /clear was run / Fixed /voice showing a generic "not available" message when disabled by an organization's policy — it now explains the... |
 | **v2.1.190** | 2026-06-24 | — | Bug fixes and reliability improvements |
@@ -83,7 +84,6 @@
 | **v2.1.90** | 2026-04-01 | `/powerup`, `--resume`, `/model`, `/config`, `/resume`, `/displaydns` | Added /powerup — interactive lessons teaching Claude Code features with animated demos / Added CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE env var to keep the existing marketplace cache when git... |
 | **v2.1.89** | 2026-04-01 | `--resume`, `alt+s`, `--mcp-config`, `/permissions`, `/path`, `/stats`, `Shift+E`, `Ctrl+B`, `/env`, `/usage`, `/buddy` | Added "defer" permission decision to PreToolUse hooks — headless sessions can pause at a tool call and resume with -p --resume to have the hook re-evaluate / Added CLAUDE_CODE_NO_FLICKER=1 environm... |
 | **v2.1.87** | 2026-03-29 | — | Fixed messages in Cowork Dispatch not getting delivered |
-| **v2.1.86** | 2026-03-27 | `--resume`, `/feedback`, `--bare`, `/model`, `/plugin`, `/skills` | Added X-Claude-Code-Session-Id header to API requests so proxies can aggregate requests by session without parsing the body / Added .jj and .sl to VCS directory exclusion lists so Grep and file aut... |
 
 ---
 
