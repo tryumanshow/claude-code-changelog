@@ -1,5 +1,93 @@
 [
   {
+    "version": "2.1.197",
+    "date": "2026-06-30",
+    "commands": [],
+    "features": [
+      "Introducing Claude Sonnet 5: now the default model in Claude Code, with a native 1M-token context window and promotional pricing of $2/$10 per Mtok through August 31. Update to version 2.1.197 for access. https://www.anthropic.com/news/claude-sonnet-5"
+    ],
+    "features_ko": [
+      "Claude Sonnet 5를 소개합니다: 이제 Claude Code의 기본 모델로, 기본 1M-token 컨텍스트 창과 8월 31일까지 Mtok당 $2/$10의 프로모션 가격이 적용됩니다. 접근을 위해 버전 2.1.197로 업데이트하세요. https://www.anthropic.com/news/claude-sonnet-5"
+    ]
+  },
+  {
+    "version": "2.1.196",
+    "date": "2026-06-29",
+    "commands": [
+      {
+        "name": "/model",
+        "context": "new",
+        "summary": "Added support for organization default models — admins set it in the org console"
+      },
+      {
+        "name": "Ctrl+c",
+        "context": "new",
+        "summary": "Added clickable file attachments in chat — Cmd/Ctrl-click reveals the file in Fi"
+      },
+      {
+        "name": "/cd",
+        "context": "fixed",
+        "summary": "Fixed sessions moved with `/cd` reappearing in the old directory's resume list a"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "fixed",
+        "summary": "Fixed Esc Esc at an idle prompt not opening the rewind menu (regression); use Ct"
+      },
+      {
+        "name": "Ctrl+X",
+        "context": "fixed",
+        "summary": "Fixed Esc Esc at an idle prompt not opening the rewind menu (regression); use Ct"
+      },
+      {
+        "name": "Ctrl+K",
+        "context": "fixed",
+        "summary": "Fixed Esc Esc at an idle prompt not opening the rewind menu (regression); use Ct"
+      },
+      {
+        "name": "/context",
+        "context": "fixed",
+        "summary": "Fixed `/context` showing 0 tokens for all tool groups on Bedrock"
+      },
+      {
+        "name": "/deep-research",
+        "context": "fixed",
+        "summary": "Fixed `/deep-research` misreporting verifier failures as \"all claims refuted\" in"
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "Improved `/code-review` workflow: merged five cleanup finders into one, cutting "
+      }
+    ],
+    "features": [
+      "Added support for organization default models — admins set it in the org console; it shows as \"Org default\" (or \"Role default\") in /model when you haven't picked one yourself",
+      "Added readable default names for sessions at start, making them easier to identify and message",
+      "Added clickable file attachments in chat — Cmd/Ctrl-click reveals the file in Finder/Explorer",
+      "Fixed sessions moved with /cd reappearing in the old directory's resume list after a non-graceful exit when the old path contained special characters",
+      "Fixed Esc Esc at an idle prompt not opening the rewind menu (regression); use Ctrl+C or Ctrl+X Ctrl+K to stop background agents",
+      "Fixed /context showing 0 tokens for all tool groups on Bedrock",
+      "Fixed /deep-research misreporting verifier failures as \"all claims refuted\" instead of unverified",
+      "Improved /code-review workflow: merged five cleanup finders into one, cutting token usage by roughly 25%",
+      "Reduced per-frame rendering work in the terminal UI by skipping no-op subtree walks during streaming",
+      "The streaming idle watchdog is now on by default for all providers — it aborts and retries when a response stream produces no events for 5 minutes. Set CLAUDE_ENABLE_STREAM_WATCHDOG=0 to disable.",
+      "Remote Control is now disabled when ANTHROPIC_BASE_URL points at a non-Anthropic host, matching the existing behavior under CLAUDE_CODE_USE_BEDROCK/_VERTEX/_FOUNDRY"
+    ],
+    "features_ko": [
+      "조직 기본 모델에 대한 지원이 추가되었습니다 — 관리자가 조직 콘솔에서 설정하며, 직접 선택하지 않은 경우 /model에서 \"Org default\"(또는 \"Role default\")로 표시됩니다.",
+      "세션 시작 시 식별 및 메시징을 쉽게 하기 위해 읽기 쉬운 기본 이름이 추가되었습니다.",
+      "채팅에서 클릭 가능한 파일 첨부가 추가되었습니다 — Cmd/Ctrl 클릭 시 Finder/Explorer에서 파일이 표시됩니다.",
+      "/cd로 이동한 세션이 이전 경로에 특수 문자가 포함된 경우 비정상 종료 후 이전 디렉토리의 재개 목록에 다시 나타나는 문제를 수정했습니다.",
+      "대기 프롬프트에서 Esc Esc가 되돌리기 메뉴를 열지 않는 문제를 수정했습니다(회귀); 백그라운드 에이전트를 중지하려면 Ctrl+C 또는 Ctrl+X Ctrl+K를 사용하세요.",
+      "/context가 Bedrock의 모든 도구 그룹에 대해 0 tokens를 표시하는 문제를 수정했습니다.",
+      "/deep-research가 검증 실패를 \"모든 주장 반박됨\"으로 잘못 보고하는 문제를 수정했습니다.",
+      "/code-review 워크플로우가 개선되었습니다: 다섯 개의 정리 찾기를 하나로 병합하여 토큰 사용량을 약 25% 줄였습니다.",
+      "스트리밍 중에 no-op 서브트리 탐색을 건너뛰어 터미널 UI의 프레임당 렌더링 작업을 줄였습니다.",
+      "스트리밍 대기 감시자가 이제 모든 제공자에 대해 기본적으로 활성화되어 있습니다 — 응답 스트림이 5분 동안 이벤트를 생성하지 않으면 중단하고 재시도합니다. 비활성화하려면 CLAUDE_ENABLE_STREAM_WATCHDOG=0으로 설정하세요.",
+      "ANTHROPIC_BASE_URL이 비-Anthropic 호스트를 가리킬 때 원격 제어가 비활성화되었습니다. 이는 CLAUDE_CODE_USE_BEDROCK/_VERTEX/_FOUNDRY 하의 기존 동작과 일치합니다."
+    ]
+  },
+  {
     "version": "2.1.195",
     "date": "2026-06-26",
     "commands": [
