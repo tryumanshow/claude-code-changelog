@@ -1829,5 +1829,21 @@
   "ef49d9d2b0f7a8f6": "/code-review 워크플로우가 개선되었습니다: 다섯 개의 정리 찾기를 하나로 병합하여 토큰 사용량을 약 25% 줄였습니다.",
   "5d68f6805cf16f59": "스트리밍 중에 no-op 서브트리 탐색을 건너뛰어 터미널 UI의 프레임당 렌더링 작업을 줄였습니다.",
   "ed6bc3fb12187bee": "스트리밍 대기 감시자가 이제 모든 제공자에 대해 기본적으로 활성화되어 있습니다 — 응답 스트림이 5분 동안 이벤트를 생성하지 않으면 중단하고 재시도합니다. 비활성화하려면 CLAUDE_ENABLE_STREAM_WATCHDOG=0으로 설정하세요.",
-  "6a4e3cfb167ba575": "ANTHROPIC_BASE_URL이 비-Anthropic 호스트를 가리킬 때 원격 제어가 비활성화되었습니다. 이는 CLAUDE_CODE_USE_BEDROCK/_VERTEX/_FOUNDRY 하의 기존 동작과 일치합니다."
+  "6a4e3cfb167ba575": "ANTHROPIC_BASE_URL이 비-Anthropic 호스트를 가리킬 때 원격 제어가 비활성화되었습니다. 이는 CLAUDE_CODE_USE_BEDROCK/_VERTEX/_FOUNDRY 하의 기존 동작과 일치합니다.",
+  "facd70a24c3c3973": "Chrome에서 Claude가 이제 일반적으로 사용 가능합니다.",
+  "10c6c01e0266f2f7": "claude agents에서 입력이 필요하거나 완료된 세션에 대한 백그라운드 에이전트 알림이 추가되었습니다 — 이제 Notification hook(agent_needs_input / agent_completed)이 작동합니다.",
+  "6859453a496311ad": "실행 가능한 색상 팔레트 검증기가 포함된 차트 및 대시보드 디자인 가이드를 위한 /dataviz 스킬이 추가되었습니다.",
+  "3dd49af1b2da3276": "Gateway: AWS에서 Claude Platform(anthropicAws)을 업스트림 제공자로 추가했습니다; model-not-found 응답이 이제 장애 조치 체인을 진행합니다.",
+  "9c9a672cf34df6ce": "claude agents에서 시작된 백그라운드 에이전트는 이제 작업 트리에서 코드 작업을 완료할 때 중단하여 묻지 않고 커밋, 푸시 및 초안 PR을 엽니다.",
+  "39e13e1c8bc9a490": "내장된 Explore 에이전트는 이제 haiku에서 실행되는 대신 메인 세션의 모델(opus로 제한됨)을 상속합니다.",
+  "46848ad71e144370": "서브 에이전트와 컨텍스트 압축은 이제 세션의 확장된 사고 구성을 상속하여 위임된 작업의 출력 품질을 개선합니다.",
+  "af4238d7625a5066": "세션 외부에서 브랜치를 전환하거나 커밋할 때 /diff 패널이 새로 고쳐지지 않는 문제를 수정했습니다.",
+  "b3cf47d234db1303": "STS 토큰이 만료될 때 Claude Platform on AWS 및 Mantle 세션이 \"Please run /login\"으로 종료되는 문제를 수정했습니다 — awsAuthRefresh가 이제 자동으로 실행됩니다.",
+  "7a6f7f80dd50071a": "작업 트리에 들어가고 나간 후 \"Cannot determine working directory\" 오류로 /desktop이 실패하는 문제를 수정했습니다.",
+  "09e2f1bf712a3bf1": "claude --bg가 --print/-p와 결합될 때 조용히 연결할 수 없는 세션을 생성하는 문제를 수정했습니다; 충돌하는 플래그는 이제 사전에 거부됩니다.",
+  "c948c199b16c3ca7": "/branch가 첫 번째 실제 프롬프트 대신 압축 요약에서 기본 포크 이름을 파생하는 문제를 수정했습니다.",
+  "c4edf1257895f73a": "키보드 단축키 힌트가 이제 SSH를 통해 Mac에서 연결할 때 alt/super 대신 opt/cmd를 표시합니다.",
+  "bd57c6052cca4e82": "/login이 더 이상 사용 불가능하다고 말하는 대신 claude agents 보기에서 로그인 대화 상자를 엽니다.",
+  "5227600f227b08ad": "서브 에이전트는 이제 그들을 시작한 에이전트의 메시지를 일반 작업 지시로 처리합니다; 에이전트의 메시지는 여전히 사용자의 승인으로 간주되지 않습니다.",
+  "0b62cc7ae0c1c715": "/agents 마법사를 제거했습니다; Claude에게 서브 에이전트를 생성하거나 관리하도록 요청하거나 .claude/agents/를 직접 편집하세요."
 }
