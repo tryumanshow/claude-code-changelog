@@ -1,10 +1,12 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-07-02 22:13 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-07-03 22:10 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
-| **v2.1.198** | 2026-07-01 | `/dataviz`, `/diff`, `/login`, `/desktop`, `--print`, `/branch`, `/agents` | Claude in Chrome is now generally available / Added background agent notifications in claude agents — sessions that need input or finish now fire the Notification hook (agent_needs_input / agent_co... |
+| **v2.1.200** | 2026-07-03 | `/config`, `--help`, `--permission-mode manual`, `/mcp` | Changed AskUserQuestion dialogs to no longer auto-continue by default; opt into an idle timeout via /config / Changed the "default" permission mode to "Manual" across the CLI, --help, VS Code, and ... |
+| **v2.1.199** | 2026-07-02 | `/skill-a`, `/skill-b`, `/model`, `/fast`, `/background`, `/color` | Stacked slash-skill invocations like /skill-a /skill-b do XYZ now load all leading skills (up to 5), not just the first / Fixed typing /model or /fast while viewing a subagent silently opening the ... |
+| **v2.1.198** | 2026-07-01 | `/dataviz`, `/diff`, `/login`, `/desktop`, `--print`, `/branch`, `/agents` | Subagents now run in the background by default, so Claude keeps working while they run and is notified when they finish (previously a gradual rollout) / Claude in Chrome is now generally available ... |
 | **v2.1.197** | 2026-06-30 | — | Introducing Claude Sonnet 5: now the default model in Claude Code, with a native 1M-token context window and promotional pricing of $2/$10 per Mtok through August 31. Update to version 2.1.197 for ... |
 | **v2.1.196** | 2026-06-29 | `/model`, `Ctrl+c`, `/cd`, `Ctrl+C`, `Ctrl+X`, `Ctrl+K`, `/context`, `/deep-research`, `/code-review` | Added support for organization default models — admins set it in the org console; it shows as "Org default" (or "Role default") in /model when you haven't picked one yourself / Added readable defau... |
 | **v2.1.195** | 2026-06-26 | `/plugin` | Added CLAUDE_CODE_DISABLE_MOUSE_CLICKS to disable mouse click/drag/hover in fullscreen mode while keeping wheel scroll / Fixed /plugin Enable/Disable not working when a plugin's plugin.json name di... |
@@ -82,8 +84,6 @@
 | **v2.1.97** | 2026-04-08 | `Ctrl+O`, `/agents`, `--dangerously-skip-permissions`, `--add-dir`, `/resume`, `--resume <name>`, `Ctrl+A`, `--resume`, `Shift+E`, `/claude-api` | Added focus view toggle (Ctrl+O) in NO_FLICKER mode showing prompt, one-line tool summary with edit diffstats, and final response / Added refreshInterval status line setting to re-run the status li... |
 | **v2.1.96** | 2026-04-08 | — | Fixed Bedrock requests failing with 403 "Authorization header is missing" when using AWS_BEARER_TOKEN_BEDROCK or CLAUDE_CODE_SKIP_BEDROCK_AUTH (regression in 2.1.94) |
 | **v2.1.94** | 2026-04-07 | `/effort`, `Shift+S`, `alt+s`, `--resume` | Added support for Amazon Bedrock powered by Mantle, set CLAUDE_CODE_USE_MANTLE=1 / Changed default effort level from medium to high for API-key, Bedrock/Vertex/Foundry, Team, and Enterprise users (... |
-| **v2.1.92** | 2026-04-04 | `/cost`, `/release-notes`, `--remote-control-session-name-prefix`, `ctrl+e`, `/clear`, `/tag`, `/vim`, `/config` | Added forceRemoteSettingsRefresh policy setting: when set, the CLI blocks startup until remote managed settings are freshly fetched, and exits if the fetch fails (fail-closed) / Added interactive B... |
-| **v2.1.91** | 2026-04-02 | `/open`, `--resume`, `/feedback`, `/claude-api` | Added MCP tool result persistence override via _meta["anthropic/maxResultSizeChars"] annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation / Added disa... |
 
 ---
 
