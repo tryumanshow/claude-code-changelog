@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-07-06 22:19 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-07-07 22:17 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.203** | 2026-07-07 | `/exit`, `/clear`, `/doctor`, `/status` | Added a warning when your login is about to expire, so you can re-authenticate before background sessions are interrupted / Added a grey ⏸ badge to the footer when in manual permission mode, making... |
+| **v2.1.202** | 2026-07-06 | `/config`, `Ctrl+R`, `/rename`, `/remote-control`, `/workflows`, `/review <pr>`, `/review`, `/code-review` | Added a "Dynamic workflow size" setting in /config for controlling how large Claude generally makes dynamic workflows (small/medium/large agent counts) — an advisory guideline, not an enforced cap ... |
 | **v2.1.201** | 2026-07-03 | — | Claude Sonnet 5 sessions no longer use the mid-conversation system role for harness reminders |
 | **v2.1.200** | 2026-07-03 | `/config`, `--help`, `--permission-mode manual`, `/mcp` | Changed AskUserQuestion dialogs to no longer auto-continue by default; opt into an idle timeout via /config / Changed the "default" permission mode to "Manual" across the CLI, --help, VS Code, and ... |
 | **v2.1.199** | 2026-07-02 | `/skill-a`, `/skill-b`, `/model`, `/fast`, `/background`, `/color` | Stacked slash-skill invocations like /skill-a /skill-b do XYZ now load all leading skills (up to 5), not just the first / Fixed typing /model or /fast while viewing a subagent silently opening the ... |
@@ -82,8 +84,6 @@
 | **v2.1.105** | 2026-04-13 | `/proactive`, `/loop`, `/doctor`, `/config`, `alt+e`, `Ctrl+J`, `/resume`, `--worktree`, `/branch`, `/model`, `/help` | Added path parameter to the EnterWorktree tool to switch into an existing worktree of the current repository / Added PreCompact hook support: hooks can now block compaction by exiting with code 2 o... |
 | **v2.1.101** | 2026-04-10 | `/team-onboarding`, `/ultraplan`, `/rename`, `--name`, `/plugin`, `--resume`, `--continue`, `--setting-sources`, `/resume`, `/btw`, `/context`, `/plugin update`, `/mcp`, `/login`, `/add-dir --remember`, `/config`, `/add-dir`, `/remote-control`, `/insights` | Added /team-onboarding command to generate a teammate ramp-up guide from your local Claude Code usage / Added OS CA certificate store trust by default, so enterprise TLS proxies work without extra ... |
 | **v2.1.98** | 2026-04-09 | `--exclude-dynamic-system-prompt-sections`, `--dangerously-skip-permissions`, `--add-dir`, `--resume`, `/resume`, `--resume <name>`, `/export`, `/effort max`, `/effort`, `/agents`, `/reload-plugins`, `--debug`, `/claude-api`, `/compact` | Added interactive Google Vertex AI setup wizard accessible from the login screen when selecting "3rd-party platform", guiding you through GCP authentication, project and region configuration, crede... |
-| **v2.1.97** | 2026-04-08 | `Ctrl+O`, `/agents`, `--dangerously-skip-permissions`, `--add-dir`, `/resume`, `--resume <name>`, `Ctrl+A`, `--resume`, `Shift+E`, `/claude-api` | Added focus view toggle (Ctrl+O) in NO_FLICKER mode showing prompt, one-line tool summary with edit diffstats, and final response / Added refreshInterval status line setting to re-run the status li... |
-| **v2.1.96** | 2026-04-08 | — | Fixed Bedrock requests failing with 403 "Authorization header is missing" when using AWS_BEARER_TOKEN_BEDROCK or CLAUDE_CODE_SKIP_BEDROCK_AUTH (regression in 2.1.94) |
 
 ---
 
