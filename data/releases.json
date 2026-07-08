@@ -1,5 +1,67 @@
 [
   {
+    "version": "2.1.205",
+    "date": "2026-07-08",
+    "commands": [
+      {
+        "name": "--json-schema",
+        "context": "fixed",
+        "summary": "Fixed `--json-schema` silently producing unstructured output when the schema was"
+      },
+      {
+        "name": "--max-turns",
+        "context": "fixed",
+        "summary": "Fixed a message sent while Claude was working being silently lost when the turn "
+      },
+      {
+        "name": "/doctor",
+        "context": "improved",
+        "summary": "`/doctor` is now a full setup checkup that can diagnose and fix issues; `/checku"
+      },
+      {
+        "name": "/checkup",
+        "context": "improved",
+        "summary": "`/doctor` is now a full setup checkup that can diagnose and fix issues; `/checku"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed Cowork VM-mode local-agent sessions failing to start with \"Not logged in ·"
+      }
+    ],
+    "features": [
+      "Added an auto mode rule that blocks tampering with session transcript files",
+      "Fixed --json-schema silently producing unstructured output when the schema was invalid, and schemas using the format keyword being rejected",
+      "Fixed a message sent while Claude was working being silently lost when the turn ended at the --max-turns limit",
+      "Auto-update binary downloads now stream to disk instead of buffering in memory, cutting the updater's peak memory usage by roughly 400 MB",
+      "Background task notifications now explicitly state that no human input has occurred, preventing fabricated in-transcript approvals from being acted on",
+      "/doctor is now a full setup checkup that can diagnose and fix issues; /checkup is its alias",
+      "Reserved the \"Claude Browser\" MCP server name (alongside \"Claude Preview\") ahead of the Claude Desktop pane rename; user-configured MCP servers can no longer register under either name",
+      "Fixed Cowork VM-mode local-agent sessions failing to start with \"Not logged in · Please run /login\" on CLI 2.1.203+"
+    ],
+    "features_ko": [
+      "세션 전사 파일의 변조를 차단하는 자동 모드 규칙이 추가되었습니다.",
+      "--json-schema가 스키마가 유효하지 않을 때 비구조적 출력을 조용히 생성하고, format 키워드를 사용하는 스키마가 거부되는 문제를 수정했습니다.",
+      "Claude가 작업 중일 때 전송된 메시지가 --max-turns 제한에서 턴이 끝날 때 조용히 사라지는 문제를 수정했습니다.",
+      "자동 업데이트 바이너리 다운로드가 이제 메모리에서 버퍼링하는 대신 디스크로 스트리밍되어 업데이트 도구의 최대 메모리 사용량이 약 400 MB 줄어들었습니다.",
+      "백그라운드 작업 알림이 이제 인간 입력이 없음을 명시적으로 표시하여, 조작된 전사 승인 조치가 발생하지 않도록 합니다.",
+      "/doctor는 이제 문제를 진단하고 수정할 수 있는 전체 설정 점검으로, /checkup이 그 별칭입니다.",
+      "Claude Desktop 패널 이름 변경에 앞서 \"Claude Browser\" MCP 서버 이름(및 \"Claude Preview\")이 예약되었습니다; 사용자 구성 MCP 서버는 더 이상 두 이름 중 하나로 등록할 수 없습니다.",
+      "Cowork VM 모드 로컬 에이전트 세션이 \"Not logged in · Please run /login\"으로 시작하지 않는 문제를 CLI 2.1.203+에서 수정했습니다."
+    ]
+  },
+  {
+    "version": "2.1.204",
+    "date": "2026-07-08",
+    "commands": [],
+    "features": [
+      "Fixed hook events not streaming during SessionStart hooks in headless sessions, which could cause remote workers to be idle-reaped mid-hook"
+    ],
+    "features_ko": [
+      "헤드리스 세션에서 SessionStart 훅 중에 훅 이벤트가 스트리밍되지 않아 원격 작업자가 훅 중에 유휴 수확되는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.203",
     "date": "2026-07-07",
     "commands": [

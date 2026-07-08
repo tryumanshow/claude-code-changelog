@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-07-07 22:17 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-07-08 22:13 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.205** | 2026-07-08 | `--json-schema`, `--max-turns`, `/doctor`, `/checkup`, `/login` | Added an auto mode rule that blocks tampering with session transcript files / Fixed --json-schema silently producing unstructured output when the schema was invalid, and schemas using the format ke... |
+| **v2.1.204** | 2026-07-08 | — | Fixed hook events not streaming during SessionStart hooks in headless sessions, which could cause remote workers to be idle-reaped mid-hook |
 | **v2.1.203** | 2026-07-07 | `/exit`, `/clear`, `/doctor`, `/status` | Added a warning when your login is about to expire, so you can re-authenticate before background sessions are interrupted / Added a grey ⏸ badge to the footer when in manual permission mode, making... |
 | **v2.1.202** | 2026-07-06 | `/config`, `Ctrl+R`, `/rename`, `/remote-control`, `/workflows`, `/review <pr>`, `/review`, `/code-review` | Added a "Dynamic workflow size" setting in /config for controlling how large Claude generally makes dynamic workflows (small/medium/large agent counts) — an advisory guideline, not an enforced cap ... |
 | **v2.1.201** | 2026-07-03 | — | Claude Sonnet 5 sessions no longer use the mid-conversation system role for harness reminders |
@@ -82,8 +84,6 @@
 | **v2.1.108** | 2026-04-14 | `/config`, `/recap`, `/init`, `/review`, `/security-review`, `/undo`, `/rewind`, `/model`, `/resume`, `Ctrl+A`, `Ctrl+O`, `/login`, `/rename`, `--teleport`, `/feedback`, `--resume <id>`, `--resume` | Added ENABLE_PROMPT_CACHING_1H env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (ENABLE_PROMPT_CACHING_1H_BEDROCK is deprecated but still honored), and FORCE_PRO... |
 | **v2.1.107** | 2026-04-14 | — | Show thinking hints sooner during long operations |
 | **v2.1.105** | 2026-04-13 | `/proactive`, `/loop`, `/doctor`, `/config`, `alt+e`, `Ctrl+J`, `/resume`, `--worktree`, `/branch`, `/model`, `/help` | Added path parameter to the EnterWorktree tool to switch into an existing worktree of the current repository / Added PreCompact hook support: hooks can now block compaction by exiting with code 2 o... |
-| **v2.1.101** | 2026-04-10 | `/team-onboarding`, `/ultraplan`, `/rename`, `--name`, `/plugin`, `--resume`, `--continue`, `--setting-sources`, `/resume`, `/btw`, `/context`, `/plugin update`, `/mcp`, `/login`, `/add-dir --remember`, `/config`, `/add-dir`, `/remote-control`, `/insights` | Added /team-onboarding command to generate a teammate ramp-up guide from your local Claude Code usage / Added OS CA certificate store trust by default, so enterprise TLS proxies work without extra ... |
-| **v2.1.98** | 2026-04-09 | `--exclude-dynamic-system-prompt-sections`, `--dangerously-skip-permissions`, `--add-dir`, `--resume`, `/resume`, `--resume <name>`, `/export`, `/effort max`, `/effort`, `/agents`, `/reload-plugins`, `--debug`, `/claude-api`, `/compact` | Added interactive Google Vertex AI setup wizard accessible from the login screen when selecting "3rd-party platform", guiding you through GCP authentication, project and region configuration, crede... |
 
 ---
 
