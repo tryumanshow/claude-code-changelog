@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-07-09 22:37 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-07-10 22:11 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.206** | 2026-07-10 | `/cd`, `/add-dir`, `/doctor`, `/commit-push-pr`, `/login`, `--continue`, `--mcp-config`, `--bg`, `--permission-prompt-tool`, `/model`, `/remote-control`, `/status`, `Ctrl+E`, `/code-review`, `Ctrl+X` | Added directory path suggestions to /cd, matching /add-dir behavior / Added a /doctor check that proposes trimming checked-in CLAUDE.md files by cutting content Claude could derive from the codebas... |
 | **v2.1.205** | 2026-07-08 | `--json-schema`, `--max-turns`, `/doctor`, `/checkup`, `/login` | Added an auto mode rule that blocks tampering with session transcript files / Fixed --json-schema silently producing unstructured output when the schema was invalid, and schemas using the format ke... |
 | **v2.1.204** | 2026-07-08 | — | Fixed hook events not streaming during SessionStart hooks in headless sessions, which could cause remote workers to be idle-reaped mid-hook |
 | **v2.1.203** | 2026-07-07 | `/exit`, `/clear`, `/doctor`, `/status` | Added a warning when your login is about to expire, so you can re-authenticate before background sessions are interrupted / Added a grey ⏸ badge to the footer when in manual permission mode, making... |
@@ -83,7 +84,6 @@
 | **v2.1.109** | 2026-04-15 | — | Improved the extended-thinking indicator with a rotating progress hint |
 | **v2.1.108** | 2026-04-14 | `/config`, `/recap`, `/init`, `/review`, `/security-review`, `/undo`, `/rewind`, `/model`, `/resume`, `Ctrl+A`, `Ctrl+O`, `/login`, `/rename`, `--teleport`, `/feedback`, `--resume <id>`, `--resume` | Added ENABLE_PROMPT_CACHING_1H env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (ENABLE_PROMPT_CACHING_1H_BEDROCK is deprecated but still honored), and FORCE_PRO... |
 | **v2.1.107** | 2026-04-14 | — | Show thinking hints sooner during long operations |
-| **v2.1.105** | 2026-04-13 | `/proactive`, `/loop`, `/doctor`, `/config`, `alt+e`, `Ctrl+J`, `/resume`, `--worktree`, `/branch`, `/model`, `/help` | Added path parameter to the EnterWorktree tool to switch into an existing worktree of the current repository / Added PreCompact hook support: hooks can now block compaction by exiting with code 2 o... |
 
 ---
 
