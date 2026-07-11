@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-07-10 22:11 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-07-11 21:55 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.207** | 2026-07-11 | `/doctor`, `--settings`, `/usage-credits` | Auto mode is now available without CLAUDE_CODE_ENABLE_AUTO_MODE opt-in on Bedrock, Vertex AI, and Foundry; disable via disableAutoMode in settings / Fixed the auto-updater overwriting a custom laun... |
 | **v2.1.206** | 2026-07-10 | `/cd`, `/add-dir`, `/doctor`, `/commit-push-pr`, `/login`, `--continue`, `--mcp-config`, `--bg`, `--permission-prompt-tool`, `/model`, `/remote-control`, `/status`, `Ctrl+E`, `/code-review`, `Ctrl+X` | Added directory path suggestions to /cd, matching /add-dir behavior / Added a /doctor check that proposes trimming checked-in CLAUDE.md files by cutting content Claude could derive from the codebas... |
 | **v2.1.205** | 2026-07-08 | `--json-schema`, `--max-turns`, `/doctor`, `/checkup`, `/login` | Added an auto mode rule that blocks tampering with session transcript files / Fixed --json-schema silently producing unstructured output when the schema was invalid, and schemas using the format ke... |
 | **v2.1.204** | 2026-07-08 | — | Fixed hook events not streaming during SessionStart hooks in headless sessions, which could cause remote workers to be idle-reaped mid-hook |
@@ -83,7 +84,6 @@
 | **v2.1.110** | 2026-04-15 | `/tui`, `/tui fullscreen`, `/focus`, `Ctrl+O`, `/config`, `Ctrl+G`, `/plugin`, `/doctor`, `--resume`, `--continue`, `/context`, `/exit`, `/reload-plugins`, `/rename`, `/skills` | Added /tui command and tui setting — run /tui fullscreen to switch to flicker-free rendering in the same conversation / Added push notification tool — Claude can send mobile push notifications when... |
 | **v2.1.109** | 2026-04-15 | — | Improved the extended-thinking indicator with a rotating progress hint |
 | **v2.1.108** | 2026-04-14 | `/config`, `/recap`, `/init`, `/review`, `/security-review`, `/undo`, `/rewind`, `/model`, `/resume`, `Ctrl+A`, `Ctrl+O`, `/login`, `/rename`, `--teleport`, `/feedback`, `--resume <id>`, `--resume` | Added ENABLE_PROMPT_CACHING_1H env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (ENABLE_PROMPT_CACHING_1H_BEDROCK is deprecated but still honored), and FORCE_PRO... |
-| **v2.1.107** | 2026-04-14 | — | Show thinking hints sooner during long operations |
 
 ---
 
