@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-07-14 22:04 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-07-15 22:07 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.210** | 2026-07-14 | `/doctor`, `Shift+T` | Added a live elapsed-time counter to the collapsed tool summary line so long-running tool calls visibly tick instead of looking stuck / Added a startup warning for Write(path), NotebookEdit(path), ... |
 | **v2.1.209** | 2026-07-14 | `/model` | Fixed /model and other dialogs being blocked in claude agents background sessions (reverts an overly broad guard) |
 | **v2.1.208** | 2026-07-14 | `--ax-screen-reader`, `/upgrade`, `/usage`, `/mcp`, `/release-notes`, `/tasks`, `Ctrl+X`, `--dangerously-skip-permissions`, `/backticks`, `/install-github-app` | Added screen reader mode: opt-in plain-text rendering for screen reader users. Run claude --ax-screen-reader, set CLAUDE_AX_SCREEN_READER=1, or add "axScreenReader": true to settings. / Added vimIn... |
 | **v2.1.207** | 2026-07-11 | `/doctor`, `--settings`, `/usage-credits` | Auto mode is now available without CLAUDE_CODE_ENABLE_AUTO_MODE opt-in on Bedrock, Vertex AI, and Foundry; disable via disableAutoMode in settings / Fixed the auto-updater overwriting a custom laun... |
@@ -83,7 +84,6 @@
 | **v2.1.113** | 2026-04-17 | `Ctrl+A`, `Ctrl+E`, `Ctrl+B`, `/loop`, `/extra-usage`, `/ultrareview`, `/private`, `Ctrl+U`, `/copy`, `/effort auto`, `/effort`, `/insights` | Added sandbox.network.deniedDomains setting to block specific domains even when a broader allowedDomains wildcard would otherwise permit them / Fullscreen mode: Shift+↑/↓ now scrolls the viewport w... |
 | **v2.1.112** | 2026-04-16 | — | Fixed "claude-opus-4-7 is temporarily unavailable" for auto mode |
 | **v2.1.111** | 2026-04-16 | `/effort`, `--effort`, `/theme`, `/less-permission-prompts`, `/ultrareview`, `--enable-auto-mode`, `/setup-vertex`, `/setup-bedrock`, `/skills`, `Ctrl+U`, `Ctrl+Y`, `Ctrl+L`, `--output-format stream-json`, `/resume`, `/context`, `/clear`, `/rename`, `/commit` | Claude Opus 4.7 xhigh is now available! Use /effort to tune speed vs. intelligence / Auto mode is now available for Max subscribers when using Opus 4.7 / Added xhigh effort level for Opus 4.7, sitt... |
-| **v2.1.110** | 2026-04-15 | `/tui`, `/tui fullscreen`, `/focus`, `Ctrl+O`, `/config`, `Ctrl+G`, `/plugin`, `/doctor`, `--resume`, `--continue`, `/context`, `/exit`, `/reload-plugins`, `/rename`, `/skills` | Added /tui command and tui setting — run /tui fullscreen to switch to flicker-free rendering in the same conversation / Added push notification tool — Claude can send mobile push notifications when... |
 
 ---
 

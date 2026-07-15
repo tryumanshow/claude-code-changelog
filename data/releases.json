@@ -1,5 +1,43 @@
 [
   {
+    "version": "2.1.210",
+    "date": "2026-07-14",
+    "commands": [
+      {
+        "name": "/doctor",
+        "context": "fixed",
+        "summary": "Fixed `/doctor` skipping its auto-mode-default proposal on Bedrock, Vertex, and "
+      },
+      {
+        "name": "Shift+T",
+        "context": "improved",
+        "summary": "Screen reader mode now announces permission mode changes aloud when cycling mode"
+      }
+    ],
+    "features": [
+      "Added a live elapsed-time counter to the collapsed tool summary line so long-running tool calls visibly tick instead of looking stuck",
+      "Added a startup warning for Write(path), NotebookEdit(path), and Glob(path) permission rules — use Edit(path) or Read(path) instead",
+      "Fixed /doctor skipping its auto-mode-default proposal on Bedrock, Vertex, and Foundry, where auto mode no longer needs an opt-in",
+      "Hardened the Agent tool against indirect prompt injection via content a subagent read",
+      "Memory writes that leave a MEMORY.md index over its read limit now produce an explicit error instead of silent truncation",
+      "Screen reader mode now announces permission mode changes aloud when cycling modes with Shift+Tab",
+      "The agents footer hint now shows how many background agents are waiting on your input, with a brief color emphasis when the count changes",
+      "Agent view: the session you pressed ← from stays visibly marked even after mouse hover or arrow keys move the selection",
+      "Fable temporarily shows as unavailable in the advisor picker while a server-side issue causing Fable advisor failures is fixed"
+    ],
+    "features_ko": [
+      "긴 실행 시간의 도구 호출이 멈춘 것처럼 보이지 않고 실제로 진행 중임을 표시하기 위해 축소된 도구 요약 줄에 실시간 경과 시간 카운터를 추가했습니다.",
+      "Write(path), NotebookEdit(path), 및 Glob(path) 권한 규칙에 대한 시작 경고를 추가했습니다 — 대신 Edit(path) 또는 Read(path)를 사용하세요.",
+      "/doctor가 Bedrock, Vertex, 및 Foundry에서 자동 모드 기본 제안을 건너뛰는 문제를 수정했습니다. 이제 자동 모드에 대한 선택이 필요하지 않습니다.",
+      "서브 에이전트가 읽은 콘텐츠를 통한 간접 프롬프트 주입에 대해 Agent 도구를 강화했습니다.",
+      "MEMORY.md 인덱스가 읽기 한계를 초과하는 메모리 쓰기는 이제 조용한 잘림 대신 명시적인 오류를 발생시킵니다.",
+      "화면 읽기 모드에서 Shift+Tab으로 모드를 전환할 때 권한 모드 변경 사항을 소리 내어 알립니다.",
+      "에이전트 바닥글 힌트는 입력을 기다리고 있는 백그라운드 에이전트 수를 표시하며, 수가 변경될 때 간단한 색상 강조가 나타납니다.",
+      "에이전트 보기: ← 키를 눌러 들어간 세션은 마우스 호버나 화살표 키로 선택을 이동해도 계속 눈에 띄게 표시됩니다.",
+      "Fable은 서버 측 문제로 인해 Fable advisor 실패가 발생하는 동안 어드바이저 선택기에서 일시적으로 사용 불가능으로 표시됩니다."
+    ]
+  },
+  {
     "version": "2.1.209",
     "date": "2026-07-14",
     "commands": [
