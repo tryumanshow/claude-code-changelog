@@ -1934,5 +1934,16 @@
   "42e914ebd7fa4366": "화면 읽기 모드에서 Shift+Tab으로 모드를 전환할 때 권한 모드 변경 사항을 소리 내어 알립니다.",
   "f6114565755b8385": "에이전트 바닥글 힌트는 입력을 기다리고 있는 백그라운드 에이전트 수를 표시하며, 수가 변경될 때 간단한 색상 강조가 나타납니다.",
   "49b71ada3f6dcef3": "에이전트 보기: ← 키를 눌러 들어간 세션은 마우스 호버나 화살표 키로 선택을 이동해도 계속 눈에 띄게 표시됩니다.",
-  "d550690eb44585fe": "Fable은 서버 측 문제로 인해 Fable advisor 실패가 발생하는 동안 어드바이저 선택기에서 일시적으로 사용 불가능으로 표시됩니다."
+  "d550690eb44585fe": "Fable은 서버 측 문제로 인해 Fable advisor 실패가 발생하는 동안 어드바이저 선택기에서 일시적으로 사용 불가능으로 표시됩니다.",
+  "79f27753a48bbfaa": "Added --forward-subagent-text flag and CLAUDE_CODE_FORWARD_SUBAGENT_TEXT environment variable to include subagent text and thinking in stream-json output",
+  "acdbebbbc9eb5391": "Fixed /loop hiding the session from /resume after a single use",
+  "3403ba67e06306eb": "Fixed screen reader users losing the audible terminal bell after /terminal-setup or onboarding terminal setup",
+  "63128775c4c01a6d": "Fixed /clear not resetting the session cost counter — the statusline's cost now starts at $0 after /clear",
+  "b7669ce6c3c4a835": "Hardened synced skill/plugin directory naming on Windows and kept CCR web fetch/search proxies working after /clear",
+  "c58bf2347232b293": "Updated integer environment variables (timeouts, token budgets, retry counts) to accept scientific notation and digit-separator spellings like 1e6 and 64_000",
+  "7ea197a0c5a5e687": "Updated documentation links to the current docs sites",
+  "8f475d4451daed6f": "Changed /usage-credits to ask for confirmation before sending a request to organization admins",
+  "fc23775380f61b1c": "[VSCode] Updated the Remote Control banner to describe what it does",
+  "b027ee14143507ab": "Claude in Chrome: hardened file-upload path validation",
+  "b736623b1a20e300": "Claude in Chrome: save_to_disk on screenshot actions now writes the image to disk and returns the path; previously it did nothing"
 }

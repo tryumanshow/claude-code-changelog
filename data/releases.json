@@ -1,5 +1,67 @@
 [
   {
+    "version": "2.1.211",
+    "date": "2026-07-15",
+    "commands": [
+      {
+        "name": "--forward-subagent-text",
+        "context": "new",
+        "summary": "Added `--forward-subagent-text` flag and `CLAUDE_CODE_FORWARD_SUBAGENT_TEXT` env"
+      },
+      {
+        "name": "/loop",
+        "context": "fixed",
+        "summary": "Fixed `/loop` hiding the session from `/resume` after a single use"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed `/loop` hiding the session from `/resume` after a single use"
+      },
+      {
+        "name": "/terminal-setup",
+        "context": "fixed",
+        "summary": "Fixed screen reader users losing the audible terminal bell after `/terminal-setu"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed `/clear` not resetting the session cost counter — the statusline's cost no"
+      },
+      {
+        "name": "/usage-credits",
+        "context": "improved",
+        "summary": "Changed `/usage-credits` to ask for confirmation before sending a request to org"
+      }
+    ],
+    "features": [
+      "Added --forward-subagent-text flag and CLAUDE_CODE_FORWARD_SUBAGENT_TEXT environment variable to include subagent text and thinking in stream-json output",
+      "Fixed /loop hiding the session from /resume after a single use",
+      "Fixed screen reader users losing the audible terminal bell after /terminal-setup or onboarding terminal setup",
+      "Fixed /clear not resetting the session cost counter — the statusline's cost now starts at $0 after /clear",
+      "Hardened synced skill/plugin directory naming on Windows and kept CCR web fetch/search proxies working after /clear",
+      "Updated integer environment variables (timeouts, token budgets, retry counts) to accept scientific notation and digit-separator spellings like 1e6 and 64_000",
+      "Updated documentation links to the current docs sites",
+      "Changed /usage-credits to ask for confirmation before sending a request to organization admins",
+      "[VSCode] Updated the Remote Control banner to describe what it does",
+      "Claude in Chrome: hardened file-upload path validation",
+      "Claude in Chrome: save_to_disk on screenshot actions now writes the image to disk and returns the path; previously it did nothing"
+    ],
+    "features_ko": [
+      "Added --forward-subagent-text flag and CLAUDE_CODE_FORWARD_SUBAGENT_TEXT environment variable to include subagent text and thinking in stream-json output",
+      "Fixed /loop hiding the session from /resume after a single use",
+      "Fixed screen reader users losing the audible terminal bell after /terminal-setup or onboarding terminal setup",
+      "Fixed /clear not resetting the session cost counter — the statusline's cost now starts at $0 after /clear",
+      "Hardened synced skill/plugin directory naming on Windows and kept CCR web fetch/search proxies working after /clear",
+      "Updated integer environment variables (timeouts, token budgets, retry counts) to accept scientific notation and digit-separator spellings like 1e6 and 64_000",
+      "Updated documentation links to the current docs sites",
+      "Changed /usage-credits to ask for confirmation before sending a request to organization admins",
+      "[VSCode] Updated the Remote Control banner to describe what it does",
+      "Claude in Chrome: hardened file-upload path validation",
+      "Claude in Chrome: save_to_disk on screenshot actions now writes the image to disk and returns the path; previously it did nothing"
+    ]
+  },
+  {
     "version": "2.1.210",
     "date": "2026-07-14",
     "commands": [
