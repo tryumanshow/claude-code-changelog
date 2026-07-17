@@ -1,5 +1,120 @@
 [
   {
+    "version": "2.1.212",
+    "date": "2026-07-17",
+    "commands": [
+      {
+        "name": "/fork",
+        "context": "improved",
+        "summary": "`/fork` now copies your conversation into a new background session (its own row "
+      },
+      {
+        "name": "/subtask",
+        "context": "improved",
+        "summary": "`/fork` now copies your conversation into a new background session (its own row "
+      },
+      {
+        "name": "--yes",
+        "context": "new",
+        "summary": "Added `claude auto-mode reset` to restore the default auto-mode configuration, w"
+      },
+      {
+        "name": "/clear",
+        "context": "new",
+        "summary": "Added a per-session cap on subagent spawns (default 200, override with `CLAUDE_C"
+      },
+      {
+        "name": "/resume",
+        "context": "improved",
+        "summary": "Typing `/resume` in the agent view now opens a picker of past sessions — includi"
+      },
+      {
+        "name": "/background",
+        "context": "fixed",
+        "summary": "Fixed `/background` and `claude --bg` failing with \"EUNKNOWN: unknown error, uv_"
+      },
+      {
+        "name": "Ctrl+J",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+J not inserting a newline in the agent view dispatch input on termina"
+      },
+      {
+        "name": "/ultrareview",
+        "context": "fixed",
+        "summary": "Fixed `/ultrareview` rejecting PR references like `#123`, `PR 123`, and pasted P"
+      },
+      {
+        "name": "/ultrareview <branch>",
+        "context": "fixed",
+        "summary": "Fixed `/ultrareview <branch>` not fetching the branch from origin when it exists"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed `ExitWorktree` failing with \"no active EnterWorktree session\" after resumi"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed `ExitWorktree` failing with \"no active EnterWorktree session\" after resumi"
+      },
+      {
+        "name": "ctrl+g",
+        "context": "fixed",
+        "summary": "Fixed the plan-approval dialog footer splitting \"ctrl+g to edit in <editor>\" apa"
+      },
+      {
+        "name": "/btw",
+        "context": "improved",
+        "summary": "Changed bare `/btw` to reopen the side-question panel on your most recent exchan"
+      }
+    ],
+    "features": [
+      "/fork now copies your conversation into a new background session (its own row in claude agents) while you keep working; the in-session subagent it used to launch is now /subtask",
+      "Added claude auto-mode reset to restore the default auto-mode configuration, with a confirmation prompt (pass --yes to skip)",
+      "Added a session-wide limit on WebSearch tool calls (default 200, tunable via CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION) to stop runaway search loops",
+      "Added a per-session cap on subagent spawns (default 200, override with CLAUDE_CODE_MAX_SUBAGENTS_PER_SESSION) to stop runaway delegation loops; /clear resets the budget",
+      "MCP tool calls running longer than 2 minutes now move to the background automatically so the session stays usable; configure the threshold or disable with CLAUDE_CODE_MCP_AUTO_BACKGROUND_MS",
+      "Typing /resume in the agent view now opens a picker of past sessions — including sessions deleted from the list — and resumes your pick as a background session",
+      "Fixed /background and claude --bg failing with \"EUNKNOWN: unknown error, uv_spawn\" on Windows when Group Policy blocks PowerShell 5.1; the daemon now prefers PowerShell 7",
+      "Fixed Ctrl+J not inserting a newline in the agent view dispatch input on terminals with extended key reporting, and surfaced the newline shortcut in the ? help overlay",
+      "Fixed /ultrareview rejecting PR references like #123, PR 123, and pasted PR URLs; error hints now name the command you actually typed",
+      "Fixed /ultrareview <branch> not fetching the branch from origin when it exists remotely; it now suggests the closest branch name on typos",
+      "Fixed /ultrareview skipping the billing confirmation in a new conversation after /clear",
+      "Fixed /ultrareview's \"not a git repository\" error on Claude Desktop now suggesting the project's repository folder instead of terminal commands",
+      "Fixed ExitWorktree failing with \"no active EnterWorktree session\" after resuming a session with --continue/--resume in print/SDK mode",
+      "Fixed background sessions created with /fork losing their live-parent protection after a state write failure",
+      "Fixed the plan-approval dialog footer splitting \"ctrl+g to edit in <editor>\" apart when the file path is long",
+      "Reduced token usage in inter-agent messaging: SendMessage bodies are no longer duplicated into replayed history and tool results",
+      "Changed /fork to name the copy after your prompt when the session has no title, so the row is recognizable in the agent view",
+      "Changed bare /btw to reopen the side-question panel on your most recent exchange so you can browse earlier answers",
+      "Updated the auth status panel title from \"Cloud authentication\" to \"Authentication\"",
+      "Corrected an earlier release note (2.1.200): tmux through the 3.6 series lacks synchronized output; newer tmux with support is detected automatically"
+    ],
+    "features_ko": [
+      "/fork는 작업을 계속하는 동안 대화 내용을 새로운 백그라운드 세션(claude agents의 자체 행)으로 복사합니다; 세션 내에서 사용된 하위 에이전트는 이제 /subtask입니다.",
+      "기본 자동 모드 구성을 복원하는 claude 자동 모드 리셋이 추가되었으며, 확인 프롬프트가 표시됩니다(건너뛰려면 --yes를 사용하세요).",
+      "무한 검색 루프를 방지하기 위해 WebSearch 도구 호출에 대한 세션 전체 제한이 추가되었습니다(기본값 200, CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION을 통해 조정 가능).",
+      "무한 위임 루프를 방지하기 위해 하위 에이전트 생성에 대한 세션별 한도가 추가되었습니다(기본값 200, CLAUDE_CODE_MAX_SUBAGENTS_PER_SESSION으로 재정의 가능); /clear는 예산을 초기화합니다.",
+      "2분 이상 실행되는 MCP 도구 호출은 세션이 사용 가능하도록 자동으로 백그라운드로 이동합니다; 임계값을 구성하거나 CLAUDE_CODE_MCP_AUTO_BACKGROUND_MS로 비활성화할 수 있습니다.",
+      "에이전트 보기에서 /resume을 입력하면 삭제된 세션을 포함한 과거 세션 선택기가 열리고 선택한 세션이 백그라운드 세션으로 재개됩니다.",
+      "Windows에서 Group Policy가 PowerShell 5.1을 차단할 때 /background와 claude --bg가 \"EUNKNOWN: unknown error, uv_spawn\" 오류로 실패하는 문제를 수정했습니다; 이제 데몬은 PowerShell 7을 선호합니다.",
+      "확장 키 보고가 있는 터미널에서 에이전트 보기의 배치 입력에 Ctrl+J가 줄 바꿈을 삽입하지 않는 문제를 수정하고, ? 도움말 오버레이에서 줄 바꿈 단축키를 표시했습니다.",
+      "/ultrareview가 #123, PR 123 및 붙여넣은 PR URL과 같은 PR 참조를 거부하는 문제를 수정했습니다; 오류 힌트는 실제로 입력한 명령을 이름으로 표시합니다.",
+      "/ultrareview <branch>가 원격에 존재할 때 원본에서 브랜치를 가져오지 않는 문제를 수정했습니다; 이제 오타에 대해 가장 가까운 브랜치 이름을 제안합니다.",
+      "/clear 후 새로운 대화에서 /ultrareview가 청구 확인을 건너뛰는 문제를 수정했습니다.",
+      "Claude Desktop에서 /ultrareview의 \"not a git repository\" 오류가 터미널 명령 대신 프로젝트의 저장소 폴더를 제안하도록 수정했습니다.",
+      "인쇄/SDK 모드에서 --continue/--resume으로 세션을 재개한 후 ExitWorktree가 \"no active EnterWorktree session\" 오류로 실패하는 문제를 수정했습니다.",
+      "/fork로 생성된 백그라운드 세션이 상태 쓰기 실패 후 실시간 부모 보호를 잃는 문제를 수정했습니다.",
+      "파일 경로가 길 때 계획 승인 대화 상자 바닥글이 \"ctrl+g to edit in <editor>\"를 분리하는 문제를 수정했습니다.",
+      "에이전트 간 메시징에서 토큰 사용량을 줄였습니다: SendMessage 본문이 재생된 기록 및 도구 결과에 중복되지 않습니다.",
+      "세션에 제목이 없을 때 /fork가 복사본의 이름을 프롬프트에 따라 지정하도록 변경하여 에이전트 보기에서 행을 인식할 수 있도록 했습니다.",
+      "맨 앞의 /btw가 가장 최근의 교환에서 사이드 질문 패널을 다시 열도록 변경하여 이전 답변을 탐색할 수 있습니다.",
+      "인증 상태 패널 제목을 \"Cloud authentication\"에서 \"Authentication\"으로 업데이트했습니다.",
+      "이전 릴리스 노트(2.1.200)를 수정했습니다: tmux 3.6 시리즈는 동기화된 출력을 지원하지 않으며, 지원되는 최신 tmux가 자동으로 감지됩니다."
+    ]
+  },
+  {
     "version": "2.1.211",
     "date": "2026-07-15",
     "commands": [

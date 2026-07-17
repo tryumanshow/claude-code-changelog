@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-07-16 22:08 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-07-17 21:59 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.212** | 2026-07-17 | `/fork`, `/subtask`, `--yes`, `/clear`, `/resume`, `/background`, `Ctrl+J`, `/ultrareview`, `/ultrareview <branch>`, `--continue`, `--resume`, `ctrl+g`, `/btw` | /fork now copies your conversation into a new background session (its own row in claude agents) while you keep working; the in-session subagent it used to launch is now /subtask / Added claude auto... |
 | **v2.1.211** | 2026-07-15 | `--forward-subagent-text`, `/loop`, `/resume`, `/terminal-setup`, `/clear`, `/usage-credits` | Added --forward-subagent-text flag and CLAUDE_CODE_FORWARD_SUBAGENT_TEXT environment variable to include subagent text and thinking in stream-json output / Fixed /loop hiding the session from /resu... |
 | **v2.1.210** | 2026-07-14 | `/doctor`, `Shift+T` | Added a live elapsed-time counter to the collapsed tool summary line so long-running tool calls visibly tick instead of looking stuck / Added a startup warning for Write(path), NotebookEdit(path), ... |
 | **v2.1.209** | 2026-07-14 | `/model` | Fixed /model and other dialogs being blocked in claude agents background sessions (reverts an overly broad guard) |
@@ -83,7 +84,6 @@
 | **v2.1.116** | 2026-04-20 | `/resume`, `/terminal-setup`, `/config`, `/doctor`, `/reload-plugins`, `--agent`, `/storage`, `Ctrl+Z`, `/branch`, `/plugin`, `/update`, `/tui` | /resume on large sessions is significantly faster (up to 67% on 40MB+ sessions) and handles sessions with many dead-fork entries more efficiently / Faster MCP startup when multiple stdio servers ar... |
 | **v2.1.114** | 2026-04-18 | — | Fixed a crash in the permission dialog when an agent teams teammate requested tool permission |
 | **v2.1.113** | 2026-04-17 | `Ctrl+A`, `Ctrl+E`, `Ctrl+B`, `/loop`, `/extra-usage`, `/ultrareview`, `/private`, `Ctrl+U`, `/copy`, `/effort auto`, `/effort`, `/insights` | Added sandbox.network.deniedDomains setting to block specific domains even when a broader allowedDomains wildcard would otherwise permit them / Fullscreen mode: Shift+↑/↓ now scrolls the viewport w... |
-| **v2.1.112** | 2026-04-16 | — | Fixed "claude-opus-4-7 is temporarily unavailable" for auto mode |
 
 ---
 
