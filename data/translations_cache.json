@@ -1981,5 +1981,6 @@
   "54c421716968c04f": "/ultrareview가 병합 기준이 없는 리포지토리에서 실행을 거부하는 문제 수정 — 이제 모든 추적된 파일을 검토하겠다고 제안합니다.",
   "6fc4d9a3987486d7": "shell-config 경로가 디렉토리일 때 claude update 및 claude doctor가 조용히 멈추고 /status 시스템 진단 섹션이 비어 있는 문제 수정",
   "f882c35495692154": "single-segment dir/ 훅의 if: 조건을 <cwd>/dir만 일치하도록 변경; 모든 깊이에 대해 일치하려면 /dir/**를 작성합니다. deny/ask 권한 규칙은 모든 깊이 일치를 유지합니다.",
-  "78749342794d6f89": "-m/--magic-file 또는 -f/--files-from을 사용하는 파일 명령이 자동으로 읽기 전용으로 허용되는 대신 권한을 요구하도록 변경했습니다."
+  "78749342794d6f89": "-m/--magic-file 또는 -f/--files-from을 사용하는 파일 명령이 자동으로 읽기 전용으로 허용되는 대신 권한을 요구하도록 변경했습니다.",
+  "7f3aac022731b3f0": "Claude는 더 이상 /verify 및 /code-review 기능을 자동으로 실행하지 않습니다; 필요할 때 /verify 또는 /code-review로 호출하세요."
 }

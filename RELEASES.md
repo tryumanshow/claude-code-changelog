@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-07-18 21:56 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-07-19 21:58 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.215** | 2026-07-19 | `/verify`, `/code-review` | Claude no longer runs the /verify and /code-review skills on its own; invoke them with /verify or /code-review when you want them |
 | **v2.1.214** | 2026-07-18 | `/dir`, `--url`, `--connection`, `--identity`, `--settings`, `/background`, `/install-github-app`, `/mcp`, `/ultrareview`, `/status`, `--magic-file`, `--files-from` | Fixed single-segment dir/ allow rules like Edit(src/) auto-approving writes to nested dir/ directories anywhere in the tree instead of only <cwd>/dir / Added the EndConversation tool: Claude can en... |
 | **v2.1.212** | 2026-07-17 | `/fork`, `/subtask`, `--yes`, `/clear`, `/resume`, `/background`, `Ctrl+J`, `/ultrareview`, `/ultrareview <branch>`, `--continue`, `--resume`, `ctrl+g`, `/btw` | /fork now copies your conversation into a new background session (its own row in claude agents) while you keep working; the in-session subagent it used to launch is now /subtask / Added claude auto... |
 | **v2.1.211** | 2026-07-15 | `--forward-subagent-text`, `/loop`, `/resume`, `/terminal-setup`, `/clear`, `/usage-credits` | Added --forward-subagent-text flag and CLAUDE_CODE_FORWARD_SUBAGENT_TEXT environment variable to include subagent text and thinking in stream-json output / Fixed /loop hiding the session from /resu... |
@@ -83,7 +84,6 @@
 | **v2.1.118** | 2026-04-23 | `/cost`, `/stats`, `/usage`, `/theme`, `--continue`, `--resume`, `/add-dir`, `/color`, `/model`, `/doctor`, `/plugin`, `/mcp`, `/login`, `--dangerously-skip-permissions`, `/fork`, `Alt+K`, `Alt+X` | Added vim visual mode (v) and visual-line mode (V) with selection, operators, and visual feedback / Merged /cost and /stats into /usage — both remain as typing shortcuts that open the relevant tab ... |
 | **v2.1.117** | 2026-04-22 | `--agent`, `/model`, `/resume`, `--resume`, `/compact`, `/login`, `/context` | Forked subagents can now be enabled on external builds by setting CLAUDE_CODE_FORK_SUBAGENT=1 / Agent frontmatter mcpServers are now loaded for main-thread agent sessions via --agent / Improved /mo... |
 | **v2.1.116** | 2026-04-20 | `/resume`, `/terminal-setup`, `/config`, `/doctor`, `/reload-plugins`, `--agent`, `/storage`, `Ctrl+Z`, `/branch`, `/plugin`, `/update`, `/tui` | /resume on large sessions is significantly faster (up to 67% on 40MB+ sessions) and handles sessions with many dead-fork entries more efficiently / Faster MCP startup when multiple stdio servers ar... |
-| **v2.1.114** | 2026-04-18 | — | Fixed a crash in the permission dialog when an agent teams teammate requested tool permission |
 
 ---
 

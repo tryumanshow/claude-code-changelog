@@ -1,5 +1,27 @@
 [
   {
+    "version": "2.1.215",
+    "date": "2026-07-19",
+    "commands": [
+      {
+        "name": "/verify",
+        "context": "mentioned",
+        "summary": "Claude no longer runs the `/verify` and `/code-review` skills on its own; invoke"
+      },
+      {
+        "name": "/code-review",
+        "context": "mentioned",
+        "summary": "Claude no longer runs the `/verify` and `/code-review` skills on its own; invoke"
+      }
+    ],
+    "features": [
+      "Claude no longer runs the /verify and /code-review skills on its own; invoke them with /verify or /code-review when you want them"
+    ],
+    "features_ko": [
+      "Claude는 더 이상 /verify 및 /code-review 기능을 자동으로 실행하지 않습니다; 필요할 때 /verify 또는 /code-review로 호출하세요."
+    ]
+  },
+  {
     "version": "2.1.214",
     "date": "2026-07-18",
     "commands": [
