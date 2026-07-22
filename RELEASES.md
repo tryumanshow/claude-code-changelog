@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-07-21 22:08 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-07-22 22:10 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.218** | 2026-07-22 | `/code-review`, `--ax-screen-reader`, `Ctrl+W`, `Ctrl+U`, `Ctrl+K`, `/mcp`, `Ctrl+J`, `/context`, `/ultrareview`, `/code-review ultra`, `Ctrl+B`, `/deep-research`, `/config` | Changed /code-review to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target / Added screen-reader announcements of d... |
 | **v2.1.217** | 2026-07-21 | `/compact`, `--resume`, `--continue`, `/resume`, `/background`, `--max-budget-usd` | Added emoji shortcode autocomplete in the prompt input: type :heart: to insert ❤️, or :hea for suggestions — disable with the emojiCompletionEnabled setting / Added warnings when transcript writes ... |
 | **v2.1.216** | 2026-07-20 | `--git-dir`, `Ctrl+X`, `/memory`, `/plan`, `/keybindings`, `Ctrl+G`, `/config`, `Ctrl+O`, `/fork`, `/ultrareview`, `/code-review ultra`, `/code-review`, `/context`, `/compact`, `/rewind`, `/mcp`, `/install-github-app` | Added sandbox.filesystem.disabled setting to skip filesystem isolation while keeping network egress control / Fixed worktree-isolated subagents redirecting git into the shared checkout via git -C, ... |
 | **v2.1.215** | 2026-07-19 | `/verify`, `/code-review` | Claude no longer runs the /verify and /code-review skills on its own; invoke them with /verify or /code-review when you want them |
@@ -83,7 +84,6 @@
 | **v2.1.121** | 2026-04-28 | `--prune`, `/skills`, `--dangerously-skip-permissions`, `/terminal-setup`, `/copy`, `ctrl+o`, `/context`, `/usage`, `--resume`, `Ctrl+L`, `/focus` | Added alwaysLoad option to MCP server config — when true, all tools from that server skip tool-search deferral and are always available / Added claude plugin prune to remove orphaned auto-installed... |
 | **v2.1.120** | — | `/ultrareview`, `--json`, `/rewind`, `/plugin`, `/usage` | Windows: Git for Windows (Git Bash) is no longer required — when absent, Claude Code uses PowerShell as the shell tool / Added claude ultrareview [target] subcommand to run /ultrareview non-interac... |
 | **v2.1.119** | 2026-04-23 | `/config`, `--from-pr`, `--print`, `--agent <name>`, `--client-secret`, `/skills`, `/agents`, `/export`, `/usage`, `/plan`, `/plan open`, `/reload-plugins`, `/doctor`, `/status` | /config settings (theme, editor mode, verbose, etc.) now persist to ~/.claude/settings.json and participate in project/local/policy override precedence / Added prUrlTemplate setting to point the fo... |
-| **v2.1.118** | 2026-04-23 | `/cost`, `/stats`, `/usage`, `/theme`, `--continue`, `--resume`, `/add-dir`, `/color`, `/model`, `/doctor`, `/plugin`, `/mcp`, `/login`, `--dangerously-skip-permissions`, `/fork`, `Alt+K`, `Alt+X` | Added vim visual mode (v) and visual-line mode (V) with selection, operators, and visual feedback / Merged /cost and /stats into /usage — both remain as typing shortcuts that open the relevant tab ... |
 
 ---
 
