@@ -1,5 +1,80 @@
 [
   {
+    "version": "2.1.219",
+    "date": "2026-07-24",
+    "commands": [
+      {
+        "name": "/add-dir",
+        "context": "new",
+        "summary": "Added `DirectoryAdded` hook that fires after `/add-dir` or the SDK `register_rep"
+      },
+      {
+        "name": "--mcp-config",
+        "context": "new",
+        "summary": "Added `mcp_server_errors` to the headless stream-json init event, listing `--mcp"
+      },
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Added the `workflowSizeGuideline` settings key so the advisory Dynamic workflow "
+      },
+      {
+        "name": "--forward-subagent-text",
+        "context": "new",
+        "summary": "Added nested subagent forwarding in stream-json: subagents spawned at depth-2+ n"
+      },
+      {
+        "name": "/mcp",
+        "context": "new",
+        "summary": "Added HTTP status and error text to `claude mcp list` and `/mcp` when a server f"
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "Changed the `/model` picker to highlight only the newest model's name, so the hi"
+      },
+      {
+        "name": "/fast",
+        "context": "removed",
+        "summary": "Removed Opus 4.7 from fast mode; `/fast` now applies to Opus 5 and Opus 4.8"
+      }
+    ],
+    "features": [
+      "Added Claude Opus 5 (claude-opus-5), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok",
+      "Added sandbox.network.strictAllowlist setting to deny non-allowlisted hosts for sandboxed commands without prompting",
+      "Added DirectoryAdded hook that fires after /add-dir or the SDK register_repo_root control request registers a new working directory mid-session",
+      "Added mcp_server_errors to the headless stream-json init event, listing --mcp-config entries skipped by config validation; terminal runs print a startup warning",
+      "Added the workflowSizeGuideline settings key so the advisory Dynamic workflow size guideline can be set from any settings file; the /config row is hidden while one does",
+      "Added nested subagent forwarding in stream-json: subagents spawned at depth-2+ now appear when --forward-subagent-text is set, keyed by their spawning Agent tool_use id",
+      "Added HTTP status and error text to claude mcp list and /mcp when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace",
+      "Added structured failure categories to self-hosted runner spawn and session failures, so hook errors, runner crashes and config errors can be told apart",
+      "Fixed the /model picker showing the merged Opus row as plain \"Opus\" instead of \"Opus (1M context)\"",
+      "Changed dynamic workflows to default to a medium size guideline (aim for fewer than 15 agents); pick another size or unrestricted with Dynamic workflow size in /config",
+      "Changed the /model picker to highlight only the newest model's name, so the highlight marks the new release rather than an arbitrary subset of the list",
+      "Added the current default workflow size to the running-workflow status line, with a pointer to /config for changing it",
+      "Removed Opus 4.7 from fast mode; /fast now applies to Opus 5 and Opus 4.8",
+      "Updated the claude-api skill to default to Claude Opus 5, with a migration path from Opus 4.8",
+      "Subagents can now spawn nested subagents up to depth 3 by default (was 1); set CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1 to disable nesting"
+    ],
+    "features_ko": [
+      "Claude Opus 5 (claude-opus-5)을 추가하였으며, 이제 기본 Opus 모델입니다 — 1M 컨텍스트, 빠른 모드는 $10/$50 per Mtok입니다.",
+      "sandbox.network.strictAllowlist 설정을 추가하여 비허용 호스트에 대한 프롬프트 없이 샌드박스 명령을 거부합니다.",
+      "/add-dir 또는 SDK register_repo_root 제어 요청이 세션 중에 새로운 작업 디렉토리를 등록한 후에 실행되는 DirectoryAdded 훅을 추가했습니다.",
+      "headless stream-json init 이벤트에 mcp_server_errors를 추가하여 config 검증에 의해 건너뛴 --mcp-config 항목을 나열합니다; 터미널 실행 시 시작 경고가 출력됩니다.",
+      "advisory Dynamic workflow size guideline을 모든 설정 파일에서 설정할 수 있도록 workflowSizeGuideline 설정 키를 추가했습니다; 설정 중에는 /config 행이 숨겨집니다.",
+      "stream-json에서 중첩된 서브 에이전트 포워딩을 추가했습니다: --forward-subagent-text가 설정되면 깊이 2 이상의 서브 에이전트가 나타나며, 이들은 생성한 Agent tool_use id로 키가 지정됩니다.",
+      "서버 연결 실패 시 claude mcp 목록 및 /mcp에 HTTP 상태 및 오류 텍스트를 추가하고, 숨겨진 선행 또는 후행 공백이 있는 MCP 구성 값에 대한 경고를 추가했습니다.",
+      "self-hosted runner spawn 및 세션 실패에 구조화된 실패 카테고리를 추가하여 훅 오류, 러너 충돌 및 구성 오류를 구분할 수 있게 되었습니다.",
+      "/model 선택기에서 병합된 Opus 행이 \"Opus (1M context)\" 대신 일반 \"Opus\"로 표시되는 문제를 수정했습니다.",
+      "동적 워크플로우를 기본적으로 중간 크기 가이드라인으로 변경했습니다 (15명 이하의 에이전트를 목표로 함); /config에서 다른 크기 또는 제한 없는 동적 워크플로우 크기를 선택하세요.",
+      "/model 선택기를 변경하여 최신 모델의 이름만 강조 표시되도록 하여 강조가 새로운 릴리스를 표시하도록 했습니다.",
+      "실행 중인 워크플로우 상태 줄에 현재 기본 워크플로우 크기를 추가하고, 변경을 위한 /config에 대한 포인터를 제공합니다.",
+      "Opus 4.7을 빠른 모드에서 제거했습니다; /fast는 이제 Opus 5 및 Opus 4.8에 적용됩니다.",
+      "claude-api 스킬을 Claude Opus 5로 기본 설정하도록 업데이트했으며, Opus 4.8에서의 마이그레이션 경로를 제공합니다.",
+      "서브 에이전트는 이제 기본적으로 깊이 3까지 중첩된 서브 에이전트를 생성할 수 있습니다 (이전에는 1); 중첩을 비활성화하려면 CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1로 설정하세요."
+    ]
+  },
+  {
     "version": "2.1.218",
     "date": "2026-07-22",
     "commands": [
@@ -27,11 +102,6 @@
         "name": "Ctrl+K",
         "context": "new",
         "summary": "Added screen-reader announcements of deleted text for word and line deletions (`"
-      },
-      {
-        "name": "/mcp",
-        "context": "new",
-        "summary": "Added HTTP status and error text to `claude mcp list` and `/mcp` when a server f"
       },
       {
         "name": "Ctrl+J",
@@ -72,7 +142,6 @@
     "features": [
       "Changed /code-review to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target",
       "Added screen-reader announcements of deleted text for word and line deletions (Option+Delete, Ctrl+W, Cmd+Backspace, Ctrl+U, Ctrl+K) in --ax-screen-reader mode",
-      "Added HTTP status and error text to claude mcp list and /mcp when a server fails to connect, and a warning for MCP config values with hidden leading or trailing whitespace",
       "Fixed multi-line paste collapsing into one line with j in place of newlines in terminals that encode pasted newlines as Ctrl+J",
       "Fixed /context reporting stale pre-compact token usage after compacting from the message picker",
       "Fixed /ultrareview failing on descriptive arguments like \"review my auth changes\" — they now run a review of your current branch with the text applied as a note to the findings",
@@ -87,7 +156,6 @@
     "features_ko": [
       "/code-review가 백그라운드 서브 에이전트로 실행되도록 변경되어, 리뷰 작업이 더 이상 대화를 채우지 않고 스택된 슬래시 명령을 리뷰 대상으로 유지합니다.",
       "--ax-screen-reader 모드에서 단어 및 줄 삭제(Option+Delete, Ctrl+W, Cmd+Backspace, Ctrl+U, Ctrl+K)에 대한 삭제된 텍스트의 스크린 리더 알림을 추가했습니다.",
-      "서버 연결 실패 시 claude mcp 목록 및 /mcp에 HTTP 상태 및 오류 텍스트를 추가하고, 숨겨진 선행 또는 후행 공백이 있는 MCP 구성 값에 대한 경고를 추가했습니다.",
       "붙여넣은 줄바꿈을 Ctrl+J로 인코딩하는 터미널에서 멀티라인 붙여넣기가 한 줄로 축소되는 문제를 수정했습니다.",
       "메시지 선택기에서 압축 후 오래된 pre-compact 토큰 사용을 보고하는 /context 문제를 수정했습니다.",
       "\"review my auth changes\"와 같은 설명적 인수에서 /ultrareview가 실패하는 문제를 수정했습니다 — 이제 현재 브랜치에 대한 리뷰를 실행하고 텍스트를 발견 사항에 대한 노트로 적용합니다.",

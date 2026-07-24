@@ -2017,5 +2017,19 @@
   "fcb94dc0b86d2439": "/ultrareview 오류 피드백을 개선하여 Claude가 변경되지 않은 잘못된 인수를 재시도하는 대신 수정할 수 있도록 했습니다.",
   "e81e8ea14116211d": "/deep-research가 수동으로 호출될 때만 시작되도록 변경했습니다; Claude가 더 이상 자동으로 시작하지 않습니다.",
   "91ecdd99ec2d17f9": "/config model=<x> 또는 원격 제어를 통해 모델을 전환할 때 빠른 모드가 변경될 때 알림을 추가했습니다.",
-  "88c18eac2029c685": "skill 및 plugin frontmatter boolean에 대해 true/false와 함께 yes/no/on/off/1/0(대소문자 구분 없음)을 허용하는 값으로 추가했습니다."
+  "88c18eac2029c685": "skill 및 plugin frontmatter boolean에 대해 true/false와 함께 yes/no/on/off/1/0(대소문자 구분 없음)을 허용하는 값으로 추가했습니다.",
+  "05605baafe56e54a": "Claude Opus 5 (claude-opus-5)을 추가하였으며, 이제 기본 Opus 모델입니다 — 1M 컨텍스트, 빠른 모드는 $10/$50 per Mtok입니다.",
+  "ac527f0a98271722": "sandbox.network.strictAllowlist 설정을 추가하여 비허용 호스트에 대한 프롬프트 없이 샌드박스 명령을 거부합니다.",
+  "20360bc68135f4ed": "/add-dir 또는 SDK register_repo_root 제어 요청이 세션 중에 새로운 작업 디렉토리를 등록한 후에 실행되는 DirectoryAdded 훅을 추가했습니다.",
+  "16d509297d668d81": "headless stream-json init 이벤트에 mcp_server_errors를 추가하여 config 검증에 의해 건너뛴 --mcp-config 항목을 나열합니다; 터미널 실행 시 시작 경고가 출력됩니다.",
+  "05131ac320695e3d": "advisory Dynamic workflow size guideline을 모든 설정 파일에서 설정할 수 있도록 workflowSizeGuideline 설정 키를 추가했습니다; 설정 중에는 /config 행이 숨겨집니다.",
+  "ade986b35c77ba4d": "stream-json에서 중첩된 서브 에이전트 포워딩을 추가했습니다: --forward-subagent-text가 설정되면 깊이 2 이상의 서브 에이전트가 나타나며, 이들은 생성한 Agent tool_use id로 키가 지정됩니다.",
+  "f008eb6084363c3c": "self-hosted runner spawn 및 세션 실패에 구조화된 실패 카테고리를 추가하여 훅 오류, 러너 충돌 및 구성 오류를 구분할 수 있게 되었습니다.",
+  "80b0624fb3814283": "/model 선택기에서 병합된 Opus 행이 \"Opus (1M context)\" 대신 일반 \"Opus\"로 표시되는 문제를 수정했습니다.",
+  "ebd59edb0cd8c877": "동적 워크플로우를 기본적으로 중간 크기 가이드라인으로 변경했습니다 (15명 이하의 에이전트를 목표로 함); /config에서 다른 크기 또는 제한 없는 동적 워크플로우 크기를 선택하세요.",
+  "8f4b030f0b97c43e": "/model 선택기를 변경하여 최신 모델의 이름만 강조 표시되도록 하여 강조가 새로운 릴리스를 표시하도록 했습니다.",
+  "769f59c4e8c25738": "실행 중인 워크플로우 상태 줄에 현재 기본 워크플로우 크기를 추가하고, 변경을 위한 /config에 대한 포인터를 제공합니다.",
+  "f3e5563ee11f1d70": "Opus 4.7을 빠른 모드에서 제거했습니다; /fast는 이제 Opus 5 및 Opus 4.8에 적용됩니다.",
+  "6777b647cb2704e6": "claude-api 스킬을 Claude Opus 5로 기본 설정하도록 업데이트했으며, Opus 4.8에서의 마이그레이션 경로를 제공합니다.",
+  "747c6522fe838fdb": "서브 에이전트는 이제 기본적으로 깊이 3까지 중첩된 서브 에이전트를 생성할 수 있습니다 (이전에는 1); 중첩을 비활성화하려면 CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1로 설정하세요."
 }
