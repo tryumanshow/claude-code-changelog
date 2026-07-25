@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-07-24 22:11 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-07-25 22:02 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.220** | 2026-07-25 | — | Bug fixes and reliability improvements |
 | **v2.1.219** | 2026-07-24 | `/add-dir`, `--mcp-config`, `/config`, `--forward-subagent-text`, `/mcp`, `/model`, `/fast` | Added Claude Opus 5 (claude-opus-5), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok / Added sandbox.network.strictAllowlist setting to deny non-allowlisted hosts for sandbox... |
 | **v2.1.218** | 2026-07-22 | `/code-review`, `--ax-screen-reader`, `Ctrl+W`, `Ctrl+U`, `Ctrl+K`, `Ctrl+J`, `/context`, `/ultrareview`, `/code-review ultra`, `Ctrl+B`, `/deep-research`, `/config` | Changed /code-review to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target / Added screen-reader announcements of d... |
 | **v2.1.217** | 2026-07-21 | `/compact`, `--resume`, `--continue`, `/resume`, `/background`, `--max-budget-usd` | Added emoji shortcode autocomplete in the prompt input: type :heart: to insert ❤️, or :hea for suggestions — disable with the emojiCompletionEnabled setting / Added warnings when transcript writes ... |
@@ -44,7 +45,7 @@
 | **v2.1.173** | 2026-06-11 | — | Fixed Fable 5 model names with a [1m] suffix not being normalized — Fable 5 includes 1M context by default, so the suffix is now stripped automatically / Fixed a spurious "sandbox dependencies miss... |
 | **v2.1.172** | 2026-06-10 | `/status`, `/plugin`, `/model`, `/config`, `/goal`, `/code-review`, `/rc`, `/loop` | Sub-agents can now spawn their own sub-agents (up to 5 levels deep) / Amazon Bedrock now reads the AWS region from ~/.aws config files when AWS_REGION isn't set, matching AWS SDK precedence; /statu... |
 | **v2.1.170** | 2026-06-09 | — | Introducing Claude Fable 5: a Mythos-class model that we’ve made safe for general use. Fable’s capabilities exceed those of any model we’ve ever made generally available. Update to version 2.1.170 ... |
-| **v2.1.169** | 2026-06-08 | `--safe-mode`, `/cd`, `--mcp-config`, `--all`, `/workflows`, `--ide`, `--chrome`, `--bare`, `--remote-control` | Self-hosted runner: added a post-session lifecycle hook that runs after the session ends and before the workspace is deleted, so you can snapshot uncommitted work or export logs; also made the chil... |
+| **v2.1.169** | 2026-06-08 | `--safe-mode`, `/cd`, `--mcp-config`, `--all`, `/workflows`, `--ide`, `--chrome`, `--bare`, `--remote-control` | Added --safe-mode flag (and CLAUDE_CODE_SAFE_MODE) to start Claude Code with all customizations (CLAUDE.md, plugins, skills, hooks, MCP servers) disabled for troubleshooting / Added /cd command to ... |
 | **v2.1.168** | 2026-06-06 | — | Bug fixes and reliability improvements |
 | **v2.1.167** | 2026-06-06 | — | Bug fixes and reliability improvements |
 | **v2.1.166** | 2026-06-06 | `--fallback-model`, `--thinking disabled`, `Shift+n`, `/login`, `/voice`, `Ctrl+O`, `/doctor` | Added fallbackModel setting to configure up to three fallback models tried in order when the primary model is overloaded or unavailable; --fallback-model now also applies to interactive sessions / ... |
@@ -83,7 +84,6 @@
 | **v2.1.123** | 2026-04-29 | — | Fixed OAuth authentication failing with a 401 retry loop when CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 is set |
 | **v2.1.122** | 2026-04-28 | `/resume`, `/mcp`, `/branch`, `/model` | Added ANTHROPIC_BEDROCK_SERVICE_TIER environment variable to select a Bedrock service tier (default, flex, or priority), sent as the X-Amzn-Bedrock-Service-Tier header / Pasting a PR URL into the /... |
 | **v2.1.121** | 2026-04-28 | `--prune`, `/skills`, `--dangerously-skip-permissions`, `/terminal-setup`, `/copy`, `ctrl+o`, `/context`, `/usage`, `--resume`, `Ctrl+L`, `/focus` | Added alwaysLoad option to MCP server config — when true, all tools from that server skip tool-search deferral and are always available / Added claude plugin prune to remove orphaned auto-installed... |
-| **v2.1.120** | — | `/ultrareview`, `--json`, `/rewind`, `/plugin`, `/usage` | Windows: Git for Windows (Git Bash) is no longer required — when absent, Claude Code uses PowerShell as the shell tool / Added claude ultrareview [target] subcommand to run /ultrareview non-interac... |
 
 ---
 
