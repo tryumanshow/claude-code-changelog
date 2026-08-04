@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-08-03 22:12 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-08-04 22:18 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.221** | 2026-08-04 | `Ctrl+A`, `--mcp-config`, `/help`, `/feedback`, `/ultrareview`, `/plugin install`, `/plugin`, `/reload-plugins`, `/status`, `/fork` | [VSCode] Added Focus view: a chat-menu toggle that hides tool activity behind an expandable per-turn summary with a live running-tool indicator, toggled with Ctrl+Alt+F or the "Claude Code: Toggle ... |
 | **v2.1.220** | 2026-07-25 | — | Bug fixes and reliability improvements |
 | **v2.1.219** | 2026-07-24 | `/add-dir`, `--mcp-config`, `/config`, `--forward-subagent-text`, `/mcp`, `/model`, `/fast` | Added Claude Opus 5 (claude-opus-5), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok / Added sandbox.network.strictAllowlist setting to deny non-allowlisted hosts for sandbox... |
 | **v2.1.218** | 2026-07-22 | `/code-review`, `--ax-screen-reader`, `Ctrl+W`, `Ctrl+U`, `Ctrl+K`, `Ctrl+J`, `/context`, `/ultrareview`, `/code-review ultra`, `Ctrl+B`, `/deep-research`, `/config` | Changed /code-review to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target / Added screen-reader announcements of d... |
@@ -83,7 +84,6 @@
 | **v2.1.126** | 2026-05-01 | `/model`, `--dry-run`, `--all`, `--yes`, `--interactive`, `--dangerously-skip-permissions`, `Ctrl+L`, `--channels`, `/plugin`, `/remote-control`, `--` | The /model picker now lists models from your gateway's /v1/models endpoint when ANTHROPIC_BASE_URL points at an Anthropic-compatible gateway / Added claude project purge [path] to delete all Claude... |
 | **v2.1.123** | 2026-04-29 | — | Fixed OAuth authentication failing with a 401 retry loop when CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 is set |
 | **v2.1.122** | 2026-04-28 | `/resume`, `/mcp`, `/branch`, `/model` | Added ANTHROPIC_BEDROCK_SERVICE_TIER environment variable to select a Bedrock service tier (default, flex, or priority), sent as the X-Amzn-Bedrock-Service-Tier header / Pasting a PR URL into the /... |
-| **v2.1.121** | 2026-04-28 | `--prune`, `/skills`, `--dangerously-skip-permissions`, `/terminal-setup`, `/copy`, `ctrl+o`, `/context`, `/usage`, `--resume`, `Ctrl+L`, `/focus` | Added alwaysLoad option to MCP server config — when true, all tools from that server skip tool-search deferral and are always available / Added claude plugin prune to remove orphaned auto-installed... |
 
 ---
 

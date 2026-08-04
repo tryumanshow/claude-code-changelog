@@ -1,5 +1,89 @@
 [
   {
+    "version": "2.1.221",
+    "date": "2026-08-04",
+    "commands": [
+      {
+        "name": "Ctrl+A",
+        "context": "new",
+        "summary": "[VSCode] Added Focus view: a chat-menu toggle that hides tool activity behind an"
+      },
+      {
+        "name": "--mcp-config",
+        "context": "fixed",
+        "summary": "Fixed MCP servers from `--mcp-config` not being connected before the first turn "
+      },
+      {
+        "name": "/help",
+        "context": "fixed",
+        "summary": "Fixed plugin- and org-delivered skills named after terminal-only built-ins (e.g."
+      },
+      {
+        "name": "/feedback",
+        "context": "fixed",
+        "summary": "Fixed plugin- and org-delivered skills named after terminal-only built-ins (e.g."
+      },
+      {
+        "name": "/ultrareview",
+        "context": "improved",
+        "summary": "Improved `/ultrareview` error messages when a repo shares no history with its ba"
+      },
+      {
+        "name": "/plugin install",
+        "context": "improved",
+        "summary": "Changed `/plugin install` to refresh a stale marketplace catalog and retry befor"
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "Changed `/plugin install` to refresh a stale marketplace catalog and retry befor"
+      },
+      {
+        "name": "/reload-plugins",
+        "context": "improved",
+        "summary": "Changed plugins installed from `/plugin` to activate immediately when safe, inst"
+      },
+      {
+        "name": "/status",
+        "context": "improved",
+        "summary": "Changed `/status` to show the session kind: `interactive`, or a background job t"
+      },
+      {
+        "name": "/fork",
+        "context": "improved",
+        "summary": "Changed sessions forked with `/fork` to create a new worktree of their own inste"
+      }
+    ],
+    "features": [
+      "[VSCode] Added Focus view: a chat-menu toggle that hides tool activity behind an expandable per-turn summary with a live running-tool indicator, toggled with Ctrl+Alt+F or the \"Claude Code: Toggle Focus view\" command",
+      "Added mode: \"mask\" for sandbox credential files on Linux and WSL — sandboxed commands read a sentinel copy (the whole file, or just the spans captured by an extract regex) while the sandbox proxy substitutes the real value on egress; on macOS file masking falls back to deny",
+      "Added warnings to claude plugin validate when a marketplace or plugin name would be rejected by Claude Desktop's managed marketplace sync",
+      "Added a prompt-audit subcommand to the claude-api skill for auditing prompts and tool descriptions for patterns written for older models",
+      "Fixed MCP servers from --mcp-config not being connected before the first turn in print mode (-p), which made the model emit tool calls as literal text",
+      "Fixed plugin- and org-delivered skills named after terminal-only built-ins (e.g. /help, /feedback) being un-invocable in non-interactive sessions",
+      "Reduced prompt-cache costs for auto-mode permission checks by reusing the cached conversation prefix across decisions",
+      "Improved /ultrareview error messages when a repo shares no history with its base: a checkout with no branches is now refused up front with advice to create one, and refusal hints no longer suggest git fetch --unshallow on clones that are already complete",
+      "Changed /plugin install to refresh a stale marketplace catalog and retry before reporting a plugin not found",
+      "Changed plugins installed from /plugin to activate immediately when safe, instead of always requiring /reload-plugins",
+      "Changed /status to show the session kind: interactive, or a background job that is attached or unattended",
+      "Changed sessions forked with /fork to create a new worktree of their own instead of working in the original session's checkout"
+    ],
+    "features_ko": [
+      "[VSCode] Focus view를 추가했습니다: Ctrl+Alt+F 또는 \"Claude Code: Toggle Focus view\" 명령으로 전환할 수 있는 실시간 실행 도구 표시기가 있는 확장 가능한 턴 요약 뒤에 도구 활동을 숨기는 채팅 메뉴 토글입니다.",
+      "Linux 및 WSL의 샌드박스 자격 증명 파일에 대한 \"mask\" 모드를 추가했습니다 — 샌드박스된 명령은 센티넬 복사본(전체 파일 또는 extract regex로 캡처된 범위만)을 읽고, 샌드박스 프록시는 이탈 시 실제 값을 대체합니다; macOS에서는 파일 마스킹이 거부로 돌아갑니다.",
+      "Claude Desktop의 관리형 마켓플레이스 동기화로 인해 마켓플레이스 또는 플러그인 이름이 거부될 때 claude 플러그인 validate에 경고를 추가했습니다.",
+      "오래된 모델을 위해 작성된 프롬프트 및 도구 설명을 감사하는 prompt-audit 하위 명령을 claude-api 기술에 추가했습니다.",
+      "인쇄 모드(-p)에서 첫 번째 턴 전에 --mcp-config로부터 MCP 서버가 연결되지 않는 문제를 수정했습니다. 이로 인해 모델이 도구 호출을 문자 그대로 텍스트로 출력했습니다.",
+      "터미널 전용 내장 명령(예: /help, /feedback)으로 명명된 플러그인 및 조직 제공 기술이 비대화형 세션에서 호출할 수 없는 문제를 수정했습니다.",
+      "결정 간에 캐시된 대화 접두사를 재사용하여 자동 모드 권한 확인을 위한 프롬프트 캐시 비용을 줄였습니다.",
+      "리포가 기본과 공유하는 이력이 없을 때 /ultrareview 오류 메시지를 개선했습니다: 브랜치가 없는 체크아웃은 이제 미리 거부되며, 하나를 생성하라는 조언이 제공됩니다. 거부 힌트는 이미 완료된 클론에서 git fetch --unshallow을 제안하지 않습니다.",
+      "/plugin install을 변경하여 오래된 마켓플레이스 카탈로그를 새로 고치고 플러그인을 찾을 수 없다고 보고하기 전에 재시도합니다.",
+      "/plugin에서 설치된 플러그인이 항상 /reload-plugins를 요구하는 대신 안전할 때 즉시 활성화되도록 변경했습니다.",
+      "/status를 변경하여 세션 종류를 표시합니다: 대화형 또는 연결된 백그라운드 작업 또는 비대화형 작업입니다.",
+      "/fork로 분기된 세션이 원래 세션의 체크아웃에서 작업하는 대신 자체 작업 트리를 생성하도록 변경했습니다."
+    ]
+  },
+  {
     "version": "2.1.220",
     "date": "2026-07-25",
     "commands": [],
