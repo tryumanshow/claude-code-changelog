@@ -1,5 +1,63 @@
 [
   {
+    "version": "2.1.224",
+    "date": "2026-08-07",
+    "commands": [
+      {
+        "name": "--settings",
+        "context": "new",
+        "summary": "Added sandbox credential-masking options: `extract` and `onExtractNoMatch` for s"
+      },
+      {
+        "name": "/resume",
+        "context": "improved",
+        "summary": "Changed Remote Control to archive the stale server session instead of leaving a "
+      },
+      {
+        "name": "/clear",
+        "context": "improved",
+        "summary": "Improved Remote Control: attached web and mobile clients now see compaction prog"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed a session resume silently reconnecting Remote Control after the user turne"
+      }
+    ],
+    "features": [
+      "Added self-hosted environments: claude self-hosted-runner turns your own machines or containers into a place Claude Code web, mobile, and desktop sessions can run, on Team and Enterprise plans",
+      "Added archive plugin source: install plugins from a zip over HTTPS without git or npm, with optional SHA-256 pinning",
+      "Added a cancel-and-confirm step when removing an unavailable paste changes a command's text",
+      "Added ANTHROPIC_BEDROCK_REGION_PREFIX env var for Bedrock to prefer a specific cross-region inference profile over the AWS_REGION-derived one",
+      "Added crossSessionInbound and dialogExpiry settings: cross-session messages sent to a session running with bypassed permissions are held for your approval, and messages to other sessions auto-deliver",
+      "Added sandbox credential-masking options: extract and onExtractNoMatch for structured env values, decode: \"jwt\" with maskClaims for JWT-aware masking, and awsPairs/sigv4 for AWS SigV4 re-signing; these need network.tlsTerminate and are honored only from user, managed, or --settings settings",
+      "Added cross-session SendMessage: Claude Code sessions can now message each other, on any of your machines, with ListAgents to discover them (macOS and Linux)",
+      "Fixed long (>200 char) project paths resolving to another project's session directory under a shared sanitized prefix; session list, rename, fork, delete and /resume no longer cross projects",
+      "Fixed Remote Control and SDK clients showing a blank \"(no content)\" message after /clear and other output-less commands",
+      "Improved Remote Control: attached web and mobile clients now see compaction progress and the post-compaction boundary instead of a silent pause; /clear resets now propagate to attached clients",
+      "Changed Remote Control to archive the stale server session instead of leaving a dead one listed when a fresh session is minted after compaction or /resume",
+      "[VSCode] Fixed the extension showing Remote Control as connected after the connection failed",
+      "Fixed a session resume silently reconnecting Remote Control after the user turned it off (--resume, SDK hosts, and the VS Code extension)",
+      "[VSCode] Fixed sessions not honoring remoteControlAtStartup when explicitly enabled"
+    ],
+    "features_ko": [
+      "자체 호스팅 환경 추가: claude self-hosted-runner를 사용하면 자신의 머신이나 컨테이너에서 Claude Code 웹, 모바일 및 데스크탑 세션을 실행할 수 있습니다. 팀 및 엔터프라이즈 플랜에서 가능합니다.",
+      "아카이브 플러그인 소스 추가: git이나 npm 없이 HTTPS를 통해 zip에서 플러그인을 설치할 수 있으며, 선택적으로 SHA-256 핀닝을 지원합니다.",
+      "사용 불가능한 붙여넣기를 제거할 때 명령의 텍스트를 변경하는 취소 및 확인 단계 추가.",
+      "Bedrock을 위해 특정 크로스 리전 추론 프로필을 선호하도록 ANTHROPIC_BEDROCK_REGION_PREFIX 환경 변수 추가.",
+      "crossSessionInbound 및 dialogExpiry 설정 추가: 권한이 우회된 세션으로 전송된 크로스 세션 메시지는 승인 대기 중이며, 다른 세션으로의 메시지는 자동으로 전달됩니다.",
+      "샌드박스 자격 증명 마스킹 옵션 추가: 구조화된 env 값에 대한 extract 및 onExtractNoMatch, JWT 인식 마스킹을 위한 maskClaims와 함께 \"jwt\" 디코드, AWS SigV4 재서명을 위한 awsPairs/sigv4; 이들은 network.tlsTerminate가 필요하며 사용자, 관리 또는 --settings 설정에서만 적용됩니다.",
+      "크로스 세션 SendMessage 추가: 이제 Claude Code 세션이 서로 메시지를 보낼 수 있으며, ListAgents를 통해 이를 발견할 수 있습니다 (macOS 및 Linux).",
+      "긴 (>200자) 프로젝트 경로가 공유된 정리된 접두사 아래 다른 프로젝트의 세션 디렉토리로 해결되는 문제 수정; 세션 목록, 이름 변경, 포크, 삭제 및 /resume이 더 이상 프로젝트를 넘지 않습니다.",
+      "Remote Control 및 SDK 클라이언트가 /clear 및 기타 출력 없는 명령 후 빈 \"(no content)\" 메시지를 표시하는 문제 수정.",
+      "Remote Control 개선: 연결된 웹 및 모바일 클라이언트가 이제 압축 진행 상황과 압축 후 경계를 볼 수 있으며, 조용한 일시 정지 대신 표시됩니다; /clear 리셋이 이제 연결된 클라이언트로 전파됩니다.",
+      "Remote Control을 변경하여 압축 후 새 세션이 생성될 때 죽은 세션을 남기지 않고 오래된 서버 세션을 아카이브하도록 수정.",
+      "[VSCode] 연결 실패 후 Remote Control이 연결된 것으로 표시되는 확장 문제 수정.",
+      "세션 재개가 사용자가 Remote Control을 끈 후에도 조용히 다시 연결되는 문제 수정 (--resume, SDK 호스트 및 VS Code 확장).",
+      "[VSCode] remoteControlAtStartup이 명시적으로 활성화되었을 때 세션이 이를 존중하지 않는 문제 수정."
+    ]
+  },
+  {
     "version": "2.1.223",
     "date": "2026-08-06",
     "commands": [

@@ -2055,5 +2055,19 @@
   "60c2f3ef8c040ae9": "클라우드 세션에서 로컬에서 계속하는 방법을 보여주는 /teleport 힌트가 추가되었습니다: claude --teleport <session id>.",
   "139492f699116d53": "중간 세션에서 /cd를 사용한 후 세션을 재개할 때 빈 상태로 돌아오는 문제를 수정했습니다.",
   "a7ae62aa2154679a": "/review가 현재 diff 또는 PR을 검토하는 /code-review의 별칭으로 변경되었습니다 (/code-review <level> <pr#>); 깊은 클라우드 검토를 위해 /code-review ultra를 사용하세요.",
-  "97105c57d953ed53": "노력 수준이 없는 /code-review가 마지막에 입력한 수준을 재사용하도록 변경되었습니다; 수준을 변경하려면 /code-review high와 같이 입력하세요."
+  "97105c57d953ed53": "노력 수준이 없는 /code-review가 마지막에 입력한 수준을 재사용하도록 변경되었습니다; 수준을 변경하려면 /code-review high와 같이 입력하세요.",
+  "1486e816f96b62c3": "자체 호스팅 환경 추가: claude self-hosted-runner를 사용하면 자신의 머신이나 컨테이너에서 Claude Code 웹, 모바일 및 데스크탑 세션을 실행할 수 있습니다. 팀 및 엔터프라이즈 플랜에서 가능합니다.",
+  "91d0830aee4d4e1b": "아카이브 플러그인 소스 추가: git이나 npm 없이 HTTPS를 통해 zip에서 플러그인을 설치할 수 있으며, 선택적으로 SHA-256 핀닝을 지원합니다.",
+  "3d0afec53fb70785": "사용 불가능한 붙여넣기를 제거할 때 명령의 텍스트를 변경하는 취소 및 확인 단계 추가.",
+  "5026d9acddd2b7fc": "Bedrock을 위해 특정 크로스 리전 추론 프로필을 선호하도록 ANTHROPIC_BEDROCK_REGION_PREFIX 환경 변수 추가.",
+  "d1132f8f9c92a0a9": "crossSessionInbound 및 dialogExpiry 설정 추가: 권한이 우회된 세션으로 전송된 크로스 세션 메시지는 승인 대기 중이며, 다른 세션으로의 메시지는 자동으로 전달됩니다.",
+  "5993f9e4ba49b112": "샌드박스 자격 증명 마스킹 옵션 추가: 구조화된 env 값에 대한 extract 및 onExtractNoMatch, JWT 인식 마스킹을 위한 maskClaims와 함께 \"jwt\" 디코드, AWS SigV4 재서명을 위한 awsPairs/sigv4; 이들은 network.tlsTerminate가 필요하며 사용자, 관리 또는 --settings 설정에서만 적용됩니다.",
+  "c030bf88ffa57b19": "크로스 세션 SendMessage 추가: 이제 Claude Code 세션이 서로 메시지를 보낼 수 있으며, ListAgents를 통해 이를 발견할 수 있습니다 (macOS 및 Linux).",
+  "5549e0aff512b118": "긴 (>200자) 프로젝트 경로가 공유된 정리된 접두사 아래 다른 프로젝트의 세션 디렉토리로 해결되는 문제 수정; 세션 목록, 이름 변경, 포크, 삭제 및 /resume이 더 이상 프로젝트를 넘지 않습니다.",
+  "5869cc78fd994e7e": "Remote Control 및 SDK 클라이언트가 /clear 및 기타 출력 없는 명령 후 빈 \"(no content)\" 메시지를 표시하는 문제 수정.",
+  "f10634d0a704f7ca": "Remote Control 개선: 연결된 웹 및 모바일 클라이언트가 이제 압축 진행 상황과 압축 후 경계를 볼 수 있으며, 조용한 일시 정지 대신 표시됩니다; /clear 리셋이 이제 연결된 클라이언트로 전파됩니다.",
+  "b229dcfa8747af59": "Remote Control을 변경하여 압축 후 새 세션이 생성될 때 죽은 세션을 남기지 않고 오래된 서버 세션을 아카이브하도록 수정.",
+  "bc25abc607b781ee": "[VSCode] 연결 실패 후 Remote Control이 연결된 것으로 표시되는 확장 문제 수정.",
+  "0f6fa46d25aebe1d": "세션 재개가 사용자가 Remote Control을 끈 후에도 조용히 다시 연결되는 문제 수정 (--resume, SDK 호스트 및 VS Code 확장).",
+  "e49c1c1096537c2c": "[VSCode] remoteControlAtStartup이 명시적으로 활성화되었을 때 세션이 이를 존중하지 않는 문제 수정."
 }

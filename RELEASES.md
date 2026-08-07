@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-08-07 01:01 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-08-07 21:47 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.224** | 2026-08-07 | `--settings`, `/resume`, `/clear`, `--resume` | Added self-hosted environments: claude self-hosted-runner turns your own machines or containers into a place Claude Code web, mobile, and desktop sessions can run, on Team and Enterprise plans / Ad... |
 | **v2.1.223** | 2026-08-06 | `/teleport`, `--teleport`, `/cd`, `/review`, `/code-review`, `/code-review ultra`, `/code-review high` | Added owner wildcard entries ("owner/*") to the strictKnownMarketplaces and blockedMarketplaces managed settings for allowing or blocking all marketplace repos under a GitHub org / Added a warning ... |
 | **v2.1.222** | 2026-08-04 | `/usage-credits`, `/usage`, `/login`, `--ax-screen-reader`, `/diff`, `/config` | Fixed /usage-credits on Team and Enterprise showing "you've already sent a usage credit request" for members whose earlier request was dismissed, blocking them from sending a new one / Fixed /usage... |
 | **v2.1.221** | 2026-08-04 | `Ctrl+A`, `--mcp-config`, `/help`, `/feedback`, `/ultrareview`, `/plugin install`, `/plugin`, `/reload-plugins`, `/status`, `/fork` | [VSCode] Added Focus view: a chat-menu toggle that hides tool activity behind an expandable per-turn summary with a live running-tool indicator, toggled with Ctrl+Alt+F or the "Claude Code: Toggle ... |
@@ -83,7 +84,6 @@
 | **v2.1.131** | 2026-05-06 | — | Fixed VS Code extension failing to activate on Windows due to a hardcoded build path in the bundled SDK (createRequire polyfill bug) / Fixed Mantle endpoint authentication failing with missing x-ap... |
 | **v2.1.129** | 2026-05-06 | `--plugin-url <url>`, `--plugin-url`, `/model`, `Ctrl+R`, `Ctrl+S`, `/clear`, `/rename`, `Ctrl+G`, `/context`, `/agents`, `/branch`, `/resume`, `/effort`, `--debug` | Added --plugin-url <url> flag to fetch a plugin .zip archive from a URL for the current session / Added CLAUDE_CODE_FORCE_SYNC_OUTPUT=1 env var to force-enable synchronized output on terminals that... |
 | **v2.1.128** | 2026-05-04 | `/color`, `/mcp`, `--plugin-dir`, `--channels`, `/model`, `/compact`, `--debug`, `/exit`, `/plugin`, `/config`, `/fast`, `/rename`, `--resume`, `--continue`, `/plugin update`, `--output-format stream-json` | Bare /color (no args) now picks a random session color / /mcp now shows the tool count for connected servers and flags servers that connected with 0 tools / --plugin-dir now accepts .zip plugin arc... |
-| **v2.1.126** | 2026-05-01 | `/model`, `--dry-run`, `--all`, `--yes`, `--interactive`, `--dangerously-skip-permissions`, `Ctrl+L`, `--channels`, `/plugin`, `/remote-control`, `--` | The /model picker now lists models from your gateway's /v1/models endpoint when ANTHROPIC_BASE_URL points at an Anthropic-compatible gateway / Added claude project purge [path] to delete all Claude... |
 
 ---
 
