@@ -1,5 +1,62 @@
 [
   {
+    "version": "2.1.223",
+    "date": "2026-08-06",
+    "commands": [
+      {
+        "name": "/teleport",
+        "context": "new",
+        "summary": "Added a `/teleport` hint in cloud sessions showing how to continue locally with "
+      },
+      {
+        "name": "--teleport",
+        "context": "new",
+        "summary": "Added a `/teleport` hint in cloud sessions showing how to continue locally with "
+      },
+      {
+        "name": "/cd",
+        "context": "fixed",
+        "summary": "Fixed resuming a session after a mid-session `/cd` coming back empty"
+      },
+      {
+        "name": "/review",
+        "context": "improved",
+        "summary": "Changed `/review` to be an alias of `/code-review`, which reviews the current di"
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "Changed `/review` to be an alias of `/code-review`, which reviews the current di"
+      },
+      {
+        "name": "/code-review ultra",
+        "context": "improved",
+        "summary": "Changed `/review` to be an alias of `/code-review`, which reviews the current di"
+      },
+      {
+        "name": "/code-review high",
+        "context": "improved",
+        "summary": "Changed `/code-review` with no effort level to reuse the level you typed last; t"
+      }
+    ],
+    "features": [
+      "Added owner wildcard entries (\"owner/*\") to the strictKnownMarketplaces and blockedMarketplaces managed settings for allowing or blocking all marketplace repos under a GitHub org",
+      "Added a warning when workflow agents, forked skills, slash commands, or resumed background agents' requested subagent model is restricted and the parent model runs instead",
+      "Added a /teleport hint in cloud sessions showing how to continue locally with claude --teleport <session id>",
+      "Fixed resuming a session after a mid-session /cd coming back empty",
+      "Changed /review to be an alias of /code-review, which reviews the current diff or a PR (/code-review <level> <pr#>); use /code-review ultra for a deep cloud review",
+      "Changed /code-review with no effort level to reuse the level you typed last; type a level like /code-review high to change it"
+    ],
+    "features_ko": [
+      "GitHub 조직 아래의 모든 마켓플레이스 리포를 허용하거나 차단하기 위해 strictKnownMarketplaces와 blockedMarketplaces 관리 설정에 owner wildcard 항목(\"owner/*\")이 추가되었습니다.",
+      "워크플로 에이전트, 포크된 스킬, 슬래시 명령 또는 재개된 백그라운드 에이전트의 요청된 서브 에이전트 모델이 제한될 때 경고가 추가되었으며, 대신 부모 모델이 실행됩니다.",
+      "클라우드 세션에서 로컬에서 계속하는 방법을 보여주는 /teleport 힌트가 추가되었습니다: claude --teleport <session id>.",
+      "중간 세션에서 /cd를 사용한 후 세션을 재개할 때 빈 상태로 돌아오는 문제를 수정했습니다.",
+      "/review가 현재 diff 또는 PR을 검토하는 /code-review의 별칭으로 변경되었습니다 (/code-review <level> <pr#>); 깊은 클라우드 검토를 위해 /code-review ultra를 사용하세요.",
+      "노력 수준이 없는 /code-review가 마지막에 입력한 수준을 재사용하도록 변경되었습니다; 수준을 변경하려면 /code-review high와 같이 입력하세요."
+    ]
+  },
+  {
     "version": "2.1.222",
     "date": "2026-08-04",
     "commands": [
