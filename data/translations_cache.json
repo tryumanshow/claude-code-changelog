@@ -2069,5 +2069,11 @@
   "b229dcfa8747af59": "Remote Control을 변경하여 압축 후 새 세션이 생성될 때 죽은 세션을 남기지 않고 오래된 서버 세션을 아카이브하도록 수정.",
   "bc25abc607b781ee": "[VSCode] 연결 실패 후 Remote Control이 연결된 것으로 표시되는 확장 문제 수정.",
   "0f6fa46d25aebe1d": "세션 재개가 사용자가 Remote Control을 끈 후에도 조용히 다시 연결되는 문제 수정 (--resume, SDK 호스트 및 VS Code 확장).",
-  "e49c1c1096537c2c": "[VSCode] remoteControlAtStartup이 명시적으로 활성화되었을 때 세션이 이를 존중하지 않는 문제 수정."
+  "e49c1c1096537c2c": "[VSCode] remoteControlAtStartup이 명시적으로 활성화되었을 때 세션이 이를 존중하지 않는 문제 수정.",
+  "560da53ea2d2a61d": "Claude Code의 사용 경고에 게이트웨이 지출 한도 지원을 추가했습니다. 이제 한도 초과 메시지는 한도, 재설정 시간 및 운영자의 메시지를 포함합니다(2.1.225에서 게이트웨이가 필요함).",
+  "7ceae6891d2c5cd3": "신뢰할 수 없는 디렉토리에 대해 claude 에이전트에 작업 공간 신뢰 프롬프트를 추가하여 claude의 동작과 일치시켰습니다.",
+  "0d0c4d9ce6e8e134": "--base-dir을 생성하거나 쓸 수 없을 때 claude self-hosted-runner가 등록된 후 매 세션마다 실패하는 문제를 수정했습니다. 이제 명확한 오류와 함께 시작 시 종료됩니다.",
+  "a3d1e77956e5ccf1": "[VSCode] Focus 뷰가 최신 할 일 목록, 보류 중인 질문의 맥락 및 해결된 답변을 접는 문제를 수정했습니다. 생각 전용 접기는 \"Thought for Ns\"를 표시하고 그들의 차례가 완료되면 다시 접힙니다.",
+  "a94e60b1979d47eb": "SendMessage는 이제 이름으로 다른 머신의 Remote Control 세션과 대화를 시작할 수 있습니다(ListAgents는 이를 name [ref]로 표시함). 이제 먼저 메시지를 보내야만 응답하는 것이 아닙니다.",
+  "6f40ed8990567554": "SendMessage: 이미 확인한 Remote Control 수신자는 자신의 목록을 확인할 수 없을 때 이 머신의 동일한 이름의 세션으로 교체되지 않습니다."
 }
