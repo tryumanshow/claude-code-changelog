@@ -1,5 +1,55 @@
 [
   {
+    "version": "2.1.228",
+    "date": "2026-08-11",
+    "commands": [
+      {
+        "name": "/tui",
+        "context": "fixed",
+        "summary": "Fixed `/tui` reverting the session to an earlier model when `/model` had been ch"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed `/tui` reverting the session to an earlier model when `/model` had been ch"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed Remote Control `/resume` while connected leaking the resumed conversation'"
+      }
+    ],
+    "features": [
+      "Fixed /tui reverting the session to an earlier model when /model had been changed since the last response",
+      "Fixed Remote Control /resume while connected leaking the resumed conversation's title or history into the connected session",
+      "Hardened skills synced from claude.ai: they no longer shadow local commands or MCP prompts, their descriptions are sanitized and labeled, and on your machine their bodies don't run ! commands or expand @ files",
+      "Updated terminal title busy-spinner glyphs to reduce tab-bar jitter on some terminals"
+    ],
+    "features_ko": [
+      "/tui가 마지막 응답 이후 /model이 변경되었을 때 세션을 이전 모델로 되돌리는 문제를 수정했습니다.",
+      "연결된 상태에서 Remote Control /resume을 사용할 때 재개된 대화의 제목이나 기록이 연결된 세션으로 누출되는 문제를 수정했습니다.",
+      "claude.ai에서 동기화된 스킬을 강화했습니다: 이제 로컬 명령이나 MCP 프롬프트를 가리지 않으며, 설명이 정리되고 라벨이 붙어 있으며, 귀하의 머신에서는 본문이 ! 명령을 실행하거나 @ 파일을 확장하지 않습니다.",
+      "일부 터미널에서 탭 바의 떨림을 줄이기 위해 터미널 제목의 busy-spinner 글리프를 업데이트했습니다."
+    ]
+  },
+  {
+    "version": "2.1.227",
+    "date": "2026-08-10",
+    "commands": [
+      {
+        "name": "/tui",
+        "context": "fixed",
+        "summary": "Fixed `/tui` bringing back a conversation that had been rewound to before its fi"
+      }
+    ],
+    "features": [
+      "Fixed /tui bringing back a conversation that had been rewound to before its first message"
+    ],
+    "features_ko": [
+      "/tui가 첫 번째 메시지 이전으로 되감긴 대화를 다시 불러오는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.226",
     "date": "2026-08-08",
     "commands": [],
