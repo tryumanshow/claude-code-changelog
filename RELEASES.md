@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-08-12 21:54 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-08-13 21:53 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.231** | 2026-08-13 | — | Fixed MCP OAuth sign-in failing with a redirect URI mismatch for servers that use a pre-registered OAuth client, such as Slack |
 | **v2.1.229** | 2026-08-12 | `--resume`, `/model`, `/install-github-app`, `--input-format stream-json`, `/compact`, `/doctor`, `/login`, `/commit-push-pr`, `--force`, `--amend`, `--no-verify`, `--base-dir`, `/bug`, `/btw`, `Shift+c` | Documented claude remote-control --continue for resuming the most recent Remote Control session / Added server-supplied Claude Code hook support for self-hosted runner sessions, matching managed-en... |
 | **v2.1.228** | 2026-08-11 | `/tui`, `/model`, `/resume` | Fixed /tui reverting the session to an earlier model when /model had been changed since the last response / Fixed Remote Control /resume while connected leaking the resumed conversation's title or ... |
 | **v2.1.227** | 2026-08-10 | `/tui` | Fixed /tui bringing back a conversation that had been rewound to before its first message |
@@ -83,7 +84,6 @@
 | **v2.1.139** | 2026-05-11 | `/goal`, `/scroll-speed`, `/mcp`, `/context all`, `/context`, `/plugin`, `/schedule`, `/model`, `--print`, `Ctrl+S` | Added agent view (Research Preview): a single list of every Claude Code session — running, blocked on you, or done. Run claude agents to get started. See https://code.claude.com/docs/en/agent-view ... |
 | **v2.1.138** | 2026-05-09 | — | Internal fixes |
 | **v2.1.137** | 2026-05-09 | — | [VSCode] Fixed extension failing to activate on Windows |
-| **v2.1.136** | 2026-05-08 | `/clear`, `--resume`, `--continue`, `Ctrl+B`, `Ctrl+G`, `/usage`, `/insights`, `/resume`, `/branch`, `/install-github-app`, `/desktop`, `/web-setup`, `/doctor`, `/myplugin review`, `/myplugin`, `/clear <name>`, `/release-notes`, `/mcp`, `/settings`, `/terminal-setup`, `--worktree` | Added CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL to re-enable the session quality survey for enterprises capturing responses through OpenTelemetry / Added settings.autoMode.hard_deny for auto mode... |
 
 ---
 

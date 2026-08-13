@@ -1,5 +1,16 @@
 [
   {
+    "version": "2.1.231",
+    "date": "2026-08-13",
+    "commands": [],
+    "features": [
+      "Fixed MCP OAuth sign-in failing with a redirect URI mismatch for servers that use a pre-registered OAuth client, such as Slack"
+    ],
+    "features_ko": [
+      "Slack과 같은 사전 등록된 OAuth 클라이언트를 사용하는 서버에서 리디렉션 URI 불일치로 인해 MCP OAuth 로그인 실패 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.229",
     "date": "2026-08-12",
     "commands": [
