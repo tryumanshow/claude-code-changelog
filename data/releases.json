@@ -1,5 +1,135 @@
 [
   {
+    "version": "2.1.232",
+    "date": "2026-08-13",
+    "commands": [
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Added `/config` rows for \"Dialog expiry\" and \"Messages from your other sessions\""
+      },
+      {
+        "name": "/advisor",
+        "context": "mentioned",
+        "summary": "Fable 5 is offered as an advisor in `/advisor` again for organizations with Fabl"
+      },
+      {
+        "name": "/model fable",
+        "context": "fixed",
+        "summary": "Fixed the consent message for interactive `--advisor fable` launches, which told"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed the consent message for interactive `--advisor fable` launches, which told"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed Cloud gateway `/login` exiting silently or leaving an unresponsive termina"
+      },
+      {
+        "name": "/update",
+        "context": "fixed",
+        "summary": "Fixed `/update` and `/tui` refusing to restart while work that survives the rela"
+      },
+      {
+        "name": "/tui",
+        "context": "fixed",
+        "summary": "Fixed `/update` and `/tui` refusing to restart while work that survives the rela"
+      },
+      {
+        "name": "--advisor fable",
+        "context": "fixed",
+        "summary": "Fixed the consent message for interactive `--advisor fable` launches, which told"
+      },
+      {
+        "name": "/feedback",
+        "context": "improved",
+        "summary": "`/feedback` and `/bug` now open immediately when invoked while Claude is respond"
+      },
+      {
+        "name": "/bug",
+        "context": "improved",
+        "summary": "`/feedback` and `/bug` now open immediately when invoked while Claude is respond"
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "`/plugin install plugin@marketplace` now refreshes the marketplace first, so new"
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "`/code-review` at high, xhigh, and max effort now runs in a background agent lik"
+      },
+      {
+        "name": "/remote-control",
+        "context": "mentioned",
+        "summary": "Remote Control: resuming a conversation no longer silently takes Remote Control "
+      },
+      {
+        "name": "/tasks",
+        "context": "improved",
+        "summary": "Updated agent panel: completed subagents hide immediately with a `/tasks` footer"
+      },
+      {
+        "name": "--settings",
+        "context": "improved",
+        "summary": "Changed `sandbox.ripgrep` to be honored only from user, managed, and `--settings"
+      },
+      {
+        "name": "/powerup",
+        "context": "removed",
+        "summary": "Removed the startup tip suggesting you create custom subagents, and the matching"
+      }
+    ],
+    "features": [
+      "Subagent forking is now on by default: a subagent_type: \"fork\" subagent inherits the full conversation and prompt cache, and non-teammate agent spawns in interactive sessions now run in the background by default",
+      "Type @ in the prompt to mention another Claude session by name; Claude then uses SendMessage to reach that session directly",
+      "SendMessage now delivers to a bare name that exactly matches one live session, instead of asking to confirm with a ref first",
+      "Interactive sessions on one machine now keep unique names: starting or renaming a session to a name another live session already uses gives it a name-word-word variant and tells you",
+      "Added /config rows for \"Dialog expiry\" and \"Messages from your other sessions\" (cross-session inbound accept/hold/refuse)",
+      "Added secret redaction for GitLab token families (glrt-, gloas-, glptt-, glagent-, glimt-, glsoat-, glcbt-, glft-, glffct-) and full redaction of routable glpat-/gldt- tokens; the glab CLI config store gets the same sandbox and credential-path protection as gh",
+      "Added GitLab support to plugin marketplaces: bare gitlab.com repo URLs (including nested subgroups) now clone like github.com URLs, and clone auth-failure hints name your actual git host",
+      "Settings: additionalMarketplaces and allowedMarketplaces are now accepted as friendlier aliases for extraKnownMarketplaces and strictKnownMarketplaces",
+      "Enterprise policy: a url-typed blockedMarketplaces entry for a bare repo URL keeps blocking that URL when the CLI classifies it as a git clone",
+      "Fable 5 is offered as an advisor in /advisor again for organizations with Fable access, with usage-credits consent set up through /model fable",
+      "Fixed Cloud gateway /login exiting silently or leaving an unresponsive terminal after \"Press Enter to continue\" when managed settings failed to load; the reason is now shown",
+      "Fixed /update and /tui refusing to restart while work that survives the relaunch was running",
+      "Fixed the consent message for interactive --advisor fable launches, which told you to run /model fable in an interactive session that had just exited",
+      "/feedback and /bug now open immediately when invoked while Claude is responding, instead of waiting for the turn to finish",
+      "/plugin install plugin@marketplace now refreshes the marketplace first, so newly published plugins install without a manual marketplace update",
+      "/code-review at high, xhigh, and max effort now runs in a background agent like the other levels",
+      "Remote Control: resuming a conversation no longer silently takes Remote Control away from another Claude Code on the same machine that still has it; run /remote-control there to move it",
+      "Updated agent panel: completed subagents hide immediately with a /tasks footer hint, and the \"↓ N more\" overflow indicator moved left for visibility",
+      "Changed sandbox.ripgrep to be honored only from user, managed, and --settings settings; project settings can no longer override the sandbox's ripgrep binary",
+      "Removed the startup tip suggesting you create custom subagents, and the matching nudge in the /powerup tour"
+    ],
+    "features_ko": [
+      "서브 에이전트 포킹이 기본적으로 활성화되었습니다: subagent_type: \"fork\" 서브 에이전트는 전체 대화 및 프롬프트 캐시를 상속받으며, 비팀원 에이전트는 이제 기본적으로 백그라운드에서 실행됩니다.",
+      "프롬프트에서 @를 입력하여 다른 Claude 세션을 이름으로 언급할 수 있습니다; 그러면 Claude는 SendMessage를 사용하여 해당 세션에 직접 도달합니다.",
+      "SendMessage는 이제 정확히 일치하는 활성 세션의 이름으로 전달되며, 먼저 참조로 확인을 요청하지 않습니다.",
+      "한 머신에서의 인터랙티브 세션은 이제 고유한 이름을 유지합니다: 다른 활성 세션이 이미 사용 중인 이름으로 세션을 시작하거나 이름을 변경하면 이름-단어-단어 변형이 부여되고 알려줍니다.",
+      "\"대화 만료\" 및 \"다른 세션의 메시지\"에 대한 /config 행이 추가되었습니다 (크로스 세션 수신 수락/보류/거부).",
+      "GitLab 토큰 패밀리(glrt-, gloas-, glptt-, glagent-, glimt-, glsoat-, glcbt-, glft-, glffct-)에 대한 비밀 삭제가 추가되었으며, 라우팅 가능한 glpat-/gldt- 토큰의 전체 삭제가 이루어졌습니다; glab CLI 구성 저장소는 gh와 동일한 샌드박스 및 자격 증명 경로 보호를 받습니다.",
+      "플러그인 마켓플레이스에 GitLab 지원이 추가되었습니다: bare gitlab.com 레포 URL(중첩된 서브그룹 포함)이 이제 github.com URL처럼 클론되며, 클론 인증 실패 힌트는 실제 git 호스트 이름을 제공합니다.",
+      "설정: additionalMarketplaces 및 allowedMarketplaces가 이제 extraKnownMarketplaces 및 strictKnownMarketplaces의 더 친숙한 별칭으로 수용됩니다.",
+      "엔터프라이즈 정책: bare 레포 URL에 대한 url-타입 blockedMarketplaces 항목은 CLI가 git 클론으로 분류할 때 해당 URL을 계속 차단합니다.",
+      "Fable 5가 Fable 접근 권한이 있는 조직을 위해 /advisor에서 다시 어드바이저로 제공되며, 사용 크레딧 동의는 /model fable을 통해 설정됩니다.",
+      "Cloud gateway /login이 \"Press Enter to continue\" 후 조용히 종료되거나 응답하지 않는 터미널을 남기는 문제를 수정했습니다; 이제 그 이유가 표시됩니다.",
+      "/update 및 /tui가 재시작을 거부하는 문제를 수정했습니다; 재시작 생존 작업이 실행 중일 때 발생했습니다.",
+      "인터랙티브 --advisor fable 실행을 위한 동의 메시지를 수정했습니다; 방금 종료된 인터랙티브 세션에서 /model fable을 실행하라는 메시지를 표시했습니다.",
+      "/feedback 및 /bug는 Claude가 응답하는 동안 호출되면 즉시 열리며, 턴이 끝날 때까지 기다리지 않습니다.",
+      "/plugin install plugin@marketplace가 이제 먼저 마켓플레이스를 새로 고쳐, 새로 게시된 플러그인이 수동 마켓플레이스 업데이트 없이 설치됩니다.",
+      "높은, xhigh 및 최대 노력의 /code-review가 이제 다른 수준처럼 백그라운드 에이전트에서 실행됩니다.",
+      "원격 제어: 대화를 재개할 때 더 이상 같은 머신의 다른 Claude Code에서 원격 제어를 조용히 빼앗지 않습니다; 거기서 /remote-control을 실행하여 이동합니다.",
+      "에이전트 패널 업데이트: 완료된 서브 에이전트는 /tasks 바닥글 힌트와 함께 즉시 숨겨지며, \"↓ N more\" 오버플로우 표시기가 가시성을 위해 왼쪽으로 이동했습니다.",
+      "sandbox.ripgrep가 이제 사용자, 관리 및 --settings 설정에서만 존중되도록 변경되었습니다; 프로젝트 설정은 더 이상 샌드박스의 ripgrep 바이너리를 재정의할 수 없습니다.",
+      "사용자 정의 서브 에이전트를 생성하라는 시작 팁과 /powerup 투어에서의 일치하는 알림을 제거했습니다."
+    ]
+  },
+  {
     "version": "2.1.231",
     "date": "2026-08-13",
     "commands": [],

@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-08-13 21:53 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-08-14 21:31 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.232** | 2026-08-13 | `/config`, `/advisor`, `/model fable`, `/model`, `/login`, `/update`, `/tui`, `--advisor fable`, `/feedback`, `/bug`, `/plugin`, `/code-review`, `/remote-control`, `/tasks`, `--settings`, `/powerup` | Subagent forking is now on by default: a subagent_type: "fork" subagent inherits the full conversation and prompt cache, and non-teammate agent spawns in interactive sessions now run in the backgro... |
 | **v2.1.231** | 2026-08-13 | — | Fixed MCP OAuth sign-in failing with a redirect URI mismatch for servers that use a pre-registered OAuth client, such as Slack |
 | **v2.1.229** | 2026-08-12 | `--resume`, `/model`, `/install-github-app`, `--input-format stream-json`, `/compact`, `/doctor`, `/login`, `/commit-push-pr`, `--force`, `--amend`, `--no-verify`, `--base-dir`, `/bug`, `/btw`, `Shift+c` | Documented claude remote-control --continue for resuming the most recent Remote Control session / Added server-supplied Claude Code hook support for self-hosted runner sessions, matching managed-en... |
 | **v2.1.228** | 2026-08-11 | `/tui`, `/model`, `/resume` | Fixed /tui reverting the session to an earlier model when /model had been changed since the last response / Fixed Remote Control /resume while connected leaking the resumed conversation's title or ... |
@@ -83,7 +84,6 @@
 | **v2.1.140** | 2026-05-12 | `/goal`, `/loop`, `/doctor`, `/plugin` | Updated agent color palette / Fixed /goal silently hanging when disableAllHooks or allowManagedHooksOnly is set — now shows a clear message instead of an indicator that never resolves / Fixed /loop... |
 | **v2.1.139** | 2026-05-11 | `/goal`, `/scroll-speed`, `/mcp`, `/context all`, `/context`, `/plugin`, `/schedule`, `/model`, `--print`, `Ctrl+S` | Added agent view (Research Preview): a single list of every Claude Code session — running, blocked on you, or done. Run claude agents to get started. See https://code.claude.com/docs/en/agent-view ... |
 | **v2.1.138** | 2026-05-09 | — | Internal fixes |
-| **v2.1.137** | 2026-05-09 | — | [VSCode] Fixed extension failing to activate on Windows |
 
 ---
 
