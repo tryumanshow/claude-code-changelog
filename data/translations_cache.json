@@ -2119,5 +2119,13 @@
   "81308c92a2b66948": "원격 제어: 대화를 재개할 때 더 이상 같은 머신의 다른 Claude Code에서 원격 제어를 조용히 빼앗지 않습니다; 거기서 /remote-control을 실행하여 이동합니다.",
   "0733242c6beca1ae": "에이전트 패널 업데이트: 완료된 서브 에이전트는 /tasks 바닥글 힌트와 함께 즉시 숨겨지며, \"↓ N more\" 오버플로우 표시기가 가시성을 위해 왼쪽으로 이동했습니다.",
   "05faac0429784dcd": "sandbox.ripgrep가 이제 사용자, 관리 및 --settings 설정에서만 존중되도록 변경되었습니다; 프로젝트 설정은 더 이상 샌드박스의 ripgrep 바이너리를 재정의할 수 없습니다.",
-  "8a17dd433751bbf1": "사용자 정의 서브 에이전트를 생성하라는 시작 팁과 /powerup 투어에서의 일치하는 알림을 제거했습니다."
+  "8a17dd433751bbf1": "사용자 정의 서브 에이전트를 생성하라는 시작 팁과 /powerup 투어에서의 일치하는 알림을 제거했습니다.",
+  "8aef3b250fb428b7": "--worktree 플래그와 claude agents 뷰에 GitLab merge request URL 지원 추가 (여기서 MRs는 !N으로 표시됨)",
+  "c9faeb26d5c6c5c5": "Anthropic upstreams에 opt-in forward_user_identity 앱 게이트웨이 설정 추가, 이는 로그인한 사용자의 신원을 헤더로 전송하여 게이트웨이 뒤의 프록시가 사용자별 지출을 추적할 수 있도록 함",
+  "39bacbeb21097429": "Linux에서 Bash 도구 명령을 위한 opt-in memory cgroup 지원 추가 (CLAUDE_CODE_TOOL_MEMORY_LIMIT), 이를 통해 무한 빌드가 세션을 중단하지 않도록 함",
+  "9c383b1c8b4b47d0": "WebFetch 세션 URL 캐시 TTL을 구성하기 위한 CLAUDE_CODE_WEBFETCH_CACHE_TTL_MS 환경 변수 추가 (기본값 변경 없음: 15분)",
+  "2e8cddf443b5e06d": "사용자가 또는 프로젝트 스킬이 번들 스킬을 가릴 때 /checkup 및 /review와 같은 번들 스킬 별칭이 -p 모드 또는 plugins/MCP 로드 시 \"Unknown command\"를 보고하는 문제 수정",
+  "db438f533cdf4ecb": "스크린 리더 모드 개선: /effort 선택기가 번호 매겨진 목록으로 렌더링되며, 입력된 숫자 프롬프트와 힌트 및 대화 상자 텍스트가 더 이상 잘리지 않음",
+  "3e04f7ba75b99203": "Todo/task-tracking 도구(TaskCreate/Get/Update/List, TodoWrite)가 Opus 4.8, Sonnet 5, Fable 5, Mythos 5 및 최신 모델에서 더 이상 사용 가능하지 않음; CLAUDE_CODE_ENABLE_TODO_TOOLS=1로 설정하여 다시 활성화 가능",
+  "f52a8a58fcee118e": "Windows: 일반 cd <dir> && <command> > file Bash 명령에서 수동 승인을 위해 자동 모드가 반복적으로 중지되는 문제 수정 (2.1.232 회귀)"
 }
