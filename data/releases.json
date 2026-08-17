@@ -1,5 +1,132 @@
 [
   {
+    "version": "2.1.234",
+    "date": "2026-08-17",
+    "commands": [
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Claude Code now continues your session automatically when a claude.ai usage limi"
+      },
+      {
+        "name": "/login",
+        "context": "improved",
+        "summary": "Fixed: after `/login` while `CLAUDE_CODE_OAUTH_TOKEN` is set, the stale-token re"
+      },
+      {
+        "name": "---",
+        "context": "fixed",
+        "summary": "Fixed a `---` horizontal rule in rendered markdown running into the line after i"
+      },
+      {
+        "name": "/permissions",
+        "context": "improved",
+        "summary": "`/permissions` can now be opened while Claude is working — rule changes apply to"
+      },
+      {
+        "name": "--dangerously-skip-permissions",
+        "context": "fixed",
+        "summary": "Fixed accepting the \"Try the new fullscreen renderer?\" prompt restarting the ses"
+      },
+      {
+        "name": "/tui",
+        "context": "fixed",
+        "summary": "Fixed `/tui` dropping launch `--allowed-tools`/`--disallowed-tools` rules when i"
+      },
+      {
+        "name": "--allowed-tools",
+        "context": "fixed",
+        "summary": "Fixed `/tui` dropping launch `--allowed-tools`/`--disallowed-tools` rules when i"
+      },
+      {
+        "name": "--disallowed-tools",
+        "context": "fixed",
+        "summary": "Fixed `/tui` dropping launch `--allowed-tools`/`--disallowed-tools` rules when i"
+      },
+      {
+        "name": "/add-dir <path>",
+        "context": "improved",
+        "summary": "`/add-dir <path>` can now be used while Claude is working; `/add-dir`, `/autocom"
+      },
+      {
+        "name": "/add-dir",
+        "context": "improved",
+        "summary": "`/add-dir <path>` can now be used while Claude is working; `/add-dir`, `/autocom"
+      },
+      {
+        "name": "/autocompact",
+        "context": "improved",
+        "summary": "`/add-dir <path>` can now be used while Claude is working; `/add-dir`, `/autocom"
+      },
+      {
+        "name": "/theme",
+        "context": "improved",
+        "summary": "`/add-dir <path>` can now be used while Claude is working; `/add-dir`, `/autocom"
+      },
+      {
+        "name": "/help",
+        "context": "improved",
+        "summary": "`/add-dir <path>` can now be used while Claude is working; `/add-dir`, `/autocom"
+      },
+      {
+        "name": "/advisor",
+        "context": "improved",
+        "summary": "`/add-dir <path>` can now be used while Claude is working; `/add-dir`, `/autocom"
+      },
+      {
+        "name": "/goal",
+        "context": "improved",
+        "summary": "`/goal` now clears itself with a notice when a turn dies on an unrecoverable err"
+      }
+    ],
+    "features": [
+      "Added the optional CLAUDE_CODE_PROJECT_DIR_NAME environment variable: hosts that give each session its own config directory can choose a short name for the per-project transcript directory",
+      "Added the selection:clear keybinding action, so a key can be bound to clear an in-app text selection; also works in the agents view",
+      "Added a GitLab merge request badge to the footer and statusline: repos with a GitLab remote and an authenticated glab CLI show MR !N with draft/pending/green states",
+      "Claude Code now continues your session automatically when a claude.ai usage limit resets; turn it off in /config (\"Continue automatically at usage limit\")",
+      "Claude is now told to use your account email only to identify you, and not to send it to unrelated services unless you ask",
+      "Fixed modal text such as the /login OAuth URL losing characters when copied in fullscreen",
+      "Fixed a --- horizontal rule in rendered markdown running into the line after it",
+      "Fixed dialogs like /permissions opened while a ! shell command was running being dismissed when the command finished",
+      "Fixed accepting the \"Try the new fullscreen renderer?\" prompt restarting the session without its permission mode (e.g. --dangerously-skip-permissions), tool allow/deny rules, model or effort flags",
+      "Fixed /tui dropping launch --allowed-tools/--disallowed-tools rules when it restarts; it now declines to switch, with the reason, when the session has restrictions a restart can't carry over",
+      "Fixed: after /login while CLAUDE_CODE_OAUTH_TOKEN is set, the stale-token reminder no longer leaks into Claude's automatically resumed turn — it now appears only to you",
+      "Remote Control: signing this computer in to a different claude.ai account or organization now stops the running session within seconds and says why, instead of a misleading HTTP 404 hours later",
+      "Remote Control sessions started from Claude Code Desktop or VS Code now keep phones and claude.ai/code updated on the session's permission mode (and claude.ai/code on the model) as they change",
+      "Remote Control: effort picks made on a phone or on claude.ai/code now apply to terminal- and Desktop/VS Code-hosted sessions, and the session publishes its effort level to connected clients",
+      "SendMessage and ListAgents now say when your account's session list was too long to check completely, instead of treating unseen sessions as absent",
+      "Expired Anthropic profile credential now points you at /login when a claude.ai login would take precedence",
+      "/permissions can now be opened while Claude is working — rule changes apply to the rest of the current turn",
+      "/add-dir <path> can now be used while Claude is working; /add-dir, /autocompact, /theme, /help, /config and /advisor dialogs open mid-turn in the fullscreen TUI",
+      "/goal now clears itself with a notice when a turn dies on an unrecoverable error (e.g. revoked auth, an exhausted credit balance, or a context overflow) instead of staying armed",
+      "/goal: when background tasks keep a goal waiting for 30+ minutes, Claude now checks in on them instead of waiting indefinitely (set CLAUDE_CODE_GOAL_CHECKIN_MINUTES=0 to opt out)",
+      "Removed the \"Default teammate model\" setting from /config; agent-team teammates now use the leader's model unless the spawn names one"
+    ],
+    "features_ko": [
+      "선택적 CLAUDE_CODE_PROJECT_DIR_NAME 환경 변수가 추가되었습니다: 각 세션에 고유한 구성 디렉토리를 제공하는 호스트는 프로젝트별 전사 디렉토리에 대한 짧은 이름을 선택할 수 있습니다.",
+      "in-app 텍스트 선택을 지우기 위해 키를 바인딩할 수 있는 selection:clear 키 바인딩 작업이 추가되었습니다; 에이전트 뷰에서도 작동합니다.",
+      "바닥글과 상태줄에 GitLab 병합 요청 배지가 추가되었습니다: GitLab 원격 저장소와 인증된 glab CLI가 있는 저장소는 초안/대기/녹색 상태의 MR !N을 표시합니다.",
+      "이제 claude.ai 사용 한도가 재설정되면 Claude Code가 세션을 자동으로 계속합니다; /config에서 끌 수 있습니다 (\"사용 한도에서 자동으로 계속하기\").",
+      "Claude는 이제 귀하를 식별하기 위해서만 귀하의 계정 이메일을 사용하도록 지시되며, 요청하지 않는 한 관련 없는 서비스에 보내지 않습니다.",
+      "전체 화면에서 복사할 때 /login OAuth URL과 같은 모달 텍스트에서 문자가 사라지는 문제가 수정되었습니다.",
+      "렌더링된 마크다운에서 --- 수평 규칙이 그 다음 줄과 충돌하는 문제가 수정되었습니다.",
+      "! 셸 명령이 실행 중일 때 열리는 /permissions와 같은 대화 상자가 명령이 완료되면 사라지는 문제가 수정되었습니다.",
+      "\"새 전체 화면 렌더러를 사용해 보시겠습니까?\" 프롬프트 수락 시 세션이 허가 모드 없이 재시작되는 문제가 수정되었습니다 (예: --dangerously-skip-permissions, 도구 허용/거부 규칙, 모델 또는 노력 플래그).",
+      "/tui가 재시작할 때 launch --allowed-tools/--disallowed-tools 규칙을 떨어뜨리는 문제가 수정되었습니다; 이제 세션에 재시작이 전이될 수 없는 제한이 있을 때 이유와 함께 전환을 거부합니다.",
+      "/login 후 CLAUDE_CODE_OAUTH_TOKEN이 설정된 상태에서, 오래된 토큰 알림이 Claude의 자동으로 재개된 턴에 누출되지 않도록 수정되었습니다 — 이제 오직 귀하에게만 나타납니다.",
+      "원격 제어: 이 컴퓨터를 다른 claude.ai 계정이나 조직에 로그인하면 몇 초 내에 실행 중인 세션이 중지되고 그 이유를 설명합니다, 몇 시간 후 잘못된 HTTP 404 대신에.",
+      "Claude Code Desktop 또는 VS Code에서 시작된 원격 제어 세션은 세션의 허가 모드가 변경될 때마다 전화기와 claude.ai/code를 업데이트합니다.",
+      "원격 제어: 전화기나 claude.ai/code에서 선택한 노력은 이제 터미널 및 Desktop/VS Code 호스팅 세션에 적용되며, 세션은 연결된 클라이언트에 노력 수준을 게시합니다.",
+      "SendMessage 및 ListAgents는 이제 귀하의 계정 세션 목록이 너무 길어 완전히 확인할 수 없을 때 이를 알리며, 보이지 않는 세션을 부재로 처리하지 않습니다.",
+      "만료된 Anthropic 프로필 자격 증명은 claude.ai 로그인 우선 순위가 있을 때 /login으로 안내합니다.",
+      "Claude가 작업 중일 때 /permissions를 열 수 있게 되었습니다 — 규칙 변경 사항은 현재 턴의 나머지 부분에 적용됩니다.",
+      "Claude가 작업 중일 때 /add-dir <path>를 사용할 수 있게 되었습니다; /add-dir, /autocompact, /theme, /help, /config 및 /advisor 대화 상자는 전체 화면 TUI에서 턴 중간에 열립니다.",
+      "/goal은 턴이 복구할 수 없는 오류(예: 권한 취소, 소진된 크레딧 잔액 또는 컨텍스트 오버플로우)로 종료될 때 알림과 함께 스스로 지워집니다 대신 무장 상태로 남지 않습니다.",
+      "/goal: 백그라운드 작업이 목표를 30분 이상 대기시키면 Claude가 무한정 기다리지 않고 이를 확인합니다 (CLAUDE_CODE_GOAL_CHECKIN_MINUTES=0으로 설정하여 선택 해제 가능).",
+      "/config에서 \"기본 팀원 모델\" 설정이 제거되었습니다; 에이전트 팀의 팀원은 생성자가 이름을 지정하지 않는 한 리더의 모델을 사용합니다."
+    ]
+  },
+  {
     "version": "2.1.233",
     "date": "2026-08-14",
     "commands": [
