@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-08-17 21:31 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-08-18 21:30 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.235** | 2026-08-18 | `Shift+T`, `ctrl+t`, `/ultrareview`, `/autofix-pr`, `/config`, `ctrl+o` | Added an optional spellcheck setting that underlines misspelled words in the prompt input as you type, using your installed aspell, hunspell, or ispell / Fixed Shift+Tab inside the permission promp... |
 | **v2.1.234** | 2026-08-17 | `/config`, `/login`, `---`, `/permissions`, `--dangerously-skip-permissions`, `/tui`, `--allowed-tools`, `--disallowed-tools`, `/add-dir <path>`, `/add-dir`, `/autocompact`, `/theme`, `/help`, `/advisor`, `/goal` | Added the optional CLAUDE_CODE_PROJECT_DIR_NAME environment variable: hosts that give each session its own config directory can choose a short name for the per-project transcript directory / Added ... |
 | **v2.1.233** | 2026-08-14 | `--worktree`, `/checkup`, `/review`, `/effort` | Added GitLab merge request URL support to the --worktree flag and the claude agents view (where MRs display as !N) / Added an opt-in forward_user_identity apps gateway setting on Anthropic upstream... |
 | **v2.1.232** | 2026-08-13 | `/config`, `/advisor`, `/model fable`, `/model`, `/login`, `/update`, `/tui`, `--advisor fable`, `/feedback`, `/bug`, `/plugin`, `/code-review`, `/remote-control`, `/tasks`, `--settings`, `/powerup` | Subagent forking is now on by default: a subagent_type: "fork" subagent inherits the full conversation and prompt cache, and non-teammate agent spawns in interactive sessions now run in the backgro... |
@@ -83,7 +84,6 @@
 | **v2.1.143** | 2026-05-15 | `/plugin`, `Shift+T`, `/loop`, `Ctrl+C`, `/goal`, `/bg`, `--agent <name>`, `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, `--dangerously-skip-permissions`, `--strict-mcp-config`, `--fallback-model`, `--allow-dangerously-skip-permissions` | Added plugin dependency enforcement: claude plugin disable now refuses when another enabled plugin depends on the target (with a copy-pasteable disable-chain hint), and claude plugin enable force-e... |
 | **v2.1.142** | 2026-05-14 | `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, `--dangerously-skip-permissions`, `/plugin`, `/web-setup`, `Ctrl+C`, `/model`, `/model claude-sonnet-4-20250514` | Added new claude agents flags: --add-dir, --settings, --mcp-config, --plugin-dir, --permission-mode, --model, --effort, and --dangerously-skip-permissions to configure dispatched background session... |
 | **v2.1.141** | 2026-05-13 | `--cwd`, `/feedback`, `/bg`, `/doctor`, `/model`, `Ctrl+C`, `ctrl+e`, `/tui`, `/mcp`, `/login`, `Alt+V` | Added terminalSequence field to hook JSON output so hooks can emit desktop notifications, window titles, and bells without a controlling terminal / Added CLAUDE_CODE_PLUGIN_PREFER_HTTPS to clone Gi... |
-| **v2.1.140** | 2026-05-12 | `/goal`, `/loop`, `/doctor`, `/plugin` | Updated agent color palette / Fixed /goal silently hanging when disableAllHooks or allowManagedHooksOnly is set — now shows a clear message instead of an indicator that never resolves / Fixed /loop... |
 
 ---
 
