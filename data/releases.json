@@ -1,5 +1,63 @@
 [
   {
+    "version": "2.1.236",
+    "date": "2026-08-19",
+    "commands": [
+      {
+        "name": "/model",
+        "context": "new",
+        "summary": "Added `ANTHROPIC_DEFAULT_MODEL` environment variable: sets the model new session"
+      },
+      {
+        "name": "/recap",
+        "context": "fixed",
+        "summary": "Fixed occasional runaway session recaps: recap text (automatic and `/recap`) is "
+      },
+      {
+        "name": "/goal",
+        "context": "improved",
+        "summary": "`/goal`: an idle session whose goal is parked behind long-running background wor"
+      },
+      {
+        "name": "/usage",
+        "context": "improved",
+        "summary": "`/usage` now shows the usage-credits spend row for Team and Enterprise members, "
+      }
+    ],
+    "features": [
+      "Added ANTHROPIC_DEFAULT_MODEL environment variable: sets the model new sessions start on, while a /model pick still overrides it and persists across restarts (unlike ANTHROPIC_MODEL)",
+      "Added notify_when_idle to cross-session SendMessage: ask another Claude Code session on this machine to send one notice when it next goes idle — opt-in, one-shot, no polling (macOS and Linux)",
+      "Sandbox: on macOS, wildcard read-deny rules (e.g. **/.env) now take precedence inside allowed read regions, cover matched directories' contents, and can't be bypassed by renaming the denied file",
+      "Fixed the /model picker rendering taller than the terminal: it now shows only as many models as fit the window, with the rest reachable by scrolling",
+      "Fixed occasional runaway session recaps: recap text (automatic and /recap) is now capped at 400 characters, cut at a word boundary",
+      "Changed the /model picker to highlight only the newest model's name, so the highlight marks the new release rather than an arbitrary subset of the list",
+      "/goal: an idle session whose goal is parked behind long-running background work now checks in automatically after 30 minutes (then 1h, 2h) instead of waiting for you to return",
+      "/usage now shows the usage-credits spend row for Team and Enterprise members, and shows a capped row at 0% before anything is spent",
+      "SIGTERM in print/SDK mode no longer records an interrupted turn or synthetic tool denials before exiting; running commands are still terminated and the process still exits with code 143",
+      "Pressing Enter on a slash-command typo or a command unavailable in this session now reports it instead of running the closest fuzzy match; prefixes and aliases still run",
+      "Remote Control now marks a session offline within seconds when the CLI exits or its terminal closes",
+      "SendMessage now refuses further messages to a session up front once a rapid burst would exceed what that session's inbox accepts, instead of reporting them sent while they were dropped",
+      "Aligned the session title chip on the prompt border with the footer's right edge",
+      "Right-aligned footer items (goal indicator, session state, background agent status) and truncated notices now share a consistent right margin with the rest of the prompt area"
+    ],
+    "features_ko": [
+      "ANTHROPIC_DEFAULT_MODEL 환경 변수를 추가했습니다: 새 세션이 시작할 모델을 설정하며, /model 선택은 여전히 이를 무시하고 재시작 간에도 유지됩니다 (ANTHROPIC_MODEL과는 다르게).",
+      "cross-session SendMessage에 notify_when_idle을 추가했습니다: 이 머신의 다른 Claude Code 세션에 다음에 유휴 상태가 될 때 하나의 알림을 보내도록 요청합니다 — 선택적, 일회성, 폴링 없음 (macOS 및 Linux).",
+      "Sandbox: macOS에서 와일드카드 읽기 거부 규칙(예: **/.env)이 이제 허용된 읽기 영역 내에서 우선 적용되며, 일치하는 디렉토리의 내용을 포함하고 거부된 파일의 이름을 변경해도 우회할 수 없습니다.",
+      "/model 선택기가 터미널보다 더 높게 렌더링되는 문제를 수정했습니다: 이제 창에 맞는 모델 수만 표시되며, 나머지는 스크롤로 접근할 수 있습니다.",
+      "가끔 발생하던 세션 요약 문제를 수정했습니다: 요약 텍스트(자동 및 /recap)는 이제 400자로 제한되며, 단어 경계에서 잘립니다.",
+      "/model 선택기를 변경하여 최신 모델의 이름만 강조 표시되도록 하여 강조가 새로운 릴리스를 표시하도록 했습니다.",
+      "/goal: 장시간 백그라운드 작업 뒤에 목표가 주차된 유휴 세션은 이제 30분 후에 자동으로 체크인합니다 (그 후 1시간, 2시간).",
+      "/usage는 이제 팀 및 엔터프라이즈 회원을 위한 사용 크레딧 소비 행을 표시하며, 소비되기 전에는 0%로 제한된 행을 보여줍니다.",
+      "print/SDK 모드에서 SIGTERM은 더 이상 종료하기 전에 중단된 턴이나 합성 도구 거부를 기록하지 않습니다; 실행 중인 명령은 여전히 종료되며 프로세스는 코드 143으로 종료됩니다.",
+      "슬래시 명령의 오타나 이 세션에서 사용할 수 없는 명령에서 Enter를 누르면 가장 가까운 퍼지 일치를 실행하는 대신 이를 보고합니다; 접두사 및 별칭은 여전히 실행됩니다.",
+      "원격 제어는 CLI가 종료되거나 터미널이 닫히면 몇 초 내에 세션을 오프라인으로 표시합니다.",
+      "SendMessage는 이제 빠른 폭주가 해당 세션의 수신함이 수용하는 것을 초과할 경우, 메시지를 더 이상 수신하지 않으며, 대신 전송된 것으로 보고하지 않습니다.",
+      "세션 제목 칩을 프롬프트 경계에서 바닥글의 오른쪽 가장자리와 정렬했습니다.",
+      "오른쪽 정렬된 바닥글 항목(목표 표시기, 세션 상태, 백그라운드 에이전트 상태) 및 잘린 알림이 이제 프롬프트 영역의 나머지와 일관된 오른쪽 여백을 공유합니다."
+    ]
+  },
+  {
     "version": "2.1.235",
     "date": "2026-08-18",
     "commands": [
