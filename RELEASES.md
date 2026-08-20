@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-08-19 21:31 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-08-20 21:34 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.238** | 2026-08-20 | `Ctrl+W`, `--defer-shutdown-max-min`, `--proxy-authorization-file`, `--proxy-authorization-command`, `Ctrl+H`, `Ctrl+Z`, `/model`, `/effort`, `/clear`, `Ctrl+L`, `--add-dir` | Added a keybindingFlavor setting: set it to "readline" to make Ctrl+W in the prompt delete back to the previous whitespace, as in Bash; the default ("classic") is unchanged / Plugin marketplaces: h... |
+| **v2.1.237** | 2026-08-20 | `/config` | Added a built-in "Concise" output style: Claude leads with results and skips preamble and narration, while doing the work just as thoroughly. Select it under Output style in /config. |
 | **v2.1.236** | 2026-08-19 | `/model`, `/recap`, `/goal`, `/usage` | Added ANTHROPIC_DEFAULT_MODEL environment variable: sets the model new sessions start on, while a /model pick still overrides it and persists across restarts (unlike ANTHROPIC_MODEL) / Added notify... |
 | **v2.1.235** | 2026-08-18 | `Shift+T`, `ctrl+t`, `/ultrareview`, `/autofix-pr`, `/config`, `ctrl+o` | Added an optional spellcheck setting that underlines misspelled words in the prompt input as you type, using your installed aspell, hunspell, or ispell / Fixed Shift+Tab inside the permission promp... |
 | **v2.1.234** | 2026-08-17 | `/config`, `/login`, `---`, `/permissions`, `--dangerously-skip-permissions`, `/tui`, `--allowed-tools`, `--disallowed-tools`, `/add-dir <path>`, `/add-dir`, `/autocompact`, `/theme`, `/help`, `/advisor`, `/goal` | Added the optional CLAUDE_CODE_PROJECT_DIR_NAME environment variable: hosts that give each session its own config directory can choose a short name for the per-project transcript directory / Added ... |
@@ -82,8 +84,6 @@
 | **v2.1.147** | 2026-05-21 | `Ctrl+T`, `/simplify`, `/code-review`, `/code-review high`, `--comment`, `/help`, `/effort`, `/background`, `/theme`, `/plugin`, `/status`, `/mobile`, `/sandbox`, `/permissions` | Pinned background sessions (Ctrl+T in claude agents) now stay alive when idle, are restarted in place to apply Claude Code updates, and are shed under memory pressure only after non-pinned sessions... |
 | **v2.1.145** | 2026-05-19 | `--json`, `/plugin`, `alt+t`, `/review` | Added claude agents --json to list live Claude sessions as JSON for scripting (tmux-resurrect, status bars, session pickers) / Added agent_id and parent_agent_id attributes to claude_code.tool OTEL... |
 | **v2.1.144** | 2026-05-19 | `/resume`, `--bg`, `/plugin`, `/model`, `/extra-usage`, `/usage-credits`, `Ctrl+L`, `/branch`, `Ctrl+O`, `/bg`, `/add-dir`, `Ctrl+R`, `/doctor`, `/feedback` | Added /resume support for background sessions — sessions started via claude --bg or agent view now appear alongside interactive ones, marked with bg / Added elapsed duration to background subagent ... |
-| **v2.1.143** | 2026-05-15 | `/plugin`, `Shift+T`, `/loop`, `Ctrl+C`, `/goal`, `/bg`, `--agent <name>`, `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, `--dangerously-skip-permissions`, `--strict-mcp-config`, `--fallback-model`, `--allow-dangerously-skip-permissions` | Added plugin dependency enforcement: claude plugin disable now refuses when another enabled plugin depends on the target (with a copy-pasteable disable-chain hint), and claude plugin enable force-e... |
-| **v2.1.142** | 2026-05-14 | `--add-dir`, `--settings`, `--mcp-config`, `--plugin-dir`, `--permission-mode`, `--model`, `--effort`, `--dangerously-skip-permissions`, `/plugin`, `/web-setup`, `Ctrl+C`, `/model`, `/model claude-sonnet-4-20250514` | Added new claude agents flags: --add-dir, --settings, --mcp-config, --plugin-dir, --permission-mode, --model, --effort, and --dangerously-skip-permissions to configure dispatched background session... |
 
 ---
 
