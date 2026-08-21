@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-08-20 21:34 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-08-21 21:30 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.239** | 2026-08-21 | `/cost`, `--max-budget-usd`, `/claude-api upgrade`, `/claude-api`, `/resume`, `/insights`, `Shift+A`, `/voice`, `/script`, `/config`, `/model`, `/workflows`, `Ctrl+W`, `Ctrl+U`, `Ctrl+K`, `Ctrl+Y`, `Ctrl+B`, `/goal`, `/list-agents`, `Alt+F`, `Alt+D`, `/clear` | Cost estimates (/cost, status line, --max-budget-usd) now include the 1.1× US-only-inference premium for data-residency workspaces / Added the one-time fullscreen renderer offer on Bedrock, Vertex,... |
 | **v2.1.238** | 2026-08-20 | `Ctrl+W`, `--defer-shutdown-max-min`, `--proxy-authorization-file`, `--proxy-authorization-command`, `Ctrl+H`, `Ctrl+Z`, `/model`, `/effort`, `/clear`, `Ctrl+L`, `--add-dir` | Added a keybindingFlavor setting: set it to "readline" to make Ctrl+W in the prompt delete back to the previous whitespace, as in Bash; the default ("classic") is unchanged / Plugin marketplaces: h... |
 | **v2.1.237** | 2026-08-20 | `/config` | Added a built-in "Concise" output style: Claude leads with results and skips preamble and narration, while doing the work just as thoroughly. Select it under Output style in /config. |
 | **v2.1.236** | 2026-08-19 | `/model`, `/recap`, `/goal`, `/usage` | Added ANTHROPIC_DEFAULT_MODEL environment variable: sets the model new sessions start on, while a /model pick still overrides it and persists across restarts (unlike ANTHROPIC_MODEL) / Added notify... |
@@ -83,7 +84,6 @@
 | **v2.1.148** | 2026-05-22 | — | Fixed the Bash tool returning exit code 127 on every command for some users (a regression introduced in 2.1.147) |
 | **v2.1.147** | 2026-05-21 | `Ctrl+T`, `/simplify`, `/code-review`, `/code-review high`, `--comment`, `/help`, `/effort`, `/background`, `/theme`, `/plugin`, `/status`, `/mobile`, `/sandbox`, `/permissions` | Pinned background sessions (Ctrl+T in claude agents) now stay alive when idle, are restarted in place to apply Claude Code updates, and are shed under memory pressure only after non-pinned sessions... |
 | **v2.1.145** | 2026-05-19 | `--json`, `/plugin`, `alt+t`, `/review` | Added claude agents --json to list live Claude sessions as JSON for scripting (tmux-resurrect, status bars, session pickers) / Added agent_id and parent_agent_id attributes to claude_code.tool OTEL... |
-| **v2.1.144** | 2026-05-19 | `/resume`, `--bg`, `/plugin`, `/model`, `/extra-usage`, `/usage-credits`, `Ctrl+L`, `/branch`, `Ctrl+O`, `/bg`, `/add-dir`, `Ctrl+R`, `/doctor`, `/feedback` | Added /resume support for background sessions — sessions started via claude --bg or agent view now appear alongside interactive ones, marked with bg / Added elapsed duration to background subagent ... |
 
 ---
 
