@@ -1,5 +1,198 @@
 [
   {
+    "version": "2.1.245",
+    "date": "2026-08-25",
+    "commands": [],
+    "features": [
+      "Fixed a crash on startup on Linux distributions that ship glibc 2.44 (for example Arch Linux, CachyOS and Fedora Rawhide)"
+    ],
+    "features_ko": [
+      "glibc 2.44를 사용하는 리눅스 배포판에서 시작 시 충돌을 수정했습니다 (예: Arch Linux, CachyOS 및 Fedora Rawhide)"
+    ]
+  },
+  {
+    "version": "2.1.243",
+    "date": "",
+    "commands": [
+      {
+        "name": "/usage",
+        "context": "new",
+        "summary": "Added a Loops breakdown to `/usage`: per-loop run count, total tokens, tokens pe"
+      },
+      {
+        "name": "/loop",
+        "context": "new",
+        "summary": "Added a Loops breakdown to `/usage`: per-loop run count, total tokens, tokens pe"
+      },
+      {
+        "name": "/model",
+        "context": "new",
+        "summary": "Added `modelPicker` setting: curate the `/model` picker with an ordered, labeled"
+      },
+      {
+        "name": "/cost",
+        "context": "new",
+        "summary": "Added `modelPricing` managed setting so an organization's contracted per-model r"
+      },
+      {
+        "name": "/login",
+        "context": "new",
+        "summary": "Added a keyless sign-in under `/login` → Anthropic Console: \"Sign in with your C"
+      },
+      {
+        "name": "/status",
+        "context": "new",
+        "summary": "Added a `Skipped sources` line to `/status` that lists managed settings sources "
+      },
+      {
+        "name": "/mcp",
+        "context": "new",
+        "summary": "Added a `managed` marker in `/mcp` and `/plugins` on claude.ai connectors whose "
+      },
+      {
+        "name": "/plugins",
+        "context": "new",
+        "summary": "Added a `managed` marker in `/mcp` and `/plugins` on claude.ai connectors whose "
+      },
+      {
+        "name": "/web-setup",
+        "context": "new",
+        "summary": "Added a tip pointing claude.ai users who haven't connected GitHub for Claude Cod"
+      },
+      {
+        "name": "/tasks",
+        "context": "new",
+        "summary": "Added the model (and effort level) each subagent ran on to `/tasks` and the agen"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed `/resume` only listing the 50 most recent sessions; the picker now loads m"
+      },
+      {
+        "name": "/logout",
+        "context": "fixed",
+        "summary": "Fixed server-managed `companyAnnouncements` not showing at startup in a session "
+      },
+      {
+        "name": "--plugin-dir",
+        "context": "fixed",
+        "summary": "Fixed plugin dependencies declared with a `marketplace` field never resolving wh"
+      },
+      {
+        "name": "/reload-plugins",
+        "context": "fixed",
+        "summary": "Fixed `/reload-plugins` keeping the LSP tool after the last LSP plugin is disabl"
+      },
+      {
+        "name": "--agents",
+        "context": "fixed",
+        "summary": "Fixed `--agents` silently ignoring invalid JSON or invalid agent definitions; it"
+      },
+      {
+        "name": "--mcp-config",
+        "context": "fixed",
+        "summary": "Fixed `--agents` silently ignoring invalid JSON or invalid agent definitions; it"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed `/clear` removing the `/rename` session name from the prompt bar even thou"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed `/clear` removing the `/rename` session name from the prompt bar even thou"
+      },
+      {
+        "name": "Ctrl+R",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+R history search and up-arrow history breaking when `~/.claude/histor"
+      },
+      {
+        "name": "/effort high",
+        "context": "improved",
+        "summary": "Improved the error when effort `xhigh`/`max` is used with thinking turned off: i"
+      },
+      {
+        "name": "/effort",
+        "context": "improved",
+        "summary": "Improved the error when effort `xhigh`/`max` is used with thinking turned off: i"
+      },
+      {
+        "name": "/fast",
+        "context": "improved",
+        "summary": "Changed `/model`, `/fast`, and `/effort` to also run immediately instead of queu"
+      }
+    ],
+    "features": [
+      "Added a Loops breakdown to /usage: per-loop run count, total tokens, tokens per run, and last run, so runaway or chatty /loop tasks are easy to spot",
+      "Added modelPicker setting: curate the /model picker with an ordered, labeled list of models (any id spelling, including Vertex/Bedrock ids), appended to or replacing the built-in lineup",
+      "Added promptCacheTtl and subagentPromptCacheTtl settings so API-key and cloud-provider users can keep a 1-hour prompt cache on the main conversation while subagents stay at 5 minutes",
+      "Added modelPricing managed setting so an organization's contracted per-model rates and discount multiplier are used for /cost, the status line, and telemetry cost figures instead of list price",
+      "Added a keyless sign-in under /login → Anthropic Console: \"Sign in with your Console account\" (recommended) alongside creating an API key, so organizations that don't allow API keys can sign in",
+      "Added a Skipped sources line to /status that lists managed settings sources (for example managed-settings.json) present but not applied because a higher-precedence managed source is active",
+      "Added a managed marker in /mcp and /plugins on claude.ai connectors whose authentication is managed by your organization",
+      "Added a tip pointing claude.ai users who haven't connected GitHub for Claude Code on the web to /web-setup",
+      "Added a /status line showing whether GitHub is connected for Claude Code on the web (Pro/Max), pointing to /web-setup when it isn't",
+      "Added the model (and effort level) each subagent ran on to /tasks and the agent detail dialogs",
+      "Fixed the /model picker silently ignoring an Ultracode selection; picking Ultracode now applies it to the current session",
+      "Fixed /resume only listing the 50 most recent sessions; the picker now loads more as you scroll",
+      "Fixed text that hangs outside its container (for example the sign-in URL in /login) losing its leading columns when another part of the screen repaints",
+      "Fixed server-managed companyAnnouncements not showing at startup in a session that began with signing in (for example the first launch after /logout)",
+      "Fixed plugin dependencies declared with a marketplace field never resolving when both plugins are loaded together via --plugin-dir",
+      "Fixed /reload-plugins keeping the LSP tool after the last LSP plugin is disabled; it now also warns before an LSP plugin change that would re-read the conversation",
+      "Fixed --agents silently ignoring invalid JSON or invalid agent definitions; it now exits with a clear error, like --mcp-config",
+      "Fixed /status showing \"Found invalid entries in: .\" with no filename when ~/.claude.json has an invalid MCP server entry",
+      "Fixed /clear removing the /rename session name from the prompt bar even though the name was kept for the new session",
+      "Fixed Ctrl+R history search and up-arrow history breaking when ~/.claude/history.jsonl contains a malformed entry",
+      "Fixed the status line rate_limits fields and /usage still showing a rate-limit window's pre-reset usage percentage after the window reset while the session was idle",
+      "Fixed /web-setup repeatedly asking you to log in when an older GitHub CLI (without gh auth token) was already authenticated",
+      "[VSCode] Fixed sessions started before feature flags were first fetched (for example right after install) opening in the default permission mode instead of auto mode or your configured default mode",
+      "[VSCode] Fixed Focus view sections you expanded collapsing on their own during subagent tool activity",
+      "Improved /login over SSH: the sign-in URL appears immediately, pressing c reports how the URL was copied instead of always claiming success, and a hint explains how to select text in fullscreen",
+      "Improved the error when effort xhigh/max is used with thinking turned off: it now names the level, the setting that disabled thinking, and /effort high as the fix",
+      "Improved /loop: consecutive wake-ups where Claude has nothing to do now fold into a single line in the terminal instead of printing each one",
+      "Updated the /model picker and the bundled claude-api skill to show Sonnet 5's $2/$10 per Mtok pricing as its standard list price rather than a limited-time promo",
+      "Changed /model, /fast, and /effort to also run immediately instead of queueing until the turn ends on Bedrock, Vertex, and Foundry and when telemetry is disabled",
+      "[VSCode] Improved history trimming in long sessions: older tool-activity rows are dropped first so your messages and Claude's replies stay visible",
+      "[VSCode] Improved attribution of the extension's own usage telemetry to your organization when you are signed in with a Claude account, so its data-handling settings apply"
+    ],
+    "features_ko": [
+      "/usage에 루프별 실행 횟수, 총 토큰, 실행당 토큰 및 마지막 실행을 포함한 루프 분석을 추가하여 runaway 또는 chatty /loop 작업을 쉽게 식별할 수 있게 했습니다.",
+      "modelPicker 설정을 추가하여 /model 선택기를 정렬된 레이블 목록으로 구성할 수 있게 했습니다 (Vertex/Bedrock id 포함, 기존 목록에 추가하거나 교체 가능).",
+      "promptCacheTtl 및 subagentPromptCacheTtl 설정을 추가하여 API 키 및 클라우드 제공업체 사용자가 메인 대화에서 1시간 프롬프트 캐시를 유지할 수 있도록 하고, 서브 에이전트는 5분으로 유지됩니다.",
+      "modelPricing 관리 설정을 추가하여 조직의 계약된 모델별 요금 및 할인 배수를 /cost, 상태 줄 및 원격 측정 비용 수치에 사용하도록 했습니다.",
+      "/login → Anthropic Console에서 \"콘솔 계정으로 로그인\" (추천) 옵션을 추가하여 API 키를 허용하지 않는 조직도 로그인할 수 있게 했습니다.",
+      "/status에 관리 설정 소스를 나열하는 Skipped sources 줄을 추가했습니다 (예: managed-settings.json) 현재 적용되지 않는 소스는 더 높은 우선 순위의 관리 소스가 활성화되어 있습니다.",
+      "/mcp 및 /plugins에서 인증이 조직에 의해 관리되는 claude.ai 커넥터에 관리 마커를 추가했습니다.",
+      "GitHub에 연결하지 않은 claude.ai 사용자에게 /web-setup으로 안내하는 팁을 추가했습니다.",
+      "GitHub가 Claude Code에 연결되어 있는지 여부를 보여주는 /status 줄을 추가했습니다 (Pro/Max), 연결되지 않은 경우 /web-setup으로 안내합니다.",
+      "각 서브 에이전트가 실행한 모델(및 노력 수준)을 /tasks 및 에이전트 세부 대화 상자에 추가했습니다.",
+      "/model 선택기가 Ultracode 선택을 무시하는 문제를 수정했습니다; Ultracode를 선택하면 현재 세션에 적용됩니다.",
+      "/resume이 최근 50개 세션만 나열하는 문제를 수정했습니다; 이제 스크롤할 때 더 많은 항목이 로드됩니다.",
+      "컨테이너 밖에 걸쳐 있는 텍스트(예: /login의 로그인 URL)가 화면의 다른 부분이 다시 그려질 때 선행 열을 잃는 문제를 수정했습니다.",
+      "로그인으로 시작된 세션에서 서버 관리 회사 공지가 시작 시 표시되지 않는 문제를 수정했습니다 (예: /logout 후 첫 실행).",
+      "--plugin-dir를 통해 두 플러그인이 함께 로드될 때 marketplace 필드로 선언된 플러그인 종속성이 해결되지 않는 문제를 수정했습니다.",
+      "/reload-plugins가 마지막 LSP 플러그인이 비활성화된 후에도 LSP 도구를 유지하는 문제를 수정했습니다; 이제 대화 내용을 다시 읽는 LSP 플러그인 변경 전에 경고합니다.",
+      "--agents가 잘못된 JSON 또는 잘못된 에이전트 정의를 무시하는 문제를 수정했습니다; 이제 --mcp-config와 같은 명확한 오류로 종료됩니다.",
+      "~/.claude.json에 잘못된 MCP 서버 항목이 있을 때 /status가 \"Found invalid entries in: .\"를 파일 이름 없이 표시하는 문제를 수정했습니다.",
+      "/clear가 새로운 세션을 위해 이름이 유지되었음에도 불구하고 /rename 세션 이름을 프롬프트 바에서 제거하는 문제를 수정했습니다.",
+      "~/.claude/history.jsonl에 잘못된 항목이 포함되어 있을 때 Ctrl+R 기록 검색 및 위쪽 화살표 기록이 작동하지 않는 문제를 수정했습니다.",
+      "상태 줄의 rate_limits 필드와 /usage가 세션이 유휴 상태일 때 윈도우 리셋 후에도 윈도우의 리셋 전 사용 비율을 표시하는 문제를 수정했습니다.",
+      "이전 GitHub CLI(gh auth token 없이)가 이미 인증된 경우 /web-setup이 반복적으로 로그인 요청하는 문제를 수정했습니다.",
+      "[VSCode] 기능 플래그가 처음 가져오기 전에 시작된 세션이 자동 모드나 구성된 기본 모드 대신 기본 권한 모드로 열리는 문제를 수정했습니다.",
+      "[VSCode] 서브 에이전트 도구 활동 중에 확장한 Focus view 섹션이 스스로 축소되는 문제를 수정했습니다.",
+      "SSH를 통한 /login을 개선했습니다: 로그인 URL이 즉시 나타나고, c를 누르면 URL 복사 방법을 보고하며, 전체 화면에서 텍스트 선택 방법에 대한 힌트를 제공합니다.",
+      "thinking이 꺼진 상태에서 effort xhigh/max를 사용할 때 오류를 개선했습니다: 이제 레벨, thinking을 비활성화한 설정 및 /effort high를 수정으로 명시합니다.",
+      "/loop: Claude가 할 일이 없는 연속적인 웨이크업이 이제 각 항목을 인쇄하는 대신 터미널에서 한 줄로 접힙니다.",
+      "/model 선택기와 번들된 claude-api 기술을 업데이트하여 Sonnet 5의 $2/$10 per Mtok 가격을 한정 프로모션이 아닌 표준 목록 가격으로 표시합니다.",
+      "/model, /fast 및 /effort가 이제 Bedrock, Vertex 및 Foundry에서 대기열에 추가되지 않고 즉시 실행되도록 변경했습니다.",
+      "[VSCode] 긴 세션에서 기록 정리가 개선되었습니다: 오래된 도구 활동 행이 먼저 삭제되어 귀하의 메시지와 Claude의 답변이 계속 표시됩니다.",
+      "[VSCode] Claude 계정으로 로그인했을 때 확장 자체 사용 텔레메트리의 귀하의 조직에 대한 귀속이 개선되어 데이터 처리 설정이 적용됩니다."
+    ]
+  },
+  {
     "version": "2.1.241",
     "date": "2026-08-23",
     "commands": [],

@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-08-24 21:35 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-08-25 21:35 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.245** | 2026-08-25 | — | Fixed a crash on startup on Linux distributions that ship glibc 2.44 (for example Arch Linux, CachyOS and Fedora Rawhide) |
+| **v2.1.243** | — | `/usage`, `/loop`, `/model`, `/cost`, `/login`, `/status`, `/mcp`, `/plugins`, `/web-setup`, `/tasks`, `/resume`, `/logout`, `--plugin-dir`, `/reload-plugins`, `--agents`, `--mcp-config`, `/clear`, `/rename`, `Ctrl+R`, `/effort high`, `/effort`, `/fast` | Added a Loops breakdown to /usage: per-loop run count, total tokens, tokens per run, and last run, so runaway or chatty /loop tasks are easy to spot / Added modelPicker setting: curate the /model p... |
 | **v2.1.241** | 2026-08-23 | — | Bug fixes and reliability improvements |
 | **v2.1.240** | 2026-08-22 | — | Bug fixes and reliability improvements |
 | **v2.1.239** | 2026-08-21 | `/cost`, `--max-budget-usd`, `/claude-api upgrade`, `/claude-api`, `/resume`, `/insights`, `Shift+A`, `/voice`, `/script`, `/config`, `/model`, `/workflows`, `Ctrl+W`, `Ctrl+U`, `Ctrl+K`, `Ctrl+Y`, `Ctrl+B`, `/goal`, `/list-agents`, `Alt+F`, `Alt+D`, `/clear` | Cost estimates (/cost, status line, --max-budget-usd) now include the 1.1× US-only-inference premium for data-residency workspaces / Added the one-time fullscreen renderer offer on Bedrock, Vertex,... |
@@ -82,8 +84,6 @@
 | **v2.1.153** | 2026-05-28 | `/doctor`, `--strict-mcp-config`, `--bare`, `--agents`, `/bg`, `/btw`, `/copy`, `/rename`, `/model` | Added skipLfs option to github/git plugin marketplace sources to skip Git LFS downloads during clone and update / Claude Code now shows a one-time notice when your npm global install can't auto-upd... |
 | **v2.1.152** | 2026-05-27 | `/code-review --fix`, `/simplify`, `/code-review`, `/reload-skills`, `--fallback-model`, `Ctrl+R`, `/usage`, `Ctrl+O`, `/doctor`, `--bare` | /code-review --fix now applies review findings to your working tree after the review, surfacing reuse, simplification, and efficiency suggestions; /simplify now invokes /code-review --fix / Skills ... |
 | **v2.1.150** | 2026-05-23 | — | Internal infrastructure improvements (no user-facing changes) |
-| **v2.1.149** | 2026-05-22 | `/usage`, `/diff`, `/ultraplan`, `/doctor`, `/effort`, `Ctrl+O`, `/config`, `/insights`, `/feedback` | /usage now shows a per-category breakdown of what's driving your limits usage — skills, subagents, plugins, and per-MCP-server cost / /diff detail view can now be scrolled with the keyboard (arrows... |
-| **v2.1.148** | 2026-05-22 | — | Fixed the Bash tool returning exit code 127 on every command for some users (a regression introduced in 2.1.147) |
 
 ---
 
