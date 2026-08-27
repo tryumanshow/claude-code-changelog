@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-08-25 21:35 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-08-27 00:37 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.247** | 2026-08-26 | `/feedback`, `/claude-api cost-optimize`, `/claude-api`, `/config`, `/mcp`, `/skills`, `/model`, `/terminal-setup`, `/rename`, `/compact`, `--agent`, `/install-github-app`, `/remote-control`, `/plugin`, `Ctrl+O` | Added the SendFeedback tool: when something goes wrong in a session, Claude can draft a feedback report for you to review and send from /feedback (turn off with the feedbackDrafts setting) / Added ... |
+| **v2.1.246** | 2026-08-25 | `/permissions`, `/background`, `/plugin`, `/reload-plugins`, `/rename`, `/color`, `/theme`, `--debug`, `/stats`, `/fork`, `/--`, `--resume`, `--strict-mcp-config`, `Ctrl+O`, `/ultrareview`, `/autofix-pr`, `/cd`, `/code-review`, `/goal`, `--setting-sources` | Added a startup warning for Bash allow rules with a wildcard before the subcommand (e.g. Bash(git * main)), since they also match options inserted before the subcommand / Added an Auto mode tab to ... |
 | **v2.1.245** | 2026-08-25 | — | Fixed a crash on startup on Linux distributions that ship glibc 2.44 (for example Arch Linux, CachyOS and Fedora Rawhide) |
 | **v2.1.243** | — | `/usage`, `/loop`, `/model`, `/cost`, `/login`, `/status`, `/mcp`, `/plugins`, `/web-setup`, `/tasks`, `/resume`, `/logout`, `--plugin-dir`, `/reload-plugins`, `--agents`, `--mcp-config`, `/clear`, `/rename`, `Ctrl+R`, `/effort high`, `/effort`, `/fast` | Added a Loops breakdown to /usage: per-loop run count, total tokens, tokens per run, and last run, so runaway or chatty /loop tasks are easy to spot / Added modelPicker setting: curate the /model p... |
 | **v2.1.241** | 2026-08-23 | — | Bug fixes and reliability improvements |
@@ -82,8 +84,6 @@
 | **v2.1.156** | 2026-05-29 | — | Fixed an issue when using Opus 4.8 where thinking blocks were modified, leading to API errors. |
 | **v2.1.154** | 2026-05-28 | `/effort`, `/workflows`, `/simplify`, `/code-review --fix`, `/code-review`, `/logout`, `/chrome`, `/plugin`, `/remote-control`, `/claude-api`, `/fast on`, `/model`, `/fast`, `/command`, `ctrl+o`, `/mcp` | Opus 4.8 is here! Now defaults to high effort · /effort xhigh for your hardest tasks / Introducing dynamic workflows: ask Claude to create a workflow and it orchestrates work across tens to hundred... |
 | **v2.1.153** | 2026-05-28 | `/doctor`, `--strict-mcp-config`, `--bare`, `--agents`, `/bg`, `/btw`, `/copy`, `/rename`, `/model` | Added skipLfs option to github/git plugin marketplace sources to skip Git LFS downloads during clone and update / Claude Code now shows a one-time notice when your npm global install can't auto-upd... |
-| **v2.1.152** | 2026-05-27 | `/code-review --fix`, `/simplify`, `/code-review`, `/reload-skills`, `--fallback-model`, `Ctrl+R`, `/usage`, `Ctrl+O`, `/doctor`, `--bare` | /code-review --fix now applies review findings to your working tree after the review, surfacing reuse, simplification, and efficiency suggestions; /simplify now invokes /code-review --fix / Skills ... |
-| **v2.1.150** | 2026-05-23 | — | Internal infrastructure improvements (no user-facing changes) |
 
 ---
 
