@@ -1,5 +1,170 @@
 [
   {
+    "version": "2.1.250",
+    "date": "2026-08-28",
+    "commands": [],
+    "features": [
+      "Bug fixes and reliability improvements"
+    ],
+    "features_ko": [
+      "버그 수정 및 안정성 향상"
+    ]
+  },
+  {
+    "version": "2.1.248",
+    "date": "2026-08-27",
+    "commands": [
+      {
+        "name": "--restricted",
+        "context": "new",
+        "summary": "Added `--restricted` (or `CLAUDE_CODE_RESTRICTED=1`): removes the built-in tools"
+      },
+      {
+        "name": "--tools",
+        "context": "new",
+        "summary": "Added `--restricted` (or `CLAUDE_CODE_RESTRICTED=1`): removes the built-in tools"
+      },
+      {
+        "name": "--client-label",
+        "context": "new",
+        "summary": "Added `claude self-hosted-runner --client-label <label>` (or `SELF_HOSTED_RUNNER"
+      },
+      {
+        "name": "/doctor",
+        "context": "new",
+        "summary": "Added server-managed settings diagnostics: a startup warning when the settings f"
+      },
+      {
+        "name": "/status",
+        "context": "new",
+        "summary": "Added server-managed settings diagnostics: a startup warning when the settings f"
+      },
+      {
+        "name": "/web-setup",
+        "context": "new",
+        "summary": "Added a warning in `/web-setup` when the GitHub CLI token lacks the `workflow` s"
+      },
+      {
+        "name": "/usage-credits",
+        "context": "new",
+        "summary": "Added `/usage-credits` for Enterprise organizations billed through AWS Marketpla"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed the `ScheduleWakeup` tool definition changing between a session and its `-"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed the recommended Console sign-in in `/login` failing with an OAuth error be"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed model names in `/model` and fast-mode switch notices to render as code, so"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed `/mcp` listing a project `.mcp.json` entry that declares the claude.ai con"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "fixed",
+        "summary": "Fixed the permission mode indicator staying hidden behind the \"Press Ctrl-C agai"
+      },
+      {
+        "name": "shift+t",
+        "context": "fixed",
+        "summary": "Fixed the permission mode indicator staying hidden behind the \"Press Ctrl-C agai"
+      },
+      {
+        "name": "ctrl+c",
+        "context": "fixed",
+        "summary": "Fixed the permission mode indicator staying hidden behind the \"Press Ctrl-C agai"
+      },
+      {
+        "name": "/ultrareview",
+        "context": "improved",
+        "summary": "Improved `/ultrareview <PR#>` to check before launch that the GitHub account con"
+      },
+      {
+        "name": "--spawn",
+        "context": "fixed",
+        "summary": "Fixed `claude remote-control` rejecting its own flags (e.g. `--spawn`, `--name`)"
+      },
+      {
+        "name": "--name",
+        "context": "fixed",
+        "summary": "Fixed `claude remote-control` rejecting its own flags (e.g. `--spawn`, `--name`)"
+      },
+      {
+        "name": "shift+e",
+        "context": "improved",
+        "summary": "Changed shift+enter in the agent view dispatch input to insert a newline (matchi"
+      },
+      {
+        "name": "ctrl+e",
+        "context": "improved",
+        "summary": "Changed shift+enter in the agent view dispatch input to insert a newline (matchi"
+      },
+      {
+        "name": "/loop",
+        "context": "improved",
+        "summary": "Changed `/loop`: self-paced dynamic mode and the no-prompt autonomous default ar"
+      }
+    ],
+    "features": [
+      "Added --restricted (or CLAUDE_CODE_RESTRICTED=1): removes the built-in tools that run commands or code and WebFetch (unless named in --tools), keeps file tools inside the working directory, refuses bypassPermissions, and ignores user, project and local settings files",
+      "Added experimental.cacheTtl (\"5m\" or \"1h\") to agent frontmatter: a per-agent prompt cache TTL used when no subagent TTL setting is configured",
+      "Added claude self-hosted-runner --client-label <label> (or SELF_HOSTED_RUNNER_CLIENT_LABEL) to override the label the runner registers with (default: hostname)",
+      "Added server-managed settings diagnostics: a startup warning when the settings fail to load, and a /doctor and /status line explaining a load failure or why they weren't fetched (Bedrock/Vertex/third-party provider, custom ANTHROPIC_BASE_URL)",
+      "Added a warning in /web-setup when the GitHub CLI token lacks the workflow scope, since pushes to very large repositories can be rejected without it",
+      "Added /usage-credits for Enterprise organizations billed through AWS Marketplace, self-serve Enterprise, and Enterprise trials, so members can request a higher usage limit from their admin",
+      "Added cross-session messaging (SendMessage / ListAgents) between sessions on the same machine on Bedrock, Vertex, and Foundry, and when telemetry is disabled",
+      "Fixed the ScheduleWakeup tool definition changing between a session and its --resume when the account had entered usage overage, causing a full prompt-cache miss on the resumed session's first turn",
+      "Windows: Fixed the claude agents list not responding to the keyboard after detaching from a session, or when launched in a terminal tab left in win32-input-mode",
+      "Fixed the recommended Console sign-in in /login failing with an OAuth error before showing a sign-in URL on machines where it can't be used (for example when ANTHROPIC_API_KEY or an API key helper is set); it now falls back to the API-key sign-in",
+      "Fixed model names in /model and fast-mode switch notices to render as code, so suffixes like [1m] display literally instead of as a link",
+      "Fixed /mcp listing a project .mcp.json entry that declares the claude.ai connector type under the trusted \"claude.ai\" heading; it now appears under its real scope",
+      "Fixed /login to a Claude apps gateway hanging when the managed-settings security approval dialog was required",
+      "Fixed the permission mode indicator staying hidden behind the \"Press Ctrl-C again to exit\" hint when you press shift+tab right after ctrl+c",
+      "Fixed /ultrareview and locally seeded cloud sessions uploading uncommitted edits to prod.env-style and *.tfvars files, or to editor swap, temp, and backup copies of credential files (e.g. key.pem.tmp, id_rsa.swo); they now stay on your machine",
+      "Fixed claude remote-control rejecting its own flags (e.g. --spawn, --name) when a global flag or a wrapper-injected option precedes the subcommand",
+      "Fixed rate-limit, usage, and fast-mode messages telling you to run /usage-credits when that command isn't available for your organization (e.g. hidden with DISABLE_EXTRA_USAGE_COMMAND)",
+      "[VSCode] Fixed a chat tab getting stuck on \"No conversation found\" when its session was never saved; it now starts a new conversation instead",
+      "Improved /ultrareview <PR#> to check before launch that the GitHub account connected to your Claude account can access the repository, and to explain how to fix it, instead of failing after the cloud session starts",
+      "Improved cross-session messaging: falls back to a private per-user /tmp directory when the default one can't be used, and the notice and /status name the directory to fix",
+      "Changed shift+enter in the agent view dispatch input to insert a newline (matching the prompt); ctrl+enter now dispatches and attaches",
+      "Changed /loop: self-paced dynamic mode and the no-prompt autonomous default are now always available, including on Bedrock/Vertex/Foundry"
+    ],
+    "features_ko": [
+      "--restricted (또는 CLAUDE_CODE_RESTRICTED=1)을 추가했습니다: 명령이나 코드를 실행하는 내장 도구와 WebFetch를 제거하고 (--tools에 명시되지 않은 경우), 작업 디렉토리 내의 파일 도구를 유지하며, bypassPermissions를 거부하고 사용자, 프로젝트 및 로컬 설정 파일을 무시합니다.",
+      "agent frontmatter에 experimental.cacheTtl(\"5m\" 또는 \"1h\")를 추가했습니다: 서브 에이전트 TTL 설정이 구성되지 않았을 때 사용되는 에이전트별 프롬프트 캐시 TTL입니다.",
+      "claude self-hosted-runner --client-label <label> (또는 SELF_HOSTED_RUNNER_CLIENT_LABEL)을 추가하여 러너가 등록하는 레이블을 재정의할 수 있습니다 (기본값: 호스트 이름).",
+      "서버 관리 설정 진단을 추가했습니다: 설정 로드 실패 시 시작 경고와 로드 실패 또는 가져오지 못한 이유를 설명하는 /doctor 및 /status 라인입니다 (Bedrock/Vertex/타사 제공업체, 사용자 정의 ANTHROPIC_BASE_URL).",
+      "GitHub CLI 토큰에 워크플로우 범위가 부족할 때 /web-setup에서 경고를 추가했습니다. 매우 큰 리포지토리에 푸시할 때 이 범위가 없으면 거부될 수 있습니다.",
+      "AWS Marketplace를 통해 청구되는 Enterprise 조직, 셀프 서비스 Enterprise 및 Enterprise 시험을 위한 /usage-credits를 추가하여 구성원이 관리자에게 더 높은 사용 한도를 요청할 수 있습니다.",
+      "Bedrock, Vertex 및 Foundry에서 동일한 머신의 세션 간에 크로스 세션 메시징(SendMessage / ListAgents)을 추가했으며, 텔레메트리가 비활성화된 경우에도 가능합니다.",
+      "계정이 사용량 초과에 들어갔을 때 세션과 --resume 간의 ScheduleWakeup 도구 정의가 변경되는 문제를 수정했습니다. 이로 인해 재개된 세션의 첫 번째 턴에서 전체 프롬프트 캐시 미스가 발생했습니다.",
+      "Windows: 세션에서 분리된 후 키보드가 반응하지 않거나 win32-input-mode에서 열린 터미널 탭에서 실행될 때 claude agents 목록이 반응하지 않는 문제를 수정했습니다.",
+      "/login에서 추천된 Console 로그인 시 OAuth 오류로 인해 로그인 URL이 표시되지 않는 문제를 수정했습니다. 이제 API 키 로그인으로 대체됩니다.",
+      "/model 및 빠른 모드 전환 알림에서 모델 이름이 코드로 렌더링되도록 수정했습니다. 이제 [1m]와 같은 접미사가 링크 대신 문자 그대로 표시됩니다.",
+      "/mcp에서 신뢰할 수 있는 \"claude.ai\" 헤딩 아래에 claude.ai 커넥터 유형을 선언하는 프로젝트 .mcp.json 항목이 나열되는 문제를 수정했습니다. 이제 실제 범위 아래에 나타납니다.",
+      "관리 설정 보안 승인 대화 상자가 필요한 경우 Claude 앱 게이트웨이에 로그인할 때 멈추는 문제를 수정했습니다.",
+      "ctrl+c 바로 다음에 shift+tab을 누르면 \"Press Ctrl-C again to exit\" 힌트 뒤에 권한 모드 표시기가 숨겨지는 문제를 수정했습니다.",
+      "/ultrareview 및 로컬 시드 클라우드 세션이 prod.env 스타일 및 *.tfvars 파일에 커밋되지 않은 편집을 업로드하는 문제를 수정했습니다. 이제 이러한 파일은 귀하의 머신에 남아 있습니다.",
+      "claude remote-control이 전역 플래그나 래퍼 주입 옵션이 서브 커맨드 앞에 올 때 자신의 플래그(e.g. --spawn, --name)를 거부하는 문제를 수정했습니다.",
+      "사용량, 속도 제한 및 빠른 모드 메시지가 /usage-credits를 실행하라고 안내하지만 해당 명령이 조직에서 사용할 수 없는 경우(예: DISABLE_EXTRA_USAGE_COMMAND로 숨겨진 경우) 문제를 수정했습니다.",
+      "[VSCode] 세션이 저장되지 않았을 때 \"No conversation found\"에서 채팅 탭이 멈추는 문제를 수정했습니다. 이제 새 대화를 시작합니다.",
+      "/ultrareview <PR#>를 개선하여 시작 전에 Claude 계정에 연결된 GitHub 계정이 리포지토리에 접근할 수 있는지 확인하고, 이를 수정하는 방법을 설명합니다. 클라우드 세션이 시작된 후 실패하지 않습니다.",
+      "크로스 세션 메시징을 개선했습니다: 기본 디렉토리를 사용할 수 없을 때 개인 사용자별 /tmp 디렉토리로 대체되며, 알림 및 /status에서 디렉토리 이름을 수정합니다.",
+      "에이전트 뷰 디스패치 입력에서 shift+enter가 줄 바꿈을 삽입하도록 변경했습니다(프롬프트와 일치). ctrl+enter는 이제 디스패치 및 첨부합니다.",
+      "/loop: 자율 기본값인 자가 속도 동적 모드가 이제 항상 사용 가능하며, Bedrock/Vertex/Foundry에서도 포함됩니다."
+    ]
+  },
+  {
     "version": "2.1.247",
     "date": "2026-08-26",
     "commands": [
