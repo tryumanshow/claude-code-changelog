@@ -1,5 +1,179 @@
 [
   {
+    "version": "2.1.251",
+    "date": "2026-08-28",
+    "commands": [
+      {
+        "name": "/usage",
+        "context": "new",
+        "summary": "Added a Spend limit bar to `/usage` and a `rate_limits.spend_limit` status line "
+      },
+      {
+        "name": "/cost",
+        "context": "new",
+        "summary": "Added a per-session prompt-cache line to `/cost` (hit ratio, misses, tokens re-c"
+      },
+      {
+        "name": "--resume",
+        "context": "new",
+        "summary": "Added `attach`, `logs`, `stop`, `respawn`, and `rm` to `claude --help`; the `--r"
+      },
+      {
+        "name": "--help",
+        "context": "new",
+        "summary": "Added `attach`, `logs`, `stop`, `respawn`, and `rm` to `claude --help`; the `--r"
+      },
+      {
+        "name": "/status",
+        "context": "fixed",
+        "summary": "Fixed Claude apps gateway sessions treating a stored Anthropic profile (e.g. a C"
+      },
+      {
+        "name": "/mcp reconnect",
+        "context": "fixed",
+        "summary": "Fixed `/mcp reconnect` on Remote Control showing a generic withheld-detail error"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed `/mcp reconnect` on Remote Control showing a generic withheld-detail error"
+      },
+      {
+        "name": "--input-format stream-json",
+        "context": "fixed",
+        "summary": "Fixed `--input-format stream-json`: client-injected assistant tool calls sent wi"
+      },
+      {
+        "name": "/usage-credits",
+        "context": "fixed",
+        "summary": "Fixed `/usage-credits` for Team and Enterprise members whose admin set the org's"
+      },
+      {
+        "name": "--worktree --tmux",
+        "context": "fixed",
+        "summary": "Fixed `--worktree --tmux` with a merge-request number on a gitlab.com origin try"
+      },
+      {
+        "name": "Ctrl+G",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+G failing with \"Emacs quit unexpectedly\" in background sessions for e"
+      },
+      {
+        "name": "/add-dir",
+        "context": "fixed",
+        "summary": "Fixed an `additionalDirectories` entry containing a null byte crashing startup, "
+      },
+      {
+        "name": "/ultrareview",
+        "context": "fixed",
+        "summary": "Fixed `claude ultrareview` and `/ultrareview` waiting the full 30 minutes when t"
+      },
+      {
+        "name": "/background",
+        "context": "fixed",
+        "summary": "Fixed backgrounded sessions (`←`, `/background`, `--bg`) losing a Vertex/Bedrock"
+      },
+      {
+        "name": "--bg",
+        "context": "fixed",
+        "summary": "Fixed backgrounded sessions (`←`, `/background`, `--bg`) losing a Vertex/Bedrock"
+      },
+      {
+        "name": "/bug",
+        "context": "fixed",
+        "summary": "Fixed disabled `/bug` and `/share` reporting that `/feedback` was disabled; tips"
+      },
+      {
+        "name": "/share",
+        "context": "fixed",
+        "summary": "Fixed disabled `/bug` and `/share` reporting that `/feedback` was disabled; tips"
+      },
+      {
+        "name": "/feedback",
+        "context": "fixed",
+        "summary": "Fixed disabled `/bug` and `/share` reporting that `/feedback` was disabled; tips"
+      },
+      {
+        "name": "/help",
+        "context": "fixed",
+        "summary": "Fixed disabled `/bug` and `/share` reporting that `/feedback` was disabled; tips"
+      },
+      {
+        "name": "/schedule",
+        "context": "improved",
+        "summary": "Improved `/schedule` to explain that MCP servers configured in Claude Code can't"
+      },
+      {
+        "name": "/tasks",
+        "context": "improved",
+        "summary": "Improved the prompt placeholder to read \"Message @name…\" while viewing a backgro"
+      },
+      {
+        "name": "/radio",
+        "context": "improved",
+        "summary": "Changed `/radio` to be available on Bedrock, Vertex AI, Foundry, and Claude Plat"
+      },
+      {
+        "name": "/effort",
+        "context": "improved",
+        "summary": "Changed `/effort` to save your default effort level per model, so each model kee"
+      },
+      {
+        "name": "/remote-control",
+        "context": "improved",
+        "summary": "[VSCode] Changed the Remote Control banner to a footer pill (shown while Remote "
+      }
+    ],
+    "features": [
+      "Added PreModelSwitch and PostModelSwitch hook events (block, confirm, or annotate a model switch); SessionStart resume hooks now receive session staleness and the estimated re-cache cost",
+      "Added live streaming of a foreground subagent's tool calls and results to Remote Control clients (background subagents, the default, still show status only)",
+      "Added a Spend limit bar to /usage and a rate_limits.spend_limit status line field for developers behind a Claude apps gateway with spend limits",
+      "Added a per-session prompt-cache line to /cost (hit ratio, misses, tokens re-cached, warm/cold) and a matching prompt_cache object for status line scripts",
+      "Added attach, logs, stop, respawn, and rm to claude --help; the --resume message for a running background session now names the exact claude attach <id> command",
+      "Fixed Claude apps gateway sessions treating a stored Anthropic profile (e.g. a Console sign-in) as active: listing it in /status and retrying gateway 401s with it, though requests never use it",
+      "Fixed /mcp reconnect on Remote Control showing a generic withheld-detail error instead of the real remedy when a server was disabled in another session",
+      "Fixed --input-format stream-json: client-injected assistant tool calls sent without a message id were merged into the first one and their results lost, including when resuming older sessions",
+      "Fixed /usage-credits for Team and Enterprise members whose admin set the org's usage-credit limit to $0: it now offers to ask the admin instead of saying a cap was reached",
+      "Fixed --worktree --tmux with a merge-request number on a gitlab.com origin trying a doomed GitHub-style fetch first instead of fetching the GitLab ref directly",
+      "Fixed Ctrl+G failing with \"Emacs quit unexpectedly\" in background sessions for editors that open /dev/tty, such as emacs -nw and micro",
+      "Fixed an additionalDirectories entry containing a null byte crashing startup, or breaking /add-dir and later settings updates when it came from an SDK host, IDE, or hook; it is now skipped",
+      "Fixed claude ultrareview and /ultrareview waiting the full 30 minutes when the cloud session fails to start; they now stop early and report the reason",
+      "Fixed backgrounded sessions (←, /background, --bg) losing a Vertex/Bedrock gateway (ANTHROPIC_*_BASE_URL + CLAUDE_CODE_SKIP_*_AUTH) exported in the shell, so every request failed",
+      "Fixed claude --bg --model fable on Max plans stopping to ask for usage credits while the interactive session on the same account still had Fable allowance",
+      "Fixed disabled /bug and /share reporting that /feedback was disabled; tips, /help, and refusal messages no longer suggest /feedback when an org policy or env var turns it off",
+      "Improved /schedule to explain that MCP servers configured in Claude Code can't be attached to cloud routines, instead of a bare \"No MCP connectors\" message",
+      "Improved the prompt placeholder to read \"Message @name…\" while viewing a background subagent or fork transcript opened from the subagent panel or /tasks",
+      "Changed /radio to be available on Bedrock, Vertex AI, Foundry, and Claude Platform on AWS, and when telemetry is disabled",
+      "Changed /effort to save your default effort level per model, so each model keeps its own setting when you switch",
+      "[VSCode] Fixed the sign-in screen's \"Bedrock, Foundry, or Vertex\" button opening the docs at the top of the page instead of the third-party provider setup section",
+      "[VSCode] Changed the Remote Control banner to a footer pill (shown while Remote Control is on or has failed) that opens the session on claude.ai/code; turn it on or off with /remote-control"
+    ],
+    "features_ko": [
+      "PreModelSwitch 및 PostModelSwitch 후크 이벤트가 추가되었습니다(모델 전환 차단, 확인 또는 주석); SessionStart 재개 후크는 이제 세션 노후화 및 추정 재캐시 비용을 수신합니다.",
+      "포그라운드 서브 에이전트의 도구 호출 및 결과를 Remote Control 클라이언트에 실시간 스트리밍하는 기능이 추가되었습니다(백그라운드 서브 에이전트는 기본적으로 상태만 표시).",
+      "/usage에 지출 한도 바가 추가되었고, 지출 한도가 있는 Claude 앱 게이트웨이 뒤의 개발자를 위한 rate_limits.spend_limit 상태 라인 필드가 추가되었습니다.",
+      "/cost에 세션별 프롬프트 캐시 라인(히트 비율, 미스, 재캐시된 토큰, 웜/콜드)이 추가되었고, 상태 라인 스크립트를 위한 일치하는 prompt_cache 객체가 추가되었습니다.",
+      "claude --help에 attach, logs, stop, respawn, rm이 추가되었습니다; 실행 중인 백그라운드 세션의 --resume 메시지는 이제 정확한 claude attach <id> 명령을 명시합니다.",
+      "저장된 Anthropic 프로필(예: 콘솔 로그인)을 활성으로 처리하는 Claude 앱 게이트웨이 세션을 수정했습니다: /status에 나열되고 요청은 사용하지 않지만 gateway 401s로 재시도합니다.",
+      "Remote Control에서 /mcp 재연결 시 서버가 다른 세션에서 비활성화되었을 때 실제 해결책 대신 일반적인 withheld-detail 오류가 표시되는 문제를 수정했습니다.",
+      "--input-format stream-json: 메시지 ID 없이 클라이언트 주입된 어시스턴트 도구 호출이 첫 번째 호출로 병합되어 결과가 손실되는 문제를 수정했습니다. 이는 이전 세션을 재개할 때도 포함됩니다.",
+      "관리자가 조직의 사용 크레딧 한도를 $0으로 설정한 Team 및 Enterprise 회원의 /usage-credits 문제를 수정했습니다: 이제 한도가 도달했다고 말하는 대신 관리에게 요청하겠다고 제안합니다.",
+      "gitlab.com 원본에서 병합 요청 번호와 함께 --worktree --tmux를 사용할 때 GitLab 참조를 직접 가져오는 대신 GitHub 스타일의 가져오기를 시도하는 문제를 수정했습니다.",
+      "/dev/tty를 여는 편집기(예: emacs -nw 및 micro)에서 백그라운드 세션 중 Ctrl+G가 \"Emacs가 예기치 않게 종료되었습니다\"라는 오류로 실패하는 문제를 수정했습니다.",
+      "null 바이트가 포함된 additionalDirectories 항목이 시작 시 충돌하거나 /add-dir 및 이후 설정 업데이트를 방해하는 문제를 수정했습니다; 이제 건너뜁니다.",
+      "클라우드 세션 시작 실패 시 claude ultrareview 및 /ultrareview가 전체 30분을 기다리는 문제를 수정했습니다; 이제 조기에 중지하고 이유를 보고합니다.",
+      "백그라운드 세션(←, /background, --bg)이 셸에서 내보낸 Vertex/Bedrock 게이트웨이를 잃어버리는 문제를 수정했습니다. 이로 인해 모든 요청이 실패했습니다.",
+      "Max 플랜에서 claude --bg --model fable이 같은 계정의 대화형 세션이 Fable 허용량을 여전히 가지고 있을 때 사용 크레딧을 요청하는 문제를 수정했습니다.",
+      "비활성화된 /bug 및 /share가 /feedback이 비활성화되었다고 보고하는 문제를 수정했습니다; 조직 정책이나 환경 변수가 이를 끌 때 /feedback을 제안하지 않습니다.",
+      "/schedule을 개선하여 Claude Code에서 구성된 MCP 서버는 클라우드 루틴에 연결할 수 없음을 설명하도록 했습니다. 이제는 단순한 \"No MCP connectors\" 메시지가 아닙니다.",
+      "프롬프트 자리 표시자를 \"Message @name…\"으로 변경하여 서브 에이전트 패널 또는 /tasks에서 열린 백그라운드 서브 에이전트 또는 포크 전사 보기 시 표시합니다.",
+      "/radio가 Bedrock, Vertex AI, Foundry 및 AWS의 Claude Platform에서 사용할 수 있도록 변경되었으며, 텔레메트리가 비활성화된 경우에도 사용할 수 있습니다.",
+      "/effort가 각 모델별로 기본 노력 수준을 저장하도록 변경되어, 전환 시 각 모델이 자체 설정을 유지합니다.",
+      "[VSCode] 로그인 화면의 \"Bedrock, Foundry, 또는 Vertex\" 버튼이 페이지 상단의 문서 대신 제3자 제공자 설정 섹션을 여는 문제를 수정했습니다.",
+      "[VSCode] Remote Control 배너를 세션이 claude.ai/code에서 열리는 푸터 필로 변경했습니다(원격 제어가 켜져 있거나 실패했을 때 표시); /remote-control로 켜거나 끌 수 있습니다."
+    ]
+  },
+  {
     "version": "2.1.250",
     "date": "2026-08-28",
     "commands": [],
