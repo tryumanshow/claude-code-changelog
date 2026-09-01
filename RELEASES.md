@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-08-30 23:21 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-09-01 00:35 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.252** | 2026-08-31 | — | Fixed Bash commands failing with "task output swap refused (tasks dir moved or linked)" on some Macs / Fixed "always allow" not saving in a project that has no .claude/settings.local.json yet / Fix... |
 | **v2.1.251** | 2026-08-28 | `/usage`, `/cost`, `--resume`, `--help`, `/status`, `/mcp reconnect`, `/mcp`, `--input-format stream-json`, `/usage-credits`, `--worktree --tmux`, `Ctrl+G`, `/add-dir`, `/ultrareview`, `/background`, `--bg`, `/bug`, `/share`, `/feedback`, `/help`, `/schedule`, `/tasks`, `/radio`, `/effort`, `/remote-control` | Added PreModelSwitch and PostModelSwitch hook events (block, confirm, or annotate a model switch); SessionStart resume hooks now receive session staleness and the estimated re-cache cost / Added li... |
 | **v2.1.250** | 2026-08-28 | — | Bug fixes and reliability improvements |
 | **v2.1.248** | 2026-08-27 | `--restricted`, `--tools`, `--client-label`, `/doctor`, `/status`, `/web-setup`, `/usage-credits`, `--resume`, `/login`, `/model`, `/mcp`, `Ctrl+C`, `shift+t`, `ctrl+c`, `/ultrareview`, `--spawn`, `--name`, `shift+e`, `ctrl+e`, `/loop` | Added --restricted (or CLAUDE_CODE_RESTRICTED=1): removes the built-in tools that run commands or code and WebFetch (unless named in --tools), keeps file tools inside the working directory, refuses... |
@@ -83,7 +84,6 @@
 | **v2.1.160** | 2026-06-02 | `/effort ultracode`, `/effort`, `--model` | Added a prompt before writing to shell startup files (.zshenv, .zlogin, .bash_login) and ~/.config/git/, which could otherwise lead to unintended command execution / acceptEdits mode now prompts be... |
 | **v2.1.159** | 2026-05-31 | — | Internal infrastructure improvements (no user-facing changes) |
 | **v2.1.158** | 2026-05-30 | — | Auto mode is now available on Bedrock, Vertex, and Foundry for Opus 4.7 and Opus 4.8. Opt in by setting CLAUDE_CODE_ENABLE_AUTO_MODE=1 |
-| **v2.1.157** | 2026-05-29 | `/plugin`, `--agent <name>`, `--resume`, `--worktree`, `--worktree --tmux`, `/model`, `alt+v`, `/terminal-setup`, `/status`, `/ide`, `alt+w`, `/config` | Plugins in .claude/skills directories are now automatically loaded, no marketplace required / Added claude plugin init <name> to scaffold a new plugin in .claude/skills / Added autocomplete for /pl... |
 
 ---
 

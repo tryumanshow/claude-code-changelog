@@ -2327,5 +2327,9 @@
   "96ee1402cd84cad1": "/radio가 Bedrock, Vertex AI, Foundry 및 AWS의 Claude Platform에서 사용할 수 있도록 변경되었으며, 텔레메트리가 비활성화된 경우에도 사용할 수 있습니다.",
   "d112b6d0e2d39756": "/effort가 각 모델별로 기본 노력 수준을 저장하도록 변경되어, 전환 시 각 모델이 자체 설정을 유지합니다.",
   "f3df65f2719e0ccf": "[VSCode] 로그인 화면의 \"Bedrock, Foundry, 또는 Vertex\" 버튼이 페이지 상단의 문서 대신 제3자 제공자 설정 섹션을 여는 문제를 수정했습니다.",
-  "3eaec5bad020ff82": "[VSCode] Remote Control 배너를 세션이 claude.ai/code에서 열리는 푸터 필로 변경했습니다(원격 제어가 켜져 있거나 실패했을 때 표시); /remote-control로 켜거나 끌 수 있습니다."
+  "3eaec5bad020ff82": "[VSCode] Remote Control 배너를 세션이 claude.ai/code에서 열리는 푸터 필로 변경했습니다(원격 제어가 켜져 있거나 실패했을 때 표시); /remote-control로 켜거나 끌 수 있습니다.",
+  "c1fbdb6a72f6c80c": "일부 Mac에서 \"task output swap refused (tasks dir moved or linked)\" 오류로 Bash 명령이 실패하는 문제를 수정했습니다.",
+  "e3a06acbd44638ec": ".claude/settings.local.json 파일이 없는 프로젝트에서 \"항상 허용\"이 저장되지 않는 문제를 수정했습니다.",
+  "8c36df7a64e73434": "Claude Desktop 또는 VS Code에서 호스팅된 Remote Control 세션이 claude.ai와의 연결이 저하될 때 도구가 완료된 후 몇 분 동안 멈추는 문제를 수정했습니다.",
+  "b4d113c98ba015b4": "매우 큰 실패 출력(예: 디스크가 가득 찼을 때의 git 오류)으로 인해 대화가 API 요청 크기 제한을 초과하는 문제를 수정했습니다."
 }

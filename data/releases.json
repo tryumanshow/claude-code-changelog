@@ -1,5 +1,22 @@
 [
   {
+    "version": "2.1.252",
+    "date": "2026-08-31",
+    "commands": [],
+    "features": [
+      "Fixed Bash commands failing with \"task output swap refused (tasks dir moved or linked)\" on some Macs",
+      "Fixed \"always allow\" not saving in a project that has no .claude/settings.local.json yet",
+      "Fixed Remote Control sessions hosted by Claude Desktop or VS Code stalling for minutes after a tool finished when the connection to claude.ai was degraded",
+      "Fixed background task notifications with very large failure output (for example git errors on a full disk) making the conversation exceed the API request size limit"
+    ],
+    "features_ko": [
+      "일부 Mac에서 \"task output swap refused (tasks dir moved or linked)\" 오류로 Bash 명령이 실패하는 문제를 수정했습니다.",
+      ".claude/settings.local.json 파일이 없는 프로젝트에서 \"항상 허용\"이 저장되지 않는 문제를 수정했습니다.",
+      "Claude Desktop 또는 VS Code에서 호스팅된 Remote Control 세션이 claude.ai와의 연결이 저하될 때 도구가 완료된 후 몇 분 동안 멈추는 문제를 수정했습니다.",
+      "매우 큰 실패 출력(예: 디스크가 가득 찼을 때의 git 오류)으로 인해 대화가 API 요청 크기 제한을 초과하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.251",
     "date": "2026-08-28",
     "commands": [
