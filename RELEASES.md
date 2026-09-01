@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-09-01 00:35 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-09-01 23:13 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.258** | 2026-09-01 | — | Fixed Claude Code failing to launch on macOS 12 (Monterey), a regression introduced in 2.1.255 / Fixed remote and scheduled sessions failing with "user messages must have non-empty content" after a... |
+| **v2.1.257** | 2026-09-01 | `/effort`, `/model`, `/doctor`, `Ctrl+G`, `Ctrl+S`, `Ctrl+T`, `/schedule`, `/mcp`, `--disallowedTools`, `--resume`, `--continue`, `/btw`, `/recap`, `/add-dir`, `--add-dir`, `/feedback`, `Ctrl+B`, `/login`, `/status`, `/code-review --comment`, `/code-review`, `/fork`, `--effort`, `--permission-mode`, `/net`, `Ctrl+E` | Added Claude Fable 5.1 (claude-fable-5-1), now the default Fable model — 1M context, $10/$50 per Mtok with $0.25/Mtok cache reads / Added "Time format" (timeFormat) and timeZone settings: 12-hour, ... |
 | **v2.1.252** | 2026-08-31 | — | Fixed Bash commands failing with "task output swap refused (tasks dir moved or linked)" on some Macs / Fixed "always allow" not saving in a project that has no .claude/settings.local.json yet / Fix... |
 | **v2.1.251** | 2026-08-28 | `/usage`, `/cost`, `--resume`, `--help`, `/status`, `/mcp reconnect`, `/mcp`, `--input-format stream-json`, `/usage-credits`, `--worktree --tmux`, `Ctrl+G`, `/add-dir`, `/ultrareview`, `/background`, `--bg`, `/bug`, `/share`, `/feedback`, `/help`, `/schedule`, `/tasks`, `/radio`, `/effort`, `/remote-control` | Added PreModelSwitch and PostModelSwitch hook events (block, confirm, or annotate a model switch); SessionStart resume hooks now receive session staleness and the estimated re-cache cost / Added li... |
 | **v2.1.250** | 2026-08-28 | — | Bug fixes and reliability improvements |
@@ -82,8 +84,6 @@
 | **v2.1.162** | 2026-06-03 | `--tools`, `/effort`, `/ide`, `/terminal-setup`, `/scroll-speed`, `Ctrl+V` | claude agents --json now includes waitingFor showing what a waiting session is blocked on (e.g. permission prompt) / --tools: explicitly listing Grep/Glob now provides the dedicated search tools on... |
 | **v2.1.161** | 2026-06-02 | `/mcp`, `/effort`, `--output-format text`, `/usage-credits`, `/autofix-pr`, `--resume`, `/terminal-setup` | OTEL_RESOURCE_ATTRIBUTES values are now included as labels on metric datapoints, so you can slice usage metrics by custom dimensions like team or repo / claude agents rows now show done/total befor... |
 | **v2.1.160** | 2026-06-02 | `/effort ultracode`, `/effort`, `--model` | Added a prompt before writing to shell startup files (.zshenv, .zlogin, .bash_login) and ~/.config/git/, which could otherwise lead to unintended command execution / acceptEdits mode now prompts be... |
-| **v2.1.159** | 2026-05-31 | — | Internal infrastructure improvements (no user-facing changes) |
-| **v2.1.158** | 2026-05-30 | — | Auto mode is now available on Bedrock, Vertex, and Foundry for Opus 4.7 and Opus 4.8. Opt in by setting CLAUDE_CODE_ENABLE_AUTO_MODE=1 |
 
 ---
 
