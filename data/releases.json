@@ -1,5 +1,66 @@
 [
   {
+    "version": "2.1.259",
+    "date": "2026-09-02",
+    "commands": [
+      {
+        "name": "--permission-prompts none",
+        "context": "new",
+        "summary": "Added `--permission-prompts none` for unattended headless hosts: anything that w"
+      },
+      {
+        "name": "--permission-prompts",
+        "context": "new",
+        "summary": "Added `--permission-prompts none` for unattended headless hosts: anything that w"
+      },
+      {
+        "name": "--json",
+        "context": "new",
+        "summary": "Added `--json` to `claude plugin validate` for a machine-readable validation rep"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed `--resume` failing (and `--continue` opening an empty conversation) when a"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed `--resume` failing (and `--continue` opening an empty conversation) when a"
+      },
+      {
+        "name": "/workflows",
+        "context": "improved",
+        "summary": "Improved `/workflows` agent detail: JSON outcomes are pretty-printed with syntax"
+      },
+      {
+        "name": "/install-github-app",
+        "context": "improved",
+        "summary": "Improved `/install-github-app` to explain it is GitHub-only and point to the Git"
+      }
+    ],
+    "features": [
+      "Added managedMcpServers managed setting: organizations can provide HTTP/SSE MCP servers to every user (same entry shape as .mcp.json); entries that name a command to run are skipped",
+      "Added --permission-prompts none for unattended headless hosts: anything that would prompt is denied automatically while the active permission mode (including auto mode) keeps deciding",
+      "Added recognition of glab mr create/merge/close/reopen/note/update so GitLab merge requests show as MR !N in the collapsed tool summary and refresh the footer MR badge",
+      "Added --json to claude plugin validate for a machine-readable validation report",
+      "Fixed --resume failing (and --continue opening an empty conversation) when a saved session contains an attachment entry with no payload",
+      "Improved /workflows agent detail: JSON outcomes are pretty-printed with syntax colors and real line breaks, and long outcomes fold behind an expand toggle",
+      "Improved /install-github-app to explain it is GitHub-only and point to the GitLab CI/CD docs when run inside a GitLab repository",
+      "[VSCode] Added an Active quick filter and a status filter menu (Needs input, Working, Completed) to the session list sidebar"
+    ],
+    "features_ko": [
+      "관리되는 managedMcpServers 설정 추가: 조직은 모든 사용자에게 HTTP/SSE MCP 서버를 제공할 수 있습니다 (.mcp.json과 동일한 항목 형식); 실행할 명령을 지정하는 항목은 건너뜁니다.",
+      "무인 헤드리스 호스트를 위한 --permission-prompts none 추가: 프롬프트를 요구하는 모든 것은 자동으로 거부되며, 활성 권한 모드(자동 모드 포함)가 계속 결정합니다.",
+      "glab mr create/merge/close/reopen/note/update 인식 추가: GitLab 병합 요청이 축소된 도구 요약에서 MR !N으로 표시되고 푸터 MR 배지가 새로 고쳐집니다.",
+      "기계 판독 가능한 검증 보고서를 위해 claude plugin validate에 --json 추가.",
+      "저장된 세션에 페이로드가 없는 첨부 항목이 포함된 경우 --resume 실패(및 --continue가 빈 대화를 여는 문제) 수정.",
+      "/workflows 에이전트 세부정보 개선: JSON 결과가 구문 색상과 실제 줄 바꿈으로 예쁘게 출력되며, 긴 결과는 확장 토글 뒤에 접힙니다.",
+      "/install-github-app 개선: GitHub 전용임을 설명하고 GitLab 리포지토리 내에서 실행 시 GitLab CI/CD 문서로 안내합니다.",
+      "[VSCode] 세션 목록 사이드바에 Active 빠른 필터와 상태 필터 메뉴(Needs input, Working, Completed) 추가."
+    ]
+  },
+  {
     "version": "2.1.258",
     "date": "2026-09-01",
     "commands": [],

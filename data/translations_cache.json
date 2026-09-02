@@ -2368,5 +2368,13 @@
   "0ec8ac0d945a6adb": "Bash 및 PowerShell 권한 프롬프트에서 Ctrl+E 명령 설명을 제거하였습니다.",
   "d08f4f80fdba36e7": "[VSCode] 세션 목록 패널에 ACCOUNT & USAGE 및 SESSION MANAGER 섹션 헤더를 접을 수 있도록 추가하였으며, 계정 이메일, 사용량 미터 및 사용량 대화 상자를 여는 View details 링크가 포함되어 있습니다.",
   "fa72558a43b1d644": "[VSCode] 현재 모델을 표시하고 모델 선택기를 여는 입력 바닥에 모델 필을 추가하였으며, Effort 행과 \"More models\" 페이지가 포함되어 있습니다.",
-  "816ba095e3dadbd4": "[VSCode] 세션 목록의 Ungrouped 섹션에 접기 토글을 추가하였습니다."
+  "816ba095e3dadbd4": "[VSCode] 세션 목록의 Ungrouped 섹션에 접기 토글을 추가하였습니다.",
+  "a7112b7bd9f86cd5": "관리되는 managedMcpServers 설정 추가: 조직은 모든 사용자에게 HTTP/SSE MCP 서버를 제공할 수 있습니다 (.mcp.json과 동일한 항목 형식); 실행할 명령을 지정하는 항목은 건너뜁니다.",
+  "1329494b106b9ad6": "무인 헤드리스 호스트를 위한 --permission-prompts none 추가: 프롬프트를 요구하는 모든 것은 자동으로 거부되며, 활성 권한 모드(자동 모드 포함)가 계속 결정합니다.",
+  "6b0e6bcb738fa871": "glab mr create/merge/close/reopen/note/update 인식 추가: GitLab 병합 요청이 축소된 도구 요약에서 MR !N으로 표시되고 푸터 MR 배지가 새로 고쳐집니다.",
+  "29376495b9f58437": "기계 판독 가능한 검증 보고서를 위해 claude plugin validate에 --json 추가.",
+  "46d10fe266fd967a": "저장된 세션에 페이로드가 없는 첨부 항목이 포함된 경우 --resume 실패(및 --continue가 빈 대화를 여는 문제) 수정.",
+  "14243eba4f4d070a": "/workflows 에이전트 세부정보 개선: JSON 결과가 구문 색상과 실제 줄 바꿈으로 예쁘게 출력되며, 긴 결과는 확장 토글 뒤에 접힙니다.",
+  "2d5e44fa714f36b6": "/install-github-app 개선: GitHub 전용임을 설명하고 GitLab 리포지토리 내에서 실행 시 GitLab CI/CD 문서로 안내합니다.",
+  "d8e6c5b310140c94": "[VSCode] 세션 목록 사이드바에 Active 빠른 필터와 상태 필터 메뉴(Needs input, Working, Completed) 추가."
 }
