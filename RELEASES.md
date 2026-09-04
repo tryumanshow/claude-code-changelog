@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-09-03 23:11 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-09-04 22:57 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.261** | 2026-09-04 | `/status`, `--append-subagent-system-prompt-file`, `/skill-doctor`, `/add-dir <subdirectory>`, `/net`, `/add-dir`, `/clear`, `/teleport`, `/usage`, `/model`, `/login`, `Ctrl+W`, `Alt+F`, `Alt+D`, `/context`, `Ctrl+S`, `/btw` | Added an "Organization policy" line to /status and claude doctor that says why your organization's policy could not be loaded, such as a proxy not passing the endpoint through / Added bashOutputMax... |
+| **v2.1.260** | 2026-09-03 | `/diff`, `/cost`, `/reload-plugins`, `/advisor`, `/advisor <model>`, `/advisor off`, `/login`, `/status`, `/doctor`, `/model`, `/model claude-fable-5-1`, `/rewind`, `--rewind-files`, `--continue`, `Ctrl+Z`, `/build`, `/ultrareview`, `/effort`, `ctrl+l`, `--chrome`, `/chrome`, `--kill-session-after-min` | Added a diff panel that opens beside the conversation in fullscreen mode and shows your uncommitted changes as Claude edits; toggle it with /diff / Added a likely cause for prompt-cache misses (e.g... |
 | **v2.1.259** | 2026-09-02 | `--permission-prompts none`, `--permission-prompts`, `--json`, `--resume`, `--continue`, `/workflows`, `/install-github-app` | Added managedMcpServers managed setting: organizations can provide HTTP/SSE MCP servers to every user (same entry shape as .mcp.json); entries that name a command to run are skipped / Added --permi... |
 | **v2.1.258** | 2026-09-01 | — | Fixed Claude Code failing to launch on macOS 12 (Monterey), a regression introduced in 2.1.255 / Fixed remote and scheduled sessions failing with "user messages must have non-empty content" after a... |
 | **v2.1.257** | 2026-09-01 | `/effort`, `/model`, `/doctor`, `Ctrl+G`, `Ctrl+S`, `Ctrl+T`, `/schedule`, `/mcp`, `--disallowedTools`, `--resume`, `--continue`, `/btw`, `/recap`, `/add-dir`, `--add-dir`, `/feedback`, `Ctrl+B`, `/login`, `/status`, `/code-review --comment`, `/code-review`, `/fork`, `--effort`, `--permission-mode`, `/net`, `Ctrl+E` | Added Claude Fable 5.1 (claude-fable-5-1), now the default Fable model — 1M context, $10/$50 per Mtok with $0.25/Mtok cache reads / Added "Time format" (timeFormat) and timeZone settings: 12-hour, ... |
@@ -82,8 +84,6 @@
 | **v2.1.166** | 2026-06-06 | `--fallback-model`, `--thinking disabled`, `Shift+n`, `/login`, `/voice`, `Ctrl+O`, `/doctor` | Added fallbackModel setting to configure up to three fallback models tried in order when the primary model is overloaded or unavailable; --fallback-model now also applies to interactive sessions / ... |
 | **v2.1.165** | 2026-06-05 | — | Bug fixes and reliability improvements |
 | **v2.1.163** | 2026-06-04 | `/plugin list`, `--enabled`, `--disabled`, `/plugin`, `/btw`, `--resume`, `/mcp`, `/plugins` | Added requiredMinimumVersion and requiredMaximumVersion managed settings — Claude Code refuses to start if its version is outside the allowed range and directs the user to an approved version / Add... |
-| **v2.1.162** | 2026-06-03 | `--tools`, `/effort`, `/ide`, `/terminal-setup`, `/scroll-speed`, `Ctrl+V` | claude agents --json now includes waitingFor showing what a waiting session is blocked on (e.g. permission prompt) / --tools: explicitly listing Grep/Glob now provides the dedicated search tools on... |
-| **v2.1.161** | 2026-06-02 | `/mcp`, `/effort`, `--output-format text`, `/usage-credits`, `/autofix-pr`, `--resume`, `/terminal-setup` | OTEL_RESOURCE_ATTRIBUTES values are now included as labels on metric datapoints, so you can slice usage metrics by custom dimensions like team or repo / claude agents rows now show done/total befor... |
 
 ---
 
