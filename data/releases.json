@@ -1,5 +1,115 @@
 [
   {
+    "version": "2.1.265",
+    "date": "2026-09-08",
+    "commands": [
+      {
+        "name": "--plugin-dir",
+        "context": "new",
+        "summary": "Added support for pointing `--plugin-dir` at a folder of plugins: each child fol"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed `/model opusplan[1m]` being rejected with \"Model not found\""
+      },
+      {
+        "name": "--bg",
+        "context": "fixed",
+        "summary": "Fixed background (`--bg`) sessions occasionally being retired mid-turn when a me"
+      },
+      {
+        "name": "/add-dir <subdirectory>",
+        "context": "fixed",
+        "summary": "Fixed `/add-dir <subdirectory>` refusing to load a subdirectory's agents when ma"
+      },
+      {
+        "name": "/add-dir",
+        "context": "fixed",
+        "summary": "Fixed `/add-dir <subdirectory>` refusing to load a subdirectory's agents when ma"
+      },
+      {
+        "name": "--forward-subagent-text",
+        "context": "fixed",
+        "summary": "Fixed forked skills (`context: fork`) not streaming their kickoff prompt and, wi"
+      },
+      {
+        "name": "/plugin",
+        "context": "fixed",
+        "summary": "Fixed a plugin's default component folder that the OS cannot check, such as a sy"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed `/login` showing \"no gateway URL is configured\" when re-run in a session t"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed `/clear` from Remote Control waiting on SessionStart hooks and on open ter"
+      },
+      {
+        "name": "/config",
+        "context": "fixed",
+        "summary": "Fixed the `/config` dialog changing height when switching between its tabs"
+      },
+      {
+        "name": "--worktree",
+        "context": "improved",
+        "summary": "Improved `--worktree` startup on large repositories: the new worktree is now che"
+      },
+      {
+        "name": "/workflows",
+        "context": "improved",
+        "summary": "Improved `/workflows` agent detail: tool calls are marked running, failed or don"
+      }
+    ],
+    "features": [
+      "Added user.email and user.groups to the telemetry Claude Desktop and Cowork send through a Claude apps gateway, matching terminal sessions",
+      "Added support for pointing --plugin-dir at a folder of plugins: each child folder with a manifest loads, and children added or removed while running are picked up",
+      "Added a 1 GB cap on tool results saved to disk; the in-conversation preview says when a saved file was truncated",
+      "Fixed /model opusplan[1m] being rejected with \"Model not found\"",
+      "Fixed background (--bg) sessions occasionally being retired mid-turn when a message arrived just before the idle timeout",
+      "Fixed /add-dir <subdirectory> refusing to load a subdirectory's agents when managed settings lock only skills to plugins, and promising agents when only agents are locked",
+      "Fixed forked skills (context: fork) not streaming their kickoff prompt and, with --forward-subagent-text, their text turns as progress events in stream-json",
+      "Fixed a plugin's default component folder that the OS cannot check, such as a symlink loop, being silently skipped; it is now reported in /plugin with the error code",
+      "Fixed /plugin Discover/Browse and claude plugin list --json --available showing no description or display name for marketplace plugins whose metadata lives only in their plugin.json",
+      "Fixed /login showing \"no gateway URL is configured\" when re-run in a session that signed in to a Claude apps gateway set by managed settings",
+      "Fixed /model claiming a model was \"saved as your default\" when the settings file couldn't be written; it now says the save failed and why",
+      "Fixed /clear from Remote Control waiting on SessionStart hooks and on open terminal dialogs before completing",
+      "Fixed the /config dialog changing height when switching between its tabs",
+      "Windows: Fixed Read, Write and Edit refusing every file (\"symlink resolution changed after permission was checked\") when running inside an AppContainer or restricted-token sandbox",
+      "Improved --worktree startup on large repositories: the new worktree is now checked out in parallel (git 2.32+)",
+      "Improved /workflows agent detail: tool calls are marked running, failed or done, the subagent's task list is shown when it has one, and Enter unfolds the listed calls with their inputs and results",
+      "Updated the .claude folder permission option to say what it actually allows: editing files in the project's .claude folder (or ~/.claude) for the session",
+      "[VSCode] Added automatic archiving of sessions inactive for a set period (new \"Archive inactive sessions\" setting, default 14 days)",
+      "[VSCode] Fixed the sidebar chat coming back blank after Reload Window or a restart when the conversation had been open for more than 10 minutes",
+      "[VSCode] Fixed the timeline dot sitting below the text on the \"Remote Control is active\" message"
+    ],
+    "features_ko": [
+      "telemetry Claude Desktop와 Cowork가 Claude apps gateway를 통해 터미널 세션에 맞춰 전송하는 user.email 및 user.groups가 추가되었습니다.",
+      "--plugin-dir을 플러그인 폴더에 지정하는 지원이 추가되었습니다: 각 자식 폴더의 매니페스트가 로드되며, 실행 중에 추가되거나 제거된 자식도 인식됩니다.",
+      "디스크에 저장된 도구 결과에 1 GB 제한이 추가되었습니다; 대화 중 미리보기에서 저장된 파일이 잘렸을 때를 알립니다.",
+      "/model opusplan[1m]가 \"모델을 찾을 수 없음\"으로 거부되는 문제를 수정했습니다.",
+      "메시지가 유휴 시간 초과 직전에 도착할 때 배경 (--bg) 세션이 가끔 턴 중에 종료되는 문제를 수정했습니다.",
+      "관리 설정이 플러그인에만 기술을 잠그는 경우 /add-dir <subdirectory>가 하위 디렉토리의 에이전트를 로드하지 않는 문제를 수정했습니다.",
+      "포크된 기술(context: fork)이 시작 프롬프트를 스트리밍하지 않거나, --forward-subagent-text와 함께 텍스트 턴을 스트림-json의 진행 이벤트로 스트리밍하지 않는 문제를 수정했습니다.",
+      "OS가 확인할 수 없는 플러그인의 기본 구성 요소 폴더(예: 심볼릭 링크 루프)가 조용히 건너뛰어지는 문제를 수정했습니다; 이제 /plugin에서 오류 코드와 함께 보고됩니다.",
+      "/plugin Discover/Browse 및 claude plugin list --json --available이 메타데이터가 plugin.json에만 있는 마켓플레이스 플러그인에 대해 설명이나 표시 이름을 보여주지 않는 문제를 수정했습니다.",
+      "관리 설정에 의해 설정된 Claude apps gateway에 로그인한 세션에서 다시 실행할 때 /login이 \"구성된 게이트웨이 URL이 없습니다\"라고 표시되는 문제를 수정했습니다.",
+      "설정 파일을 쓸 수 없을 때 /model이 모델이 \"기본값으로 저장됨\"이라고 주장하는 문제를 수정했습니다; 이제 저장 실패와 그 이유를 알립니다.",
+      "Remote Control에서 /clear가 SessionStart 훅과 열린 터미널 대화 상자를 기다리는 문제를 수정했습니다.",
+      "/config 대화 상자가 탭 간 전환 시 높이가 변경되는 문제를 수정했습니다.",
+      "Windows: AppContainer 또는 제한된 토큰 샌드박스 내에서 실행할 때 Read, Write 및 Edit가 모든 파일을 거부하는 문제(\"권한 확인 후 심볼릭 링크 해상도가 변경됨\")를 수정했습니다.",
+      "대형 리포지토리에서 --worktree 시작을 개선했습니다: 새로운 worktree가 이제 병렬로 체크아웃됩니다(git 2.32+).",
+      "/workflows 에이전트 세부정보를 개선했습니다: 도구 호출이 실행 중, 실패 또는 완료로 표시되며, 하위 에이전트의 작업 목록이 있을 때 표시되고, Enter 키를 누르면 나열된 호출이 입력 및 결과와 함께 펼쳐집니다.",
+      ".claude 폴더 권한 옵션을 실제로 허용하는 내용을 설명하도록 업데이트했습니다: 세션 동안 프로젝트의 .claude 폴더(또는 ~/.claude)에서 파일 편집.",
+      "[VSCode] 설정된 기간 동안 비활성 상태인 세션의 자동 아카이빙이 추가되었습니다(새 \"비활성 세션 아카이브\" 설정, 기본 14일).",
+      "[VSCode] 대화가 10분 이상 열려 있을 때 Reload Window 또는 재시작 후 사이드바 채팅이 빈 화면으로 돌아오는 문제를 수정했습니다.",
+      "[VSCode] \"원격 제어가 활성화되었습니다\" 메시지에서 타임라인 점이 텍스트 아래에 위치하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.263",
     "date": "2026-09-06",
     "commands": [],

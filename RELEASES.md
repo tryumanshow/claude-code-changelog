@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-09-07 23:24 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-09-08 23:17 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.265** | 2026-09-08 | `--plugin-dir`, `/model`, `--bg`, `/add-dir <subdirectory>`, `/add-dir`, `--forward-subagent-text`, `/plugin`, `/login`, `/clear`, `/config`, `--worktree`, `/workflows` | Added user.email and user.groups to the telemetry Claude Desktop and Cowork send through a Claude apps gateway, matching terminal sessions / Added support for pointing --plugin-dir at a folder of p... |
 | **v2.1.263** | 2026-09-06 | — | Bug fixes and reliability improvements |
 | **v2.1.261** | 2026-09-04 | `/status`, `--append-subagent-system-prompt-file`, `/skill-doctor`, `/add-dir <subdirectory>`, `/net`, `/add-dir`, `/clear`, `/teleport`, `/usage`, `/model`, `/login`, `Ctrl+W`, `Alt+F`, `Alt+D`, `/context`, `Ctrl+S`, `/btw` | Added an "Organization policy" line to /status and claude doctor that says why your organization's policy could not be loaded, such as a proxy not passing the endpoint through / Added bashOutputMax... |
 | **v2.1.260** | 2026-09-03 | `/diff`, `/cost`, `/reload-plugins`, `/advisor`, `/advisor <model>`, `/advisor off`, `/login`, `/status`, `/doctor`, `/model`, `/model claude-fable-5-1`, `/rewind`, `--rewind-files`, `--continue`, `Ctrl+Z`, `/build`, `/ultrareview`, `/effort`, `ctrl+l`, `--chrome`, `/chrome`, `--kill-session-after-min` | Added a diff panel that opens beside the conversation in fullscreen mode and shows your uncommitted changes as Claude edits; toggle it with /diff / Added a likely cause for prompt-cache misses (e.g... |
@@ -83,7 +84,6 @@
 | **v2.1.168** | 2026-06-06 | — | Bug fixes and reliability improvements |
 | **v2.1.167** | 2026-06-06 | — | Bug fixes and reliability improvements |
 | **v2.1.166** | 2026-06-06 | `--fallback-model`, `--thinking disabled`, `Shift+n`, `/login`, `/voice`, `Ctrl+O`, `/doctor` | Added fallbackModel setting to configure up to three fallback models tried in order when the primary model is overloaded or unavailable; --fallback-model now also applies to interactive sessions / ... |
-| **v2.1.165** | 2026-06-05 | — | Bug fixes and reliability improvements |
 
 ---
 
