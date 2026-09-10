@@ -1,5 +1,198 @@
 [
   {
+    "version": "2.1.268",
+    "date": "2026-09-10",
+    "commands": [
+      {
+        "name": "/cost",
+        "context": "new",
+        "summary": "Added to the Claude apps gateway: with `pricing:` set in `gateway.yaml`, signed-"
+      },
+      {
+        "name": "/login",
+        "context": "new",
+        "summary": "Added the `gatewayInternalNetworks` managed setting, letting administrators allo"
+      },
+      {
+        "name": "--remove-session-state",
+        "context": "new",
+        "summary": "Added `claude self-hosted-runner --remove-session-state` (default off): delete e"
+      },
+      {
+        "name": "--json",
+        "context": "new",
+        "summary": "Added `configDirectory` to the output of `claude auth status --json`"
+      },
+      {
+        "name": "/var",
+        "context": "fixed",
+        "summary": "Fixed deny and ask permission rules on symlinked directories (`/etc`, `/tmp`, `/"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed `/mcp` and `/plugin` server details, `claude mcp list`/`get`, and MCP logi"
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "Improved `/plugin`: installing, enabling or disabling a plugin now takes effect "
+      },
+      {
+        "name": "/compact",
+        "context": "fixed",
+        "summary": "Fixed the conversation summary produced by `/compact` and auto-compact mangling "
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed SDK prompt suggestions, side questions and `/rename` sending the conversat"
+      },
+      {
+        "name": "ctrl+x",
+        "context": "fixed",
+        "summary": "Fixed `claude agents` session delete getting stuck when a worktree can't be remo"
+      },
+      {
+        "name": "/bug",
+        "context": "fixed",
+        "summary": "Fixed the `/bug` and `/feedback` description field showing no cursor when the te"
+      },
+      {
+        "name": "/feedback",
+        "context": "fixed",
+        "summary": "Fixed the `/bug` and `/feedback` description field showing no cursor when the te"
+      },
+      {
+        "name": "--print",
+        "context": "fixed",
+        "summary": "Fixed PermissionRequest hooks not firing in `--print` mode"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed `/resume` listing a `/fork` background session under its parent's name ins"
+      },
+      {
+        "name": "/fork",
+        "context": "fixed",
+        "summary": "Fixed `/resume` listing a `/fork` background session under its parent's name ins"
+      },
+      {
+        "name": "/remote-control",
+        "context": "fixed",
+        "summary": "Fixed `/remote-control` and other claude.ai-gated commands to suggest `/login` w"
+      },
+      {
+        "name": "/autofix-pr",
+        "context": "fixed",
+        "summary": "Fixed `/autofix-pr` and other cloud-session commands saying to retry or install "
+      },
+      {
+        "name": "/web-setup",
+        "context": "fixed",
+        "summary": "Fixed `/autofix-pr` and other cloud-session commands saying to retry or install "
+      },
+      {
+        "name": "/teleport",
+        "context": "fixed",
+        "summary": "Fixed cloud-session commands such as `/teleport` and `/remote-env` to explain wh"
+      },
+      {
+        "name": "/remote-env",
+        "context": "fixed",
+        "summary": "Fixed cloud-session commands such as `/teleport` and `/remote-env` to explain wh"
+      },
+      {
+        "name": "Shift+E",
+        "context": "improved",
+        "summary": "Improved fullscreen mode: adding or removing a prompt line (Shift+Enter) now rep"
+      },
+      {
+        "name": "--continue",
+        "context": "improved",
+        "summary": "Improved `--continue` / `--resume`: the conversation appears immediately instead"
+      },
+      {
+        "name": "--resume",
+        "context": "improved",
+        "summary": "Improved `--continue` / `--resume`: the conversation appears immediately instead"
+      },
+      {
+        "name": "/diff",
+        "context": "improved",
+        "summary": "Improved the prompt footer: an editor or `/diff` selection now shows inside the "
+      },
+      {
+        "name": "/reload-plugins",
+        "context": "improved",
+        "summary": "Improved `/plugin`: installing, enabling or disabling a plugin now takes effect "
+      }
+    ],
+    "features": [
+      "Added to the Claude apps gateway: with pricing: set in gateway.yaml, signed-in Claude Code clients receive the same rates through managed settings, so /cost and telemetry match the spend meter",
+      "Added a startup warning for gateways when access_control.allow_cidrs is empty, and a one-time warning the first time a request arrives from a public address",
+      "Added the gatewayInternalNetworks managed setting, letting administrators allow /login to a Claude apps gateway on their organization's own public IPv4 block",
+      "Added claude self-hosted-runner --remove-session-state (default off): delete each session's per-session directories under <base-dir>/_sessions/ when the session ends",
+      "Added configDirectory to the output of claude auth status --json",
+      "Added --json to claude plugin install, uninstall, update, enable and disable, and errorDetails/noteDetails to each row of claude plugin list --json",
+      "Added browser-tab icons for published artifacts, chosen by Claude to match each page",
+      "Fixed deny and ask permission rules on symlinked directories (/etc, /tmp, /var on macOS; /bin on Linux) not applying when a path was given by its real location, and Bash commands ignoring deny rules written on a symlinked path spelling",
+      "Fixed /mcp and /plugin server details, claude mcp list/get, and MCP login errors showing secrets resolved from ${VAR} placeholders in MCP configs",
+      "Fixed the conversation summary produced by /compact and auto-compact mangling text that contained $ sequences",
+      "Fixed resuming a conversation that ended with /compact: its restored-file notes now load in the same order on every resume",
+      "Fixed SDK prompt suggestions, side questions and /rename sending the conversation from before a compaction",
+      "Fixed claude agents session delete getting stuck when a worktree can't be removed: the message names the cause and next step, and for a git worktree ctrl+x again deletes the directory anyway",
+      "Fixed the /bug and /feedback description field showing no cursor when the terminal's native cursor is enabled",
+      "Fixed PermissionRequest hooks not firing in --print mode",
+      "Fixed /resume listing a /fork background session under its parent's name instead of its own ⑂ fork name",
+      "Fixed /remote-control and other claude.ai-gated commands to suggest /login when signed out instead of showing a Claude for Enterprise migration message",
+      "Fixed /autofix-pr and other cloud-session commands saying to retry or install the Claude GitHub App when no GitHub account is connected; they now point to /web-setup or the web connect page",
+      "Fixed cloud-session commands such as /teleport and /remote-env to explain when an organization policy turns them off, instead of answering \"Unknown command\"",
+      "Improved fullscreen mode: adding or removing a prompt line (Shift+Enter) now repaints as fast as typing a character instead of re-rendering the visible transcript",
+      "Improved --continue / --resume: the conversation appears immediately instead of waiting for SessionStart hooks, and the first message no longer re-reads the whole transcript",
+      "Improved the prompt footer: an editor or /diff selection now shows inside the prompt input, and fullscreen mode shows Remote Control status in the header instead of the footer",
+      "Improved /plugin: installing, enabling or disabling a plugin now takes effect when you close the menu; /reload-plugins is no longer needed afterwards",
+      "[VSCode] Fixed the session list, settings toggles, and chat tabs when CLAUDE_CONFIG_DIR is set in a settings file or the environmentVariables setting",
+      "[VSCode] Fixed the model pill, model picker and command menu going blank in open tabs for a few seconds after a login, logout or account switch",
+      "[VSCode] Fixed Auto disappearing from the mode picker in new-tab or just-reloaded conversations when a project or local setting overrides the model named in ~/.claude/settings.json",
+      "[VSCode] Fixed session names reverting to the last prompt after a window reload when a SessionStart hook is configured",
+      "[VSCode] Fixed the footer's model pill and Remote Control pill waiting for the new tab's Claude process to start when another tab in the window is already up",
+      "[VSCode] Fixed a second Claude process running through its full startup when a session tab's launch arrived more than half a second after its config read"
+    ],
+    "features_ko": [
+      "Claude 앱 게이트웨이에 추가됨: 가격 설정은 gateway.yaml에 있으며, 로그인한 Claude Code 클라이언트는 관리 설정을 통해 동일한 요금을 받으므로 /cost 및 telemetry가 지출 미터와 일치합니다.",
+      "access_control.allow_cidrs가 비어 있을 때 게이트웨이에 대한 시작 경고와 공용 주소에서 요청이 처음 도착할 때의 일회성 경고가 추가되었습니다.",
+      "gatewayInternalNetworks 관리 설정이 추가되어 관리자가 조직의 공용 IPv4 블록에서 Claude 앱 게이트웨이에 /login을 허용할 수 있게 되었습니다.",
+      "claude self-hosted-runner --remove-session-state (기본값 꺼짐)가 추가됨: 세션이 끝날 때 <base-dir>/_sessions/ 아래의 각 세션의 세션 디렉토리를 삭제합니다.",
+      "claude auth status --json의 출력에 configDirectory가 추가되었습니다.",
+      "claude plugin install, uninstall, update, enable 및 disable에 --json이 추가되었고, claude plugin list --json의 각 행에 errorDetails/noteDetails가 추가되었습니다.",
+      "게시된 아티팩트에 대한 브라우저 탭 아이콘이 추가되어 각 페이지에 맞게 Claude가 선택했습니다.",
+      "symlinked 디렉토리(/etc, /tmp, /var on macOS; /bin on Linux)에서 실제 위치로 경로가 주어졌을 때 deny 및 ask 권한 규칙이 적용되지 않는 문제와 Bash 명령이 symlinked 경로의 deny 규칙을 무시하는 문제를 수정했습니다.",
+      "/mcp 및 /plugin 서버 세부정보, claude mcp list/get 및 MCP 로그인 오류에서 MCP 구성의 ${VAR} 자리 표시자로부터 해결된 비밀이 표시되는 문제를 수정했습니다.",
+      "/compact 및 auto-compact로 생성된 대화 요약이 $ 시퀀스를 포함한 텍스트를 손상시키는 문제를 수정했습니다.",
+      "/compact로 끝난 대화를 재개할 때 복원된 파일 노트가 매번 동일한 순서로 로드되도록 수정했습니다.",
+      "SDK 프롬프트 제안, 부가 질문 및 /rename이 압축 이전의 대화를 전송하는 문제를 수정했습니다.",
+      "작업 트리를 제거할 수 없을 때 claude agents session delete가 멈추는 문제를 수정했습니다: 메시지가 원인과 다음 단계를 명시하며, git worktree의 경우 ctrl+x를 다시 눌러도 디렉토리가 삭제됩니다.",
+      "터미널의 기본 커서가 활성화되어 있을 때 /bug 및 /feedback 설명 필드에서 커서가 표시되지 않는 문제를 수정했습니다.",
+      "--print 모드에서 PermissionRequest 훅이 작동하지 않는 문제를 수정했습니다.",
+      "/resume이 자신의 이름 대신 부모의 이름 아래에 /fork 백그라운드 세션을 나열하는 문제를 수정했습니다.",
+      "/remote-control 및 기타 claude.ai 제한 명령이 로그아웃 시 Claude for Enterprise 마이그레이션 메시지를 표시하는 대신 /login을 제안하도록 수정했습니다.",
+      "GitHub 계정이 연결되지 않았을 때 /autofix-pr 및 기타 클라우드 세션 명령이 Claude GitHub App을 재시도하거나 설치하라고 말하는 문제를 수정했습니다; 이제 /web-setup 또는 웹 연결 페이지를 가리킵니다.",
+      "/teleport 및 /remote-env와 같은 클라우드 세션 명령이 조직 정책이 이를 끌 때 설명하도록 수정했습니다; 이제 \"Unknown command\"라고 응답하지 않습니다.",
+      "전체 화면 모드를 개선했습니다: 프롬프트 라인 추가 또는 제거(Shift+Enter)가 이제 가시적인 전사 내용을 다시 렌더링하는 대신 문자를 입력하는 것처럼 빠르게 다시 그려집니다.",
+      "--continue / --resume을 개선했습니다: 대화가 SessionStart 훅을 기다리지 않고 즉시 나타나며, 첫 번째 메시지가 전체 전사를 다시 읽지 않습니다.",
+      "프롬프트 바닥글을 개선했습니다: 편집기 또는 /diff 선택이 이제 프롬프트 입력 내부에 표시되며, 전체 화면 모드는 바닥글 대신 헤더에 원격 제어 상태를 표시합니다.",
+      "/plugin을 개선했습니다: 플러그인을 설치, 활성화 또는 비활성화할 때 메뉴를 닫으면 즉시 적용되며, 이후에 /reload-plugins가 더 이상 필요하지 않습니다.",
+      "[VSCode] CLAUDE_CONFIG_DIR가 설정 파일이나 environmentVariables 설정에 설정되었을 때 세션 목록, 설정 토글 및 채팅 탭을 수정했습니다.",
+      "[VSCode] 로그인, 로그아웃 또는 계정 전환 후 몇 초 동안 열린 탭에서 모델 필, 모델 선택기 및 명령 메뉴가 빈 화면으로 표시되는 문제를 수정했습니다.",
+      "[VSCode] ~/.claude/settings.json에서 지정된 모델을 프로젝트 또는 로컬 설정이 재정의할 때 새 탭 또는 방금 새로 고침된 대화에서 모드 선택기에서 Auto가 사라지는 문제를 수정했습니다.",
+      "[VSCode] SessionStart 훅이 구성된 경우 창을 새로 고침한 후 세션 이름이 마지막 프롬프트로 되돌아가는 문제를 수정했습니다.",
+      "[VSCode] 창의 다른 탭이 이미 열려 있을 때 바닥글의 모델 필과 원격 제어 필이 새 탭의 Claude 프로세스 시작을 기다리는 문제를 수정했습니다.",
+      "[VSCode] 세션 탭의 시작이 구성 읽기 후 반 초 이상 지연되었을 때 두 번째 Claude 프로세스가 전체 시작을 실행하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.267",
     "date": "2026-09-09",
     "commands": [
