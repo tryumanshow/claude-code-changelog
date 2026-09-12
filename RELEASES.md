@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-09-11 23:09 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-09-12 22:55 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.270** | 2026-09-12 | — | Fixed read-only git commands in Bash unexpectedly asking for permission after a session had been running for a while (regression in 2.1.269) |
 | **v2.1.269** | 2026-09-11 | `--help`, `/output-style`, `/focus`, `Alt+a`, `Shift+p`, `/fork`, `--output-format stream-json`, `/insights`, `/goal`, `/btw`, `Ctrl+G`, `/diff`, `Shift+E`, `Ctrl+S`, `/ultrareview --post`, `/ultrareview`, `/model default`, `/model` | Added claude plugin eval: run a plugin's eval suite against Claude Code and get scored, reproducible results (JSON + HTML report); see claude plugin eval --help / Added /output-style [name] to list... |
 | **v2.1.268** | 2026-09-10 | `/cost`, `/login`, `--remove-session-state`, `--json`, `/var`, `/mcp`, `/plugin`, `/compact`, `/rename`, `ctrl+x`, `/bug`, `/feedback`, `--print`, `/resume`, `/fork`, `/remote-control`, `/autofix-pr`, `/web-setup`, `/teleport`, `/remote-env`, `Shift+E`, `--continue`, `--resume`, `/diff`, `/reload-plugins` | Added to the Claude apps gateway: with pricing: set in gateway.yaml, signed-in Claude Code clients receive the same rates through managed settings, so /cost and telemetry match the spend meter / Ad... |
 | **v2.1.267** | 2026-09-09 | `--system-prompt-snapshot off`, `--system-prompt-snapshot`, `/context`, `shift+e`, `/compact`, `/login`, `/model`, `/diff`, `/copy`, `--resume`, `--system-prompt`, `--append-system-prompt`, `--use-anthropic-git-proxy` | Added maxEffortLevel setting (top-level or per model under modelSettings): caps the effort level on every provider, including Bedrock, Vertex and Foundry; users can still pick a lower level / Added... |
@@ -83,7 +84,6 @@
 | **v2.1.174** | 2026-06-12 | `/model`, `/advisor`, `/usage` | Added wheelScrollAccelerationEnabled setting to disable mouse-wheel scroll acceleration in fullscreen mode / Fixed the /model picker hiding the model family that Default resolves to — Opus now appe... |
 | **v2.1.173** | 2026-06-11 | — | Fixed Fable 5 model names with a [1m] suffix not being normalized — Fable 5 includes 1M context by default, so the suffix is now stripped automatically / Fixed a spurious "sandbox dependencies miss... |
 | **v2.1.172** | 2026-06-10 | `/status`, `/plugin`, `/model`, `/config`, `/goal`, `/code-review`, `/rc`, `/loop` | Sub-agents can now spawn their own sub-agents (up to 5 levels deep) / Amazon Bedrock now reads the AWS region from ~/.aws config files when AWS_REGION isn't set, matching AWS SDK precedence; /statu... |
-| **v2.1.170** | 2026-06-09 | — | Introducing Claude Fable 5: a Mythos-class model that we’ve made safe for general use. Fable’s capabilities exceed those of any model we’ve ever made generally available. Update to version 2.1.170 ... |
 
 ---
 

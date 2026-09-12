@@ -1,5 +1,16 @@
 [
   {
+    "version": "2.1.270",
+    "date": "2026-09-12",
+    "commands": [],
+    "features": [
+      "Fixed read-only git commands in Bash unexpectedly asking for permission after a session had been running for a while (regression in 2.1.269)"
+    ],
+    "features_ko": [
+      "세션이 일정 시간 동안 실행된 후에 예상치 않게 권한을 요청하는 read-only git 명령의 문제를 수정했습니다 (2.1.269에서 발생한 회귀)."
+    ]
+  },
+  {
     "version": "2.1.269",
     "date": "2026-09-11",
     "commands": [
