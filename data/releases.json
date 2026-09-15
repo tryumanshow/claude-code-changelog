@@ -1,5 +1,154 @@
 [
   {
+    "version": "2.1.273",
+    "date": "2026-09-15",
+    "commands": [
+      {
+        "name": "/mcp",
+        "context": "new",
+        "summary": "Added a notification when an MCP server disconnects mid-session and automatic re"
+      },
+      {
+        "name": "/remote-control",
+        "context": "new",
+        "summary": "Added forking a session started with `claude --remote-control` or `/remote-contr"
+      },
+      {
+        "name": "--remote-control",
+        "context": "new",
+        "summary": "Added forking a session started with `claude --remote-control` or `/remote-contr"
+      },
+      {
+        "name": "/login",
+        "context": "improved",
+        "summary": "Improved the error when a cloud session can't be created because your Claude log"
+      },
+      {
+        "name": "/upgrade",
+        "context": "fixed",
+        "summary": "Fixed `/login`, `/upgrade`, and `/extra-usage` discarding earlier thinking from "
+      },
+      {
+        "name": "/extra-usage",
+        "context": "fixed",
+        "summary": "Fixed `/login`, `/upgrade`, and `/extra-usage` discarding earlier thinking from "
+      },
+      {
+        "name": "/tui",
+        "context": "fixed",
+        "summary": "Fixed `/tui` refusing to restart because of an agent-team teammate that had alre"
+      },
+      {
+        "name": "--output-format stream-json",
+        "context": "fixed",
+        "summary": "Fixed SDK and `--output-format stream-json` output dropping a subagent's remaini"
+      },
+      {
+        "name": "/install-github-app",
+        "context": "fixed",
+        "summary": "Fixed `/install-github-app` reporting a SAML single sign-on block as \"admin perm"
+      },
+      {
+        "name": "/autofix-pr",
+        "context": "improved",
+        "summary": "Improved `/autofix-pr`: when `gh pr view` fails it now shows gh's own error (sig"
+      },
+      {
+        "name": "/web-setup",
+        "context": "improved",
+        "summary": "Improved `/web-setup` errors: a refused GitHub token now lists the likely reason"
+      },
+      {
+        "name": "/bug",
+        "context": "improved",
+        "summary": "Changed `/bug` and `/feedback` reports to include only model-behavior params (mo"
+      },
+      {
+        "name": "/feedback",
+        "context": "improved",
+        "summary": "Changed `/bug` and `/feedback` reports to include only model-behavior params (mo"
+      },
+      {
+        "name": "--add-dir",
+        "context": "improved",
+        "summary": "Windows: Improved the network-path permission check for UNC paths when a mapped "
+      },
+      {
+        "name": "/ultrareview --post",
+        "context": "fixed",
+        "summary": "[Code Review] Fixed `/ultrareview --post` so a retry after a GitHub error posts "
+      },
+      {
+        "name": "/ultrareview",
+        "context": "fixed",
+        "summary": "[Code Review] Fixed `/ultrareview --post` so a retry after a GitHub error posts "
+      }
+    ],
+    "features": [
+      "Added x-claude-code-request-class, x-claude-code-agent-type, x-claude-code-prev-tool-durations, x-claude-code-compaction and x-claude-code-context-compacted request headers for LLM gateways; opt in with CLAUDE_CODE_GATEWAY_HINT_HEADERS=1",
+      "Added a notification when an MCP server disconnects mid-session and automatic reconnection gives up, pointing at /mcp",
+      "Added forking a session started with claude --remote-control or /remote-control from the Claude app; the fork runs as a background session on your computer",
+      "Fixed 401/403 errors on Bedrock, Vertex and Foundry, and Claude apps gateway 403s, telling you to run /login; the message now names the credential to refresh or points to your gateway administrator",
+      "Fixed /login, /upgrade, and /extra-usage discarding earlier thinking from the conversation, which forced a full prompt-cache rewrite on the next request",
+      "Fixed /tui refusing to restart because of an agent-team teammate that had already finished its work and was no longer shown in the agents panel",
+      "Fixed SDK and --output-format stream-json output dropping a subagent's remaining messages and final report after it is moved to the background mid-run (e.g. by CLAUDE_AUTO_BACKGROUND_TASKS)",
+      "Fixed /install-github-app reporting a SAML single sign-on block as \"admin permissions required\"",
+      "Improved /autofix-pr: when gh pr view fails it now shows gh's own error (sign-in, SAML, rate limit) instead of a generic exit-code line",
+      "Improved /autofix-pr to say why GitHub webhook delivery couldn't be set up for the PR (for example, no linked GitHub account) instead of a generic warning",
+      "Improved /web-setup errors: a refused GitHub token now lists the likely reasons and the fix, and a connection failure names a configured proxy or TLS certificate problem",
+      "Improved the error when a cloud session can't be created because your Claude login expired or was revoked: it now tells you to run /login",
+      "Improved the error shown when an MCP server's sign-in expires mid-session to say how to re-authenticate (/mcp)",
+      "Changed /bug and /feedback reports to include only model-behavior params (model, system prompt, tools) from the last API request, omitting request metadata and CLAUDE_CODE_EXTRA_BODY fields",
+      "[VSCode] Fixed \"Report a problem\" still appearing, and /bug / /feedback opening a report form, for organizations that have product feedback disabled",
+      "[VSCode] Fixed a red \"Claude Code process exited with code 4294967295\" banner appearing after completed turns on Windows",
+      "Windows: Improved the network-path permission check for UNC paths when a mapped network drive was added with --add-dir",
+      "[Claude Code on the web] Fixed routines losing access to an organization connector, and still calling the old one, after an admin removed and re-added that connector",
+      "[Claude Code on the web] Fixed creating a self-hosted environment from organization settings occasionally failing with a server error and leaving a half-created environment behind",
+      "[Claude Code on the web] Changed the admin \"Share cloud sessions\" setting to live under Data and privacy instead of the Claude Code page, where Data and privacy admins can also manage it",
+      "[Claude Code on the web] Added a \"Discard unsaved changes?\" confirmation before the New routine page or the Edit routine dialog throws away a routine name, prompt or edit you typed",
+      "[Claude Code on the web] Removed the full-page desktop-app download screen that new users without a cloud environment saw on Mac and Windows; they now go straight to setup",
+      "[Claude Code on the web] Improved the routine detail page: menu and rename in the breadcrumb, the on/off switch and Run now at the top, and run history beside the routine's settings",
+      "[Code Review] Fixed /ultrareview --post so a retry after a GitHub error posts the findings comment exactly once instead of never or twice; the comment now names the reviewed commit"
+    ],
+    "features_ko": [
+      "LLM 게이트웨이를 위한 x-claude-code-request-class, x-claude-code-agent-type, x-claude-code-prev-tool-durations, x-claude-code-compaction 및 x-claude-code-context-compacted 요청 헤더가 추가되었습니다; CLAUDE_CODE_GATEWAY_HINT_HEADERS=1로 선택할 수 있습니다.",
+      "MCP 서버가 세션 중간에 연결이 끊어지고 자동 재연결이 실패할 때 알림이 추가되었습니다. 경로는 /mcp입니다.",
+      "Claude 앱에서 claude --remote-control 또는 /remote-control로 시작한 세션을 포크할 수 있도록 추가되었습니다; 포크는 컴퓨터에서 백그라운드 세션으로 실행됩니다.",
+      "Bedrock, Vertex 및 Foundry, Claude 앱의 게이트웨이 403에서 /login을 실행하라는 메시지를 표시하는 401/403 오류가 수정되었습니다; 이제 메시지에 새로 고칠 자격 증명이 명시되거나 게이트웨이 관리자에게 안내합니다.",
+      "/login, /upgrade 및 /extra-usage가 대화에서 이전 생각을 무시하여 다음 요청에서 전체 프롬프트 캐시를 다시 작성하도록 강제하는 문제가 수정되었습니다.",
+      "/tui가 이미 작업을 마친 agent-team 동료로 인해 재시작을 거부하는 문제가 수정되었습니다. 해당 동료는 더 이상 에이전트 패널에 표시되지 않습니다.",
+      "SDK 및 --output-format stream-json 출력이 백그라운드로 이동한 후 서브 에이전트의 남은 메시지와 최종 보고서를 누락하는 문제가 수정되었습니다 (예: CLAUDE_AUTO_BACKGROUND_TASKS에 의해).",
+      "/install-github-app이 SAML 단일 로그인 차단을 \"관리자 권한 필요\"로 보고하는 문제가 수정되었습니다.",
+      "/autofix-pr 개선: gh pr view 실패 시 이제 일반적인 종료 코드 라인 대신 gh의 자체 오류(로그인, SAML, 속도 제한)를 표시합니다.",
+      "/autofix-pr을 개선하여 PR에 대한 GitHub 웹후크 전송을 설정할 수 없는 이유(예: 연결된 GitHub 계정 없음)를 일반 경고 대신 표시합니다.",
+      "/web-setup 오류 개선: 거부된 GitHub 토큰이 이제 가능한 이유와 수정 사항을 나열하고, 연결 실패 시 구성된 프록시 또는 TLS 인증서 문제를 명시합니다.",
+      "Claude 로그인 만료 또는 철회로 인해 클라우드 세션을 생성할 수 없을 때 오류를 개선했습니다: 이제 /login을 실행하라고 안내합니다.",
+      "MCP 서버의 로그인 만료로 인해 세션 중간에 재인증하는 방법을 안내하는 오류가 개선되었습니다 (/mcp).",
+      "/bug 및 /feedback 보고서를 마지막 API 요청에서 모델 행동 매개변수(모델, 시스템 프롬프트, 도구)만 포함하도록 변경하였으며, 요청 메타데이터 및 CLAUDE_CODE_EXTRA_BODY 필드는 생략되었습니다.",
+      "[VSCode] \"문제 보고\"가 여전히 나타나는 문제와 /bug / /feedback이 제품 피드백이 비활성화된 조직에서 보고서 양식을 여는 문제가 수정되었습니다.",
+      "[VSCode] Windows에서 완료된 턴 후 \"Claude Code 프로세스가 코드 4294967295로 종료되었습니다\"라는 빨간 배너가 나타나는 문제가 수정되었습니다.",
+      "Windows: --add-dir로 매핑된 네트워크 드라이브가 추가될 때 UNC 경로에 대한 네트워크 경로 권한 검사 개선.",
+      "[Claude Code on the web] 관리자가 조직 커넥터를 제거하고 다시 추가한 후 루틴이 조직 커넥터에 대한 접근을 잃고 여전히 이전 것을 호출하는 문제가 수정되었습니다.",
+      "[Claude Code on the web] 조직 설정에서 자가 호스팅 환경을 생성할 때 가끔 서버 오류로 실패하고 반쯤 생성된 환경이 남는 문제가 수정되었습니다.",
+      "[Claude Code on the web] 관리자의 \"클라우드 세션 공유\" 설정이 Claude Code 페이지 대신 데이터 및 개인 정보 아래로 이동하였으며, 데이터 및 개인 정보 관리자가 이를 관리할 수 있습니다.",
+      "[Claude Code on the web] 새 루틴 페이지 또는 편집 루틴 대화 상자가 입력한 루틴 이름, 프롬프트 또는 편집 내용을 버리기 전에 \"저장되지 않은 변경 사항을 버리시겠습니까?\" 확인이 추가되었습니다.",
+      "[Claude Code on the web] 클라우드 환경이 없는 신규 사용자가 Mac 및 Windows에서 보던 전체 페이지 데스크톱 앱 다운로드 화면이 제거되었습니다; 이제 설정으로 바로 이동합니다.",
+      "[Claude Code on the web] 루틴 세부 정보 페이지 개선: 메뉴 및 빵 부스러기에서 이름 바꾸기, 상단에 있는 켜기/끄기 스위치 및 지금 실행, 루틴 설정 옆에 실행 기록이 표시됩니다.",
+      "[Code Review] /ultrareview --post가 GitHub 오류 후 재시도가 발견된 댓글을 정확히 한 번만 게시하도록 수정되었습니다; 이제 댓글에 검토된 커밋의 이름이 명시됩니다."
+    ]
+  },
+  {
+    "version": "2.1.272",
+    "date": "2026-09-15",
+    "commands": [],
+    "features": [
+      "Bug fixes and reliability improvements"
+    ],
+    "features_ko": [
+      "버그 수정 및 안정성 향상"
+    ]
+  },
+  {
     "version": "2.1.271",
     "date": "2026-09-14",
     "commands": [

@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-09-14 23:48 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-09-15 23:29 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.273** | 2026-09-15 | `/mcp`, `/remote-control`, `--remote-control`, `/login`, `/upgrade`, `/extra-usage`, `/tui`, `--output-format stream-json`, `/install-github-app`, `/autofix-pr`, `/web-setup`, `/bug`, `/feedback`, `--add-dir`, `/ultrareview --post`, `/ultrareview` | Added x-claude-code-request-class, x-claude-code-agent-type, x-claude-code-prev-tool-durations, x-claude-code-compaction and x-claude-code-context-compacted request headers for LLM gateways; opt in... |
+| **v2.1.272** | 2026-09-15 | — | Bug fixes and reliability improvements |
 | **v2.1.271** | 2026-09-14 | `/fast`, `/config`, `--drain-marker-file`, `--agents`, `--accept-command <sha256>`, `--json`, `--accept-command`, `/desktop`, `/fast off`, `/mcp`, `Ctrl+O`, `/model`, `/reload-skills`, `/cd`, `/resume`, `/continue`, `/teleport`, `--resume`, `/artifacts`, `/add-dir`, `/hooks`, `Alt+a`, `/mobile`, `/ultrareview` | Added fast mode in Claude Code Remote sessions (cloud and self-hosted runners): the host's fast-mode setting or /fast typed in the session applies where your organization allows it / Added mouse su... |
 | **v2.1.270** | 2026-09-12 | — | Fixed read-only git commands in Bash unexpectedly asking for permission after a session had been running for a while (regression in 2.1.269) |
 | **v2.1.269** | 2026-09-11 | `--help`, `/output-style`, `/focus`, `Alt+a`, `Shift+p`, `/fork`, `--output-format stream-json`, `/insights`, `/goal`, `/btw`, `Ctrl+G`, `/diff`, `Shift+E`, `Ctrl+S`, `/ultrareview --post`, `/ultrareview`, `/model default`, `/model` | Added claude plugin eval: run a plugin's eval suite against Claude Code and get scored, reproducible results (JSON + HTML report); see claude plugin eval --help / Added /output-style [name] to list... |
@@ -82,8 +84,6 @@
 | **v2.1.178** | 2026-06-15 | `/doctor`, `/rc`, `/bug`, `ctrl+b`, `--fallback-model`, `/bg` | Agent teams: removed the TeamCreate and TeamDelete tools. With CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 set, every session now has one implicit team — spawn teammates directly with the Agent tool's n... |
 | **v2.1.176** | 2026-06-12 | `/fast`, `/copy`, `/cd`, `/bg` | Session titles are now generated in the language of your conversation (set the language setting to pin a specific language) / Added footerLinksRegexes setting for regex-matched link badges in the f... |
 | **v2.1.175** | 2026-06-12 | — | Added enforceAvailableModels managed setting — when enabled, the availableModels allowlist also constrains the Default model (a Default that would resolve to a disallowed model now falls back to th... |
-| **v2.1.174** | 2026-06-12 | `/model`, `/advisor`, `/usage` | Added wheelScrollAccelerationEnabled setting to disable mouse-wheel scroll acceleration in fullscreen mode / Fixed the /model picker hiding the model family that Default resolves to — Opus now appe... |
-| **v2.1.173** | 2026-06-11 | — | Fixed Fable 5 model names with a [1m] suffix not being normalized — Fable 5 includes 1M context by default, so the suffix is now stripped automatically / Fixed a spurious "sandbox dependencies miss... |
 
 ---
 
