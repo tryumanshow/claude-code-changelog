@@ -1,5 +1,340 @@
 [
   {
+    "version": "2.1.275",
+    "date": "2026-09-17",
+    "commands": [
+      {
+        "name": "/status",
+        "context": "new",
+        "summary": "Added the signed-in account to Claude apps gateway sign-in: when the gateway nam"
+      },
+      {
+        "name": "ctrl+e",
+        "context": "new",
+        "summary": "Added a send-now key (ctrl+enter, or ctrl+x ctrl+s) that interrupts the current "
+      },
+      {
+        "name": "ctrl+x",
+        "context": "new",
+        "summary": "Added a send-now key (ctrl+enter, or ctrl+x ctrl+s) that interrupts the current "
+      },
+      {
+        "name": "ctrl+s",
+        "context": "new",
+        "summary": "Added a send-now key (ctrl+enter, or ctrl+x ctrl+s) that interrupts the current "
+      },
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added `/plugin install <plugin> --marketplace <source>`, which offers to add the"
+      },
+      {
+        "name": "--marketplace",
+        "context": "new",
+        "summary": "Added `/plugin install <plugin> --marketplace <source>`, which offers to add the"
+      },
+      {
+        "name": "--forward-subagent-text",
+        "context": "fixed",
+        "summary": "Fixed `--forward-subagent-text` stream-json and SDK output dropping the messages"
+      },
+      {
+        "name": "/ccmemory",
+        "context": "fixed",
+        "summary": "Fixed a stray `</ccmemory>`-style closing tag occasionally appearing in response"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed `--resume`, the resume picker preview, resumed background agents and the t"
+      },
+      {
+        "name": "/rewind",
+        "context": "fixed",
+        "summary": "Fixed `/rewind` in a forked or background session restoring a zero-filled or tru"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed `--resume` and `--continue` dropping a conversation's earlier thinking whe"
+      },
+      {
+        "name": "--plugin-dir",
+        "context": "fixed",
+        "summary": "Fixed plugin reload previews replacing a running session's extracted plugin file"
+      },
+      {
+        "name": "--plugin-url",
+        "context": "fixed",
+        "summary": "Fixed plugin reload previews replacing a running session's extracted plugin file"
+      },
+      {
+        "name": "--drain-wait-sec",
+        "context": "fixed",
+        "summary": "Fixed self-hosted runners with `--drain-wait-sec` losing the final result of a t"
+      },
+      {
+        "name": "/update-config",
+        "context": "fixed",
+        "summary": "Fixed `/update-config` writing `Write(path)` permission rules, which file permis"
+      },
+      {
+        "name": "--system-prompt",
+        "context": "improved",
+        "summary": "Improved prompt caching for a `--system-prompt` that contains a `__SYSTEM_PROMPT"
+      },
+      {
+        "name": "/desktop",
+        "context": "improved",
+        "summary": "Improved the `/desktop` error when Claude Desktop does not open: it now says why"
+      },
+      {
+        "name": "/logout",
+        "context": "improved",
+        "summary": "Updated `/logout` for Claude apps gateway sign-ins to also end the session on ga"
+      },
+      {
+        "name": "/remote-control",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed `/remote-control` being ignored while Remote Control is still con"
+      }
+    ],
+    "features": [
+      "Added the signed-in account to Claude apps gateway sign-in: when the gateway names it, you confirm it before the credential is saved, and /status shows it",
+      "Added a send-now key (ctrl+enter, or ctrl+x ctrl+s) that interrupts the current turn and sends all queued messages at once; sent and queued messages show in gray until the model receives them",
+      "Added a startup warning when a configured otelHeadersHelper fails, so sessions that silently export no telemetry are noticed",
+      "Added syncing of the skills and plugins enabled on your claude.ai account to terminal sessions signed in with it; opt out with syncClaudeAiSkills: false or syncClaudeAiPlugins: false",
+      "Added /plugin install <plugin> --marketplace <source>, which offers to add the marketplace before installing the plugin",
+      "Fixed --forward-subagent-text stream-json and SDK output dropping the messages of subagents spawned by a context: fork skill, and of forked skills invoked by a subagent or another forked skill",
+      "Fixed a stray </ccmemory>-style closing tag occasionally appearing in responses",
+      "Fixed --resume, the resume picker preview, resumed background agents and the transcript view failing on a session whose saved history contains a malformed task-reminder or @-file attachment entry",
+      "Fixed /rewind in a forked or background session restoring a zero-filled or truncated file when the session's file-history backups could not be fully copied",
+      "Fixed --resume and --continue dropping a conversation's earlier thinking when a built-in tool it started with has since been switched off by a server-side flag",
+      "Fixed text selected with the mouse in the fullscreen claude --resume session picker never reaching the clipboard",
+      "Fixed plugin reload previews replacing a running session's extracted plugin files when the plugin was loaded from a --plugin-dir or --plugin-url archive",
+      "Fixed self-hosted runners with --drain-wait-sec losing the final result of a turn that finished during a SIGTERM drain; the runner now waits briefly for the turn to be reported",
+      "Fixed /update-config writing Write(path) permission rules, which file permission checks don't match, instead of Edit(path) rules",
+      "Improved prompt caching for a --system-prompt that contains a __SYSTEM_PROMPT_DYNAMIC_BOUNDARY__ line: the text above it is now cached globally, as the SDK's array form already is",
+      "Improved the /desktop error when Claude Desktop does not open: it now says why and what to do next",
+      "Improved the ListPlugins tool description so Claude knows it lists plugins enabled on your claude.ai account, not plugins installed locally with /plugin",
+      "Updated /logout for Claude apps gateway sign-ins to also end the session on gateways that advertise token revocation",
+      "[VSCode] Added viewing, editing and deleting a saved memory inside the Memory dialog",
+      "[VSCode] Added sending an attached image without typing any text",
+      "[VSCode] Added a Retry link to the MCP servers dialog when the server list fails to load",
+      "[VSCode] Added accept and reject buttons under each change in the proposed-change diff tab, so an edit can be reviewed change by change",
+      "[VSCode] Fixed the transcript creeping toward the bottom in small steps while a permission card waits and content keeps arriving",
+      "[VSCode] Fixed rewound and forked conversations not keeping the permission mode you had picked for the original conversation",
+      "[VSCode] Fixed /remote-control being ignored while Remote Control is still connecting: running it again now turns Remote Control off immediately"
+    ],
+    "features_ko": [
+      "Claude 앱 게이트웨이 로그인에 로그인한 계정을 추가했습니다: 게이트웨이가 이름을 지정하면 자격 증명이 저장되기 전에 확인하고, /status에서 표시됩니다.",
+      "현재 턴을 중단하고 모든 대기 메시지를 한 번에 보내는 send-now 키(ctrl+enter 또는 ctrl+x ctrl+s)를 추가했습니다; 전송된 메시지와 대기 중인 메시지는 모델이 수신할 때까지 회색으로 표시됩니다.",
+      "구성된 otelHeadersHelper가 실패할 때 시작 경고를 추가하여, 텔레메트리를 조용히 내보내지 않는 세션을 인식할 수 있도록 했습니다.",
+      "당신의 claude.ai 계정에서 활성화된 기술 및 플러그인을 해당 계정으로 로그인한 터미널 세션에 동기화하는 기능을 추가했습니다; syncClaudeAiSkills: false 또는 syncClaudeAiPlugins: false로 선택 해제할 수 있습니다.",
+      "/plugin install <plugin> --marketplace <source>를 추가하여 플러그인을 설치하기 전에 마켓플레이스를 추가할 수 있도록 했습니다.",
+      "--forward-subagent-text stream-json 및 SDK 출력에서 context: fork skill로 생성된 서브 에이전트의 메시지가 누락되는 문제를 수정했습니다.",
+      "응답에 가끔 나타나는 stray </ccmemory>-스타일 닫는 태그를 수정했습니다.",
+      "--resume, resume picker 미리보기, 백그라운드 에이전트 재개 및 저장된 기록에 잘못된 task-reminder 또는 @-file 첨부 항목이 포함된 세션에서 실패하는 문제를 수정했습니다.",
+      "포크된 세션이나 백그라운드 세션에서 /rewind가 세션의 파일 기록 백업을 완전히 복사할 수 없을 때 0으로 채워진 파일이나 잘린 파일을 복원하는 문제를 수정했습니다.",
+      "--resume 및 --continue가 대화의 이전 생각을 누락하는 문제를 수정했습니다; 시작할 때 사용된 내장 도구가 서버 측 플래그에 의해 꺼진 경우입니다.",
+      "전체 화면 claude --resume 세션 선택기에서 마우스로 선택한 텍스트가 클립보드에 도달하지 않는 문제를 수정했습니다.",
+      "플러그인 재로드 미리보기가 --plugin-dir 또는 --plugin-url 아카이브에서 로드된 플러그인의 실행 중인 세션의 추출된 플러그인 파일을 대체하는 문제를 수정했습니다.",
+      "--drain-wait-sec가 있는 자체 호스팅 러너가 SIGTERM 드레인 중에 완료된 턴의 최종 결과를 잃는 문제를 수정했습니다; 이제 러너는 턴이 보고될 때까지 잠시 기다립니다.",
+      "/update-config가 Write(path) 권한 규칙을 작성하는 문제를 수정했습니다; 파일 권한 검사가 일치하지 않고 Edit(path) 규칙 대신 작성되었습니다.",
+      "__SYSTEM_PROMPT_DYNAMIC_BOUNDARY__ 라인이 포함된 --system-prompt에 대한 프롬프트 캐싱을 개선했습니다: 이제 그 위의 텍스트가 SDK의 배열 형식처럼 전역적으로 캐시됩니다.",
+      "Claude Desktop이 열리지 않을 때의 /desktop 오류를 개선했습니다: 이제 이유와 다음에 해야 할 일을 알려줍니다.",
+      "ListPlugins 도구 설명을 개선하여 Claude가 당신의 claude.ai 계정에서 활성화된 플러그인을 나열한다고 인식하도록 했습니다; /plugin으로 로컬에 설치된 플러그인이 아닙니다.",
+      "Claude 앱 게이트웨이 로그아웃을 업데이트하여 토큰 철회를 광고하는 게이트웨이에서 세션도 종료하도록 했습니다.",
+      "[VSCode] 메모리 대화 상자에서 저장된 메모리를 보기, 편집 및 삭제하는 기능을 추가했습니다.",
+      "[VSCode] 텍스트를 입력하지 않고 첨부된 이미지를 전송하는 기능을 추가했습니다.",
+      "[VSCode] 서버 목록 로드 실패 시 MCP 서버 대화 상자에 Retry 링크를 추가했습니다.",
+      "[VSCode] 제안된 변경 사항 차이 탭 아래 각 변경 사항에 수락 및 거부 버튼을 추가하여 편집을 변경 사항별로 검토할 수 있도록 했습니다.",
+      "[VSCode] 권한 카드가 대기 중이고 콘텐츠가 계속 도착하는 동안 전사 내용이 아래로 조금씩 이동하는 문제를 수정했습니다.",
+      "[VSCode] 되감기 및 포크된 대화가 원래 대화에 대해 선택한 권한 모드를 유지하지 않는 문제를 수정했습니다.",
+      "[VSCode] Remote Control이 여전히 연결 중일 때 /remote-control이 무시되는 문제를 수정했습니다: 이제 다시 실행하면 Remote Control이 즉시 꺼집니다."
+    ]
+  },
+  {
+    "version": "2.1.274",
+    "date": "2026-07-28",
+    "commands": [
+      {
+        "name": "/rewind",
+        "context": "fixed",
+        "summary": "Fixed sessions getting stuck endlessly retrying \"unexpected tool_use_id\" 400 err"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed MCP tool calls refused with 403 insufficient_scope being reported as an ex"
+      },
+      {
+        "name": "/goal",
+        "context": "fixed",
+        "summary": "Fixed hook-driven sessions (such as an active `/goal`) ending with \"Prompt is to"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed an active `/goal` being lost when resuming (`--continue` / `--resume`) a s"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed an active `/goal` being lost when resuming (`--continue` / `--resume`) a s"
+      },
+      {
+        "name": "--model",
+        "context": "fixed",
+        "summary": "Fixed `claude agents` losing `--model`, `--effort`, `--permission-mode`, `--allo"
+      },
+      {
+        "name": "--effort",
+        "context": "fixed",
+        "summary": "Fixed `claude agents` losing `--model`, `--effort`, `--permission-mode`, `--allo"
+      },
+      {
+        "name": "--permission-mode",
+        "context": "fixed",
+        "summary": "Fixed `claude agents` losing `--model`, `--effort`, `--permission-mode`, `--allo"
+      },
+      {
+        "name": "--allow-dangerously-skip-permissions",
+        "context": "fixed",
+        "summary": "Fixed `claude agents` losing `--model`, `--effort`, `--permission-mode`, `--allo"
+      },
+      {
+        "name": "--agent",
+        "context": "fixed",
+        "summary": "Fixed `claude agents` losing `--model`, `--effort`, `--permission-mode`, `--allo"
+      },
+      {
+        "name": "/usage-credits",
+        "context": "fixed",
+        "summary": "Fixed error hints in Claude Desktop sessions to suggest slash commands like `/us"
+      },
+      {
+        "name": "/schedule",
+        "context": "fixed",
+        "summary": "Fixed `/schedule` saving a routine's prompt without its message role when Claude"
+      },
+      {
+        "name": "/status",
+        "context": "improved",
+        "summary": "Changed the `/status` GitHub line to read \"Cloud sessions\", and `/web-setup`, `/"
+      },
+      {
+        "name": "/fast on",
+        "context": "fixed",
+        "summary": "Fixed `/fast on` in non-interactive sessions reporting on and then turning off u"
+      },
+      {
+        "name": "/fast",
+        "context": "fixed",
+        "summary": "Fixed `/fast on` in non-interactive sessions reporting on and then turning off u"
+      },
+      {
+        "name": "--strict-mcp-config",
+        "context": "fixed",
+        "summary": "Fixed `--strict-mcp-config` with an empty `--mcp-config` holding the first non-i"
+      },
+      {
+        "name": "--mcp-config",
+        "context": "fixed",
+        "summary": "Fixed `--strict-mcp-config` with an empty `--mcp-config` holding the first non-i"
+      },
+      {
+        "name": "--input-format stream-json",
+        "context": "improved",
+        "summary": "Improved startup in `--input-format stream-json` sessions: the first turn no lon"
+      },
+      {
+        "name": "/login",
+        "context": "improved",
+        "summary": "Improved Claude apps gateway sign-in rate limit errors: `/login` now explains th"
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "Changed `/code-review` to use leaner inline review prompts for every model that "
+      },
+      {
+        "name": "/web-setup",
+        "context": "improved",
+        "summary": "Changed the `/status` GitHub line to read \"Cloud sessions\", and `/web-setup`, `/"
+      },
+      {
+        "name": "/ultrareview",
+        "context": "improved",
+        "summary": "Changed the `/status` GitHub line to read \"Cloud sessions\", and `/web-setup`, `/"
+      },
+      {
+        "name": "/btw",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed a `/btw` side question asked in a new conversation's first second"
+      },
+      {
+        "name": "Shift+E",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Open in New Tab (Ctrl/Cmd+Shift+Esc) sometimes leaving the new ta"
+      }
+    ],
+    "features": [
+      "Added a visible warning when memory usage is critical, with steps to free memory or restart safely",
+      "Added CLAUDE_CODE_MCP_STARTUP_WAIT_MS to bound how long the first non-interactive turn waits for connecting MCP servers (0 = don't wait)",
+      "Added effort attribute to the claude_code.llm_request OpenTelemetry trace span, matching the api_request event",
+      "Added claude_code.managed_settings_resolved OTel event: managed-settings sources and policy helper state; redacted settings and digests with OTEL_LOG_MANAGED_SETTINGS=1",
+      "Added store.connect_timeout_seconds to the Claude apps gateway config to lengthen the Postgres connect timeout (default 5 seconds), and improved the boot error when the database is unreachable to point to store.postgres_url and the configured timeout",
+      "Added enduser.sub, the IdP subject, to the telemetry Claude Desktop and Cowork send through a Claude apps gateway",
+      "Added a Claude apps gateway warning when a replica has more requests open than the 256 it sends upstream at once, and a startup log line showing that limit",
+      "Added click-to-expand for collapsed teammate and agent messages in fullscreen mode",
+      "Fixed sessions getting stuck endlessly retrying \"unexpected tool_use_id\" 400 errors: corrupted transcripts now self-heal where possible, and otherwise a clear error (with a /rewind hint) ends the loop",
+      "Fixed MCP tool calls refused with 403 insufficient_scope being reported as an expired sign-in: the error now names the missing permissions and points to /mcp re-authentication",
+      "Fixed hook-driven sessions (such as an active /goal) ending with \"Prompt is too long\" instead of compacting when the context overflowed again after a reactive compaction",
+      "Fixed an active /goal being lost when resuming (--continue / --resume) a session that had compacted",
+      "Fixed claude agents losing --model, --effort, --permission-mode, --allow-dangerously-skip-permissions and --agent after an auto-update relaunch",
+      "Fixed a local claude -p --resume started with CLAUDE_CODE_RESUME_INTERRUPTED_TURN not reporting background tasks the previous process left unfinished",
+      "Fixed error hints in Claude Desktop sessions to suggest slash commands like /usage-credits instead of CLI flags that cannot be used there",
+      "Fixed /schedule saving a routine's prompt without its message role when Claude writes the routine in the shape that listing routines returns",
+      "Fixed /status not showing the apiKeyHelper failure that its own error banner told you to check",
+      "Fixed /fast on in non-interactive sessions reporting on and then turning off under an organization's managed fast mode policy; it now says the organization has disabled it",
+      "Fixed --strict-mcp-config with an empty --mcp-config holding the first non-interactive turn for up to MCP_TIMEOUT on incidental MCP servers",
+      "Improved startup in --input-format stream-json sessions: the first turn no longer waits up to 2s for still-connecting MCP servers whose tools tool search defers; they arrive on a later turn",
+      "Improved Claude apps gateway sign-in rate limit errors: /login now explains the refusal, and the gateway log says which limit was hit and which setting to change",
+      "Changed /code-review to use leaner inline review prompts for every model that has no tuned settings of its own, instead of spawning many review subagents",
+      "Changed the /status GitHub line to read \"Cloud sessions\", and /web-setup, /ultrareview, and teleport messages to say \"cloud session\" instead of \"Claude Code on the web\"",
+      "[VSCode] Fixed a /btw side question asked in a new conversation's first seconds occasionally showing another session's side-question history",
+      "[VSCode] Fixed Open in New Tab (Ctrl/Cmd+Shift+Esc) sometimes leaving the new tab's message box unfocused, so typing went nowhere until you clicked it"
+    ],
+    "features_ko": [
+      "메모리 사용량이 임계 상태일 때 가시적인 경고를 추가하고, 메모리를 해제하거나 안전하게 재시작하는 단계를 안내합니다.",
+      "CLAUDE_CODE_MCP_STARTUP_WAIT_MS를 추가하여 첫 번째 비대화형 턴이 MCP 서버에 연결하기 위해 대기하는 시간을 제한했습니다 (0 = 대기하지 않음).",
+      "api_request 이벤트와 일치하는 claude_code.llm_request OpenTelemetry 추적 스팬에 effort 속성을 추가했습니다.",
+      "claude_code.managed_settings_resolved OTel 이벤트를 추가했습니다: 관리 설정 소스 및 정책 도우미 상태; OTEL_LOG_MANAGED_SETTINGS=1로 수정된 설정 및 요약.",
+      "Claude 앱 게이트웨이 구성에 store.connect_timeout_seconds를 추가하여 Postgres 연결 타임아웃을 늘리고 (기본 5초), 데이터베이스에 접근할 수 없을 때 부팅 오류를 개선하여 store.postgres_url 및 구성된 타임아웃을 가리키도록 했습니다.",
+      "telemetry Claude Desktop와 Cowork가 Claude apps gateway를 통해 전송하는 IdP 주체인 enduser.sub가 추가되었습니다.",
+      "복제본이 한 번에 256개 이상의 요청을 열고 있을 때 Claude apps gateway 경고가 추가되었으며, 해당 제한을 보여주는 시작 로그 라인이 추가되었습니다.",
+      "전체 화면 모드에서 축소된 팀원 및 에이전트 메시지에 대한 클릭하여 확장 기능이 추가되었습니다.",
+      "\"unexpected tool_use_id\" 400 오류로 인해 세션이 무한히 멈추는 문제를 수정했습니다: 손상된 전사본은 가능한 경우 자동 복구되며, 그렇지 않으면 명확한 오류(및 /rewind 힌트)가 루프를 종료합니다.",
+      "403 insufficient_scope로 거부된 MCP 도구 호출이 만료된 로그인으로 보고되는 문제를 수정했습니다: 이제 오류는 누락된 권한을 명시하고 /mcp 재인증을 가리킵니다.",
+      "후크 기반 세션(예: 활성 /goal)이 반응형 압축 후 컨텍스트가 다시 넘칠 때 \"Prompt is too long\"으로 종료되는 문제를 수정했습니다.",
+      "압축된 세션을 재개할 때 (--continue / --resume) 활성 /goal이 사라지는 문제를 수정했습니다.",
+      "자동 업데이트 재시작 후 claude agents가 --model, --effort, --permission-mode, --allow-dangerously-skip-permissions 및 --agent를 잃는 문제를 수정했습니다.",
+      "CLAUDE_CODE_RESUME_INTERRUPTED_TURN으로 시작된 로컬 claude -p --resume가 이전 프로세스가 남긴 백그라운드 작업을 보고하지 않는 문제를 수정했습니다.",
+      "Claude Desktop 세션에서 오류 힌트를 수정하여 사용할 수 없는 CLI 플래그 대신 /usage-credits와 같은 슬래시 명령을 제안합니다.",
+      "Claude가 루틴을 나열하는 형태로 루틴을 작성할 때 /schedule이 메시지 역할 없이 루틴의 프롬프트를 저장하는 문제를 수정했습니다.",
+      "/status가 자체 오류 배너에서 확인하라고 한 apiKeyHelper 실패를 표시하지 않는 문제를 수정했습니다.",
+      "비대화형 세션에서 /fast가 조직의 관리되는 빠른 모드 정책 하에 켜졌다가 꺼지는 문제를 수정했습니다; 이제 조직이 이를 비활성화했다고 표시합니다.",
+      "빈 --mcp-config가 MCP_TIMEOUT까지 우연한 MCP 서버에서 첫 번째 비대화형 턴을 유지하는 --strict-mcp-config 문제를 수정했습니다.",
+      "--input-format stream-json 세션의 시작을 개선했습니다: 첫 번째 턴은 도구 검색이 연기된 MCP 서버에 대해 최대 2초 기다리지 않으며, 이들은 나중 턴에 도착합니다.",
+      "Claude apps gateway 로그인 속도 제한 오류를 개선했습니다: /login이 거부 사유를 설명하고, 게이트웨이 로그가 어떤 제한이 초과되었는지 및 어떤 설정을 변경해야 하는지 알려줍니다.",
+      "/code-review가 조정된 설정이 없는 모든 모델에 대해 더 간결한 인라인 리뷰 프롬프트를 사용하도록 변경되었습니다; 이제 많은 리뷰 서브 에이전트를 생성하지 않습니다.",
+      "/status GitHub 라인을 \"Cloud sessions\"로 변경하고, /web-setup, /ultrareview 및 텔레포트 메시지를 \"Claude Code on the web\" 대신 \"cloud session\"으로 변경했습니다.",
+      "[VSCode] 새로운 대화의 첫 몇 초에 /btw 사이드 질문이 가끔 다른 세션의 사이드 질문 기록을 보여주는 문제를 수정했습니다.",
+      "[VSCode] Open in New Tab (Ctrl/Cmd+Shift+Esc)가 가끔 새 탭의 메시지 상자를 포커스하지 않아 입력이 아무데도 가지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.273",
     "date": "2026-09-15",
     "commands": [

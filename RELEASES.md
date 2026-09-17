@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-09-16 23:35 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-09-17 23:29 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.275** | 2026-09-17 | `/status`, `ctrl+e`, `ctrl+x`, `ctrl+s`, `/plugin`, `--marketplace`, `--forward-subagent-text`, `/ccmemory`, `--resume`, `/rewind`, `--continue`, `--plugin-dir`, `--plugin-url`, `--drain-wait-sec`, `/update-config`, `--system-prompt`, `/desktop`, `/logout`, `/remote-control` | Added the signed-in account to Claude apps gateway sign-in: when the gateway names it, you confirm it before the credential is saved, and /status shows it / Added a send-now key (ctrl+enter, or ctr... |
+| **v2.1.274** | 2026-07-28 | `/rewind`, `/mcp`, `/goal`, `--continue`, `--resume`, `--model`, `--effort`, `--permission-mode`, `--allow-dangerously-skip-permissions`, `--agent`, `/usage-credits`, `/schedule`, `/status`, `/fast on`, `/fast`, `--strict-mcp-config`, `--mcp-config`, `--input-format stream-json`, `/login`, `/code-review`, `/web-setup`, `/ultrareview`, `/btw`, `Shift+E` | Added a visible warning when memory usage is critical, with steps to free memory or restart safely / Added CLAUDE_CODE_MCP_STARTUP_WAIT_MS to bound how long the first non-interactive turn waits for... |
 | **v2.1.273** | 2026-09-15 | `/mcp`, `/remote-control`, `--remote-control`, `/login`, `/upgrade`, `/extra-usage`, `/tui`, `--output-format stream-json`, `/install-github-app`, `/autofix-pr`, `/web-setup`, `/bug`, `/feedback`, `--add-dir`, `/ultrareview --post`, `/ultrareview` | Added x-claude-code-request-class, x-claude-code-agent-type, x-claude-code-prev-tool-durations, x-claude-code-compaction and x-claude-code-context-compacted request headers for LLM gateways; opt in... |
 | **v2.1.272** | 2026-09-15 | — | Bug fixes and reliability improvements |
 | **v2.1.271** | 2026-09-14 | `/fast`, `/config`, `--drain-marker-file`, `--agents`, `--accept-command <sha256>`, `--json`, `--accept-command`, `/desktop`, `/fast off`, `/mcp`, `Ctrl+O`, `/model`, `/reload-skills`, `/cd`, `/resume`, `/continue`, `/teleport`, `--resume`, `/artifacts`, `/add-dir`, `/hooks`, `Alt+a`, `/mobile`, `/ultrareview` | Added fast mode in Claude Code Remote sessions (cloud and self-hosted runners): the host's fast-mode setting or /fast typed in the session applies where your organization allows it / Added mouse su... |
@@ -82,8 +84,6 @@
 | **v2.1.181** | 2026-06-17 | `/config`, `Ctrl+c`, `Ctrl+C`, `/recap`, `/remote-control`, `/effort`, `/model`, `Ctrl+V`, `/stats`, `/copy` | Added /config key=value syntax to set any setting from the prompt (e.g. /config thinking=false) — works in interactive, -p, and Remote Control / Added sandbox.allowAppleEvents opt-in setting that l... |
 | **v2.1.179** | 2026-06-16 | `Ctrl+O` | Fixed Ctrl+O not showing the subagent's transcript when viewing a subagent |
 | **v2.1.178** | 2026-06-15 | `/doctor`, `/rc`, `/bug`, `ctrl+b`, `--fallback-model`, `/bg` | Agent teams: removed the TeamCreate and TeamDelete tools. With CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 set, every session now has one implicit team — spawn teammates directly with the Agent tool's n... |
-| **v2.1.176** | 2026-06-12 | `/fast`, `/copy`, `/cd`, `/bg` | Session titles are now generated in the language of your conversation (set the language setting to pin a specific language) / Added footerLinksRegexes setting for regex-matched link badges in the f... |
-| **v2.1.175** | 2026-06-12 | — | Added enforceAvailableModels managed setting — when enabled, the availableModels allowlist also constrains the Default model (a Default that would resolve to a disallowed model now falls back to th... |
 
 ---
 
