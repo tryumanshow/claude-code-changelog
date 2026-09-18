@@ -1,5 +1,207 @@
 [
   {
+    "version": "2.1.277",
+    "date": "2026-09-18",
+    "commands": [
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENT"
+      },
+      {
+        "name": "/tasks",
+        "context": "new",
+        "summary": "Added a line saying a background task's update is waiting when it finishes while"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed conversations failing every request with \"text content blocks must be non-"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed a crash (\"Type error\") when opening `/mcp` or `/plugin manage` with a malf"
+      },
+      {
+        "name": "/plugin manage",
+        "context": "fixed",
+        "summary": "Fixed a crash (\"Type error\") when opening `/mcp` or `/plugin manage` with a malf"
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "Improved `/plugin` Installed: an MCP server listed apart from its plugin now sho"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed sessions continued after `/clear` (restart, `--continue`, `--resume`) miss"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed sessions continued after `/clear` (restart, `--continue`, `--resume`) miss"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed the \"copied\" notice not appearing after drag-selecting text in the fullscr"
+      },
+      {
+        "name": "/skills",
+        "context": "fixed",
+        "summary": "Fixed `/plugin` → Installed and `/skills` crashing when a skill or legacy comman"
+      },
+      {
+        "name": "--plugin-url",
+        "context": "fixed",
+        "summary": "Fixed plugin reload previews keeping every previewed copy of a plugin archive un"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed the error after a revoked claude.ai login blaming an expired Anthropic pro"
+      },
+      {
+        "name": "--worktree",
+        "context": "fixed",
+        "summary": "Fixed project skills from the main repository not loading in `--worktree` sessio"
+      },
+      {
+        "name": "/status",
+        "context": "improved",
+        "summary": "Improved the startup notice overflow line under the logo: it now reads \"N more n"
+      },
+      {
+        "name": "/ultrareview",
+        "context": "improved",
+        "summary": "Improved `/ultrareview` when there's nothing to review: messages say which case "
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "Changed Fable to always appear in `/model` on the Anthropic API; it is greyed ou"
+      },
+      {
+        "name": "/logout",
+        "context": "new",
+        "summary": "[VSCode] Added a Sign out row to the panel menu, with `/logout` in the typed com"
+      },
+      {
+        "name": "/copy",
+        "context": "new",
+        "summary": "[VSCode] Added a Copy response button on responses and a typed `/copy`"
+      },
+      {
+        "name": "/hooks",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed the \"General config\" menu row showing `/config` usage text instea"
+      },
+      {
+        "name": "/memory",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed the \"General config\" menu row showing `/config` usage text instea"
+      },
+      {
+        "name": "/rewind",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed the \"General config\" menu row showing `/config` usage text instea"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed the effort slider's level not persisting into later sessions on a"
+      },
+      {
+        "name": "/fast",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed `/fast` not saving fast mode as the default, so it was lost when "
+      }
+    ],
+    "features": [
+      "Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under \"Project instructions\" in /config (not yet on Bedrock, Vertex or Foundry)",
+      "Added CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1 for Claude apps gateways whose only egress is a forward proxy: every outbound request hands the proxy the hostname instead of resolving it locally",
+      "Added an optional headers: map on Claude apps gateway upstreams, to send static headers to a proxy you run in front of a provider",
+      "Added a line saying a background task's update is waiting when it finishes while a panel such as /tasks is open",
+      "Fixed conversations failing every request with \"text content blocks must be non-empty\" when an earlier assistant turn held an empty text block beside other content, including after --resume",
+      "Fixed a crash (\"Type error\") when opening /mcp or /plugin manage with a malformed claudeAiMcpEverConnected value in ~/.claude.json",
+      "Fixed sessions continued after /clear (restart, --continue, --resume) missing part of their first message when a SessionStart hook printed output, causing a full prompt-cache miss",
+      "Fixed the \"copied\" notice not appearing after drag-selecting text in the fullscreen /resume picker and other panels that cover the prompt area",
+      "Fixed /plugin not stripping terminal control characters from messages on the Installed tab, such as the error of a failed plugin update",
+      "Fixed /plugin → Installed and /skills crashing when a skill or legacy command is named like a built-in Object property such as constructor or toString",
+      "Fixed /plugin closing with no message when every install in a multi-select failed",
+      "Fixed uninstalled plugins reappearing as \"failed to load\" rows in /plugin Installed, and Remove not clearing such a row",
+      "Fixed plugin reload previews keeping every previewed copy of a plugin archive unpacked until exit, and overwriting the cached --plugin-url archive a reload falls back to when its download fails",
+      "Fixed the error after a revoked claude.ai login blaming an expired Anthropic profile; it now leads with /login",
+      "Fixed a headless resume (claude -p --resume, the SDK, a VS Code extension window reload) starting the session's cost and usage totals at zero; headless sessions now save their totals at exit",
+      "Fixed project skills from the main repository not loading in --worktree sessions when .claude/skills is untracked",
+      "Improved /plugin Installed: an MCP server listed apart from its plugin now shows which plugin it belongs to",
+      "Improved the startup notice overflow line under the logo: it now reads \"N more notices hidden\" instead of \"+N more · /status\"",
+      "Improved /ultrareview when there's nothing to review: messages say which case you're in, offer a command that reviews your latest commit, and a new repository's first commit is reviewed in full",
+      "Changed Fable to always appear in /model on the Anthropic API; it is greyed out only when your organization's settings disable it",
+      "Changed /ultrareview in non-interactive sessions to refuse when the repository has no base branch or shared history",
+      "[VSCode] Added a Sign out row to the panel menu, with /logout in the typed command menu",
+      "[VSCode] Added background shells and other running tasks to the agent map, each with a Stop, and a typed /tasks that opens it",
+      "[VSCode] Added a Copy response button on responses and a typed /copy",
+      "[VSCode] Added a one-time notice when inactive sessions are archived automatically, and an \"Unarchive all\" action on the Archived sessions group",
+      "[VSCode] Added the session's cost and token usage to the Account & usage dialog and the session manager where plan limits do not apply (Vertex, Bedrock, Foundry, API key)",
+      "[VSCode] Fixed the \"General config\" menu row showing /config usage text instead of opening settings, and made typed /mcp, /hooks, /memory, /rewind and similar commands open their dialogs",
+      "[VSCode] Fixed the effort slider's level not persisting into later sessions on a model that already had a level saved with /effort",
+      "[VSCode] Fixed Auto missing from the mode picker for conversations opened in an already-used panel when the saved model setting is a differently-cased alias such as \"Sonnet\"",
+      "[VSCode] Fixed /fast not saving fast mode as the default, so it was lost when the extension relaunched Claude Code",
+      "[Claude Code on the web] Added Personal and Organization sections to the environment picker on Team and Enterprise plans, and admins can now share a personal environment with the organization",
+      "[Claude Code on the web] Changed organization environments to open as a read-only summary from the Code tab on Team and Enterprise plans, with editing under Admin settings → Cloud environments",
+      "[Claude Code on the web] Fixed a cloud environment saved with Custom network access and no domains silently reverting to Trusted; the dialog now asks for at least one domain"
+    ],
+    "features_ko": [
+      "AGENTS.md 지원 추가: CLAUDE.md가 없는 프로젝트에서 Claude Code는 AGENTS.md를 대신 읽습니다; /config의 \"Project instructions\"에서 변경하세요 (현재 Bedrock, Vertex 또는 Foundry에서는 사용 불가)",
+      "Claude 앱 게이트웨이의 유일한 egress가 포워드 프록시인 경우 CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1 추가: 모든 아웃바운드 요청이 호스트 이름을 프록시에 전달하고 로컬에서 해결하지 않습니다",
+      "Claude 앱 게이트웨이 업스트림에 정적 헤더를 프록시에 전송하기 위한 선택적 headers: 맵 추가",
+      "/tasks와 같은 패널이 열려 있을 때 백그라운드 작업의 업데이트가 대기 중임을 알리는 메시지 추가",
+      "이전 어시스턴트 턴이 다른 콘텐츠 옆에 빈 텍스트 블록을 포함하고 있을 때 \"text content blocks must be non-empty\"로 모든 요청이 실패하는 문제 수정",
+      "~/.claude.json에서 잘못된 claudeAiMcpEverConnected 값으로 /mcp 또는 /plugin 관리 시 \"Type error\"로 크래시 발생하는 문제 수정",
+      "SessionStart 훅이 출력을 인쇄할 때 /clear (재시작, --continue, --resume) 후 세션이 첫 번째 메시지의 일부를 잃는 문제 수정",
+      "전체 화면 /resume 선택기 및 프롬프트 영역을 덮는 다른 패널에서 텍스트를 드래그 선택한 후 \"copied\" 알림이 나타나지 않는 문제 수정",
+      "/plugin에서 Installed 탭의 메시지에서 터미널 제어 문자를 제거하지 않는 문제 수정, 예: 실패한 플러그인 업데이트의 오류",
+      "/plugin → Installed 및 /skills에서 스킬이나 레거시 명령이 constructor 또는 toString과 같은 내장 Object 속성처럼 이름이 지정될 때 크래시 발생하는 문제 수정",
+      "모든 설치가 다중 선택에서 실패할 때 메시지 없이 /plugin이 닫히는 문제 수정",
+      "제거된 플러그인이 /plugin Installed에서 \"failed to load\" 행으로 다시 나타나고, Remove가 그러한 행을 지우지 않는 문제 수정",
+      "플러그인 재로드 미리보기가 종료될 때까지 모든 미리보기 복사본을 압축 해제 상태로 유지하고, 다운로드 실패 시 재로드가 되돌아가는 캐시된 --plugin-url 아카이브를 덮어쓰는 문제 수정",
+      "취소된 claude.ai 로그인 후 만료된 Anthropic 프로필을 탓하는 오류 수정; 이제 /login으로 안내합니다",
+      "헤드리스 재개 (claude -p --resume, SDK, VS Code 확장 창 재로드) 시 세션의 비용 및 사용 총계를 0으로 시작하는 문제 수정; 헤드리스 세션은 종료 시 총계를 저장합니다",
+      ".claude/skills가 추적되지 않을 때 메인 리포지토리의 프로젝트 스킬이 --worktree 세션에서 로드되지 않는 문제 수정",
+      "/plugin Installed 개선: 플러그인과 별도로 나열된 MCP 서버가 어떤 플러그인에 속하는지 표시합니다",
+      "로고 아래의 시작 알림 오버플로우 라인 개선: 이제 \"+N more · /status\" 대신 \"N more notices hidden\"으로 표시됩니다",
+      "검토할 것이 없을 때 /ultrareview 개선: 메시지가 어떤 케이스에 있는지 알려주고, 최신 커밋을 검토하는 명령을 제공하며, 새로운 리포지토리의 첫 커밋이 전체적으로 검토됩니다",
+      "Fable이 Anthropic API의 /model에서 항상 나타나도록 변경; 조직의 설정이 이를 비활성화할 때만 회색으로 표시됩니다",
+      "비대화형 세션에서 /ultrareview가 리포지토리에 기본 브랜치나 공유 이력이 없을 때 거부하도록 변경",
+      "[VSCode] 패널 메뉴에 /logout이 포함된 Sign out 행 추가",
+      "[VSCode] 에이전트 맵에 백그라운드 셸 및 기타 실행 중인 작업 추가, 각 작업에 Stop이 있으며 /tasks를 입력하면 열립니다",
+      "[VSCode] 응답에 Copy response 버튼 추가 및 /copy 입력",
+      "[VSCode] 비활성 세션이 자동으로 아카이브될 때 일회성 알림 추가 및 Archived sessions 그룹에 \"Unarchive all\" 작업 추가",
+      "[VSCode] 계정 및 사용 대화상자와 세션 관리자에 세션의 비용 및 토큰 사용량 추가 (플랜 제한이 적용되지 않는 경우: Vertex, Bedrock, Foundry, API 키)",
+      "[VSCode] \"General config\" 메뉴 행이 설정을 여는 대신 /config 사용 텍스트를 표시하는 문제 수정, 입력된 /mcp, /hooks, /memory, /rewind 및 유사한 명령이 해당 대화상자를 여는 문제 수정",
+      "[VSCode] /effort로 이미 레벨이 저장된 모델에서 노력 슬라이더의 레벨이 이후 세션에 지속되지 않는 문제 수정",
+      "[VSCode] 저장된 모델 설정이 \"Sonnet\"과 같이 대소문자가 다른 별칭일 때 이미 사용된 패널에서 열린 대화의 모드 선택기에서 Auto가 누락되는 문제 수정",
+      "[VSCode] /fast가 기본값으로 빠른 모드를 저장하지 않아 확장 프로그램이 Claude Code를 다시 시작할 때 잃어버리는 문제 수정",
+      "[Claude Code on the web] Team 및 Enterprise 플랜의 환경 선택기에서 개인 및 조직 섹션을 추가했으며, 이제 관리자가 개인 환경을 조직과 공유할 수 있습니다.",
+      "[Claude Code on the web] Team 및 Enterprise 플랜의 Code 탭에서 조직 환경이 읽기 전용 요약으로 열리도록 변경했으며, 편집은 Admin settings → Cloud environments에서 가능합니다.",
+      "[Claude Code on the web] Custom network access로 저장된 클라우드 환경이 도메인 없이 Trusted로 조용히 되돌아가는 문제를 수정했습니다. 이제 대화 상자에서 최소 하나의 도메인을 요청합니다."
+    ]
+  },
+  {
+    "version": "2.1.276",
+    "date": "2026-09-18",
+    "commands": [],
+    "features": [
+      "Fixed every request failing with 400 … Input tag 'advisor_20260301' when ANTHROPIC_BASE_URL points at a proxy or gateway (2.1.275 regression)"
+    ],
+    "features_ko": [
+      "ANTHROPIC_BASE_URL이 프록시 또는 게이트웨이를 가리킬 때 모든 요청이 400 ... Input tag 'advisor_20260301'으로 실패하는 문제를 수정했습니다 (2.1.275 회귀)."
+    ]
+  },
+  {
     "version": "2.1.275",
     "date": "2026-09-17",
     "commands": [
