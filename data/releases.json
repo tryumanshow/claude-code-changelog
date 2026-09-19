@@ -1,5 +1,22 @@
 [
   {
+    "version": "2.1.278",
+    "date": "2026-09-19",
+    "commands": [
+      {
+        "name": "/status",
+        "context": "new",
+        "summary": "Added an `Auto mode server` row to `/status` showing whether this session's auto"
+      }
+    ],
+    "features": [
+      "Added an Auto mode server row to /status showing whether this session's auto mode classifier runs on the server"
+    ],
+    "features_ko": [
+      "/status에 이 세션의 자동 모드 분류기가 서버에서 실행되는지 여부를 보여주는 자동 모드 서버 행이 추가되었습니다."
+    ]
+  },
+  {
     "version": "2.1.277",
     "date": "2026-09-18",
     "commands": [

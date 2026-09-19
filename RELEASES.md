@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-09-18 23:10 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-09-19 22:51 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.278** | 2026-09-19 | `/status` | Added an Auto mode server row to /status showing whether this session's auto mode classifier runs on the server |
 | **v2.1.277** | 2026-09-18 | `/config`, `/tasks`, `--resume`, `/mcp`, `/plugin manage`, `/plugin`, `/clear`, `--continue`, `/resume`, `/skills`, `--plugin-url`, `/login`, `--worktree`, `/status`, `/ultrareview`, `/model`, `/logout`, `/copy`, `/hooks`, `/memory`, `/rewind`, `/effort`, `/fast` | Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under "Project instructions" in /config (not yet on Bedrock, Vertex or Foundry) / Added CLAUD... |
 | **v2.1.276** | 2026-09-18 | — | Fixed every request failing with 400 … Input tag 'advisor_20260301' when ANTHROPIC_BASE_URL points at a proxy or gateway (2.1.275 regression) |
 | **v2.1.275** | 2026-09-17 | `/status`, `ctrl+e`, `ctrl+x`, `ctrl+s`, `/plugin`, `--marketplace`, `--forward-subagent-text`, `/ccmemory`, `--resume`, `/rewind`, `--continue`, `--plugin-dir`, `--plugin-url`, `--drain-wait-sec`, `/update-config`, `--system-prompt`, `/desktop`, `/logout`, `/remote-control` | Added the signed-in account to Claude apps gateway sign-in: when the gateway names it, you confirm it before the credential is saved, and /status shows it / Added a send-now key (ctrl+enter, or ctr... |
@@ -83,7 +84,6 @@
 | **v2.1.186** | 2026-06-22 | `/mcp`, `--no-browser`, `/workflows`, `/plugin`, `/login`, `Ctrl+C`, `--tools`, `--effort`, `/review <pr>`, `/code-review medium`, `/review`, `/code-review` | Added claude mcp login <name> and claude mcp logout <name> to authenticate MCP servers from the CLI without opening the interactive /mcp menu, with --no-browser stdin redirect support for completin... |
 | **v2.1.185** | 2026-06-20 | — | The stream-stall hint now reads "Waiting for API response · will retry in …" instead of "No response from API · Retrying in …", and triggers after 20s of silence instead of 10s |
 | **v2.1.183** | 2026-06-19 | `/config --help`, `/config`, `--help`, `/doctor`, `--debug` | Added a warning when the requested model is deprecated or automatically updated to a newer model, shown on stderr in print mode (-p) and now also covering models set in agent frontmatter / Added at... |
-| **v2.1.181** | 2026-06-17 | `/config`, `Ctrl+c`, `Ctrl+C`, `/recap`, `/remote-control`, `/effort`, `/model`, `Ctrl+V`, `/stats`, `/copy` | Added /config key=value syntax to set any setting from the prompt (e.g. /config thinking=false) — works in interactive, -p, and Remote Control / Added sandbox.allowAppleEvents opt-in setting that l... |
 
 ---
 
