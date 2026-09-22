@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-09-21 23:58 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-09-22 23:33 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.280** | 2026-09-22 | `/skills`, `/plugin`, `/model`, `/effort`, `/config`, `/status`, `/usage`, `/sandbox`, `/permissions`, `/artifacts`, `/mobile`, `/login`, `/upgrade`, `/usage-credits`, `/install-github-app`, `/setup-bedrock`, `/setup-vertex`, `Ctrl+C`, `Ctrl+D`, `/workflows`, `/mcp`, `/memory`, `/compact`, `Ctrl+S`, `/ultrareview`, `/clear`, `--configure-git`, `--retire-at`, `ctrl+l`, `/cost`, `/btw`, `--debug-file`, `--settings`, `/autocompact`, `/fast`, `/chrome`, `/export`, `/plan` | Added Claude Opus 5.5 (claude-opus-5-5), now the default Opus model — 1M context, $4/$20 per Mtok with $0.20/Mtok cache reads / Added mouse support to more lists in fullscreen mode: the wheel scrol... |
 | **v2.1.278** | 2026-09-19 | `/status` | Added an Auto mode server row to /status showing whether this session's auto mode classifier runs on the server |
 | **v2.1.277** | 2026-09-18 | `/config`, `/tasks`, `--resume`, `/mcp`, `/plugin manage`, `/plugin`, `/clear`, `--continue`, `/resume`, `/skills`, `--plugin-url`, `/login`, `--worktree`, `/status`, `/ultrareview`, `/model`, `/logout`, `/copy`, `/hooks`, `/memory`, `/rewind`, `/effort`, `/fast` | Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under "Project instructions" in /config (not yet on Bedrock, Vertex or Foundry) / Added CLAUD... |
 | **v2.1.276** | 2026-09-18 | — | Fixed every request failing with 400 … Input tag 'advisor_20260301' when ANTHROPIC_BASE_URL points at a proxy or gateway (2.1.275 regression) |
@@ -83,7 +84,6 @@
 | **v2.1.187** | 2026-06-23 | `--model`, `/model`, `/config`, `--resume`, `--json-schema`, `/update`, `/bg`, `/tui`, `--bg`, `--background`, `/share`, `Ctrl+C`, `Ctrl+D`, `/install-github-app`, `/btw`, `/plugin` | Added sandbox.credentials setting to block sandboxed commands from reading credential files and secret environment variables / Added org-configured model restrictions to the model picker, --model, ... |
 | **v2.1.186** | 2026-06-22 | `/mcp`, `--no-browser`, `/workflows`, `/plugin`, `/login`, `Ctrl+C`, `--tools`, `--effort`, `/review <pr>`, `/code-review medium`, `/review`, `/code-review` | Added claude mcp login <name> and claude mcp logout <name> to authenticate MCP servers from the CLI without opening the interactive /mcp menu, with --no-browser stdin redirect support for completin... |
 | **v2.1.185** | 2026-06-20 | — | The stream-stall hint now reads "Waiting for API response · will retry in …" instead of "No response from API · Retrying in …", and triggers after 20s of silence instead of 10s |
-| **v2.1.183** | 2026-06-19 | `/config --help`, `/config`, `--help`, `/doctor`, `--debug` | Added a warning when the requested model is deprecated or automatically updated to a newer model, shown on stderr in print mode (-p) and now also covering models set in agent frontmatter / Added at... |
 
 ---
 

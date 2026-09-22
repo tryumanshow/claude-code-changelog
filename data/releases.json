@@ -1,5 +1,303 @@
 [
   {
+    "version": "2.1.280",
+    "date": "2026-09-22",
+    "commands": [
+      {
+        "name": "/skills",
+        "context": "new",
+        "summary": "Added mouse support to more lists in fullscreen mode: the wheel scrolls the `/sk"
+      },
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added mouse support to more lists in fullscreen mode: the wheel scrolls the `/sk"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "/effort",
+        "context": "improved",
+        "summary": "Changed an effort level saved before `/effort` became per-model to no longer app"
+      },
+      {
+        "name": "/config",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "/status",
+        "context": "new",
+        "summary": "[VSCode] Added a Status dialog, with a typed `/status`, showing the session's ve"
+      },
+      {
+        "name": "/usage",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "/sandbox",
+        "context": "new",
+        "summary": "[VSCode] Added a Sandbox dialog for the sandbox mode, the unsandboxed fallback a"
+      },
+      {
+        "name": "/permissions",
+        "context": "improved",
+        "summary": "Improved `/permissions`: focus returns to the rule list after viewing, adding or"
+      },
+      {
+        "name": "/artifacts",
+        "context": "improved",
+        "summary": "Improved the `/artifacts` and `/workflows` lists: a scrollbar at the right edge "
+      },
+      {
+        "name": "/mobile",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "/upgrade",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "/usage-credits",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "/install-github-app",
+        "context": "improved",
+        "summary": "Improved `/install-github-app`: the GitHub CLI check and repository selection st"
+      },
+      {
+        "name": "/setup-bedrock",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "/setup-vertex",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "Ctrl+D",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (`/model`, `/effort`, `/con"
+      },
+      {
+        "name": "/workflows",
+        "context": "improved",
+        "summary": "Improved the `/artifacts` and `/workflows` lists: a scrollbar at the right edge "
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed the search box in `/plugin`, `/skills` and `/mcp` losing its right border "
+      },
+      {
+        "name": "/memory",
+        "context": "fixed",
+        "summary": "Fixed Home and End doing nothing in the `/config` settings list and in selection"
+      },
+      {
+        "name": "/compact",
+        "context": "fixed",
+        "summary": "Fixed a session failing on every turn and `/compact` when its saved history held"
+      },
+      {
+        "name": "Ctrl+S",
+        "context": "fixed",
+        "summary": "Fixed a `!` shell-mode prompt stashed with Ctrl+S coming back as a plain prompt "
+      },
+      {
+        "name": "/ultrareview",
+        "context": "improved",
+        "summary": "Improved `/ultrareview` uploads: renamed copies of key files, such as `id_rsa co"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed the Claude app showing a missing or stale context usage figure for Remote "
+      },
+      {
+        "name": "--configure-git",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Fixed lifecycle-hook commits failing to sign under `--config"
+      },
+      {
+        "name": "--retire-at",
+        "context": "improved",
+        "summary": "Self-hosted runner: Fixed a turn that ended right at a `--retire-at` release los"
+      },
+      {
+        "name": "ctrl+l",
+        "context": "improved",
+        "summary": "Reverted `ctrl+l` / `cmd+k` in fullscreen mode clearing the transcript view (add"
+      },
+      {
+        "name": "/cost",
+        "context": "improved",
+        "summary": "Improved `/cost` cache-miss causes to name thinking mode and thinking display ch"
+      },
+      {
+        "name": "/btw",
+        "context": "improved",
+        "summary": "Improved `/btw` asked while a tool is still running: the side question now knows"
+      },
+      {
+        "name": "--debug-file",
+        "context": "improved",
+        "summary": "Improved the cross-session messaging startup warning to explain that `--debug-fi"
+      },
+      {
+        "name": "--settings",
+        "context": "improved",
+        "summary": "Changed Opus 4.7, Opus 4.8 and Fable 5 to stop holding their launch-default effo"
+      },
+      {
+        "name": "/autocompact",
+        "context": "improved",
+        "summary": "Changed `/autocompact`'s footer hint to name ←/→, the keys that adjust other ord"
+      },
+      {
+        "name": "/fast",
+        "context": "improved",
+        "summary": "Changed `/fast`'s footer to name Space as the toggle key"
+      },
+      {
+        "name": "/chrome",
+        "context": "new",
+        "summary": "[VSCode] Added a Claude in Chrome dialog (extension status, the install, reconne"
+      },
+      {
+        "name": "/export",
+        "context": "new",
+        "summary": "[VSCode] Added Export conversation, with a typed `/export`, to copy or save the "
+      },
+      {
+        "name": "/plan",
+        "context": "new",
+        "summary": "[VSCode] Added a typed `/plan` that switches to plan mode, sends a first plannin"
+      }
+    ],
+    "features": [
+      "Added Claude Opus 5.5 (claude-opus-5-5), now the default Opus model — 1M context, $4/$20 per Mtok with $0.20/Mtok cache reads",
+      "Added mouse support to more lists in fullscreen mode: the wheel scrolls the /skills list, and a skill's state options in /plugin can be clicked",
+      "Added CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH to change the 2,048-character cap on MCP tool descriptions and server instructions for every MCP server in the session",
+      "Added hook output sizes and the number of oversized outputs saved to a file to the hook_execution_complete OpenTelemetry event",
+      "Fixed Ctrl+C or Ctrl+D pressed twice in most dialogs (/model, /effort, /config, /status, /usage, /plugin, /sandbox, /permissions, /artifacts, /mobile, /login, /upgrade, /usage-credits, /install-github-app, /setup-bedrock, /setup-vertex) quitting Claude Code instead of closing the dialog",
+      "Fixed voice dictation not stopping on Ctrl+C (the prompt cleared but the microphone kept recording), Esc not cancelling while a transcript was processing, and held Space starting dictation from the transcript view and vim NORMAL mode",
+      "Fixed skills in ~/.claude/skills/ being moved to ~/.claude/skills/.trash/ when a manifest.json in that folder listed their names",
+      "Fixed /workflows briefly showing a one-row list before opening the only run",
+      "Fixed the mouse wheel not scrolling selection lists with hidden options (such as /model and /permissions) in fullscreen mode",
+      "Fixed a skill you switched off showing the same red ✘ as a plugin that failed to load in /plugin and /skills; off now shows a dim ◯",
+      "Fixed the search box in /plugin, /skills and /mcp losing its right border in fullscreen mode",
+      "Fixed /mcp showing △ in the server list but ⚠ in the detail view for the same server; the list, detail views and /plugin now all show ⚠",
+      "Fixed Home and End doing nothing in the /config settings list and in selection lists such as /model, /memory and permission prompts",
+      "Fixed PgUp/PgDn in the /skills menu wrapping past the first or last skill instead of stopping there",
+      "Fixed Tab silently changing the selected setting's value in the /config list; it now does nothing there",
+      "Fixed a session failing on every turn and /compact when its saved history held a malformed notice about MCP tools that could not be loaded",
+      "Fixed /config crashing and some on/off preferences being misread when a preference that has moved to settings.json still holds a value like null or \"false\" in ~/.claude.json",
+      "Fixed Ctrl+C needing three or four presses to exit while background subagents are running; two presses now exit",
+      "Fixed a ! shell-mode prompt stashed with Ctrl+S coming back as a plain prompt when restored, and / listing file paths right after stashing one",
+      "Fixed /ultrareview reporting a stopped cloud review as completed or as an error to retry, and waiting out the full timeout when its session was deleted or the signed-in account changed",
+      "Fixed the Claude app showing a missing or stale context usage figure for Remote Control and cloud sessions right after /compact or /clear",
+      "Self-hosted runner: Fixed lifecycle-hook commits failing to sign under --configure-git",
+      "Windows: Fixed background cleanup deleting a directory symlink or junction used to relocate ~/.claude/session-env, image-cache or another cleaned-up folder",
+      "Self-hosted runner: Fixed a turn that ended right at a --retire-at release losing its finished signal; the runner now briefly waits for the turn to be reported before stopping the session",
+      "Reverted ctrl+l / cmd+k in fullscreen mode clearing the transcript view (added in 2.1.260); they redraw the screen again",
+      "Improved /permissions: focus returns to the rule list after viewing, adding or deleting a rule, and the delete-rule and remove-directory confirmations now default to No",
+      "Improved /permissions tab navigation: ←/→ and Tab pressed in a rule list now switch tabs without moving focus to the tab bar",
+      "Improved /cost cache-miss causes to name thinking mode and thinking display changes",
+      "Improved /install-github-app: the GitHub CLI check and repository selection steps now show \"Esc to cancel\"",
+      "Improved the /artifacts and /workflows lists: a scrollbar at the right edge shows how much of a long list is hidden and where you are in it",
+      "Improved /plugin's Add Marketplace form in fullscreen: it no longer draws a box inside the pane, and its text and key hints line up with the rest of /plugin",
+      "Improved the /workflows detail view in fullscreen: it no longer draws a second horizontal rule under the pane's divider",
+      "Improved /btw asked while a tool is still running: the side question now knows that call is in progress instead of reading it as a failed one",
+      "Improved /ultrareview uploads: renamed copies of key files, such as id_rsa copy or kubeconfig (1).yaml, now also stay on your machine",
+      "Improved the cross-session messaging startup warning to explain that --debug-file writes a debug log to a path you choose",
+      "Changed an effort level saved before /effort became per-model to no longer apply to newly released models such as Opus 5.5; they start at their default until you pick a level",
+      "Changed Opus 4.7, Opus 4.8 and Fable 5 to stop holding their launch-default effort over /effort in -p or the Agent SDK, a project, managed or --settings effortLevel, or a per-model level",
+      "Changed /autocompact's footer hint to name ←/→, the keys that adjust other ordered values",
+      "Changed /fast's footer to name Space as the toggle key",
+      "Self-hosted runner: Changed git in lifecycle hooks to ignore hook folders and programs named in the runner's shared git files; local-path and git:// remotes there now need GIT_ALLOW_PROTOCOL",
+      "[VSCode] Added a Status dialog, with a typed /status, showing the session's version, account, model and server details",
+      "[VSCode] Added a Sandbox dialog for the sandbox mode, the unsandboxed fallback and excluded commands, opened from the panel menu or by typing /sandbox",
+      "[VSCode] Added a Claude in Chrome dialog (extension status, the install, reconnect and permissions pages, the enabled-by-default setting), opened from the panel menu or by typing /chrome",
+      "[VSCode] Added Export conversation, with a typed /export, to copy or save the conversation as plain text",
+      "[VSCode] Added each skill's source, token estimate and on/off state to the Slash commands dialog, with a click to change the state, and a typed /skills that opens it",
+      "[VSCode] Added a typed /plan that switches to plan mode, sends a first planning prompt, or shows the session's plan",
+      "[VSCode] Improved pasted-text handling in the chat box: a paste over 800 characters or over 2 line breaks is now marked so Claude can tell it from what you typed",
+      "[VSCode] Improved prompt handling in the chat box: invisible Unicode formatting and tag characters are removed from pasted text with a notice, and from anything else before it is sent",
+      "[VSCode] Changed \"Open in New Tab\" to open Claude beside the editor group you are working in rather than after the last group"
+    ],
+    "features_ko": [
+      "Claude Opus 5.5 (claude-opus-5-5)을 추가했으며, 이제 기본 Opus 모델입니다 — 1M 컨텍스트, Mtok당 $4/$20, 캐시 읽기는 $0.20/Mtok입니다.",
+      "전체 화면 모드에서 더 많은 목록에 마우스 지원을 추가했습니다: 휠로 /skills 목록을 스크롤할 수 있으며, /plugin에서 기술의 상태 옵션을 클릭할 수 있습니다.",
+      "모든 MCP 서버의 세션에서 MCP 도구 설명 및 서버 지침의 2,048자 제한을 변경하기 위해 CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH를 추가했습니다.",
+      "hook_execution_complete OpenTelemetry 이벤트에 후크 출력 크기와 저장된 과도한 출력 수를 추가했습니다.",
+      "대부분의 대화상자에서 Ctrl+C 또는 Ctrl+D를 두 번 눌렀을 때 대화상자가 닫히는 대신 Claude Code가 종료되는 문제를 수정했습니다 (/model, /effort, /config, /status, /usage, /plugin, /sandbox, /permissions, /artifacts, /mobile, /login, /upgrade, /usage-credits, /install-github-app, /setup-bedrock, /setup-vertex).",
+      "Ctrl+C에서 음성 받아쓰기가 멈추지 않는 문제(프롬프트는 지워지지만 마이크가 계속 녹음됨), Esc가 전사 처리 중 취소되지 않는 문제, Space를 누르고 있으면 전사 보기 및 vim NORMAL 모드에서 받아쓰기가 시작되는 문제를 수정했습니다.",
+      "~/.claude/skills/에 있는 기술이 해당 폴더의 manifest.json에 이름이 나열되면 ~/.claude/skills/.trash/로 이동되는 문제를 수정했습니다.",
+      "/workflows에서 유일한 실행을 열기 전에 한 줄 목록이 잠깐 표시되는 문제를 수정했습니다.",
+      "전체 화면 모드에서 숨겨진 옵션이 있는 선택 목록(/model 및 /permissions 등)을 마우스 휠로 스크롤할 수 없는 문제를 수정했습니다.",
+      "꺼진 기술이 /plugin 및 /skills에서 로드에 실패한 플러그인과 동일한 빨간 ✘를 표시하는 문제를 수정했습니다; 꺼진 상태는 이제 흐릿한 ◯로 표시됩니다.",
+      "전체 화면 모드에서 /plugin, /skills 및 /mcp의 검색 상자가 오른쪽 경계를 잃는 문제를 수정했습니다.",
+      "/mcp가 서버 목록에서 △를 표시하지만 세부 보기에서는 동일한 서버에 대해 ⚠를 표시하는 문제를 수정했습니다; 목록, 세부 보기 및 /plugin은 이제 모두 ⚠를 표시합니다.",
+      "/config 설정 목록과 /model, /memory 및 권한 프롬프트와 같은 선택 목록에서 Home 및 End가 아무런 작동을 하지 않는 문제를 수정했습니다.",
+      "/skills 메뉴에서 PgUp/PgDn이 첫 번째 또는 마지막 기술을 넘어 감싸지 않고 그 자리에서 멈추는 문제를 수정했습니다.",
+      "/config 목록에서 Tab이 선택된 설정의 값을 조용히 변경하는 문제를 수정했습니다; 이제 그곳에서는 아무런 작동을 하지 않습니다.",
+      "저장된 기록이 로드할 수 없는 MCP 도구에 대한 잘못된 알림을 포함할 때 세션이 매 턴마다 실패하고 /compact가 작동하는 문제를 수정했습니다.",
+      "/config가 충돌하고 설정이 settings.json으로 이동했지만 ~/.claude.json에서 null 또는 \"false\"와 같은 값을 여전히 보유할 때 일부 on/off 기본 설정이 잘못 읽히는 문제를 수정했습니다.",
+      "백그라운드 서브 에이전트가 실행 중일 때 Ctrl+C를 세 번 또는 네 번 눌러야 종료되는 문제를 수정했습니다; 이제 두 번 누르면 종료됩니다.",
+      "Ctrl+S로 저장된 ! 셸 모드 프롬프트가 복원될 때 일반 프롬프트로 돌아오는 문제와, 하나를 저장한 직후에 /가 파일 경로를 나열하는 문제를 수정했습니다.",
+      "/ultrareview가 중지된 클라우드 리뷰를 완료되었거나 재시도할 오류로 보고하고, 세션이 삭제되거나 로그인한 계정이 변경될 때 전체 타임아웃을 기다리는 문제를 수정했습니다.",
+      "Claude 앱이 /compact 또는 /clear 직후 Remote Control 및 클라우드 세션에 대한 누락되거나 오래된 컨텍스트 사용 수치를 표시하는 문제를 수정했습니다.",
+      "자체 호스팅된 러너: --configure-git에서 생명 주기 후크 커밋 서명이 실패하는 문제를 수정했습니다.",
+      "Windows: 백그라운드 정리에서 ~/.claude/session-env, image-cache 또는 다른 정리된 폴더를 재배치하는 데 사용된 디렉터리 심볼릭 링크 또는 정션을 삭제하는 문제를 수정했습니다.",
+      "자체 호스팅된 러너: --retire-at 릴리스 직후에 종료된 턴이 완료 신호를 잃는 문제를 수정했습니다; 이제 러너는 세션을 중지하기 전에 턴이 보고될 때 잠시 기다립니다.",
+      "전체 화면 모드에서 ctrl+l / cmd+k가 전사 보기를 지우는 것을 되돌렸습니다(2.1.260에서 추가됨); 이제 화면을 다시 그립니다.",
+      "/permissions 개선: 규칙을 보고, 추가하거나 삭제한 후 규칙 목록으로 포커스가 돌아오며, delete-rule 및 remove-directory 확인은 이제 기본값이 No입니다.",
+      "/permissions 탭 탐색 개선: 규칙 목록에서 ←/→ 및 Tab을 누르면 포커스가 탭 바로 이동하지 않고 탭이 전환됩니다.",
+      "/cost 캐시 미스 원인을 사고 모드 및 사고 표시 변경으로 이름을 개선했습니다.",
+      "/install-github-app 개선: GitHub CLI 확인 및 리포지토리 선택 단계에서 이제 \"Esc to cancel\"을 표시합니다.",
+      "/artifacts 및 /workflows 목록 개선: 오른쪽 가장자리에 스크롤바가 긴 목록에서 얼마나 많은 항목이 숨겨져 있는지와 현재 위치를 보여줍니다.",
+      "전체 화면에서 /plugin의 Add Marketplace 양식을 개선했습니다: 이제 패널 안에 박스를 그리지 않으며, 텍스트와 키 힌트가 /plugin의 나머지 부분과 정렬됩니다.",
+      "전체 화면에서 /workflows 세부 보기 개선: 이제 패널 구분선 아래에 두 번째 수평 규칙을 그리지 않습니다.",
+      "도구가 여전히 실행 중일 때 /btw를 개선했습니다: 이제 사이드 질문이 호출이 진행 중임을 인식합니다.",
+      "/ultrareview 업로드를 개선했습니다: id_rsa copy 또는 kubeconfig (1).yaml과 같은 주요 파일의 복사본이 이제 귀하의 머신에 남아 있습니다.",
+      "교차 세션 메시징 시작 경고를 개선하여 --debug-file이 선택한 경로에 디버그 로그를 기록한다고 설명했습니다.",
+      "/effort가 모델별로 변경되기 전에 저장된 노력 수준이 Opus 5.5와 같은 새로 출시된 모델에 더 이상 적용되지 않도록 변경했습니다; 이들은 수준을 선택할 때까지 기본값으로 시작합니다.",
+      "Opus 4.7, Opus 4.8 및 Fable 5가 -p 또는 Agent SDK, 프로젝트, 관리된 또는 --settings effortLevel, 또는 모델별 수준에서 출시 기본 노력을 유지하지 않도록 변경했습니다.",
+      "/autocompact의 바닥글 힌트를 ←/→로 변경하여 다른 정렬된 값을 조정하는 키를 명명했습니다.",
+      "/fast의 바닥글을 Space를 토글 키로 명명하도록 변경했습니다.",
+      "자체 호스팅 러너: 라이프사이클 훅에서 git을 변경하여 훅 폴더와 러너의 공유 git 파일에 명시된 프로그램을 무시하도록 했습니다; 이제 local-path 및 git:// 원격은 GIT_ALLOW_PROTOCOL이 필요합니다.",
+      "[VSCode] 세션의 버전, 계정, 모델 및 서버 세부 정보를 보여주는 /status를 입력하여 상태 대화 상자를 추가했습니다.",
+      "[VSCode] 패널 메뉴에서 열거나 /sandbox를 입력하여 샌드박스 모드, 비샌드박스 대체 및 제외된 명령을 위한 샌드박스 대화 상자를 추가했습니다.",
+      "[VSCode] 패널 메뉴에서 열거나 /chrome을 입력하여 Claude in Chrome 대화 상자(확장 상태, 설치, 재연결 및 권한 페이지, 기본적으로 활성화된 설정)를 추가했습니다.",
+      "[VSCode] 대화 내용을 일반 텍스트로 복사하거나 저장하기 위한 /export를 입력하여 대화 내보내기를 추가했습니다.",
+      "[VSCode] Slash commands 대화 상자에 각 기술의 출처, 토큰 추정 및 켜기/끄기 상태를 추가하고 상태를 변경하는 클릭과 /skills를 입력하여 열 수 있도록 했습니다.",
+      "[VSCode] 계획 모드로 전환하고 첫 번째 계획 프롬프트를 보내거나 세션의 계획을 표시하는 /plan을 입력하여 추가했습니다.",
+      "[VSCode] 채팅 상자에서 붙여넣기된 텍스트 처리 개선: 800자 이상 또는 2줄 이상의 줄 바꿈이 있는 붙여넣기는 이제 Claude가 입력한 내용과 구분할 수 있도록 표시됩니다.",
+      "[VSCode] 채팅 상자에서 프롬프트 처리 개선: 보이지 않는 유니코드 형식 및 태그 문자가 붙여넣기된 텍스트에서 제거되며, 전송되기 전에 다른 모든 것에서도 제거됩니다.",
+      "[VSCode] \"Open in New Tab\"을 변경하여 마지막 그룹 뒤가 아닌 현재 작업 중인 편집기 그룹 옆에 Claude를 열도록 했습니다."
+    ]
+  },
+  {
     "version": "2.1.278",
     "date": "2026-09-19",
     "commands": [
