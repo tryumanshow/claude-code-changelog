@@ -1,5 +1,200 @@
 [
   {
+    "version": "2.1.282",
+    "date": "2026-09-24",
+    "commands": [
+      {
+        "name": "/status",
+        "context": "new",
+        "summary": "Added a startup notice, and `/status` and `claude doctor` entries, listing telem"
+      },
+      {
+        "name": "--chrome",
+        "context": "new",
+        "summary": "Added the `allowClaudeInChromeWithManagedMcp` managed setting to let `claude --c"
+      },
+      {
+        "name": "/readyz",
+        "context": "new",
+        "summary": "Added `store.readiness_grace_seconds` to the Claude apps gateway so `/readyz` ca"
+      },
+      {
+        "name": "/feedback",
+        "context": "new",
+        "summary": "Added a scrollbar to the `/feedback` drafts list in fullscreen mode; it appears "
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed more cases of continued or resumed sessions (`--continue`, `--resume`) re-"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed more cases of continued or resumed sessions (`--continue`, `--resume`) re-"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed earlier extended thinking being dropped when `/model`, `/rename`, `/artifa"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed earlier extended thinking being dropped when `/model`, `/rename`, `/artifa"
+      },
+      {
+        "name": "/artifacts",
+        "context": "improved",
+        "summary": "Improved `/artifacts`: titles line up in one column, details are dropped whole i"
+      },
+      {
+        "name": "--tools",
+        "context": "fixed",
+        "summary": "Fixed continued or resumed conversations losing earlier extended thinking when r"
+      },
+      {
+        "name": "/Network",
+        "context": "fixed",
+        "summary": "Fixed CLAUDE.md and rules being read at startup through a repository symlink rea"
+      },
+      {
+        "name": "--allowedTools",
+        "context": "fixed",
+        "summary": "Fixed Bash permission rules with a mid-pattern `:*` being skipped in settings fi"
+      },
+      {
+        "name": "--add-dir",
+        "context": "fixed",
+        "summary": "Fixed repository, user and `--add-dir` skills, commands and skills-directory plu"
+      },
+      {
+        "name": "ctrl+e",
+        "context": "fixed",
+        "summary": "Fixed the send-now hint showing ctrl+enter on terminals that send it as a newlin"
+      },
+      {
+        "name": "ctrl+x",
+        "context": "fixed",
+        "summary": "Fixed the send-now hint showing ctrl+enter on terminals that send it as a newlin"
+      },
+      {
+        "name": "ctrl+s",
+        "context": "fixed",
+        "summary": "Fixed the send-now hint showing ctrl+enter on terminals that send it as a newlin"
+      },
+      {
+        "name": "--debug",
+        "context": "fixed",
+        "summary": "Fixed `claude remote-control --debug` failing with \"Unknown argument: --debug\", "
+      },
+      {
+        "name": "/install-github-app",
+        "context": "fixed",
+        "summary": "Fixed `/install-github-app` saying \"cancelled\" and then still pushing the branch"
+      },
+      {
+        "name": "/bug",
+        "context": "fixed",
+        "summary": "Fixed /feedback, /bug and /share on Bedrock, Vertex and other third-party provid"
+      },
+      {
+        "name": "/share",
+        "context": "fixed",
+        "summary": "Fixed /feedback, /bug and /share on Bedrock, Vertex and other third-party provid"
+      },
+      {
+        "name": "/skills",
+        "context": "fixed",
+        "summary": "Fixed a key typed right after `/` in `/skills` moving the skill list instead of "
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed lists with a scrollbar, such as `/skills` and `/mcp`, being two columns na"
+      },
+      {
+        "name": "/tasks",
+        "context": "fixed",
+        "summary": "Fixed a doubled ` · ` separator in the `/tasks` dialog footer when the stop-all-"
+      },
+      {
+        "name": "--settings",
+        "context": "improved",
+        "summary": "Changed `sandbox.excludedCommands` to ignore project and local settings entries "
+      },
+      {
+        "name": "/effort",
+        "context": "improved",
+        "summary": "Changed the `ultracode` visuals in `/effort` and the prompt input to plain styli"
+      }
+    ],
+    "features": [
+      "Added a maxProseWidth setting that caps the width of Claude's prose in wide terminals while tables and code blocks keep the full width",
+      "Added a startup notice, and /status and claude doctor entries, listing telemetry variables in a project's settings files that were ignored or that turned telemetry off",
+      "Added the allowClaudeInChromeWithManagedMcp managed setting to let claude --chrome run alongside an exclusive managed-mcp.json; the error shown when Chrome is blocked now names it",
+      "Added store.readiness_grace_seconds to the Claude apps gateway so /readyz can stay ready through a short Postgres outage such as a database failover",
+      "Added a scrollbar to the /feedback drafts list in fullscreen mode; it appears while the mouse is over the list",
+      "Fixed more cases of continued or resumed sessions (--continue, --resume) re-sending earlier messages in a changed form, which could make the API drop Claude's earlier reasoning",
+      "Fixed earlier extended thinking being dropped when /model, /rename, /artifacts or another immediate slash command was used while Claude was working",
+      "Fixed continued or resumed conversations losing earlier extended thinking when relaunched with a --tools list that leaves out a built-in tool offered earlier in the conversation",
+      "Fixed /model with a full Fable model id stopping at an API error instead of opening the usage-credits prompt when the plan needs usage credits that aren't turned on yet",
+      "Fixed CLAUDE.md and rules being read at startup through a repository symlink reaching macOS's /Network via .. or a /.vol-style kernel path, or a rules link to macOS's /home being listed",
+      "Fixed Bash permission rules with a mid-pattern :* being skipped in settings files while --allowedTools honored them; they now work from every source, with a startup warning on how they match",
+      "Fixed repository, user and --add-dir skills, commands and skills-directory plugin manifests pre-approving their own tools via allowed-tools under managed allowManagedPermissionRulesOnly",
+      "Vertex AI: Fixed web search not being offered for models Claude Code doesn't recognize yet, such as newly released ones",
+      "Fixed the send-now hint showing ctrl+enter on terminals that send it as a newline (Windows Terminal before 1.25); it now shows ctrl+x ctrl+s there",
+      "Fixed claude remote-control --debug failing with \"Unknown argument: --debug\", although Remote Control's own eligibility error says to run with --debug",
+      "Fixed /install-github-app saying \"cancelled\" and then still pushing the branch and saving the API key secret; leaving now stops the remaining steps and reports what was already done",
+      "Fixed /feedback, /bug and /share on Bedrock, Vertex and other third-party providers still saving the report file after you cancelled during the save",
+      "Fixed a key typed right after / in /skills moving the skill list instead of reaching the search box",
+      "Fixed the terminal cursor jumping from the /skills search box to the skill list while typing, which could hide the caret and put IME input in the wrong place",
+      "Fixed lists with a scrollbar, such as /skills and /mcp, being two columns narrower outside fullscreen mode, where the scrollbar can never appear",
+      "Fixed a doubled  ·  separator in the /tasks dialog footer when the stop-all-agents shortcut is unbound in keybindings.json",
+      "Improved /artifacts: titles line up in one column, details are dropped whole instead of cut mid-word, and the list supports PgUp/PgDn, Home/End, the mouse wheel and clicks",
+      "Updated the claude-api skill: pre-output refusal billing now links to the How refusals are billed docs, mid-stream refusals bill at normal rates, and pre-output refusals count against rate limits",
+      "Updated the claude-api skill to recommend ant apply for keeping Managed Agents resources as version-controlled files",
+      "Changed sandbox.excludedCommands to ignore project and local settings entries when managed settings or --settings set allowUnsandboxedCommands: false, or managed allowManagedDomainsOnly: true",
+      "Changed the ultracode visuals in /effort and the prompt input to plain styling (no ripple, border flourish or keyword glimmer) and removed the dynamic-workflows spinner tip",
+      "[VSCode] Fixed long replies falling behind the stream: the panel no longer re-parses the whole reply on every update",
+      "[VSCode] Fixed the dictation mic button covering the message input's scrollbar when the input is tall enough to scroll",
+      "[VSCode] Fixed Remote Control sessions started on this computer not opening from their Web entry in the session list; they now open the local conversation unless it's running elsewhere",
+      "[VSCode] Fixed an editor tab's sign-in screen hanging silently after the extension host restarts; it now shows the \"stopped responding\" notice too"
+    ],
+    "features_ko": [
+      "Claude의 산문 너비를 넓은 터미널에서 제한하는 maxProseWidth 설정을 추가했습니다. 테이블과 코드 블록은 전체 너비를 유지합니다.",
+      "시작 알림과 함께 /status 및 claude doctor 항목을 추가하여 프로젝트의 설정 파일에서 무시되었거나 텔레메트리를 끈 텔레메트리 변수를 나열합니다.",
+      "claude --chrome이 독점적으로 managed-mcp.json과 함께 실행될 수 있도록 allowClaudeInChromeWithManagedMcp 관리 설정을 추가했습니다. Chrome이 차단될 때 표시되는 오류 메시지에 이름이 포함됩니다.",
+      "/readyz가 데이터베이스 장애 조치와 같은 짧은 Postgres 중단 동안 준비 상태를 유지할 수 있도록 Claude 앱 게이트웨이에 store.readiness_grace_seconds를 추가했습니다.",
+      "전체 화면 모드의 /feedback 초안 목록에 스크롤바를 추가했습니다. 마우스가 목록 위에 있을 때 나타납니다.",
+      "계속되거나 재개된 세션(--continue, --resume)에서 이전 메시지를 변경된 형태로 다시 보내는 경우를 더 수정했습니다. 이로 인해 API가 Claude의 이전 추론을 무시할 수 있습니다.",
+      "Claude가 작업 중일 때 /model, /rename, /artifacts 또는 다른 즉각적인 슬래시 명령을 사용할 때 이전의 확장된 사고가 삭제되는 문제를 수정했습니다.",
+      "--tools 목록으로 재시작할 때 대화가 계속되거나 재개되면서 이전의 확장된 사고가 사라지는 문제를 수정했습니다. 이 목록에는 대화 중에 제공된 내장 도구가 제외됩니다.",
+      "전체 Fable 모델 ID로 /model을 사용할 때 계획에 필요한 사용 크레딧이 아직 활성화되지 않은 경우 API 오류로 멈추는 문제를 수정했습니다. 이제 사용 크레딧 프롬프트가 열립니다.",
+      "CLAUDE.md와 규칙이 시작 시 macOS의 /Network에 도달하는 리포지토리 심볼릭 링크를 통해 읽히는 문제를 수정했습니다. .. 또는 /.vol 스타일 커널 경로 또는 macOS의 /home에 대한 규칙 링크가 나열됩니다.",
+      "--allowedTools가 Bash 권한 규칙을 존중하는 동안 중간 패턴 :*가 설정 파일에서 건너뛰어지는 문제를 수정했습니다. 이제 모든 소스에서 작동하며 일치하는 방법에 대한 시작 경고가 표시됩니다.",
+      "리포지토리, 사용자 및 --add-dir 기술, 명령 및 skills-directory 플러그인 매니페스트가 managed allowManagedPermissionRulesOnly 하의 allowed-tools를 통해 자신의 도구를 사전 승인하는 문제를 수정했습니다.",
+      "Vertex AI: Claude Code가 아직 인식하지 못하는 모델(예: 새로 출시된 모델)에 대해 웹 검색이 제공되지 않는 문제를 수정했습니다.",
+      "send-now 힌트가 ctrl+enter를 표시하여 이를 줄 바꿈으로 보내는 터미널(Windows Terminal 1.25 이전)에서 수정했습니다. 이제 해당 위치에서 ctrl+x ctrl+s를 표시합니다.",
+      "claude remote-control --debug가 \"Unknown argument: --debug\"로 실패하는 문제를 수정했습니다. 그러나 Remote Control의 자체 적격성 오류는 --debug로 실행하라고 안내합니다.",
+      "/install-github-app이 \"취소됨\"이라고 표시한 후에도 브랜치를 푸시하고 API 키 비밀을 저장하는 문제를 수정했습니다. 이제 나가면 남은 단계를 중지하고 이미 수행된 내용을 보고합니다.",
+      "/feedback, /bug 및 /share가 Bedrock, Vertex 및 기타 제3자 제공업체에서 저장 중 취소한 후에도 보고서 파일을 저장하는 문제를 수정했습니다.",
+      "/skills에서 / 바로 뒤에 입력된 키가 검색 상자에 도달하는 대신 기술 목록을 이동하는 문제를 수정했습니다.",
+      "입력 중에 터미널 커서가 /skills 검색 상자에서 기술 목록으로 점프하여 커서를 숨기고 IME 입력이 잘못된 위치에 놓이는 문제를 수정했습니다.",
+      "/skills 및 /mcp와 같은 스크롤바가 있는 목록이 전체 화면 모드 외부에서 두 열 더 좁아지는 문제를 수정했습니다. 이곳에서는 스크롤바가 나타날 수 없습니다.",
+      "keybindings.json에서 stop-all-agents 단축키가 바인딩되지 않았을 때 /tasks 대화 상자 바닥에 중복된 · 구분자가 나타나는 문제를 수정했습니다.",
+      "/artifacts를 개선했습니다: 제목이 한 열에 정렬되고, 세부 정보가 중간 단어에서 잘리지 않고 전체로 떨어지며, 목록이 PgUp/PgDn, Home/End, 마우스 휠 및 클릭을 지원합니다.",
+      "claude-api 기술을 업데이트했습니다: 사전 출력 거부 청구가 이제 How refusals are billed 문서에 링크되며, 중간 스트림 거부는 정상 요금으로 청구되고, 사전 출력 거부는 요금 한도에 포함됩니다.",
+      "claude-api 기술을 업데이트하여 Managed Agents 리소스를 버전 관리 파일로 유지하기 위해 ant apply를 추천합니다.",
+      "sandbox.excludedCommands를 변경하여 관리 설정이나 --settings가 allowUnsandboxedCommands: false 또는 managed allowManagedDomainsOnly: true로 설정될 때 프로젝트 및 로컬 설정 항목을 무시하도록 했습니다.",
+      "/effort의 ultracode 시각 효과와 프롬프트 입력을 일반 스타일(리플, 테두리 장식 또는 키워드 반짝임 없음)로 변경하고 동적 워크플로우 스피너 팁을 제거했습니다.",
+      "[VSCode] 긴 응답이 스트림 뒤로 밀리는 문제를 수정했습니다: 패널이 더 이상 매 업데이트마다 전체 응답을 다시 파싱하지 않습니다.",
+      "[VSCode] 입력이 스크롤할 만큼 충분히 높을 때 음성 인식 마이크 버튼이 메시지 입력의 스크롤바를 가리는 문제를 수정했습니다.",
+      "[VSCode] 이 컴퓨터에서 시작된 Remote Control 세션이 세션 목록의 웹 항목에서 열리지 않는 문제를 수정했습니다. 이제 다른 곳에서 실행되지 않는 한 로컬 대화가 열립니다.",
+      "[VSCode] 확장 호스트가 재시작된 후 편집기 탭의 로그인 화면이 조용히 멈추는 문제를 수정했습니다. 이제 \"응답하지 않음\" 알림도 표시됩니다."
+    ]
+  },
+  {
     "version": "2.1.281",
     "date": "2026-07-28",
     "commands": [
