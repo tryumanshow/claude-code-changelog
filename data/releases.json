@@ -1,5 +1,286 @@
 [
   {
+    "version": "2.1.285",
+    "date": "2026-09-29",
+    "commands": [
+      {
+        "name": "--continue",
+        "context": "new",
+        "summary": "Added `claude --desktop` to open the Claude desktop app on the current directory"
+      },
+      {
+        "name": "--resume <id>",
+        "context": "new",
+        "summary": "Added `claude --desktop` to open the Claude desktop app on the current directory"
+      },
+      {
+        "name": "--desktop",
+        "context": "new",
+        "summary": "Added `claude --desktop` to open the Claude desktop app on the current directory"
+      },
+      {
+        "name": "--resume",
+        "context": "new",
+        "summary": "Added `claude --desktop` to open the Claude desktop app on the current directory"
+      },
+      {
+        "name": "--values-stdin",
+        "context": "new",
+        "summary": "Added `claude plugin configure <plugin>` to show a plugin's options and which ar"
+      },
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added `<server>.<key>=<value>` to `claude plugin install --config`, so a bundled"
+      },
+      {
+        "name": "--config",
+        "context": "new",
+        "summary": "Added `<server>.<key>=<value>` to `claude plugin install --config`, so a bundled"
+      },
+      {
+        "name": "/teleport",
+        "context": "fixed",
+        "summary": "Fixed SSH passphrase and new-host prompts from worktree and `/teleport` fetches "
+      },
+      {
+        "name": "/chrome",
+        "context": "fixed",
+        "summary": "Fixed `claude remote-control --help` saying `--[no-]chrome` defaults to the mach"
+      },
+      {
+        "name": "--chrome",
+        "context": "fixed",
+        "summary": "Fixed `claude remote-control --help` saying `--[no-]chrome` defaults to the mach"
+      },
+      {
+        "name": "/remote-env",
+        "context": "fixed",
+        "summary": "Fixed cloud session creation and `/remote-env` reading only the newest 20 of an "
+      },
+      {
+        "name": "ctrl+o",
+        "context": "improved",
+        "summary": "Improved responsiveness when leaving the ctrl+o transcript view in long sessions"
+      },
+      {
+        "name": "/autofix-pr",
+        "context": "fixed",
+        "summary": "Fixed `/autofix-pr` and `/schedule` saying the Claude GitHub App is not installe"
+      },
+      {
+        "name": "/schedule",
+        "context": "fixed",
+        "summary": "Fixed `/autofix-pr` and `/schedule` saying the Claude GitHub App is not installe"
+      },
+      {
+        "name": "/artifacts",
+        "context": "fixed",
+        "summary": "Fixed dismissing a row (x) in `/artifacts` unlinking its file from the artifact,"
+      },
+      {
+        "name": "--add-dir",
+        "context": "fixed",
+        "summary": "Fixed an `Artifact` allow rule (\"don't ask again\") letting the Artifact tool pub"
+      },
+      {
+        "name": "/cost",
+        "context": "fixed",
+        "summary": "Fixed `/cost` and SDK `modelUsage` reporting a turn under the wrong model when t"
+      },
+      {
+        "name": "/ultrareview",
+        "context": "improved",
+        "summary": "Changed Code Review's pull request reviews and `/ultrareview` to run when `disab"
+      },
+      {
+        "name": "Ctrl+G",
+        "context": "fixed",
+        "summary": "Fixed vim mode: after editing in the external editor (Ctrl+G), `x` or `r` in NOR"
+      },
+      {
+        "name": "--max-turns",
+        "context": "fixed",
+        "summary": "Fixed `CLAUDE_CODE_RESUME_INTERRUPTED_TURN` re-running a turn that had ended at "
+      },
+      {
+        "name": "/claude-api",
+        "context": "improved",
+        "summary": "Changed `/claude-api` so it can no longer be run from Remote Control clients"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed a brief freeze (up to a second) partway through long sessions outside full"
+      },
+      {
+        "name": "/compact",
+        "context": "fixed",
+        "summary": "Fixed a brief freeze (up to a second) partway through long sessions outside full"
+      },
+      {
+        "name": "/btw",
+        "context": "improved",
+        "summary": "Improved Remote Control: a `/btw` side question asked of a session hosted by an "
+      },
+      {
+        "name": "/resume",
+        "context": "improved",
+        "summary": "Improved `/resume` and `claude --resume` on a session that is running in the bac"
+      },
+      {
+        "name": "--mcp-config",
+        "context": "improved",
+        "summary": "Changed MCP tools so a tool that sets its own `_meta['anthropic/alwaysLoad']` to"
+      },
+      {
+        "name": "/autocompact 200k",
+        "context": "improved",
+        "summary": "Changed sessions behind a custom `ANTHROPIC_BASE_URL` to use the 1M context wind"
+      },
+      {
+        "name": "/autocompact",
+        "context": "improved",
+        "summary": "Changed sessions behind a custom `ANTHROPIC_BASE_URL` to use the 1M context wind"
+      },
+      {
+        "name": "/memory",
+        "context": "improved",
+        "summary": "Changed /memory so that Auto-memory can no longer be turned on from a background"
+      },
+      {
+        "name": "--permission-mode",
+        "context": "improved",
+        "summary": "Changed `claude -p` and Python Agent SDK sessions on third-party providers or wi"
+      },
+      {
+        "name": "/tasks",
+        "context": "improved",
+        "summary": "Changed `/tasks` to fold background work Claude Code runs for itself under one \""
+      },
+      {
+        "name": "--separate-git-dir",
+        "context": "improved",
+        "summary": "Changed `/ultrareview` on macOS and Linux to require git 2.31 or newer to upload"
+      },
+      {
+        "name": "--filter",
+        "context": "improved",
+        "summary": "Changed `/ultrareview` uploads on macOS and Linux to refuse, instead of fetching"
+      },
+      {
+        "name": "/config",
+        "context": "improved",
+        "summary": "Changed `/config chrome=true` to direct you to the /config panel instead of enab"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed the editor tab keeping an old name after a session was renamed wi"
+      }
+    ],
+    "features": [
+      "Added CLAUDE_CODE_DISABLE_WEB_FETCH environment variable to turn off the WebFetch tool",
+      "Added claude --desktop to open the Claude desktop app on the current directory, or on a session with --continue / --resume <id>",
+      "Added claude plugin configure <plugin> to show a plugin's options and which are unset, or save new values read from stdin with --values-stdin",
+      "Added <server>.<key>=<value> to claude plugin install --config, so a bundled .mcpb MCP server's own settings can be set at install time and it starts without visiting /plugin → Configure",
+      "Added allowedProviders managed setting to limit which API providers a machine may use (Anthropic API, a custom endpoint, Bedrock, Mantle, Vertex AI, Foundry, Claude Platform on AWS, or a Cloud gateway)",
+      "Added CLAUDE_CODE_NONSTREAMING_TIMEOUT_RETRIES environment variable to cap re-sends of a non-streaming fallback request that timed out",
+      "Fixed SSH passphrase and new-host prompts from worktree and /teleport fetches taking over the terminal; these fetches now fail fast instead of asking",
+      "Fixed claude remote-control --help saying --[no-]chrome defaults to the machine's /chrome setting; spawned sessions keep Claude in Chrome off unless --chrome is passed",
+      "Fixed cloud session creation and /remote-env reading only the newest 20 of an account's environments",
+      "Fixed installing a plugin with claude plugin install or /plugin putting it into an installed plugin's cache or data folder when their ids differ only in ., -, @ or (macOS, Windows) capitals; the install is now refused",
+      "Fixed the fullscreen ctrl+o transcript freezing briefly when opened on turns with hundreds of file reads or searches; tool calls still running when the transcript opens now show their results when they finish",
+      "Fixed /autofix-pr and /schedule saying the Claude GitHub App is not installed on a repository whose install status had not been checked yet",
+      "Fixed dismissing a row (x) in /artifacts unlinking its file from the artifact, so publishing the same file again created a new artifact instead of updating it",
+      "Fixed an Artifact allow rule (\"don't ask again\") letting the Artifact tool publish a file outside the working directories without asking; add the file's folder with --add-dir for the rule to cover it",
+      "Fixed /cost and SDK modelUsage reporting a turn under the wrong model when the server answered a refusal with a different fallback model than the client expected",
+      "Fixed a misleading \"core.worktree is set\" error from /ultrareview when the project folder briefly could not be read",
+      "Fixed /ultrareview on macOS and Linux failing to upload the working tree from a git worktree whose per-worktree config sets core.longpaths",
+      "Fixed /ultrareview uploads including uncommitted changes to credential files whose name has a colon before the extension, such as server:8443.key",
+      "Fixed /ultrareview uploads on macOS and Linux running slowly on some unusual file names, and their credential-file check missing file or folder names with many backup or editor marks",
+      "Fixed vim mode: after editing in the external editor (Ctrl+G), x or r in NORMAL mode no longer breaks a pasted-text placeholder at the end of the prompt",
+      "Fixed plugins silently skipping a bundled .mcpb MCP server that still needs configuration: /plugin, the install message and claude plugin install now say so and point to Configure",
+      "WSL: Fixed /ultrareview refusing to upload a checkout on a Linux volume when a changed file's name has a colon or ends in a dot or space",
+      "Fixed CLAUDE_CODE_RESUME_INTERRUPTED_TURN re-running a turn that had ended at --max-turns",
+      "Windows: Fixed /ultrareview uploading a linked worktree of a repository rooted at your home folder in some cases",
+      "Fixed the /claude-api eval runner scaffold and report builder writing through a symlink or hard link planted at an output file",
+      "Fixed the /claude-api eval runner scaffold counting responses cut off at max_tokens in the score averages; they are now marked truncated and counted separately",
+      "Fixed a brief freeze (up to a second) partway through long sessions outside fullscreen mode, which came back after /clear or /compact",
+      "Improved Remote Control: a /btw side question asked of a session hosted by an app such as Claude Desktop now sees the turn in progress, not only the last finished one",
+      "Improved /resume and claude --resume on a session that is running in the background: they now open that session instead of refusing, and a prompt given with claude --resume <id> \"prompt\" is sent to it as its next turn",
+      "Improved responsiveness when leaving the ctrl+o transcript view in long sessions when fullscreen rendering is off",
+      "Changed MCP tools so a tool that sets its own _meta['anthropic/alwaysLoad'] to false stays deferred when its --mcp-config, Agent SDK or plugin server is set to alwaysLoad",
+      "Changed Code Review's pull request reviews and /ultrareview to run when disableWorkflows is on, unless the machine running the review has it set by its own administrator (MDM or the managed-settings file)",
+      "Changed sessions behind a custom ANTHROPIC_BASE_URL to use the 1M context window of models that have one (Opus 4.7+, Sonnet 5+, Fable); run /autocompact 200k if your gateway stops at 200K",
+      "Changed /memory so that Auto-memory can no longer be turned on from a background session or from a session one of Claude Code's own tools started; turning it off there still works",
+      "Changed claude -p and Python Agent SDK sessions on third-party providers or with telemetry off to start in auto mode when no permission mode is configured, like interactive sessions; --permission-mode still overrides it",
+      "Changed /ultrareview on macOS and Linux to leave symbolic refs out when uploading a local checkout; a checkout whose current branch is a symbolic ref is now refused with an explanation",
+      "Windows: Changed project and local settings env to no longer set ALLUSERSPROFILE, SystemDrive, or the CommonProgramFiles variables; set them in user or managed settings instead",
+      "Changed /tasks to fold background work Claude Code runs for itself under one \"System tasks\" row; press Enter on it to show those tasks",
+      "Changed /ultrareview on macOS and Linux to require git 2.31 or newer to upload a local repository; checkouts made with --separate-git-dir are now refused instead of being uploaded with an older method",
+      "Changed /ultrareview uploads on macOS and Linux to send a partial clone as a working-tree snapshot on git 2.31 or newer, instead of falling back or refusing when git's version looked too old",
+      "Changed /ultrareview uploads on macOS and Linux to refuse, instead of fetching, a partial clone missing some of its working tree's files on older git versions; a clone made without --filter uploads",
+      "Changed /claude-api so it can no longer be run from Remote Control clients",
+      "Changed /config chrome=true to direct you to the /config panel instead of enabling Claude in Chrome by default; /config chrome=false still turns it off when it was on",
+      "[VSCode] Added a note under a restored tab's last message when a window reload interrupted it and no reply will follow",
+      "[VSCode] Added a plugin options form to Manage plugins: installing a plugin that has options asks for the unset ones, and a gear on its row changes them later",
+      "[VSCode] Added an on-demand diagnostics tool so Claude in the panel can read the Problems panel's current errors and warnings at any time, not only right after it edits a file",
+      "[VSCode] Fixed pressing Enter after typing a slash command running an unrelated menu item picked by fuzzy match, or doing nothing",
+      "[VSCode] Fixed the editor tab keeping an old name after a session was renamed with /rename, by a SessionStart hook, or on claude.ai"
+    ],
+    "features_ko": [
+      "WebFetch 도구를 끄기 위한 CLAUDE_CODE_DISABLE_WEB_FETCH 환경 변수를 추가했습니다.",
+      "현재 디렉토리에서 Claude 데스크탑 앱을 열기 위해 claude --desktop을 추가했습니다. 또는 --continue / --resume <id> 세션에서 열 수 있습니다.",
+      "플러그인의 옵션과 설정되지 않은 항목을 보여주기 위해 claude plugin configure <plugin>을 추가했습니다. stdin에서 읽은 새 값을 --values-stdin으로 저장할 수 있습니다.",
+      "설치 시 번들된 .mcpb MCP 서버의 설정을 설정할 수 있도록 claude plugin install --config에 <server>.<key>=<value>를 추가했습니다. 이제 /plugin → Configure를 방문하지 않고 시작할 수 있습니다.",
+      "머신이 사용할 수 있는 API 제공자를 제한하기 위해 allowedProviders 관리 설정을 추가했습니다 (Anthropic API, 사용자 지정 엔드포인트, Bedrock, Mantle, Vertex AI, Foundry, AWS의 Claude Platform 또는 Cloud gateway).",
+      "타임아웃된 비스트리밍 폴백 요청의 재전송을 제한하기 위해 CLAUDE_CODE_NONSTREAMING_TIMEOUT_RETRIES 환경 변수를 추가했습니다.",
+      "worktree 및 /teleport fetch에서 SSH 비밀번호 및 새 호스트 프롬프트가 터미널을 차지하는 문제를 수정했습니다. 이제 이러한 fetch는 요청하는 대신 빠르게 실패합니다.",
+      "claude remote-control --help에서 --[no-]chrome이 머신의 /chrome 설정으로 기본값을 설정한다고 잘못 표시되는 문제를 수정했습니다. 생성된 세션은 --chrome이 전달되지 않는 한 Chrome에서 Claude를 끄고 유지합니다.",
+      "클라우드 세션 생성 및 /remote-env가 계정의 환경 중 최신 20개만 읽는 문제를 수정했습니다.",
+      "claude plugin install 또는 /plugin으로 플러그인을 설치할 때, id가 ., -, @ 또는 (macOS, Windows) 대문자만 다를 경우 설치된 플러그인의 캐시 또는 데이터 폴더에 넣는 문제를 수정했습니다. 이제 설치가 거부됩니다.",
+      "수백 개의 파일 읽기 또는 검색이 있는 턴에서 열 때 전체화면 ctrl+o 전사에서 잠시 멈추는 문제를 수정했습니다. 전사가 열릴 때 여전히 실행 중인 도구 호출은 완료되면 결과를 표시합니다.",
+      "/autofix-pr 및 /schedule에서 Claude GitHub App이 설치되지 않았다고 표시되는 문제를 수정했습니다. 이는 설치 상태가 아직 확인되지 않은 리포지토리에서 발생했습니다.",
+      "/artifacts에서 행(x)을 해제할 때 해당 파일이 아티팩트에서 분리되는 문제를 수정했습니다. 동일한 파일을 다시 게시하면 아티팩트가 업데이트되는 대신 새 아티팩트가 생성됩니다.",
+      "아티팩트 도구가 작업 디렉토리 외부에 파일을 게시할 수 있도록 허용하는 아티팩트 허용 규칙(\"다시 묻지 않기\")을 수정했습니다. 규칙이 적용되도록 --add-dir로 파일의 폴더를 추가해야 합니다.",
+      "/cost 및 SDK modelUsage가 서버가 클라이언트가 예상한 것과 다른 폴백 모델로 거부에 응답했을 때 잘못된 모델 아래에서 턴을 보고하는 문제를 수정했습니다.",
+      "프로젝트 폴더를 잠시 읽을 수 없을 때 /ultrareview에서 잘못된 \"core.worktree is set\" 오류를 수정했습니다.",
+      "macOS 및 Linux에서 /ultrareview가 core.longpaths를 설정한 git worktree에서 작업 트리를 업로드하지 못하는 문제를 수정했습니다.",
+      "/ultrareview 업로드가 확장자 앞에 콜론이 있는 자격 증명 파일에 대한 커밋되지 않은 변경 사항을 포함하는 문제를 수정했습니다. 예: server:8443.key",
+      "macOS 및 Linux에서 /ultrareview 업로드가 일부 비정상적인 파일 이름에서 느리게 실행되는 문제와 많은 백업 또는 편집기 마크가 있는 파일 또는 폴더 이름을 놓치는 자격 증명 파일 검사를 수정했습니다.",
+      "vim 모드: 외부 편집기에서 편집한 후 (Ctrl+G), NORMAL 모드에서 x 또는 r이 더 이상 프롬프트 끝의 붙여넣기 텍스트 자리 표시자를 깨지 않도록 수정했습니다.",
+      "플러그인이 여전히 구성해야 하는 번들된 .mcpb MCP 서버를 조용히 건너뛰는 문제를 수정했습니다: /plugin, 설치 메시지 및 claude plugin install이 이제 이를 알리고 Configure로 안내합니다.",
+      "WSL: 변경된 파일의 이름에 콜론이 있거나 점 또는 공백으로 끝날 때 Linux 볼륨에서 체크아웃을 업로드하지 않도록 /ultrareview를 수정했습니다.",
+      "CLAUDE_CODE_RESUME_INTERRUPTED_TURN이 --max-turns에서 종료된 턴을 다시 실행하는 문제를 수정했습니다.",
+      "Windows: 경우에 따라 홈 폴더에 루트가 있는 리포지토리의 연결된 작업 트리를 업로드하는 /ultrareview 문제를 수정했습니다.",
+      "/claude-api eval runner scaffold 및 보고서 빌더가 출력 파일에 심볼릭 링크 또는 하드 링크를 통해 쓰는 문제를 수정했습니다.",
+      "/claude-api eval runner scaffold가 score averages에서 max_tokens에서 잘린 응답을 세는 문제를 수정했습니다. 이제 잘린 것으로 표시되고 별도로 계산됩니다.",
+      "전체 화면 모드가 꺼져 있을 때 긴 세션 중에 /clear 또는 /compact 후에 다시 돌아오는 문제로 인해 긴 세션 중 잠시 멈추는 문제를 수정했습니다 (최대 1초).",
+      "원격 제어 개선: Claude Desktop과 같은 앱이 호스팅하는 세션에 대해 /btw 측면 질문이 진행 중인 턴을 볼 수 있도록 개선했습니다. 이제 마지막으로 완료된 턴만 보지 않습니다.",
+      "백그라운드에서 실행 중인 세션에 대해 /resume 및 claude --resume를 개선했습니다: 이제 해당 세션을 열고, claude --resume <id> \"prompt\"와 함께 제공된 프롬프트가 다음 턴으로 전송됩니다.",
+      "전체 화면 렌더링이 꺼져 있을 때 긴 세션에서 ctrl+o 전사 보기에서 나갈 때 반응성을 개선했습니다.",
+      "MCP 도구를 변경하여 _meta['anthropic/alwaysLoad']를 false로 설정하는 도구가 --mcp-config, Agent SDK 또는 플러그인 서버가 alwaysLoad로 설정된 경우에도 지연 상태를 유지하도록 했습니다.",
+      "Code Review의 pull request 리뷰와 /ultrareview가 disableWorkflows가 켜져 있을 때 실행되도록 변경했으며, 리뷰를 실행하는 머신의 관리자(MDM 또는 관리 설정 파일)에 의해 설정된 경우는 제외됩니다.",
+      "사용자 정의 ANTHROPIC_BASE_URL 뒤의 세션이 1M 컨텍스트 창을 사용하는 모델(Opus 4.7+, Sonnet 5+, Fable)을 사용하도록 변경했습니다; 게이트웨이가 200K에서 멈추면 /autocompact 200k를 실행하세요.",
+      "/memory를 변경하여 Auto-memory가 백그라운드 세션이나 Claude Code의 도구 중 하나가 시작한 세션에서 더 이상 켜질 수 없도록 했습니다; 그곳에서 끄는 것은 여전히 가능합니다.",
+      "claude -p 및 Python Agent SDK 세션이 권한 모드가 구성되지 않은 경우 자동 모드로 시작되도록 변경했습니다; --permission-mode는 여전히 이를 무시합니다.",
+      "macOS 및 Linux에서 /ultrareview를 변경하여 로컬 체크아웃을 업로드할 때 심볼릭 참조를 제외하도록 했습니다; 현재 브랜치가 심볼릭 참조인 체크아웃은 설명과 함께 거부됩니다.",
+      "Windows: 프로젝트 및 로컬 설정 환경이 더 이상 ALLUSERSPROFILE, SystemDrive 또는 CommonProgramFiles 변수를 설정하지 않도록 변경했습니다; 대신 사용자 또는 관리 설정에서 설정하세요.",
+      "/tasks를 변경하여 Claude Code가 자체적으로 실행하는 백그라운드 작업을 하나의 \"System tasks\" 행 아래로 접도록 했습니다; 해당 행에서 Enter를 눌러 작업을 표시하세요.",
+      "macOS 및 Linux에서 /ultrareview를 변경하여 로컬 리포지토리를 업로드하려면 git 2.31 이상이 필요하도록 했습니다; --separate-git-dir로 만든 체크아웃은 더 이상 이전 방법으로 업로드되지 않고 거부됩니다.",
+      "macOS 및 Linux에서 /ultrareview 업로드를 변경하여 git 2.31 이상에서 작업 트리 스냅샷으로 부분 클론을 전송하도록 했으며, git 버전이 너무 오래된 경우에는 되돌리거나 거부되지 않습니다.",
+      "macOS 및 Linux에서 /ultrareview 업로드를 변경하여 이전 git 버전에서 작업 트리의 일부 파일이 누락된 부분 클론을 가져오는 대신 거부하도록 했습니다; --filter 없이 만든 클론은 업로드됩니다.",
+      "/claude-api를 변경하여 Remote Control 클라이언트에서 더 이상 실행할 수 없도록 했습니다.",
+      "/config chrome=true를 변경하여 기본적으로 Chrome에서 Claude를 활성화하는 대신 /config 패널로 안내하도록 했습니다; /config chrome=false는 켜져 있을 때 여전히 끕니다.",
+      "[VSCode] 창 새로 고침이 중단된 복원된 탭의 마지막 메시지 아래에 주석을 추가했습니다; 이후에 답변이 없을 것입니다.",
+      "[VSCode] Manage plugins에 플러그인 옵션 양식을 추가했습니다: 옵션이 있는 플러그인을 설치할 때 설정되지 않은 옵션을 요청하며, 해당 행의 기어로 나중에 변경할 수 있습니다.",
+      "[VSCode] 패널의 Claude가 파일을 편집한 직후가 아닌 언제든지 Problems 패널의 현재 오류 및 경고를 읽을 수 있도록 온디맨드 진단 도구를 추가했습니다.",
+      "[VSCode] 관련 없는 메뉴 항목을 모호한 일치로 선택한 후 슬래시 명령을 입력하고 Enter를 눌렀을 때 아무것도 하지 않도록 수정했습니다.",
+      "[VSCode] /rename, SessionStart 훅 또는 claude.ai에서 세션 이름이 변경된 후 편집기 탭이 이전 이름을 유지하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.284",
     "date": "2026-09-28",
     "commands": [

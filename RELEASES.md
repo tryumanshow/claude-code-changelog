@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-09-29 00:55 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-09-30 00:16 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.285** | 2026-09-29 | `--continue`, `--resume <id>`, `--desktop`, `--resume`, `--values-stdin`, `/plugin`, `--config`, `/teleport`, `/chrome`, `--chrome`, `/remote-env`, `ctrl+o`, `/autofix-pr`, `/schedule`, `/artifacts`, `--add-dir`, `/cost`, `/ultrareview`, `Ctrl+G`, `--max-turns`, `/claude-api`, `/clear`, `/compact`, `/btw`, `/resume`, `--mcp-config`, `/autocompact 200k`, `/autocompact`, `/memory`, `--permission-mode`, `/tasks`, `--separate-git-dir`, `--filter`, `/config`, `/rename` | Added CLAUDE_CODE_DISABLE_WEB_FETCH environment variable to turn off the WebFetch tool / Added claude --desktop to open the Claude desktop app on the current directory, or on a session with --conti... |
 | **v2.1.284** | 2026-09-28 | `/usage`, `/effort`, `/rate-limit-options`, `/help`, `/mcp`, `/extra-usage`, `/plugin`, `Ctrl+U`, `/config`, `/model`, `/keybindings`, `/upgrade`, `/usage-credits`, `/loop`, `/ultrareview`, `/claude-api`, `/tasks`, `/copy`, `/hooks`, `--allowedTools`, `/recap`, `/artifacts`, `/net`, `--add-dir`, `/feedback`, `/settings` | Added Claude Sonnet 5.5 (claude-sonnet-5-5), now the default Sonnet model on the Anthropic API — 1M context, $2/$10 per Mtok with $0.20/Mtok cache reads / Added a "Yes, but ask again next time" ans... |
 | **v2.1.283** | 2026-09-25 | `/doctor prompt-audit`, `/checkup prompt-audit`, `/doctor`, `/checkup`, `--plugin-dir`, `/mcp`, `/usage`, `/model`, `/context`, `/remote-control`, `Shift+E`, `/tasks`, `/help`, `/hooks`, `/copy`, `/chrome`, `/memory`, `/ide`, `/release-notes`, `/rewind`, `/diff`, `/remote-env`, `/plugin`, `/skills`, `/artifacts`, `/ultrareview`, `--system-prompt`, `--append-system-prompt`, `/workflows`, `--configure-git` | Added x-claude-code-prompt-id to the gateway hint headers so LLM gateways can group the requests that serve one user prompt; opt in with CLAUDE_CODE_GATEWAY_HINT_HEADERS=1 / Added availableModelsMa... |
 | **v2.1.282** | 2026-09-24 | `/status`, `--chrome`, `/readyz`, `/feedback`, `--continue`, `--resume`, `/model`, `/rename`, `/artifacts`, `--tools`, `/Network`, `--allowedTools`, `--add-dir`, `ctrl+e`, `ctrl+x`, `ctrl+s`, `--debug`, `/install-github-app`, `/bug`, `/share`, `/skills`, `/mcp`, `/tasks`, `--settings`, `/effort` | Added a maxProseWidth setting that caps the width of Claude's prose in wide terminals while tables and code blocks keep the full width / Added a startup notice, and /status and claude doctor entrie... |
@@ -83,7 +84,6 @@
 | **v2.1.196** | 2026-06-29 | `/model`, `Ctrl+c`, `/cd`, `Ctrl+C`, `Ctrl+X`, `Ctrl+K`, `/context`, `/deep-research`, `/code-review` | Added support for organization default models — admins set it in the org console; it shows as "Org default" (or "Role default") in /model when you haven't picked one yourself / Added readable defau... |
 | **v2.1.195** | 2026-06-26 | `/plugin` | Added CLAUDE_CODE_DISABLE_MOUSE_CLICKS to disable mouse click/drag/hover in fullscreen mode while keeping wheel scroll / Fixed /plugin Enable/Disable not working when a plugin's plugin.json name di... |
 | **v2.1.193** | 2026-06-25 | `/permissions`, `/mcp`, `/model`, `/login`, `/add-dir` | Added autoMode.classifyAllShell setting to route all Bash/PowerShell commands through the auto-mode classifier instead of only arbitrary-code-execution patterns / Added auto-mode denial reasons to ... |
-| **v2.1.191** | 2026-06-24 | `/rewind`, `/clear`, `/voice`, `/login`, `/usage`, `/permissions` | Added /rewind support for resuming a conversation from before /clear was run / Fixed /voice showing a generic "not available" message when disabled by an organization's policy — it now explains the... |
 
 ---
 
