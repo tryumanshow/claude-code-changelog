@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-01 00:27 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-02 00:38 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.287** | 2025-11-25 | `/plugin`, `/model`, `/advisor`, `/resume`, `/permissions`, `/rewind`, `/mcp`, `/config`, `--include-partial-messages`, `/ultrareview`, `--output-format stream-json`, `/feedback`, `/bug`, `--plugin-url`, `/desktop`, `/memory`, `/skill`, `/stop`, `/usage`, `/context` | Added Claude Mods: plugins may now modify deeper behavior / Added You should know, a built-in mod where a side agent watches your back and flags things you or Claude might miss. Turn it on with /pl... |
 | **v2.1.286** | 2026-09-30 | `--continue`, `/login`, `--fallback-model`, `/status`, `/feedback`, `/usage`, `/compact`, `/clear`, `/rewind`, `/plugin`, `ctrl+e`, `Ctrl+G`, `/hooks`, `/protocol`, `--bare`, `/artifacts`, `/mcp`, `/skills`, `/exit`, `/ultrareview` | Added a count such as "2 of 5" to the permission prompt when several permission requests stack up / Added mouse support for the "N more" rows of lists in fullscreen mode: click one to jump to that ... |
 | **v2.1.285** | 2026-09-29 | `--continue`, `--resume <id>`, `--desktop`, `--resume`, `--values-stdin`, `/plugin`, `--config`, `/teleport`, `/chrome`, `--chrome`, `/remote-env`, `ctrl+o`, `/autofix-pr`, `/schedule`, `/artifacts`, `--add-dir`, `/cost`, `/ultrareview`, `Ctrl+G`, `--max-turns`, `/claude-api`, `/clear`, `/compact`, `/btw`, `/resume`, `--mcp-config`, `/autocompact 200k`, `/autocompact`, `/memory`, `--permission-mode`, `/tasks`, `--separate-git-dir`, `--filter`, `/config`, `/rename` | Added CLAUDE_CODE_DISABLE_WEB_FETCH environment variable to turn off the WebFetch tool / Added claude --desktop to open the Claude desktop app on the current directory, or on a session with --conti... |
 | **v2.1.284** | 2026-09-28 | `/usage`, `/effort`, `/rate-limit-options`, `/help`, `/mcp`, `/extra-usage`, `/plugin`, `Ctrl+U`, `/config`, `/model`, `/keybindings`, `/upgrade`, `/usage-credits`, `/loop`, `/ultrareview`, `/claude-api`, `/tasks`, `/copy`, `/hooks`, `--allowedTools`, `/recap`, `/artifacts`, `/net`, `--add-dir`, `/feedback`, `/settings` | Added Claude Sonnet 5.5 (claude-sonnet-5-5), now the default Sonnet model on the Anthropic API — 1M context, $2/$10 per Mtok with $0.20/Mtok cache reads / Added a "Yes, but ask again next time" ans... |
@@ -83,7 +84,6 @@
 | **v2.1.198** | 2026-07-01 | `/dataviz`, `/diff`, `/login`, `/desktop`, `--print`, `/branch`, `/agents` | Subagents now run in the background by default, so Claude keeps working while they run and is notified when they finish (previously a gradual rollout) / Claude in Chrome is now generally available ... |
 | **v2.1.197** | 2026-06-30 | — | Introducing Claude Sonnet 5: now the default model in Claude Code, with a native 1M-token context window and promotional pricing of $2/$10 per Mtok through August 31. Update to version 2.1.197 for ... |
 | **v2.1.196** | 2026-06-29 | `/model`, `Ctrl+c`, `/cd`, `Ctrl+C`, `Ctrl+X`, `Ctrl+K`, `/context`, `/deep-research`, `/code-review` | Added support for organization default models — admins set it in the org console; it shows as "Org default" (or "Role default") in /model when you haven't picked one yourself / Added readable defau... |
-| **v2.1.195** | 2026-06-26 | `/plugin` | Added CLAUDE_CODE_DISABLE_MOUSE_CLICKS to disable mouse click/drag/hover in fullscreen mode while keeping wheel scroll / Fixed /plugin Enable/Disable not working when a plugin's plugin.json name di... |
 
 ---
 

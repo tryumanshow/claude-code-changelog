@@ -1,5 +1,175 @@
 [
   {
+    "version": "2.1.287",
+    "date": "2025-11-25",
+    "commands": [
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added You should know, a built-in mod where a side agent watches your back and f"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed Bedrock and Vertex startup model checks ignoring an enforced `availableMod"
+      },
+      {
+        "name": "/advisor",
+        "context": "fixed",
+        "summary": "Fixed `/advisor` pairing checks: Sonnet 5.5 can now advise Opus 4.7 and 4.8, and"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed screen reader mode leaving the cursor away from the typed text in search b"
+      },
+      {
+        "name": "/permissions",
+        "context": "fixed",
+        "summary": "Fixed screen reader mode leaving the cursor away from the typed text in search b"
+      },
+      {
+        "name": "/rewind",
+        "context": "fixed",
+        "summary": "Fixed screen reader mode refusing Enter with nothing typed on /rewind's summariz"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed screen reader mode listing arrow keys that do nothing in /permissions and "
+      },
+      {
+        "name": "/config",
+        "context": "improved",
+        "summary": "Improved `/config`: settings that cycle show ‹ › and step both ways with ←/→, na"
+      },
+      {
+        "name": "--include-partial-messages",
+        "context": "fixed",
+        "summary": "Fixed `--include-partial-messages` sending a cut-short reply's `message_stop` la"
+      },
+      {
+        "name": "/ultrareview",
+        "context": "fixed",
+        "summary": "Fixed `/ultrareview` giving advice about `.git/info/attributes` when the upload "
+      },
+      {
+        "name": "--output-format stream-json",
+        "context": "fixed",
+        "summary": "Fixed `--output-format stream-json` and the SDK not streaming the turns of a `co"
+      },
+      {
+        "name": "/feedback",
+        "context": "fixed",
+        "summary": "Fixed /feedback and /bug: the pre-filled GitHub issue no longer includes your re"
+      },
+      {
+        "name": "/bug",
+        "context": "fixed",
+        "summary": "Fixed /feedback and /bug: the pre-filled GitHub issue no longer includes your re"
+      },
+      {
+        "name": "--plugin-url",
+        "context": "fixed",
+        "summary": "Fixed a plugin reload that overlapped the startup `--plugin-url` download corrup"
+      },
+      {
+        "name": "/desktop",
+        "context": "fixed",
+        "summary": "Fixed `/desktop` quoting partial output when opening Claude Desktop timed out or"
+      },
+      {
+        "name": "/memory",
+        "context": "improved",
+        "summary": "Improved `/memory`: the left and right arrow keys now flip its on/off settings, "
+      },
+      {
+        "name": "/skill",
+        "context": "improved",
+        "summary": "Improved `/skill` names typed mid-message: Claude is now told they are skills, i"
+      },
+      {
+        "name": "/stop",
+        "context": "improved",
+        "summary": "Changed replies from `claude agents` to arrive as queued messages; slash command"
+      },
+      {
+        "name": "/usage",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed a user's own `/usage` or `/context` command opening the extension"
+      },
+      {
+        "name": "/context",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed a user's own `/usage` or `/context` command opening the extension"
+      }
+    ],
+    "features": [
+      "Added Claude Mods: plugins may now modify deeper behavior",
+      "Added You should know, a built-in mod where a side agent watches your back and flags things you or Claude might miss. Turn it on with /plugin enable cc-plugin-you-should-know@builtin (for first-party sessions with telemetry on)",
+      "Added an n:<text> filter to the agents view that matches session names and tasks; a filter now shows matches in collapsed sections and Enter opens the first match",
+      "Added prompt_text to the OpenTelemetry user_prompt event, a copy of prompt for backends that nest dotted keys; drop or mask it wherever you drop or mask prompt (anthropics/claude-code#70763)",
+      "Added URL prompts from MCP servers on the 2025-11-25 protocol, for example to sign in. If a server no longer connects after this update, add \"bareElicitationCapability\": true to its MCP config entry",
+      "Windows: Added a startup warning when denying the Bash tool also turns off the PowerShell tool, so Claude has no shell tool",
+      "Self-hosted runner: Added a built-in gh api (REST only) for sessions that use Anthropic-managed git on macOS and Linux machines where the GitHub CLI is not installed",
+      "Fixed Bedrock and Vertex startup model checks ignoring an enforced availableModels list, which could collapse /model to one Opus row",
+      "Fixed picking Fable in /model on a claude.ai login saving the current version's id, so your saved default now follows the newest Fable like Opus and Sonnet do",
+      "Fixed switching between Opus 5.5 and Sonnet 5.5 (/model, opusplan) rewriting earlier MCP tool announcements, which could drop earlier extended thinking",
+      "Fixed /advisor pairing checks: Sonnet 5.5 can now advise Opus 4.7 and 4.8, and advisors the API would refuse are flagged up front instead of being silently dropped",
+      "Fixed screen reader mode leaving the cursor away from the typed text in search boxes (such as /resume and /permissions) and sign-in code fields",
+      "Fixed screen reader mode refusing Enter with nothing typed on /rewind's summarize options, whose added context is optional",
+      "Fixed screen reader mode listing arrow keys that do nothing in /permissions and /mcp, and saying \"Select with numbers\" in empty menus or while a search box has the keys",
+      "Fixed screen reader mode leaving out the top lines of a second approval prompt, a changed /config row or the rejected-plan line when the previous screen was taller than the terminal window",
+      "Fixed --include-partial-messages sending a cut-short reply's message_stop late or never, so apps could show the reply as still in progress",
+      "Fixed /ultrareview giving advice about .git/info/attributes when the upload stops on a committed .gitattributes it cannot read, such as one saved as UTF-16",
+      "Fixed the running-tool dot and three spinners still moving with the \"Reduce motion\" setting on, and /rewind's confirm screen updating its \"ago\" time while you type a note",
+      "Fixed /ultrareview upload refusals advising you to copy a variable named by a repository's settings file into your own user settings",
+      "Fixed --output-format stream-json and the SDK not streaming the turns of a context: fork skill run by typing /<skill> as the prompt, as they do for the Skill tool's fork",
+      "Fixed /feedback and /bug: the pre-filled GitHub issue no longer includes your recent error messages, and the confirmation screen now lists them as part of the report",
+      "Fixed a plugin reload that overlapped the startup --plugin-url download corrupting the session's cached copy of the plugin archive",
+      "Fixed /desktop quoting partial output when opening Claude Desktop timed out or printed too much output; the error now names the cause",
+      "macOS: Fixed Remote Control sessions started with claude remote-control stopping mid-turn when the Mac went to idle sleep",
+      "Windows: Fixed interactive claude hanging or crashing with \"Raw mode is not supported\" when its input is piped or redirected; it now says why and exits (use -p for piped input)",
+      "Improved /config: settings that cycle show ‹ › and step both ways with ←/→, narrow terminals stack each value under its label, and PgUp/PgDn page the list",
+      "Improved /memory: the left and right arrow keys now flip its on/off settings, such as Auto-memory",
+      "Improved /skill names typed mid-message: Claude is now told they are skills, including disable-model-invocation ones",
+      "Changed replies from claude agents to arrive as queued messages; slash commands other than /stop sent while a turn is running now run when it ends",
+      "[VSCode] Fixed a user's own /usage or /context command opening the extension's dialog instead of running when picked from the command menu"
+    ],
+    "features_ko": [
+      "Claude Mods 추가: 플러그인이 더 깊은 동작을 수정할 수 있게 되었습니다.",
+      "You should know 추가, 사이드 에이전트가 당신의 뒤를 지켜보고 당신이나 Claude가 놓칠 수 있는 것들을 플래그하는 내장 모드입니다. /plugin enable cc-plugin-you-should-know@builtin으로 활성화하세요 (텔레메트리가 켜진 첫 번째 세션에서).",
+      "세션 이름과 작업에 맞는 n:<text> 필터를 에이전트 보기에서 추가했습니다; 필터는 이제 축소된 섹션에서 일치를 보여주며 Enter 키를 누르면 첫 번째 일치 항목이 열립니다.",
+      "OpenTelemetry user_prompt 이벤트에 prompt_text를 추가했습니다. 이는 점선 키를 중첩하는 백엔드를 위한 prompt의 복사본입니다; prompt를 드롭하거나 마스킹하는 곳에서 드롭하거나 마스킹하세요 (anthropics/claude-code#70763).",
+      "2025-11-25 프로토콜에서 MCP 서버의 URL 프롬프트를 추가했습니다. 예를 들어 로그인 시 사용됩니다. 이 업데이트 이후 서버가 더 이상 연결되지 않으면 MCP 구성 항목에 \"bareElicitationCapability\": true를 추가하세요.",
+      "Windows: Bash 도구를 거부할 때 PowerShell 도구도 꺼진다는 시작 경고를 추가했습니다. 따라서 Claude는 셸 도구가 없습니다.",
+      "자체 호스팅 러너: macOS 및 Linux 머신에서 Anthropic 관리 git을 사용하는 세션을 위한 내장 gh api (REST 전용)를 추가했습니다. GitHub CLI가 설치되지 않은 경우입니다.",
+      "Bedrock 및 Vertex 시작 모델 체크가 강제된 availableModels 목록을 무시하는 문제를 수정했습니다. 이로 인해 /model이 하나의 Opus 행으로 축소될 수 있었습니다.",
+      "claude.ai 로그인 시 /model에서 Fable을 선택할 때 현재 버전의 id를 저장하는 문제를 수정했습니다. 이제 저장된 기본값이 Opus 및 Sonnet처럼 최신 Fable을 따릅니다.",
+      "Opus 5.5와 Sonnet 5.5 간 전환 시 (/model, opusplan) 이전 MCP 도구 발표를 재작성하는 문제를 수정했습니다. 이로 인해 이전의 확장된 사고가 누락될 수 있었습니다.",
+      "/advisor 페어링 체크를 수정했습니다: Sonnet 5.5가 이제 Opus 4.7 및 4.8에 조언할 수 있으며, API가 거부할 조언자는 조용히 삭제되는 대신 미리 플래그가 표시됩니다.",
+      "화면 읽기 모드가 /resume 및 /permissions와 같은 검색 상자 및 로그인 코드 필드에서 입력된 텍스트와 커서를 멀리 두는 문제를 수정했습니다.",
+      "화면 읽기 모드가 /rewind의 요약 옵션에서 아무것도 입력하지 않았을 때 Enter를 거부하는 문제를 수정했습니다. 추가된 컨텍스트는 선택 사항입니다.",
+      "화면 읽기 모드가 /permissions 및 /mcp에서 아무것도 하지 않는 화살표 키를 나열하고, 빈 메뉴에서 \"숫자로 선택\"이라고 말하는 문제를 수정했습니다.",
+      "화면 읽기 모드가 이전 화면이 터미널 창보다 높을 때 두 번째 승인 프롬프트의 상단 줄, 변경된 /config 행 또는 거부된 계획 줄을 생략하는 문제를 수정했습니다.",
+      "--include-partial-messages가 잘린 응답의 message_stop을 늦게 또는 전혀 보내지 않는 문제를 수정했습니다. 이로 인해 앱이 응답을 여전히 진행 중으로 표시할 수 있었습니다.",
+      "/ultrareview가 읽을 수 없는 커밋된 .gitattributes에서 업로드가 중단될 때 .git/info/attributes에 대한 조언을 제공하는 문제를 수정했습니다. 예를 들어 UTF-16으로 저장된 경우입니다.",
+      "\"Reduce motion\" 설정이 켜져 있을 때 실행 도구의 점과 세 개의 스피너가 여전히 움직이는 문제를 수정했습니다. 또한 /rewind의 확인 화면이 메모를 입력하는 동안 \"ago\" 시간을 업데이트합니다.",
+      "/ultrareview 업로드 거부가 리포지토리의 설정 파일에 의해 명명된 변수를 자신의 사용자 설정으로 복사하라고 조언하는 문제를 수정했습니다.",
+      "--output-format stream-json 및 SDK가 /<skill>을 프롬프트로 하여 컨텍스트의 턴을 스트리밍하지 않는 문제를 수정했습니다. Skill 도구의 포크와 동일하게 작동합니다.",
+      "/feedback 및 /bug 수정: 미리 채워진 GitHub 이슈에 더 이상 최근 오류 메시지가 포함되지 않으며, 확인 화면에 이제 보고서의 일부로 나열됩니다.",
+      "시작 시 --plugin-url 다운로드가 겹치는 플러그인 리로드로 인해 세션의 플러그인 아카이브 캐시 복사본이 손상되는 문제를 수정했습니다.",
+      "Claude Desktop을 열 때 타임아웃되거나 출력이 너무 많아 부분 출력을 인용하는 /desktop 문제를 수정했습니다. 이제 오류가 원인을 명시합니다.",
+      "macOS: claude remote-control로 시작된 원격 제어 세션이 Mac이 유휴 수면 상태로 들어갈 때 중간에 멈추는 문제를 수정했습니다.",
+      "Windows: 입력이 파이프되거나 리디렉션될 때 \"Raw mode is not supported\"로 인해 인터랙티브 Claude가 멈추거나 충돌하는 문제를 수정했습니다. 이제 이유를 설명하고 종료합니다 (파이프 입력에는 -p 사용).",
+      "/config 개선: 순환하는 설정은 ‹ ›를 표시하고 ←/→로 양쪽으로 이동하며, 좁은 터미널은 각 값을 레이블 아래에 쌓고 PgUp/PgDn으로 목록을 페이지합니다.",
+      "/memory 개선: 왼쪽 및 오른쪽 화살표 키가 이제 Auto-memory와 같은 on/off 설정을 전환합니다.",
+      "메시지 중간에 입력된 /skill 이름 개선: Claude는 이제 이들이 기술임을 인식하며, disable-model-invocation 기술도 포함됩니다.",
+      "Claude 에이전트의 응답이 대기 중인 메시지로 도착하도록 변경했습니다; /stop을 제외한 슬래시 명령은 턴이 실행되는 동안 전송되면 턴이 끝날 때 실행됩니다.",
+      "[VSCode] 사용자의 /usage 또는 /context 명령이 명령 메뉴에서 선택될 때 확장 대화 상자를 여는 대신 실행되도록 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.286",
     "date": "2026-09-30",
     "commands": [
