@@ -1,5 +1,33 @@
 [
   {
+    "version": "2.1.289",
+    "date": "2026-10-03",
+    "commands": [
+      {
+        "name": "--plugin-dir",
+        "context": "fixed",
+        "summary": "Fixed `plugin list`, `plugin eval` and `plugin update` showing a stale copy of a"
+      },
+      {
+        "name": "--json",
+        "context": "fixed",
+        "summary": "Fixed `claude plugin validate` failing an Anthropic marketplace's own plugin and"
+      }
+    ],
+    "features": [
+      "[VSCode] Reverted a 2.1.288 change to claude auth status that may have made sign-outs more frequent",
+      "Fixed plugin list, plugin eval and plugin update showing a stale copy of a plugin installed from a local folder marketplace, and hot reload for a symlinked --plugin-dir",
+      "Added agent.spawn for teammates, one agent id across plugin hook events, and idle and waiting states in $.agent.list()",
+      "Fixed claude plugin validate failing an Anthropic marketplace's own plugin and listing a clean plugin.json in --json"
+    ],
+    "features_ko": [
+      "[VSCode] sign-out 빈도를 높였을 수 있는 2.1.288 변경 사항을 되돌렸습니다.",
+      "로컬 폴더 마켓플레이스에서 설치된 플러그인의 오래된 복사본을 보여주는 플러그인 목록, 플러그인 평가 및 플러그인 업데이트를 수정했습니다. 또한 symlinked --plugin-dir에 대한 핫 리로드를 추가했습니다.",
+      "팀원을 위한 agent.spawn을 추가하고, 플러그인 훅 이벤트 간에 하나의 agent id를 사용하며, $.agent.list()에서 유휴 및 대기 상태를 추가했습니다.",
+      "Anthropic 마켓플레이스의 자체 플러그인에서 claude plugin validate가 실패하고 --json에서 깨끗한 plugin.json을 나열하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.288",
     "date": "2026-10-02",
     "commands": [
