@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-04 23:54 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-06 01:42 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.290** | 2026-10-05 | `--json`, `/claude-api`, `/status`, `/rewind`, `/loop`, `/background`, `--json-schema`, `/ultrareview`, `/permissions`, `--restricted`, `Ctrl+X`, `ctrl+o`, `Ctrl+F`, `/teleport`, `/clear`, `--channels`, `/chrome`, `/sandbox`, `--continue`, `--resume <session-id>`, `--allow-dangerously-skip-permissions`, `/login`, `--include-partial-messages`, `Ctrl+K`, `/plugin`, `--chrome`, `/artifacts`, `/code-review`, `/model`, `/effort`, `/rename`, `--hostname` | Added serverToolUses to the result of a mod's turn.step hook: the tool calls the API ran itself (the advisor), each with its id, name, input, start and end / Added agentId to the tool.check event o... |
 | **v2.1.289** | 2026-10-03 | `--plugin-dir`, `--json` | [VSCode] Reverted a 2.1.288 change to claude auth status that may have made sign-outs more frequent / Fixed plugin list, plugin eval and plugin update showing a stale copy of a plugin installed fro... |
 | **v2.1.288** | 2026-10-02 | `Ctrl+C`, `--max-findings default`, `/code-review`, `--max-findings`, `Ctrl+F`, `Shift+T`, `--resume`, `--plugin-dir`, `/plugin`, `/compact`, `/login`, `/tui`, `ctrl+e`, `--bare`, `/theme`, `/permissions`, `/usage-credits`, `--paginate`, `/autocompact`, `Ctrl+N` | Added $.ui.selection() for mods: returns the text you last selected in fullscreen mode and, when the selection lies within one transcript row, that row / Added a built-in gh api to cloud sessions w... |
 | **v2.1.287** | 2025-11-25 | `/plugin`, `/model`, `/advisor`, `/resume`, `/permissions`, `/rewind`, `/mcp`, `/config`, `--include-partial-messages`, `/ultrareview`, `--output-format stream-json`, `/feedback`, `/bug`, `--plugin-url`, `/desktop`, `/memory`, `/skill`, `/stop`, `/usage`, `/context` | Added Claude Mods: plugins may now modify deeper behavior / Added You should know, a built-in mod where a side agent watches your back and flags things you or Claude might miss. Turn it on with /pl... |
@@ -83,7 +84,6 @@
 | **v2.1.201** | 2026-07-03 | — | Claude Sonnet 5 sessions no longer use the mid-conversation system role for harness reminders |
 | **v2.1.200** | 2026-07-03 | `/config`, `--help`, `--permission-mode manual`, `/mcp` | Changed AskUserQuestion dialogs to no longer auto-continue by default; opt into an idle timeout via /config / Changed the "default" permission mode to "Manual" across the CLI, --help, VS Code, and ... |
 | **v2.1.199** | 2026-07-02 | `/skill-a`, `/skill-b`, `/model`, `/fast`, `/background`, `/color` | Stacked slash-skill invocations like /skill-a /skill-b do XYZ now load all leading skills (up to 5), not just the first / Fixed typing /model or /fast while viewing a subagent silently opening the ... |
-| **v2.1.198** | 2026-07-01 | `/dataviz`, `/diff`, `/login`, `/desktop`, `--print`, `/branch`, `/agents` | Subagents now run in the background by default, so Claude keeps working while they run and is notified when they finish (previously a gradual rollout) / Claude in Chrome is now generally available ... |
 
 ---
 
