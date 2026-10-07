@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-06 01:42 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-07 00:33 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.292** | 2026-07-28 | `--marketplace <source>`, `--marketplace`, `/ultrareview`, `/resume`, `/branch`, `/clear`, `/loop`, `/bug`, `/share`, `/feedback <text>`, `/feedback`, `Ctrl+O`, `Ctrl+Z`, `/remote-env`, `/add-dir`, `Shift+E`, `Ctrl+L`, `/cd`, `/name`, `/theme`, `/config`, `ctrl+o`, `Ctrl+C`, `/focus` | Added --marketplace <source> to claude plugin install: adds the marketplace if needed, under the same policy checks as claude plugin marketplace add, then installs the plugin from it / Added an eff... |
+| **v2.1.291** | 2026-10-06 | — | Fixed a regression in 2.1.290 where cloud sessions could drop answers to permission prompts / Fixed a regression in 2.1.288 where the last messages of a session could be lost when quitting |
 | **v2.1.290** | 2026-10-05 | `--json`, `/claude-api`, `/status`, `/rewind`, `/loop`, `/background`, `--json-schema`, `/ultrareview`, `/permissions`, `--restricted`, `Ctrl+X`, `ctrl+o`, `Ctrl+F`, `/teleport`, `/clear`, `--channels`, `/chrome`, `/sandbox`, `--continue`, `--resume <session-id>`, `--allow-dangerously-skip-permissions`, `/login`, `--include-partial-messages`, `Ctrl+K`, `/plugin`, `--chrome`, `/artifacts`, `/code-review`, `/model`, `/effort`, `/rename`, `--hostname` | Added serverToolUses to the result of a mod's turn.step hook: the tool calls the API ran itself (the advisor), each with its id, name, input, start and end / Added agentId to the tool.check event o... |
 | **v2.1.289** | 2026-10-03 | `--plugin-dir`, `--json` | [VSCode] Reverted a 2.1.288 change to claude auth status that may have made sign-outs more frequent / Fixed plugin list, plugin eval and plugin update showing a stale copy of a plugin installed fro... |
 | **v2.1.288** | 2026-10-02 | `Ctrl+C`, `--max-findings default`, `/code-review`, `--max-findings`, `Ctrl+F`, `Shift+T`, `--resume`, `--plugin-dir`, `/plugin`, `/compact`, `/login`, `/tui`, `ctrl+e`, `--bare`, `/theme`, `/permissions`, `/usage-credits`, `--paginate`, `/autocompact`, `Ctrl+N` | Added $.ui.selection() for mods: returns the text you last selected in fullscreen mode and, when the selection lies within one transcript row, that row / Added a built-in gh api to cloud sessions w... |
@@ -82,8 +84,6 @@
 | **v2.1.203** | 2026-07-07 | `/exit`, `/clear`, `/doctor`, `/status` | Added a warning when your login is about to expire, so you can re-authenticate before background sessions are interrupted / Added a grey ⏸ badge to the footer when in manual permission mode, making... |
 | **v2.1.202** | 2026-07-06 | `/config`, `Ctrl+R`, `/rename`, `/remote-control`, `/workflows`, `/review <pr>`, `/review`, `/code-review` | Added a "Dynamic workflow size" setting in /config for controlling how large Claude generally makes dynamic workflows (small/medium/large agent counts) — an advisory guideline, not an enforced cap ... |
 | **v2.1.201** | 2026-07-03 | — | Claude Sonnet 5 sessions no longer use the mid-conversation system role for harness reminders |
-| **v2.1.200** | 2026-07-03 | `/config`, `--help`, `--permission-mode manual`, `/mcp` | Changed AskUserQuestion dialogs to no longer auto-continue by default; opt into an idle timeout via /config / Changed the "default" permission mode to "Manual" across the CLI, --help, VS Code, and ... |
-| **v2.1.199** | 2026-07-02 | `/skill-a`, `/skill-b`, `/model`, `/fast`, `/background`, `/color` | Stacked slash-skill invocations like /skill-a /skill-b do XYZ now load all leading skills (up to 5), not just the first / Fixed typing /model or /fast while viewing a subagent silently opening the ... |
 
 ---
 

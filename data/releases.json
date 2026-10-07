@@ -1,5 +1,194 @@
 [
   {
+    "version": "2.1.292",
+    "date": "2026-07-28",
+    "commands": [
+      {
+        "name": "--marketplace <source>",
+        "context": "new",
+        "summary": "Added `--marketplace <source>` to `claude plugin install`: adds the marketplace "
+      },
+      {
+        "name": "--marketplace",
+        "context": "new",
+        "summary": "Added `--marketplace <source>` to `claude plugin install`: adds the marketplace "
+      },
+      {
+        "name": "/ultrareview",
+        "context": "fixed",
+        "summary": "Fixed sandboxed commands being able to read the staged file copies of `/ultrarev"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed plan mode not being restored when resuming a session from the `claude --re"
+      },
+      {
+        "name": "/branch",
+        "context": "fixed",
+        "summary": "Fixed saved scheduled tasks created after `/resume`, `/branch` or `/clear` never"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed saved scheduled tasks created after `/resume`, `/branch` or `/clear` never"
+      },
+      {
+        "name": "/loop",
+        "context": "fixed",
+        "summary": "Fixed a background session's `/loop` silently stopping when the session's proces"
+      },
+      {
+        "name": "/bug",
+        "context": "fixed",
+        "summary": "Fixed `/bug`, `/share` and `/feedback <text>` starting over after Ctrl+O or Ctrl"
+      },
+      {
+        "name": "/share",
+        "context": "fixed",
+        "summary": "Fixed `/bug`, `/share` and `/feedback <text>` starting over after Ctrl+O or Ctrl"
+      },
+      {
+        "name": "/feedback <text>",
+        "context": "fixed",
+        "summary": "Fixed `/bug`, `/share` and `/feedback <text>` starting over after Ctrl+O or Ctrl"
+      },
+      {
+        "name": "/feedback",
+        "context": "fixed",
+        "summary": "Fixed `/bug`, `/share` and `/feedback <text>` starting over after Ctrl+O or Ctrl"
+      },
+      {
+        "name": "Ctrl+O",
+        "context": "fixed",
+        "summary": "Fixed `/bug`, `/share` and `/feedback <text>` starting over after Ctrl+O or Ctrl"
+      },
+      {
+        "name": "Ctrl+Z",
+        "context": "fixed",
+        "summary": "Fixed `/bug`, `/share` and `/feedback <text>` starting over after Ctrl+O or Ctrl"
+      },
+      {
+        "name": "/remote-env",
+        "context": "fixed",
+        "summary": "Fixed `/remote-env` replacing your saved default environment when you pressed En"
+      },
+      {
+        "name": "/add-dir",
+        "context": "fixed",
+        "summary": "Fixed `/add-dir` path box letting Shift+Enter or a paste add a line break, and t"
+      },
+      {
+        "name": "Shift+E",
+        "context": "fixed",
+        "summary": "Fixed `/add-dir` path box letting Shift+Enter or a paste add a line break, and t"
+      },
+      {
+        "name": "Ctrl+L",
+        "context": "fixed",
+        "summary": "Fixed fullscreen mode sending a full-screen clear on every window resize and Ctr"
+      },
+      {
+        "name": "/cd",
+        "context": "fixed",
+        "summary": "Fixed \"instruction file not loaded\" lines going stale or missing after `/cd` or "
+      },
+      {
+        "name": "/name",
+        "context": "fixed",
+        "summary": "Fixed a compaction summary that repeated `/name` letting Claude invoke a skill t"
+      },
+      {
+        "name": "/theme",
+        "context": "fixed",
+        "summary": "Fixed `/theme`, the `/config` Theme menu and the first-run theme step saving a t"
+      },
+      {
+        "name": "/config",
+        "context": "fixed",
+        "summary": "Fixed `/theme`, the `/config` Theme menu and the first-run theme step saving a t"
+      },
+      {
+        "name": "ctrl+o",
+        "context": "improved",
+        "summary": "Improved rendering speed of long bulleted or numbered replies: they stream, resi"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "improved",
+        "summary": "Improved Ctrl+C draft recovery: a cleared prompt now stays reachable with Up aft"
+      },
+      {
+        "name": "/focus",
+        "context": "improved",
+        "summary": "Improved the /focus tip: it now invites you to try focus view mid-turn and shows"
+      }
+    ],
+    "features": [
+      "Added --marketplace <source> to claude plugin install: adds the marketplace if needed, under the same policy checks as claude plugin marketplace add, then installs the plugin from it",
+      "Added an effort parameter to the Agent tool, so Claude runs a sub-agent at the effort level you ask for",
+      "Added CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS environment variable to set a longer base delay for the backoff when retrying an overloaded (529) request",
+      "Added prompt.autocomplete, an event a mod hooks to add its own rows to the prompt box's autocomplete list",
+      "Added prompt caching to $.model.complete for mods: prompt and system take blocks of text, and cache: true on a block caches the request up to it",
+      "Added workflow agents to the agent.spawn mod hook, with their run and index, so a mod can refuse them",
+      "Fixed sandboxed commands being able to read the staged file copies of /ultrareview uploads under ~/.claude/seed-admin",
+      "Fixed plan mode not being restored when resuming a session from the claude --resume session picker or with /resume",
+      "Fixed saved scheduled tasks created after /resume, /branch or /clear never firing, and saved tasks ignoring later creates and deletes after two writes to the tasks file milliseconds apart",
+      "Fixed a background session's /loop silently stopping when the session's process restarted (for example after a crash), because its pending wakeup was lost",
+      "Fixed /bug, /share and /feedback <text> starting over after Ctrl+O or Ctrl+Z while a report was being sent, and closing as cancelled after it had been sent",
+      "Fixed /remote-env replacing your saved default environment when you pressed Enter right away: the list now opens on your default, and no row has a check mark when no default is in effect",
+      "Fixed /add-dir path box letting Shift+Enter or a paste add a line break, and treating fast-typed \"tab\", \"up\" or \"down\" as those keys",
+      "Fixed fullscreen mode sending a full-screen clear on every window resize and Ctrl+L when iTerm2 is detected, which may be what filled iTerm2's scrollback with stale pages",
+      "Fixed \"instruction file not loaded\" lines going stale or missing after /cd or a permission change, and added a transcript line when a nested one isn't loaded",
+      "Fixed a compaction summary that repeated /name letting Claude invoke a skill that is reserved for the user",
+      "Fixed /theme, the /config Theme menu and the first-run theme step saving a theme before a plugin's config.set hook was asked",
+      "Improved rendering speed of long bulleted or numbered replies: they stream, resize and re-open in the transcript (ctrl+o) much faster",
+      "Improved Ctrl+C draft recovery: a cleared prompt now stays reachable with Up after a slash command or a sent message",
+      "Improved the /focus tip: it now invites you to try focus view mid-turn and shows how to switch back",
+      "[Cloud sessions] Fixed routine runs occasionally staying listed as running for hours after they had finished",
+      "[Cloud sessions] Fixed editing or duplicating a routine turning off its push notifications when the routine had no saved notification setting",
+      "[Cloud sessions] Fixed SVG, HEIC, TIFF and other less common image files failing to attach; they now attach as regular files"
+    ],
+    "features_ko": [
+      "claude plugin install에 --marketplace <source>를 추가했습니다: 필요할 경우 마켓플레이스를 추가하고, claude plugin marketplace add와 동일한 정책 검사를 거친 후 플러그인을 설치합니다.",
+      "Agent 도구에 effort 매개변수를 추가하여 Claude가 요청한 노력 수준에서 서브 에이전트를 실행합니다.",
+      "CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS 환경 변수를 추가하여 과부하(529) 요청을 재시도할 때 더 긴 기본 지연 시간을 설정합니다.",
+      "prompt.autocomplete를 추가했습니다. 이는 모드가 프롬프트 박스의 자동 완성 목록에 자체 행을 추가하기 위해 후킹하는 이벤트입니다.",
+      "모드를 위한 $.model.complete에 프롬프트 캐싱을 추가했습니다: 프롬프트와 시스템은 텍스트 블록을 가져오고, 블록에 cache: true가 설정되면 해당 요청을 캐시합니다.",
+      "agent.spawn 모드 후크에 워크플로우 에이전트를 추가하여 실행 및 인덱스를 제공하므로 모드가 이를 거부할 수 있습니다.",
+      "샌드박스 명령이 ~/.claude/seed-admin 아래의 /ultrareview 업로드의 스테이지 파일 복사본을 읽을 수 있는 문제를 수정했습니다.",
+      "claude --resume 세션 선택기 또는 /resume으로 세션을 재개할 때 계획 모드가 복원되지 않는 문제를 수정했습니다.",
+      "/resume, /branch 또는 /clear 후에 생성된 저장된 예약 작업이 실행되지 않고, 저장된 작업이 두 번의 작업 파일 쓰기 후에 나중에 생성 및 삭제를 무시하는 문제를 수정했습니다.",
+      "백그라운드 세션의 /loop가 세션 프로세스가 재시작될 때(예: 충돌 후) 조용히 중지되는 문제를 수정했습니다. 이로 인해 대기 중인 웨이크업이 손실되었습니다.",
+      "보고서가 전송되는 동안 Ctrl+O 또는 Ctrl+Z를 누르면 /bug, /share 및 /feedback <text>가 처음부터 다시 시작되고, 전송 후 취소된 것으로 닫히는 문제를 수정했습니다.",
+      "/remote-env가 Enter를 바로 눌렀을 때 저장된 기본 환경을 대체하는 문제를 수정했습니다: 이제 목록이 기본으로 열리고, 기본이 적용되지 않을 때는 어떤 행에도 체크 표시가 없습니다.",
+      "/add-dir 경로 상자가 Shift+Enter 또는 붙여넣기로 줄 바꿈을 추가하도록 허용하는 문제를 수정하고, 빠르게 입력된 \"tab\", \"up\" 또는 \"down\"을 해당 키로 처리합니다.",
+      "전체 화면 모드가 iTerm2가 감지될 때마다 모든 창 크기 조정 및 Ctrl+L에서 전체 화면 지우기를 보내는 문제를 수정했습니다. 이는 iTerm2의 스크롤백을 오래된 페이지로 채웠을 수 있습니다.",
+      "/cd 또는 권한 변경 후 \"instruction file not loaded\" 라인이 오래되거나 누락되는 문제를 수정하고, 중첩된 파일이 로드되지 않을 때 전사 라인을 추가했습니다.",
+      "/name을 반복하는 압축 요약이 Claude가 사용자에게 예약된 기술을 호출하게 하는 문제를 수정했습니다.",
+      "/theme, /config 테마 메뉴 및 첫 실행 테마 단계가 플러그인의 config.set 후크가 요청되기 전에 테마를 저장하는 문제를 수정했습니다.",
+      "긴 글머리 기호 또는 번호 매기기 답변의 렌더링 속도를 개선했습니다: 이제 더 빠르게 스트리밍되고, 크기가 조정되며, 전사(ctrl+o)에서 다시 열립니다.",
+      "Ctrl+C 초안 복구를 개선했습니다: 지워진 프롬프트가 슬래시 명령 또는 전송된 메시지 후에도 위쪽 화살표로 접근할 수 있게 유지됩니다.",
+      "/focus 팁을 개선했습니다: 이제 턴 중간에 포커스 뷰를 시도해 보라고 초대하고, 다시 전환하는 방법을 보여줍니다.",
+      "[클라우드 세션] 정기 실행이 완료된 후에도 몇 시간 동안 실행 중으로 남아 있는 문제를 수정했습니다.",
+      "[클라우드 세션] 루틴을 편집하거나 복제할 때 루틴에 저장된 알림 설정이 없으면 푸시 알림이 꺼지는 문제를 수정했습니다.",
+      "[클라우드 세션] SVG, HEIC, TIFF 및 기타 덜 일반적인 이미지 파일이 첨부되지 않는 문제를 수정했습니다; 이제 일반 파일로 첨부됩니다."
+    ]
+  },
+  {
+    "version": "2.1.291",
+    "date": "2026-10-06",
+    "commands": [],
+    "features": [
+      "Fixed a regression in 2.1.290 where cloud sessions could drop answers to permission prompts",
+      "Fixed a regression in 2.1.288 where the last messages of a session could be lost when quitting"
+    ],
+    "features_ko": [
+      "2.1.290에서 클라우드 세션이 권한 프롬프트에 대한 답변을 드롭할 수 있는 회귀 문제를 수정했습니다.",
+      "2.1.288에서 세션 종료 시 마지막 메시지가 손실될 수 있는 회귀 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.290",
     "date": "2026-10-05",
     "commands": [
