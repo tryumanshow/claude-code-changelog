@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-07 00:33 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-08 00:53 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.293** | 2026-10-07 | `/model`, `/tui`, `--chrome`, `--no-chrome`, `--tools`, `--agent`, `/clear`, `/ultrareview`, `--settings`, `/feedback`, `Ctrl+O`, `Ctrl+Z`, `/loop` | Added Claude Haiku 5.5 (claude-haiku-5-5), now the default Haiku model on the Anthropic API — 1M context, $0.10/$0.50 per Mtok ($0.50/$2.50 for prompts over 100K) / Added agentType to the subagentS... |
 | **v2.1.292** | 2026-07-28 | `--marketplace <source>`, `--marketplace`, `/ultrareview`, `/resume`, `/branch`, `/clear`, `/loop`, `/bug`, `/share`, `/feedback <text>`, `/feedback`, `Ctrl+O`, `Ctrl+Z`, `/remote-env`, `/add-dir`, `Shift+E`, `Ctrl+L`, `/cd`, `/name`, `/theme`, `/config`, `ctrl+o`, `Ctrl+C`, `/focus` | Added --marketplace <source> to claude plugin install: adds the marketplace if needed, under the same policy checks as claude plugin marketplace add, then installs the plugin from it / Added an eff... |
 | **v2.1.291** | 2026-10-06 | — | Fixed a regression in 2.1.290 where cloud sessions could drop answers to permission prompts / Fixed a regression in 2.1.288 where the last messages of a session could be lost when quitting |
 | **v2.1.290** | 2026-10-05 | `--json`, `/claude-api`, `/status`, `/rewind`, `/loop`, `/background`, `--json-schema`, `/ultrareview`, `/permissions`, `--restricted`, `Ctrl+X`, `ctrl+o`, `Ctrl+F`, `/teleport`, `/clear`, `--channels`, `/chrome`, `/sandbox`, `--continue`, `--resume <session-id>`, `--allow-dangerously-skip-permissions`, `/login`, `--include-partial-messages`, `Ctrl+K`, `/plugin`, `--chrome`, `/artifacts`, `/code-review`, `/model`, `/effort`, `/rename`, `--hostname` | Added serverToolUses to the result of a mod's turn.step hook: the tool calls the API ran itself (the advisor), each with its id, name, input, start and end / Added agentId to the tool.check event o... |
@@ -83,7 +84,6 @@
 | **v2.1.204** | 2026-07-08 | — | Fixed hook events not streaming during SessionStart hooks in headless sessions, which could cause remote workers to be idle-reaped mid-hook |
 | **v2.1.203** | 2026-07-07 | `/exit`, `/clear`, `/doctor`, `/status` | Added a warning when your login is about to expire, so you can re-authenticate before background sessions are interrupted / Added a grey ⏸ badge to the footer when in manual permission mode, making... |
 | **v2.1.202** | 2026-07-06 | `/config`, `Ctrl+R`, `/rename`, `/remote-control`, `/workflows`, `/review <pr>`, `/review`, `/code-review` | Added a "Dynamic workflow size" setting in /config for controlling how large Claude generally makes dynamic workflows (small/medium/large agent counts) — an advisory guideline, not an enforced cap ... |
-| **v2.1.201** | 2026-07-03 | — | Claude Sonnet 5 sessions no longer use the mid-conversation system role for harness reminders |
 
 ---
 
