@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-08 00:53 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-09 01:07 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.295** | 2026-07-28 | `/copy`, `/login`, `--strict`, `/plugin`, `/config`, `/tui`, `/model`, `/usage`, `--tools`, `--restricted`, `/loop`, `/advisor`, `ctrl+c`, `/reload-plugins`, `/fast`, `/output-style`, `/resume`, `/branch`, `--plugin-dir`, `/ultrareview`, `/rewind`, `/context`, `Ctrl+C`, `Ctrl+S`, `Shift+T`, `Alt+S`, `Ctrl+T` | Added onFailure: "block" for command and HTTP hooks: a hook that can't start, times out, or exits with an unexpected code blocks the action instead of letting it through / Added Program Status Prot... |
+| **v2.1.294** | 2026-10-08 | — | Fixed prompt and agent hooks written as instructions (such as "Block commands that...") allowing what they should block / Improved how prompt hooks on Stop and SubagentStop written as instructions ... |
 | **v2.1.293** | 2026-10-07 | `/model`, `/tui`, `--chrome`, `--no-chrome`, `--tools`, `--agent`, `/clear`, `/ultrareview`, `--settings`, `/feedback`, `Ctrl+O`, `Ctrl+Z`, `/loop` | Added Claude Haiku 5.5 (claude-haiku-5-5), now the default Haiku model on the Anthropic API — 1M context, $0.10/$0.50 per Mtok ($0.50/$2.50 for prompts over 100K) / Added agentType to the subagentS... |
 | **v2.1.292** | 2026-07-28 | `--marketplace <source>`, `--marketplace`, `/ultrareview`, `/resume`, `/branch`, `/clear`, `/loop`, `/bug`, `/share`, `/feedback <text>`, `/feedback`, `Ctrl+O`, `Ctrl+Z`, `/remote-env`, `/add-dir`, `Shift+E`, `Ctrl+L`, `/cd`, `/name`, `/theme`, `/config`, `ctrl+o`, `Ctrl+C`, `/focus` | Added --marketplace <source> to claude plugin install: adds the marketplace if needed, under the same policy checks as claude plugin marketplace add, then installs the plugin from it / Added an eff... |
 | **v2.1.291** | 2026-10-06 | — | Fixed a regression in 2.1.290 where cloud sessions could drop answers to permission prompts / Fixed a regression in 2.1.288 where the last messages of a session could be lost when quitting |
@@ -82,8 +84,6 @@
 | **v2.1.206** | 2026-07-10 | `/cd`, `/add-dir`, `/doctor`, `/commit-push-pr`, `/login`, `--continue`, `--mcp-config`, `--bg`, `--permission-prompt-tool`, `/model`, `/remote-control`, `/status`, `Ctrl+E`, `/code-review`, `Ctrl+X` | Added directory path suggestions to /cd, matching /add-dir behavior / Added a /doctor check that proposes trimming checked-in CLAUDE.md files by cutting content Claude could derive from the codebas... |
 | **v2.1.205** | 2026-07-08 | `--json-schema`, `--max-turns`, `/doctor`, `/checkup`, `/login` | Added an auto mode rule that blocks tampering with session transcript files / Fixed --json-schema silently producing unstructured output when the schema was invalid, and schemas using the format ke... |
 | **v2.1.204** | 2026-07-08 | — | Fixed hook events not streaming during SessionStart hooks in headless sessions, which could cause remote workers to be idle-reaped mid-hook |
-| **v2.1.203** | 2026-07-07 | `/exit`, `/clear`, `/doctor`, `/status` | Added a warning when your login is about to expire, so you can re-authenticate before background sessions are interrupted / Added a grey ⏸ badge to the footer when in manual permission mode, making... |
-| **v2.1.202** | 2026-07-06 | `/config`, `Ctrl+R`, `/rename`, `/remote-control`, `/workflows`, `/review <pr>`, `/review`, `/code-review` | Added a "Dynamic workflow size" setting in /config for controlling how large Claude generally makes dynamic workflows (small/medium/large agent counts) — an advisory guideline, not an enforced cap ... |
 
 ---
 
