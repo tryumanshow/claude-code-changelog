@@ -1,5 +1,129 @@
 [
   {
+    "version": "2.1.296",
+    "date": "2026-10-09",
+    "commands": [
+      {
+        "name": "--agents",
+        "context": "new",
+        "summary": "Added `autoCompactWindow` to subagent frontmatter and `--agents` definitions, so"
+      },
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added a note in `/plugin` on a plugin whose hooks are left out because another e"
+      },
+      {
+        "name": "--teleport",
+        "context": "fixed",
+        "summary": "Fixed `--teleport` opening an empty conversation when the session's history coul"
+      },
+      {
+        "name": "/diff",
+        "context": "fixed",
+        "summary": "Fixed toasts and notifications waiting unseen for as long as the `/diff` panel o"
+      },
+      {
+        "name": "--capacity",
+        "context": "fixed",
+        "summary": "Fixed a self-hosted runner session's git fetch, pull and push failing while anot"
+      },
+      {
+        "name": "Shift+J",
+        "context": "fixed",
+        "summary": "Fixed Edit and NotebookEdit replacing every non-ASCII character in files that ar"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed a late-loading plugin's SessionStart hook output reaching the new conversa"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed Claude calling cloud sessions non-interactive and suggesting `/mcp` or `cl"
+      },
+      {
+        "name": "/code-review",
+        "context": "fixed",
+        "summary": "Fixed `/code-review` ending on a raw JSON array in cloud sessions, the Agent SDK"
+      },
+      {
+        "name": "ctrl+o",
+        "context": "improved",
+        "summary": "Improved transcript toggle (ctrl+o) responsiveness in code-heavy conversations b"
+      },
+      {
+        "name": "--debug",
+        "context": "improved",
+        "summary": "Improved `--debug` output to name unrecognized frontmatter fields in custom agen"
+      },
+      {
+        "name": "/cost",
+        "context": "improved",
+        "summary": "Updated `/cost`, the status line, `--max-budget-usd` and the SDK's cost figures "
+      },
+      {
+        "name": "--max-budget-usd",
+        "context": "improved",
+        "summary": "Updated `/cost`, the status line, `--max-budget-usd` and the SDK's cost figures "
+      },
+      {
+        "name": "/repo",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed chat links written as a full Windows path, such as C:\\repo\\file.t"
+      }
+    ],
+    "features": [
+      "Added a code key to the Claude apps gateway's managed.policies[]: the same settings as cli, also applied in Claude Desktop's Code tab; beside desktop, it turns on Claude Desktop's gateway mode",
+      "Added autoCompactWindow to subagent frontmatter and --agents definitions, so a subagent can auto-compact earlier than the main conversation's window",
+      "Added CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL to run every workflow agent on one model while other subagents keep theirs",
+      "Added CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS environment variable to set a longer maximum delay for the backoff when retrying an overloaded (529) request",
+      "Added a note in /plugin on a plugin whose hooks are left out because another enabled plugin has the same name",
+      "Added an allow_large option to the Read tool so Claude can read a text file past the usual size limits in one call when it needs the whole file and the context has room",
+      "Fixed --teleport opening an empty conversation when the session's history could not be read",
+      "Fixed toasts and notifications waiting unseen for as long as the /diff panel or dialog was open",
+      "Fixed a self-hosted runner session's git fetch, pull and push failing while another session of the same repository starts on a runner with --capacity above 1",
+      "Fixed a late-loading plugin's SessionStart hook output reaching the new conversation after /clear in headless sessions",
+      "Fixed Claude calling cloud sessions non-interactive and suggesting /mcp or claude mcp when an MCP server needs authentication",
+      "Fixed /code-review ending on a raw JSON array in cloud sessions, the Agent SDK and IDE integrations; the findings now print as a numbered list",
+      "Windows: Fixed PowerShell commands longer than about 1 KB always asking for permission, so allow rules and read-only detection now apply up to 32 KB",
+      "Windows: Fixed stdio MCP servers being force-killed at shutdown; stdin now closes first and the process tree is killed only if the server is still running after 300 ms",
+      "Windows: Fixed claude plugin install failing for GitHub owner/repo plugin sources on machines with no GitHub SSH key; the clone is now retried over HTTPS",
+      "Windows: Fixed rm -rf /c/Users/<name> in Git Bash not asking in bypass permissions mode",
+      "Improved transcript toggle (ctrl+o) responsiveness in code-heavy conversations by caching syntax-highlighted code blocks",
+      "Improved --debug output to name unrecognized frontmatter fields in custom agent files, with a hint for likely typos",
+      "Improved --debug output for hooks: command hooks on tool calls, prompts, SessionStart and Stop now log their command, plugin, outcome and duration when they finish, so a slow hook is identifiable",
+      "Updated /cost, the status line, --max-budget-usd and the SDK's cost figures to price Sonnet 5.5 cache reads at $0.10 per million tokens (was $0.20)",
+      "Updated the bundled dataviz skill: lighter violet for the seventh series in light mode, softer primary text in dark mode, and compact y-axis labels like 1K",
+      "[VSCode] Fixed chat links written as a full Windows path, such as C:\\repo\\file.ts or file:///C:/repo/file.ts, not opening the file on Windows"
+    ],
+    "features_ko": [
+      "Claude 앱 게이트웨이의 managed.policies[]에 코드 키가 추가되었습니다: cli와 동일한 설정이 적용되며, Claude Desktop의 Code 탭에서도 적용됩니다; 데스크탑 옆에서 Claude Desktop의 게이트웨이 모드를 활성화합니다.",
+      "subagent frontmatter와 --agents 정의에 autoCompactWindow가 추가되어, subagent가 메인 대화의 창보다 먼저 자동 압축할 수 있습니다.",
+      "모든 워크플로우 에이전트를 하나의 모델에서 실행할 수 있도록 CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL이 추가되었으며, 다른 subagents는 자신의 모델을 유지합니다.",
+      "과부하된 (529) 요청을 재시도할 때 백오프의 최대 지연 시간을 길게 설정할 수 있도록 CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS 환경 변수가 추가되었습니다.",
+      "다른 활성화된 플러그인이 동일한 이름을 가지고 있어 후크가 생략된 플러그인에 대한 노트가 /plugin에 추가되었습니다.",
+      "Read 도구에 allow_large 옵션이 추가되어, Claude가 전체 파일과 컨텍스트에 여유가 있을 때 일반 크기 제한을 초과하여 텍스트 파일을 한 번의 호출로 읽을 수 있습니다.",
+      "세션의 기록을 읽을 수 없을 때 --teleport가 빈 대화를 여는 문제를 수정했습니다.",
+      "/diff 패널이나 대화 상자가 열려 있는 동안 보이지 않게 대기하는 토스트 및 알림을 수정했습니다.",
+      "동일한 리포지토리의 다른 세션이 --capacity가 1 이상인 러너에서 시작할 때 self-hosted runner 세션의 git fetch, pull 및 push가 실패하는 문제를 수정했습니다.",
+      "헤드리스 세션에서 /clear 후에 늦게 로드된 플러그인의 SessionStart 후크 출력이 새로운 대화에 도달하는 문제를 수정했습니다.",
+      "Claude가 클라우드 세션을 비대화형으로 호출하고 MCP 서버가 인증이 필요할 때 /mcp 또는 claude mcp를 제안하는 문제를 수정했습니다.",
+      "클라우드 세션, Agent SDK 및 IDE 통합에서 /code-review가 원시 JSON 배열로 끝나는 문제를 수정했습니다; 결과는 이제 번호 매겨진 목록으로 출력됩니다.",
+      "Windows: PowerShell 명령이 약 1 KB를 초과할 때 항상 권한을 요청하는 문제를 수정했습니다; 이제 허용 규칙과 읽기 전용 감지가 최대 32 KB까지 적용됩니다.",
+      "Windows: stdio MCP 서버가 종료 시 강제로 종료되는 문제를 수정했습니다; stdin이 먼저 닫히고, 서버가 300 ms 후에도 여전히 실행 중인 경우에만 프로세스 트리가 종료됩니다.",
+      "Windows: GitHub SSH 키가 없는 머신에서 GitHub 소유자/레포 플러그인 소스에 대해 claude plugin install이 실패하는 문제를 수정했습니다; 이제 클론이 HTTPS를 통해 재시도됩니다.",
+      "Windows: Git Bash에서 rm -rf /c/Users/<name>가 우회 권한 모드에서 묻지 않는 문제를 수정했습니다.",
+      "코드가 많은 대화에서 전사 토글(ctrl+o)의 반응성을 개선하기 위해 구문 강조된 코드 블록을 캐싱했습니다.",
+      "사용자 정의 에이전트 파일의 인식되지 않은 frontmatter 필드를 이름으로 표시하고, 가능한 오타에 대한 힌트를 제공하도록 --debug 출력을 개선했습니다.",
+      "후크에 대한 --debug 출력을 개선했습니다: 도구 호출, 프롬프트, SessionStart 및 Stop의 명령 후크가 완료될 때 명령, 플러그인, 결과 및 지속 시간을 기록하여 느린 후크를 식별할 수 있습니다.",
+      "/cost, 상태 줄, --max-budget-usd 및 SDK의 비용 수치를 업데이트하여 Sonnet 5.5 캐시 읽기를 백만 토큰당 $0.10로 가격을 책정했습니다 (이전에는 $0.20).",
+      "번들된 dataviz 기술을 업데이트했습니다: 라이트 모드에서 일곱 번째 시리즈에 더 밝은 보라색, 다크 모드에서 부드러운 기본 텍스트, 1K와 같은 압축된 y축 레이블을 적용했습니다.",
+      "[VSCode] C:\\repo\\file.ts 또는 file:///C:/repo/file.ts와 같은 전체 Windows 경로로 작성된 채팅 링크가 Windows에서 파일을 열지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.295",
     "date": "2026-07-28",
     "commands": [

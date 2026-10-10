@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-09 01:07 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-10 00:40 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.296** | 2026-10-09 | `--agents`, `/plugin`, `--teleport`, `/diff`, `--capacity`, `Shift+J`, `/clear`, `/mcp`, `/code-review`, `ctrl+o`, `--debug`, `/cost`, `--max-budget-usd`, `/repo` | Added a code key to the Claude apps gateway's managed.policies[]: the same settings as cli, also applied in Claude Desktop's Code tab; beside desktop, it turns on Claude Desktop's gateway mode / Ad... |
 | **v2.1.295** | 2026-07-28 | `/copy`, `/login`, `--strict`, `/plugin`, `/config`, `/tui`, `/model`, `/usage`, `--tools`, `--restricted`, `/loop`, `/advisor`, `ctrl+c`, `/reload-plugins`, `/fast`, `/output-style`, `/resume`, `/branch`, `--plugin-dir`, `/ultrareview`, `/rewind`, `/context`, `Ctrl+C`, `Ctrl+S`, `Shift+T`, `Alt+S`, `Ctrl+T` | Added onFailure: "block" for command and HTTP hooks: a hook that can't start, times out, or exits with an unexpected code blocks the action instead of letting it through / Added Program Status Prot... |
 | **v2.1.294** | 2026-10-08 | — | Fixed prompt and agent hooks written as instructions (such as "Block commands that...") allowing what they should block / Improved how prompt hooks on Stop and SubagentStop written as instructions ... |
 | **v2.1.293** | 2026-10-07 | `/model`, `/tui`, `--chrome`, `--no-chrome`, `--tools`, `--agent`, `/clear`, `/ultrareview`, `--settings`, `/feedback`, `Ctrl+O`, `Ctrl+Z`, `/loop` | Added Claude Haiku 5.5 (claude-haiku-5-5), now the default Haiku model on the Anthropic API — 1M context, $0.10/$0.50 per Mtok ($0.50/$2.50 for prompts over 100K) / Added agentType to the subagentS... |
@@ -83,7 +84,6 @@
 | **v2.1.207** | 2026-07-11 | `/doctor`, `--settings`, `/usage-credits` | Auto mode is now available without CLAUDE_CODE_ENABLE_AUTO_MODE opt-in on Bedrock, Vertex AI, and Foundry; disable via disableAutoMode in settings / Fixed the auto-updater overwriting a custom laun... |
 | **v2.1.206** | 2026-07-10 | `/cd`, `/add-dir`, `/doctor`, `/commit-push-pr`, `/login`, `--continue`, `--mcp-config`, `--bg`, `--permission-prompt-tool`, `/model`, `/remote-control`, `/status`, `Ctrl+E`, `/code-review`, `Ctrl+X` | Added directory path suggestions to /cd, matching /add-dir behavior / Added a /doctor check that proposes trimming checked-in CLAUDE.md files by cutting content Claude could derive from the codebas... |
 | **v2.1.205** | 2026-07-08 | `--json-schema`, `--max-turns`, `/doctor`, `/checkup`, `/login` | Added an auto mode rule that blocks tampering with session transcript files / Fixed --json-schema silently producing unstructured output when the schema was invalid, and schemas using the format ke... |
-| **v2.1.204** | 2026-07-08 | — | Fixed hook events not streaming during SessionStart hooks in headless sessions, which could cause remote workers to be idle-reaped mid-hook |
 
 ---
 
