@@ -1,5 +1,419 @@
 [
   {
+    "version": "2.1.300",
+    "date": "2026-10-14",
+    "commands": [
+      {
+        "name": "/advisor",
+        "context": "new",
+        "summary": "Added `/advisor` on Claude Platform on AWS; no advisor runs until you pick one w"
+      },
+      {
+        "name": "--advisor",
+        "context": "new",
+        "summary": "Added `/advisor` on Claude Platform on AWS; no advisor runs until you pick one w"
+      },
+      {
+        "name": "/autocompact",
+        "context": "fixed",
+        "summary": "Fixed `/autocompact` warning about high token usage when you choose a smaller au"
+      },
+      {
+        "name": "--restricted",
+        "context": "fixed",
+        "summary": "Fixed `claude --help` naming a removed tool in its description of `--restricted`"
+      },
+      {
+        "name": "/tasks",
+        "context": "fixed",
+        "summary": "Fixed subagents you had typed messages to disappearing from `/tasks` shortly aft"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed a login refused by `forceLoginOrgUUID` leaving the refused organization's "
+      },
+      {
+        "name": "ctrl+o",
+        "context": "fixed",
+        "summary": "Fixed the Artifact tool's verbose and ctrl+o line reading `Artifact(\"(unprintabl"
+      },
+      {
+        "name": "/branch",
+        "context": "fixed",
+        "summary": "Fixed `/branch` dropping messages, and `claude purge` skipping subfolder project"
+      },
+      {
+        "name": "--worktree",
+        "context": "fixed",
+        "summary": "Fixed plugin `WorktreeCreate` and `WorktreeRemove` hooks not running when Claude"
+      },
+      {
+        "name": "--tmux",
+        "context": "fixed",
+        "summary": "Fixed plugin `WorktreeCreate` and `WorktreeRemove` hooks not running when Claude"
+      },
+      {
+        "name": "Ctrl+J",
+        "context": "fixed",
+        "summary": "Fixed a mod's `prompt.edit` hook not being raised for a newline entered with the"
+      },
+      {
+        "name": "/healthz",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Fixed the runner and orchestrator freezing (no polls, `/heal"
+      },
+      {
+        "name": "/sandbox",
+        "context": "improved",
+        "summary": "Changed the `/sandbox` mode options to read \"Sandbox commands\" instead of \"Sandb"
+      },
+      {
+        "name": "--sandbox",
+        "context": "removed",
+        "summary": "Removed the `--sandbox` and `--no-sandbox` flags from `claude remote-control`, w"
+      },
+      {
+        "name": "--no-sandbox",
+        "context": "removed",
+        "summary": "Removed the `--sandbox` and `--no-sandbox` flags from `claude remote-control`, w"
+      },
+      {
+        "name": "Shift+d",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Shift+dragging a file onto the prompt on Windows inserting an unr"
+      },
+      {
+        "name": "Ctrl+A",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Ctrl+Alt+F toggling Focus view instead of opening Find in the Exp"
+      }
+    ],
+    "features": [
+      "Added virtualText to a mod's prompt decorations: text drawn in the prompt box that never enters the draft or the submitted prompt",
+      "Added cache_creation_5m_tokens and cache_creation_1h_tokens to the OpenTelemetry api_request event, splitting cache writes by lifetime",
+      "Added $.ui.view({ agentId }) for mods: shows an agent's transcript in the main view when you ask, and $.ui.view({}) goes back",
+      "Added a dir prop on a mod's Text for right-to-left text: on Windows and in VS Code's terminal its rows read in that direction and sit flush right",
+      "Added /advisor on Claude Platform on AWS; no advisor runs until you pick one with /advisor, advisorModel or --advisor, and CLAUDE_CODE_DISABLE_ADVISOR_TOOL=1 turns it off",
+      "Added OpenTelemetry GenAI semantic-convention attributes to trace spans, such as gen_ai.provider.name, gen_ai.conversation.id, gen_ai.tool.name and error.type",
+      "Added support for rewriting a workflow agent's prompt and model in the agent.spawn mod hook, which could only refuse workflow agents before",
+      "Added the prompt.change mod hook, raised when the prompt box's text changes without a typed edit: a recalled history entry, a clear, an undo, or a plugin's fill",
+      "Fixed /autocompact warning about high token usage when you choose a smaller auto-compact window",
+      "Fixed claude --help naming a removed tool in its description of --restricted",
+      "Fixed subagents you had typed messages to disappearing from /tasks shortly after finishing, leaving no way back to the conversation",
+      "Fixed a login refused by forceLoginOrgUUID leaving the refused organization's token stored, or live after /login",
+      "Fixed the Artifact tool's verbose and ctrl+o line reading Artifact(\"(unprintable path)\") while a call's input arrives; its row now shows \"Waiting…\" and \"Running…\" as Bash's does",
+      "Fixed /branch dropping messages, and claude purge skipping subfolder projects, when they contain a Unicode line or paragraph separator (U+2028, U+2029)",
+      "Fixed plugin WorktreeCreate and WorktreeRemove hooks not running when Claude Code starts with --worktree (not yet with --tmux)",
+      "Fixed --worktree sessions sometimes starting from the wrong commit when a tag or branch was named like a commit ID, and their starting git status naming a branch other than the new worktree's",
+      "Fixed the branch showing as \".invalid\" and --worktree failing to reopen a worktree in repositories using git's reftable ref storage",
+      "Fixed claude remote-control servers giving up on renewing their connection after a brief sign-in error, such as a locked keychain; they now retry, and warn when you need to run claude /login",
+      "Fixed --worktree failing in a worktree of a bare repository when origin's default branch can't be fetched; the fallback base is now the current checkout's HEAD, not the main repository's",
+      "Fixed a mod's prompt.edit hook not being raised for a newline entered with the chat:newline keybinding (Ctrl+J, or a rebound Enter)",
+      "Self-hosted runner: Fixed the runner and orchestrator freezing (no polls, /healthz or SIGTERM shutdown) while nobody reads their output; logs keep the latest 256 KiB and count drops (not on Windows)",
+      "Changed the /sandbox mode options to read \"Sandbox commands\" instead of \"Sandbox BashTool\"",
+      "Removed the --sandbox and --no-sandbox flags from claude remote-control, which had no effect; passing either now exits with an error. Set sandbox.enabled in settings to sandbox sessions",
+      "[VSCode] Added the claudeCode.attachSelection setting to stop text selected in the editor from being added to your messages",
+      "[VSCode] Fixed Shift+dragging a file onto the prompt on Windows inserting an unreadable /c:/… path instead of a mention relative to the working directory",
+      "[VSCode] Fixed Shift+dragging a file from the Explorer or an editor tab onto the prompt inserting nothing in WSL, SSH and Dev Container windows",
+      "[VSCode] Fixed Ctrl+Alt+F toggling Focus view instead of opening Find in the Explorer, other tree views, or the Debug Console on Windows and Linux"
+    ],
+    "features_ko": [
+      "mod의 프롬프트 장식에 virtualText 추가: 초안이나 제출된 프롬프트에 들어가지 않는 프롬프트 박스에 그려진 텍스트",
+      "OpenTelemetry api_request 이벤트에 cache_creation_5m_tokens 및 cache_creation_1h_tokens 추가, 캐시 쓰기를 수명에 따라 분리",
+      "mods를 위한 $.ui.view({ agentId }) 추가: 요청 시 에이전트의 전사를 메인 뷰에 표시하고, $.ui.view({})는 돌아감",
+      "mod의 Text에 오른쪽에서 왼쪽으로 읽는 텍스트를 위한 dir 속성 추가: Windows와 VS Code의 터미널에서 해당 방향으로 행이 읽히고 오른쪽에 정렬됨",
+      "AWS의 Claude Platform에 /advisor 추가; /advisor, advisorModel 또는 --advisor로 선택하기 전까지는 어드바이저가 실행되지 않으며, CLAUDE_CODE_DISABLE_ADVISOR_TOOL=1로 끌 수 있음",
+      "trace spans에 OpenTelemetry GenAI 의미론적 관례 속성 추가, 예: gen_ai.provider.name, gen_ai.conversation.id, gen_ai.tool.name 및 error.type",
+      "workflow agent의 프롬프트와 모델을 agent.spawn mod hook에서 재작성하는 지원 추가, 이전에는 workflow agents를 거부할 수만 있었음",
+      "프롬프트 박스의 텍스트가 입력된 수정 없이 변경될 때 발생하는 prompt.change mod hook 추가: 기록된 항목, 지우기, 실행 취소 또는 플러그인의 채우기",
+      "더 작은 자동 압축 창을 선택할 때 높은 토큰 사용에 대한 /autocompact 경고 수정",
+      "claude --help에서 --restricted의 설명에 제거된 도구 이름 수정",
+      "/tasks에서 메시지를 입력한 하위 에이전트가 작업 완료 직후 사라지는 문제 수정, 대화로 돌아갈 방법이 없음",
+      "forceLoginOrgUUID로 거부된 로그인 시 거부된 조직의 토큰이 저장되거나 /login 후에도 활성 상태로 남는 문제 수정",
+      "Artifact 도구의 verbose 및 ctrl+o 행이 호출 입력이 도착하는 동안 Artifact(\"(unprintable path)\")로 읽히는 문제 수정; 이제 해당 행은 \"Waiting…\" 및 \"Running…\"으로 표시됨",
+      "/branch에서 메시지가 떨어지고 claude purge가 하위 폴더 프로젝트를 건너뛰는 문제 수정, 유니코드 줄 또는 단락 구분 기호(U+2028, U+2029)가 포함된 경우",
+      "Claude Code가 --worktree로 시작할 때 plugin WorktreeCreate 및 WorktreeRemove 훅이 실행되지 않는 문제 수정 (아직 --tmux에서는 적용되지 않음)",
+      "태그나 브랜치가 커밋 ID처럼 이름이 지어질 때 --worktree 세션이 잘못된 커밋에서 시작되는 문제 수정, 시작 git 상태가 새로운 작업 트리의 브랜치가 아닌 다른 브랜치를 이름 짓는 문제",
+      "브랜치가 \".invalid\"로 표시되고 --worktree가 git의 reftable 참조 저장소를 사용하는 리포지토리에서 작업 트리를 다시 열지 못하는 문제 수정",
+      "claude 원격 제어 서버가 잠시 로그인 오류(예: 잠긴 키체인) 후 연결 갱신을 포기하는 문제 수정; 이제 재시도하며, claude /login을 실행해야 한다고 경고함",
+      "origin의 기본 브랜치를 가져올 수 없을 때 빈 리포지토리의 작업 트리에서 --worktree가 실패하는 문제 수정; 이제 대체 기준은 현재 체크아웃의 HEAD임",
+      "chat:newline 키 바인딩(Ctrl+J 또는 재바인드된 Enter)으로 입력된 줄 바꿈에 대해 mod의 prompt.edit 훅이 발생하지 않는 문제 수정",
+      "자체 호스팅된 러너: 아무도 출력을 읽지 않을 때 러너와 오케스트레이터가 멈추는 문제 수정 (폴링 없음, /healthz 또는 SIGTERM 종료); 로그는 최신 256 KiB를 유지하고 카운트가 감소함 (Windows에서는 아님)",
+      "/sandbox 모드 옵션을 \"Sandbox commands\"로 변경, \"Sandbox BashTool\" 대신",
+      "claude 원격 제어에서 --sandbox 및 --no-sandbox 플래그 제거, 효과가 없었음; 이제 둘 중 하나를 전달하면 오류와 함께 종료됨. 설정에서 sandbox.enabled를 설정하여 샌드박스 세션을 활성화",
+      "[VSCode] 편집기에서 선택한 텍스트가 메시지에 추가되지 않도록 하는 claudeCode.attachSelection 설정 추가",
+      "[VSCode] Windows에서 Shift+드래그로 프롬프트에 파일을 삽입할 때 작업 디렉토리에 상대적인 언급 대신 읽을 수 없는 /c:/… 경로가 삽입되는 문제 수정",
+      "[VSCode] Explorer 또는 편집기 탭에서 프롬프트로 파일을 Shift+드래그할 때 WSL, SSH 및 Dev Container 창에서 아무것도 삽입되지 않는 문제 수정",
+      "[VSCode] Ctrl+Alt+F가 Windows 및 Linux의 Explorer, 다른 트리 뷰 또는 Debug Console에서 Find를 여는 대신 Focus view를 전환하는 문제 수정"
+    ]
+  },
+  {
+    "version": "2.1.299",
+    "date": "2026-07-28",
+    "commands": [
+      {
+        "name": "--shutdown-drain-sec",
+        "context": "new",
+        "summary": "Added `--shutdown-drain-sec` to `claude self-hosted-runner orchestrator`: on SIG"
+      },
+      {
+        "name": "/effort",
+        "context": "new",
+        "summary": "Added `/effort` and `/fast` in agent view to set what new sessions start with; a"
+      },
+      {
+        "name": "/fast",
+        "context": "new",
+        "summary": "Added `/effort` and `/fast` in agent view to set what new sessions start with; a"
+      },
+      {
+        "name": "/model",
+        "context": "new",
+        "summary": "Added `/effort` and `/fast` in agent view to set what new sessions start with; a"
+      },
+      {
+        "name": "--safe-mode",
+        "context": "new",
+        "summary": "Added a \"safe mode\" line to the agents view peek panel for background sessions s"
+      },
+      {
+        "name": "--disallow-tools",
+        "context": "new",
+        "summary": "Added `--disallow-tools` and a `disallowed_tools` case field to `claude plugin e"
+      },
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added a note in `/plugin` and `claude plugin validate` naming a mod's hooks that"
+      },
+      {
+        "name": "/usage",
+        "context": "new",
+        "summary": "Added `/usage` warnings for max effort, workflows, always-on context and large t"
+      },
+      {
+        "name": "--max-turns",
+        "context": "fixed",
+        "summary": "Fixed a mod that submits a prompt at the end of every turn keeping a headless ru"
+      },
+      {
+        "name": "--max-budget-usd",
+        "context": "fixed",
+        "summary": "Fixed a mod that submits a prompt at the end of every turn keeping a headless ru"
+      },
+      {
+        "name": "--plugin-dir",
+        "context": "fixed",
+        "summary": "Fixed a sandboxed shell command being able to write into a `--plugin-dir` folder"
+      },
+      {
+        "name": "--debug",
+        "context": "fixed",
+        "summary": "Fixed memory growth under heavy debug logging (`--debug`, `--debug-file`), and a"
+      },
+      {
+        "name": "--debug-file",
+        "context": "fixed",
+        "summary": "Fixed memory growth under heavy debug logging (`--debug`, `--debug-file`), and a"
+      },
+      {
+        "name": "/status",
+        "context": "fixed",
+        "summary": "Fixed `claude mcp list`, `claude doctor` and `/status` reporting an empty `.mcp."
+      },
+      {
+        "name": "/btw",
+        "context": "improved",
+        "summary": "Changed `/btw` side questions in non-interactive sessions to return a timeout er"
+      },
+      {
+        "name": "/mnt",
+        "context": "fixed",
+        "summary": "Fixed sandboxed commands failing on WSL2 with `bwrap: Can't mkdir /mnt/c/Program"
+      },
+      {
+        "name": "/sandbox",
+        "context": "fixed",
+        "summary": "Fixed `/sandbox` reporting success when its setting could not be saved because t"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed the fullscreen \"Update installed\" notice being hidden behind the idle \"/cl"
+      },
+      {
+        "name": "/reload-plugins",
+        "context": "fixed",
+        "summary": "Fixed `/reload-plugins` not loading a plugin installed from another terminal a m"
+      },
+      {
+        "name": "--bare",
+        "context": "fixed",
+        "summary": "Fixed bare mode notices in background sessions telling you to restart without `-"
+      },
+      {
+        "name": "/stop",
+        "context": "fixed",
+        "summary": "Fixed bare mode notices in background sessions telling you to restart without `-"
+      },
+      {
+        "name": "/config",
+        "context": "fixed",
+        "summary": "Fixed `/config` push notification toggles sending your account the previous sett"
+      },
+      {
+        "name": "--input-format stream-json",
+        "context": "fixed",
+        "summary": "Fixed queued prompts sent as content blocks over `--input-format stream-json` ru"
+      },
+      {
+        "name": "--exec-path",
+        "context": "fixed",
+        "summary": "Fixed self-hosted runner sessions shutting down MCP servers added through an `--"
+      },
+      {
+        "name": "--mcp-config",
+        "context": "fixed",
+        "summary": "Fixed self-hosted runner sessions shutting down MCP servers added through an `--"
+      },
+      {
+        "name": "--channels",
+        "context": "fixed",
+        "summary": "Fixed `--bare` sessions leaving out an MCP server named `constructor` or `protot"
+      },
+      {
+        "name": "--bg",
+        "context": "fixed",
+        "summary": "Fixed a prompt or reply of `--bg` or `--background` to a background session bein"
+      },
+      {
+        "name": "--background",
+        "context": "fixed",
+        "summary": "Fixed a prompt or reply of `--bg` or `--background` to a background session bein"
+      },
+      {
+        "name": "--worktree",
+        "context": "fixed",
+        "summary": "Fixed `--worktree` sessions leaving a folder behind in `.git/worktrees` in repos"
+      },
+      {
+        "name": "/types",
+        "context": "fixed",
+        "summary": "Fixed `claude plugin validate` rejecting a mod's `$.state` references when `plug"
+      },
+      {
+        "name": "Shift+J",
+        "context": "fixed",
+        "summary": "Fixed Read garbling UTF-16LE files with a byte-order mark, and Write dropping by"
+      },
+      {
+        "name": "--retire-at",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Fixed sessions that wrote output before their first turn bei"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "improved",
+        "summary": "Improved sandboxed Bash on Linux: Esc and Ctrl-C now work while wildcard read ru"
+      },
+      {
+        "name": "/reload-skills",
+        "context": "improved",
+        "summary": "Improved `/reload-skills` to say it re-sends the full skill list to Claude, whic"
+      },
+      {
+        "name": "/ultrareview",
+        "context": "improved",
+        "summary": "Changed the errors shown when `/ultrareview` can't upload a repository to stop s"
+      }
+    ],
+    "features": [
+      "Added CLAUDE_CODE_DISABLE_FILE_MENTIONS environment variable: Claude gets the paths of @ file mentions to read with its file tools, not the files' contents",
+      "Added idle compaction in the terminal: a 200K+ token conversation left idle for about 54 minutes is compacted before its one-hour prompt cache expires, so your next message doesn't reprocess it all",
+      "Added CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS to change idle compaction's 200K-token minimum; \"idleCompaction\": false in settings.json turns it off. Both need v2.1.290 or later",
+      "Added $.prompt.media so a prompt.submit hook of a mod installed by managed settings can read the bytes of an image or document attached to the prompt",
+      "Added $.session.identity() for mods installed by managed settings: how the session is signed in, and its organization and email when managed forceLoginOrgUUID lists that organization",
+      "Added size, weight, mono and tabular to a mod's Text and named spacing steps (xs to xl) to its Box; bold is deprecated in favor of weight",
+      "Added --shutdown-drain-sec to claude self-hosted-runner orchestrator: on SIGTERM it stops polling and gives the poll in flight and running spawn hooks up to that many seconds to finish",
+      "Added the skill's frontmatter, source, plugin name and file path to what a mod's skill.prompt hook receives",
+      "Added /effort and /fast in agent view to set what new sessions start with; a bare /model, /effort or /fast there now opens a picker",
+      "Added a \"safe mode\" line to the agents view peek panel for background sessions started with --safe-mode",
+      "Added a one-time note when plan mode won't ask before most edits or commands because bypass permissions is available",
+      "Added --disallow-tools and a disallowed_tools case field to claude plugin eval to keep specific built-in tools, such as Agent, out of eval runs",
+      "Added a note in /plugin and claude plugin validate naming a mod's hooks that are skipped where an organization manages Claude Code",
+      "Added /usage warnings for max effort, workflows, always-on context and large tool results",
+      "Fixed a mod that submits a prompt at the end of every turn keeping a headless run going past --max-turns, --max-budget-usd, an interrupt, or the end of the host's conversation",
+      "Fixed a sandboxed shell command being able to write into a --plugin-dir folder, whose code Claude Code reloads and runs outside the sandbox",
+      "Fixed memory growth under heavy debug logging (--debug, --debug-file), and a hang on exit when the debug log is on a disk or network mount that stops accepting writes",
+      "Fixed claude mcp list, claude doctor and /status reporting an empty .mcp.json as invalid",
+      "Fixed /btw jumping the transcript to the bottom when asked while scrolled up in fullscreen",
+      "Fixed sandboxed commands failing on WSL2 with bwrap: Can't mkdir /mnt/c/Program Files/ClaudeCode when the sandbox can write to the Windows drive",
+      "Fixed /sandbox reporting success when its setting could not be saved because the project folder is not writable; it now says nothing changed and why",
+      "Fixed the fullscreen \"Update installed\" notice being hidden behind the idle \"/clear to save tokens\" hint; it now shows beside the hint",
+      "Fixed /usage, the approaching-limit warning (terminal and VS Code) and the status line sometimes showing more than 100% used (anthropics/claude-code#92238)",
+      "Fixed /reload-plugins not loading a plugin installed from another terminal a moment earlier",
+      "Fixed bare mode notices in background sessions telling you to restart without --bare, which keeps the mode; they now name /stop and claude --resume, as safe mode ones do",
+      "Fixed /config push notification toggles sending your account the previous setting instead of the one you just chose",
+      "Fixed queued prompts sent as content blocks over --input-format stream-json running together without a line break when merged into one turn",
+      "Fixed self-hosted runner sessions shutting down MCP servers added through an --exec-path wrapper's own --mcp-config when connectors change mid-session",
+      "Fixed --bare sessions leaving out an MCP server named constructor or prototype that --channels asked for",
+      "Fixed resuming a conversation from before /clear reattaching to the Remote Control session of the conversation after it",
+      "Fixed background sessions started with --safe-mode silently leaving safe mode when the session was woken or restarted",
+      "Fixed /btw side questions in non-interactive sessions not being cancelled when the session ends, and running a second time when the same request arrived again mid-run",
+      "Fixed claude mcp add <name> -- <command> --background being started as a background session",
+      "Fixed a prompt or reply of --bg or --background to a background session being taken for the flag, which could start new sessions over and over instead of delivering it",
+      "Fixed --worktree sessions leaving a folder behind in .git/worktrees in repositories using git's reftable ref storage",
+      "Fixed claude plugin validate rejecting a mod's $.state references when plugin.json has no types key and the contract is at ./types/index.d.ts",
+      "Self-hosted runner: Fixed sessions that wrote output before their first turn being left with no release timer, ignoring --retire-at and delaying shutdown",
+      "Improved /reload-skills to say it re-sends the full skill list to Claude, which is how to get skills back after compaction",
+      "Changed /btw side questions in non-interactive sessions to return a timeout error when still unanswered after 11 minutes",
+      "Changed the errors shown when /ultrareview can't upload a repository to stop suggesting git add ., which could stage or commit untracked files such as .env"
+    ],
+    "features_ko": [
+      "CLAUDE_CODE_DISABLE_FILE_MENTIONS 환경 변수를 추가: Claude는 파일 도구로 읽기 위해 @ 파일 언급의 경로를 가져오고, 파일의 내용을 읽지 않음",
+      "터미널에서 유휴 압축 추가: 약 54분 동안 유휴 상태인 200K+ 토큰 대화가 1시간 프롬프트 캐시가 만료되기 전에 압축되어 다음 메시지가 모두 다시 처리되지 않음",
+      "유휴 압축의 200K 토큰 최소값을 변경하는 CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS 추가; settings.json에서 \"idleCompaction\": false로 설정하면 비활성화됨. 둘 다 v2.1.290 이상 필요",
+      "관리 설정으로 설치된 모드의 prompt.submit 훅이 프롬프트에 첨부된 이미지나 문서의 바이트를 읽을 수 있도록 $.prompt.media를 추가했습니다.",
+      "관리 설정으로 설치된 모드를 위한 $.session.identity()를 추가했습니다: 세션이 어떻게 로그인되는지, 관리자가 forceLoginOrgUUID로 지정한 조직과 이메일입니다.",
+      "모드의 Text와 Box에 크기, 무게, 단일 및 표 형식을 추가했습니다; bold는 무게로 대체되었습니다.",
+      "claude self-hosted-runner 오케스트레이터에 --shutdown-drain-sec를 추가했습니다: SIGTERM 시 폴링을 중지하고 비행 중인 폴과 실행 중인 spawn 훅이 그만큼의 초 안에 완료될 수 있도록 합니다.",
+      "모드의 skill.prompt 훅이 받는 스킬의 frontmatter, 소스, 플러그인 이름 및 파일 경로를 추가했습니다.",
+      "에이전트 뷰에 /effort 및 /fast를 추가하여 새로운 세션이 시작되는 방식을 설정합니다; 이제 /model, /effort 또는 /fast를 입력하면 선택기가 열립니다.",
+      "--safe-mode로 시작된 백그라운드 세션을 위한 에이전트 뷰 피크 패널에 \"안전 모드\" 라인을 추가했습니다.",
+      "우회 권한이 가능할 때 대부분의 편집이나 명령 전에 계획 모드가 묻지 않을 것이라는 일회성 노트를 추가했습니다.",
+      "특정 내장 도구(예: Agent)를 eval 실행에서 제외하기 위해 claude plugin eval에 --disallow-tools 및 disallowed_tools 케이스 필드를 추가했습니다.",
+      "조직이 Claude Code를 관리하는 경우 건너뛴 모드의 훅을 명시하는 /plugin 및 claude plugin validate에 노트를 추가했습니다.",
+      "최대 노력, 워크플로우, 항상 켜져 있는 컨텍스트 및 대형 도구 결과에 대한 /usage 경고를 추가했습니다.",
+      "--max-turns, --max-budget-usd, 인터럽트 또는 호스트의 대화 종료 이후에도 헤드리스 실행을 계속하는 프롬프트를 제출하는 모드를 수정했습니다.",
+      "샌드박스된 셸 명령이 샌드박스 외부에서 Claude Code가 다시 로드하고 실행하는 --plugin-dir 폴더에 쓸 수 있는 문제를 수정했습니다.",
+      "무거운 디버그 로깅(--debug, --debug-file) 하에서 메모리 증가 및 디버그 로그가 쓰기를 중지하는 디스크 또는 네트워크 마운트에서 종료 시 멈추는 문제를 수정했습니다.",
+      "claude mcp list, claude doctor 및 /status가 빈 .mcp.json을 유효하지 않다고 보고하는 문제를 수정했습니다.",
+      "전체 화면에서 스크롤을 올린 상태에서 요청할 때 /btw가 전사 내용을 맨 아래로 점프하는 문제를 수정했습니다.",
+      "WSL2에서 bwrap으로 샌드박스된 명령이 실패하는 문제를 수정했습니다: 샌드박스가 Windows 드라이브에 쓸 수 있을 때 /mnt/c/Program Files/ClaudeCode를 만들 수 없습니다.",
+      "프로젝트 폴더가 쓰기 불가능할 때 /sandbox가 설정을 저장할 수 없다고 보고하는 문제를 수정했습니다; 이제 변경 사항이 없다고 말합니다.",
+      "전체 화면 \"설치된 업데이트\" 알림이 유휴 상태의 \"/clear to save tokens\" 힌트 뒤에 숨겨지는 문제를 수정했습니다; 이제 힌트 옆에 표시됩니다.",
+      "/usage, 접근 한계 경고(터미널 및 VS Code) 및 상태 줄이 때때로 100% 이상 사용 중으로 표시되는 문제를 수정했습니다 (anthropics/claude-code#92238).",
+      "/reload-plugins가 잠시 전에 다른 터미널에서 설치된 플러그인을 로드하지 않는 문제를 수정했습니다.",
+      "백그라운드 세션에서 --bare 없이 재시작하라는 알림을 수정했습니다; 이제 /stop 및 claude --resume을 명시합니다.",
+      "/config 푸시 알림 토글이 방금 선택한 설정 대신 이전 설정을 계정으로 보내는 문제를 수정했습니다.",
+      "--input-format stream-json으로 전송된 콘텐츠 블록으로 대기 중인 프롬프트가 하나의 턴으로 병합될 때 줄 바꿈 없이 함께 실행되는 문제를 수정했습니다.",
+      "커넥터가 세션 중간에 변경될 때 --exec-path 래퍼의 --mcp-config를 통해 추가된 MCP 서버를 종료하는 self-hosted runner 세션을 수정했습니다.",
+      "--bare 세션이 --channels에서 요청한 constructor 또는 prototype이라는 MCP 서버를 누락하는 문제를 수정했습니다.",
+      "/clear 이전의 대화를 재개할 때 그 이후의 대화의 Remote Control 세션에 다시 연결되는 문제를 수정했습니다.",
+      "--safe-mode로 시작된 백그라운드 세션이 세션이 깨워지거나 재시작될 때 안전 모드를 조용히 떠나는 문제를 수정했습니다.",
+      "비대화형 세션에서 /btw 사이드 질문이 세션 종료 시 취소되지 않고, 같은 요청이 다시 도착할 때 두 번째로 실행되는 문제를 수정했습니다.",
+      "claude mcp add <name> -- <command> --background가 백그라운드 세션으로 시작되는 문제를 수정했습니다.",
+      "--bg 또는 --background 플래그가 백그라운드 세션으로 잘못 인식되어 새로운 세션을 반복적으로 시작하는 문제를 수정했습니다.",
+      "git의 reftable ref 저장소를 사용하는 리포지토리에서 --worktree 세션이 .git/worktrees에 폴더를 남기는 문제를 수정했습니다.",
+      "plugin.json에 types 키가 없고 계약이 ./types/index.d.ts에 있을 때 claude 플러그인 validate가 mod의 $.state 참조를 거부하는 문제를 수정했습니다.",
+      "자체 호스팅 러너: 첫 번째 턴 전에 출력을 작성한 세션이 --retire-at을 무시하고 종료를 지연시키는 문제를 수정했습니다.",
+      "/reload-skills를 개선하여 전체 스킬 목록을 Claude에 다시 전송한다고 알리도록 했습니다. 이는 압축 후 스킬을 복원하는 방법입니다.",
+      "비대화형 세션에서 /btw 사이드 질문이 11분 후에도 답변이 없을 경우 타임아웃 오류를 반환하도록 변경했습니다.",
+      "/ultrareview가 리포지토리를 업로드할 수 없을 때 표시되는 오류를 변경하여 git add .를 제안하지 않도록 했습니다. 이는 .env와 같은 추적되지 않은 파일을 스테이징하거나 커밋할 수 있습니다."
+    ]
+  },
+  {
     "version": "2.1.296",
     "date": "2026-10-09",
     "commands": [
