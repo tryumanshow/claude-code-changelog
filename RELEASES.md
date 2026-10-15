@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-14 23:49 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-15 23:37 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.301** | 2026-10-15 | `Shift+E`, `/login`, `/claude-api`, `/rewind`, `ctrl+o`, `/clear`, `/diff`, `/compact` | Added CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS so unattended retry mode (CLAUDE_CODE_RETRY_WATCHDOG) ends a request at a usage limit that resets too far away instead of waiting / Added Op... |
 | **v2.1.300** | 2026-10-14 | `/advisor`, `--advisor`, `/autocompact`, `--restricted`, `/tasks`, `/login`, `ctrl+o`, `/branch`, `--worktree`, `--tmux`, `Ctrl+J`, `/healthz`, `/sandbox`, `--sandbox`, `--no-sandbox`, `Shift+d`, `Ctrl+A` | Added virtualText to a mod's prompt decorations: text drawn in the prompt box that never enters the draft or the submitted prompt / Added cache_creation_5m_tokens and cache_creation_1h_tokens to th... |
 | **v2.1.299** | 2026-07-28 | `--shutdown-drain-sec`, `/effort`, `/fast`, `/model`, `--safe-mode`, `--disallow-tools`, `/plugin`, `/usage`, `--max-turns`, `--max-budget-usd`, `--plugin-dir`, `--debug`, `--debug-file`, `/status`, `/btw`, `/mnt`, `/sandbox`, `/clear`, `/reload-plugins`, `--bare`, `/stop`, `/config`, `--input-format stream-json`, `--exec-path`, `--mcp-config`, `--channels`, `--bg`, `--background`, `--worktree`, `/types`, `Shift+J`, `--retire-at`, `Ctrl+C`, `/reload-skills`, `/ultrareview` | Added CLAUDE_CODE_DISABLE_FILE_MENTIONS environment variable: Claude gets the paths of @ file mentions to read with its file tools, not the files' contents / Added idle compaction in the terminal: ... |
 | **v2.1.296** | 2026-10-09 | `--agents`, `/plugin`, `--teleport`, `/diff`, `--capacity`, `Shift+J`, `/clear`, `/mcp`, `/code-review`, `ctrl+o`, `--debug`, `/cost`, `--max-budget-usd`, `/repo` | Added a code key to the Claude apps gateway's managed.policies[]: the same settings as cli, also applied in Claude Desktop's Code tab; beside desktop, it turns on Claude Desktop's gateway mode / Ad... |
@@ -83,7 +84,6 @@
 | **v2.1.210** | 2026-07-14 | `/doctor`, `Shift+T` | Added a live elapsed-time counter to the collapsed tool summary line so long-running tool calls visibly tick instead of looking stuck / Added a startup warning for Write(path), NotebookEdit(path), ... |
 | **v2.1.209** | 2026-07-14 | `/model` | Fixed /model and other dialogs being blocked in claude agents background sessions (reverts an overly broad guard) |
 | **v2.1.208** | 2026-07-14 | `--ax-screen-reader`, `/upgrade`, `/usage`, `/mcp`, `/release-notes`, `/tasks`, `Ctrl+X`, `--dangerously-skip-permissions`, `/backticks`, `/install-github-app` | Added screen reader mode: opt-in plain-text rendering for screen reader users. Run claude --ax-screen-reader, set CLAUDE_AX_SCREEN_READER=1, or add "axScreenReader": true to settings. / Added vimIn... |
-| **v2.1.207** | 2026-07-11 | `/doctor`, `--settings`, `/usage-credits` | Auto mode is now available without CLAUDE_CODE_ENABLE_AUTO_MODE opt-in on Bedrock, Vertex AI, and Foundry; disable via disableAutoMode in settings / Fixed the auto-updater overwriting a custom laun... |
 
 ---
 
