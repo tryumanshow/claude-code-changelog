@@ -1,5 +1,114 @@
 [
   {
+    "version": "2.1.302",
+    "date": "2026-12-14",
+    "commands": [
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Added an `Idle compaction` row to `/config` for turning idle compaction off or b"
+      },
+      {
+        "name": "/design-sync",
+        "context": "new",
+        "summary": "Added a notice to `/design-sync` and `/design-login` that standalone Claude Desi"
+      },
+      {
+        "name": "/design-login",
+        "context": "new",
+        "summary": "Added a notice to `/design-sync` and `/design-login` that standalone Claude Desi"
+      },
+      {
+        "name": "/autocompact",
+        "context": "fixed",
+        "summary": "Fixed `/autocompact` and `/effort` saving to the wrong model when a gateway name"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed `/autocompact` and `/effort` saving to the wrong model when a gateway name"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed Claude in the desktop app pointing you to claude.ai settings or `/mcp` to "
+      },
+      {
+        "name": "/design consent",
+        "context": "fixed",
+        "summary": "Fixed `/design consent` and `/design revoke` suggesting `/design-login` when the"
+      },
+      {
+        "name": "/design revoke",
+        "context": "fixed",
+        "summary": "Fixed `/design consent` and `/design revoke` suggesting `/design-login` when the"
+      },
+      {
+        "name": "/design",
+        "context": "fixed",
+        "summary": "Fixed `/design consent` and `/design revoke` suggesting `/design-login` when the"
+      },
+      {
+        "name": "/plugin",
+        "context": "fixed",
+        "summary": "Fixed `claude plugin details <name>@builtin` suggesting `claude plugin list`, wh"
+      },
+      {
+        "name": "--plugin-dir",
+        "context": "fixed",
+        "summary": "Windows: Fixed every file write being refused or asked about for projects on exF"
+      },
+      {
+        "name": "--permission-mode auto",
+        "context": "improved",
+        "summary": "Changed `claude -p` and Agent SDK sessions with no permission mode to start in `"
+      },
+      {
+        "name": "/feedback",
+        "context": "improved",
+        "summary": "Changed the message shown when your organization's policy turns off `/feedback`:"
+      }
+    ],
+    "features": [
+      "Added CLAUDE_CODE_AUTO_MODE_MODEL to choose the model the client-side auto mode classifier uses; it does not change the model for server-side auto mode",
+      "Added an Idle compaction row to /config for turning idle compaction off or back on; the notices shown after an idle compaction now say how to turn it off",
+      "Added a notice to /design-sync and /design-login that standalone Claude Design (claude.ai/design) closes by December 14, 2026",
+      "Fixed /autocompact and /effort saving to the wrong model when a gateway names Opus 4 or 4.1 with a prefix, such as anthropic/claude-opus-4-1",
+      "Fixed Claude in the desktop app pointing you to claude.ai settings or /mcp to authorize or reconnect an MCP server where that option isn't available",
+      "Fixed /design consent and /design revoke suggesting /design-login when they fail in a cloud session, where it isn't available; the message now points to claude.ai/design/settings",
+      "Fixed claude plugin details <name>@builtin suggesting claude plugin list, which never shows built-in plugins, when the plugin isn't found; it now points to /plugin",
+      "Self-hosted runner: Fixed git fetches failing with \"bad object refs/heads\" in sessions that reuse a checkout stored in git's reftable format",
+      "Windows: Fixed every file write being refused or asked about for projects on exFAT or FAT32 drives, including in sessions started with --plugin-dir",
+      "Changed claude -p and Agent SDK sessions with no permission mode to start in default mode on third-party providers, with telemetry off or on a fresh install; --permission-mode auto keeps auto",
+      "Changed the message shown when your organization's policy turns off /feedback: it now points to GitHub issues instead of an organization admin",
+      "[VSCode] Fixed text after an unclosed code block in a list showing as plain text while a reply streams, then turning into code",
+      "[VSCode] Fixed MCP server sign-in from the panel opening a broken authorization page when the server URL contains a query string",
+      "[VSCode] Fixed the @browser banner saying \"Browser connected\" when no browser with the Claude extension can be reached",
+      "[Cloud sessions] Added a banner on a routine's page that says why its last run didn't start, such as your organization reaching its limit on concurrent cloud sessions",
+      "[Cloud sessions] Fixed \"Rewind to here\" failing on every message except the newest in cloud sessions; self-hosted runners need Claude Code v2.1.246 or later",
+      "[Cloud sessions] Fixed the pull request status bar in cloud sessions flipping a pull request with merge conflicts back to ready while GitHub rechecked it"
+    ],
+    "features_ko": [
+      "클라이언트 측 자동 모드 분류기가 사용하는 모델을 선택하기 위해 CLAUDE_CODE_AUTO_MODE_MODEL이 추가되었습니다; 이는 서버 측 자동 모드의 모델에는 영향을 주지 않습니다.",
+      "유휴 압축을 끄거나 다시 켜기 위한 Idle compaction 행이 /config에 추가되었습니다; 유휴 압축 후 표시되는 알림은 이제 이를 끄는 방법을 안내합니다.",
+      "독립형 Claude Design (claude.ai/design)이 2026년 12월 14일에 종료된다는 알림이 /design-sync 및 /design-login에 추가되었습니다.",
+      "접두사와 함께 Opus 4 또는 4.1이라는 이름의 게이트웨이가 있을 때 /autocompact 및 /effort가 잘못된 모델로 저장되는 문제가 수정되었습니다.",
+      "데스크톱 앱에서 Claude가 claude.ai 설정 또는 /mcp로 안내하여 MCP 서버를 승인하거나 재연결할 수 없는 문제를 수정했습니다.",
+      "/design consent 및 /design revoke가 클라우드 세션에서 실패할 때 /design-login을 제안하는 문제를 수정했습니다; 이제 메시지는 claude.ai/design/settings를 가리킵니다.",
+      "플러그인이 발견되지 않을 때 claude plugin details <name>@builtin이 내장 플러그인을 표시하지 않는 claude plugin list를 제안하는 문제를 수정했습니다; 이제 /plugin을 가리킵니다.",
+      "자체 호스팅 러너: git의 reftable 형식에 저장된 체크아웃을 재사용하는 세션에서 \"bad object refs/heads\"로 git fetch가 실패하는 문제를 수정했습니다.",
+      "Windows: --plugin-dir로 시작된 세션을 포함하여 exFAT 또는 FAT32 드라이브의 프로젝트에서 모든 파일 쓰기가 거부되거나 질문을 받는 문제를 수정했습니다.",
+      "권한 모드가 없는 claude -p 및 Agent SDK 세션이 서드파티 제공업체에서 기본 모드로 시작되도록 변경되었습니다; --permission-mode auto는 자동을 유지합니다.",
+      "조직의 정책이 /feedback을 끌 때 표시되는 메시지가 변경되었습니다: 이제 조직 관리자 대신 GitHub 문제를 가리킵니다.",
+      "[VSCode] 목록에서 닫히지 않은 코드 블록 뒤의 텍스트가 응답이 스트리밍되는 동안 일반 텍스트로 표시되었다가 코드로 변환되는 문제를 수정했습니다.",
+      "[VSCode] MCP 서버 로그인 패널에서 서버 URL에 쿼리 문자열이 포함될 때 깨진 인증 페이지가 열리는 문제를 수정했습니다.",
+      "[VSCode] Claude 확장 기능이 있는 브라우저에 접근할 수 없을 때 @browser 배너가 \"브라우저 연결됨\"이라고 표시되는 문제를 수정했습니다.",
+      "[클라우드 세션] 마지막 실행이 시작되지 않은 이유를 설명하는 배너가 루틴 페이지에 추가되었습니다; 예를 들어, 조직이 동시 클라우드 세션 한도에 도달했을 때입니다.",
+      "[클라우드 세션] 클라우드 세션에서 \"여기로 되감기\"가 최신 메시지를 제외한 모든 메시지에서 실패하는 문제를 수정했습니다; 자체 호스팅 러너는 Claude Code v2.1.246 이상이 필요합니다.",
+      "[클라우드 세션] 클라우드 세션에서 pull request 상태 표시줄이 병합 충돌이 있는 pull request를 다시 준비 상태로 전환하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.301",
     "date": "2026-10-15",
     "commands": [
