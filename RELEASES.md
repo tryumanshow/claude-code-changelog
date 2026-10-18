@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-17 22:59 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-18 22:57 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.303** | 2026-10-18 | — | Bug fixes and reliability improvements |
 | **v2.1.302** | 2026-12-14 | `/config`, `/design-sync`, `/design-login`, `/autocompact`, `/effort`, `/mcp`, `/design consent`, `/design revoke`, `/design`, `/plugin`, `--plugin-dir`, `--permission-mode auto`, `/feedback` | Added CLAUDE_CODE_AUTO_MODE_MODEL to choose the model the client-side auto mode classifier uses; it does not change the model for server-side auto mode / Added an Idle compaction row to /config for... |
 | **v2.1.301** | 2026-10-15 | `Shift+E`, `/login`, `/claude-api`, `/rewind`, `ctrl+o`, `/clear`, `/diff`, `/compact` | Added CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS so unattended retry mode (CLAUDE_CODE_RETRY_WATCHDOG) ends a request at a usage limit that resets too far away instead of waiting / Added Op... |
 | **v2.1.300** | 2026-10-14 | `/advisor`, `--advisor`, `/autocompact`, `--restricted`, `/tasks`, `/login`, `ctrl+o`, `/branch`, `--worktree`, `--tmux`, `Ctrl+J`, `/healthz`, `/sandbox`, `--sandbox`, `--no-sandbox`, `Shift+d`, `Ctrl+A` | Added virtualText to a mod's prompt decorations: text drawn in the prompt box that never enters the draft or the submitted prompt / Added cache_creation_5m_tokens and cache_creation_1h_tokens to th... |
@@ -83,7 +84,6 @@
 | **v2.1.212** | 2026-07-17 | `/fork`, `/subtask`, `--yes`, `/clear`, `/resume`, `/background`, `Ctrl+J`, `/ultrareview`, `/ultrareview <branch>`, `--continue`, `--resume`, `ctrl+g`, `/btw` | /fork now copies your conversation into a new background session (its own row in claude agents) while you keep working; the in-session subagent it used to launch is now /subtask / Added claude auto... |
 | **v2.1.211** | 2026-07-15 | `--forward-subagent-text`, `/loop`, `/resume`, `/terminal-setup`, `/clear`, `/usage-credits` | Added --forward-subagent-text flag and CLAUDE_CODE_FORWARD_SUBAGENT_TEXT environment variable to include subagent text and thinking in stream-json output / Fixed /loop hiding the session from /resu... |
 | **v2.1.210** | 2026-07-14 | `/doctor`, `Shift+T` | Added a live elapsed-time counter to the collapsed tool summary line so long-running tool calls visibly tick instead of looking stuck / Added a startup warning for Write(path), NotebookEdit(path), ... |
-| **v2.1.209** | 2026-07-14 | `/model` | Fixed /model and other dialogs being blocked in claude agents background sessions (reverts an overly broad guard) |
 
 ---
 
