@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-20 00:11 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-20 23:44 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.305** | 2026-10-20 | `--tools`, `/effort`, `/autocompact`, `/resume`, `/usage`, `Ctrl+R`, `/doctor`, `/artifacts` | Added sandbox.allowNestedUserNamespaces so sandboxed commands on Linux can create user namespaces (Chromium, rootless podman); this lets them get around the sandbox's file protections / Added CLAUD... |
 | **v2.1.304** | 2026-10-19 | `/auto-mode-setup`, `/claude-api managed-agents-secure`, `/claude-api`, `Ctrl+O`, `/config`, `/Volumes`, `/media`, `/mnt`, `--max-turns`, `/logout`, `/privacy-settings`, `--tools`, `--resume`, `--debug`, `--json-schema`, `--disable-slash-commands`, `--system-prompt-snapshot`, `/effort status`, `/effort ultracode`, `/effort`, `/loop`, `--autocompact`, `Ctrl+C`, `/usage`, `/artifacts`, `/reload-skills`, `/fast`, `/tasks` | Added a transcript line when a plugin that runs first skips one of your mod's hooks, naming the event and the plugin / Added decider: "person" to a mod's tool.check answer: only the permission dial... |
 | **v2.1.303** | 2026-10-18 | — | Bug fixes and reliability improvements |
 | **v2.1.302** | 2026-12-14 | `/config`, `/design-sync`, `/design-login`, `/autocompact`, `/effort`, `/mcp`, `/design consent`, `/design revoke`, `/design`, `/plugin`, `--plugin-dir`, `--permission-mode auto`, `/feedback` | Added CLAUDE_CODE_AUTO_MODE_MODEL to choose the model the client-side auto mode classifier uses; it does not change the model for server-side auto mode / Added an Idle compaction row to /config for... |
@@ -83,7 +84,6 @@
 | **v2.1.215** | 2026-07-19 | `/verify`, `/code-review` | Claude no longer runs the /verify and /code-review skills on its own; invoke them with /verify or /code-review when you want them |
 | **v2.1.214** | 2026-07-18 | `/dir`, `--url`, `--connection`, `--identity`, `--settings`, `/background`, `/install-github-app`, `/mcp`, `/ultrareview`, `/status`, `--magic-file`, `--files-from` | Fixed single-segment dir/ allow rules like Edit(src/) auto-approving writes to nested dir/ directories anywhere in the tree instead of only <cwd>/dir / Added the EndConversation tool: Claude can en... |
 | **v2.1.212** | 2026-07-17 | `/fork`, `/subtask`, `--yes`, `/clear`, `/resume`, `/background`, `Ctrl+J`, `/ultrareview`, `/ultrareview <branch>`, `--continue`, `--resume`, `ctrl+g`, `/btw` | /fork now copies your conversation into a new background session (its own row in claude agents) while you keep working; the in-session subagent it used to launch is now /subtask / Added claude auto... |
-| **v2.1.211** | 2026-07-15 | `--forward-subagent-text`, `/loop`, `/resume`, `/terminal-setup`, `/clear`, `/usage-credits` | Added --forward-subagent-text flag and CLAUDE_CODE_FORWARD_SUBAGENT_TEXT environment variable to include subagent text and thinking in stream-json output / Fixed /loop hiding the session from /resu... |
 
 ---
 
