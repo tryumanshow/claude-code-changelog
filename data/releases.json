@@ -1,5 +1,209 @@
 [
   {
+    "version": "2.1.304",
+    "date": "2026-10-19",
+    "commands": [
+      {
+        "name": "/auto-mode-setup",
+        "context": "new",
+        "summary": "Added `/auto-mode-setup`: a guided setup that reads your project and recent sess"
+      },
+      {
+        "name": "/claude-api managed-agents-secure",
+        "context": "new",
+        "summary": "Added `/claude-api managed-agents-secure`, which compares a Managed Agents agent"
+      },
+      {
+        "name": "/claude-api",
+        "context": "new",
+        "summary": "Added `/claude-api managed-agents-secure`, which compares a Managed Agents agent"
+      },
+      {
+        "name": "Ctrl+O",
+        "context": "new",
+        "summary": "Added the names of the tools called earlier to the compaction summary in the tra"
+      },
+      {
+        "name": "/config",
+        "context": "fixed",
+        "summary": "Fixed the organization policy not refreshing until the hourly check after approv"
+      },
+      {
+        "name": "/Volumes",
+        "context": "fixed",
+        "summary": "Fixed `rm -r` of a mounted drive or a folder at its top level (`/Volumes`, `/med"
+      },
+      {
+        "name": "/media",
+        "context": "fixed",
+        "summary": "Fixed `rm -r` of a mounted drive or a folder at its top level (`/Volumes`, `/med"
+      },
+      {
+        "name": "/mnt",
+        "context": "fixed",
+        "summary": "Fixed `rm -r` of a mounted drive or a folder at its top level (`/Volumes`, `/med"
+      },
+      {
+        "name": "--max-turns",
+        "context": "fixed",
+        "summary": "Fixed a plugin keeping a headless run going past `--max-turns`, Stop, or ended i"
+      },
+      {
+        "name": "/logout",
+        "context": "fixed",
+        "summary": "Fixed OpenTelemetry settings delivered through server-managed settings being ign"
+      },
+      {
+        "name": "/privacy-settings",
+        "context": "fixed",
+        "summary": "Fixed `/privacy-settings` offering choices that may not apply to you after a net"
+      },
+      {
+        "name": "--tools",
+        "context": "fixed",
+        "summary": "Fixed `claude --help` text for `--tools`, `--resume`, `--debug`, `--json-schema`"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed `claude --help` text for `--tools`, `--resume`, `--debug`, `--json-schema`"
+      },
+      {
+        "name": "--debug",
+        "context": "fixed",
+        "summary": "Fixed `claude --help` text for `--tools`, `--resume`, `--debug`, `--json-schema`"
+      },
+      {
+        "name": "--json-schema",
+        "context": "fixed",
+        "summary": "Fixed `claude --help` text for `--tools`, `--resume`, `--debug`, `--json-schema`"
+      },
+      {
+        "name": "--disable-slash-commands",
+        "context": "fixed",
+        "summary": "Fixed `claude --help` text for `--tools`, `--resume`, `--debug`, `--json-schema`"
+      },
+      {
+        "name": "--system-prompt-snapshot",
+        "context": "fixed",
+        "summary": "Fixed `claude --help` text for `--tools`, `--resume`, `--debug`, `--json-schema`"
+      },
+      {
+        "name": "/effort status",
+        "context": "fixed",
+        "summary": "Fixed `/effort status`, `/effort ultracode` and the prompt's effort indicator sh"
+      },
+      {
+        "name": "/effort ultracode",
+        "context": "fixed",
+        "summary": "Fixed `/effort status`, `/effort ultracode` and the prompt's effort indicator sh"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed `/effort status`, `/effort ultracode` and the prompt's effort indicator sh"
+      },
+      {
+        "name": "/loop",
+        "context": "fixed",
+        "summary": "Fixed self-paced `/loop` wakeups scheduled at the 1-hour maximum firing just aft"
+      },
+      {
+        "name": "--autocompact",
+        "context": "fixed",
+        "summary": "Fixed `CLAUDE_CODE_AUTO_COMPACT_WINDOW=200k` silently setting a 100K window: the"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C in the agents view clearing a text selection without copying it whe"
+      },
+      {
+        "name": "/usage",
+        "context": "improved",
+        "summary": "Improved `/usage` to say when a rate limit on usage data ends instead of \"try ag"
+      },
+      {
+        "name": "/artifacts",
+        "context": "improved",
+        "summary": "Changed the `/artifacts` delete confirmation to show numbered choices: 1 or Ente"
+      },
+      {
+        "name": "/reload-skills",
+        "context": "improved",
+        "summary": "Changed compaction to send Claude the skill list again afterwards; `/reload-skil"
+      },
+      {
+        "name": "/fast",
+        "context": "removed",
+        "summary": "Removed the \"(research preview)\" label from the `/fast` dialog title on Opus 5.5"
+      },
+      {
+        "name": "/tasks",
+        "context": "improved",
+        "summary": "[VSCode] Changed background sub-agents to show as one status line under their Ag"
+      }
+    ],
+    "features": [
+      "Added a transcript line when a plugin that runs first skips one of your mod's hooks, naming the event and the plugin",
+      "Added decider: \"person\" to a mod's tool.check answer: only the permission dialog or a host's callback can approve the ask, and it is refused with the mod's reason where nobody can be asked",
+      "Added e.isReadOnly to a mod's tool.check event, set when the tool call is read-only",
+      "Added /auto-mode-setup: a guided setup that reads your project and recent sessions to teach auto mode about your environment, now also available on Bedrock, Vertex, Foundry, Claude apps gateway and telemetry-disabled sessions",
+      "Added /claude-api managed-agents-secure, which compares a Managed Agents agent's settings with Anthropic's published security guide, without changing anything",
+      "Added the names of the tools called earlier to the compaction summary in the transcript view (Ctrl+O)",
+      "Added a warning on Pro and Max plans when resuming an inactive conversation would use a noticeable share of your 5-hour usage limit: resume anyway, or start a new conversation and Claude can look up the previous one if you refer to it",
+      "Fixed the organization policy not refreshing until the hourly check after approving an ANTHROPIC_API_KEY at startup or switching \"Use custom API key\" in /config",
+      "Fixed rm -r of a mounted drive or a folder at its top level (/Volumes, /media, WSL's /mnt/c) not getting the safety prompt that rm -rf /Applications gets",
+      "Fixed a plugin keeping a headless run going past --max-turns, Stop, or ended input by spawning subagents or re-running a finished one",
+      "Fixed OpenTelemetry settings delivered through server-managed settings being ignored for the whole session after signing in during first-run setup or the first start after /logout",
+      "Fixed /privacy-settings offering choices that may not apply to you after a network or server error",
+      "Fixed claude --help text for --tools, --resume, --debug, --json-schema, --disable-slash-commands, --system-prompt-snapshot and claude update to match actual behavior",
+      "Fixed /effort status, /effort ultracode and the prompt's effort indicator showing a guessed effort level when CLAUDE_CODE_EFFORT_LEVEL is auto or unset and no level is sent",
+      "Fixed self-paced /loop wakeups scheduled at the 1-hour maximum firing just after the 1-hour prompt cache expired, so those wakeups no longer re-read the conversation uncached",
+      "Fixed CLAUDE_CODE_AUTO_COMPACT_WINDOW=200k silently setting a 100K window: the variable now accepts k and M suffixes like --autocompact, and warns when a value is out of range or ignored",
+      "Fixed Ctrl+C in the agents view clearing a text selection without copying it when pressed before the mouse button was released",
+      "Improved /usage to say when a rate limit on usage data ends instead of \"try again in a moment\"",
+      "Self-hosted runner: Improved the error shown when the git host answers \"not found\" for a session's repository: it now names the repository and whom to ask",
+      "Windows: Improved git command start-up with a standard Git for Windows install by running its git.exe directly instead of through its cmd launcher",
+      "Changed the /artifacts delete confirmation to show numbered choices: 1 or Enter keeps the artifact, 2 deletes it, and y, n and Esc still work",
+      "Changed compaction to send Claude the skill list again afterwards; /reload-skills now sends only new or changed skills",
+      "Updated the /claude-api skill to use the ant CLI on Claude Platform on AWS instead of falling back to the SDK or curl",
+      "Removed the \"(research preview)\" label from the /fast dialog title on Opus 5.5",
+      "[VSCode] Added mod drawing in the chat panel for sessions on Amazon Bedrock, Google Vertex AI and Microsoft Foundry, behind an LLM gateway, or with telemetry turned off",
+      "[VSCode] Fixed one cause of sessions failing to start with \"Subprocess initialization did not complete within 60000ms\": time a SessionStart command hook spends running no longer counts toward the limit, up to 10 minutes in total",
+      "[VSCode] Changed background sub-agents to show as one status line under their Agent card instead of streaming every step into the chat; the full transcript stays in /tasks"
+    ],
+    "features_ko": [
+      "플러그인이 먼저 실행될 때 모드의 훅 중 하나를 건너뛸 경우 이벤트와 플러그인 이름을 포함한 전사 라인이 추가되었습니다.",
+      "모드의 tool.check 답변에 \"person\" 결정자가 추가되었습니다: 권한 대화 상자나 호스트의 콜백만 요청을 승인할 수 있으며, 아무에게도 요청할 수 없는 경우 모드의 이유로 거부됩니다.",
+      "tool.call이 읽기 전용일 때 설정되는 e.isReadOnly가 모드의 tool.check 이벤트에 추가되었습니다.",
+      "/auto-mode-setup이 추가되었습니다: 프로젝트와 최근 세션을 읽어 자동 모드에 환경을 가르치는 안내 설정으로, 이제 Bedrock, Vertex, Foundry, Claude 앱 게이트웨이 및 텔레메트리 비활성 세션에서도 사용할 수 있습니다.",
+      "Managed Agents 에이전트의 설정을 Anthropic의 공개 보안 가이드와 비교하는 /claude-api managed-agents-secure가 추가되었습니다. 아무것도 변경하지 않습니다.",
+      "전사 보기(Ctrl+O)에서 압축 요약에 이전에 호출된 도구의 이름이 추가되었습니다.",
+      "비활성 대화를 재개할 때 5시간 사용 한도의 상당한 비율을 사용할 경우 Pro 및 Max 요금제에 경고가 추가되었습니다: 어쨌든 재개하거나 새 대화를 시작하면 Claude가 이전 대화를 참조할 수 있습니다.",
+      "ANTHROPIC_API_KEY를 승인한 후 시간별 점검까지 조직 정책이 새로 고쳐지지 않는 문제가 수정되었습니다.",
+      "마운트된 드라이브나 최상위 수준의 폴더(/Volumes, /media, WSL의 /mnt/c)에 대한 rm -r이 rm -rf /Applications에서 받는 안전 프롬프트를 받지 않는 문제가 수정되었습니다.",
+      "플러그인이 --max-turns, Stop 또는 종료된 입력을 넘어 헤드리스 실행을 유지하는 문제가 수정되었습니다.",
+      "첫 실행 설정 중 또는 /logout 후 첫 시작 시 로그인할 때 서버 관리 설정을 통해 전달된 OpenTelemetry 설정이 전체 세션에서 무시되는 문제가 수정되었습니다.",
+      "네트워크 또는 서버 오류 후 /privacy-settings가 적용되지 않을 수 있는 선택지를 제공하는 문제가 수정되었습니다.",
+      "claude --help 텍스트에서 --tools, --resume, --debug, --json-schema, --disable-slash-commands, --system-prompt-snapshot 및 claude 업데이트가 실제 동작에 맞게 수정되었습니다.",
+      "/effort 상태, /effort ultracode 및 프롬프트의 노력 지표가 CLAUDE_CODE_EFFORT_LEVEL이 auto 또는 설정되지 않고 레벨이 전송되지 않을 때 추정된 노력 수준을 표시하는 문제가 수정되었습니다.",
+      "1시간 프롬프트 캐시가 만료된 직후 1시간 최대 발화로 예약된 자기 주도형 /loop 웨이크업이 대화를 다시 읽지 않도록 수정되었습니다.",
+      "CLAUDE_CODE_AUTO_COMPACT_WINDOW=200k가 조용히 100K 윈도우를 설정하는 문제가 수정되었습니다: 이제 변수는 --autocompact와 같이 k 및 M 접미사를 허용하며, 값이 범위를 벗어나거나 무시될 때 경고합니다.",
+      "에이전트 보기에서 Ctrl+C가 마우스 버튼이 해제되기 전에 눌렸을 때 텍스트 선택을 복사하지 않고 지우는 문제가 수정되었습니다.",
+      "/usage가 사용 데이터의 비율 제한이 끝나는 시점을 \"잠시 후 다시 시도\" 대신에 알리도록 개선되었습니다.",
+      "자체 호스팅 러너: git 호스트가 세션의 리포지토리에 대해 \"찾을 수 없음\"이라고 응답할 때 표시되는 오류가 개선되었습니다: 이제 리포지토리 이름과 문의할 대상을 명시합니다.",
+      "Windows: git.exe를 cmd 실행기를 통해서가 아니라 직접 실행하여 Git for Windows 설치의 git 명령 시작이 개선되었습니다.",
+      "/artifacts 삭제 확인이 번호가 매겨진 선택지를 표시하도록 변경되었습니다: 1 또는 Enter는 아티팩트를 유지하고, 2는 삭제하며, y, n 및 Esc는 여전히 작동합니다.",
+      "압축이 Claude에게 기술 목록을 다시 전송하도록 변경되었습니다; /reload-skills는 이제 새로 추가되거나 변경된 기술만 전송합니다.",
+      "/claude-api 기술이 SDK나 curl로 되돌아가는 대신 AWS의 Claude Platform에서 ant CLI를 사용하도록 업데이트되었습니다.",
+      "Opus 5.5의 /fast 대화 상단에서 \"(research preview)\" 레이블이 제거되었습니다.",
+      "[VSCode] Amazon Bedrock, Google Vertex AI 및 Microsoft Foundry에서 LLM 게이트웨이 뒤에 있는 세션의 채팅 패널에 모드 그리기가 추가되었습니다.",
+      "[VSCode] \"Subprocess initialization did not complete within 60000ms\"로 세션 시작 실패의 한 원인이 수정되었습니다: SessionStart 명령 훅이 실행되는 시간은 이제 제한에 포함되지 않으며, 총 10분까지 가능합니다.",
+      "[VSCode] 배경 하위 에이전트가 채팅에 모든 단계를 스트리밍하는 대신 에이전트 카드 아래에 하나의 상태 줄로 표시되도록 변경되었습니다; 전체 전사는 /tasks에 유지됩니다."
+    ]
+  },
+  {
     "version": "2.1.303",
     "date": "2026-10-18",
     "commands": [],
