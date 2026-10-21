@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-20 23:44 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-21 23:57 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.307** | 2026-10-21 | `/claude-api api-version`, `/claude-api`, `/autocompact`, `/clear`, `/permissions`, `/help`, `--use-anthropic-git-proxy`, `--settings`, `--checkout-hook-timeout-min` | Added /claude-api api-version to move Claude API code to API version 2026-10-21 / Added the claude_code.safety_event OpenTelemetry event for each tool call a permission rule, auto mode, a safety ch... |
+| **v2.1.306** | 2026-10-21 | — | Fixed claude -p inside cloud sessions reporting "Not logged in" when started without the session's environment variables / Fixed an API error being replaced by "prompt is too long", and an unneeded... |
 | **v2.1.305** | 2026-10-20 | `--tools`, `/effort`, `/autocompact`, `/resume`, `/usage`, `Ctrl+R`, `/doctor`, `/artifacts` | Added sandbox.allowNestedUserNamespaces so sandboxed commands on Linux can create user namespaces (Chromium, rootless podman); this lets them get around the sandbox's file protections / Added CLAUD... |
 | **v2.1.304** | 2026-10-19 | `/auto-mode-setup`, `/claude-api managed-agents-secure`, `/claude-api`, `Ctrl+O`, `/config`, `/Volumes`, `/media`, `/mnt`, `--max-turns`, `/logout`, `/privacy-settings`, `--tools`, `--resume`, `--debug`, `--json-schema`, `--disable-slash-commands`, `--system-prompt-snapshot`, `/effort status`, `/effort ultracode`, `/effort`, `/loop`, `--autocompact`, `Ctrl+C`, `/usage`, `/artifacts`, `/reload-skills`, `/fast`, `/tasks` | Added a transcript line when a plugin that runs first skips one of your mod's hooks, naming the event and the plugin / Added decider: "person" to a mod's tool.check answer: only the permission dial... |
 | **v2.1.303** | 2026-10-18 | — | Bug fixes and reliability improvements |
@@ -82,8 +84,6 @@
 | **v2.1.217** | 2026-07-21 | `/compact`, `--resume`, `--continue`, `/resume`, `/background`, `--max-budget-usd` | Added emoji shortcode autocomplete in the prompt input: type :heart: to insert ❤️, or :hea for suggestions — disable with the emojiCompletionEnabled setting / Added warnings when transcript writes ... |
 | **v2.1.216** | 2026-07-20 | `--git-dir`, `Ctrl+X`, `/memory`, `/plan`, `/keybindings`, `Ctrl+G`, `/config`, `Ctrl+O`, `/fork`, `/ultrareview`, `/code-review ultra`, `/code-review`, `/context`, `/compact`, `/rewind`, `/mcp`, `/install-github-app` | Added sandbox.filesystem.disabled setting to skip filesystem isolation while keeping network egress control / Fixed worktree-isolated subagents redirecting git into the shared checkout via git -C, ... |
 | **v2.1.215** | 2026-07-19 | `/verify`, `/code-review` | Claude no longer runs the /verify and /code-review skills on its own; invoke them with /verify or /code-review when you want them |
-| **v2.1.214** | 2026-07-18 | `/dir`, `--url`, `--connection`, `--identity`, `--settings`, `/background`, `/install-github-app`, `/mcp`, `/ultrareview`, `/status`, `--magic-file`, `--files-from` | Fixed single-segment dir/ allow rules like Edit(src/) auto-approving writes to nested dir/ directories anywhere in the tree instead of only <cwd>/dir / Added the EndConversation tool: Claude can en... |
-| **v2.1.212** | 2026-07-17 | `/fork`, `/subtask`, `--yes`, `/clear`, `/resume`, `/background`, `Ctrl+J`, `/ultrareview`, `/ultrareview <branch>`, `--continue`, `--resume`, `ctrl+g`, `/btw` | /fork now copies your conversation into a new background session (its own row in claude agents) while you keep working; the in-session subagent it used to launch is now /subtask / Added claude auto... |
 
 ---
 

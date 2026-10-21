@@ -1,5 +1,105 @@
 [
   {
+    "version": "2.1.307",
+    "date": "2026-10-21",
+    "commands": [
+      {
+        "name": "/claude-api api-version",
+        "context": "new",
+        "summary": "Added `/claude-api api-version` to move Claude API code to API version `2026-10-"
+      },
+      {
+        "name": "/claude-api",
+        "context": "new",
+        "summary": "Added `/claude-api api-version` to move Claude API code to API version `2026-10-"
+      },
+      {
+        "name": "/autocompact",
+        "context": "fixed",
+        "summary": "Fixed `/autocompact` in cloud sessions going back to the default window after th"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed a conversation cleared with `/clear` sometimes coming back when a cloud or"
+      },
+      {
+        "name": "/permissions",
+        "context": "fixed",
+        "summary": "Fixed `/permissions` > Recently denied not showing the denied shell command, and"
+      },
+      {
+        "name": "/help",
+        "context": "fixed",
+        "summary": "Fixed `/help` and the `/` command menu showing long model-facing descriptions fo"
+      },
+      {
+        "name": "--use-anthropic-git-proxy",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Fixed sessions with `--use-anthropic-git-proxy` committing a"
+      },
+      {
+        "name": "--settings",
+        "context": "improved",
+        "summary": "Changed the `axScreenReader` setting and `CLAUDE_AX_SCREEN_READER` in a settings"
+      },
+      {
+        "name": "--checkout-hook-timeout-min",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Changed checkout hooks to be stopped after 30 minutes by def"
+      }
+    ],
+    "features": [
+      "Added /claude-api api-version to move Claude API code to API version 2026-10-21",
+      "Added the claude_code.safety_event OpenTelemetry event for each tool call a permission rule, auto mode, a safety check, a hook or the sandbox stopped, prompted or sent back",
+      "Fixed /autocompact in cloud sessions going back to the default window after the session restarted",
+      "Fixed a conversation cleared with /clear sometimes coming back when a cloud or self-hosted runner session restarted",
+      "Fixed /permissions > Recently denied not showing the denied shell command, and auto mode's local classifier ignoring an approval from there when it checks a retried command; approving a row now names the command, not its description",
+      "Fixed /help and the / command menu showing long model-facing descriptions for bundled skills such as /claude-api instead of their short descriptions",
+      "Self-hosted runner: Fixed sessions with --use-anthropic-git-proxy committing a .claude/settings.local.json left in the clone by an earlier session",
+      "Self-hosted runner: Fixed archiving or requeueing a session, or stopping the runner, during its checkout hook leaving the hook's processes running and the runner's slot held",
+      "Changed the axScreenReader setting and CLAUDE_AX_SCREEN_READER in a settings env block to apply only from user, managed or --settings settings (since 2.1.305)",
+      "Self-hosted runner: Changed checkout hooks to be stopped after 30 minutes by default, failing the session's setup; if yours needs longer, raise --checkout-hook-timeout-min or set it to 0",
+      "Self-hosted runner: Changed the certificate file built for Anthropic-managed git to filter its trusted certificates as the CLI does; a [runner:warn] line gives the number left out",
+      "[VSCode] Added a notice on the microphone button when voice dictation stops by itself (15 seconds without recognized speech, or the 2-minute limit), saying why and that the text so far is kept",
+      "[VSCode] Fixed a long prompt expanded with Show more covering the whole chat panel: a pinned prompt is now capped at 40% of the panel and scrolls",
+      "[VSCode] Fixed part of a list item or table cell with LaTeX math pasting as a new list or table in rich text editors",
+      "[VSCode] Fixed dictation failing behind a TLS-inspecting proxy when NODE_EXTRA_CA_CERTS is set only in ~/.claude/settings.json; it now also follows CLAUDE_CODE_CERT_STORE",
+      "[VSCode] Changed the \"still open somewhere else\" notice to also cover a Claude process left over from an extension restart, which usually ends on its own within about 10 minutes"
+    ],
+    "features_ko": [
+      "Claude API 코드를 API 버전 2026-10-21로 이동하기 위해 /claude-api api-version을 추가했습니다.",
+      "각 도구 호출에 대한 permission rule, auto mode, safety check, hook 또는 sandbox가 중지, 프롬프트 또는 되돌려 보낸 경우에 대한 claude_code.safety_event OpenTelemetry 이벤트를 추가했습니다.",
+      "세션이 재시작된 후 cloud sessions에서 /autocompact가 기본 창으로 돌아가는 문제를 수정했습니다.",
+      "/clear로 지운 대화가 cloud 또는 self-hosted runner 세션이 재시작될 때 가끔 돌아오는 문제를 수정했습니다.",
+      "/permissions > Recently denied에서 거부된 shell command가 표시되지 않고, auto mode의 local classifier가 재시도된 명령을 확인할 때 거기서의 승인을 무시하는 문제를 수정했습니다; 이제 행을 승인하면 명령 이름이 표시됩니다.",
+      "/help와 / 명령 메뉴에서 /claude-api와 같은 번들된 기술에 대한 긴 모델 설명이 아닌 짧은 설명을 표시하도록 수정했습니다.",
+      "Self-hosted runner: --use-anthropic-git-proxy로 세션을 커밋할 때 이전 세션에서 클론에 남겨진 .claude/settings.local.json을 수정했습니다.",
+      "Self-hosted runner: 체크아웃 훅 중에 세션을 아카이브하거나 재큐잉하거나 러너를 중지할 때 훅의 프로세스가 실행되고 러너의 슬롯이 유지되는 문제를 수정했습니다.",
+      "axScreenReader 설정과 CLAUDE_AX_SCREEN_READER를 사용자, 관리 또는 --settings 설정에서만 적용되도록 변경했습니다 (2.1.305 이후).",
+      "Self-hosted runner: 체크아웃 훅을 기본적으로 30분 후에 중지되도록 변경하여 세션 설정이 실패하게 했습니다; 더 오래 필요하면 --checkout-hook-timeout-min을 높이거나 0으로 설정하세요.",
+      "Self-hosted runner: Anthropic 관리 git을 위해 구축된 인증서 파일이 CLI처럼 신뢰할 수 있는 인증서를 필터링하도록 변경했습니다; [runner:warn] 줄이 제외된 수를 제공합니다.",
+      "[VSCode] 음성 받아쓰기가 자동으로 중지될 때 마이크 버튼에 알림을 추가했습니다 (인식된 음성이 없는 15초 또는 2분 제한), 이유와 지금까지의 텍스트가 유지된다고 안내합니다.",
+      "[VSCode] Show more로 확장된 긴 프롬프트가 전체 채팅 패널을 가리는 문제를 수정했습니다: 고정된 프롬프트는 이제 패널의 40%로 제한되고 스크롤됩니다.",
+      "[VSCode] LaTeX 수식을 붙여넣은 목록 항목 또는 테이블 셀의 일부가 리치 텍스트 편집기에서 새로운 목록이나 테이블로 생성되는 문제를 수정했습니다.",
+      "[VSCode] NODE_EXTRA_CA_CERTS가 ~/.claude/settings.json에만 설정된 경우 TLS 검사 프록시 뒤에서 받아쓰기가 실패하는 문제를 수정했습니다; 이제 CLAUDE_CODE_CERT_STORE도 따릅니다.",
+      "[VSCode] \"여전히 다른 곳에서 열려 있음\" 알림을 확장 재시작 후 남아 있는 Claude 프로세스도 포함하도록 변경했습니다; 이는 보통 약 10분 이내에 스스로 종료됩니다."
+    ]
+  },
+  {
+    "version": "2.1.306",
+    "date": "2026-10-21",
+    "commands": [],
+    "features": [
+      "Fixed claude -p inside cloud sessions reporting \"Not logged in\" when started without the session's environment variables",
+      "Fixed an API error being replaced by \"prompt is too long\", and an unneeded compaction, in sessions with many MCP tools"
+    ],
+    "features_ko": [
+      "cloud sessions 내에서 claude -p가 세션의 환경 변수가 없이 시작될 때 \"Not logged in\"을 보고하는 문제를 수정했습니다.",
+      "많은 MCP 도구가 있는 세션에서 API 오류가 \"prompt is too long\"으로 대체되고 불필요한 압축이 발생하는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.305",
     "date": "2026-10-20",
     "commands": [
