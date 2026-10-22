@@ -1,9 +1,11 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-21 23:57 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-22 23:56 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.309** | 2026-10-22 | `--mcp-config`, `ctrl+e`, `ctrl+o`, `/proc`, `--tools`, `/rename`, `--resume`, `/rewind`, `/code-review --fix`, `/code-review`, `/privacy-settings`, `/feedback`, `--add-dir`, `/verify`, `/claude-api`, `--startup-timeout-min`, `--trust-workspace`, `/goal`, `Ctrl+J`, `ctrl+j` | Fixed sandboxed commands and auto-accepted edits being able to modify the MCP config file passed with --mcp-config / Fixed ctrl+enter (send now) only queuing a message when pressed before the respo... |
+| **v2.1.308** | 2026-10-22 | — | Bug fixes and reliability improvements |
 | **v2.1.307** | 2026-10-21 | `/claude-api api-version`, `/claude-api`, `/autocompact`, `/clear`, `/permissions`, `/help`, `--use-anthropic-git-proxy`, `--settings`, `--checkout-hook-timeout-min` | Added /claude-api api-version to move Claude API code to API version 2026-10-21 / Added the claude_code.safety_event OpenTelemetry event for each tool call a permission rule, auto mode, a safety ch... |
 | **v2.1.306** | 2026-10-21 | — | Fixed claude -p inside cloud sessions reporting "Not logged in" when started without the session's environment variables / Fixed an API error being replaced by "prompt is too long", and an unneeded... |
 | **v2.1.305** | 2026-10-20 | `--tools`, `/effort`, `/autocompact`, `/resume`, `/usage`, `Ctrl+R`, `/doctor`, `/artifacts` | Added sandbox.allowNestedUserNamespaces so sandboxed commands on Linux can create user namespaces (Chromium, rootless podman); this lets them get around the sandbox's file protections / Added CLAUD... |
@@ -82,8 +84,6 @@
 | **v2.1.219** | 2026-07-24 | `/add-dir`, `--mcp-config`, `/config`, `--forward-subagent-text`, `/mcp`, `/model`, `/fast` | Added Claude Opus 5 (claude-opus-5), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok / Added sandbox.network.strictAllowlist setting to deny non-allowlisted hosts for sandbox... |
 | **v2.1.218** | 2026-07-22 | `/code-review`, `--ax-screen-reader`, `Ctrl+W`, `Ctrl+U`, `Ctrl+K`, `Ctrl+J`, `/context`, `/ultrareview`, `/code-review ultra`, `Ctrl+B`, `/deep-research`, `/config` | Changed /code-review to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target / Added screen-reader announcements of d... |
 | **v2.1.217** | 2026-07-21 | `/compact`, `--resume`, `--continue`, `/resume`, `/background`, `--max-budget-usd` | Added emoji shortcode autocomplete in the prompt input: type :heart: to insert ❤️, or :hea for suggestions — disable with the emojiCompletionEnabled setting / Added warnings when transcript writes ... |
-| **v2.1.216** | 2026-07-20 | `--git-dir`, `Ctrl+X`, `/memory`, `/plan`, `/keybindings`, `Ctrl+G`, `/config`, `Ctrl+O`, `/fork`, `/ultrareview`, `/code-review ultra`, `/code-review`, `/context`, `/compact`, `/rewind`, `/mcp`, `/install-github-app` | Added sandbox.filesystem.disabled setting to skip filesystem isolation while keeping network egress control / Fixed worktree-isolated subagents redirecting git into the shared checkout via git -C, ... |
-| **v2.1.215** | 2026-07-19 | `/verify`, `/code-review` | Claude no longer runs the /verify and /code-review skills on its own; invoke them with /verify or /code-review when you want them |
 
 ---
 

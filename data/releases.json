@@ -1,5 +1,188 @@
 [
   {
+    "version": "2.1.309",
+    "date": "2026-10-22",
+    "commands": [
+      {
+        "name": "--mcp-config",
+        "context": "fixed",
+        "summary": "Fixed sandboxed commands and auto-accepted edits being able to modify the MCP co"
+      },
+      {
+        "name": "ctrl+e",
+        "context": "fixed",
+        "summary": "Fixed ctrl+enter (send now) only queuing a message when pressed before the respo"
+      },
+      {
+        "name": "ctrl+o",
+        "context": "fixed",
+        "summary": "Fixed ctrl+o not showing messages from other agents and sessions that are still "
+      },
+      {
+        "name": "/proc",
+        "context": "fixed",
+        "summary": "Fixed Read reporting \"File does not exist\" for PDF page ranges in Linux sandboxe"
+      },
+      {
+        "name": "--tools",
+        "context": "fixed",
+        "summary": "Fixed split-pane agent teammates not inheriting the tool deny and `--tools` rule"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed sessions renamed with `/rename` appearing to other sessions under a genera"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed sessions renamed with `/rename` appearing to other sessions under a genera"
+      },
+      {
+        "name": "/rewind",
+        "context": "improved",
+        "summary": "Changed `sed -i` to get the standard Bash prompt and run as written, not a simul"
+      },
+      {
+        "name": "/code-review --fix",
+        "context": "fixed",
+        "summary": "Fixed the `/rewind` list showing \"No code changes\" for a turn that changed check"
+      },
+      {
+        "name": "/code-review",
+        "context": "fixed",
+        "summary": "Fixed the `/rewind` list showing \"No code changes\" for a turn that changed check"
+      },
+      {
+        "name": "/privacy-settings",
+        "context": "fixed",
+        "summary": "Fixed `/privacy-settings` showing an out-of-date \"Help improve our AI models\" va"
+      },
+      {
+        "name": "/feedback",
+        "context": "fixed",
+        "summary": "Fixed oversized /feedback reports failing instead of being resent without the tr"
+      },
+      {
+        "name": "--add-dir",
+        "context": "fixed",
+        "summary": "Fixed a skill in an `--add-dir` folder being unreachable when another skill alre"
+      },
+      {
+        "name": "/verify",
+        "context": "fixed",
+        "summary": "Fixed `/verify` and `/code-review` not finding a nested package's own skill when"
+      },
+      {
+        "name": "/claude-api",
+        "context": "improved",
+        "summary": "Improved the /claude-api skill to offer API tracing alongside SDK tracing when a"
+      },
+      {
+        "name": "--startup-timeout-min",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Fixed `--startup-timeout-min` stopping a session whose first"
+      },
+      {
+        "name": "--trust-workspace",
+        "context": "improved",
+        "summary": "Changed `claude ultrareview` to require workspace trust: it asks on a terminal, "
+      },
+      {
+        "name": "/goal",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed long slash-command messages such as `/goal` filling the chat pane"
+      },
+      {
+        "name": "Ctrl+J",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Ctrl+J in the chat input always inserting a newline: it is now le"
+      },
+      {
+        "name": "ctrl+j",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Ctrl+J in the chat input always inserting a newline: it is now le"
+      }
+    ],
+    "features": [
+      "Fixed sandboxed commands and auto-accepted edits being able to modify the MCP config file passed with --mcp-config",
+      "Fixed ctrl+enter (send now) only queuing a message when pressed before the response had started, and restarting a prompt's hooks while leaving the message queued when pressed while those hooks were running",
+      "Fixed ctrl+o not showing messages from other agents and sessions that are still waiting to be delivered; they now appear in full under the transcript, marked as waiting",
+      "Fixed Read reporting \"File does not exist\" for PDF page ranges in Linux sandboxes that share the parent's /proc",
+      "Fixed split-pane agent teammates not inheriting the tool deny and --tools rules given on the leader's command line",
+      "Fixed sessions renamed with /rename appearing to other sessions under a generated name after a VS Code window reload or a non-interactive --resume",
+      "Fixed the /rewind list showing \"No code changes\" for a turn that changed checkpointed files through /code-review --fix, a subagent or a shell command",
+      "Fixed /privacy-settings showing an out-of-date \"Help improve our AI models\" value; it now also says when the setting can't be fetched",
+      "Fixed oversized /feedback reports failing instead of being resent without the transcript",
+      "Fixed a skill in an --add-dir folder being unreachable when another skill already held its name; it is now offered as <folder>:<name>",
+      "Fixed /verify and /code-review not finding a nested package's own skill when its files were changed from the shell",
+      "Fixed the /claude-api skill saying that ant beta:worker poll --on-work passes trace context to the command",
+      "Fixed the /claude-api skill's C# tracing setup missing spans from the cloud platform clients",
+      "Fixed the /claude-api skill saying that API spans for requests to Claude Platform on AWS can't join the caller's trace",
+      "Linux: Fixed sandbox write denies lifting when a background command outlived the session",
+      "Windows: Fixed PowerShell permission checks auto-approving some Set-Location or cd commands that target the current directory and carry extra arguments; these now prompt for approval",
+      "macOS: Fixed the \"Install Command Line Developer Tools\" dialog opening each time Claude Code starts on a Mac without Xcode or the Command Line Tools",
+      "Self-hosted runner: Fixed --startup-timeout-min stopping a session whose first prompt, such as /code-review, was still working in a subagent; a frozen process is still stopped",
+      "Improved the /claude-api skill to offer API tracing alongside SDK tracing when asked to add OpenTelemetry",
+      "Improved the /claude-api skill to check the live docs before saying a feature is unsupported",
+      "Self-hosted runner: Improved sessions that move to a new runner: Claude now sees the tool call that was interrupted, marked as outcome unknown",
+      "Updated the bundled dataviz skill to accept APCA as a text-contrast measure (keeping WCAG 2 ratios where AA conformance is required), add an apca(text, background) function to its palette validator scripts, and say whether a label inside a colored chart fill should be white or near-black",
+      "Updated the /claude-api skill: service account keys and Workload Identity Federation tokens can now manage OpenTelemetry destinations",
+      "Changed sed -i to get the standard Bash prompt and run as written, not a simulated file-edit preview; like other Bash edits, it is no longer restored by /rewind",
+      "Changed claude ultrareview to require workspace trust: it asks on a terminal, else refuses; scripts pass --trust-workspace, which takes no value (put a PR number or base branch before it), or set CLAUDE_CODE_DISABLE_ULTRAREVIEW_TRUST_CHECK=1",
+      "Changed the /claude-api skill to build Managed Agents subagent teams on multiagent_20261001 with dynamic workflows on by default, instead of coordinator",
+      "[VSCode] Added a log warning that says what to do when dictation or the extension's own requests fail certificate verification, such as behind a TLS-inspecting proxy",
+      "[VSCode] Fixed the Claude panel staying blank after the editor cached an incomplete copy of its files; it now recovers by itself, or says what went wrong and how to fix it",
+      "[VSCode] Fixed Session history filling up with empty \"Untitled\" sessions each time you start a new session without sending a message",
+      "[VSCode] Fixed long slash-command messages such as /goal filling the chat panel; they now fold behind Show more like other prompts (anthropics/claude-code#97469)",
+      "[VSCode] Fixed Ctrl+J in the chat input always inserting a newline: it is now left to VS Code and the OS when \"ctrl+j\" is set to null in the Chat context of ~/.claude/keybindings.json"
+    ],
+    "features_ko": [
+      "--mcp-config와 함께 전달된 MCP 구성 파일을 수정할 수 있는 sandboxed 명령 및 자동 수락된 편집을 수정했습니다.",
+      "ctrl+enter(지금 보내기)가 응답이 시작되기 전에 눌렸을 때만 메시지를 대기열에 추가하고, 후크가 실행되는 동안 눌렸을 때 메시지를 대기열에 남긴 채로 프롬프트의 후크를 재시작하는 문제를 수정했습니다.",
+      "ctrl+o가 다른 에이전트와 세션의 대기 중인 메시지를 표시하지 않는 문제를 수정했습니다; 이제 대본 아래에 대기 중으로 표시됩니다.",
+      "Linux sandbox에서 부모의 /proc을 공유하는 PDF 페이지 범위에 대해 \"파일이 존재하지 않음\"이라고 보고하는 Read 문제를 수정했습니다.",
+      "split-pane 에이전트 팀원이 리더의 명령줄에서 제공된 도구 거부 및 --tools 규칙을 상속받지 않는 문제를 수정했습니다.",
+      "/rename으로 이름이 변경된 세션이 VS Code 창을 새로 고침하거나 비대화형 --resume 후에 생성된 이름으로 다른 세션에 나타나는 문제를 수정했습니다.",
+      "/rewind 목록이 /code-review --fix, 서브 에이전트 또는 셸 명령을 통해 체크포인트 파일을 변경한 턴에 대해 \"코드 변경 없음\"이라고 표시하는 문제를 수정했습니다.",
+      "/privacy-settings가 오래된 \"우리 AI 모델 개선에 도움을 주세요\" 값을 표시하는 문제를 수정했습니다; 이제 설정을 가져올 수 없을 때도 표시합니다.",
+      "과도한 /feedback 보고서가 대본 없이 재전송되지 않고 실패하는 문제를 수정했습니다.",
+      "--add-dir 폴더에 있는 스킬이 다른 스킬이 이미 이름을 보유하고 있을 때 접근할 수 없는 문제를 수정했습니다; 이제 <folder>:<name>으로 제공됩니다.",
+      "/verify 및 /code-review가 셸에서 파일이 변경된 경우 중첩 패키지의 자체 스킬을 찾지 못하는 문제를 수정했습니다.",
+      "/claude-api 스킬이 ant beta:worker poll --on-work가 명령에 추적 컨텍스트를 전달한다고 잘못 말하는 문제를 수정했습니다.",
+      "/claude-api 스킬의 C# 추적 설정에서 클라우드 플랫폼 클라이언트의 스팬이 누락되는 문제를 수정했습니다.",
+      "/claude-api 스킬이 AWS의 Claude Platform에 대한 요청의 API 스팬이 호출자의 추적에 참여할 수 없다고 잘못 말하는 문제를 수정했습니다.",
+      "Linux: 백그라운드 명령이 세션보다 오래 지속될 때 sandbox write denies가 해제되는 문제를 수정했습니다.",
+      "Windows: PowerShell 권한 검사에서 현재 디렉토리를 대상으로 하고 추가 인수를 포함하는 일부 Set-Location 또는 cd 명령을 자동 승인하는 문제를 수정했습니다; 이제 승인을 요청합니다.",
+      "macOS: Xcode 또는 Command Line Tools가 없는 Mac에서 Claude Code가 시작될 때마다 \"Command Line Developer Tools 설치\" 대화 상자가 열리는 문제를 수정했습니다.",
+      "자체 호스팅 러너: --startup-timeout-min이 /code-review와 같은 첫 번째 프롬프트가 서브 에이전트에서 여전히 작동 중일 때 세션을 중지하는 문제를 수정했습니다; 동결된 프로세스는 여전히 중지됩니다.",
+      "/claude-api 스킬을 개선하여 OpenTelemetry 추가 요청 시 API 추적을 SDK 추적과 함께 제공하도록 했습니다.",
+      "/claude-api 스킬을 개선하여 기능이 지원되지 않는다고 말하기 전에 라이브 문서를 확인하도록 했습니다.",
+      "자체 호스팅 러너: 새로운 러너로 이동하는 세션을 개선했습니다: Claude는 이제 중단된 도구 호출을 결과 미확인으로 표시합니다.",
+      "번들된 dataviz 스킬을 업데이트하여 APCA를 텍스트 대비 측정값으로 수용하고(WCAG 2 비율을 유지하며 AA 준수가 필요한 경우), 팔레트 검증 스크립트에 apca(text, background) 함수를 추가하고 색상 차트 채우기 내부의 레이블이 흰색 또는 거의 검은색이어야 하는지 여부를 표시하도록 했습니다.",
+      "/claude-api 스킬을 업데이트했습니다: 서비스 계정 키와 Workload Identity Federation 토큰이 이제 OpenTelemetry 대상을 관리할 수 있습니다.",
+      "sed -i를 변경하여 표준 Bash 프롬프트를 가져오고 작성된 대로 실행되도록 했으며, 시뮬레이션된 파일 편집 미리보기가 아닙니다; 다른 Bash 편집과 마찬가지로 이제 /rewind로 복원되지 않습니다.",
+      "claude ultrareview를 변경하여 작업 공간 신뢰를 요구하도록 했습니다: 터미널에서 요청하며, 그렇지 않으면 거부합니다; 스크립트는 --trust-workspace를 전달하며, 값이 필요하지 않습니다(그 앞에 PR 번호 또는 기본 브랜치를 넣으세요), 또는 CLAUDE_CODE_DISABLE_ULTRAREVIEW_TRUST_CHECK=1을 설정합니다.",
+      "/claude-api 스킬을 변경하여 Managed Agents 서브 에이전트 팀을 multiagent_20261001에서 기본적으로 동적 워크플로우로 구성하도록 했습니다.",
+      "[VSCode] 받아쓰기 또는 확장 자체 요청이 인증서 검증에 실패할 때 수행할 작업을 알려주는 로그 경고를 추가했습니다; TLS 검사 프록시 뒤에서와 같은 경우입니다.",
+      "[VSCode] 편집기가 파일의 불완전한 복사본을 캐시한 후 Claude 패널이 빈 상태로 남는 문제를 수정했습니다; 이제 스스로 복구하거나 무엇이 잘못되었는지와 수정 방법을 알려줍니다.",
+      "[VSCode] 메시지를 보내지 않고 새 세션을 시작할 때마다 세션 기록이 빈 \"제목 없음\" 세션으로 채워지는 문제를 수정했습니다.",
+      "[VSCode] /goal과 같은 긴 슬래시 명령 메시지가 채팅 패널을 채우는 문제를 수정했습니다; 이제 다른 프롬프트처럼 Show more 뒤로 접힙니다 (anthropics/claude-code#97469).",
+      "[VSCode] 채팅 입력에서 Ctrl+J가 항상 줄 바꿈을 삽입하는 문제를 수정했습니다: 이제 \"~/.claude/keybindings.json\"의 Chat 컨텍스트에서 \"ctrl+j\"가 null로 설정되면 VS Code와 OS에 맡겨집니다."
+    ]
+  },
+  {
+    "version": "2.1.308",
+    "date": "2026-10-22",
+    "commands": [],
+    "features": [
+      "Bug fixes and reliability improvements"
+    ],
+    "features_ko": [
+      "버그 수정 및 안정성 향상"
+    ]
+  },
+  {
     "version": "2.1.307",
     "date": "2026-10-21",
     "commands": [
