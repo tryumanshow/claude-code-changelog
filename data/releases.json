@@ -1,5 +1,38 @@
 [
   {
+    "version": "2.1.310",
+    "date": "2025-11-24",
+    "commands": [
+      {
+        "name": "/sandbox",
+        "context": "improved",
+        "summary": "Linux: Improved `/sandbox` and the sandbox startup warning to name Ubuntu's AppA"
+      }
+    ],
+    "features": [
+      "Added the Monitor tool and plugin monitors on Bedrock, Vertex, and Foundry, and when telemetry or nonessential traffic is disabled; long foreground sleeps are now blocked there too",
+      "Windows: Fixed PreToolUse and PermissionRequest hooks letting a tool call through when Git Bash is missing and the hook's command is only quoted strings, such as a quoted path",
+      "Linux: Improved /sandbox and the sandbox startup warning to name Ubuntu's AppArmor restriction on user namespaces, and how to lift it, when it keeps bubblewrap from starting the sandbox",
+      "[VSCode] Fixed pressing Enter on the plan review card's \"Send feedback and keep planning\" button approving the plan instead of sending your comments back",
+      "[VSCode] Fixed the panel showing \"Something went wrong\" after \"Switch branch & continue\" on a cloud session opened from Session history's Web tab",
+      "[Cloud sessions] Added Claude Code cloud sessions and Remote Control permissions to Enterprise custom roles, so Owners can control access to each by role",
+      "[Cloud sessions] Added a Choose file button to load a cloud environment's setup script from a file",
+      "[Cloud sessions] Fixed failed saves and archives in the cloud environment edit dialog showing no error inside the dialog",
+      "[Cloud sessions] Fixed failed routine API token actions showing only a toast; the error now appears in the routine edit dialog"
+    ],
+    "features_ko": [
+      "Bedrock, Vertex, Foundry에서 Monitor 도구와 플러그인 모니터를 추가했으며, telemetry 또는 비필수 트래픽이 비활성화된 경우에도 긴 포그라운드 슬립이 차단됩니다.",
+      "Windows: Git Bash가 없고 후크의 명령이 인용된 문자열(예: 인용된 경로)일 때 도구 호출을 허용하는 PreToolUse 및 PermissionRequest 후크를 수정했습니다.",
+      "Linux: /sandbox 및 샌드박스 시작 경고를 개선하여 사용자 네임스페이스에 대한 Ubuntu의 AppArmor 제한과 이를 해제하는 방법을 명시했습니다. 이는 bubblewrap이 샌드박스를 시작하지 못하게 할 때 적용됩니다.",
+      "[VSCode] 계획 검토 카드의 \"피드백 보내기 및 계획 유지\" 버튼에서 Enter를 눌렀을 때 댓글을 보내는 대신 계획을 승인하는 문제를 수정했습니다.",
+      "[VSCode] 세션 기록의 Web 탭에서 열린 클라우드 세션에서 \"브랜치 전환 및 계속\" 후 \"Something went wrong\"이 표시되는 패널 문제를 수정했습니다.",
+      "[Cloud sessions] Enterprise 사용자 정의 역할에 Claude Code 클라우드 세션 및 원격 제어 권한을 추가하여 소유자가 역할별로 접근을 제어할 수 있도록 했습니다.",
+      "[Cloud sessions] 파일에서 클라우드 환경의 설정 스크립트를 로드할 수 있는 파일 선택 버튼을 추가했습니다.",
+      "[Cloud sessions] 클라우드 환경 편집 대화 상자에서 실패한 저장 및 아카이브가 대화 상자 내에 오류 없이 표시되는 문제를 수정했습니다.",
+      "[Cloud sessions] 실패한 정기 API 토큰 작업이 토스트만 표시되는 문제를 수정했습니다. 이제 오류가 정기 편집 대화 상자에 나타납니다."
+    ]
+  },
+  {
     "version": "2.1.309",
     "date": "2026-10-22",
     "commands": [

@@ -3339,5 +3339,14 @@
   "d84d9b4beaad9203": "[VSCode] 편집기가 파일의 불완전한 복사본을 캐시한 후 Claude 패널이 빈 상태로 남는 문제를 수정했습니다; 이제 스스로 복구하거나 무엇이 잘못되었는지와 수정 방법을 알려줍니다.",
   "12552e1071e894fd": "[VSCode] 메시지를 보내지 않고 새 세션을 시작할 때마다 세션 기록이 빈 \"제목 없음\" 세션으로 채워지는 문제를 수정했습니다.",
   "8376dc1cd9679122": "[VSCode] /goal과 같은 긴 슬래시 명령 메시지가 채팅 패널을 채우는 문제를 수정했습니다; 이제 다른 프롬프트처럼 Show more 뒤로 접힙니다 (anthropics/claude-code#97469).",
-  "fdcddb9645fd1095": "[VSCode] 채팅 입력에서 Ctrl+J가 항상 줄 바꿈을 삽입하는 문제를 수정했습니다: 이제 \"~/.claude/keybindings.json\"의 Chat 컨텍스트에서 \"ctrl+j\"가 null로 설정되면 VS Code와 OS에 맡겨집니다."
+  "fdcddb9645fd1095": "[VSCode] 채팅 입력에서 Ctrl+J가 항상 줄 바꿈을 삽입하는 문제를 수정했습니다: 이제 \"~/.claude/keybindings.json\"의 Chat 컨텍스트에서 \"ctrl+j\"가 null로 설정되면 VS Code와 OS에 맡겨집니다.",
+  "7f15210298f14adb": "Bedrock, Vertex, Foundry에서 Monitor 도구와 플러그인 모니터를 추가했으며, telemetry 또는 비필수 트래픽이 비활성화된 경우에도 긴 포그라운드 슬립이 차단됩니다.",
+  "7781bcc031b8bd37": "Windows: Git Bash가 없고 후크의 명령이 인용된 문자열(예: 인용된 경로)일 때 도구 호출을 허용하는 PreToolUse 및 PermissionRequest 후크를 수정했습니다.",
+  "e3e78874857a560b": "Linux: /sandbox 및 샌드박스 시작 경고를 개선하여 사용자 네임스페이스에 대한 Ubuntu의 AppArmor 제한과 이를 해제하는 방법을 명시했습니다. 이는 bubblewrap이 샌드박스를 시작하지 못하게 할 때 적용됩니다.",
+  "21b6cafbd59021b8": "[VSCode] 계획 검토 카드의 \"피드백 보내기 및 계획 유지\" 버튼에서 Enter를 눌렀을 때 댓글을 보내는 대신 계획을 승인하는 문제를 수정했습니다.",
+  "56bf533ed85c4030": "[VSCode] 세션 기록의 Web 탭에서 열린 클라우드 세션에서 \"브랜치 전환 및 계속\" 후 \"Something went wrong\"이 표시되는 패널 문제를 수정했습니다.",
+  "26bd4255fd263448": "[Cloud sessions] Enterprise 사용자 정의 역할에 Claude Code 클라우드 세션 및 원격 제어 권한을 추가하여 소유자가 역할별로 접근을 제어할 수 있도록 했습니다.",
+  "dc1927a74235025a": "[Cloud sessions] 파일에서 클라우드 환경의 설정 스크립트를 로드할 수 있는 파일 선택 버튼을 추가했습니다.",
+  "3c9b194cc7c40b25": "[Cloud sessions] 클라우드 환경 편집 대화 상자에서 실패한 저장 및 아카이브가 대화 상자 내에 오류 없이 표시되는 문제를 수정했습니다.",
+  "3bf4436021ab70d3": "[Cloud sessions] 실패한 정기 API 토큰 작업이 토스트만 표시되는 문제를 수정했습니다. 이제 오류가 정기 편집 대화 상자에 나타납니다."
 }
