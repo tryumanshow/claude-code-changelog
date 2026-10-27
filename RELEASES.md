@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-25 23:07 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-27 00:19 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.311** | 2026-10-26 | `--hold-idle-file`, `--max-hold-min`, `/mcp`, `/effort`, `/ide`, `--resume`, `--continue`, `/resume`, `--session-id`, `/clear`, `/branch`, `/review`, `/code-review`, `--plugin-dir`, `/usage`, `/rewind`, `/teleport`, `/permissions`, `Ctrl+D`, `--output-format json` | Added --hold-idle-file and --max-hold-min to self-hosted-runner, to keep an idle session while your host reports processes it left running / Added a tip for the Explanatory output style, shown when... |
 | **v2.1.310** | 2025-11-24 | `/sandbox` | Added the Monitor tool and plugin monitors on Bedrock, Vertex, and Foundry, and when telemetry or nonessential traffic is disabled; long foreground sleeps are now blocked there too / Windows: Fixed... |
 | **v2.1.309** | 2026-10-22 | `--mcp-config`, `ctrl+e`, `ctrl+o`, `/proc`, `--tools`, `/rename`, `--resume`, `/rewind`, `/code-review --fix`, `/code-review`, `/privacy-settings`, `/feedback`, `--add-dir`, `/verify`, `/claude-api`, `--startup-timeout-min`, `--trust-workspace`, `/goal`, `Ctrl+J`, `ctrl+j` | Fixed sandboxed commands and auto-accepted edits being able to modify the MCP config file passed with --mcp-config / Fixed ctrl+enter (send now) only queuing a message when pressed before the respo... |
 | **v2.1.308** | 2026-10-22 | — | Bug fixes and reliability improvements |
@@ -83,7 +84,6 @@
 | **v2.1.221** | 2026-08-04 | `Ctrl+A`, `--mcp-config`, `/help`, `/feedback`, `/ultrareview`, `/plugin install`, `/plugin`, `/reload-plugins`, `/status`, `/fork` | [VSCode] Added Focus view: a chat-menu toggle that hides tool activity behind an expandable per-turn summary with a live running-tool indicator, toggled with Ctrl+Alt+F or the "Claude Code: Toggle ... |
 | **v2.1.220** | 2026-07-25 | — | Bug fixes and reliability improvements |
 | **v2.1.219** | 2026-07-24 | `/add-dir`, `--mcp-config`, `/config`, `--forward-subagent-text`, `/mcp`, `/model`, `/fast` | Added Claude Opus 5 (claude-opus-5), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok / Added sandbox.network.strictAllowlist setting to deny non-allowlisted hosts for sandbox... |
-| **v2.1.218** | 2026-07-22 | `/code-review`, `--ax-screen-reader`, `Ctrl+W`, `Ctrl+U`, `Ctrl+K`, `Ctrl+J`, `/context`, `/ultrareview`, `/code-review ultra`, `Ctrl+B`, `/deep-research`, `/config` | Changed /code-review to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target / Added screen-reader announcements of d... |
 
 ---
 

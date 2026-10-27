@@ -1,5 +1,171 @@
 [
   {
+    "version": "2.1.311",
+    "date": "2026-10-26",
+    "commands": [
+      {
+        "name": "--hold-idle-file",
+        "context": "new",
+        "summary": "Added `--hold-idle-file` and `--max-hold-min` to `self-hosted-runner`, to keep a"
+      },
+      {
+        "name": "--max-hold-min",
+        "context": "new",
+        "summary": "Added `--hold-idle-file` and `--max-hold-min` to `self-hosted-runner`, to keep a"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed `claude mcp add`, `claude mcp remove` and `/mcp` naming the current folder"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed `/effort` not warning about a prompt cache miss in plan mode when the plan"
+      },
+      {
+        "name": "/ide",
+        "context": "fixed",
+        "summary": "Fixed `/ide` saying the VS Code extension was installed before the install finis"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed agent teams sessions showing an empty task list when coming back with `--r"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed agent teams sessions showing an empty task list when coming back with `--r"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed agent teams sessions showing an empty task list when coming back with `--r"
+      },
+      {
+        "name": "--session-id",
+        "context": "fixed",
+        "summary": "Fixed agent teams sessions showing an empty task list when coming back with `--r"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed agent teams sessions showing an empty task list when coming back with `--r"
+      },
+      {
+        "name": "/branch",
+        "context": "fixed",
+        "summary": "Fixed agent teams sessions showing an empty task list when coming back with `--r"
+      },
+      {
+        "name": "/review",
+        "context": "fixed",
+        "summary": "Fixed pasting text that mentions an image file, such as `! open /tmp/shot.png` o"
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "Changed `/code-review` to tell Claude to put the effort level first and use max "
+      },
+      {
+        "name": "--plugin-dir",
+        "context": "fixed",
+        "summary": "Fixed a `--plugin-dir` folder of plugins loading as one plugin when an empty `.m"
+      },
+      {
+        "name": "/usage",
+        "context": "fixed",
+        "summary": "Fixed `/usage` never showing large prompt-cache misses under \"What's contributin"
+      },
+      {
+        "name": "/rewind",
+        "context": "fixed",
+        "summary": "Fixed the /rewind confirmation saying the conversation \"will be forked\" when the"
+      },
+      {
+        "name": "/teleport",
+        "context": "improved",
+        "summary": "Improved `/teleport` and `claude --teleport` to warn when a compacted cloud sess"
+      },
+      {
+        "name": "/permissions",
+        "context": "improved",
+        "summary": "Improved screen reader mode: deleting a rule in /permissions says \"Deleted allow"
+      },
+      {
+        "name": "Ctrl+D",
+        "context": "improved",
+        "summary": "Changed Ctrl+D in agent view to match the prompt: on an empty input, pressing it"
+      },
+      {
+        "name": "--output-format json",
+        "context": "improved",
+        "summary": "Changed `--output-format json` and `stream-json` output to write DEL, C1 control"
+      }
+    ],
+    "features": [
+      "Added --hold-idle-file and --max-hold-min to self-hosted-runner, to keep an idle session while your host reports processes it left running",
+      "Added a tip for the Explanatory output style, shown when you ask Claude for explanations",
+      "Fixed claude mcp add, claude mcp remove and /mcp naming the current folder instead of the project entry in ~/.claude.json that holds a local-scope server when run below a repository root",
+      "Fixed /effort not warning about a prompt cache miss in plan mode when the plan model differs from the session model",
+      "Fixed /ide saying the VS Code extension was installed before the install finished or when it failed",
+      "Fixed agent teams sessions showing an empty task list when coming back with --resume, --continue, /resume or --session-id, including after /clear or a crash, and /branch writing to the original session's list",
+      "Fixed pasting text that mentions an image file, such as ! open /tmp/shot.png or /review look at /tmp/shot.png, attaching the image and dropping its path from the prompt",
+      "Fixed a finished /code-review, or another skill that runs in a sub-agent, running a second time when a cloud or background session restarts",
+      "Fixed /ide saying it had installed the JetBrains plugin when nothing was installed",
+      "Fixed /mcp showing a remote server as failed after \"Clear authentication\" when the server works without sign-in",
+      "Fixed /mcp showing \"authenticated\" for a remote server that Claude Code sends no credentials to",
+      "Fixed a --plugin-dir folder of plugins loading as one plugin when an empty .mcp.json was at its top",
+      "Fixed /usage never showing large prompt-cache misses under \"What's contributing to your limits usage?\"",
+      "Fixed the /rewind confirmation saying the conversation \"will be forked\" when the later messages are removed from the conversation",
+      "Fixed the /rewind warning that wrongly said manual and Bash edits are never affected by a code restore",
+      "Linux: Fixed sandboxed Bash commands failing with bwrap: Can't create file when a --plugin-dir folder was also an added directory and permissions.blockReadsOutsideWorkingDirectories was on",
+      "Self-hosted runner: Fixed a session failing to start when a rate limit (HTTP 429, or a git wrapper that exits 75) blocks an added read-only repository; it now starts without that repository",
+      "Improved /teleport and claude --teleport to warn when a compacted cloud session loads from its last compaction, so the messages it summarized aren't in the local copy",
+      "Improved screen reader mode: deleting a rule in /permissions says \"Deleted allow rule …\" right away",
+      "Changed Ctrl+D in agent view to match the prompt: on an empty input, pressing it twice exits",
+      "Changed --output-format json and stream-json output to write DEL, C1 control and Unicode format characters inside strings as \\uXXXX escapes; parsed values are unchanged",
+      "Changed /code-review to tell Claude to put the effort level first and use max only when asked",
+      "[VSCode] Added syntax coloring to code blocks in Claude's replies, in light, dark and high contrast dark themes",
+      "[VSCode] Added a \"Running UserPromptSubmit hooks\" spinner status and screen reader announcement for slow UserPromptSubmit hooks",
+      "[VSCode] Fixed custom skills and custom slash commands sent from the VS Code or JetBrains panel leaving out the open file or selected lines that ordinary messages include (anthropics/claude-code#102799)",
+      "[VSCode] Fixed the extension host freezing while the login shell ran its start-up files to read PATH on macOS and Linux",
+      "[VSCode] Fixed clicking an image in a tool result, or closing its preview, also opening the result's text in an editor tab",
+      "[VSCode] Fixed voice dictation continuing to record after a message was sent with the Send button; sending now stops dictation first, as pressing Enter already did"
+    ],
+    "features_ko": [
+      "--hold-idle-file 및 --max-hold-min을 self-hosted-runner에 추가하여 호스트가 실행 중인 프로세스를 보고하는 동안 유휴 세션을 유지합니다.",
+      "Claude에게 설명을 요청할 때 표시되는 설명 출력 스타일에 대한 팁을 추가했습니다.",
+      "claude mcp add, claude mcp remove 및 /mcp가 저장소 루트 아래에서 실행될 때 현재 폴더 대신 ~/.claude.json의 프로젝트 항목을 지칭하는 문제를 수정했습니다.",
+      "계획 모델이 세션 모델과 다를 때 계획 모드에서 프롬프트 캐시 미스에 대한 경고가 나타나지 않는 /effort 문제를 수정했습니다.",
+      "설치가 완료되기 전에 또는 실패했을 때 /ide가 VS Code 확장이 설치되었다고 말하는 문제를 수정했습니다.",
+      "--resume, --continue, /resume 또는 --session-id로 돌아올 때 에이전트 팀 세션이 빈 작업 목록을 표시하는 문제를 수정했습니다. 여기에는 /clear 또는 충돌 후도 포함됩니다.",
+      "! open /tmp/shot.png 또는 /review look at /tmp/shot.png와 같이 이미지 파일을 언급하는 텍스트를 붙여넣을 때 이미지가 첨부되고 프롬프트에서 경로가 제거되는 문제를 수정했습니다.",
+      "클라우드 또는 백그라운드 세션이 재시작될 때 완료된 /code-review 또는 서브 에이전트에서 실행되는 다른 기술이 두 번째로 실행되는 문제를 수정했습니다.",
+      "/ide가 아무것도 설치되지 않았을 때 JetBrains 플러그인이 설치되었다고 말하는 문제를 수정했습니다.",
+      "/mcp가 \"Clear authentication\" 후 원격 서버를 실패로 표시하는 문제를 수정했습니다. 서버는 로그인 없이도 작동합니다.",
+      "Claude Code가 자격 증명을 전송하지 않는 원격 서버에 대해 /mcp가 \"authenticated\"로 표시하는 문제를 수정했습니다.",
+      "빈 .mcp.json이 최상위에 있을 때 --plugin-dir 플러그인 폴더가 하나의 플러그인으로 로드되는 문제를 수정했습니다.",
+      "/usage가 \"What's contributing to your limits usage?\" 아래에서 큰 프롬프트 캐시 미스를 결코 표시하지 않는 문제를 수정했습니다.",
+      "/rewind 확인에서 대화가 \"forked\"될 것이라고 잘못 말하는 문제를 수정했습니다. 나중의 메시지가 대화에서 제거될 때 발생합니다.",
+      "수동 및 Bash 편집이 코드 복원에 영향을 받지 않는다고 잘못 말하는 /rewind 경고를 수정했습니다.",
+      "Linux: --plugin-dir 폴더가 추가된 디렉토리이면서 permissions.blockReadsOutsideWorkingDirectories가 켜져 있을 때 bwrap로 인해 샌드박스된 Bash 명령이 실패하는 문제를 수정했습니다.",
+      "Self-hosted runner: 추가된 읽기 전용 저장소가 차단할 때 세션이 시작되지 않는 문제를 수정했습니다. 이제 해당 저장소 없이 시작됩니다.",
+      "/teleport 및 claude --teleport를 개선하여 압축된 클라우드 세션이 마지막 압축에서 로드될 때 경고하도록 했습니다. 요약된 메시지가 로컬 복사본에 포함되지 않도록 합니다.",
+      "화면 읽기 모드를 개선했습니다: /permissions에서 규칙을 삭제할 때 \"Deleted allow rule …\"라고 즉시 말합니다.",
+      "에이전트 보기에서 Ctrl+D를 프롬프트와 일치하도록 변경했습니다: 빈 입력에서 두 번 누르면 종료됩니다.",
+      "--output-format json 및 stream-json 출력을 문자열 내에서 DEL, C1 제어 및 유니코드 형식 문자를 \\uXXXX 이스케이프 형식으로 작성하도록 변경했습니다; 구문 분석된 값은 변경되지 않습니다.",
+      "/code-review를 변경하여 Claude에게 노력 수준을 먼저 두고 요청 시에만 max를 사용하도록 지시합니다.",
+      "[VSCode] Claude의 응답에서 코드 블록에 대한 구문 강조를 추가했습니다. 밝은, 어두운 및 고대비 어두운 테마에서 지원됩니다.",
+      "[VSCode] 느린 UserPromptSubmit 훅을 위한 \"Running UserPromptSubmit hooks\" 스피너 상태 및 화면 읽기 발표를 추가했습니다.",
+      "[VSCode] VS Code 또는 JetBrains 패널에서 보낸 사용자 정의 기술 및 사용자 정의 슬래시 명령이 일반 메시지에 포함된 열린 파일 또는 선택된 줄을 누락하는 문제를 수정했습니다 (anthropics/claude-code#102799).",
+      "[VSCode] macOS 및 Linux에서 로그인 셸이 PATH를 읽기 위해 시작 파일을 실행하는 동안 확장 호스트가 멈추는 문제를 수정했습니다.",
+      "[VSCode] 도구 결과에서 이미지를 클릭하거나 미리보기를 닫을 때 결과의 텍스트가 편집기 탭에서 열리는 문제를 수정했습니다.",
+      "[VSCode] 메시지가 Send 버튼으로 전송된 후 음성 받아쓰기가 계속 기록되는 문제를 수정했습니다. 이제 전송 시 먼저 받아쓰기가 중지됩니다."
+    ]
+  },
+  {
     "version": "2.1.310",
     "date": "2025-11-24",
     "commands": [
