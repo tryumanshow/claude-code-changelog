@@ -1,5 +1,69 @@
 [
   {
+    "version": "2.1.312",
+    "date": "2026-10-27",
+    "commands": [
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed the `/model` and `/effort` cache warning saying the re-read waits for your"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed the `/model` and `/effort` cache warning saying the re-read waits for your"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "fixed",
+        "summary": "Fixed agent view restoring input text on the next launch after it was cleared wi"
+      },
+      {
+        "name": "Ctrl+D",
+        "context": "fixed",
+        "summary": "Fixed agent view reopening in shell mode after exiting with Ctrl+D from an empty"
+      },
+      {
+        "name": "/verify",
+        "context": "fixed",
+        "summary": "Fixed `/verify` showing a long description meant for Claude in `/help` and the `"
+      },
+      {
+        "name": "/help",
+        "context": "fixed",
+        "summary": "Fixed `/verify` showing a long description meant for Claude in `/help` and the `"
+      }
+    ],
+    "features": [
+      "Added oidc.user_id_claim to the Claude apps gateway, to identify people by an id_token claim other than sub, such as Microsoft Entra ID's oid",
+      "Added click to send: in fullscreen, clicking the \"to send now\" hint under a queued message sends it right away, as its key does",
+      "Fixed the /model and /effort cache warning saying the re-read waits for your next message; a change made while Claude is working can trigger it sooner",
+      "Fixed agent view restoring input text on the next launch after it was cleared with Ctrl+C just before exiting",
+      "Fixed agent view reopening in shell mode after exiting with Ctrl+D from an empty ! input",
+      "Fixed /verify showing a long description meant for Claude in /help and the / command menu instead of a short one",
+      "[VSCode] Fixed sessions ending on a bare exit code when your organization's settings couldn't be loaded or were refused at startup; the tab now says why and offers Retry or Sign in again",
+      "[VSCode] Changed usage limit resets to show a clock time (\"Resets at 3:10 PM\") and to say \"5-hour limit\"",
+      "[Cloud sessions] Added an effort level to the model picker when you create or edit a routine that runs in the cloud",
+      "[Cloud sessions] Added a Bash editor with colors, line numbers and a Copy button to the setup script box in cloud environment settings",
+      "[Cloud sessions] Improved the step shown when Claude adds a repository to a cloud session: opening it now shows a short table of what happened instead of raw JSON",
+      "[Cloud sessions] Fixed resending an unchanged message after a failed send in a cloud session sometimes running it twice"
+    ],
+    "features_ko": [
+      "oidc.user_id_claim을 Claude 앱 게이트웨이에 추가하여, Microsoft Entra ID의 oid와 같은 sub 이외의 id_token 클레임으로 사람을 식별할 수 있게 했습니다.",
+      "전체 화면에서 대기 중인 메시지 아래의 \"지금 보내기\" 힌트를 클릭하면 즉시 전송됩니다.",
+      "/model 및 /effort 캐시 경고를 수정하여, 재읽기가 다음 메시지를 기다린다고 표시되던 문제를 해결했습니다; Claude가 작업 중일 때 변경이 있으면 더 빨리 발생할 수 있습니다.",
+      "Ctrl+C로 지운 후 다음 실행 시 입력 텍스트를 복원하는 에이전트 뷰를 수정했습니다.",
+      "빈 ! 입력에서 Ctrl+D로 종료한 후 에이전트 뷰가 셸 모드로 다시 열리는 문제를 수정했습니다.",
+      "/verify에서 /help 및 / 명령 메뉴에 Claude를 위한 긴 설명이 표시되는 문제를 수정하여 짧은 설명이 나오도록 했습니다.",
+      "[VSCode] 조직의 설정을 로드할 수 없거나 시작 시 거부될 때 빈 종료 코드로 세션이 종료되는 문제를 수정했습니다; 이제 탭에 이유가 표시되고 다시 시도하거나 다시 로그인할 수 있습니다.",
+      "[VSCode] 사용 한도 초기화를 시계 시간(\"오후 3:10에 초기화\")으로 표시하고 \"5시간 한도\"라고 표시하도록 변경했습니다.",
+      "[Cloud sessions] 클라우드에서 실행되는 루틴을 생성하거나 편집할 때 모델 선택기에 노력 수준을 추가했습니다.",
+      "[Cloud sessions] 클라우드 환경 설정의 설정 스크립트 상자에 색상, 줄 번호 및 복사 버튼이 있는 Bash 편집기를 추가했습니다.",
+      "[Cloud sessions] Claude가 클라우드 세션에 리포지토리를 추가할 때 표시되는 단계를 개선했습니다: 이제 열면 발생한 일의 간단한 표가 표시됩니다.",
+      "[Cloud sessions] 클라우드 세션에서 실패한 전송 후 변경되지 않은 메시지를 다시 보내는 경우 때때로 두 번 실행되는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.311",
     "date": "2026-10-26",
     "commands": [
