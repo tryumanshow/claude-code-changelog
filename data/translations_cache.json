@@ -3424,5 +3424,21 @@
   "703eb78becd599e9": "/ultrareview를 변경하여 git을 실행하기 전에 작업 공간 신뢰를 확인하도록 했습니다. 이는 claude ultrareview와 같습니다.",
   "f02aaafc1902981f": "/permissions Recently blocked를 변경하여 전체를 읽을 수 없는 호출을 승인하지 않도록 했습니다. 여기에는 터미널이 너무 짧아 표시할 수 없는 호출도 포함됩니다.",
   "a61ee1f885d7157f": "[VSCode] 계획 미리보기 탭에서 Cmd+F / Ctrl+F가 찾기 위젯을 열지 않는 문제를 수정했습니다.",
-  "2ebb341ff7f706ad": "[VSCode] 비라틴 키보드 레이아웃(예: 러시아어, 그리스어 또는 히브리어)에서 음성 받아쓰기 단축키(Ctrl+D)가 작동하지 않는 문제를 수정했습니다."
+  "2ebb341ff7f706ad": "[VSCode] 비라틴 키보드 레이아웃(예: 러시아어, 그리스어 또는 히브리어)에서 음성 받아쓰기 단축키(Ctrl+D)가 작동하지 않는 문제를 수정했습니다.",
+  "66f5c53446f3cec5": "ultrathink 키워드를 끄는 CLAUDE_CODE_DISABLE_ULTRATHINK를 추가했습니다.",
+  "777637e9b1313545": "Claude 앱 게이트웨이에 풀 그룹 예산을 추가했습니다: 그룹의 구성원이 공유하는 월간 예산과 각 구성원의 개별 한도, pooled_budget를 사용하여 설정된 지출 한도입니다.",
+  "77a2f2738d95fc12": "서버의 개인 CA가 필요할 때 서로를 루프에서 인증하는 시스템 교차 인증서를 유지하기 위해 CLAUDE_CODE_DISABLE_LOOPED_CROSS_CERT_DROP를 추가했습니다.",
+  "34f2fa77a9fea6a2": "세션에서 상속받는 대신, 아무것도 이름을 지정하지 않을 때 서브 에이전트가 실행하는 노력 수준을 설정하는 CLAUDE_CODE_SUBAGENT_EFFORT를 추가했습니다.",
+  "8dcfcffb57e89742": "Claude 앱 게이트웨이에 managed.policy_mode: layered를 추가했습니다: 개발자와 일치하는 모든 정책이 적용되며, 아래에 나열된 정책 위에 병합됩니다.",
+  "3f02e07a604df6bb": "Claude 앱 게이트웨이 Bedrock 업스트림에서 guardrail.input_tagging을 추가했습니다. 이는 Amazon Bedrock 가드레일의 프롬프트 공격 필터가 필요한 입력 태그로 프롬프트를 감쌉니다; all_messages_and_system은 시스템 프롬프트도 태그합니다.",
+  "835aed2bc116cad9": "Read allow 규칙이 적용된 작업 디렉토리 외부에서 파일을 업로드하는 --restricted 세션을 수정했습니다.",
+  "09994b5b63fe67cd": "\"$defaults\" 없이 관리되는 autoMode.allow 목록이 호스트 앱의 --settings, /permissions 또는 /auto-mode-setup에서 기본 예외를 가져오는 문제를 수정했습니다.",
+  "5a9d4c28b014b746": "/model <id>가 이 버전에서 모델을 인식하지 못할 때 경고하지 않고 auto-compact가 200K 컨텍스트 윈도우를 가정하는 문제를 수정했습니다.",
+  "bc3b99d85e412db2": "대화가 저장되는 동안 /clear 또는 /resume이 실행되었을 때 대화 재개가 계획을 복원하지 않는 드문 경우를 수정했습니다.",
+  "1579789e77345339": "자체 호스팅 러너: Claude가 작업 중일 때 전송된 메시지가 세션 프로세스가 교체된 후 Stop 이후에 응답되는 문제를 수정했습니다.",
+  "bc84e99b130f717c": "자체 호스팅 러너: 세션이 새 머신으로 이동할 때 MCP 서버의 on/off 스위치가 가끔 사라지는 문제를 수정했습니다.",
+  "e8da6a468b19f7b4": "Claude Desktop 또는 웹에서 Code 탭에서 시작된 /code-review를 개선했습니다: 클라우드 및 claude 원격 제어 세션은 이제 평문 목록이 아닌 발견 카드가 표시됩니다.",
+  "f232d8b129e1a14f": "대형 리포지토리에서 /diff를 개선했습니다: 각 새로 고침은 일반적으로 전체 리포지토리 git 명령을 하나 덜 실행하며, git이 느릴 때 새로 고침 간격이 조정됩니다.",
+  "c34e26214b8085c0": "/ultrareview, 클라우드 세션 또는 클라우드 에이전트가 GitHub 원격을 찾지 못할 때 표시되는 메시지를 개선했습니다: 이제 https://github.com/new에서 리포지토리를 생성하라는 메시지가 표시되며, /ultrareview는 gh가 거부하는 gh 명령을 더 이상 제안하지 않습니다.",
+  "4f400b478bb10542": "[VSCode] 설정 파일에 오류가 있을 때 저장된 /btw 사이드 질문 기록이 너무 일찍 삭제되는 문제를 수정했습니다."
 }
