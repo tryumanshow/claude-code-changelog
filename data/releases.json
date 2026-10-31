@@ -1,5 +1,202 @@
 [
   {
+    "version": "2.1.314",
+    "date": "2026-10-30",
+    "commands": [
+      {
+        "name": "/compact",
+        "context": "fixed",
+        "summary": "Fixed Bedrock sessions with many images failing every turn and `/compact` with \""
+      },
+      {
+        "name": "--plugin-dir",
+        "context": "fixed",
+        "summary": "Fixed model switching being refused on machines with managed plugin settings whe"
+      },
+      {
+        "name": "--plugin-url",
+        "context": "fixed",
+        "summary": "Fixed model switching being refused on machines with managed plugin settings whe"
+      },
+      {
+        "name": "/goal",
+        "context": "fixed",
+        "summary": "Fixed \"Continue automatically at usage limit\" continuing more than three times w"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed the /resume picker showing the text of CLAUDE.md or CLAUDE.local.md as a s"
+      },
+      {
+        "name": "/btw",
+        "context": "fixed",
+        "summary": "Fixed `/btw` answering from the main conversation when asked from a subagent's o"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed sandbox protections not applying to a worktree entered by `claude -p --res"
+      },
+      {
+        "name": "--setting-sources",
+        "context": "fixed",
+        "summary": "Fixed a settings file excluded with `--setting-sources` still supplying some set"
+      },
+      {
+        "name": "/permissions",
+        "context": "improved",
+        "summary": "Improved `/permissions` review tab, now called Recently blocked: the footer says"
+      },
+      {
+        "name": "/upgrade",
+        "context": "fixed",
+        "summary": "Fixed `/upgrade` opening the browser and starting a new login for plans billed t"
+      },
+      {
+        "name": "--resume",
+        "context": "improved",
+        "summary": "Improved `--resume` speed and memory use on damaged transcripts"
+      },
+      {
+        "name": "ctrl+o",
+        "context": "fixed",
+        "summary": "Fixed Remote Control clients showing a stray \"Compacted (ctrl+o to see full summ"
+      },
+      {
+        "name": "Ctrl+O",
+        "context": "fixed",
+        "summary": "Fixed a blank line appearing above some `⎿` rows in the transcript view (Ctrl+O)"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed the session name from /rename disappearing while Claude asks for permissio"
+      },
+      {
+        "name": "/config",
+        "context": "improved",
+        "summary": "Improved `/config` in agent view to say how to stop agent view opening by defaul"
+      },
+      {
+        "name": "Ctrl+R",
+        "context": "improved",
+        "summary": "Improved prompt history: Ctrl+R now matches text inside collapsed `[Pasted text]"
+      },
+      {
+        "name": "/design-sync",
+        "context": "improved",
+        "summary": "Improved the `/design-sync` upload prompt to show the folder, the project and th"
+      },
+      {
+        "name": "/security-review",
+        "context": "improved",
+        "summary": "Improved session auto-titles: a session that starts with a skill or a prompt-bas"
+      },
+      {
+        "name": "/context",
+        "context": "improved",
+        "summary": "Improved `/context` speed in sessions with ten thousand or more MCP tools"
+      },
+      {
+        "name": "/claude-api",
+        "context": "improved",
+        "summary": "Updated the `/claude-api` skill: its Datadog setup for API tracing now sends the"
+      },
+      {
+        "name": "/ultrareview",
+        "context": "improved",
+        "summary": "Changed `/ultrareview` to check workspace trust before it runs git, as `claude u"
+      },
+      {
+        "name": "Ctrl+F",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Cmd+F / Ctrl+F not opening the find widget in the plan preview ta"
+      },
+      {
+        "name": "Ctrl+D",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed the voice dictation shortcut (Ctrl+D) doing nothing under non-Lat"
+      }
+    ],
+    "features": [
+      "Added permissions.blockWritesOutsideWorkingDirectories: Write, Edit and NotebookEdit refuse paths outside the working directories in every permission mode",
+      "Added an optional groups list to Claude apps gateway upstreams: only developers in the listed IdP groups are sent to that upstream, on failover too",
+      "Added guardrail_trace to Claude apps gateway Bedrock upstreams, to log which Amazon Bedrock guardrail filter fired on a request, without the matched text",
+      "Added idle compaction to VS Code and Claude Desktop's Code tab: a 200K+ token conversation left idle is summarized, and the summary is used on your next message if the prompt cache has expired",
+      "Fixed Bedrock sessions with many images failing every turn and /compact with \"400 Input is too long.\" instead of removing older images and compacting",
+      "Fixed model switching being refused on machines with managed plugin settings when one of your own --plugin-dir or --plugin-url plugins had a broken manifest or failed to download",
+      "Fixed \"Continue automatically at usage limit\" continuing more than three times without a prompt from you when a task restarted itself between waits (a /goal check-in, a background or scheduled task)",
+      "Fixed the /resume picker showing the text of CLAUDE.md or CLAUDE.local.md as a session's title when the session only ran slash commands",
+      "Fixed /btw answering from the main conversation when asked from a subagent's open transcript",
+      "Fixed sandbox protections not applying to a worktree entered by claude -p --resume or --continue",
+      "Fixed a settings file excluded with --setting-sources still supplying some settings, such as auto mode rules and saved permission consents",
+      "Fixed auto mode reporting a call as blocked, and listing it in /permissions, when its safety check gave no verdict",
+      "Fixed /upgrade opening the browser and starting a new login for plans billed through the App Store or Google Play; it now says where to change the plan",
+      "Fixed --resume, and rewinding past a switch to another model after a refusal, moving a session on a model name Claude Code doesn't recognize to a different model",
+      "Fixed Remote Control clients showing a stray \"Compacted (ctrl+o to see full summary)\" row after /compact",
+      "Fixed a blank line appearing above some ⎿ rows in the transcript view (Ctrl+O)",
+      "Fixed Esc on a command's panel, such as /btw, also interrupting the subagent whose transcript is open",
+      "Fixed the session name from /rename disappearing while Claude asks for permission or a plan decision, so side-by-side sessions stay identifiable",
+      "Fixed the tip and idle reminder about push notifications appearing when the push settings in /config are hidden or your organization has turned off Remote Control",
+      "Self-hosted runner: Fixed an idle session moving to another runner instead of pausing when the runner's request to pause it lost its connection before Anthropic answered",
+      "Improved prompt history: Ctrl+R now matches text inside collapsed [Pasted text] pills",
+      "Improved the /design-sync upload prompt to show the folder, the project and the files it will upload or delete",
+      "Improved /permissions review tab, now called Recently blocked: the footer says what Esc will do with marked rows",
+      "Improved auto mode's blocked calls: messages name the command, say Claude may retry and auto mode checks again, and point to /permissions to review",
+      "Improved /config in agent view to say how to stop agent view opening by default",
+      "Improved session auto-titles: a session that starts with a skill or a prompt-based command such as /security-review now gets a title from it instead of staying untitled",
+      "Improved --resume speed and memory use on damaged transcripts",
+      "Improved /context speed in sessions with ten thousand or more MCP tools",
+      "Self-hosted runner: Improved the error shown when a session's branch isn't on the git remote: it now covers a never-pushed branch, says how to fix each case, and no longer suggests retrying",
+      "Updated the /claude-api skill: its Datadog setup for API tracing now sends the dd-llmobs-enabled: true header, as the Console does, and its ant install instructions drop the outdated macOS xattr step",
+      "Updated the bundled dataviz skill to advise printing y-axis tick labels in full under 10,000, and horizontal ones in full under a million where they fit",
+      "Updated the bundled dataviz skill to answer donut and pie chart requests with ranked bars or a segmented bar that prints its values",
+      "Changed /ultrareview to check workspace trust before it runs git, as claude ultrareview does",
+      "Changed /permissions Recently blocked to refuse approving a call you can't read in full, including one the terminal is too short to show",
+      "[VSCode] Fixed Cmd+F / Ctrl+F not opening the find widget in the plan preview tab",
+      "[VSCode] Fixed the voice dictation shortcut (Ctrl+D) doing nothing under non-Latin keyboard layouts such as Russian, Greek or Hebrew"
+    ],
+    "features_ko": [
+      "permissions.blockWritesOutsideWorkingDirectories가 추가되었습니다: 모든 권한 모드에서 작업 디렉토리 외부의 경로에 대해 Write, Edit 및 NotebookEdit이 거부됩니다.",
+      "Claude 앱 게이트웨이 업스트림에 선택적 그룹 목록이 추가되었습니다: 나열된 IdP 그룹의 개발자만 해당 업스트림으로 전송되며, 장애 조치 시에도 적용됩니다.",
+      "Claude 앱 게이트웨이 Bedrock 업스트림에 guardrail_trace가 추가되어 요청에서 어떤 Amazon Bedrock guardrail 필터가 작동했는지 로그를 남기며, 일치하는 텍스트는 포함되지 않습니다.",
+      "VS Code 및 Claude Desktop의 Code 탭에 유휴 압축 기능이 추가되었습니다: 200K 이상의 토큰 대화가 유휴 상태일 때 요약되며, 프롬프트 캐시가 만료되면 다음 메시지에 요약이 사용됩니다.",
+      "많은 이미지를 포함한 Bedrock 세션이 매 턴마다 실패하고 /compact가 \"400 Input is too long.\" 오류를 발생시키는 문제를 수정했습니다.",
+      "관리되는 플러그인 설정이 있는 머신에서 자신의 --plugin-dir 또는 --plugin-url 플러그인 중 하나가 손상된 매니페스트를 가지고 있거나 다운로드에 실패할 때 모델 전환이 거부되는 문제를 수정했습니다.",
+      "작업이 대기 중에 스스로 재시작될 때 \"Continue automatically at usage limit\"가 세 번 이상 사용자에게 프롬프트 없이 계속되는 문제를 수정했습니다 (예: /goal 체크인, 백그라운드 또는 예약 작업).",
+      "세션이 슬래시 명령만 실행했을 때 /resume 선택기가 CLAUDE.md 또는 CLAUDE.local.md의 텍스트를 세션 제목으로 표시하는 문제를 수정했습니다.",
+      "하위 에이전트의 열린 전사에서 요청했을 때 /btw가 주요 대화에서 응답하는 문제를 수정했습니다.",
+      "claude -p --resume 또는 --continue로 들어간 작업 트리에 샌드박스 보호가 적용되지 않는 문제를 수정했습니다.",
+      "--setting-sources로 제외된 설정 파일이 여전히 자동 모드 규칙 및 저장된 권한 동의와 같은 일부 설정을 제공하는 문제를 수정했습니다.",
+      "안전 검사에서 판별이 없을 때 자동 모드가 호출을 차단된 것으로 보고하고 /permissions에 나열하는 문제를 수정했습니다.",
+      "/upgrade가 브라우저를 열고 App Store 또는 Google Play를 통해 청구된 요금제에 대한 새 로그인을 시작하는 문제를 수정했습니다; 이제 요금제를 변경할 위치를 안내합니다.",
+      "--resume 및 거부 후 다른 모델로 전환한 후 세션이 Claude Code가 인식하지 못하는 모델 이름으로 이동하는 문제를 수정했습니다.",
+      "Remote Control 클라이언트가 /compact 후에 \"Compacted (ctrl+o to see full summary)\" 행이 나타나는 문제를 수정했습니다.",
+      "전사 보기(Ctrl+O)에서 일부 ⎿ 행 위에 빈 줄이 나타나는 문제를 수정했습니다.",
+      "/btw와 같은 명령 패널에서 Esc가 열린 하위 에이전트를 중단하는 문제를 수정했습니다.",
+      "Claude가 권한이나 계획 결정을 요청하는 동안 /rename에서 세션 이름이 사라지는 문제를 수정하여 나란히 세션이 식별 가능하게 유지합니다.",
+      "/config에서 푸시 설정이 숨겨져 있거나 조직에서 Remote Control을 끈 경우 푸시 알림에 대한 팁 및 유휴 알림이 나타나는 문제를 수정했습니다.",
+      "자체 호스팅된 러너: 러너의 일시 중지 요청이 Anthropic의 응답 전에 연결을 잃었을 때 유휴 세션이 일시 중지되지 않고 다른 러너로 이동하는 문제를 수정했습니다.",
+      "프롬프트 기록이 개선되었습니다: Ctrl+R이 이제 축소된 [Pasted text] 알약 내의 텍스트와 일치합니다.",
+      "/design-sync 업로드 프롬프트가 개선되어 업로드 또는 삭제할 폴더, 프로젝트 및 파일을 표시합니다.",
+      "/permissions 검토 탭이 개선되어 이제 Recently blocked로 명칭이 변경되었습니다: 바닥글에 Esc가 표시된 행에 대해 수행할 작업이 안내됩니다.",
+      "자동 모드의 차단된 호출이 개선되었습니다: 메시지가 명령을 이름 붙이고 Claude가 재시도할 수 있으며 자동 모드가 다시 확인하고 /permissions를 검토하도록 안내합니다.",
+      "에이전트 보기에서 /config가 기본적으로 에이전트 보기가 열리지 않도록 하는 방법을 안내하도록 개선되었습니다.",
+      "세션 자동 제목이 개선되었습니다: /security-review와 같은 기술 또는 프롬프트 기반 명령으로 시작하는 세션은 제목이 부여되어 무제 상태로 남지 않습니다.",
+      "손상된 전사에서 --resume 속도 및 메모리 사용이 개선되었습니다.",
+      "만 개 이상의 MCP 도구가 있는 세션에서 /context 속도가 개선되었습니다.",
+      "자체 호스팅된 러너: 세션의 브랜치가 git 원격에 없을 때 표시되는 오류가 개선되었습니다: 이제 푸시되지 않은 브랜치를 포함하고 각 경우를 수정하는 방법을 안내하며 재시도를 제안하지 않습니다.",
+      "/claude-api 기술이 업데이트되었습니다: API 추적을 위한 Datadog 설정이 이제 Console과 같이 dd-llmobs-enabled: true 헤더를 전송하며, ant 설치 지침에서 구식 macOS xattr 단계를 제거했습니다.",
+      "10,000 미만에서는 y축 눈금 레이블을 전체 출력하도록, 백만 미만에서는 맞는 경우 수평 레이블을 전체 출력하도록 번들된 dataviz 스킬을 업데이트했습니다.",
+      "번들된 dataviz 스킬을 업데이트하여 도넛 및 파이 차트 요청에 순위가 매겨진 막대 또는 값을 출력하는 세분화된 막대로 응답하도록 했습니다.",
+      "/ultrareview를 변경하여 git을 실행하기 전에 작업 공간 신뢰를 확인하도록 했습니다. 이는 claude ultrareview와 같습니다.",
+      "/permissions Recently blocked를 변경하여 전체를 읽을 수 없는 호출을 승인하지 않도록 했습니다. 여기에는 터미널이 너무 짧아 표시할 수 없는 호출도 포함됩니다.",
+      "[VSCode] 계획 미리보기 탭에서 Cmd+F / Ctrl+F가 찾기 위젯을 열지 않는 문제를 수정했습니다.",
+      "[VSCode] 비라틴 키보드 레이아웃(예: 러시아어, 그리스어 또는 히브리어)에서 음성 받아쓰기 단축키(Ctrl+D)가 작동하지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.312",
     "date": "2026-10-27",
     "commands": [

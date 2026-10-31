@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-10-30 00:44 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-10-31 00:36 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.314** | 2026-10-30 | `/compact`, `--plugin-dir`, `--plugin-url`, `/goal`, `/resume`, `/btw`, `--continue`, `--setting-sources`, `/permissions`, `/upgrade`, `--resume`, `ctrl+o`, `Ctrl+O`, `/rename`, `/config`, `Ctrl+R`, `/design-sync`, `/security-review`, `/context`, `/claude-api`, `/ultrareview`, `Ctrl+F`, `Ctrl+D` | Added permissions.blockWritesOutsideWorkingDirectories: Write, Edit and NotebookEdit refuse paths outside the working directories in every permission mode / Added an optional groups list to Claude ... |
 | **v2.1.312** | 2026-10-27 | `/model`, `/effort`, `Ctrl+C`, `Ctrl+D`, `/verify`, `/help` | Added oidc.user_id_claim to the Claude apps gateway, to identify people by an id_token claim other than sub, such as Microsoft Entra ID's oid / Added click to send: in fullscreen, clicking the "to ... |
 | **v2.1.311** | 2026-10-26 | `--hold-idle-file`, `--max-hold-min`, `/mcp`, `/effort`, `/ide`, `--resume`, `--continue`, `/resume`, `--session-id`, `/clear`, `/branch`, `/review`, `/code-review`, `--plugin-dir`, `/usage`, `/rewind`, `/teleport`, `/permissions`, `Ctrl+D`, `--output-format json` | Added --hold-idle-file and --max-hold-min to self-hosted-runner, to keep an idle session while your host reports processes it left running / Added a tip for the Explanatory output style, shown when... |
 | **v2.1.310** | 2025-11-24 | `/sandbox` | Added the Monitor tool and plugin monitors on Bedrock, Vertex, and Foundry, and when telemetry or nonessential traffic is disabled; long foreground sleeps are now blocked there too / Windows: Fixed... |
@@ -83,7 +84,6 @@
 | **v2.1.223** | 2026-08-06 | `/teleport`, `--teleport`, `/cd`, `/review`, `/code-review`, `/code-review ultra`, `/code-review high` | Added owner wildcard entries ("owner/*") to the strictKnownMarketplaces and blockedMarketplaces managed settings for allowing or blocking all marketplace repos under a GitHub org / Added a warning ... |
 | **v2.1.222** | 2026-08-04 | `/usage-credits`, `/usage`, `/login`, `--ax-screen-reader`, `/diff`, `/config` | Fixed /usage-credits on Team and Enterprise showing "you've already sent a usage credit request" for members whose earlier request was dismissed, blocking them from sending a new one / Fixed /usage... |
 | **v2.1.221** | 2026-08-04 | `Ctrl+A`, `--mcp-config`, `/help`, `/feedback`, `/ultrareview`, `/plugin install`, `/plugin`, `/reload-plugins`, `/status`, `/fork` | [VSCode] Added Focus view: a chat-menu toggle that hides tool activity behind an expandable per-turn summary with a live running-tool indicator, toggled with Ctrl+Alt+F or the "Claude Code: Toggle ... |
-| **v2.1.220** | 2026-07-25 | — | Bug fixes and reliability improvements |
 
 ---
 
