@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-11-02 00:29 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-11-03 02:51 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.317** | 2026-11-03 | `/schedule`, `/loop`, `--setting-sources`, `/team-onboarding`, `/artifacts`, `/remote-control`, `Ctrl+C`, `/feedback`, `/design-sync`, `--chrome --debug`, `--resume`, `/usage` | Added a warning to /schedule when a new cloud scheduled task gets connectors you did not ask for, with how to remove them / Added a check that asks before a web or shell tool call sends your accoun... |
 | **v2.1.316** | 2026-10-30 | `--restricted`, `--settings`, `/permissions`, `/auto-mode-setup`, `/model <id>`, `/model`, `/clear`, `/resume`, `/code-review`, `/diff`, `/ultrareview`, `/github`, `/btw` | Added CLAUDE_CODE_DISABLE_ULTRATHINK, which turns the ultrathink keyword off / Added pooled group budgets to the Claude apps gateway: one monthly budget that a group's members share, on top of each... |
 | **v2.1.314** | 2026-10-30 | `/compact`, `--plugin-dir`, `--plugin-url`, `/goal`, `/resume`, `/btw`, `--continue`, `--setting-sources`, `/permissions`, `/upgrade`, `--resume`, `ctrl+o`, `Ctrl+O`, `/rename`, `/config`, `Ctrl+R`, `/design-sync`, `/security-review`, `/context`, `/claude-api`, `/ultrareview`, `Ctrl+F`, `Ctrl+D` | Added permissions.blockWritesOutsideWorkingDirectories: Write, Edit and NotebookEdit refuse paths outside the working directories in every permission mode / Added an optional groups list to Claude ... |
 | **v2.1.312** | 2026-10-27 | `/model`, `/effort`, `Ctrl+C`, `Ctrl+D`, `/verify`, `/help` | Added oidc.user_id_claim to the Claude apps gateway, to identify people by an id_token claim other than sub, such as Microsoft Entra ID's oid / Added click to send: in fullscreen, clicking the "to ... |
@@ -83,7 +84,6 @@
 | **v2.1.225** | 2026-08-08 | `--base-dir` | Added gateway spend-limit support to Claude Code's usage warning; the limit-reached message now names the cap, its reset time, and the operator's message (requires the gateway on 2.1.225) / Added a... |
 | **v2.1.224** | 2026-08-07 | `--settings`, `/resume`, `/clear`, `--resume` | Added self-hosted environments: claude self-hosted-runner turns your own machines or containers into a place Claude Code web, mobile, and desktop sessions can run, on Team and Enterprise plans / Ad... |
 | **v2.1.223** | 2026-08-06 | `/teleport`, `--teleport`, `/cd`, `/review`, `/code-review`, `/code-review ultra`, `/code-review high` | Added owner wildcard entries ("owner/*") to the strictKnownMarketplaces and blockedMarketplaces managed settings for allowing or blocking all marketplace repos under a GitHub org / Added a warning ... |
-| **v2.1.222** | 2026-08-04 | `/usage-credits`, `/usage`, `/login`, `--ax-screen-reader`, `/diff`, `/config` | Fixed /usage-credits on Team and Enterprise showing "you've already sent a usage credit request" for members whose earlier request was dismissed, blocking them from sending a new one / Fixed /usage... |
 
 ---
 
