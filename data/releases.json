@@ -1,5 +1,109 @@
 [
   {
+    "version": "2.1.318",
+    "date": "2026-11-04",
+    "commands": [
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed `--continue` sometimes losing the earlier conversation after a malformed t"
+      },
+      {
+        "name": "/logout",
+        "context": "fixed",
+        "summary": "Fixed `/logout`, `claude auth logout` and `claude mcp remove` reporting success,"
+      },
+      {
+        "name": "/remote-control",
+        "context": "fixed",
+        "summary": "Fixed `/remote-control` showing a session as available after a failed connection"
+      },
+      {
+        "name": "/design revoke",
+        "context": "fixed",
+        "summary": "Fixed `/design revoke` reporting success when the request failed with a 404"
+      },
+      {
+        "name": "/design",
+        "context": "fixed",
+        "summary": "Fixed `/design revoke` reporting success when the request failed with a 404"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed `/mcp` in cloud sessions counting tools the model can't use; a server's ro"
+      },
+      {
+        "name": "/ide",
+        "context": "improved",
+        "summary": "Changed Claude Code to no longer install or update the IDE extension when starte"
+      },
+      {
+        "name": "/permissions",
+        "context": "improved",
+        "summary": "Changed the `/permissions` rule details, built-in rules and delete confirmation "
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "improved",
+        "summary": "Changed the `/permissions` rule details, built-in rules and delete confirmation "
+      },
+      {
+        "name": "/claude-api managed-agents-onboard",
+        "context": "improved",
+        "summary": "Changed `/claude-api managed-agents-onboard` to give a new agent's built-in tool"
+      },
+      {
+        "name": "/claude-api",
+        "context": "improved",
+        "summary": "Changed `/claude-api managed-agents-onboard` to give a new agent's built-in tool"
+      },
+      {
+        "name": "--release-idle-session-min",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Added a startup warning when `--release-idle-session-min` is"
+      }
+    ],
+    "features": [
+      "Added a record of your answer when Claude Code asks to turn on the mods it writes in a session",
+      "Added assume_role on mantle upstreams of the Claude apps gateway, for a role in another AWS account and for per-developer AWS cost attribution",
+      "Added an effort option to a mod's $.model.fork, so a quick side job can run at low whatever effort the session uses; the result reports the effort sent",
+      "Added the date a stored claude.ai sign-in ends to claude auth status (loginExpiresAt) and to claude -p JSON results (credential_expires_at)",
+      "Added a one-line stderr warning to claude -p text output, starting 10 days before a stored claude.ai sign-in ends",
+      "Fixed --continue sometimes losing the earlier conversation after a malformed tool call's retries ran out (regression in 2.1.314)",
+      "Fixed /logout, claude auth logout and claude mcp remove reporting success, and changes to trust, consent or MCP settings being dropped with no word, when the config file could not be updated on a shared network home directory",
+      "Fixed /remote-control showing a session as available after a failed connection",
+      "Fixed /design revoke reporting success when the request failed with a 404",
+      "Fixed /mcp in cloud sessions counting tools the model can't use; a server's row now shows how many of its tools are available",
+      "Changed Claude Code to no longer install or update the IDE extension when started in an IDE terminal; use /ide from an outside terminal or your editor's extensions view",
+      "Changed the /permissions rule details, built-in rules and delete confirmation views to use the standard dialog; pressing Ctrl+C twice there now goes back or cancels instead of quitting",
+      "Changed /claude-api managed-agents-onboard to give a new agent's built-in tools, and a quickstart template's MCP tools, the auto permission policy (\"Judge risky actions\") by default, matching the Claude Console; say \"run without asking\" to opt out",
+      "Gateway: Added a log warning when the Google access token from a federation (external_account) credentials file is about to expire",
+      "Gateway: Improved the log hints about listen.trusted_proxies: they now say to list only a proxy that adds the connecting address to X-Forwarded-For itself",
+      "Gateway: Improved the warning when AWS CountTokens fails on Amazon Bedrock: it says Claude Code, not the gateway, counts after the 501, and points at IAM only when AWS denies access",
+      "Self-hosted runner: Added a startup warning when --release-idle-session-min is the last argument with no value (still ignored) or has a value of only spaces (still read as 0)"
+    ],
+    "features_ko": [
+      "Claude Code가 세션에서 작성한 모드를 켜달라고 요청할 때, 당신의 답변 기록을 추가했습니다.",
+      "Claude 앱 게이트웨이의 mantle upstreams에 다른 AWS 계정의 역할과 개발자별 AWS 비용 할당을 위한 assume_role을 추가했습니다.",
+      "모드의 $.model.fork에 노력 옵션을 추가하여, 세션이 사용하는 낮은 노력으로 빠른 부업을 실행할 수 있게 했습니다; 결과는 전송된 노력을 보고합니다.",
+      "저장된 claude.ai 로그인 종료 날짜를 claude 인증 상태(loginExpiresAt)와 claude -p JSON 결과(credential_expires_at)에 추가했습니다.",
+      "저장된 claude.ai 로그인 종료 10일 전부터 claude -p 텍스트 출력에 한 줄의 stderr 경고를 추가했습니다.",
+      "--continue가 잘못된 도구 호출의 재시도가 끝난 후 이전 대화를 잃는 문제를 수정했습니다 (2.1.314에서의 회귀).",
+      "/logout, claude auth logout 및 claude mcp remove가 성공을 보고하고, 구성 파일이 공유 네트워크 홈 디렉토리에서 업데이트되지 못할 때 신뢰, 동의 또는 MCP 설정의 변경이 아무런 말 없이 사라지는 문제를 수정했습니다.",
+      "/remote-control이 실패한 연결 후 세션을 사용 가능하다고 표시하는 문제를 수정했습니다.",
+      "/design revoke가 요청이 404로 실패할 때 성공을 보고하는 문제를 수정했습니다.",
+      "클라우드 세션에서 /mcp가 모델이 사용할 수 없는 도구를 계산하는 문제를 수정했습니다; 서버의 행은 이제 사용 가능한 도구의 수를 표시합니다.",
+      "Claude Code가 IDE 터미널에서 시작될 때 IDE 확장을 더 이상 설치하거나 업데이트하지 않도록 변경했습니다; 외부 터미널 또는 편집기의 확장 보기에서 /ide를 사용하세요.",
+      "/permissions 규칙 세부정보, 내장 규칙 및 삭제 확인 뷰를 표준 대화 상자를 사용하도록 변경했습니다; 이제 그곳에서 Ctrl+C를 두 번 누르면 종료 대신 뒤로 가거나 취소합니다.",
+      "/claude-api managed-agents-onboard가 새 에이전트의 내장 도구와 빠른 시작 템플릿의 MCP 도구에 기본적으로 자동 권한 정책(\"위험한 행동 판단\")을 부여하도록 변경했습니다; \"묻지 않고 실행\"이라고 말하면 선택 해제됩니다.",
+      "게이트웨이: 연합(external_account) 자격 증명 파일의 Google 액세스 토큰이 만료될 때 로그 경고를 추가했습니다.",
+      "게이트웨이: listen.trusted_proxies에 대한 로그 힌트를 개선했습니다: 이제 연결 주소를 X-Forwarded-For에 추가하는 프록시만 나열하라고 합니다.",
+      "게이트웨이: AWS CountTokens가 Amazon Bedrock에서 실패할 때 경고를 개선했습니다: 이제 Claude Code가 501 이후에 계산한다고 하며, AWS가 액세스를 거부할 때만 IAM을 지적합니다.",
+      "자체 호스팅 러너: --release-idle-session-min이 마지막 인수로 값 없이(여전히 무시됨) 또는 공백만 있는 경우(여전히 0으로 읽힘) 시작 경고를 추가했습니다."
+    ]
+  },
+  {
     "version": "2.1.317",
     "date": "2026-11-03",
     "commands": [
