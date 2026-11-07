@@ -1,5 +1,246 @@
 [
   {
+    "version": "2.1.319",
+    "date": "2026-11-06",
+    "commands": [
+      {
+        "name": "/claude-api latency-optimize",
+        "context": "new",
+        "summary": "Added `/claude-api latency-optimize` to find where your Claude API code makes pe"
+      },
+      {
+        "name": "/claude-api",
+        "context": "new",
+        "summary": "Added `/claude-api latency-optimize` to find where your Claude API code makes pe"
+      },
+      {
+        "name": "/usage",
+        "context": "new",
+        "summary": "Added spend for today, this week and this month to `/usage` for developers behin"
+      },
+      {
+        "name": "/tasks",
+        "context": "new",
+        "summary": "Added an \"Earlier in this session\" row to `/tasks` that lists finished subagents"
+      },
+      {
+        "name": "/loop",
+        "context": "new",
+        "summary": "Added a note to `/loop` confirmations in cloud sessions that a timer stops with "
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed a long-running MCP tool call on a claude.ai connector sometimes never repo"
+      },
+      {
+        "name": "/diff",
+        "context": "fixed",
+        "summary": "Fixed `/diff` showing \"Diff unavailable\" when a git repository has a file or fol"
+      },
+      {
+        "name": "/context",
+        "context": "improved",
+        "summary": "Improved `/context` at the terminal so the table Claude reads stays short: each "
+      },
+      {
+        "name": "/status",
+        "context": "fixed",
+        "summary": "Fixed `/status` showing \"Auto mode server: Enabled\" when the server-side review "
+      },
+      {
+        "name": "/feedback",
+        "context": "fixed",
+        "summary": "Fixed Claude-drafted feedback, surveys and `/feedback` continuing to appear afte"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed a ~0.5s hang after pressing Enter on the `/login` success screen: the dial"
+      },
+      {
+        "name": "Ctrl+G",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+G not opening the external editor while typing an \"Other\" answer to a"
+      },
+      {
+        "name": "/rewind",
+        "context": "fixed",
+        "summary": "Fixed `/rewind` failing with \"No files were restored\" when restoring code to a c"
+      },
+      {
+        "name": "/branch",
+        "context": "fixed",
+        "summary": "Fixed `/rewind` failing with \"No files were restored\" when restoring code to a c"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed `/clear` killing running commands of background agents, teammates and work"
+      },
+      {
+        "name": "/permissions",
+        "context": "fixed",
+        "summary": "Fixed `/permissions` in cloud sessions replying only that it isn't available; it"
+      },
+      {
+        "name": "--trust-workspace false",
+        "context": "fixed",
+        "summary": "Fixed self-hosted runners: `--trust-workspace false` now also stops hooks in the"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "fixed",
+        "summary": "Fixed `claude remote-control` exiting silently with status 0 when a first-run qu"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed `/rename` reporting plain success when the new name could not be saved to "
+      },
+      {
+        "name": "/plugin",
+        "context": "fixed",
+        "summary": "Fixed `claude plugin update` and `/plugin` \"Update now\" not installing dependenc"
+      },
+      {
+        "name": "/stats",
+        "context": "improved",
+        "summary": "Improved the contrast of faint gray secondary text, such as hints, details in `/"
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "Improved the contrast of faint gray secondary text, such as hints, details in `/"
+      },
+      {
+        "name": "/sandbox",
+        "context": "improved",
+        "summary": "Improved the contrast of faint gray secondary text, such as hints, details in `/"
+      },
+      {
+        "name": "--add-dir",
+        "context": "improved",
+        "summary": "Changed `--add-dir` directories to register plugin marketplaces only once that d"
+      },
+      {
+        "name": "/cd",
+        "context": "improved",
+        "summary": "Changed nested skill loading: with the Bash sandbox on, skills in `.claude/skill"
+      },
+      {
+        "name": "/claude-api managed-agents-onboard",
+        "context": "improved",
+        "summary": "Updated `/claude-api managed-agents-onboard` templates to match the Claude Conso"
+      },
+      {
+        "name": "--use-anthropic-git-proxy",
+        "context": "improved",
+        "summary": "Self-hosted runner: Fixed a runner started with `--use-anthropic-git-proxy` or `"
+      },
+      {
+        "name": "--configure-git",
+        "context": "improved",
+        "summary": "Self-hosted runner: Fixed a runner started with `--use-anthropic-git-proxy` or `"
+      },
+      {
+        "name": "--remove-session-state",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Removed the end-of-session upload of a session's debug log; "
+      }
+    ],
+    "features": [
+      "Added support for MCP tasks in the terminal: when an MCP server runs a tool call as a task, Claude Code moves it to the background right away and tells Claude the result when it finishes",
+      "Added the CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND environment variable to make Claude Code wait for an MCP task inside its tool call instead of moving it to the background right away",
+      "Added permissions.denyInsteadOfPrompting setting: a tool call that would wait on a permission prompt is denied and the turn continues, in terminal sessions, subagents and teammates",
+      "Added /claude-api latency-optimize to find where your Claude API code makes people wait and try faster settings against your eval",
+      "Added the CLAUDE_CODE_DISABLE_FEATURE_FLAGS environment variable, which stops feature-flag fetching without turning off telemetry; every flag then uses its built-in default",
+      "Added spend for today, this week and this month to /usage for developers behind a Claude apps gateway who have no spend limit, when the gateway runs this version or later",
+      "Added admin.pooled_conflict_rule and admin.pooled_priority_order to the Claude apps gateway, to set which pooled group budget pays first for a developer in several groups",
+      "Added an optional login_notice setting to the Claude apps gateway that shows an operator-defined message on the gateway's browser verification page and on Claude Code's sign-in screen",
+      "Added CLAUDE_GATEWAY_LOG_FORMAT=json to the Claude apps gateway: operational log lines become JSON with severity, time and message, for log collectors that read the level from a field",
+      "Added a Claude apps gateway boot warning for a case where another policy's availableModels also allows a custom model id that one policy lists by name",
+      "Added an \"Earlier in this session\" row to /tasks that lists finished subagents, so you can reopen one and message it even after it leaves the list or you restart",
+      "Added a note to /loop confirmations in cloud sessions that a timer stops with its container, with an offer of a loop that survives",
+      "Fixed a long-running MCP tool call on a claude.ai connector sometimes never reporting its result after --resume",
+      "Fixed /diff showing \"Diff unavailable\" when a git repository has a file or folder named HEAD at its top level",
+      "Fixed the /diff pane opening blank in sessions where 64 or more turns edited files",
+      "Fixed /context sending its full visual grid to Claude on every later turn; Claude now reads only the table",
+      "Fixed /status showing \"Auto mode server: Enabled\" when the server-side review isn't reaching the session, for example behind an LLM gateway that drops it",
+      "Fixed Claude-drafted feedback, surveys and /feedback continuing to appear after the server refused feedback for your organization",
+      "Fixed claude -p --resume with a prompt losing a deferred tool call when its MCP server is missing: the run now exits 1, keeps the call and refuses later input",
+      "Fixed a ~0.5s hang after pressing Enter on the /login success screen: the dialog now dismisses immediately and the post-login refresh runs in the background",
+      "Fixed Ctrl+G not opening the external editor while typing an \"Other\" answer to a question in screen reader mode",
+      "Fixed /rewind failing with \"No files were restored\" when restoring code to a checkpoint from before /branch",
+      "Fixed the /claude-api skill saying Console web settings don't apply to Managed Agents sessions, and tightened its credential and permission examples",
+      "Fixed /clear killing running commands of background agents, teammates and workflows that keep running, and foreground subagents of background agents and teammates",
+      "Fixed /permissions in cloud sessions replying only that it isn't available; it now says where the session's rules live and how to change them",
+      "Fixed background tasks that keep running after /clear disappearing from the task list in Claude Code on the web until another task started or ended",
+      "Fixed a case where /rewind could restore or delete a file through a directory symlink",
+      "Fixed self-hosted runners: --trust-workspace false now also stops hooks in the repository's settings files and skills from running",
+      "Fixed help links in /status and the auto mode billing notice opening only part of the address when they wrap",
+      "Fixed claude remote-control exiting silently with status 0 when a first-run question gets no answer (scripts, services, batch jobs, Ctrl+C); it now says why and exits 1",
+      "Fixed /rename reporting plain success when the new name could not be saved to the session transcript; it now warns that the new name may not last",
+      "Fixed claude plugin update and /plugin \"Update now\" not installing dependencies added by the new plugin version",
+      "Improved the contrast of faint gray secondary text, such as hints, details in /stats, /model and /sandbox, and rejected-action messages",
+      "Improved the /model picker: older models are now grouped under a \"More models\" row instead of being listed after the current ones",
+      "Improved /context at the terminal so the table Claude reads stays short: each list keeps its 10 largest rows, and MCP tools that load on demand share one row per server until they're called",
+      "Improved /usage in cloud sessions: it now links to Settings → Usage on claude.ai in a case where plan limits can't be shown",
+      "Changed --add-dir directories to register plugin marketplaces only once that directory's own trust dialog has been accepted",
+      "Changed nested skill loading: with the Bash sandbox on, skills in .claude/skills folders below the starting folder load only if you start Claude Code there or /cd there",
+      "Changed self-paced /loop to end when a turn finishes without rescheduling, instead of scheduling a fallback wakeup; set CLAUDE_CODE_LOOP_KEEPALIVE=1 to keep the old behavior",
+      "Updated /claude-api managed-agents-onboard templates to match the Claude Console: removed Performance tuner, renamed two, and turned off web search and fetch in five whose prompts don't use them",
+      "Self-hosted runner: Fixed a runner started with --use-anthropic-git-proxy or --configure-git registering before a failed startup check made it exit; it now exits first",
+      "Self-hosted runner: Removed the end-of-session upload of a session's debug log; a failed session's log stays on the runner host unless --remove-session-state is set",
+      "[VSCode] Fixed cloud sessions opened from the extension's Web tab bringing back turns that /clear, or Retry or Edit of a typed prompt, had removed"
+    ],
+    "features_ko": [
+      "터미널에서 MCP 작업에 대한 지원이 추가되었습니다: MCP 서버가 작업으로 도구 호출을 실행할 때, Claude Code는 즉시 이를 백그라운드로 이동시키고 완료되면 결과를 Claude에게 알려줍니다.",
+      "MCP 작업이 즉시 백그라운드로 이동하는 대신 도구 호출 내에서 기다리도록 하는 CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND 환경 변수가 추가되었습니다.",
+      "permissions.denyInsteadOfPrompting 설정이 추가되었습니다: 권한 프롬프트에서 대기할 도구 호출이 거부되고, 터미널 세션, 하위 에이전트 및 팀원에서 턴이 계속 진행됩니다.",
+      "/claude-api latency-optimize가 추가되어 Claude API 코드가 사람들을 기다리게 하는 위치를 찾고 평가에 대해 더 빠른 설정을 시도할 수 있습니다.",
+      "기능 플래그를 끄지 않고 기능 플래그 가져오기를 중지하는 CLAUDE_CODE_DISABLE_FEATURE_FLAGS 환경 변수가 추가되었습니다; 모든 플래그는 이제 내장된 기본값을 사용합니다.",
+      "오늘, 이번 주 및 이번 달의 지출이 /usage에 추가되어, 지출 한도가 없는 Claude 앱 게이트웨이 뒤의 개발자들이 이 버전 이상을 실행할 때 사용할 수 있습니다.",
+      "Claude 앱 게이트웨이에 admin.pooled_conflict_rule 및 admin.pooled_priority_order가 추가되어, 여러 그룹의 개발자가 어떤 풀 그룹 예산이 먼저 지불되는지를 설정할 수 있습니다.",
+      "Claude 앱 게이트웨이에 선택적 login_notice 설정이 추가되어, 운영자가 정의한 메시지가 게이트웨이의 브라우저 검증 페이지와 Claude Code의 로그인 화면에 표시됩니다.",
+      "Claude 앱 게이트웨이에 CLAUDE_GATEWAY_LOG_FORMAT=json이 추가되어, 운영 로그 라인이 심각도, 시간 및 메시지를 포함한 JSON 형식으로 변환됩니다.",
+      "다른 정책의 availableModels가 한 정책에서 이름으로 나열된 사용자 정의 모델 ID를 허용하는 경우에 대한 Claude 앱 게이트웨이 부팅 경고가 추가되었습니다.",
+      "/tasks에 \"이번 세션에서 이전\" 행이 추가되어 완료된 하위 에이전트를 나열하므로, 목록에서 나가거나 재시작한 후에도 다시 열고 메시지를 보낼 수 있습니다.",
+      "클라우드 세션의 /loop 확인에 타이머가 컨테이너와 함께 중지된다는 메모가 추가되었으며, 생존하는 루프를 제안합니다.",
+      "--resume 후에 결과를 보고하지 않는 경우가 있는 claude.ai 커넥터에서 오랜 시간 실행된 MCP 도구 호출이 수정되었습니다.",
+      "git 저장소의 최상위 수준에 HEAD라는 이름의 파일이나 폴더가 있을 때 /diff가 \"Diff unavailable\"을 표시하는 문제가 수정되었습니다.",
+      "64회 이상의 턴에서 파일을 편집한 세션에서 /diff 창이 빈 화면으로 열리는 문제가 수정되었습니다.",
+      "/context가 이후 턴마다 Claude에 전체 시각적 그리드를 전송하는 문제가 수정되었습니다; 이제 Claude는 테이블만 읽습니다.",
+      "세션에 도달하지 않는 서버 측 검토가 있을 때 /status가 \"자동 모드 서버: 활성화됨\"을 표시하는 문제가 수정되었습니다.",
+      "서버가 귀하의 조직에 대한 피드백을 거부한 후에도 Claude가 작성한 피드백, 설문조사 및 /feedback이 계속 나타나는 문제가 수정되었습니다.",
+      "MCP 서버가 누락된 경우에 프롬프트가 지연된 도구 호출을 잃는 claude -p --resume가 수정되었습니다: 이제 실행은 1로 종료되고 호출은 유지되며 이후 입력을 거부합니다.",
+      "/login 성공 화면에서 Enter를 누른 후 약 0.5초 동안 멈추는 문제가 수정되었습니다: 이제 대화 상자가 즉시 사라지고 로그인 후 새로 고침이 백그라운드에서 실행됩니다.",
+      "화면 읽기 모드에서 질문에 대한 \"기타\" 답변을 입력할 때 Ctrl+G가 외부 편집기를 열지 않는 문제가 수정되었습니다.",
+      "/rewind가 /branch 이전의 체크포인트에서 코드를 복원할 때 \"No files were restored\" 오류가 발생하는 문제가 수정되었습니다.",
+      "/claude-api 기술이 Console 웹 설정이 Managed Agents 세션에 적용되지 않는다고 말하는 문제가 수정되었고, 자격 증명 및 권한 예제가 강화되었습니다.",
+      "/clear가 백그라운드 에이전트, 팀원 및 워크플로우의 실행 중인 명령을 종료하는 문제가 수정되었습니다.",
+      "클라우드 세션에서 /permissions가 사용 불가능하다고만 응답하는 문제가 수정되었습니다; 이제 세션의 규칙이 어디에 있는지와 변경하는 방법을 안내합니다.",
+      "/clear 후에도 계속 실행되는 백그라운드 작업이 Claude Code의 웹에서 작업 목록에서 사라지는 문제가 수정되었습니다.",
+      "/rewind가 디렉토리 심볼릭 링크를 통해 파일을 복원하거나 삭제할 수 있는 경우가 수정되었습니다.",
+      "자체 호스팅된 러너에서 --trust-workspace false가 이제 리포지토리의 설정 파일 및 기술에서 후크가 실행되는 것을 중지합니다.",
+      "/status 및 자동 모드 청구 알림의 도움말 링크가 주소가 줄 바꿈될 때 일부만 여는 문제가 수정되었습니다.",
+      "첫 실행 질문에 답변이 없을 때 claude remote-control이 상태 0으로 조용히 종료되는 문제가 수정되었습니다 (스크립트, 서비스, 배치 작업, Ctrl+C); 이제 이유를 설명하고 1로 종료됩니다.",
+      "/rename이 새로운 이름을 세션 기록에 저장할 수 없을 때 단순히 성공을 보고하는 문제를 수정했습니다; 이제 새로운 이름이 지속되지 않을 수 있다는 경고를 표시합니다.",
+      "claude 플러그인 업데이트와 /plugin \"Update now\"가 새로운 플러그인 버전에서 추가된 의존성을 설치하지 않는 문제를 수정했습니다.",
+      "/stats, /model, /sandbox의 힌트, 세부정보 및 거부된 작업 메시지와 같은 희미한 회색 보조 텍스트의 대비를 개선했습니다.",
+      "/model 선택기를 개선했습니다: 이전 모델들이 현재 모델 뒤에 나열되는 대신 \"More models\" 행 아래에 그룹화되었습니다.",
+      "터미널에서 /context를 개선하여 Claude가 읽는 테이블이 짧게 유지되도록 했습니다: 각 목록은 최대 10개의 큰 행을 유지하며, 필요에 따라 로드되는 MCP 도구는 호출될 때까지 서버당 한 행을 공유합니다.",
+      "클라우드 세션에서 /usage를 개선했습니다: 계획 한계를 표시할 수 없는 경우 claude.ai의 Settings → Usage로 연결됩니다.",
+      "--add-dir 디렉토리를 변경하여 해당 디렉토리의 신뢰 대화 상자가 수락된 경우에만 플러그인 마켓플레이스를 한 번만 등록하도록 했습니다.",
+      "중첩된 기술 로딩을 변경했습니다: Bash sandbox가 켜져 있을 때, 시작 폴더 아래의 .claude/skills 폴더에 있는 기술은 Claude Code를 그곳에서 시작하거나 /cd를 실행할 때만 로드됩니다.",
+      "자율 진행 /loop을 변경하여 턴이 재일정 없이 끝날 때 종료되도록 했습니다; 이전 동작을 유지하려면 CLAUDE_CODE_LOOP_KEEPALIVE=1로 설정하세요.",
+      "/claude-api 관리 에이전트 온보드 템플릿을 Claude Console에 맞게 업데이트했습니다: Performance tuner를 제거하고 두 개의 이름을 변경했으며, 프롬프트에서 사용되지 않는 다섯 개의 웹 검색 및 가져오기를 끄었습니다.",
+      "자가 호스팅 러너: --use-anthropic-git-proxy 또는 --configure-git로 시작된 러너가 실패한 시작 점검 전에 등록되는 문제를 수정했습니다; 이제 먼저 종료됩니다.",
+      "자가 호스팅 러너: 세션의 디버그 로그를 세션 종료 시 업로드하는 기능을 제거했습니다; 실패한 세션의 로그는 --remove-session-state가 설정되지 않는 한 러너 호스트에 남아 있습니다.",
+      "[VSCode] 확장의 웹 탭에서 열린 클라우드 세션이 /clear, Retry 또는 Edit로 제거된 턴을 다시 가져오는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.318",
     "date": "2026-11-04",
     "commands": [
