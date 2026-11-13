@@ -1,9 +1,10 @@
 # Claude Code Changelog Dashboard
 
-> Auto-updated daily at 06:00 KST | Last sync: 2026-11-12 02:11 UTC
+> Auto-updated daily at 06:00 KST | Last sync: 2026-11-13 01:45 UTC
 
 | 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |
 |------|------|-------------------|----------|
+| **v2.1.323** | 2026-11-12 | `--strict`, `/diff`, `--json`, `/compact`, `/context`, `/proc`, `/resume`, `ctrl+x`, `/fork`, `--bg`, `/login`, `--permission-mode auto`, `--settings`, `/export`, `/fast on`, `/fast off`, `/fast`, `/mcp`, `/plugins`, `/plugin`, `--plugin-dir`, `--allowedTools`, `/memory`, `/btw`, `ctrl+o`, `/status`, `--chrome`, `/rewind`, `--debug`, `--debug-file`, `Ctrl+C`, `/model`, `/upgrade`, `Ctrl+c`, `/chrome`, `--no-session-persistence`, `/usage`, `ctrl+y`, `Ctrl+B`, `/clear`, `/branch`, `/security-review`, `/autocompact`, `--global`, `--host`, `--trust-workspace false`, `/stickers`, `/skill`, `/usage-credits`, `/logout` | Added Code Mode, an experimental opt-in in which Claude writes JavaScript to call its tools; see https://code.claude.com/docs/en/code-mode to turn it on, or to turn it off for an organization / Add... |
 | **v2.1.322** | 2026-11-10 | — | Added fast mode on Vertex in the global, us and eu regions, falling back to standard speed if Vertex refuses it |
 | **v2.1.321** | 2026-11-09 | `--settings <file>`, `--settings`, `/net`, `/config`, `/builtin`, `/compact`, `/plugin`, `/desktop`, `--permission-mode`, `--dangerously-skip-permissions`, `--model`, `--effort`, `--agent`, `--verbose`, `/model`, `/device`, `/login`, `/model claude-fable-5-1`, `/fast` | Added Claude Fable 5.2 (claude-fable-5-2), now the default Fable model — 1M context, $8/$40 per Mtok with $0.20/Mtok cache reads / Added --settings <file> to claude remote-control, which applies a ... |
 | **v2.1.319** | 2026-11-06 | `/claude-api latency-optimize`, `/claude-api`, `/usage`, `/tasks`, `/loop`, `--resume`, `/diff`, `/context`, `/status`, `/feedback`, `/login`, `Ctrl+G`, `/rewind`, `/branch`, `/clear`, `/permissions`, `--trust-workspace false`, `Ctrl+C`, `/rename`, `/plugin`, `/stats`, `/model`, `/sandbox`, `--add-dir`, `/cd`, `/claude-api managed-agents-onboard`, `--use-anthropic-git-proxy`, `--configure-git`, `--remove-session-state` | Added support for MCP tasks in the terminal: when an MCP server runs a tool call as a task, Claude Code moves it to the background right away and tells Claude the result when it finishes / Added th... |
@@ -83,7 +84,6 @@
 | **v2.1.231** | 2026-08-13 | — | Fixed MCP OAuth sign-in failing with a redirect URI mismatch for servers that use a pre-registered OAuth client, such as Slack |
 | **v2.1.229** | 2026-08-12 | `--resume`, `/model`, `/install-github-app`, `--input-format stream-json`, `/compact`, `/doctor`, `/login`, `/commit-push-pr`, `--force`, `--amend`, `--no-verify`, `--base-dir`, `/bug`, `/btw`, `Shift+c` | Documented claude remote-control --continue for resuming the most recent Remote Control session / Added server-supplied Claude Code hook support for self-hosted runner sessions, matching managed-en... |
 | **v2.1.228** | 2026-08-11 | `/tui`, `/model`, `/resume` | Fixed /tui reverting the session to an earlier model when /model had been changed since the last response / Fixed Remote Control /resume while connected leaking the resumed conversation's title or ... |
-| **v2.1.227** | 2026-08-10 | `/tui` | Fixed /tui bringing back a conversation that had been rewound to before its first message |
 
 ---
 
