@@ -1,5 +1,201 @@
 [
   {
+    "version": "2.1.325",
+    "date": "2026-11-13",
+    "commands": [
+      {
+        "name": "/rewind",
+        "context": "new",
+        "summary": "Added a line under the error shown when your organization's policy blocks a requ"
+      },
+      {
+        "name": "/clear",
+        "context": "new",
+        "summary": "Added a line under the error shown when your organization's policy blocks a requ"
+      },
+      {
+        "name": "/security-review",
+        "context": "fixed",
+        "summary": "Fixed `/security-review` and skills' inline git commands stopping with an error "
+      },
+      {
+        "name": "--separate-git-dir",
+        "context": "fixed",
+        "summary": "Fixed `/security-review` and skills' inline git commands stopping with an error "
+      },
+      {
+        "name": "/stats",
+        "context": "fixed",
+        "summary": "Fixed `/stats` showing an Active days total that was one day too high"
+      },
+      {
+        "name": "/insights",
+        "context": "fixed",
+        "summary": "Fixed `/insights` saying a report was ready when no session qualified for analys"
+      },
+      {
+        "name": "/voice",
+        "context": "improved",
+        "summary": "Improved the `/voice` \"No audio detected\" message on macOS and Windows: it now s"
+      },
+      {
+        "name": "--settings",
+        "context": "fixed",
+        "summary": "Fixed `/voice` saying voice mode changed when managed settings, `--settings`, or"
+      },
+      {
+        "name": "/fast",
+        "context": "fixed",
+        "summary": "Fixed `/fast` saying \"Fast mode has been disabled by your organization\" under th"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed `/model` saying that your organization restricts a model when Claude Code "
+      },
+      {
+        "name": "/login",
+        "context": "improved",
+        "summary": "Changed `/login` to ask for permission to change your privacy settings"
+      },
+      {
+        "name": "--worktree",
+        "context": "fixed",
+        "summary": "Fixed `--worktree` skipping a `WorktreeCreate` hook from a plugin in `CLAUDE_COD"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed `/mcp` still listing a plugin's MCP server after a plugin reload removed i"
+      },
+      {
+        "name": "/tasks",
+        "context": "improved",
+        "summary": "Improved MCP tasks: Claude is now told when a task is waiting for your answer, a"
+      },
+      {
+        "name": "/feedback",
+        "context": "fixed",
+        "summary": "Fixed `/feedback` and `/bug` to upload other sessions only when they were record"
+      },
+      {
+        "name": "/bug",
+        "context": "fixed",
+        "summary": "Fixed `/feedback` and `/bug` to upload other sessions only when they were record"
+      },
+      {
+        "name": "/teleport",
+        "context": "fixed",
+        "summary": "Fixed `/teleport`'s stash choice in some unusual git states: it now stops and sa"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed `/resume` on Windows refusing or hiding sessions whose folder was recorded"
+      },
+      {
+        "name": "--add-dir",
+        "context": "improved",
+        "summary": "Changed read-only git commands to ask first in a repository that isn't the proje"
+      },
+      {
+        "name": "/loop",
+        "context": "improved",
+        "summary": "Changed scheduled tasks and `/loop` to ask before running a skill that declares "
+      },
+      {
+        "name": "--plugin-dir",
+        "context": "improved",
+        "summary": "Changed nested skill loading: `.claude/skills` folders in `--plugin-dir` plugins"
+      },
+      {
+        "name": "/cost",
+        "context": "improved",
+        "summary": "Changed `/cost`, `$.session.usage()`, `--max-budget-usd` and the cost and token "
+      },
+      {
+        "name": "--max-budget-usd",
+        "context": "improved",
+        "summary": "Changed `/cost`, `$.session.usage()`, `--max-budget-usd` and the cost and token "
+      },
+      {
+        "name": "/remote-control",
+        "context": "mentioned",
+        "summary": "Remote Control: Changed `/resume` and `/teleport` to disconnect first when the c"
+      }
+    ],
+    "features": [
+      "Added a spinner tip in VS Code and similar integrated terminals about re-running a notebook cell, shown once Claude has read or edited a Jupyter notebook",
+      "Added a line under the error shown when your organization's policy blocks a request, saying how to continue: run /rewind and change the message, or run /clear",
+      "Added a note for Claude when a sandboxed git checkout, git stash or autostash pull cannot update protected files such as those in .claude",
+      "Fixed /security-review and skills' inline git commands stopping with an error in worktrees of bare repositories, --separate-git-dir checkouts and Android repo checkouts",
+      "Fixed /stats showing an Active days total that was one day too high",
+      "Fixed /insights saying a report was ready when no session qualified for analysis, and writing two values into its HTML report without escaping them",
+      "Fixed /voice saying voice mode changed when managed settings, --settings, or the project's .claude/settings.json or .claude/settings.local.json kept it as it was; it now says what holds it",
+      "Fixed /fast saying \"Fast mode has been disabled by your organization\" under the keyless Console sign-in, where Claude Code had not asked the server",
+      "Fixed /model saying that your organization restricts a model when Claude Code could not check that, for example with no network",
+      "Fixed \"Sign in with your Console account\" in /login replacing your existing login when you pressed Esc right after the browser step",
+      "Fixed --worktree skipping a WorktreeCreate hook from a plugin in CLAUDE_CODE_PLUGIN_SEED_DIR on the first run in a new home directory",
+      "Fixed /mcp still listing a plugin's MCP server after a plugin reload removed it while it was connecting",
+      "Fixed an MCP task getting stuck after its question was closed with Esc or asked again: the footer now says it needs your input, and Enter in /tasks shows the question again",
+      "Fixed Code Mode scripts ignoring a worktree entered with EnterWorktree, writing ~ paths into the project, and leaving /mcp showing an MCP server as connected after its sign-in expired",
+      "Fixed /feedback and /bug to upload other sessions only when they were recorded by the signed-in account or organization",
+      "Fixed /teleport's stash choice in some unusual git states: it now stops and says what to do",
+      "Windows: Fixed a start-up stall that could last about a second when a PATH entry sits under a folder your account cannot open",
+      "Fixed /resume on Windows refusing or hiding sessions whose folder was recorded with a different drive-letter case or slashes",
+      "Fixed an in-session /resume on Windows dropping a project's saved trust when the session was recorded with a different drive-letter case",
+      "Linux: Fixed sandboxed Bash commands failing with bwrap: Can't create file when the working directory was below an allowRead folder inside a denyRead, such as under a symlinked home directory",
+      "Improved the /voice \"No audio detected\" message on macOS and Windows: it now says where to pick your microphone",
+      "Improved MCP tasks: Claude is now told when a task is waiting for your answer, and can point you to /tasks",
+      "Changed read-only git commands to ask first in a repository that isn't the project's or one you trusted; name it with --add-dir, not the additionalDirectories setting, to run them without prompts",
+      "Changed scheduled tasks and /loop to ask before running a skill that declares allowed-tools or hooks; add Skill(name) to permissions.allow to run it unattended",
+      "Changed nested skill loading: .claude/skills folders in --plugin-dir plugins no longer load from a session started above them; start Claude Code in the plugin folder instead",
+      "Changed Esc on a background MCP task's question to \"answer later\": nothing is sent to the server, and the question stays in /tasks",
+      "Changed /login to ask for permission to change your privacy settings",
+      "Changed /cost, $.session.usage(), --max-budget-usd and the cost and token metrics to count a mod's $.model.complete and $.model.classify calls",
+      "Remote Control: Changed /resume and /teleport to disconnect first when the connected session has a share link, or when that can't be checked; run /remote-control to connect again",
+      "[VSCode] Added prompt suggestions wherever the terminal shows them: Tab accepts the suggested next prompt; promptSuggestionEnabled: false in Claude Code's settings.json turns them off",
+      "[VSCode] Added a Console sign-in that creates no API key",
+      "[VSCode] Added a field to paste the redirect URL when signing in to an MCP server from the panel in SSH, WSL and container windows",
+      "[VSCode] Fixed the model picker's check mark staying on the old model after Claude Code restarted on another model or the model was switched over Remote Control"
+    ],
+    "features_ko": [
+      "VS Code 및 유사한 통합 터미널에서 Jupyter 노트북을 Claude가 읽거나 편집한 후 노트북 셀을 다시 실행하는 방법에 대한 스피너 팁이 추가되었습니다.",
+      "조직의 정책이 요청을 차단할 때 표시되는 오류 아래에 계속 진행하는 방법을 설명하는 문구가 추가되었습니다: /rewind를 실행하고 메시지를 변경하거나 /clear를 실행하세요.",
+      "보호된 파일(.claude에 있는 파일 등)을 업데이트할 수 없는 샌드박스된 git checkout, git stash 또는 autostash pull에 대한 Claude의 주석이 추가되었습니다.",
+      "/security-review 및 skills의 인라인 git 명령이 bare repositories, --separate-git-dir 체크아웃 및 Android repo 체크아웃의 worktrees에서 오류로 중단되는 문제가 수정되었습니다.",
+      "/stats에서 Active days 총합이 하루 많게 표시되는 문제가 수정되었습니다.",
+      "/insights에서 분석을 위한 세션이 없을 때 보고서가 준비되었다고 표시되고, HTML 보고서에 두 값을 이스케이프 없이 기록하는 문제가 수정되었습니다.",
+      "/voice에서 관리 설정, --settings 또는 프로젝트의 .claude/settings.json 또는 .claude/settings.local.json이 그대로 유지될 때 음성 모드가 변경되었다고 표시되는 문제가 수정되었습니다; 이제 무엇이 유지되는지 표시합니다.",
+      "/fast에서 \"Fast mode has been disabled by your organization\"이라는 메시지가 keyless Console 로그인 아래에서 표시되는 문제가 수정되었습니다; Claude Code가 서버에 요청하지 않았던 경우입니다.",
+      "/model에서 Claude Code가 네트워크가 없는 경우와 같이 모델을 제한한다고 표시되는 문제가 수정되었습니다.",
+      "/login에서 \"Sign in with your Console account\"가 브라우저 단계 직후 Esc를 누르면 기존 로그인을 대체하는 문제가 수정되었습니다.",
+      "--worktree가 새로운 홈 디렉토리에서 첫 실행 시 CLAUDE_CODE_PLUGIN_SEED_DIR의 플러그인에서 WorktreeCreate 훅을 건너뛰는 문제가 수정되었습니다.",
+      "/mcp가 플러그인 리로드 후에도 플러그인의 MCP 서버를 나열하는 문제가 수정되었습니다.",
+      "MCP 작업이 질문이 Esc로 닫히거나 다시 요청된 후 멈추는 문제가 수정되었습니다: 이제 바닥글에 입력이 필요하다고 표시되며, /tasks에서 Enter를 누르면 질문이 다시 표시됩니다.",
+      "Code Mode 스크립트가 EnterWorktree로 입력된 worktree를 무시하고, 프로젝트에 ~ 경로를 기록하며, /mcp에서 MCP 서버가 연결된 것으로 표시되는 문제가 수정되었습니다.",
+      "/feedback 및 /bug가 다른 세션을 업로드할 때 로그인된 계정이나 조직에 의해 기록된 경우에만 업로드하도록 수정되었습니다.",
+      "/teleport의 stash 선택이 일부 비정상적인 git 상태에서 멈추는 문제가 수정되었습니다: 이제 멈추고 무엇을 해야 하는지 표시합니다.",
+      "Windows: 계정이 열 수 없는 폴더 아래에 PATH 항목이 있을 때 약 1초 동안 시작이 지연되는 문제가 수정되었습니다.",
+      "Windows에서 /resume이 다른 드라이브 문자 대소문자나 슬래시로 기록된 세션의 폴더를 거부하거나 숨기는 문제가 수정되었습니다.",
+      "Windows에서 세션이 다른 드라이브 문자 대소문자로 기록된 경우 프로젝트의 저장된 신뢰가 떨어지는 문제가 수정되었습니다.",
+      "Linux: 샌드박스된 Bash 명령이 bwrap로 실패하는 문제가 수정되었습니다: denyRead 내부의 allowRead 폴더 아래에 작업 디렉토리가 있을 때 파일을 생성할 수 없었습니다.",
+      "macOS 및 Windows에서 /voice의 \"No audio detected\" 메시지가 개선되었습니다: 이제 마이크를 선택할 위치를 표시합니다.",
+      "MCP 작업이 개선되었습니다: 이제 Claude가 작업이 당신의 답변을 기다리고 있다고 알려주며, /tasks로 안내할 수 있습니다.",
+      "읽기 전용 git 명령이 프로젝트가 아닌 저장소에서 먼저 요청하도록 변경되었습니다; --add-dir로 이름을 지정하여 프롬프트 없이 실행할 수 있습니다.",
+      "예약된 작업 및 /loop가 허용된 도구나 훅을 선언하는 기술을 실행하기 전에 요청하도록 변경되었습니다; 무인으로 실행하려면 permissions.allow에 Skill(name)을 추가하세요.",
+      "중첩된 기술 로딩이 변경되었습니다: --plugin-dir 플러그인의 .claude/skills 폴더가 위에서 시작된 세션에서 더 이상 로드되지 않습니다; 대신 플러그인 폴더에서 Claude Code를 시작하세요.",
+      "백그라운드 MCP 작업의 질문에서 Esc를 \"답변 나중에\"로 변경했습니다: 서버에 아무것도 전송되지 않으며 질문은 /tasks에 남아 있습니다.",
+      "/login이 개인 정보 설정 변경에 대한 권한을 요청하도록 변경되었습니다.",
+      "/cost, $.session.usage(), --max-budget-usd 및 비용 및 토큰 메트릭이 mod의 $.model.complete 및 $.model.classify 호출을 계산하도록 변경되었습니다.",
+      "원격 제어: /resume 및 /teleport가 연결된 세션에 공유 링크가 있을 때 먼저 연결을 끊도록 변경되었습니다; 다시 연결하려면 /remote-control을 실행하세요.",
+      "[VSCode] 터미널이 제안하는 모든 곳에 프롬프트 제안이 추가되었습니다: Tab은 제안된 다음 프롬프트를 수락합니다; Claude Code의 settings.json에서 promptSuggestionEnabled: false로 설정하면 이를 끌 수 있습니다.",
+      "[VSCode] API 키를 생성하지 않는 Console 로그인 추가",
+      "[VSCode] SSH, WSL 및 컨테이너 창에서 MCP 서버에 로그인할 때 리디렉션 URL을 붙여넣을 수 있는 필드 추가",
+      "[VSCode] Claude Code가 다른 모델로 재시작되거나 원격 제어로 모델이 전환된 후 모델 선택기의 체크 마크가 이전 모델에 남아 있는 문제 수정"
+    ]
+  },
+  {
     "version": "2.1.323",
     "date": "2026-11-12",
     "commands": [
