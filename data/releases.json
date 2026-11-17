@@ -1,5 +1,674 @@
 [
   {
+    "version": "2.1.326",
+    "date": "2026-11-16",
+    "commands": [
+      {
+        "name": "--allowedTools",
+        "context": "new",
+        "summary": "Added a startup warning when an `--allowedTools`, `--disallowedTools` or `--tool"
+      },
+      {
+        "name": "--disallowedTools",
+        "context": "new",
+        "summary": "Added a startup warning when an `--allowedTools`, `--disallowedTools` or `--tool"
+      },
+      {
+        "name": "--tools",
+        "context": "new",
+        "summary": "Added a startup warning when an `--allowedTools`, `--disallowedTools` or `--tool"
+      },
+      {
+        "name": "/status",
+        "context": "new",
+        "summary": "Added a row to `/status` that says when your provider or an environment variable"
+      },
+      {
+        "name": "/plugin",
+        "context": "new",
+        "summary": "Added a note in `/plugin` and `claude plugin list` when a malformed `plugin.json"
+      },
+      {
+        "name": "Ctrl+O",
+        "context": "new",
+        "summary": "Added Ctrl+O to show hidden startup notices"
+      },
+      {
+        "name": "/permissions",
+        "context": "improved",
+        "summary": "Improved key hints in many dialogs and the `?` lists: they show the keys that wo"
+      },
+      {
+        "name": "/add-dir",
+        "context": "improved",
+        "summary": "Improved text fields in `/add-dir`, `/export`, `/permissions`, `/feedback`, `/in"
+      },
+      {
+        "name": "/net",
+        "context": "fixed",
+        "summary": "Fixed sandboxed commands failing to start on Linux when the home or config direc"
+      },
+      {
+        "name": "/sandbox",
+        "context": "improved",
+        "summary": "Changed the Bash sandbox to keep its state in some cases during a session, until"
+      },
+      {
+        "name": "/rewind",
+        "context": "improved",
+        "summary": "Changed `/rewind` on macOS, Linux and WSL to leave some files untouched and repo"
+      },
+      {
+        "name": "/branch",
+        "context": "fixed",
+        "summary": "Fixed `/rewind` restoring only some files after running `/branch` twice while a "
+      },
+      {
+        "name": "/skills",
+        "context": "fixed",
+        "summary": "Fixed Ctrl+C or Ctrl+D twice in `/skills` quitting Claude Code and dropping chan"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "improved",
+        "summary": "Improved the footer after Ctrl+C stops background agents: it now offers `↓ to re"
+      },
+      {
+        "name": "Ctrl+D",
+        "context": "improved",
+        "summary": "Changed agent view so that quitting with Ctrl+C twice, Ctrl+D twice or `/exit` a"
+      },
+      {
+        "name": "/feedback",
+        "context": "improved",
+        "summary": "Improved text fields in `/add-dir`, `/export`, `/permissions`, `/feedback`, `/in"
+      },
+      {
+        "name": "/bug",
+        "context": "fixed",
+        "summary": "Fixed `/feedback` and `/bug` sending the report when you typed a space on the co"
+      },
+      {
+        "name": "Ctrl+Z",
+        "context": "fixed",
+        "summary": "Fixed `/feedback` and `/bug` sending the report when you typed a space on the co"
+      },
+      {
+        "name": "--add-dir",
+        "context": "improved",
+        "summary": "Changed the Bash sandbox on Linux and WSL to create some missing `--add-dir` fol"
+      },
+      {
+        "name": "/plan <description>",
+        "context": "fixed",
+        "summary": "Fixed `/plan <description>` ignoring the description when plan mode was already "
+      },
+      {
+        "name": "/plan",
+        "context": "fixed",
+        "summary": "Fixed `/plan <description>` ignoring the description when plan mode was already "
+      },
+      {
+        "name": "/goal clear",
+        "context": "fixed",
+        "summary": "Fixed `/goal clear` or a new `/goal` not sticking when typed while Stop hooks we"
+      },
+      {
+        "name": "/goal",
+        "context": "fixed",
+        "summary": "Fixed `/goal clear` or a new `/goal` not sticking when typed while Stop hooks we"
+      },
+      {
+        "name": "/recap",
+        "context": "fixed",
+        "summary": "Fixed the automatic session recap being sent after a reply billed to usage credi"
+      },
+      {
+        "name": "/login",
+        "context": "improved",
+        "summary": "Improved the error shown when the API refuses a Console sign-in: it now says to "
+      },
+      {
+        "name": "/config",
+        "context": "improved",
+        "summary": "Improved on/off settings to read `on` / `off` in `/config`, `/memory` and auto m"
+      },
+      {
+        "name": "/logout",
+        "context": "improved",
+        "summary": "Improved `/logout` and `claude auth logout` in the terminal to retry revoking th"
+      },
+      {
+        "name": "/privacy-settings",
+        "context": "fixed",
+        "summary": "Fixed your OFF answer to the updated terms being replaced when keys were typed w"
+      },
+      {
+        "name": "/mcp",
+        "context": "improved",
+        "summary": "Improved wording across the terminal: `/plugin`, `/mcp`, sign-in, setup, setting"
+      },
+      {
+        "name": "Shift+T",
+        "context": "fixed",
+        "summary": "Fixed Tab and Shift+Tab not moving between fields in an MCP server's input form,"
+      },
+      {
+        "name": "/remote-control",
+        "context": "mentioned",
+        "summary": "Remote Control: Fixed the QR code in `/remote-control` being cut off in short te"
+      },
+      {
+        "name": "/autofix-pr",
+        "context": "fixed",
+        "summary": "Fixed `/autofix-pr` reporting a run as cancelled when its cloud session could no"
+      },
+      {
+        "name": "/teleport",
+        "context": "improved",
+        "summary": "Improved wording across the terminal: `/plugin`, `/mcp`, sign-in, setup, setting"
+      },
+      {
+        "name": "/tasks",
+        "context": "fixed",
+        "summary": "Fixed the agent rows under the prompt showing an agent as busy after its turn en"
+      },
+      {
+        "name": "/resume",
+        "context": "improved",
+        "summary": "Improved long menus such as `/permissions`, `/resume` and `/model` to say how ma"
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "Improved long menus such as `/permissions`, `/resume` and `/model` to say how ma"
+      },
+      {
+        "name": "/clear --help",
+        "context": "fixed",
+        "summary": "Fixed `/clear --help` and other built-in commands running at an idle prompt inst"
+      },
+      {
+        "name": "/help <command>",
+        "context": "fixed",
+        "summary": "Fixed `/clear --help` and other built-in commands running at an idle prompt inst"
+      },
+      {
+        "name": "/clear",
+        "context": "removed",
+        "summary": "Removed the spinner tip that suggested `/clear` 30 minutes into a running turn"
+      },
+      {
+        "name": "/help",
+        "context": "improved",
+        "summary": "Improved alignment and spacing in `/btw`, `/help`, `/scroll-speed`, the settings"
+      },
+      {
+        "name": "/model <alias>",
+        "context": "fixed",
+        "summary": "Fixed the screen going blank and dropping keys after picking a model in `/model`"
+      },
+      {
+        "name": "/effort <level>",
+        "context": "fixed",
+        "summary": "Fixed the screen going blank and dropping keys after picking a model in `/model`"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed the screen going blank and dropping keys after picking a model in `/model`"
+      },
+      {
+        "name": "/tui default",
+        "context": "fixed",
+        "summary": "Fixed the screen scrambling after `/tui default` in a long conversation, or when"
+      },
+      {
+        "name": "/tui",
+        "context": "fixed",
+        "summary": "Fixed the screen scrambling after `/tui default` in a long conversation, or when"
+      },
+      {
+        "name": "Shift+E",
+        "context": "fixed",
+        "summary": "Fixed Shift+Enter or Option+Enter pressed right after a paste sending the prompt"
+      },
+      {
+        "name": "Ctrl+Y",
+        "context": "fixed",
+        "summary": "Fixed `[Image #N]` landing in the middle of a word when typing right after pasti"
+      },
+      {
+        "name": "/memory",
+        "context": "improved",
+        "summary": "Improved on/off settings to read `on` / `off` in `/config`, `/memory` and auto m"
+      },
+      {
+        "name": "/btw",
+        "context": "improved",
+        "summary": "Improved alignment and spacing in `/btw`, `/help`, `/scroll-speed`, the settings"
+      },
+      {
+        "name": "Ctrl+R",
+        "context": "fixed",
+        "summary": "Fixed pressing Ctrl+R again in fullscreen prompt search not moving to the next o"
+      },
+      {
+        "name": "/loop",
+        "context": "fixed",
+        "summary": "Fixed Esc over typed text cancelling a pending `/loop`"
+      },
+      {
+        "name": "/copy",
+        "context": "fixed",
+        "summary": "Fixed `/copy` and `/export` saying \"copied to clipboard\" over SSH when the termi"
+      },
+      {
+        "name": "/export",
+        "context": "improved",
+        "summary": "Improved text fields in `/add-dir`, `/export`, `/permissions`, `/feedback`, `/in"
+      },
+      {
+        "name": "/usage-credits",
+        "context": "fixed",
+        "summary": "Fixed `/usage-credits` saying \"Request sent to your admin\" when the request was "
+      },
+      {
+        "name": "/terminal-setup",
+        "context": "fixed",
+        "summary": "Fixed `/terminal-setup` not naming the tmux settings that Shift+Enter needs, and"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed Program Status Protocol (OSC 7501) terminals showing a finished turn after"
+      },
+      {
+        "name": "/cd",
+        "context": "improved",
+        "summary": "Improved the folder trust prompt, at launch and in `/cd`, to name the project se"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed a custom status line keeping its old width, folder and session name after "
+      },
+      {
+        "name": "/ide",
+        "context": "fixed",
+        "summary": "Fixed Esc not leaving the \"Connect to your IDE automatically?\" question in `/ide"
+      },
+      {
+        "name": "Ctrl+B",
+        "context": "fixed",
+        "summary": "Fixed the Ctrl+O transcript hinting Ctrl+B to background a command in fullscreen"
+      },
+      {
+        "name": "/context",
+        "context": "fixed",
+        "summary": "Fixed the `/context` grid, API errors such as \"Credit balance too low\", \"Waiting"
+      },
+      {
+        "name": "/usage",
+        "context": "improved",
+        "summary": "Changed `/usage` in fullscreen mode to show plan limit bars before session cost "
+      },
+      {
+        "name": "/compact",
+        "context": "improved",
+        "summary": "Improved response time of the first message after `/compact` in git repositories"
+      },
+      {
+        "name": "/update-config",
+        "context": "improved",
+        "summary": "Improved `/update-config` in the terminal to use about 13,000 tokens of context "
+      },
+      {
+        "name": "/doctor",
+        "context": "improved",
+        "summary": "Improved `/doctor` to share findings as it works instead of staying silent until"
+      },
+      {
+        "name": "/design-login",
+        "context": "improved",
+        "summary": "Improved `/design-login`, `/install-github-app` and MCP sign-in screens to match"
+      },
+      {
+        "name": "/install-github-app",
+        "context": "improved",
+        "summary": "Improved `/design-login`, `/install-github-app` and MCP sign-in screens to match"
+      },
+      {
+        "name": "/powerup",
+        "context": "improved",
+        "summary": "Improved wording across the terminal: `/plugin`, `/mcp`, sign-in, setup, setting"
+      },
+      {
+        "name": "/hooks",
+        "context": "improved",
+        "summary": "Improved key hints in many dialogs and the `?` lists: they show the keys that wo"
+      },
+      {
+        "name": "/autocompact",
+        "context": "improved",
+        "summary": "Improved `/autocompact` and `/scroll-speed` with a slider that shows every value"
+      },
+      {
+        "name": "/scroll-speed",
+        "context": "improved",
+        "summary": "Improved `/autocompact` and `/scroll-speed` with a slider that shows every value"
+      },
+      {
+        "name": "Ctrl+P",
+        "context": "improved",
+        "summary": "Changed the computer use macOS permissions panel to ignore j and k; the arrow ke"
+      },
+      {
+        "name": "Ctrl+N",
+        "context": "improved",
+        "summary": "Changed the computer use macOS permissions panel to ignore j and k; the arrow ke"
+      },
+      {
+        "name": "--trust-workspace false",
+        "context": "improved",
+        "summary": "Changed self-hosted runners under `--trust-workspace false` to ignore more repos"
+      },
+      {
+        "name": "--bare",
+        "context": "improved",
+        "summary": "Changed `--bare` sessions on an unapproved API key: moving one to the background"
+      },
+      {
+        "name": "--verbose",
+        "context": "mentioned",
+        "summary": "Remote Control: Changed the session debug logs written under `--verbose` to go t"
+      },
+      {
+        "name": "--use-anthropic-gh false",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Changed Linux and macOS sessions with no `gh` to get a built"
+      },
+      {
+        "name": "/exit",
+        "context": "improved",
+        "summary": "Changed agent view so that quitting with Ctrl+C twice, Ctrl+D twice or `/exit` a"
+      },
+      {
+        "name": "--await-initialize",
+        "context": "improved",
+        "summary": "Changed `--await-initialize` to be refused with `--bg` or `--worktree --tmux`, w"
+      },
+      {
+        "name": "--bg",
+        "context": "improved",
+        "summary": "Changed `--await-initialize` to be refused with `--bg` or `--worktree --tmux`, w"
+      },
+      {
+        "name": "--worktree --tmux",
+        "context": "improved",
+        "summary": "Changed `--await-initialize` to be refused with `--bg` or `--worktree --tmux`, w"
+      },
+      {
+        "name": "/claude-api",
+        "context": "improved",
+        "summary": "Changed the `/claude-api` skill to build agents on Managed Agents by default, un"
+      },
+      {
+        "name": "/cost",
+        "context": "improved",
+        "summary": "Changed `/usage` in fullscreen mode to show plan limit bars before session cost "
+      }
+    ],
+    "features": [
+      "Added support for turning on Code Mode while agent teams are enabled; if you already turned it on, sessions with teams on now start in Code Mode",
+      "Added a startup warning when an --allowedTools, --disallowedTools or --tools value has an entry that doesn't look like a complete rule",
+      "Added a message explaining why MCP servers stop loading when an administrator adds managed-mcp.json during a session",
+      "Added a row to /status that says when your provider or an environment variable such as DISABLE_TELEMETRY turns features off",
+      "Added a note in /plugin and claude plugin list when a malformed plugin.json field such as author or homepage is ignored",
+      "Added Ctrl+O to show hidden startup notices",
+      "Added a hint in the empty prompt that says what to do after a request fails",
+      "Added an esc to stop footer hint in a subagent's view where Esc would stop it",
+      "Added OTEL_RESOURCE_INCLUDE_HOST to include host.name and host.id in OpenTelemetry resource attributes (off by default)",
+      "Added overflowX=\"scroll\" on a mod's Box, and maxLines and wrap=\"clip\" on its Text",
+      "Fixed rules added in /permissions or at a main-conversation tool prompt, and /add-dir folders, looking saved when the settings file couldn't be written; the terminal now warns and names it",
+      "Fixed sandboxed commands failing to start on Linux when the home or config directory is reached through a symlink into /net and sandbox settings deny reads of it",
+      "Fixed empty placeholder files, including .git/config.lock, sometimes being left in the project on Linux when Claude Code was stopped during a sandboxed command",
+      "Fixed letters typed over /sandbox or a delete question in /permissions moving the selection",
+      "Fixed /rewind restoring only some files after running /branch twice while a slow backup copy was still running",
+      "Fixed /rewind saying \"No code changes\" when a shell command changed files it can't restore; a turn whose changes weren't tracked now reads \"Code changes unknown\"",
+      "Fixed /rewind: Esc now cancels its summary, its list shows more than one past prompt in fullscreen, and a long prompt no longer hides its warning about losing later file changes",
+      "Fixed Ctrl+C or Ctrl+D twice in /skills quitting Claude Code and dropping changes; it now saves and closes the panel",
+      "Fixed /feedback and /bug sending the report when you typed a space on the confirmation screen, and losing the typed report after Ctrl+O or Ctrl+Z",
+      "Fixed a prompt typed after --add-dir, --allowedTools or another list option being dropped without a message",
+      "Fixed /plan <description> ignoring the description when plan mode was already on",
+      "Fixed a crashed Node or Python hook showing only the first line of its stack trace; the error is now shown, and Ctrl+O shows up to 10,000 characters of the output",
+      "Fixed /goal clear or a new /goal not sticking when typed while Stop hooks were running and background work was still in progress",
+      "Fixed the automatic session recap being sent after a reply billed to usage credits; /recap still works",
+      "Fixed \"Sign in with your Console account\" in /login replacing your Claude subscription login when the browser sign-in used your Claude plan instead of a Console organization",
+      "Fixed /login ending on \"Login successful\" while an approved ANTHROPIC_API_KEY was still used; it now says requests still use the key",
+      "Fixed \"Not logged in\" staying after turning on the API key in /config; \"Not logged in\", /login and /status now name an unused ANTHROPIC_API_KEY",
+      "Fixed /login and claude setup-token showing nothing after you submit a pasted code; they now show \"Finishing sign-in…\"",
+      "Fixed /logout in fullscreen mode exiting without leaving the logged-out message on screen",
+      "Fixed the shell prompt being drawn over the last screen after quitting with Ctrl+C or Ctrl+D at a sign-in or first-run step",
+      "Fixed Ctrl+C twice doing nothing on the first-run theme choice, and freezing the terminal on setup screens or a background session at its startup question",
+      "Fixed your OFF answer to the updated terms being replaced when keys were typed while it was saving, at startup and in /privacy-settings",
+      "Fixed the /privacy-settings toggle sometimes saving the opposite of what the screen showed on a quick double press, changing your setting on keys pressed after Esc, and not saying when a save failed",
+      "Fixed /privacy-settings saving your choice on the wrong account after signing in to a different account in another terminal",
+      "Fixed /privacy-settings saying \"set to true\" when you picked OFF right after ON",
+      "Fixed /mcp not showing why a local (stdio) MCP server failed to start",
+      "Fixed Esc doing nothing while an MCP server reconnects: Esc, or Ctrl+C pressed twice, now closes the wait and the reconnect continues in the background",
+      "Fixed Enable in /mcp showing no progress for a slow server, and a second Enter disabling it again",
+      "Fixed the Ctrl+C hint on a background MCP task's question saying \"cancel\" when the second press leaves the question to answer later",
+      "Fixed Tab and Shift+Tab not moving between fields in an MCP server's input form, and a required field there keeping its tick after being emptied",
+      "Remote Control: Fixed a session disconnecting mid-reply when the server was briefly unavailable",
+      "Remote Control: Fixed the QR code in /remote-control being cut off in short terminal windows such as 80×24",
+      "Remote Control: Fixed terminal sessions showing as idle on your phone while background subagents were still running; Stop on your phone or the web now ends them together with the turn",
+      "Fixed /autofix-pr reporting a run as cancelled when its cloud session could not be stopped; it now links the session so you can stop it",
+      "Fixed /teleport hiding a session from its list in narrow terminals",
+      "Fixed background agents being told you refused their tool call when a session ended by Ctrl+C twice at the exit dialog, or after an interface crash",
+      "Fixed the agent rows under the prompt showing an agent as busy after its turn ended: the row now says what it is waiting on, and /tasks names the subagent behind each background command",
+      "Fixed the / menu, /skills and /plugin repeating rows and losing the cursor when two skills or commands in one place share a name",
+      "Fixed search in /resume, /plugin, /permissions and /config ignoring IME input, dictation and fast typing",
+      "Fixed the cursor disappearing after clearing a search on the /plugin Installed tab",
+      "Fixed /model showing your saved model as \"Default (recommended)\": Default now names your plan's default model, and choosing it in the terminal switches you back to that default",
+      "Fixed /clear --help and other built-in commands running at an idle prompt instead of showing usage; added /help <command>",
+      "Fixed the screen going blank and dropping keys after picking a model in /model, and /model <alias> and /effort <level> briefly hiding the prompt and dropping letters typed right after",
+      "Fixed the screen scrambling after /tui default in a long conversation, or when the tui setting changed in another window (anthropics/claude-code#94879)",
+      "Fixed the screen freezing for seconds when showing long newly created files in the permission prompt and the Ctrl+O transcript",
+      "Fixed Shift+Enter or Option+Enter pressed right after a paste sending the prompt instead of adding a new line",
+      "Fixed [Image #N] landing in the middle of a word when typing right after pasting, and a pasted image not being sent after deleting its placeholder and pasting it back with Ctrl+Y",
+      "Fixed /memory opening a read-only file with no warning that changes may not save",
+      "Fixed /btw showing only a lead-in such as \"Let me check that file.\" with no notice when the model tried to use a tool (anthropics/claude-code#90314)",
+      "Fixed long /btw answers looking finished and ignoring PgUp, PgDn, Home, End and the mouse wheel",
+      "Fixed /resume search saying \"No sessions match\" for older sessions that exist, and a typed number opening a session instead of searching",
+      "Fixed pressing Ctrl+R again in fullscreen prompt search not moving to the next older match",
+      "Fixed Esc over typed text cancelling a pending /loop",
+      "Fixed /copy and /export saying \"copied to clipboard\" over SSH when the terminal may not have copied anything",
+      "Fixed /usage-credits saying \"Request sent to your admin\" when the request was refused; people who have billing access themselves are now pointed to the usage settings page",
+      "Fixed the transcript share question for Pro and Max users staying open after the next message, /clear or /resume",
+      "Fixed /tui default saying it had switched back to the classic renderer when a setting kept fullscreen on; after a /tui that can't switch, Claude Code now says what keeps the renderer",
+      "Fixed Reduce motion and Show tips in /config applying only to the current folder",
+      "Fixed /terminal-setup not naming the tmux settings that Shift+Enter needs, and promising Shift+Enter in Windows Terminal before 1.25, where it sends the prompt",
+      "Fixed Program Status Protocol (OSC 7501) terminals showing a finished turn after idle compaction, or no status for background sessions opened with claude agents, claude attach or --resume",
+      "Fixed the terminal progress bar showing Claude as working while it waited for your answer or was suspended with Ctrl+Z, and disappearing in Ghostty after 15 seconds while Claude was still working",
+      "Fixed the custom status line disappearing and the screen jumping on Ctrl+C, in ! shell mode and while pasting an image",
+      "Fixed a custom status line keeping its old width, folder and session name after a terminal resize, /cd or /rename (anthropics/claude-code#107291)",
+      "Fixed the Ctrl+Z message printing over the prompt box outside fullscreen",
+      "Fixed the claude --resume session preview being garbled and not scrolling in fullscreen mode",
+      "Fixed Esc not leaving the \"Connect to your IDE automatically?\" question in /ide, where Ctrl+C twice quit Claude Code",
+      "Fixed /status showing installation warnings twice",
+      "Fixed the Ctrl+O transcript hinting Ctrl+B to background a command in fullscreen, where it pages up, and showing no sign that Claude is still working",
+      "Fixed the Ctrl+R search, the model picker, plan approval, question previews, background shell output and /plugin install choices being cut off in short fullscreen windows",
+      "Fixed the /context grid, API errors such as \"Credit balance too low\", \"Waiting for API response\" and retry notices, \"esc to interrupt\" and \"Interrupted\" being cut off or jumbled in narrow terminals",
+      "Fixed the unused part of /usage bars looking full in the light and ANSI themes",
+      "Fixed the /effort slider ignoring mouse clicks in fullscreen mode",
+      "Fixed leftover hint text in screen reader mode on macOS and Linux after closing the /permissions search when the rule list was taller than the terminal",
+      "Improved /logout and claude auth logout in the terminal to retry revoking the login, and to say where to revoke it if the server doesn't confirm",
+      "Improved response time of the first message after /compact in git repositories",
+      "Improved the folder trust prompt, at launch and in /cd, to name the project settings files Claude Code will load; at launch it also marks files that run commands",
+      "Improved /update-config in the terminal to use about 13,000 tokens of context instead of 93,000, and a rejected settings edit to quote only the changed settings",
+      "Improved /doctor to share findings as it works instead of staying silent until the full report",
+      "Improved the error shown when the API refuses a Console sign-in: it now says to run /login instead of pointing to an admin setting",
+      "Improved the /login screen: the code goes in a proper text field, a rejected code says why under it, and pasting in a short window scrolls the field into view",
+      "Improved /design-login, /install-github-app and MCP sign-in screens to match /login; the first two now mask the pasted code",
+      "Improved /plugin Discover and marketplace lists: they fit short windows with the cursor and key hints on screen, and Home, End, PgUp, PgDn, the mouse wheel and clicks now work",
+      "Improved /plugin Marketplaces and Add marketplace: a compact list, a clearer remove confirmation, a clear text field and shorter errors when adding fails",
+      "Improved /plugin Installed tab: Home, End, PgUp, PgDn and clicks now work, and hidden rows are counted",
+      "Improved /plugin Errors and Stats tabs: long errors no longer fill the screen, uninstalling from an error asks first, and long skill names no longer break the table",
+      "Improved wording across the terminal: /plugin, /mcp, sign-in, setup, settings, the agent view, /teleport, Remote Control, update messages, spinner tips, /powerup and claude --help",
+      "Improved key hints in many dialogs and the ? lists: they show the keys that work, in one order and wording, and fit narrow windows; deeper screens in /hooks and /permissions say Esc goes back",
+      "Improved text fields in /add-dir, /export, /permissions, /feedback, /install-github-app and Bedrock and Vertex setup: one look, long text wraps, and a refused value can be corrected in place",
+      "Improved long menus such as /permissions, /resume and /model to say how many rows are above and below, and the / and @ menus to count hidden rows outside fullscreen and screen reader mode",
+      "Improved list navigation: more lists wrap at both ends, checkbox lists in slash commands take Home and End, and /permissions says when a search finds nothing",
+      "Improved the footer after Ctrl+C stops background agents: it now offers ↓ to resume subagent while a stopped subagent is listed",
+      "Improved /autocompact and /scroll-speed with a slider that shows every value, takes Home, End and (in fullscreen) clicks, and fits narrow terminals",
+      "Improved on/off settings to read on / off in /config, /memory and auto mode setup",
+      "Improved alignment and spacing in /btw, /help, /scroll-speed, the settings error dialog and dialogs that suggest a plugin or setting",
+      "Changed the Bash sandbox to keep its state in some cases during a session, until you run /sandbox or /cd; Bash may ask first",
+      "Changed the Bash sandbox on Linux and WSL to create some missing --add-dir folders before each sandboxed command, so commands that create them can fail, skip, or land inside them",
+      "Changed /rewind on macOS, Linux and WSL to leave some files untouched and report them as skipped when the sandbox is on",
+      "Changed the computer use macOS permissions panel to ignore j and k; the arrow keys and Ctrl+P/Ctrl+N still move the selection",
+      "Changed --add-dir and /add-dir in local terminal sessions to show the trust prompt for a folder you have not trusted yet; claude --bg refuses such a folder",
+      "Changed self-hosted runners under --trust-workspace false to ignore more repository settings; set such values in user or managed settings",
+      "Changed /plugin uninstall, remove and switch questions to lists answered with the arrow keys and Enter, or Esc to cancel; y, n and u no longer answer them",
+      "Changed --bare sessions on an unapproved API key: moving one to the background is now refused in most setups, and claude --bare --bg exits with an error if the background service lacks the key",
+      "Remote Control: Changed the session debug logs written under --verbose to go to ~/.claude/child-logs/",
+      "Self-hosted runner: Changed Linux and macOS sessions with no gh to get a built-in gh api by default, via Anthropic, which adds their GitHub sign-in, if any; --use-anthropic-gh false turns it off",
+      "Changed agent view so that quitting with Ctrl+C twice, Ctrl+D twice or /exit after pressing ← in an empty conversation ends that session, instead of leaving it running for 5 minutes",
+      "Changed --await-initialize to be refused with --bg or --worktree --tmux, which never read the initialize request, instead of starting without the fields it carries",
+      "Changed worktree creation, /teleport and IDE checkouts to run git with a stricter PATH; a git filter or helper may need its full path",
+      "Changed the /claude-api skill to build agents on Managed Agents by default, unless you want to host the agent loop yourself",
+      "Changed /usage in fullscreen mode to show plan limit bars before session cost for subscribers; /cost still starts with cost",
+      "Changed fullscreen /cd to refuse \"Yes\" while its trust prompt doesn't fit, with a line saying to make the window taller",
+      "Removed the spinner tip that suggested /clear 30 minutes into a running turn",
+      "[VSCode] Fixed /ide in a second Claude Code session silently losing the editor connection back to the first session; the newest connection now wins and the displaced session shows how to switch back"
+    ],
+    "features_ko": [
+      "에이전트 팀이 활성화된 상태에서 Code Mode를 켤 수 있는 지원이 추가되었습니다. 이미 켠 경우, 팀이 활성화된 세션은 이제 Code Mode에서 시작됩니다.",
+      "--allowedTools, --disallowedTools 또는 --tools 값에 완전한 규칙처럼 보이지 않는 항목이 있을 때 시작 경고가 추가되었습니다.",
+      "관리자가 세션 중에 managed-mcp.json을 추가할 때 MCP 서버가 로딩을 중지하는 이유를 설명하는 메시지가 추가되었습니다.",
+      "/status에 제공자 또는 DISABLE_TELEMETRY와 같은 환경 변수가 기능을 끌 때의 시간을 표시하는 행이 추가되었습니다.",
+      "잘못된 형식의 plugin.json 필드(예: author 또는 homepage)가 무시될 때 /plugin 및 claude 플러그인 목록에 주석이 추가되었습니다.",
+      "숨겨진 시작 알림을 표시하기 위해 Ctrl+O가 추가되었습니다.",
+      "요청 실패 후 해야 할 일을 안내하는 힌트가 빈 프롬프트에 추가되었습니다.",
+      "Esc가 서브 에이전트의 뷰에서 푸터 힌트를 중지하도록 추가되었습니다.",
+      "OTEL_RESOURCE_INCLUDE_HOST가 OpenTelemetry 리소스 속성에 host.name 및 host.id를 포함하도록 추가되었습니다(기본값은 꺼짐).",
+      "모드의 Box에 overflowX=\"scroll\"이 추가되었고, Text에 maxLines 및 wrap=\"clip\"이 추가되었습니다.",
+      "설정 파일을 쓸 수 없을 때 /permissions 또는 메인 대화 도구 프롬프트 및 /add-dir 폴더에 추가된 규칙이 저장된 것으로 보이는 문제를 수정했습니다; 이제 터미널이 경고하고 이름을 표시합니다.",
+      "/net으로의 심볼릭 링크를 통해 홈 또는 구성 디렉토리에 도달할 때 Linux에서 샌드박스 명령이 시작되지 않는 문제를 수정했습니다.",
+      "Claude Code가 샌드박스 명령 중에 중지될 때 Linux에서 프로젝트에 빈 placeholder 파일(.git/config.lock 포함)이 남는 문제를 수정했습니다.",
+      "/sandbox 또는 /permissions의 삭제 질문에 입력된 글자가 선택을 이동하는 문제를 수정했습니다.",
+      "/branch를 두 번 실행하는 동안 느린 백업 복사본이 여전히 실행 중일 때 /rewind가 일부 파일만 복원하는 문제를 수정했습니다.",
+      "쉘 명령이 복원할 수 없는 파일을 변경할 때 /rewind가 \"No code changes\"라고 표시하는 문제를 수정했습니다; 추적되지 않은 변경 사항을 가진 턴은 이제 \"Code changes unknown\"으로 표시됩니다.",
+      "/rewind: Esc가 요약을 취소하고, 목록이 전체 화면에서 하나 이상의 이전 프롬프트를 표시하며, 긴 프롬프트가 이후 파일 변경 사항 손실에 대한 경고를 숨기지 않도록 수정되었습니다.",
+      "/skills에서 Ctrl+C 또는 Ctrl+D를 두 번 눌러 Claude Code가 종료되고 변경 사항이 사라지는 문제를 수정했습니다; 이제 패널이 저장되고 닫힙니다.",
+      "/feedback 및 /bug가 확인 화면에서 공백을 입력할 때 보고서를 전송하고, Ctrl+O 또는 Ctrl+Z 후에 입력된 보고서를 잃는 문제를 수정했습니다.",
+      "--add-dir, --allowedTools 또는 다른 목록 옵션 뒤에 입력된 프롬프트가 메시지 없이 삭제되는 문제를 수정했습니다.",
+      "plan 모드가 이미 켜져 있을 때 /plan <description>이 설명을 무시하는 문제를 수정했습니다.",
+      "충돌된 Node 또는 Python 훅이 스택 추적의 첫 번째 줄만 표시하는 문제를 수정했습니다; 이제 오류가 표시되며 Ctrl+O가 최대 10,000자의 출력을 보여줍니다.",
+      "Stop 훅이 실행 중이고 백그라운드 작업이 진행 중일 때 /goal clear 또는 새로운 /goal이 유지되지 않는 문제를 수정했습니다.",
+      "사용량 크레딧에 청구된 응답 후 자동 세션 요약이 전송되는 문제를 수정했습니다; /recap는 여전히 작동합니다.",
+      "/login에서 \"Sign in with your Console account\"가 브라우저 로그인에서 Console 조직 대신 Claude 플랜을 사용했을 때 Claude 구독 로그인을 대체하는 문제를 수정했습니다.",
+      "승인된 ANTHROPIC_API_KEY가 여전히 사용 중일 때 /login이 \"Login successful\"로 끝나는 문제를 수정했습니다; 이제 요청이 여전히 키를 사용한다고 표시합니다.",
+      "/config에서 API 키를 켠 후 \"Not logged in\"이 남아 있는 문제를 수정했습니다; \"Not logged in\", /login 및 /status가 이제 사용되지 않는 ANTHROPIC_API_KEY를 표시합니다.",
+      "/login 및 claude setup-token이 붙여넣은 코드를 제출한 후 아무것도 표시하지 않는 문제를 수정했습니다; 이제 \"Finishing sign-in…\"이 표시됩니다.",
+      "전체 화면 모드에서 /logout이 로그아웃 메시지를 화면에 남기지 않고 종료되는 문제를 수정했습니다.",
+      "로그인 또는 첫 실행 단계에서 Ctrl+C 또는 Ctrl+D로 종료한 후 셸 프롬프트가 마지막 화면 위에 그려지는 문제를 수정했습니다.",
+      "첫 실행 테마 선택 시 Ctrl+C를 두 번 눌러도 아무 반응이 없고, 설정 화면이나 시작 질문에서 터미널이 멈추는 문제를 수정했습니다.",
+      "저장 중 키 입력 시 업데이트된 약관에 대한 OFF 답변이 대체되는 문제를 수정했습니다. (시작 시 및 /privacy-settings에서)",
+      "/privacy-settings에서 빠른 더블 프레스를 할 때 화면에 표시된 것과 반대의 값을 저장하는 문제, Esc 이후에 눌린 키로 설정이 변경되는 문제, 저장 실패 시 알림이 없는 문제를 수정했습니다.",
+      "다른 터미널에서 다른 계정으로 로그인한 후 /privacy-settings에서 잘못된 계정에 선택 사항이 저장되는 문제를 수정했습니다.",
+      "ON 바로 다음에 OFF를 선택했을 때 /privacy-settings에서 \"true로 설정됨\"이라고 표시되는 문제를 수정했습니다.",
+      "/mcp에서 로컬 (stdio) MCP 서버가 시작되지 않는 이유를 표시하지 않는 문제를 수정했습니다.",
+      "MCP 서버가 재연결되는 동안 Esc가 아무 반응이 없던 문제를 수정했습니다: 이제 Esc 또는 Ctrl+C를 두 번 누르면 대기 상태가 종료되고 재연결이 백그라운드에서 계속됩니다.",
+      "느린 서버에 대해 /mcp에서 Enable이 진행 상황을 표시하지 않는 문제와 두 번째 Enter가 다시 비활성화하는 문제를 수정했습니다.",
+      "백그라운드 MCP 작업의 질문에서 Ctrl+C 힌트가 \"취소\"라고 표시되던 문제를 수정했습니다. 두 번째 눌림이 질문을 나중에 답변하도록 남길 때 발생했습니다.",
+      "MCP 서버의 입력 양식에서 Tab 및 Shift+Tab이 필드 간 이동을 하지 않는 문제와 필드가 비워진 후에도 필수 필드가 체크 표시를 유지하는 문제를 수정했습니다.",
+      "원격 제어: 서버가 잠시 사용할 수 없을 때 응답 중 세션이 끊기는 문제를 수정했습니다.",
+      "원격 제어: /remote-control의 QR 코드가 80×24와 같은 짧은 터미널 창에서 잘리는 문제를 수정했습니다.",
+      "원격 제어: 백그라운드 서브 에이전트가 여전히 실행 중일 때 터미널 세션이 휴면 상태로 표시되는 문제를 수정했습니다; 이제 전화기나 웹에서 Stop을 누르면 함께 종료됩니다.",
+      "/autofix-pr가 클라우드 세션을 중지할 수 없을 때 실행을 취소로 보고하는 문제를 수정했습니다; 이제 세션을 연결하여 중지할 수 있습니다.",
+      "/teleport가 좁은 터미널에서 세션을 목록에서 숨기는 문제를 수정했습니다.",
+      "세션이 종료될 때 Ctrl+C를 두 번 눌러 종료 대화 상자에서 종료되면 백그라운드 에이전트가 도구 호출을 거부했다고 잘못 보고하는 문제를 수정했습니다.",
+      "프롬프트 아래 에이전트 행이 턴이 끝난 후 에이전트를 바쁘다고 표시하는 문제를 수정했습니다: 이제 행은 대기 중인 내용을 표시하며, /tasks는 각 백그라운드 명령 뒤의 서브 에이전트를 이름으로 표시합니다.",
+      "/ 메뉴, /skills 및 /plugin에서 두 개의 기술이나 명령이 동일한 이름을 공유할 때 행이 반복되고 커서가 사라지는 문제를 수정했습니다.",
+      "/resume, /plugin, /permissions 및 /config에서 검색이 IME 입력, 음성 인식 및 빠른 타이핑을 무시하는 문제를 수정했습니다.",
+      "/plugin Installed 탭에서 검색을 지운 후 커서가 사라지는 문제를 수정했습니다.",
+      "/model이 저장된 모델을 \"Default (recommended)\"로 표시하는 문제를 수정했습니다: Default는 이제 계획의 기본 모델을 이름 붙이고, 터미널에서 선택하면 해당 기본 모델로 전환됩니다.",
+      "/clear --help 및 기타 내장 명령이 사용법을 표시하는 대신 유휴 프롬프트에서 실행되는 문제를 수정했습니다; /help <command>를 추가했습니다.",
+      "/model에서 모델을 선택한 후 화면이 깜빡이고 키 입력이 떨어지는 문제와 /model <alias> 및 /effort <level>이 프롬프트를 잠시 숨기고 바로 뒤에 입력된 문자를 떨어뜨리는 문제를 수정했습니다.",
+      "긴 대화에서 /tui default 후 화면이 뒤죽박죽이 되거나 다른 창에서 tui 설정이 변경될 때 발생하는 문제를 수정했습니다. (anthropics/claude-code#94879)",
+      "권한 프롬프트와 Ctrl+O 전사에서 새로 생성된 긴 파일을 표시할 때 화면이 몇 초 동안 멈추는 문제를 수정했습니다.",
+      "붙여넣기 직후 Shift+Enter 또는 Option+Enter를 누르면 프롬프트가 전송되는 문제를 수정했습니다.",
+      "붙여넣기 직후 입력할 때 [Image #N]이 단어 중간에 위치하는 문제와 자리 표시자를 삭제한 후 Ctrl+Y로 다시 붙여넣기 할 때 붙여넣은 이미지가 전송되지 않는 문제를 수정했습니다.",
+      "/memory가 변경 사항이 저장되지 않을 수 있다는 경고 없이 읽기 전용 파일을 여는 문제를 수정했습니다.",
+      "/btw가 \"Let me check that file.\"와 같은 서두만 표시하고 모델이 도구를 사용하려 할 때 알림이 없는 문제를 수정했습니다. (anthropics/claude-code#90314)",
+      "긴 /btw 답변이 완료된 것처럼 보이고 PgUp, PgDn, Home, End 및 마우스 휠을 무시하는 문제를 수정했습니다.",
+      "기존에 존재하는 오래된 세션에 대해 \"/resume\" 검색이 \"일치하는 세션이 없습니다\"라고 표시되고, 입력한 숫자가 검색 대신 세션을 여는 문제를 수정했습니다.",
+      "전체 화면 프롬프트 검색에서 Ctrl+R을 다시 눌러도 다음 오래된 일치 항목으로 이동하지 않는 문제를 수정했습니다.",
+      "입력된 텍스트 위에서 Esc를 눌러 대기 중인 /loop를 취소하는 문제를 수정했습니다.",
+      "SSH를 통해 \"/copy\"와 \"/export\"가 \"클립보드에 복사됨\"이라고 표시되지만, 터미널이 아무것도 복사하지 않았을 때의 문제를 수정했습니다.",
+      "요청이 거부될 때 \"/usage-credits\"가 \"관리자에게 요청이 전송되었습니다\"라고 표시되는 문제를 수정했습니다; 이제 청구 접근 권한이 있는 사람들은 사용 설정 페이지로 안내됩니다.",
+      "Pro 및 Max 사용자에 대한 전사 공유 질문이 다음 메시지, /clear 또는 /resume 후에도 열려 있는 문제를 수정했습니다.",
+      "설정이 전체 화면을 유지할 때 \"/tui\" 기본값이 클래식 렌더러로 돌아갔다고 표시되는 문제를 수정했습니다; 전환할 수 없는 /tui 이후 Claude Code가 렌더러를 유지하는 내용을 표시합니다.",
+      "\"/config\"의 Reduce motion 및 Show tips가 현재 폴더에만 적용되는 문제를 수정했습니다.",
+      "\"/terminal-setup\"이 Shift+Enter에 필요한 tmux 설정을 명명하지 않고, Windows Terminal에서 1.25 이전에 Shift+Enter를 약속하는 문제를 수정했습니다.",
+      "Program Status Protocol (OSC 7501) 터미널이 유휴 압축 후 완료된 턴을 표시하거나 claude agents, claude attach 또는 --resume으로 열린 백그라운드 세션에 대한 상태를 표시하지 않는 문제를 수정했습니다.",
+      "터미널 진행률 표시줄이 사용자의 응답을 기다리거나 Ctrl+Z로 일시 중지되는 동안 Claude가 작업 중인 것으로 표시되고, Claude가 여전히 작업 중일 때 Ghostty에서 15초 후 사라지는 문제를 수정했습니다.",
+      "Ctrl+C에서 사용자 정의 상태 줄이 사라지고 화면이 점프하는 문제를 수정했습니다; ! 셸 모드 및 이미지 붙여넣기 중에 발생했습니다.",
+      "터미널 크기 조정, /cd 또는 /rename 후 사용자 정의 상태 줄이 이전 너비, 폴더 및 세션 이름을 유지하는 문제를 수정했습니다. (anthropics/claude-code#107291)",
+      "전체 화면 외부의 프롬프트 상자 위에 Ctrl+Z 메시지가 인쇄되는 문제를 수정했습니다.",
+      "전체 화면 모드에서 claude --resume 세션 미리보기가 깨지고 스크롤되지 않는 문제를 수정했습니다.",
+      "/ide에서 \"자동으로 IDE에 연결하시겠습니까?\" 질문을 Esc로 종료하지 않는 문제를 수정했습니다; Ctrl+C를 두 번 누르면 Claude Code가 종료되었습니다.",
+      "\"/status\"가 설치 경고를 두 번 표시하는 문제를 수정했습니다.",
+      "Ctrl+O 전사에서 전체 화면에서 명령을 백그라운드로 전환하기 위해 Ctrl+B를 힌트하는 문제를 수정했습니다; 페이지 업이 발생하고 Claude가 여전히 작업 중이라는 표시가 없었습니다.",
+      "Ctrl+R 검색, 모델 선택기, 계획 승인, 질문 미리보기, 백그라운드 셸 출력 및 /plugin install 선택이 짧은 전체 화면 창에서 잘리는 문제를 수정했습니다.",
+      "/context 그리드, \"Credit balance too low\", \"Waiting for API response\"와 같은 API 오류 및 재시도 알림, \"esc to interrupt\" 및 \"Interrupted\"가 좁은 터미널에서 잘리거나 뒤죽박죽되는 문제를 수정했습니다.",
+      "/usage 막대의 사용되지 않는 부분이 밝은 테마와 ANSI 테마에서 가득 차 보이는 문제를 수정했습니다.",
+      "전체 화면 모드에서 /effort 슬라이더가 마우스 클릭을 무시하는 문제를 수정했습니다.",
+      "macOS 및 Linux에서 /permissions 검색을 닫은 후 화면 읽기 모드에서 남은 힌트 텍스트가 터미널보다 규칙 목록이 더 클 때 발생하는 문제를 수정했습니다.",
+      "터미널에서 /logout 및 claude auth logout을 개선하여 로그인 취소를 재시도하고, 서버가 확인하지 않을 경우 취소할 위치를 안내합니다.",
+      "git 리포지토리에서 /compact 이후 첫 번째 메시지의 응답 시간을 개선했습니다.",
+      "폴더 신뢰 프롬프트를 개선하여 시작 시 및 /cd에서 Claude Code가 로드할 프로젝트 설정 파일을 명명합니다; 시작 시 명령을 실행하는 파일도 표시합니다.",
+      "터미널에서 /update-config를 개선하여 93,000 대신 약 13,000 토큰의 컨텍스트를 사용하고, 거부된 설정 편집은 변경된 설정만 인용합니다.",
+      "/doctor를 개선하여 전체 보고서가 나올 때까지 침묵하지 않고 작업 중 발견 사항을 공유합니다.",
+      "API가 Console 로그인 요청을 거부할 때 표시되는 오류를 개선했습니다: 이제 관리 설정을 가리키는 대신 /login을 실행하라고 안내합니다.",
+      "/login 화면을 개선했습니다: 코드는 적절한 텍스트 필드에 입력되고, 거부된 코드는 그 아래에 이유를 표시하며, 짧은 창에서 붙여넣기를 하면 필드가 보이도록 스크롤됩니다.",
+      "/design-login, /install-github-app 및 MCP 로그인 화면을 /login에 맞게 개선했습니다; 이제 처음 두 개는 붙여넣은 코드를 가립니다.",
+      "/plugin Discover 및 마켓플레이스 목록을 개선했습니다: 짧은 창에 맞추어 커서와 키 힌트를 화면에 표시하며, Home, End, PgUp, PgDn, 마우스 휠 및 클릭이 작동합니다.",
+      "/plugin Marketplaces 및 Add marketplace를 개선했습니다: 간결한 목록, 명확한 제거 확인, 명확한 텍스트 필드 및 추가 실패 시 짧은 오류 메시지를 제공합니다.",
+      "/plugin Installed 탭을 개선했습니다: Home, End, PgUp, PgDn 및 클릭이 작동하며, 숨겨진 행도 계산됩니다.",
+      "/plugin Errors 및 Stats 탭을 개선했습니다: 긴 오류가 더 이상 화면을 가득 채우지 않으며, 오류에서 제거할 때 먼저 확인을 요청하고, 긴 기술 이름이 테이블을 깨지 않게 합니다.",
+      "터미널 전반의 문구를 개선했습니다: /plugin, /mcp, sign-in, setup, settings, agent view, /teleport, Remote Control, 업데이트 메시지, 스피너 팁, /powerup 및 claude --help.",
+      "많은 대화상자와 ? 목록에서 키 힌트를 개선했습니다: 작동하는 키를 하나의 순서와 문구로 표시하며, 좁은 창에 맞춥니다; /hooks 및 /permissions의 깊은 화면에서는 Esc가 뒤로 간다고 안내합니다.",
+      "/add-dir, /export, /permissions, /feedback, /install-github-app 및 Bedrock 및 Vertex 설정의 텍스트 필드를 개선했습니다: 하나의 모양, 긴 텍스트 줄 바꿈, 거부된 값은 제자리에서 수정할 수 있습니다.",
+      "/permissions, /resume 및 /model과 같은 긴 메뉴를 개선하여 위와 아래에 몇 개의 행이 있는지 표시하며, / 및 @ 메뉴는 전체 화면 및 스크린 리더 모드 외부의 숨겨진 행을 계산합니다.",
+      "목록 탐색을 개선했습니다: 더 많은 목록이 양쪽 끝에서 감싸며, 슬래시 명령의 체크박스 목록은 Home 및 End를 사용하고, /permissions는 검색 결과가 없을 때 알립니다.",
+      "Ctrl+C로 백그라운드 에이전트를 중지한 후 바닥글을 개선했습니다: 이제 중지된 서브 에이전트가 나열된 상태에서 서브 에이전트를 재개하기 위한 ↓를 제공합니다.",
+      "/autocompact 및 /scroll-speed를 개선하여 모든 값을 표시하는 슬라이더를 추가하고, Home, End 및 (전체 화면에서) 클릭을 지원하며, 좁은 터미널에 맞춥니다.",
+      "/config, /memory 및 자동 모드 설정에서 on/off 설정을 읽도록 개선했습니다.",
+      "/btw, /help, /scroll-speed, 설정 오류 대화상자 및 플러그인 또는 설정을 제안하는 대화상자에서 정렬 및 간격을 개선했습니다.",
+      "Bash 샌드박스를 세션 중 일부 경우 상태를 유지하도록 변경했습니다. /sandbox 또는 /cd를 실행할 때까지 Bash가 먼저 요청할 수 있습니다.",
+      "Linux 및 WSL의 Bash 샌드박스를 변경하여 각 샌드박스 명령 전에 누락된 --add-dir 폴더를 생성하도록 하여, 이를 생성하는 명령이 실패하거나 건너뛰거나 그 안에 위치할 수 있습니다.",
+      "macOS, Linux 및 WSL에서 /rewind를 변경하여 샌드박스가 활성화된 경우 일부 파일을 수정하지 않고 건너뛰었다고 보고합니다.",
+      "컴퓨터 사용 macOS 권한 패널을 변경하여 j 및 k를 무시하도록 했습니다; 화살표 키와 Ctrl+P/Ctrl+N은 여전히 선택을 이동합니다.",
+      "로컬 터미널 세션에서 --add-dir 및 /add-dir을 변경하여 아직 신뢰하지 않은 폴더에 대한 신뢰 프롬프트를 표시합니다; claude --bg는 그러한 폴더를 거부합니다.",
+      "--trust-workspace false 하의 자체 호스팅 러너를 변경하여 더 많은 리포지토리 설정을 무시하도록 했습니다; 이러한 값을 사용자 또는 관리 설정에서 설정합니다.",
+      "/plugin uninstall, remove 및 switch 질문을 변경하여 화살표 키와 Enter로 답변할 수 있는 목록으로 만들고, Esc로 취소할 수 있도록 했습니다; y, n 및 u는 더 이상 답변하지 않습니다.",
+      "승인되지 않은 API 키에서 --bare 세션을 변경하여 하나를 백그라운드로 이동하는 것이 대부분의 설정에서 거부되며, claude --bare --bg는 백그라운드 서비스에 키가 없으면 오류와 함께 종료됩니다.",
+      "Remote Control: --verbose 하에 작성된 세션 디버그 로그가 ~/.claude/child-logs/로 가도록 변경했습니다.",
+      "자체 호스팅 러너: gh가 없는 Linux 및 macOS 세션을 변경하여 기본적으로 내장된 gh API를 가져오도록 했으며, 이는 그들의 GitHub 로그인(있는 경우)을 추가합니다; --use-anthropic-gh false로 끌 수 있습니다.",
+      "에이전트 뷰를 변경하여 Ctrl+C를 두 번 누르거나 Ctrl+D를 두 번 누르거나 빈 대화에서 ←를 누른 후 /exit를 입력하면 해당 세션이 종료되도록 했습니다. 5분 동안 실행 상태로 남지 않습니다.",
+      "--await-initialize를 --bg 또는 --worktree --tmux와 함께 거부되도록 변경했습니다. 이들은 초기화 요청을 읽지 않으며, 대신 해당 필드 없이 시작합니다.",
+      "작업 트리 생성, /teleport 및 IDE 체크아웃을 변경하여 git을 더 엄격한 PATH로 실행하도록 했습니다; git 필터 또는 도우미는 전체 경로가 필요할 수 있습니다.",
+      "/claude-api 기술을 변경하여 기본적으로 Managed Agents에서 에이전트를 빌드하도록 했으며, 에이전트 루프를 직접 호스팅하려는 경우를 제외합니다.",
+      "전체 화면 모드에서 /usage를 변경하여 구독자에게 세션 비용 전에 계획 한도 바를 표시합니다; /cost는 여전히 비용으로 시작합니다.",
+      "전체 화면 /cd를 변경하여 신뢰 프롬프트가 맞지 않을 때 \"Yes\"를 거부하며, 창을 더 높게 만들라는 메시지를 표시합니다.",
+      "실행 중인 턴에서 30분 후에 /clear를 제안하는 스피너 팁을 제거했습니다.",
+      "[VSCode] 두 번째 Claude Code 세션에서 /ide가 첫 번째 세션으로의 편집기 연결을 조용히 잃는 문제를 수정했습니다; 이제 최신 연결이 우선하며, 이동된 세션에서 다시 전환하는 방법을 보여줍니다."
+    ]
+  },
+  {
     "version": "2.1.325",
     "date": "2026-11-13",
     "commands": [
