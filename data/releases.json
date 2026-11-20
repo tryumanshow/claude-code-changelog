@@ -1,5 +1,260 @@
 [
   {
+    "version": "2.1.329",
+    "date": "2026-11-19",
+    "commands": [
+      {
+        "name": "/loop",
+        "context": "new",
+        "summary": "Added this session's scheduled tasks, `/loop` wakeups, the goal and this convers"
+      },
+      {
+        "name": "/tasks",
+        "context": "new",
+        "summary": "Added this session's scheduled tasks, `/loop` wakeups, the goal and this convers"
+      },
+      {
+        "name": "/mcp",
+        "context": "new",
+        "summary": "Added a \"Server message\" row to a server's page in `/mcp` that shows the JSON-RP"
+      },
+      {
+        "name": "/status",
+        "context": "new",
+        "summary": "Added a \"Marketplace auto-update\" row to `/status` that names managed marketplac"
+      },
+      {
+        "name": "/terminal-setup",
+        "context": "fixed",
+        "summary": "Fixed `/terminal-setup` corrupting VS Code settings or keybindings files around "
+      },
+      {
+        "name": "Shift+E",
+        "context": "fixed",
+        "summary": "Fixed `/terminal-setup` corrupting VS Code settings or keybindings files around "
+      },
+      {
+        "name": "/teleport",
+        "context": "fixed",
+        "summary": "Fixed picking a cloud session in `/teleport` replacing your open conversation: t"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "Fixed picking a cloud session in `/teleport` replacing your open conversation: t"
+      },
+      {
+        "name": "/resume",
+        "context": "fixed",
+        "summary": "Fixed picking a cloud session in `/teleport` replacing your open conversation: t"
+      },
+      {
+        "name": "/usage-credits",
+        "context": "fixed",
+        "summary": "Fixed `/usage-credits` asking Pro and Max users to log in again after opening th"
+      },
+      {
+        "name": "/usage",
+        "context": "fixed",
+        "summary": "Fixed `/usage` saying usage credits are off when they had run out or reached the"
+      },
+      {
+        "name": "/model",
+        "context": "fixed",
+        "summary": "Fixed `/usage` saying usage credits are off when they had run out or reached the"
+      },
+      {
+        "name": "/code-review",
+        "context": "improved",
+        "summary": "Changed `/code-review` with no target on most models to review the whole branch "
+      },
+      {
+        "name": "--push-outcome-on-release",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Fixed `--push-outcome-on-release` sometimes deleting a sessi"
+      },
+      {
+        "name": "/sandbox",
+        "context": "fixed",
+        "summary": "Fixed `/sandbox` on Linux listing `allowUnixSockets` entries as allowed: they do"
+      },
+      {
+        "name": "/install-github-app",
+        "context": "fixed",
+        "summary": "Fixed pressing Esc twice to clear a mistyped code ending the sign-in in `/instal"
+      },
+      {
+        "name": "/login",
+        "context": "fixed",
+        "summary": "Fixed the Claude Docs connector's tools going missing when a plugin or MCP serve"
+      },
+      {
+        "name": "--add-dir",
+        "context": "fixed",
+        "summary": "Fixed a new skills, commands or agents folder being missed when `--add-dir` name"
+      },
+      {
+        "name": "/auto-mode-setup",
+        "context": "fixed",
+        "summary": "Fixed `/auto-mode-setup` ignoring recent auto mode denials when it scans a proje"
+      },
+      {
+        "name": "/team-onboarding",
+        "context": "fixed",
+        "summary": "Fixed `/team-onboarding` reporting a guide as shared on Team and Enterprise plan"
+      },
+      {
+        "name": "/help",
+        "context": "fixed",
+        "summary": "Fixed panels and questions being cut off at the prompt in fullscreen, `/help`, h"
+      },
+      {
+        "name": "/passes",
+        "context": "fixed",
+        "summary": "Fixed `/passes` showing the wrong number of passes after a server error, and off"
+      },
+      {
+        "name": "/rewind",
+        "context": "fixed",
+        "summary": "Fixed key hints in permission prompts, questions, `/model` and `/rewind` ignorin"
+      },
+      {
+        "name": "/config",
+        "context": "fixed",
+        "summary": "Fixed auto-scroll, the PR status badge, the auto-compact warning and the ultraco"
+      },
+      {
+        "name": "/add-dir",
+        "context": "fixed",
+        "summary": "Fixed a custom cancel key not working in `/add-dir`, `/tui` feedback and the sav"
+      },
+      {
+        "name": "/tui",
+        "context": "improved",
+        "summary": "Improved `/tui` and other in-place restarts to wait briefly for a login refresh,"
+      },
+      {
+        "name": "/rename",
+        "context": "fixed",
+        "summary": "Fixed `/rename` and `UserPromptSubmit` hook titles in `claude remote-control` se"
+      },
+      {
+        "name": "--resume",
+        "context": "improved",
+        "summary": "Improved memory use of idle Claude Desktop and SDK sessions after a long turn, a"
+      },
+      {
+        "name": "--continue",
+        "context": "improved",
+        "summary": "Improved memory use of idle Claude Desktop and SDK sessions after a long turn, a"
+      },
+      {
+        "name": "--repository-folder",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Changed `--repository-folder` to take most folders in the ba"
+      },
+      {
+        "name": "--capacity 1",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Changed `--repository-folder` to take most folders in the ba"
+      }
+    ],
+    "features": [
+      "Added a trust dialog warning that says where a folder's hooks are declared",
+      "Added a warning in the conversation, in Claude Desktop and other non-interactive hosts, when hooks in managed settings fail to load",
+      "Added this session's scheduled tasks, /loop wakeups, the goal and this conversation's forks to /tasks; x stops one after asking",
+      "Added a \"Server message\" row to a server's page in /mcp that shows the JSON-RPC error message of a remote HTTP MCP server that refuses the connection",
+      "Added a \"Marketplace auto-update\" row to /status that names managed marketplaces that get no automatic updates, and why",
+      "Added support for turning on Code Mode while OpenTelemetry events and metrics are enabled; each tool call the code makes sends its events; tracing still keeps it off",
+      "Fixed /terminal-setup corrupting VS Code settings or keybindings files around block comments, and reporting success while losing the Shift+Enter binding where keybindings.json has an unclosed string",
+      "Fixed picking a cloud session in /teleport replacing your open conversation: the pick now starts a new session, as /clear does, and /resume brings the old one back",
+      "Fixed /usage-credits asking Pro and Max users to log in again after opening the browser, and the link disappearing after 8 seconds if the browser doesn't open and a task stops for usage credits",
+      "Fixed /usage saying usage credits are off when they had run out or reached the monthly limit, and /model not telling Pro and Max users when that limit blocks a model that runs on usage credits",
+      "Fixed an empty, frozen screen after approving managed settings while the --resume picker, the trust dialog or another set-up screen was waiting",
+      "Fixed choosing Default in /model replacing your saved model with your organization's default when the Default row already showed your saved model",
+      "Fixed /code-review <pr number> sometimes reviewing the checked-out branch instead of the pull request without saying so: it now reads the pull request with gh pr diff, or says when it can't",
+      "Fixed /code-review stopping at a permission prompt, on most models, to look for a ~/.claude/CLAUDE.md that doesn't exist",
+      "Self-hosted runner: Fixed --push-outcome-on-release sometimes deleting a session's branch on the git host",
+      "Fixed Remote Control using memory for the earlier conversation after a compaction or /clear in sessions run by Claude Desktop, IDEs or the SDK",
+      "Fixed claude mcp login and /mcp saying a service doesn't accept sign-ins from Claude Code when the service's client registration had been retired (HTTP 410 Gone)",
+      "Fixed /sandbox on Linux listing allowUnixSockets entries as allowed: they don't open those sockets there, and /sandbox now says so",
+      "Fixed pressing Esc twice to clear a mistyped code ending the sign-in in /install-github-app",
+      "Remote Control: Fixed sessions going back to their first effort level after a restart while the app still showed the level you picked (not yet for sessions that start in Ultracode)",
+      "Fixed the Claude Docs connector's tools going missing when a plugin or MCP server at the same address failed to connect, and its error wrongly suggesting /login",
+      "Fixed a new skills, commands or agents folder being missed when --add-dir names the working directory or Claude Code starts in the home folder",
+      "Fixed /auto-mode-setup ignoring recent auto mode denials when it scans a project for rules to suggest; it may now offer allow rules from them, and you review each before it's saved",
+      "Fixed /team-onboarding reporting a guide as shared on Team and Enterprise plans when the server refused the upload",
+      "Fixed panels and questions being cut off at the prompt in fullscreen, /help, history search and the background tasks list losing rows or titles in short windows, and tables wrapping in dialogs",
+      "Fixed /passes showing the wrong number of passes after a server error, and offering usage credits for sharing when no guest passes are left",
+      "Fixed /terminal-setup turning on \"Use Option as Meta key\" in Terminal.app on macOS 27, and tips there suggesting Option+Enter instead of Shift+Enter",
+      "Self-hosted runner: Fixed setup failing on Git LFS repositories cloned through Anthropic-managed git; sessions now start on pointer files, and git lfs pull fetches the content",
+      "Fixed the /code-review findings card often showing \"high\" for a review that ran at medium, on most models",
+      "Fixed key hints in permission prompts, questions, /model and /rewind ignoring keybindings.json",
+      "Fixed auto-scroll, the PR status badge, the auto-compact warning and the ultracode tag not following the /config switches that control them in a running session",
+      "Fixed a custom cancel key not working in /add-dir, /tui feedback and the save-workflow form",
+      "Fixed /config saying nothing, or \"dismissed\", after changing many settings",
+      "Fixed /status not naming the model that opusplan and haiku use in plan mode",
+      "Fixed /rename and UserPromptSubmit hook titles in claude remote-control sessions not showing on claude.ai and mobile",
+      "Improved /tui and other in-place restarts to wait briefly for a login refresh, so they are less likely to sign you out",
+      "Windows: Improved start-up and the first search on PCs where Claude Code's search program starts slowly",
+      "Improved memory use of idle Claude Desktop and SDK sessions after a long turn, and after --resume or --continue of a session that holds screenshots or large tool results",
+      "Updated computer use on macOS to newer safety rules, so some actions are refused and some apps have less access",
+      "Changed saved scheduled tasks: in new signed-in sessions, most saved by earlier versions need scheduling again, though --resume of their own session still runs them",
+      "Changed /code-review with no target on most models to review the whole branch against the default branch, and fixed it losing the diff on multi-commit branches",
+      "Changed /code-review <pr number> --fix, and /code-review given a pull request URL, to stop without reviewing when gh pr diff is refused or fails",
+      "Gateway: Changed the start-up warning shown while access_control.allow_cidrs is empty to a notice at every start, boxed in text logs: never expose the gateway to the public internet",
+      "Self-hosted runner: Changed --repository-folder to take most folders in the base folder at --capacity 1 (above 1, one there stops start-up); another repository's session overlapping one is refused",
+      "Changed the /tasks header and the footer's background count to one number covering shells, monitors, MCP calls, agents, workflows and scheduled tasks"
+    ],
+    "features_ko": [
+      "폴더의 훅이 선언된 위치를 알려주는 신뢰 대화 상자가 추가되었습니다.",
+      "관리 설정의 훅이 로드되지 않을 때 Claude Desktop 및 기타 비대화형 호스트에서 대화 중 경고가 추가되었습니다.",
+      "이 세션의 예약된 작업, /loop wakeups, 목표 및 이 대화의 분기가 /tasks에 추가되었습니다; x는 요청 후 하나를 중지합니다.",
+      "연결을 거부하는 원격 HTTP MCP 서버의 JSON-RPC 오류 메시지를 보여주는 \"서버 메시지\" 행이 /mcp의 서버 페이지에 추가되었습니다.",
+      "자동 업데이트가 없는 관리 마켓플레이스를 명시하고 그 이유를 설명하는 \"마켓플레이스 자동 업데이트\" 행이 /status에 추가되었습니다.",
+      "OpenTelemetry 이벤트와 메트릭이 활성화된 상태에서 코드 모드를 켤 수 있도록 지원이 추가되었습니다; 각 도구 호출이 이벤트를 전송합니다; 추적은 여전히 비활성 상태를 유지합니다.",
+      "/terminal-setup이 블록 주석 주위에서 VS Code 설정 또는 키 바인딩 파일을 손상시키고, keybindings.json에 닫히지 않은 문자열이 있을 때 Shift+Enter 바인딩을 잃으면서 성공을 보고하는 문제를 수정했습니다.",
+      "/teleport에서 클라우드 세션을 선택할 때 열린 대화가 교체되는 문제를 수정했습니다: 이제 선택은 새로운 세션을 시작하며, /clear와 같이 작동하고 /resume은 이전 세션을 복원합니다.",
+      "/usage-credits가 Pro 및 Max 사용자에게 브라우저를 연 후 다시 로그인하라고 요청하고, 브라우저가 열리지 않으면 8초 후 링크가 사라지는 문제를 수정했습니다.",
+      "/usage가 사용 크레딧이 소진되었거나 월 한도에 도달했을 때 사용 크레딧이 꺼져 있다고 잘못 표시하는 문제와 /model이 Pro 및 Max 사용자에게 그 한도가 사용 크레딧으로 실행되는 모델을 차단할 때 알리지 않는 문제를 수정했습니다.",
+      "--resume 선택기, 신뢰 대화 상자 또는 다른 설정 화면이 대기 중일 때 관리 설정을 승인한 후 빈 화면이 멈추는 문제를 수정했습니다.",
+      "/model에서 Default를 선택할 때 Default 행이 이미 저장된 모델을 표시하고 있을 때 조직의 기본값으로 저장된 모델이 교체되는 문제를 수정했습니다.",
+      "/code-review <pr number>가 때때로 풀 리퀘스트를 언급하지 않고 체크아웃된 브랜치를 검토하는 문제를 수정했습니다: 이제 gh pr diff로 풀 리퀘스트를 읽거나 읽을 수 없을 때 알립니다.",
+      "대부분의 모델에서 /code-review가 존재하지 않는 ~/.claude/CLAUDE.md를 찾기 위해 권한 프롬프트에서 멈추는 문제를 수정했습니다.",
+      "자체 호스팅 러너: --push-outcome-on-release가 때때로 세션의 브랜치를 git 호스트에서 삭제하는 문제를 수정했습니다.",
+      "Claude Desktop, IDE 또는 SDK에서 실행되는 세션에서 압축 또는 /clear 후 이전 대화의 메모리를 사용하는 Remote Control 문제를 수정했습니다.",
+      "claude mcp login과 /mcp가 서비스의 클라이언트 등록이 중단되었을 때 Claude Code에서 로그인 수락을 하지 않는다고 잘못 표시하는 문제를 수정했습니다 (HTTP 410 Gone).",
+      "Linux에서 /sandbox가 allowUnixSockets 항목을 허용된 것으로 나열하는 문제를 수정했습니다: 해당 소켓을 열지 않으며, /sandbox가 이제 이를 설명합니다.",
+      "/install-github-app에서 잘못 입력된 코드를 지우기 위해 Esc를 두 번 누르면 로그인 과정이 종료되는 문제를 수정했습니다.",
+      "Remote Control: 앱이 여전히 선택한 수준을 표시하는 동안 세션이 재시작 후 첫 번째 노력 수준으로 돌아가는 문제를 수정했습니다 (Ultracode에서 시작하는 세션은 아직 해당되지 않음).",
+      "동일한 주소의 플러그인 또는 MCP 서버가 연결에 실패할 때 Claude Docs 커넥터의 도구가 사라지는 문제를 수정했습니다, 그리고 그 오류가 잘못된 /login을 제안했습니다.",
+      "--add-dir가 작업 디렉토리를 지정하거나 Claude Code가 홈 폴더에서 시작할 때 새로운 skills, commands 또는 agents 폴더가 누락되는 문제를 수정했습니다.",
+      "/auto-mode-setup이 규칙을 제안하기 위해 프로젝트를 스캔할 때 최근 자동 모드 거부를 무시하는 문제를 수정했습니다; 이제 이를 통해 허용 규칙을 제안할 수 있으며, 저장되기 전에 각 규칙을 검토합니다.",
+      "/team-onboarding이 서버가 업로드를 거부할 때 가이드를 팀 및 엔터프라이즈 플랜에서 공유된 것으로 보고하는 문제를 수정했습니다.",
+      "전체 화면, /help, 기록 검색 및 배경 작업 목록에서 패널과 질문이 잘리거나 짧은 창에서 행 또는 제목이 사라지는 문제를 수정했습니다, 그리고 대화 상자에서 테이블이 줄 바꿈되는 문제를 수정했습니다.",
+      "/passes가 서버 오류 후 잘못된 패스 수를 표시하고, 남은 게스트 패스가 없을 때 공유를 위한 사용 크레딧을 제공하는 문제를 수정했습니다.",
+      "/terminal-setup이 macOS 27의 Terminal.app에서 \"Use Option as Meta key\"를 켜는 문제를 수정했습니다, 그리고 그곳의 팁이 Shift+Enter 대신 Option+Enter를 제안합니다.",
+      "자체 호스팅 러너: Anthropic 관리 git을 통해 클론된 Git LFS 리포지토리에서 설정이 실패하는 문제를 수정했습니다; 이제 세션이 포인터 파일에서 시작되며, git lfs pull이 콘텐츠를 가져옵니다.",
+      "/code-review findings 카드가 대부분의 모델에서 중간으로 실행된 리뷰에 대해 종종 \"높음\"으로 표시되는 문제를 수정했습니다.",
+      "권한 프롬프트, 질문, /model 및 /rewind에서 키 힌트가 keybindings.json을 무시하는 문제를 수정했습니다.",
+      "자동 스크롤, PR 상태 배지, 자동 압축 경고 및 ultracode 태그가 실행 중 세션에서 이를 제어하는 /config 스위치를 따르지 않는 문제를 수정했습니다.",
+      "/add-dir, /tui 피드백 및 save-workflow 양식에서 사용자 정의 취소 키가 작동하지 않는 문제를 수정했습니다.",
+      "많은 설정을 변경한 후 /config가 아무것도 말하지 않거나 \"해제됨\"이라고 표시되는 문제를 수정했습니다.",
+      "/status가 계획 모드에서 opusplan과 haiku가 사용하는 모델 이름을 표시하지 않는 문제를 수정했습니다.",
+      "claude 원격 제어 세션에서 /rename 및 UserPromptSubmit 후크 제목이 claude.ai 및 모바일에 표시되지 않는 문제를 수정했습니다.",
+      "/tui 및 기타 인라인 재시작을 개선하여 로그인 새로 고침을 잠시 기다리도록 하여 로그아웃될 가능성을 줄였습니다.",
+      "Windows: Claude Code의 검색 프로그램이 느리게 시작되는 PC에서 시작 및 첫 검색을 개선했습니다.",
+      "긴 대기 후 유휴 Claude Desktop 및 SDK 세션의 메모리 사용을 개선했으며, 스크린샷이나 큰 도구 결과를 보유한 세션의 --resume 또는 --continue 후에도 개선했습니다.",
+      "macOS에서 컴퓨터 사용을 최신 안전 규칙으로 업데이트하여 일부 작업이 거부되고 일부 앱의 접근 권한이 줄어들었습니다.",
+      "저장된 예약 작업을 변경했습니다: 새로 로그인한 세션에서는 이전 버전에서 저장된 대부분의 작업이 다시 예약이 필요하지만, 자신의 세션의 --resume은 여전히 실행됩니다.",
+      "대부분의 모델에서 대상 없이 /code-review를 변경하여 전체 브랜치를 기본 브랜치와 비교하도록 하고, 다중 커밋 브랜치에서 diff를 잃는 문제를 수정했습니다.",
+      "/code-review <pr 번호> --fix 및 /code-review에 풀 요청 URL을 주었을 때, gh pr diff가 거부되거나 실패할 경우 검토 없이 중지하도록 변경했습니다.",
+      "Gateway: access_control.allow_cidrs가 비어 있을 때 표시되는 시작 경고를 매번 시작 시 공지로 변경하고, 텍스트 로그에 박스 처리했습니다: 게이트웨이를 공용 인터넷에 노출하지 마십시오.",
+      "자체 호스팅 러너: --repository-folder를 --capacity 1에서 기본 폴더의 대부분의 폴더를 사용하도록 변경했습니다 (1 이상에서는 시작을 중단합니다); 다른 저장소의 세션이 겹치는 것은 거부됩니다.",
+      "/tasks 헤더와 바닥글의 배경 수를 셸, 모니터, MCP 호출, 에이전트, 워크플로 및 예약 작업을 포함하는 하나의 숫자로 변경했습니다."
+    ]
+  },
+  {
     "version": "2.1.328",
     "date": "2026-11-19",
     "commands": [
