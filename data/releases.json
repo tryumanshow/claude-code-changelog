@@ -1,5 +1,262 @@
 [
   {
+    "version": "2.1.330",
+    "date": "2026-11-20",
+    "commands": [
+      {
+        "name": "/config",
+        "context": "new",
+        "summary": "Added easel, a built-in mod that draws charts when asked and under MCP metrics r"
+      },
+      {
+        "name": "--start-dir",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Added `--start-dir` / `SELF_HOSTED_RUNNER_START_DIR` to have"
+      },
+      {
+        "name": "--json",
+        "context": "new",
+        "summary": "Added `commandPrinted` to `claude plugin install --json` results, true when the "
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed `--continue` and `--resume` opening an empty session or failing when the l"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed `--continue` and `--resume` opening an empty session or failing when the l"
+      },
+      {
+        "name": "/rewind",
+        "context": "fixed",
+        "summary": "Fixed `/rewind` sometimes restoring an older version of a file when two queued p"
+      },
+      {
+        "name": "/compact",
+        "context": "fixed",
+        "summary": "Fixed Code Mode not restoring a file that a script had read after Esc and `/comp"
+      },
+      {
+        "name": "/context",
+        "context": "fixed",
+        "summary": "Fixed `/context` undercounting system tools in Code Mode before Claude's first r"
+      },
+      {
+        "name": "/mcp",
+        "context": "improved",
+        "summary": "Improved Reconnect in `/mcp` and `/plugin`: a server's page now stays open, with"
+      },
+      {
+        "name": "--mcp-config",
+        "context": "fixed",
+        "summary": "Fixed `/mcp` listing plugin servers as built-in: they now stand under \"Plugin MC"
+      },
+      {
+        "name": "/stats",
+        "context": "fixed",
+        "summary": "Fixed `/stats` counting new activity in UTC days instead of your local time zone"
+      },
+      {
+        "name": "/ultrareview",
+        "context": "improved",
+        "summary": "Improved `/ultrareview`'s cost confirmation on Team and Enterprise plans: it now"
+      },
+      {
+        "name": "/effort",
+        "context": "fixed",
+        "summary": "Fixed WebFetch page summaries ignoring the `/effort` level when a gateway refuse"
+      },
+      {
+        "name": "/install-github-app",
+        "context": "fixed",
+        "summary": "Fixed `/install-github-app` and `/design-login` showing a generic failure for an"
+      },
+      {
+        "name": "/design-login",
+        "context": "fixed",
+        "summary": "Fixed `/install-github-app` and `/design-login` showing a generic failure for an"
+      },
+      {
+        "name": "--push-outcome-on-release",
+        "context": "fixed",
+        "summary": "Fixed resumed self-hosted runner sessions starting without their pushed work in "
+      },
+      {
+        "name": "--startup-timeout-min",
+        "context": "fixed",
+        "summary": "Fixed self-hosted runner sessions being shown as working when Claude Code hangs "
+      },
+      {
+        "name": "--ignore-ancestors",
+        "context": "fixed",
+        "summary": "Fixed `pkill -f` in self-hosted runner sessions on Linux ending its own shell wi"
+      },
+      {
+        "name": "/resume",
+        "context": "improved",
+        "summary": "Improved `/resume`: sessions where you only opened a screen such as `/model` and"
+      },
+      {
+        "name": "/design-sync",
+        "context": "improved",
+        "summary": "Changed `/design-sync`'s fallback build of the reference Storybook to use only a"
+      },
+      {
+        "name": "/login",
+        "context": "improved",
+        "summary": "Improved the claude.ai sign-in link shown by /login, `claude auth login` and `cl"
+      },
+      {
+        "name": "/model",
+        "context": "improved",
+        "summary": "Improved `/resume`: sessions where you only opened a screen such as `/model` and"
+      },
+      {
+        "name": "/plugin",
+        "context": "improved",
+        "summary": "Improved Reconnect in `/mcp` and `/plugin`: a server's page now stays open, with"
+      },
+      {
+        "name": "/loop",
+        "context": "improved",
+        "summary": "Changed recurring scheduled tasks and `/loop` to run up to 30 days instead of 7 "
+      },
+      {
+        "name": "/recap",
+        "context": "improved",
+        "summary": "Changed skills that Claude runs with a `model` setting, other than `context: for"
+      },
+      {
+        "name": "--hook-concurrency",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Changed `spawn-runner` hooks to start while earlier ones sti"
+      },
+      {
+        "name": "/fork",
+        "context": "new",
+        "summary": "[VSCode] Added `/fork` to fork a conversation after its last reply (anthropics/c"
+      },
+      {
+        "name": "/workflows",
+        "context": "new",
+        "summary": "[VSCode] Added `/workflows`, which opens the agent map with running workflows"
+      },
+      {
+        "name": "Ctrl+F",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Ctrl+F and Ctrl+P not moving the caret in the message box on macO"
+      },
+      {
+        "name": "Ctrl+P",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Ctrl+F and Ctrl+P not moving the caret in the message box on macO"
+      },
+      {
+        "name": "/clear",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed /clear giving no sign that the session still runs without a newly"
+      }
+    ],
+    "features": [
+      "Added sign-in to organizations managed in Anthropic's Enterprise Admin Console: after claude auth login, Claude Code applies the organization's settings and uses its cloud provider or gateway",
+      "Added easel, a built-in mod that draws charts when asked and under MCP metrics results, on Pro, Max and, where available, Team and Enterprise on macOS and Linux; turn automatic charts off in /config",
+      "Added CLAUDE_CODE_FULL_SIGN_IN_LINK=1 to print the full sign-in link, if the short one shows an error or a script reads values from it",
+      "Self-hosted runner: Added --start-dir / SELF_HOSTED_RUNNER_START_DIR to have Claude start its work in a folder of a repository, while settings and hooks load as without it",
+      "Added a notice in cloud and self-hosted runner sessions when a plugin marketplace can't be fetched because its repository isn't one of the session's",
+      "Self-hosted runner: Added a notice when Anthropic-managed git refuses a plugin's own repository, naming the plugin and what to do",
+      "Added commandPrinted to claude plugin install --json results, true when the plugin's install command wrote to stderr, and commandFailed when it exited with an error, was killed or timed out",
+      "Added claude_code_self_hosted_runner_order_to_registered_seconds to the self-hosted runner's /metrics: seconds from work order issued to registration accepted, on orchestrator-spawned runners",
+      "Added claude_code_self_hosted_runner_order_to_first_session_seconds to the self-hosted runner's /metrics: seconds from work order to first session handed over, on runners started for a session",
+      "Fixed --continue and --resume opening an empty session or failing when the last saved message had a missing or invalid timestamp",
+      "Linux: Fixed Bash commands waiting seconds and showing no file diff for the rest of a session in slow repositories with large ignored folders such as node_modules",
+      "Windows: Fixed Bash commands running slower for the rest of a session after Git Bash took 10 to 60 seconds to start, on machines with no custom start-up files",
+      "Fixed /rewind sometimes restoring an older version of a file when two queued prompts, or stacked skills, ran together right after a turn that changed it",
+      "Fixed Code Mode not restoring a file that a script had read after Esc and /compact",
+      "Fixed /context undercounting system tools in Code Mode before Claude's first reply",
+      "Fixed environment variables written by a SessionStart hook being lost with claude -p --continue",
+      "Fixed the system prompt keeping the earlier model's instructions when the model was changed after /context but before the first message",
+      "Fixed /mcp listing plugin servers as built-in: they now stand under \"Plugin MCPs\", --mcp-config and built-in servers under \"Other MCPs\", and a server's page names its plugin",
+      "Fixed /stats counting new activity in UTC days instead of your local time zone",
+      "Fixed /ultrareview failing or reviewing the wrong code after the shell moved into another repository: it now stops and names both folders",
+      "Fixed the Project instructions picker in /config showing only one of its four choices in a 24-row fullscreen window",
+      "Fixed WebFetch page summaries ignoring the /effort level when a gateway refuses the small fast model",
+      "Fixed claude mcp remove giving no way forward for a claude.ai connector: it now says to turn it off in /mcp or remove it on claude.ai",
+      "Fixed the /mcp \"Connect on claude.ai\" check saying \"not connected\" when claude.ai has a connector at the server's URL without its query",
+      "Fixed /install-github-app and /design-login showing a generic failure for an account on hold instead of the on-hold notice and appeal link",
+      "Fixed resumed self-hosted runner sessions starting without their pushed work in large repositories when --push-outcome-on-release is set",
+      "Fixed self-hosted runner sessions being shown as working when Claude Code hangs at every start and --startup-timeout-min is from 2 to about 6",
+      "Fixed pkill -f in self-hosted runner sessions on Linux ending its own shell with exit code 144, or the runner (needs a pkill with --ignore-ancestors)",
+      "Fixed the notice about a skipped scheduled task that names no organization: it now says to start Claude Code with --resume, because /resume inside a running session doesn't run the task",
+      "Fixed /design-sync deleting a file it had just uploaded when Claude Design stored that file under a changed name",
+      "Improved the claude.ai sign-in link shown by /login, claude auth login and claude setup-token: it is now much shorter",
+      "Improved /config search: most settings whose name starts with what you type come first, \"effort\" finds Model, and \"dark\" or \"light\" finds Theme",
+      "Improved /resume: sessions where you only opened a screen such as /model and left are no longer listed",
+      "Improved Reconnect in /mcp and /plugin: a server's page now stays open, with the cause in view, when the server still fails or needs sign-in",
+      "Improved /plugin in fullscreen mode: the page of a plugin with errors now starts with those errors",
+      "Improved /ultrareview's cost confirmation on Team and Enterprise plans: it now says how much of your monthly spend limit is left when that is less than a review usually costs",
+      "Changed recurring scheduled tasks and /loop to run up to 30 days instead of 7 while their session keeps running, and say when they end; tasks made before this release still end at 7 days",
+      "Changed skills that Claude runs with a model setting, other than context: fork skills, to leave subagents, forks, compaction and /recap on the session's model",
+      "Self-hosted runner: Changed spawn-runner hooks to start while earlier ones still run, up to --hook-concurrency per orchestrator (4 by default); set it to 1 if yours can't run beside another",
+      "Changed /design-sync's fallback build of the reference Storybook to use only a Storybook installed in the project",
+      "[VSCode] Added /fork to fork a conversation after its last reply (anthropics/claude-code#69272)",
+      "[VSCode] Added /workflows, which opens the agent map with running workflows",
+      "[VSCode] Fixed holding Enter on /rewind restoring files, and a double click on Remove or Delete removing a memory, MCP server or plugin marketplace, without confirmation",
+      "[VSCode] Fixed Ctrl+F and Ctrl+P not moving the caret in the message box on macOS",
+      "[VSCode] Fixed a forked conversation running the original conversation's /loop schedules a second time",
+      "[VSCode] Fixed /clear giving no sign that the session still runs without a newly trusted folder's CLAUDE.md and settings"
+    ],
+    "features_ko": [
+      "Anthropic의 Enterprise Admin Console에서 관리되는 조직에 대한 로그인 추가: claude auth login 후, Claude Code는 조직의 설정을 적용하고 클라우드 제공업체 또는 게이트웨이를 사용합니다.",
+      "Pro, Max 및 사용 가능한 경우 Team과 Enterprise의 macOS 및 Linux에서 요청 시 차트를 그리는 내장 모드 easel 추가; /config에서 자동 차트를 끌 수 있습니다.",
+      "짧은 링크에 오류가 표시되거나 스크립트가 값을 읽는 경우 전체 로그인 링크를 인쇄하기 위해 CLAUDE_CODE_FULL_SIGN_IN_LINK=1 추가.",
+      "Self-hosted runner: --start-dir / SELF_HOSTED_RUNNER_START_DIR 추가하여 Claude가 리포지토리의 폴더에서 작업을 시작하도록 하고, 설정 및 훅은 이전과 같이 로드됩니다.",
+      "플러그인 마켓플레이스를 가져올 수 없는 경우 클라우드 및 self-hosted runner 세션에 알림 추가: 해당 리포지토리가 세션의 일부가 아닙니다.",
+      "Self-hosted runner: Anthropic 관리 git이 플러그인의 자체 리포지토리를 거부할 때 플러그인 이름과 조치를 명시하는 알림 추가.",
+      "claude plugin install --json 결과에 commandPrinted 추가: 플러그인의 설치 명령이 stderr에 기록되면 true, 오류로 종료되거나 종료되거나 시간 초과되면 commandFailed.",
+      "self-hosted runner의 /metrics에 claude_code_self_hosted_runner_order_to_registered_seconds 추가: 작업 주문 발행부터 등록 수락까지의 초, 오케스트레이터에서 생성된 러너에 대해.",
+      "self-hosted runner의 /metrics에 claude_code_self_hosted_runner_order_to_first_session_seconds 추가: 작업 주문부터 첫 세션 인계까지의 초, 세션을 위해 시작된 러너에 대해.",
+      "--continue 및 --resume이 마지막 저장된 메시지에 누락되거나 잘못된 타임스탬프가 있을 때 빈 세션을 열거나 실패하는 문제 수정.",
+      "Linux: 느린 리포지토리에서 Bash 명령이 초를 기다리고 나머지 세션에 대해 파일 차이를 표시하지 않는 문제 수정, 예: node_modules와 같은 큰 무시된 폴더.",
+      "Windows: Git Bash가 시작하는 데 10~60초가 걸린 후 세션의 나머지 동안 Bash 명령이 느리게 실행되는 문제 수정, 사용자 정의 시작 파일이 없는 머신에서.",
+      "/rewind가 두 개의 대기 중인 프롬프트 또는 스택된 스킬이 함께 실행될 때 파일의 이전 버전을 복원하는 문제 수정.",
+      "Esc 및 /compact 후 스크립트가 읽은 파일을 Code Mode가 복원하지 않는 문제 수정.",
+      "Claude의 첫 번째 응답 전에 Code Mode에서 시스템 도구를 과소 계산하는 문제 수정.",
+      "SessionStart 훅에 의해 작성된 환경 변수가 claude -p --continue와 함께 손실되는 문제 수정.",
+      "모델이 /context 후 첫 번째 메시지 전에 변경되었을 때 시스템 프롬프트가 이전 모델의 지침을 유지하는 문제 수정.",
+      "/mcp가 플러그인 서버를 내장으로 나열하는 문제 수정: 이제 \"Plugin MCPs\" 아래에 위치하고, --mcp-config 및 내장 서버는 \"Other MCPs\" 아래에 있으며, 서버의 페이지는 플러그인을 명시합니다.",
+      "/stats가 새로운 활동을 UTC 일로 계산하는 문제 수정, 대신 로컬 시간대에서 계산합니다.",
+      "/ultrareview가 셸이 다른 리포지토리로 이동한 후 실패하거나 잘못된 코드를 검토하는 문제 수정: 이제 중지하고 두 폴더의 이름을 지정합니다.",
+      "/config의 Project instructions picker가 24행 전체 화면 창에서 네 가지 선택 중 하나만 표시하는 문제 수정.",
+      "WebFetch 페이지 요약이 게이트웨이가 작은 빠른 모델을 거부할 때 /effort 수준을 무시하는 문제 수정.",
+      "claude mcp remove가 claude.ai 커넥터에 대한 진행 방법을 제공하지 않는 문제 수정: 이제 /mcp에서 끄거나 claude.ai에서 제거하라고 안내합니다.",
+      "/mcp \"Connect on claude.ai\" 체크가 claude.ai에 커넥터가 있는 경우 \"not connected\"라고 표시하는 문제 수정.",
+      "/install-github-app 및 /design-login이 보류 중인 계정에 대해 보류 중 알림 및 항소 링크 대신 일반 실패를 표시하는 문제 수정.",
+      "--push-outcome-on-release가 설정된 경우 큰 리포지토리에서 푸시된 작업 없이 resumed self-hosted runner 세션이 시작되는 문제 수정.",
+      "Claude Code가 매번 시작할 때 멈추는 경우 self-hosted runner 세션이 작업 중으로 표시되는 문제 수정, --startup-timeout-min이 2에서 약 6으로 설정된 경우.",
+      "Linux의 self-hosted runner 세션에서 pkill -f가 exit code 144로 자신의 셸을 종료하는 문제 수정, 또는 러너(조상 무시와 함께 pkill 필요).",
+      "조직 이름이 없는 건너뛴 예약 작업에 대한 알림 수정: 이제 --resume로 Claude Code를 시작하라고 안내합니다, /resume는 실행 중인 세션 내에서 작업을 실행하지 않습니다.",
+      "/design-sync가 Claude Design이 변경된 이름으로 해당 파일을 저장할 때 방금 업로드한 파일을 삭제하는 문제 수정.",
+      "/login, claude auth login 및 claude setup-token에서 표시되는 claude.ai 로그인 링크를 개선했습니다: 이제 훨씬 짧아졌습니다.",
+      "/config 검색을 개선했습니다: 입력한 내용으로 시작하는 대부분의 설정이 먼저 표시되며, \"effort\"는 Model을 찾고, \"dark\" 또는 \"light\"는 Theme을 찾습니다.",
+      "/resume를 개선했습니다: /model과 같은 화면만 열고 나간 세션은 더 이상 나열되지 않습니다.",
+      "/mcp 및 /plugin에서 Reconnect를 개선했습니다: 서버가 여전히 실패하거나 로그인해야 할 때 서버의 페이지가 열려 있고 원인이 표시됩니다.",
+      "전체 화면 모드에서 /plugin을 개선했습니다: 오류가 있는 플러그인의 페이지가 이제 해당 오류로 시작합니다.",
+      "팀 및 엔터프라이즈 플랜에서 /ultrareview의 비용 확인을 개선했습니다: 리뷰 비용보다 월 지출 한도가 적을 때 남은 금액을 표시합니다.",
+      "반복 예약 작업과 /loop가 세션이 계속 실행되는 동안 7일 대신 최대 30일 동안 실행되도록 변경했으며, 종료 시점을 표시합니다; 이 릴리스 이전에 생성된 작업은 여전히 7일 후에 종료됩니다.",
+      "문맥 외에 모델 설정으로 Claude가 실행하는 기술을 변경했습니다: fork 기술은 하위 에이전트, 포크, 압축 및 /recap을 세션의 모델에 남깁니다.",
+      "자체 호스팅 러너: 이전 러너가 실행되는 동안 시작할 수 있도록 spawn-runner 훅을 변경했습니다. orchestrator당 --hook-concurrency(기본값 4)까지 설정할 수 있으며, 다른 것과 함께 실행할 수 없다면 1로 설정하세요.",
+      "/design-sync의 참조 Storybook의 대체 빌드를 프로젝트에 설치된 Storybook만 사용하도록 변경했습니다.",
+      "[VSCode] 마지막 답변 후 대화를 포크하기 위해 /fork를 추가했습니다 (anthropics/claude-code#69272).",
+      "[VSCode] 실행 중인 워크플로우와 함께 에이전트 맵을 여는 /workflows를 추가했습니다.",
+      "[VSCode] /rewind에서 Enter를 누르고 파일을 복원할 때, Remove 또는 Delete를 두 번 클릭하여 메모리, MCP 서버 또는 플러그인 마켓플레이스를 확인 없이 제거하는 문제를 수정했습니다.",
+      "[VSCode] macOS에서 Ctrl+F 및 Ctrl+P가 메시지 상자에서 커서를 이동하지 않는 문제를 수정했습니다.",
+      "[VSCode] 포크된 대화가 원래 대화의 /loop를 두 번째로 실행하는 문제를 수정했습니다.",
+      "[VSCode] /clear가 새로 신뢰할 수 있는 폴더의 CLAUDE.md 및 설정 없이 세션이 여전히 실행 중임을 알리지 않는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.329",
     "date": "2026-11-19",
     "commands": [
