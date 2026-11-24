@@ -1,5 +1,218 @@
 [
   {
+    "version": "2.1.331",
+    "date": "2026-11-30",
+    "commands": [
+      {
+        "name": "/install-github-app",
+        "context": "fixed",
+        "summary": "Fixed `/install-github-app` skipping the repository step after setup warnings wh"
+      },
+      {
+        "name": "/permissions",
+        "context": "fixed",
+        "summary": "Fixed one-line tool results cut with no ellipsis in narrow windows, Markdown sta"
+      },
+      {
+        "name": "/diff",
+        "context": "fixed",
+        "summary": "Fixed `/diff` hiding its key hints and not selecting files in windows of 24 to 2"
+      },
+      {
+        "name": "/usage",
+        "context": "fixed",
+        "summary": "Fixed the first-run theme list showing too few themes in short windows, and /usa"
+      },
+      {
+        "name": "/bug",
+        "context": "fixed",
+        "summary": "Fixed `/bug` in fullscreen hiding its Yes and No answers behind a long report, a"
+      },
+      {
+        "name": "/compact",
+        "context": "improved",
+        "summary": "Changed the questions for stopping auto-connect in `/ide` and for `/clear`, `/co"
+      },
+      {
+        "name": "--resume",
+        "context": "fixed",
+        "summary": "Fixed Code Mode sessions resumed with `--resume` or `--continue` in another perm"
+      },
+      {
+        "name": "--continue",
+        "context": "fixed",
+        "summary": "Fixed Code Mode sessions resumed with `--resume` or `--continue` in another perm"
+      },
+      {
+        "name": "/loop",
+        "context": "fixed",
+        "summary": "Fixed auto mode sometimes refusing Claude's call to stop a /loop, which left the"
+      },
+      {
+        "name": "/desktop",
+        "context": "fixed",
+        "summary": "Windows: Fixed `/desktop` downloading the older Claude Desktop installer, and as"
+      },
+      {
+        "name": "--bare",
+        "context": "fixed",
+        "summary": "Fixed Code Mode with `--bare` not telling Claude what its scripts can call"
+      },
+      {
+        "name": "/login",
+        "context": "improved",
+        "summary": "Improved the Console sign-in link shown by /login and `claude auth login --conso"
+      },
+      {
+        "name": "/cd",
+        "context": "improved",
+        "summary": "Improved the folder trust prompts in short terminals: fullscreen `/cd` and `/add"
+      },
+      {
+        "name": "/add-dir",
+        "context": "improved",
+        "summary": "Improved the folder trust prompts in short terminals: fullscreen `/cd` and `/add"
+      },
+      {
+        "name": "/ide",
+        "context": "improved",
+        "summary": "Changed the questions for stopping auto-connect in `/ide` and for `/clear`, `/co"
+      },
+      {
+        "name": "/clear",
+        "context": "improved",
+        "summary": "Changed the questions for stopping auto-connect in `/ide` and for `/clear`, `/co"
+      },
+      {
+        "name": "/rewind",
+        "context": "improved",
+        "summary": "Changed the questions for stopping auto-connect in `/ide` and for `/clear`, `/co"
+      },
+      {
+        "name": "/usage-credits",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed the spend limit message telling Team and Enterprise members to ru"
+      },
+      {
+        "name": "/tasks",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed typed text being lost after /tasks, /copy, /export, a skipped /fe"
+      },
+      {
+        "name": "/copy",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed typed text being lost after /tasks, /copy, /export, a skipped /fe"
+      },
+      {
+        "name": "/export",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed typed text being lost after /tasks, /copy, /export, a skipped /fe"
+      },
+      {
+        "name": "/feedback",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed typed text being lost after /tasks, /copy, /export, a skipped /fe"
+      },
+      {
+        "name": "/plan",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed typed text being lost after /tasks, /copy, /export, a skipped /fe"
+      },
+      {
+        "name": "Ctrl+S",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed shortcuts such as Ctrl+1, Alt+1 or Ctrl+Space answering an open d"
+      },
+      {
+        "name": "Shift+T",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed new sessions starting in Edit automatically after pressing Shift+"
+      },
+      {
+        "name": "Alt+K",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Alt+K line ranges such as `@app.ts#5-10` sending the whole file, "
+      },
+      {
+        "name": "/word",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Enter rewriting a message or running a menu action when a `/word`"
+      },
+      {
+        "name": "Ctrl+J",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Ctrl+J and Ctrl+O in the chat also opening VS Code's terminal or "
+      },
+      {
+        "name": "Ctrl+O",
+        "context": "fixed",
+        "summary": "[VSCode] Fixed Ctrl+J and Ctrl+O in the chat also opening VS Code's terminal or "
+      }
+    ],
+    "features": [
+      "Added Code Mode support in terminal sessions on Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry and Claude Platform on AWS",
+      "Added oidc.groups_jsonpath to the Claude apps gateway, to read groups from the matching entries of a list of objects with a small subset of JSONPath (RFC 9535)",
+      "Added an API connectivity section to claude doctor that reports whether the API can be reached, with the HTTP status or the error, or says why it wasn't tested",
+      "Added a notice when tap-mode voice dictation stops by itself, after 15 seconds without recognized speech or at its 2-minute limit",
+      "Added CLAUDE_CODE_DISABLE_RESPONSE_COMPRESSION to ask for uncompressed model responses behind a proxy that cuts compressed ones off; not advised yet for self-hosted runners or Remote Control",
+      "Added CLAUDE_GATEWAY_IDP_CONNECT_BY_HOSTNAME=1 for Claude apps gateways: with oidc.use_proxy: true, sign-in requests hand the proxy an https IdP's hostname even with NO_PROXY set",
+      "Added gen_ai.usage.*, gen_ai.response.model and gen_ai.operation.name to claude_code.llm_request trace spans; gen_ai.usage.input_tokens includes prompt cache tokens",
+      "Added optionalDependencies to plugin manifests: plugins that install with the plugin listing them and can be disabled or uninstalled on their own",
+      "Fixed /install-github-app skipping the repository step after setup warnings when no repository was found, and Esc not going back from its workflow list and sign-in steps",
+      "Fixed one-line tool results cut with no ellipsis in narrow windows, Markdown stars in the Auto mode tab of /permissions, and a hook's reason to stop a forked skill showing twice",
+      "Fixed /diff hiding its key hints and not selecting files in windows of 24 to 26 rows, and leaving out files added with git add -N in a repository with no commits",
+      "Fixed the first-run theme list showing too few themes in short windows, and /usage and other tall screens coming out garbled there",
+      "Fixed /bug in fullscreen hiding its Yes and No answers behind a long report, and Yes staying out of view in very short windows",
+      "Fixed /compact and auto-compact sometimes losing part of the conversation summary when the summary quoted certain XML tags",
+      "Fixed Code Mode sessions resumed with --resume or --continue in another permission mode losing thinking and the prompt cache; one begun in a mode that asks keeps that mode's limits on scripts",
+      "Fixed auto mode sometimes refusing Claude's call to stop a /loop, which left the next wake-up to fire",
+      "Windows: Fixed /desktop downloading the older Claude Desktop installer, and asking for an update when an older install's folder was left behind",
+      "Fixed Code Mode with --bare not telling Claude what its scripts can call",
+      "Improved the Console sign-in link shown by /login and claude auth login --console: it is now much shorter",
+      "Improved the folder trust prompts in short terminals: fullscreen /cd and /add-dir show their choices in fewer rows, and the prompt at launch keeps the folder path in view when it has many warnings",
+      "Changed the questions for stopping auto-connect in /ide and for /clear, /compact or /rewind in a subagent's view to list Yes first; they still start on No, so Down then Enter now answers No",
+      "[VSCode] Fixed a message queued behind a queued /clear being lost",
+      "[VSCode] Fixed the spend limit message telling Team and Enterprise members to run /usage-credits, which can't send a request to their admin from the panel",
+      "[VSCode] Fixed typed text being lost after /tasks, /copy, /export, a skipped /feedback, or /plan while already in plan mode",
+      "[VSCode] Fixed shortcuts such as Ctrl+1, Alt+1 or Ctrl+Space answering an open dialog, which could restore files in the rewind confirmation or switch the git branch",
+      "[VSCode] Fixed new sessions starting in Edit automatically after pressing Shift+Tab through it to reach Plan mode",
+      "[VSCode] Fixed Alt+K line ranges such as @app.ts#5-10 sending the whole file, or its first 2,000 lines, instead of the selected lines",
+      "[VSCode] Fixed Enter rewriting a message or running a menu action when a /word such as the path /api stands beside other text, and running a typed slash command without its arguments",
+      "[VSCode] Fixed Ctrl+J and Ctrl+O in the chat also opening VS Code's terminal or Open File dialog on Windows and Linux"
+    ],
+    "features_ko": [
+      "Amazon Bedrock, Google Cloud의 Agent Platform, Microsoft Foundry 및 AWS의 Claude Platform에서 터미널 세션의 Code Mode 지원을 추가했습니다.",
+      "Claude 앱 게이트웨이에 oidc.groups_jsonpath를 추가하여 JSONPath(RFC 9535)의 작은 하위 집합을 가진 객체 목록의 일치하는 항목에서 그룹을 읽을 수 있게 했습니다.",
+      "claude doctor에 API 연결 섹션을 추가하여 API에 접근할 수 있는지, HTTP 상태 또는 오류를 보고하거나 테스트되지 않은 이유를 설명합니다.",
+      "인식된 음성이 없거나 2분 제한에 도달한 후 15초가 지나면 tap-mode 음성 받아쓰기가 자동으로 중지될 때 알림을 추가했습니다.",
+      "CLAUDE_CODE_DISABLE_RESPONSE_COMPRESSION을 추가하여 압축된 응답을 차단하는 프록시 뒤에서 비압축 모델 응답을 요청할 수 있게 했습니다. 자가 호스팅된 러너나 원격 제어에는 아직 권장되지 않습니다.",
+      "Claude 앱 게이트웨이에 CLAUDE_GATEWAY_IDP_CONNECT_BY_HOSTNAME=1을 추가했습니다: oidc.use_proxy: true와 함께, 로그인 요청은 NO_PROXY가 설정되어 있어도 프록시에 https IdP의 호스트 이름을 전달합니다.",
+      "claude_code.llm_request 추적 스팬에 gen_ai.usage.*, gen_ai.response.model 및 gen_ai.operation.name을 추가했습니다; gen_ai.usage.input_tokens에는 프롬프트 캐시 토큰이 포함됩니다.",
+      "플러그인 매니페스트에 optionalDependencies를 추가했습니다: 플러그인 목록에 설치된 플러그인으로, 독립적으로 비활성화하거나 제거할 수 있습니다.",
+      "/install-github-app이 저장소를 찾지 못한 경우 설정 경고 후 저장소 단계를 건너뛰고, Esc가 워크플로 목록 및 로그인 단계에서 돌아가지 않는 문제를 수정했습니다.",
+      "좁은 창에서 줄이 잘리면서 생략 부호 없이 표시되는 한 줄 도구 결과, /permissions의 Auto 모드 탭에서 Markdown 별표, 그리고 후크의 이유가 포크된 스킬에서 두 번 표시되는 문제를 수정했습니다.",
+      "/diff가 24~26행의 창에서 키 힌트를 숨기고 파일을 선택하지 않으며, 커밋이 없는 저장소에서 git add -N으로 추가된 파일을 누락하는 문제를 수정했습니다.",
+      "첫 실행 테마 목록이 짧은 창에서 너무 적은 테마를 표시하고, /usage 및 기타 긴 화면이 그곳에서 깨져 나오는 문제를 수정했습니다.",
+      "전체 화면에서 /bug가 긴 보고서 뒤에 Yes와 No 답변을 숨기고, 매우 짧은 창에서 Yes가 보이지 않는 문제를 수정했습니다.",
+      "/compact 및 auto-compact가 특정 XML 태그를 인용할 때 대화 요약의 일부를 잃어버리는 문제를 수정했습니다.",
+      "--resume 또는 --continue로 재개된 Code Mode 세션이 다른 권한 모드에서 사고 및 프롬프트 캐시를 잃어버리는 문제를 수정했습니다; 요청하는 모드에서 시작된 경우 해당 모드의 스크립트 제한을 유지합니다.",
+      "auto 모드가 /loop를 중지하라는 Claude의 호출을 거부하는 경우가 있어 다음 웨이크업이 발생하는 문제를 수정했습니다.",
+      "Windows: /desktop이 이전 Claude Desktop 설치 프로그램을 다운로드하고, 이전 설치의 폴더가 남아 있을 때 업데이트를 요청하는 문제를 수정했습니다.",
+      "--bare로 Code Mode가 Claude에 스크립트가 호출할 수 있는 내용을 알리지 않는 문제를 수정했습니다.",
+      "/login 및 claude auth login --console에서 표시되는 콘솔 로그인 링크를 개선했습니다: 이제 훨씬 짧아졌습니다.",
+      "짧은 터미널에서 폴더 신뢰 프롬프트를 개선했습니다: 전체 화면 /cd 및 /add-dir가 선택 사항을 더 적은 행으로 표시하고, 많은 경고가 있을 때 시작 시 프롬프트가 폴더 경로를 계속 표시합니다.",
+      "/ide에서 자동 연결 중지 질문과 /clear, /compact 또는 /rewind의 서브 에이전트 뷰에서 Yes를 먼저 나열하도록 변경했습니다; 여전히 No에서 시작하므로 이제 Down 후 Enter가 No에 답변합니다.",
+      "[VSCode] 대기 중인 /clear 뒤에 대기 중인 메시지가 사라지는 문제를 수정했습니다.",
+      "[VSCode] Team 및 Enterprise 구성원에게 /usage-credits를 실행하라는 지출 한도 메시지를 수정했습니다. 이는 패널에서 관리자로 요청을 보낼 수 없습니다.",
+      "[VSCode] /tasks, /copy, /export, 건너뛴 /feedback 또는 /plan 중 이미 계획 모드에 있을 때 입력한 텍스트가 사라지는 문제를 수정했습니다.",
+      "[VSCode] Ctrl+1, Alt+1 또는 Ctrl+Space와 같은 단축키가 열린 대화 상자에 응답하여 되감기 확인에서 파일을 복원하거나 git 브랜치를 전환하는 문제를 수정했습니다.",
+      "[VSCode] Shift+Tab을 눌러 Edit에서 Plan 모드에 도달한 후 새 세션이 자동으로 Edit에서 시작되는 문제를 수정했습니다.",
+      "[VSCode] @app.ts#5-10과 같은 Alt+K 줄 범위가 선택된 줄 대신 전체 파일 또는 처음 2,000줄을 보내는 문제를 수정했습니다.",
+      "[VSCode] /word와 같은 경로 /api가 다른 텍스트 옆에 있을 때 Enter가 메시지를 다시 작성하거나 메뉴 작업을 실행하고, 인수 없이 입력한 슬래시 명령을 실행하는 문제를 수정했습니다.",
+      "[VSCode] Windows 및 Linux에서 채팅의 Ctrl+J 및 Ctrl+O가 VS Code의 터미널 또는 파일 열기 대화 상자를 여는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.330",
     "date": "2026-11-20",
     "commands": [
