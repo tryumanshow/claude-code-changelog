@@ -1,5 +1,214 @@
 [
   {
+    "version": "2.1.332",
+    "date": "2026-11-25",
+    "commands": [
+      {
+        "name": "/model",
+        "context": "new",
+        "summary": "Added a footer line that stays while a flagged message has your session on a dif"
+      },
+      {
+        "name": "/compact",
+        "context": "new",
+        "summary": "Added a warning in VS Code and Desktop's Code tab when part of a session couldn'"
+      },
+      {
+        "name": "Ctrl+C",
+        "context": "fixed",
+        "summary": "Fixed the terminal freezing, and ignoring Ctrl+C, while a local MCP server flood"
+      },
+      {
+        "name": "/stats",
+        "context": "fixed",
+        "summary": "Fixed resuming a session and `/stats` freezing for seconds when a transcript hol"
+      },
+      {
+        "name": "--fallback-model",
+        "context": "fixed",
+        "summary": "Fixed a family name such as `sonnet` in `--fallback-model` being dropped when `a"
+      },
+      {
+        "name": "/install-github-app",
+        "context": "fixed",
+        "summary": "Fixed `/install-github-app` ticking a workflow again after going back with Esc"
+      },
+      {
+        "name": "--effort",
+        "context": "fixed",
+        "summary": "Fixed `--effort` being ignored when starting an interactive session with `--envi"
+      },
+      {
+        "name": "--environment",
+        "context": "fixed",
+        "summary": "Fixed `--effort` being ignored when starting an interactive session with `--envi"
+      },
+      {
+        "name": "/plugin",
+        "context": "fixed",
+        "summary": "Fixed the plugin \"not cached\" error pointing to `/plugin` instead of `/reload-pl"
+      },
+      {
+        "name": "/reload-plugins",
+        "context": "fixed",
+        "summary": "Fixed the plugin \"not cached\" error pointing to `/plugin` instead of `/reload-pl"
+      },
+      {
+        "name": "--configure-git",
+        "context": "mentioned",
+        "summary": "Self-hosted runner: Fixed `--configure-git` sometimes reporting a hung `git --ve"
+      },
+      {
+        "name": "Ctrl+R",
+        "context": "fixed",
+        "summary": "Fixed stale and repeated rows in the fullscreen Ctrl+R history picker when promp"
+      },
+      {
+        "name": "/mcp",
+        "context": "fixed",
+        "summary": "Fixed `/mcp reconnect all` and `/mcp disable all` counting a built-in server tha"
+      },
+      {
+        "name": "/context",
+        "context": "improved",
+        "summary": "Improved `/context`: shorter output in fullscreen, so the total is less likely t"
+      },
+      {
+        "name": "/usage",
+        "context": "improved",
+        "summary": "Improved peak memory use and speed of `/usage` on machines with many recent sess"
+      },
+      {
+        "name": "/permissions",
+        "context": "improved",
+        "summary": "Improved `/permissions` to refuse a rule that would be skipped at the next start"
+      },
+      {
+        "name": "Ctrl+V",
+        "context": "improved",
+        "summary": "Linux: Improved the Ctrl+V message to name the package to install (`wl-clipboard"
+      },
+      {
+        "name": "--model default",
+        "context": "improved",
+        "summary": "Changed `--model default` and a Default pick to move to an older model when that"
+      },
+      {
+        "name": "/autocompact",
+        "context": "improved",
+        "summary": "Changed Claude Desktop's Code tab on Anthropic's API to ignore a `CLAUDE_CODE_AU"
+      },
+      {
+        "name": "/clear",
+        "context": "improved",
+        "summary": "Changed PgUp and Home to go to No on destructive questions, such as `/clear` fro"
+      },
+      {
+        "name": "/feedback",
+        "context": "improved",
+        "summary": "Changed `/feedback` drafts in the terminal to open on Not now, above separate ro"
+      },
+      {
+        "name": "/schedule",
+        "context": "improved",
+        "summary": "Changed `/schedule`, permission prompts and `/loop`'s cloud offer to say \"cloud "
+      },
+      {
+        "name": "/loop",
+        "context": "new",
+        "summary": "[VSCode] Added a warning when restoring a conversation with `/rewind` in the sid"
+      },
+      {
+        "name": "/routines",
+        "context": "improved",
+        "summary": "Changed `/schedule`, permission prompts and `/loop`'s cloud offer to say \"cloud "
+      },
+      {
+        "name": "/rewind",
+        "context": "new",
+        "summary": "[VSCode] Added a warning when restoring a conversation with `/rewind` in the sid"
+      }
+    ],
+    "features": [
+      "Added skills from MCP servers (beta). They show as server:skill in the / menu; other skills keep their names",
+      "Added a PreSkillShellCommand hook event that can refuse a skill or command's inline shell commands as it loads; on 2.1.331 and older, a settings file naming it opens a dialog at start",
+      "Added \"Always deliver\" to the prompt for held messages from other sessions",
+      "Added a footer line that stays while a flagged message has your session on a different model, until you pick one with /model",
+      "Added an OpenTelemetry assistant_response event for text Claude sends through SendUserMessage or Cowork's message tool, when response logging is on",
+      "Added a warning in VS Code and Desktop's Code tab when part of a session couldn't be saved, saying how to save it with /compact",
+      "Added a notice in VS Code and Desktop's Code tab when a resumed session's earlier messages weren't loaded, as the terminal already shows",
+      "Added your Cyber Verification Program access tier to the startup header, beside the model name when your tier applies to that model and you're signed in with a claude.ai account",
+      "Fixed a freeze and context overflow when a hook blocks or fails during a turn, or after /compact, with a very large log; text over about 50,000 characters is now shortened",
+      "Fixed the terminal freezing, and ignoring Ctrl+C, while a local MCP server floods its standard output",
+      "Linux: Fixed the Bash edit diff showing an unchanged symlink as edited after Claude had read the file through it",
+      "Fixed resuming a session and /stats freezing for seconds when a transcript holds many damaged lines",
+      "Fixed a family name such as sonnet in --fallback-model being dropped when availableModels allows only an older version of it",
+      "Fixed keys lagging for seconds while /stats reads large session transcripts, also after the dialog is closed, and with debug logging on while a language server floods its stderr",
+      "Fixed Ctrl+C at the prompt starting a new turn, and a double Ctrl+C not exiting, when a background agent it stopped had an unread subagent report",
+      "Fixed /install-github-app ticking a workflow again after going back with Esc",
+      "Fixed temp_* folders piling up in ~/.claude/plugins/cache when a downloaded plugin couldn't be copied into place",
+      "Fixed --effort being ignored when starting an interactive session with --environment while CLAUDE_CODE_EFFORT_LEVEL is set to the same level",
+      "Fixed the plugin \"not cached\" error pointing to /plugin instead of /reload-plugins, the command that reloads plugins",
+      "Self-hosted runner: Fixed --configure-git sometimes reporting a hung git --version as a git that isn't on PATH",
+      "Fixed stale and repeated rows in the fullscreen Ctrl+R history picker when prompts share a timestamp",
+      "Remote Control: Fixed sessions hosted by the desktop app or VS Code showing as idle while /compact runs",
+      "Fixed /mcp reconnect all and /mcp disable all counting a built-in server that isn't turned on for the account",
+      "Windows: Improved stability on some company PCs, where Claude Code could exit with no output shortly after start",
+      "Improved /context: shorter output in fullscreen, so the total is less likely to scroll off in a short window, and the legend names its unit once",
+      "Improved peak memory use and speed of /usage on machines with many recent sessions",
+      "Improved /permissions to refuse a rule that would be skipped at the next start, such as rm -rf with no tool name, and to show the reason",
+      "Linux: Improved the Ctrl+V message to name the package to install (wl-clipboard or xclip) when images can't be read from the clipboard",
+      "Improved recovery for long conversations behind a proxy or gateway with a request size limit, where every message and /compact failed with a 413",
+      "Changed --model default and a Default pick to move to an older model when that model isn't available, instead of stopping with an error; in auto mode, only to a model auto mode accepts",
+      "Changed Claude Desktop's Code tab on Anthropic's API to ignore a CLAUDE_CODE_AUTO_COMPACT_WINDOW under 200K in your own settings beside a gateway address; use /autocompact instead",
+      "Changed PgUp and Home to go to No on destructive questions, such as /clear from an agent's view",
+      "Changed /feedback drafts in the terminal to open on Not now, above separate rows to send the report alone or with the transcript",
+      "Changed /schedule, permission prompts and /loop's cloud offer to say \"cloud scheduled task\" instead of \"routine\" or \"cloud schedule\"; /routines still works",
+      "[VSCode] Added a warning when restoring a conversation with /rewind in the side bar stops a self-paced /loop",
+      "[VSCode] Fixed the model picker's arrow keys starting from the wrong row right after it opens, and screen readers not announcing its highlighted model when opened with /model or the command menu",
+      "[VSCode] Fixed /model completed with Tab sometimes switching the model, and closing the model picker right away when nothing is running"
+    ],
+    "features_ko": [
+      "MCP 서버에서 기술이 추가되었습니다(베타). / 메뉴에서 server:skill로 표시되며, 다른 기술은 이름을 유지합니다.",
+      "기술이나 명령의 인라인 셸 명령을 로드할 때 거부할 수 있는 PreSkillShellCommand 훅 이벤트가 추가되었습니다; 2.1.331 및 이전 버전에서는 이름을 지정한 설정 파일이 시작 시 대화 상자를 엽니다.",
+      "다른 세션에서 보류 중인 메시지에 대해 \"항상 전달\" 옵션이 추가되었습니다.",
+      "플래그가 지정된 메시지가 다른 모델에서 세션을 유지하는 동안 남아 있는 바닥글이 추가되었습니다. /model로 선택할 때까지 유지됩니다.",
+      "응답 로깅이 활성화된 경우, SendUserMessage 또는 Cowork의 메시지 도구를 통해 Claude가 보내는 텍스트에 대한 OpenTelemetry assistant_response 이벤트가 추가되었습니다.",
+      "세션의 일부가 저장되지 못했을 때, /compact로 저장하는 방법을 안내하는 경고가 VS Code 및 Desktop의 Code 탭에 추가되었습니다.",
+      "재개된 세션의 이전 메시지가 로드되지 않았을 때 VS Code 및 Desktop의 Code 탭에 알림이 추가되었습니다. 터미널에서 이미 표시됩니다.",
+      "Cyber Verification Program 접근 수준이 시작 헤더에 추가되었습니다. 해당 모델에 적용되고 claude.ai 계정으로 로그인한 경우 모델 이름 옆에 표시됩니다.",
+      "훅이 차단되거나 실패할 때, 또는 /compact 후에 매우 큰 로그로 인해 정지가 발생하는 문제를 수정했습니다; 50,000자 이상의 텍스트는 이제 축약됩니다.",
+      "로컬 MCP 서버가 표준 출력을 과도하게 출력하는 동안 터미널이 정지하고 Ctrl+C를 무시하는 문제를 수정했습니다.",
+      "Linux: Claude가 파일을 통해 읽은 후 Bash 편집 차이가 변경되지 않은 심볼릭 링크를 편집된 것으로 표시하는 문제를 수정했습니다.",
+      "많은 손상된 줄이 포함된 전사에서 세션을 재개하거나 /stats가 몇 초 동안 정지하는 문제를 수정했습니다.",
+      "--fallback-model에서 sonnet과 같은 성이 사용 가능한 모델이 이전 버전만 허용할 때 삭제되는 문제를 수정했습니다.",
+      "/stats가 큰 세션 전사를 읽는 동안 키가 몇 초 동안 지연되는 문제를 수정했습니다. 대화가 종료된 후에도 발생하며, 언어 서버가 stderr를 과도하게 출력하는 동안 디버그 로깅이 활성화되어 있을 때도 발생합니다.",
+      "프롬프트에서 Ctrl+C가 새로운 턴을 시작하고, 두 번의 Ctrl+C가 종료되지 않는 문제를 수정했습니다. 중단된 백그라운드 에이전트에 읽지 않은 하위 에이전트 보고서가 있을 때 발생합니다.",
+      "/install-github-app에서 Esc로 돌아간 후 워크플로우가 다시 체크되는 문제를 수정했습니다.",
+      "다운로드한 플러그인이 제자리에 복사되지 못할 때 ~/.claude/plugins/cache에 temp_* 폴더가 쌓이는 문제를 수정했습니다.",
+      "CLAUDE_CODE_EFFORT_LEVEL이 동일한 수준으로 설정되어 있을 때 --environment로 대화형 세션을 시작할 때 --effort가 무시되는 문제를 수정했습니다.",
+      "플러그인 \"캐시되지 않음\" 오류가 /reload-plugins 대신 /plugin을 가리키는 문제를 수정했습니다. 이는 플러그인을 다시 로드하는 명령입니다.",
+      "자체 호스팅 러너: --configure-git가 때때로 PATH에 없는 git으로 hung git --version을 보고하는 문제를 수정했습니다.",
+      "프롬프트가 타임스탬프를 공유할 때 전체 화면 Ctrl+R 기록 선택기에서 오래된 및 반복된 행이 나타나는 문제를 수정했습니다.",
+      "원격 제어: 데스크탑 앱이나 VS Code에서 호스팅된 세션이 /compact 실행 중에 유휴 상태로 표시되는 문제를 수정했습니다.",
+      "/mcp reconnect all 및 /mcp disable all이 계정에 대해 켜지지 않은 내장 서버를 계산하는 문제를 수정했습니다.",
+      "Windows: Claude Code가 시작 직후 출력 없이 종료될 수 있는 일부 회사 PC에서 안정성을 개선했습니다.",
+      "/context 개선: 전체 화면에서 출력이 짧아져서 짧은 창에서 총합이 스크롤되지 않을 가능성이 줄어들고, 범례는 단위를 한 번만 명명합니다.",
+      "최근 세션이 많은 머신에서 /usage의 피크 메모리 사용량과 속도를 개선했습니다.",
+      "/permissions 개선: 다음 시작 시 건너뛰어질 규칙을 거부하도록 하여, 도구 이름 없이 rm -rf와 같은 규칙을 거부하고 이유를 표시합니다.",
+      "Linux: 클립보드에서 이미지를 읽을 수 없을 때 설치할 패키지(wl-clipboard 또는 xclip)를 명시하는 Ctrl+V 메시지를 개선했습니다.",
+      "요청 크기 제한이 있는 프록시 또는 게이트웨이 뒤에서 긴 대화를 복구하는 기능을 개선했습니다. 모든 메시지와 /compact가 413으로 실패했습니다.",
+      "--model 기본값과 기본 선택이 해당 모델이 사용 불가능할 때 오류로 중지하는 대신 이전 모델로 이동하도록 변경되었습니다; 자동 모드에서는 자동 모드가 수용하는 모델로만 이동합니다.",
+      "Claude Desktop의 Code 탭에서 Anthropic의 API가 게이트웨이 주소 옆의 설정에서 200K 미만의 CLAUDE_CODE_AUTO_COMPACT_WINDOW를 무시하도록 변경했습니다; 대신 /autocompact를 사용하세요.",
+      "PgUp과 Home을 파괴적인 질문에서 No로 가도록 변경했습니다, 예를 들어 에이전트 뷰에서 /clear와 같은 경우.",
+      "터미널에서 /feedback 초안이 \"지금 아니요\"로 열리도록 변경했으며, 보고서를 단독으로 또는 전사와 함께 보내기 위해 별도의 행 위에 있습니다.",
+      "/schedule, 권한 프롬프트 및 /loop의 클라우드 제안이 \"routine\" 또는 \"cloud schedule\" 대신 \"cloud scheduled task\"라고 말하도록 변경했습니다; /routines는 여전히 작동합니다.",
+      "[VSCode] 사이드 바에서 /rewind로 대화를 복원할 때 자율적인 /loop가 중단된다는 경고를 추가했습니다.",
+      "[VSCode] 모델 선택기의 화살표 키가 열리자마자 잘못된 행에서 시작되는 문제와 /model 또는 명령 메뉴로 열 때 강조된 모델을 스크린 리더가 발표하지 않는 문제를 수정했습니다.",
+      "[VSCode] /model이 Tab으로 완료될 때 모델이 가끔 변경되고, 아무것도 실행 중이지 않을 때 모델 선택기가 즉시 닫히는 문제를 수정했습니다."
+    ]
+  },
+  {
     "version": "2.1.331",
     "date": "2026-11-30",
     "commands": [
