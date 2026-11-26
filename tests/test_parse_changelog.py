@@ -172,6 +172,24 @@ def test_web_data_types_each_bullet_and_aligns_translations(entries):
     assert [len(ko[r["version"]]) for r in data["releases"]] == [len(r["features"]) for r in data["releases"]]
 
 
+def test_feed_is_valid_atom_with_escaped_content(entries):
+    import xml.etree.ElementTree as ET
+
+    for e, date in zip(entries, ["2026-03-01", "2026-02-01", ""]):
+        e["date"] = date
+    entries[0]["features"].append("Fixed <details> & \"quotes\" rendering")
+    root = ET.fromstring(pc.generate_feed(entries))
+    ns = {"a": "http://www.w3.org/2005/Atom"}
+    assert root.find("a:updated", ns).text == "2026-03-01T00:00:00Z"
+    feed_entries = root.findall("a:entry", ns)
+    assert [x.find("a:title", ns).text for x in feed_entries] == [
+        "Claude Code v1.2.0",
+        "Claude Code v1.1.0 — new: /loop, /rewind",
+    ]
+    assert feed_entries[0].find("a:link", ns).get("href").endswith("#v1.2.0")
+    assert "<li>Fixed &lt;details&gt; &amp; &quot;quotes&quot; rendering</li>" in feed_entries[0].find("a:content", ns).text
+
+
 # --- translation ---------------------------------------------------------------
 
 @pytest.fixture
@@ -242,7 +260,7 @@ def workspace(tmp_path, monkeypatch):
     """Point every input/output path at a temp dir and stub the network."""
     for attr, name in [
         ("RAW_FILE", "CHANGELOG_RAW.md"), ("JSON_FILE", "releases.json"),
-        ("RELEASES_FILE", "RELEASES.md"), ("WEB_DATA_FILE", "data.json"), ("WEB_KO_FILE", "ko.json"),
+        ("RELEASES_FILE", "RELEASES.md"), ("WEB_DATA_FILE", "data.json"), ("WEB_KO_FILE", "ko.json"), ("FEED_FILE", "feed.xml"),
         ("META_FILE", "meta.json"), ("TRANSLATION_CACHE", "translations_cache.json"),
     ]:
         monkeypatch.setattr(pc, attr, tmp_path / name)

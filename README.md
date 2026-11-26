@@ -13,11 +13,14 @@ Parses the official CHANGELOG.md **daily at 06:00 KST** and extracts new command
 
 **https://tryumanshow.github.io/claude-code-changelog**
 
-- 252+ versions fully indexed
-- Real-time search by version, command, or feature
-- "New commands only" filter (show only versions that introduce a command)
+- Every version indexed, collapsed to its top changes; expand for the full list grouped by Added / Improved / Fixed / Removed
+- Search by version, command, or feature, with match highlighting (`/` focuses the search box)
+- Filters: "New commands only" (versions that introduce a command) and change type
+- Commands tab: every slash command, CLI flag and shortcut with the version it first appeared in
+- Shareable URLs: `?q=worktree`, `?type=fixed`, `?view=commands`, `#v2.1.332`
 - English/Korean toggle (persisted via localStorage)
-- Dark theme + mobile responsive
+- Dark and light theme, mobile responsive
+- [Atom feed](https://tryumanshow.github.io/claude-code-changelog/feed.xml) of the latest 30 releases
 
 ## How it works
 
@@ -57,7 +60,8 @@ claude-code-changelog/
 ├── docs/
 │   ├── index.html               # GitHub Pages dashboard (static page)
 │   ├── data.json                # Dashboard data (generated)
-│   └── ko.json                  # Korean bullets, loaded on demand (generated)
+│   ├── ko.json                  # Korean bullets, loaded on demand (generated)
+│   └── feed.xml                 # Atom feed (generated)
 ├── CHANGELOG_RAW.md             # Raw source (auto-fetched)
 ├── RELEASES.md                  # Auto-generated version table
 ├── README.md                    # This file

@@ -13,11 +13,14 @@
 
 **https://tryumanshow.github.io/claude-code-changelog**
 
-- 252+ 버전 전수 조사
-- 버전/커맨드/기능 실시간 검색
-- "New commands only" 필터 (커맨드가 처음 등장한 버전만 보기)
-- 영어/한국어 전환 (localStorage에 저장)
-- 다크 테마 + 모바일 반응형
+- 전체 버전 수록, 기본은 주요 변경만 접어서 표시하고 펼치면 추가 / 개선 / 수정 / 삭제 그룹으로 전체 표시
+- 버전, 커맨드, 기능 검색 + 매칭 하이라이트 (`/` 키로 검색창 포커스)
+- 필터: "New commands only" (커맨드가 처음 등장한 버전만), 변경 유형
+- 커맨드 탭: 슬래시 커맨드, CLI 플래그, 단축키별 최초 등장 버전
+- 공유 가능한 URL: `?q=worktree`, `?type=fixed`, `?view=commands`, `#v2.1.332`
+- 영어/한국어 전환 (localStorage 에 저장)
+- 다크/라이트 테마, 모바일 대응
+- 최근 30개 릴리스 [Atom 피드](https://tryumanshow.github.io/claude-code-changelog/feed.xml)
 
 ## 동작 방식
 
@@ -57,7 +60,8 @@ claude-code-changelog/
 ├── docs/
 │   ├── index.html               # GitHub Pages 대시보드 (정적 페이지)
 │   ├── data.json                # 대시보드 데이터 (자동 생성)
-│   └── ko.json                  # 한국어 불릿, 필요할 때 로드 (자동 생성)
+│   ├── ko.json                  # 한국어 불릿, 필요할 때 로드 (자동 생성)
+│   └── feed.xml                 # Atom 피드 (자동 생성)
 ├── CHANGELOG_RAW.md             # 원본 (auto-fetched)
 ├── RELEASES.md                  # 자동 생성 버전 표
 ├── README.md                    # 영어 README

@@ -5,6 +5,7 @@ Parse Claude Code CHANGELOG.md and generate:
   - RELEASES.md         (markdown table)
   - docs/data.json      (dashboard data; docs/index.html is a static page that loads it)
   - docs/ko.json        (Korean bullets for the dashboard)
+  - docs/feed.xml       (Atom feed of the latest releases)
 """
 
 import json
@@ -14,6 +15,7 @@ import subprocess
 import hashlib
 import sys
 import time
+from html import escape
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -26,6 +28,10 @@ JSON_FILE = ROOT / "data" / "releases.json"
 RELEASES_FILE = ROOT / "RELEASES.md"
 WEB_DATA_FILE = ROOT / "docs" / "data.json"
 WEB_KO_FILE = ROOT / "docs" / "ko.json"
+FEED_FILE = ROOT / "docs" / "feed.xml"
+
+SITE_URL = "https://tryumanshow.github.io/claude-code-changelog/"
+FEED_ENTRIES = 30
 META_FILE = ROOT / "data" / "meta.json"
 
 # A fetch that returns a truncated or wrong file must not wipe the dashboard
@@ -617,6 +623,44 @@ def generate_web_translations(entries: list[dict]) -> dict[str, list[str]]:
     return {e["version"]: e.get("features_ko", e["features"]) for e in entries}
 
 
+def generate_feed(entries: list[dict]) -> str:
+    """Atom feed of the latest dated releases.
+
+    Timestamps come from release dates, so the feed only changes when a
+    release is added or its bullets change.
+    """
+    dated = [e for e in entries if e["date"]][:FEED_ENTRIES]
+    feed_updated = max((e["date"] for e in dated), default="1970-01-01")
+    lines = [
+        '<?xml version="1.0" encoding="utf-8"?>',
+        '<feed xmlns="http://www.w3.org/2005/Atom">',
+        "  <title>Claude Code Changelog</title>",
+        f'  <link href="{SITE_URL}"/>',
+        f'  <link rel="self" href="{SITE_URL}feed.xml"/>',
+        f"  <id>{SITE_URL}</id>",
+        f"  <updated>{feed_updated}T00:00:00Z</updated>",
+        "  <author><name>tryumanshow</name></author>",
+    ]
+    for e in dated:
+        url = f"{SITE_URL}#v{e['version']}"
+        new_cmds = [c["name"] for c in e["commands"] if c["context"] == "new"]
+        title = f"Claude Code v{e['version']}"
+        if new_cmds:
+            title += " — new: " + ", ".join(new_cmds)
+        items = "".join(f"<li>{escape(f)}</li>" for f in e["features"])
+        lines += [
+            "  <entry>",
+            f"    <title>{escape(title)}</title>",
+            f'    <link href="{url}"/>',
+            f"    <id>{url}</id>",
+            f"    <updated>{e['date']}T00:00:00Z</updated>",
+            f'    <content type="html">{escape(f"<ul>{items}</ul>")}</content>',
+            "  </entry>",
+        ]
+    lines.append("</feed>")
+    return "\n".join(lines) + "\n"
+
+
 def _compact_json(data) -> str:
     return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
 
@@ -628,6 +672,7 @@ def render_outputs(entries: list[dict], updated: str) -> dict[Path, str]:
         RELEASES_FILE: generate_readme(entries, updated),
         WEB_DATA_FILE: _compact_json(generate_web_data(entries, updated)),
         WEB_KO_FILE: _compact_json(generate_web_translations(entries)),
+        FEED_FILE: generate_feed(entries),
         META_FILE: json.dumps({"updated": updated}, indent=2) + "\n",
     }
 
