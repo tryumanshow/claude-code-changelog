@@ -15,7 +15,7 @@ Parses the official CHANGELOG.md **daily at 06:00 KST** and extracts new command
 
 - 252+ versions fully indexed
 - Real-time search by version, command, or feature
-- "Commands only" filter (show only versions with new commands)
+- "New commands only" filter (show only versions that introduce a command)
 - English/Korean toggle (persisted via localStorage)
 - Dark theme + mobile responsive
 
@@ -39,7 +39,7 @@ GitHub Actions (daily cron, 06:00 KST)
 |--------|---------|-------|
 | [CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) | Versions, commands, feature text | Fetched daily |
 | [GitHub Releases API](https://github.com/anthropics/claude-code/releases) | Release dates | Early-exit cache |
-| [npm registry](https://www.npmjs.com/package/@anthropic-ai/claude-code) | Date backfill (versions not on GitHub) | Skipped when cache > 200 |
+| [npm registry](https://www.npmjs.com/package/@anthropic-ai/claude-code) | Date backfill (versions not on GitHub) | Queried only while a version has no date |
 | OpenAI API | Korean translation of key features | Translation cache minimizes API calls |
 
 ## Project Structure
@@ -73,15 +73,17 @@ claude-code-changelog/
 
 ## Command Extraction Logic
 
-- **Layer 1**: Extract backtick-quoted patterns from the full changelog body (`` `/effort` ``, `` `--bare` ``, `` `Ctrl+B` ``)
-- **Layer 2**: Extract unquoted slash commands (common in older versions without backticks)
-- **Layer 3**: 59 known commands list ensures first-appearance tracking
-- **Blocklist**: Filters out URL paths (`/api`, `/docs`) and generic flags (`--no`, `--the`)
+- **Backtick**: slash commands and flags inside backticks (`` `/effort` ``, `` `--bare` ``, `` `claude --chrome` ``)
+- **Unquoted**: slash commands written without backticks (older versions); paths and URLs are skipped
+- **Normalization**: arguments are dropped (`` `/tui classic` `` → `/tui`) and shortcut casing is unified (`ctrl+c` → `Ctrl+C`)
+- **Blocklist**: filters URL paths (`/api`, `/docs`), filesystem paths (`/proc`, `/var`) and generic flags (`--no`, `--the`)
+- **NEW**: given only to the first version that mentions a command; later "Added ... `/cmd`" lines count as improvements (IMP)
 
 ## Translation Cache
 
 - Each translated feature is stored in `translations_cache.json` keyed by SHA-256 hash
 - Only untranslated features call the OpenAI API (batched 30 at a time)
+- Failed translations are not cached and are retried on the next run
 - Initial cost ~$0.02, near-free thereafter
 
 ## Links

@@ -29,8 +29,12 @@ HTML_FILE = ROOT / "docs" / "index.html"
 # 0. Fetch release dates from GitHub API
 # ---------------------------------------------------------------------------
 
-def fetch_release_dates() -> dict[str, str]:
-    """Fetch release dates from GitHub API + npm, with local cache."""
+def fetch_release_dates(needed: set[str]) -> dict[str, str]:
+    """Fetch release dates from GitHub API + npm, with local cache.
+
+    `needed` is the set of versions found in the changelog; npm is only queried
+    when at least one of them still has no date after the GitHub pass.
+    """
     cached: dict[str, str] = {}
     if DATES_CACHE.exists():
         cached = json.loads(DATES_CACHE.read_text(encoding="utf-8"))
@@ -71,9 +75,9 @@ def fetch_release_dates() -> dict[str, str]:
 
     print(f"GitHub API: fetched {total_fetched} releases")
 
-    # --- Source 2: npm registry (covers ALL versions, skip if cache is large enough) ---
-    if len(cached) > 200:
-        print(f"npm registry: skipped (cache already has {len(cached)} entries)")
+    # --- Source 2: npm registry (covers versions that have no GitHub release) ---
+    if not needed - cached.keys():
+        print("npm registry: skipped (every changelog version already has a date)")
     else:
         try:
             result = subprocess.run(
@@ -129,30 +133,27 @@ def save_translation_cache(cache: dict[str, str]) -> None:
     )
 
 
-def translate_batch_openai(texts: list[str], api_key: str) -> list[str]:
-    """Translate a batch of English feature texts to Korean via OpenAI API.
-    Batches up to 30 items per request to minimize API calls.
-    """
-    if not texts:
-        return []
+HANGUL = re.compile(r"[가-힣]")
+TRANSLATE_BATCH_SIZE = 30
 
-    # Build numbered list for batch translation
-    numbered = "\n".join(f"{i+1}. {t}" for i, t in enumerate(texts))
-    prompt = (
-        "Translate each numbered line from English to Korean. "
-        "Keep technical terms (command names, flags, API names, file paths) in English. "
-        "Return ONLY the numbered translations, same format. "
-        "Be concise and natural in Korean.\n\n"
-        f"{numbered}"
-    )
 
+def _request_translations(texts: list[str], api_key: str) -> list[str]:
+    """One OpenAI call. Returns exactly len(texts) strings or raises."""
     payload = json.dumps({
         "model": "gpt-4o-mini",
         "messages": [
-            {"role": "system", "content": "You are a technical translator. Translate English changelog entries to Korean. Keep code/command/path terms in English."},
-            {"role": "user", "content": prompt},
+            {"role": "system", "content": (
+                "You are a technical translator. Translate English changelog entries to Korean. "
+                "Keep code/command/path terms in English. Be concise and natural in Korean."
+            )},
+            {"role": "user", "content": (
+                'Translate every string in "items" to Korean. Reply with a JSON object '
+                '{"translations": [...]} holding one translation per item, in the same order.\n\n'
+                + json.dumps({"items": texts}, ensure_ascii=False)
+            )},
         ],
         "temperature": 0.2,
+        "response_format": {"type": "json_object"},
     }).encode("utf-8")
 
     req = Request(
@@ -163,87 +164,89 @@ def translate_batch_openai(texts: list[str], api_key: str) -> list[str]:
             "Content-Type": "application/json",
         },
     )
+    with urlopen(req, timeout=60) as resp:
+        result = json.loads(resp.read().decode("utf-8"))
+    translations = json.loads(result["choices"][0]["message"]["content"])["translations"]
+    if not isinstance(translations, list) or len(translations) != len(texts):
+        raise ValueError(f"expected {len(texts)} translations, got {len(translations)}")
+    return translations
 
+
+def translate_batch_openai(texts: list[str], api_key: str) -> list[str | None]:
+    """Translate English feature texts to Korean.
+
+    Returns one item per input: the Korean text, or None where translation
+    failed. A batch whose reply cannot be matched to its inputs is split in
+    half and retried, so one bad item never shifts or poisons the others.
+    """
+    if not texts:
+        return []
     try:
-        with urlopen(req, timeout=60) as resp:
-            result = json.loads(resp.read().decode("utf-8"))
-        content = result["choices"][0]["message"]["content"].strip()
-
-        # Parse numbered responses
-        translations = []
-        for line in content.splitlines():
-            line = line.strip()
-            m = re.match(r"^\d+\.\s*(.+)$", line)
-            if m:
-                translations.append(m.group(1).strip())
-
-        # If parsing failed, return originals
-        if len(translations) != len(texts):
-            print(f"  Warning: expected {len(texts)} translations, got {len(translations)}. Using originals for mismatch.")
-            # Pad with originals
-            while len(translations) < len(texts):
-                translations.append(texts[len(translations)])
-
-        return translations
+        translations = _request_translations(texts, api_key)
     except Exception as e:
-        print(f"  Warning: OpenAI API failed: {e}")
-        return texts  # fallback to English
+        if len(texts) == 1:
+            print(f"  Warning: translation failed: {e}")
+            return [None]
+        print(f"  Warning: batch of {len(texts)} failed ({e}); retrying in halves")
+        mid = len(texts) // 2
+        return translate_batch_openai(texts[:mid], api_key) + translate_batch_openai(texts[mid:], api_key)
+    return [
+        t.strip() if isinstance(t, str) and HANGUL.search(t) else None
+        for t in translations
+    ]
 
 
 def translate_features(entries: list[dict], api_key: str) -> None:
     """Add 'features_ko' to each entry, using cache + OpenAI API.
 
-    Cache is always consulted first. If api_key is empty, untranslated features
-    fall back to the English text instead of being silently overwritten.
+    Only real translations are cached. Features that cannot be translated (no
+    API key, API failure) are shown in English and retried on the next run.
     """
     cache = load_translation_cache()
     to_translate: list[tuple[int, int, str]] = []  # (entry_idx, feat_idx, text)
 
-    # Collect untranslated features
     for ei, entry in enumerate(entries):
         entry["features_ko"] = []
         for fi, feat in enumerate(entry["features"]):
-            h = _content_hash(feat)
-            if h in cache:
-                entry["features_ko"].append(cache[h])
+            cached = cache.get(_content_hash(feat))
+            # An entry equal to its source is a failed translation cached by an older run
+            if cached and cached != feat:
+                entry["features_ko"].append(cached)
             else:
-                entry["features_ko"].append(None)  # placeholder
+                entry["features_ko"].append(feat)  # English until translated
                 to_translate.append((ei, fi, feat))
 
+    total = sum(len(e["features"]) for e in entries)
     if not to_translate:
-        print(f"Translation: all {sum(len(e['features']) for e in entries)} features cached, 0 API calls needed")
+        print(f"Translation: all {total} features cached, 0 API calls needed")
         return
 
     if not api_key:
-        # No API key — leave cached translations as-is, fall back to English for misses
-        for ei, fi, original in to_translate:
-            entries[ei]["features_ko"][fi] = original
-        cached = sum(len(e["features"]) for e in entries) - len(to_translate)
-        print(f"Translation: OPENAI_API_KEY not set — used {cached} cached, fell back to English for {len(to_translate)} uncached features")
+        print(f"Translation: OPENAI_API_KEY not set — used {total - len(to_translate)} cached, "
+              f"fell back to English for {len(to_translate)} uncached features")
         return
 
     print(f"Translation: {len(to_translate)} new features to translate...")
-
-    # Batch translate (30 per request)
-    BATCH_SIZE = 30
     translated_count = 0
-    for batch_start in range(0, len(to_translate), BATCH_SIZE):
-        batch = to_translate[batch_start:batch_start + BATCH_SIZE]
-        texts = [t[2] for t in batch]
-        translations = translate_batch_openai(texts, api_key)
+    for batch_start in range(0, len(to_translate), TRANSLATE_BATCH_SIZE):
+        batch = to_translate[batch_start:batch_start + TRANSLATE_BATCH_SIZE]
+        translations = translate_batch_openai([t[2] for t in batch], api_key)
 
         for (ei, fi, original), translated in zip(batch, translations):
-            h = _content_hash(original)
-            cache[h] = translated
+            if translated is None:
+                continue
+            cache[_content_hash(original)] = translated
             entries[ei]["features_ko"][fi] = translated
             translated_count += 1
 
         # Rate limit: be nice to OpenAI
-        if batch_start + BATCH_SIZE < len(to_translate):
+        if batch_start + TRANSLATE_BATCH_SIZE < len(to_translate):
             time.sleep(1)
 
     save_translation_cache(cache)
-    print(f"Translation: {translated_count} features translated, cache now has {len(cache)} entries")
+    failed = len(to_translate) - translated_count
+    print(f"Translation: {translated_count} translated, {failed} left in English, "
+          f"cache now has {len(cache)} entries")
 
 
 # ---------------------------------------------------------------------------
@@ -259,13 +262,10 @@ def _split_changelog(text: str) -> list[tuple[str, str]]:
     return pairs
 
 
-def parse_changelog(text: str) -> tuple[list[dict], dict[str, str]]:
-    """Return (entries, version_bodies) — version_bodies reused by enrich_first_appearances."""
-    pairs = _split_changelog(text)
+def parse_changelog(text: str) -> list[dict]:
+    """Return one entry per version, newest first (changelog order)."""
     entries: list[dict] = []
-    version_bodies: dict[str, str] = {}
-    for version, body in pairs:
-        version_bodies[version] = body
+    for version, body in _split_changelog(text):
         commands = extract_commands(body)
         entries.append({
             "version": version,
@@ -273,11 +273,22 @@ def parse_changelog(text: str) -> tuple[list[dict], dict[str, str]]:
             "commands": commands,
             "features": extract_features(body, commands),
         })
-    return entries, version_bodies
+    return entries
 
 
 def extract_date(body: str) -> str:
-    """Try to find date in body."""
+    """Find a release date in the header area of a version section.
+
+    Only the text before the first bullet is considered: dates inside bullets
+    ("... API version 2026-10-21", "... until November 30, 2026") describe the
+    change, not the release.
+    """
+    header_lines = []
+    for line in body.splitlines():
+        if re.match(r"\s*[-*]\s", line):
+            break
+        header_lines.append(line)
+    body = "\n".join(header_lines)
     # Pattern: **Date:** March 29, 2026  or  (March 29, 2026)
     m = re.search(r"(\w+ \d{1,2},? \d{4})", body)
     if m:
@@ -294,29 +305,33 @@ def extract_date(body: str) -> str:
     return ""
 
 
-COMMAND_PATTERN = re.compile(
-    r"`(/?[\w\-]+(?:\s+[\w\-<>]+)?)`"  # `/effort`, `--bare`, `Ctrl+B`
-)
-# Also match unquoted patterns like: "/release-notes command", "--continue"
-UNQUOTED_SLASH = re.compile(r"(?<!\w)(/[a-z][\w\-]*)")  # /vim, /config, /resume
-UNQUOTED_FLAG = re.compile(r"(?<!\w)(--[a-z][\w\-]*)")  # --continue, --resume
-CTRL_PATTERN = re.compile(r"((?:Ctrl|ctrl|Alt|alt|Shift|shift)[+\-][A-Za-z])")
+BACKTICK_SPAN = re.compile(r"`([^`]+)`")
+SLASH_NAME = re.compile(r"/[a-z][a-z0-9-]*")
+FLAG_NAME = re.compile(r"(?<![\w-])--[a-z][A-Za-z0-9-]*(?![\w-])")
+# Unquoted slash command: not part of a path (`~/x`, `a/b`, `/mnt/c`, `/x.json`) or URL
+UNQUOTED_SLASH = re.compile(r"(?<![\w~./:\\<-])(/[a-z][a-z0-9-]*)(?![\w-]|/|\.\w)")
+UNQUOTED_FLAG = re.compile(r"(?<![\w-])(--[a-z][A-Za-z0-9-]*)(?![\w-])")
+SHORTCUT_PATTERN = re.compile(r"(?<![\w+-])(ctrl|alt|shift)[+\-]([a-z])(?![\w+-])", re.IGNORECASE)
 
-KNOWN_PREFIXES = ("/", "--", "-n", "-w", "Ctrl+", "Alt+", "Option+", "Shift+", "claude ")
-
-# False positives to exclude (URL fragments, generic words)
+# False positives to exclude: things that look like `/name` but are not commands
 COMMAND_BLOCKLIST = {
     # URL path fragments
     "/claude", "/code", "/www", "/com", "/en", "/docs", "/api",
-    "/news", "/v1", "/v2", "/bin", "/usr", "/etc", "/tmp", "/dev",
-    "/ai", "/new", "/downloads", "/frontend", "/component",
-    "/claude-code", "/claude-code-sdk", "/metrics", "/json",
-    "/wp-json", "/next", "/data", "/src", "/dist", "/node",
-    "/app", "/lib", "/home", "/index", "/main", "/test", "/spec",
+    "/news", "/v1", "/v2", "/ai", "/new", "/downloads", "/frontend",
+    "/component", "/claude-code", "/claude-code-sdk", "/metrics", "/json",
+    "/wp-json", "/next", "/data", "/src", "/dist", "/node", "/app", "/lib",
+    "/index", "/main", "/test", "/spec", "/healthz", "/readyz", "/protocol",
+    "/device", "/anthropic", "/platform", "/types", "/repo", "/build",
+    # Filesystem roots and mount points
+    "/bin", "/usr", "/etc", "/tmp", "/dev", "/home", "/proc", "/var", "/net",
+    "/mnt", "/media", "/opt", "/private", "/storage", "/dir", "/path", "/env",
+    # Placeholders used in prose ("a `/word` such as ...", "`/skill-a`")
+    "/word", "/name", "/command", "/commands", "/skill-a", "/skill-b",
+    "/myplugin", "/backticks", "/script", "/builtin",
+    # Other tools' switches (`ipconfig /displaydns`)
+    "/displaydns",
     # Generic CLI fragments
     "--no", "--the", "--and", "--from", "--to", "--with",
-    # Tool internal references (not user-facing commands)
-    "-p", "-c", "-i", "-a", "-o", "-D", "-C", "-f", "-r",
 }
 
 # Words that indicate a NEW feature/command (not a fix/improvement)
@@ -368,9 +383,29 @@ def _detect_context(line: str) -> str:
     return "mentioned"
 
 
+def _span_candidates(span: str) -> list[str]:
+    """Command names inside one backtick span, reduced to their base form.
+
+    `/tui classic` → `/tui`, `--model default` → `--model`,
+    `claude --chrome --debug` → `--chrome`, `--debug`. Paths such as `/mnt/c`
+    or `/Volumes` and flags of other programs (`git commit --amend`) yield nothing.
+    """
+    span = span.strip()
+    head = span.split()[0] if span else ""
+    if SLASH_NAME.fullmatch(head):
+        return [head]
+    if head.startswith("--") or head == "claude":
+        return FLAG_NAME.findall(span)
+    return []
+
+
 def extract_commands(body: str) -> list[dict]:
-    """Extract ALL slash commands, CLI flags, keyboard shortcuts from the FULL body text.
-    Returns list of {"name": str, "context": str, "summary": str}."""
+    """Extract slash commands, CLI flags and keyboard shortcuts from a version body.
+
+    Returns a list of {"name", "context", "summary"}, one per distinct command.
+    Names are normalized (base command without arguments, `Ctrl+C` casing) so the
+    same command is never listed twice.
+    """
     commands: dict[str, dict] = {}  # name -> {name, context, summary}
 
     def _add(candidate: str, context: str, summary: str) -> None:
@@ -388,82 +423,61 @@ def extract_commands(body: str) -> list[dict]:
         ctx = _detect_context(line)
         summary = line.strip().lstrip("-* ")[:80]
 
-        # 1. Backtick-quoted commands from ALL lines (most reliable)
-        for m in COMMAND_PATTERN.finditer(line):
-            candidate = m.group(1).strip()
-            if candidate.startswith("/") or candidate.startswith("--"):
-                _add(candidate, ctx, summary)
-            elif any(candidate.startswith(p) for p in ("Ctrl+", "Alt+", "Option+", "Shift+")):
+        # 1. Backtick-quoted commands and flags (most reliable)
+        for m in BACKTICK_SPAN.finditer(line):
+            for candidate in _span_candidates(m.group(1)):
                 _add(candidate, ctx, summary)
 
-        # 2. Unquoted slash commands from ALL lines
-        for m in UNQUOTED_SLASH.finditer(line):
-            c = m.group(1)
-            if len(c) > 2:
-                _add(c, ctx, summary)
+        # 2. Unquoted slash commands (older entries have no backticks)
+        unquoted = BACKTICK_SPAN.sub(" ", line)
+        for m in UNQUOTED_SLASH.finditer(unquoted):
+            if len(m.group(1)) > 2:
+                _add(m.group(1), ctx, summary)
 
         # 3. Unquoted flags (only from new-feature lines to avoid noise)
         if ctx == "new":
-            for m in UNQUOTED_FLAG.finditer(line):
-                c = m.group(1)
-                if len(c) > 3:
-                    _add(c, ctx, summary)
+            for m in UNQUOTED_FLAG.finditer(unquoted):
+                if len(m.group(1)) > 3:
+                    _add(m.group(1), ctx, summary)
 
-        # 4. Keyboard shortcuts from ALL lines (Ctrl+X, Ctrl-b, etc.)
-        for m in CTRL_PATTERN.finditer(line):
-            c = m.group(1).replace("-", "+")
-            _add(c, ctx, summary)
+        # 4. Keyboard shortcuts (Ctrl+X, ctrl-b, ...) normalized to `Ctrl+X`
+        for m in SHORTCUT_PATTERN.finditer(line):
+            _add(f"{m.group(1).capitalize()}+{m.group(2).upper()}", ctx, summary)
 
     return list(commands.values())
 
 
-# ---------------------------------------------------------------------------
-# Known real slash commands — ensures first-appearance is always tracked
-# ---------------------------------------------------------------------------
-KNOWN_SLASH_COMMANDS = {
-    "/powerup", "/loop", "/simplify", "/batch", "/copy", "/memory",
-    "/effort", "/color", "/context", "/plan", "/teleport", "/remote-env",
-    "/remote-control", "/reload-plugins", "/rename", "/rewind", "/usage",
-    "/terminal-setup", "/plugin", "/config", "/settings",
-    "/permissions", "/doctor", "/model", "/help", "/resume", "/agents",
-    "/statusline", "/todos", "/vim", "/approved-tools", "/release-notes",
-    "/export", "/mcp", "/add-dir", "/pr-comments", "/upgrade", "/status",
-    "/compact", "/debug", "/bug", "/clear", "/t", "/stats", "/feedback",
-    "/sandbox", "/skills", "/tasks", "/fork", "/btw", "/voice",
-    "/mobile", "/chrome", "/buddy", "/output-style", "/fast-mode",
-    "/ide", "/heapdump", "/security-review",
-}
+def mark_first_appearances(entries: list[dict]) -> None:
+    """Make `new` mean "first time this command shows up in the changelog".
+
+    - A later line such as "Added a footer hint to `/model`" starts with
+      "Added", but `/model` is old: every repeat `new` becomes `improved`.
+    - A first mention with no fix/improve verb ("`/rewind` a conversation to
+      undo code changes") is an introduction: `mentioned` becomes `new`.
+    - A first mention inside a fix or improvement stays as is: the command
+      shipped earlier without a changelog line.
+
+    `entries` is newest-first, as in the changelog.
+    """
+    seen: set[str] = set()
+    for entry in reversed(entries):
+        for cmd in entry["commands"]:
+            if cmd["name"] in seen:
+                if cmd["context"] == "new":
+                    cmd["context"] = "improved"
+            else:
+                seen.add(cmd["name"])
+                if cmd["context"] == "mentioned":
+                    cmd["context"] = "new"
 
 
-def _cmd_names(commands: list[dict]) -> set[str]:
-    """Get set of command names from commands list."""
-    return {c["name"] for c in commands}
-
-
-def enrich_first_appearances(entries: list[dict], version_bodies: dict[str, str]) -> None:
-    """For known slash commands, find the EARLIEST version that mentions them
-    (in any context) and ensure they appear in that version's commands list."""
-    reversed_entries = list(reversed(entries))
-    already_assigned: set[str] = set()
-    for cmd in KNOWN_SLASH_COMMANDS:
-        # Find first version that mentions this command
-        for entry in reversed_entries:
-            body = version_bodies.get(entry["version"], "")
-            # Check both backticked and bare mentions
-            if f"`{cmd}`" in body or f" {cmd} " in body or f" {cmd}," in body or body.startswith(cmd[1:]):
-                if cmd not in already_assigned:
-                    if cmd not in _cmd_names(entry["commands"]):
-                        # Find the line that mentions this command for summary and context
-                        summary = ""
-                        ctx = "mentioned"
-                        for bline in body.splitlines():
-                            if f"`{cmd}`" in bline or f" {cmd} " in bline or f" {cmd}," in bline:
-                                summary = bline.strip().lstrip("-* ")[:80]
-                                ctx = _detect_context(bline)
-                                break
-                        entry["commands"].append({"name": cmd, "context": ctx, "summary": summary})
-                    already_assigned.add(cmd)
-                break
+def _mention_pattern(names) -> re.Pattern | None:
+    """Regex matching any of the command names as a whole token, case-insensitively."""
+    names = sorted(names, key=len, reverse=True)
+    if not names:
+        return None
+    alternatives = "|".join(re.escape(n) for n in names)
+    return re.compile(rf"(?<![\w/:-])({alternatives})(?![\w-])", re.IGNORECASE)
 
 
 def _clean_markdown(text: str) -> str:
@@ -485,11 +499,7 @@ def extract_features(body: str, commands: list[dict] | None = None) -> list[str]
       fall back to all bullets.
     """
     MAX_NON_FIX = 8
-    cmd_names = sorted(
-        ({c["name"] for c in commands} if commands else set()),
-        key=len,
-        reverse=True,
-    )
+    mention = _mention_pattern({c["name"] for c in commands} if commands else set())
     result: list[str] = []
     seen: set[str] = set()
     all_items: list[str] = []
@@ -504,7 +514,7 @@ def extract_features(body: str, commands: list[dict] | None = None) -> list[str]
             continue
         cleaned = _clean_markdown(text)
         all_items.append(cleaned)
-        has_cmd = any(name in cleaned for name in cmd_names)
+        has_cmd = bool(mention and mention.search(cleaned))
         is_fix = any(text.lower().startswith(s) for s in SKIP_STARTS)
 
         if has_cmd:
@@ -545,16 +555,24 @@ def _feat_html(items: list[str], cmd_context: dict[str, str] | None = None) -> s
 
 
 def _highlight_cmds_in_text(text: str, cmd_context: dict[str, str]) -> str:
-    """Replace command mentions in pre-escaped feature text with colored code tags.
-    Skips matches inside URLs (preceded by :/ or ://) to avoid breaking links."""
-    for name, ctx in sorted(cmd_context.items(), key=lambda x: -len(x[0])):
+    """Wrap command mentions in pre-escaped feature text with colored code tags.
+    Each command is highlighted once; matches inside URLs/paths are skipped."""
+    pattern = _mention_pattern(esc(name) for name in cmd_context)
+    if not pattern:
+        return text
+    by_lower = {esc(name).lower(): ctx for name, ctx in cmd_context.items()}
+    done: set[str] = set()
+
+    def _wrap(m: re.Match) -> str:
+        key = m.group(1).lower()
+        if key in done:
+            return m.group(0)
+        done.add(key)
+        ctx = by_lower[key]
         css_cls = f"cmd-ref {ctx}" if ctx != "mentioned" else "cmd-ref"
-        escaped_name = esc(name)
-        replacement = f'<code class="{css_cls}">{escaped_name}</code>'
-        # Negative lookbehind: skip if preceded by :/ (URL context)
-        pattern = r"(?<!:/)(?<!/)" + re.escape(escaped_name) + r"(?!\w)"
-        text = re.sub(pattern, replacement, text, count=1)
-    return text
+        return f'<code class="{css_cls}">{m.group(1)}</code>'
+
+    return pattern.sub(_wrap, text)
 
 
 BADGE_LABELS = {"new": "NEW", "fixed": "FIX", "removed": "DEL", "improved": "IMP"}
@@ -574,6 +592,11 @@ def _cmds_html(commands: list[dict]) -> str:
         parts.append(f'<span class="cmd-item"{summary_attr}><code>{esc(c["name"])}</code>{badge}</span>')
     return " ".join(parts)
 
+
+def _has_new_command(entry: dict) -> bool:
+    return any(c["context"] == "new" for c in entry["commands"])
+
+
 def generate_readme(entries: list[dict]) -> str:
     lines = [
         "# Claude Code Changelog Dashboard",
@@ -586,7 +609,8 @@ def generate_readme(entries: list[dict]) -> str:
     for e in entries[:80]:
         ver = f"**v{e['version']}**"
         date = e["date"] or "—"
-        cmds = ", ".join(f"`{c['name']}`" for c in e["commands"]) if e["commands"] else "—"
+        new_cmds = [c["name"] for c in e["commands"] if c["context"] == "new"]
+        cmds = ", ".join(f"`{n}`" for n in new_cmds) if new_cmds else "—"
         feats = " / ".join(e["features"][:3]) if e["features"] else "—"
         if len(feats) > 200:
             feats = feats[:197] + "..."
@@ -623,7 +647,7 @@ def generate_html(entries: list[dict]) -> str:
         feats_en_html = _feat_html(e["features"], cmd_context)
         feats_ko_html = _feat_html(e.get("features_ko", e["features"]), cmd_context)
 
-        cls = ' class="has-commands"' if e["commands"] else ""
+        cls = ' class="has-new"' if _has_new_command(e) else ""
         rows += (
             f'    <tr{cls}>'
             f'<td class="mono">v{e["version"]}</td>'
@@ -638,7 +662,7 @@ def generate_html(entries: list[dict]) -> str:
 
     updated = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     total = len(entries)
-    with_cmds = sum(1 for e in entries if e["commands"])
+    with_cmds = sum(1 for e in entries if _has_new_command(e))
 
     return f"""<!DOCTYPE html>
 <html lang="ko">
@@ -826,13 +850,13 @@ def generate_html(entries: list[dict]) -> str:
     vertical-align: top;
   }}
   tbody tr:hover {{ background: var(--surface-hover); }}
-  tbody tr.has-commands {{
+  tbody tr.has-new {{
     background: var(--accent-dim);
   }}
-  tbody tr.has-commands:hover {{
+  tbody tr.has-new:hover {{
     background: rgba(212,165,116,0.12);
   }}
-  tbody tr.has-commands td:first-child {{
+  tbody tr.has-new td:first-child {{
     border-left: 3px solid var(--accent);
   }}
   .mono {{
@@ -998,7 +1022,7 @@ def generate_html(entries: list[dict]) -> str:
       max-width: 100%;
       word-break: break-word;
     }}
-    tbody tr.has-commands {{
+    tbody tr.has-new {{
       border-left: 3px solid var(--accent);
       background: var(--accent-dim);
     }}
@@ -1062,7 +1086,7 @@ def generate_html(entries: list[dict]) -> str:
 
   <div class="toolbar">
     <input type="text" id="search" placeholder="Search version, command, feature..." data-i18n-placeholder="search_placeholder">
-    <label class="toggle"><input type="checkbox" id="cmds-only"> <span data-i18n="cmds_only">Commands only</span></label>
+    <label class="toggle"><input type="checkbox" id="cmds-only"> <span data-i18n="cmds_only">New commands only</span></label>
     <button class="lang-btn" id="lang-toggle">한국어</button>
   </div>
 
@@ -1113,7 +1137,7 @@ def generate_html(entries: list[dict]) -> str:
     const onlyCmds = cmdsOnly.checked;
     rows.forEach(row => {{
       const text = row.textContent.toLowerCase();
-      const hasCmd = row.classList.contains('has-commands');
+      const hasCmd = row.classList.contains('has-new');
       row.style.display = (!q || text.includes(q)) && (!onlyCmds || hasCmd) ? '' : 'none';
     }});
   }}
@@ -1130,7 +1154,7 @@ def generate_html(entries: list[dict]) -> str:
       stat_total: 'Total Versions',
       stat_cmds: 'With New Commands',
       stat_latest: 'Latest Release',
-      cmds_only: 'Commands only',
+      cmds_only: 'New commands only',
       search_placeholder: 'Search version, command, feature...',
       legend_label: 'Badge',
       legend_new: 'Added',
@@ -1148,7 +1172,7 @@ def generate_html(entries: list[dict]) -> str:
       stat_total: '전체 버전 수',
       stat_cmds: '커맨드 추가된 버전',
       stat_latest: '최신 릴리스',
-      cmds_only: '커맨드 있는 버전만',
+      cmds_only: '새 커맨드 있는 버전만',
       search_placeholder: '버전, 커맨드, 기능 검색...',
       legend_label: '범례',
       legend_new: '추가',
@@ -1207,11 +1231,11 @@ def main():
         return
 
     text = RAW_FILE.read_text(encoding="utf-8")
-    entries, version_bodies = parse_changelog(text)
+    entries = parse_changelog(text)
     print(f"Parsed {len(entries)} versions")
 
-    # Ensure known slash commands are tracked at their first appearance
-    enrich_first_appearances(entries, version_bodies)
+    # "new" only counts where a command shows up for the first time
+    mark_first_appearances(entries)
     total_cmds = sum(len(e["commands"]) for e in entries)
     print(f"Total commands across all versions: {total_cmds}")
     ctx_counts = {}
@@ -1221,11 +1245,10 @@ def main():
             ctx_counts[ctx] = ctx_counts.get(ctx, 0) + 1
     print(f"Command contexts: {ctx_counts}")
 
-    # Enrich with release dates from GitHub API
-    dates = fetch_release_dates()
+    # Release dates: GitHub/npm are authoritative, header date is the fallback
+    dates = fetch_release_dates({e["version"] for e in entries})
     for e in entries:
-        if not e["date"] and e["version"] in dates:
-            e["date"] = dates[e["version"]]
+        e["date"] = dates.get(e["version"]) or e["date"]
     dated = sum(1 for e in entries if e["date"])
     print(f"Dates resolved: {dated}/{len(entries)}")
 
