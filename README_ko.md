@@ -29,7 +29,7 @@ GitHub Actions (매일 06:00 KST cron)
 2. GitHub Releases API + npm registry → 릴리스 날짜 수집
 3. Python 파싱 → 버전, 커맨드, 기능 추출
 4. OpenAI API (gpt-4o-mini) → Key Features 한국어 번역 (캐시 기반)
-5. RELEASES.md (표) + docs/index.html (대시보드) 생성 (내용이 바뀐 날에만)
+5. RELEASES.md (표) + docs/data.json (대시보드 데이터) 생성 (내용이 바뀐 날에만)
 6. git commit & push → GitHub Pages 자동 배포
 ```
 
@@ -49,13 +49,15 @@ claude-code-changelog/
 ├── .github/workflows/
 │   └── track-releases.yml       # GitHub Actions (매일 06:00 KST cron)
 ├── scripts/
-│   └── parse_changelog.py       # 파서 + 번역 + HTML 생성
+│   └── parse_changelog.py       # 파서 + 번역 + 데이터 생성
 ├── data/
 │   ├── releases.json            # 구조화된 전체 버전 데이터
 │   ├── release_dates.json       # 날짜 캐시 (GitHub API + npm)
 │   └── translations_cache.json  # 한국어 번역 캐시
 ├── docs/
-│   └── index.html               # GitHub Pages 대시보드
+│   ├── index.html               # GitHub Pages 대시보드 (정적 페이지)
+│   ├── data.json                # 대시보드 데이터 (자동 생성)
+│   └── ko.json                  # 한국어 불릿, 필요할 때 로드 (자동 생성)
 ├── CHANGELOG_RAW.md             # 원본 (auto-fetched)
 ├── RELEASES.md                  # 자동 생성 버전 표
 ├── README.md                    # 영어 README

@@ -3,7 +3,8 @@
 Parse Claude Code CHANGELOG.md and generate:
   - data/releases.json  (structured data)
   - RELEASES.md         (markdown table)
-  - docs/index.html     (dashboard)
+  - docs/data.json      (dashboard data; docs/index.html is a static page that loads it)
+  - docs/ko.json        (Korean bullets for the dashboard)
 """
 
 import json
@@ -23,7 +24,8 @@ DATES_CACHE = ROOT / "data" / "release_dates.json"
 TRANSLATION_CACHE = ROOT / "data" / "translations_cache.json"
 JSON_FILE = ROOT / "data" / "releases.json"
 RELEASES_FILE = ROOT / "RELEASES.md"
-HTML_FILE = ROOT / "docs" / "index.html"
+WEB_DATA_FILE = ROOT / "docs" / "data.json"
+WEB_KO_FILE = ROOT / "docs" / "ko.json"
 META_FILE = ROOT / "data" / "meta.json"
 
 # A fetch that returns a truncated or wrong file must not wipe the dashboard
@@ -359,31 +361,39 @@ SKIP_STARTS = (
 CONTEXT_PRIORITY = {"mentioned": 0, "fixed": 1, "improved": 2, "removed": 3, "new": 4}
 
 
-def _detect_context(line: str) -> str:
-    """Detect the context type of a changelog line based on its prefix."""
-    stripped = line.strip().lstrip("-* ")
-    # Strip leading platform/tool tags: [VSCode], Windows:, SDK:, MCP:, etc.
-    cleaned = re.sub(r"^(\[[^\]]+\]\s*|[\w]+:\s+)", "", stripped)
-    lower = cleaned.lower()
-    if any(lower.startswith(s) for s in ("fixed", "fix ")):
-        return "fixed"
-    if any(lower.startswith(s) for s in ("removed", "remove ")):
-        return "removed"
-    if any(lower.startswith(s) for s in (
+CONTEXT_PREFIXES = (
+    ("fixed", ("fixed", "fix ")),
+    ("removed", ("removed", "remove ")),
+    ("improved", (
         "improved", "changed", "enhanced", "updated",
         "security", "deprecated", "reverted",
         "simplified", "renamed", "moved", "switched",
         "reduced", "avoid", "suppressed", "enable ",
         "show ", "stop ", "preserved",
-    )):
-        return "improved"
-    if any(lower.startswith(s) for s in NEW_FEATURE_STARTS):
-        return "new"
-    # "`/cmd` now ..." or "`Ctrl+X` now ..." patterns → improved
-    if re.match(r"^`[^`]+`\s+(is\s+now|now|no\s+longer)\b", cleaned):
-        return "improved"
-    # "X now ..." pattern (e.g. "Stats screenshot now works", "/stats now provides")
-    if re.search(r"\bnow\b", lower) and not lower.startswith(("fixed", "fix ")):
+    )),
+    ("new", NEW_FEATURE_STARTS),
+)
+# Leading scope tags: "[VSCode] ", "Windows: ", "Remote Control: ", "Self-hosted runner: "
+SCOPE_TAG = re.compile(r"^(?:\[[^\]]+\]\s*|[A-Za-z][\w.-]*(?: [\w.-]+){0,3}:\s+)")
+
+
+def _context_by_prefix(text: str) -> str | None:
+    lower = text.lower()
+    for context, starts in CONTEXT_PREFIXES:
+        if lower.startswith(starts):
+            return context
+    return None
+
+
+def _detect_context(line: str) -> str:
+    """Classify a changelog line as new / improved / fixed / removed / mentioned."""
+    text = line.strip().lstrip("-* ")
+    untagged = SCOPE_TAG.sub("", text)
+    context = _context_by_prefix(text) or _context_by_prefix(untagged)
+    if context:
+        return context
+    # "`/cmd` now ...", "Stats screenshot now works" → improved
+    if re.search(r"\b(now|no longer)\b", untagged.lower()):
         return "improved"
     return "mentioned"
 
@@ -541,63 +551,6 @@ def extract_features(body: str, commands: list[dict] | None = None) -> list[str]
 # 2. Generate outputs
 # ---------------------------------------------------------------------------
 
-def esc(s: str) -> str:
-    """HTML-escape a string."""
-    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
-
-
-def _feat_html(items: list[str], cmd_context: dict[str, str] | None = None) -> str:
-    """Build <ul> from feature list, highlighting commands with context colors."""
-    if not items:
-        return '<span class="dim">—</span>'
-    parts = []
-    for f in items:
-        escaped = esc(f)
-        if cmd_context:
-            escaped = _highlight_cmds_in_text(escaped, cmd_context)
-        parts.append(f"<li>{escaped}</li>")
-    return f'<ul>{"".join(parts)}</ul>'
-
-
-def _highlight_cmds_in_text(text: str, cmd_context: dict[str, str]) -> str:
-    """Wrap command mentions in pre-escaped feature text with colored code tags.
-    Each command is highlighted once; matches inside URLs/paths are skipped."""
-    pattern = _mention_pattern(esc(name) for name in cmd_context)
-    if not pattern:
-        return text
-    by_lower = {esc(name).lower(): ctx for name, ctx in cmd_context.items()}
-    done: set[str] = set()
-
-    def _wrap(m: re.Match) -> str:
-        key = m.group(1).lower()
-        if key in done:
-            return m.group(0)
-        done.add(key)
-        ctx = by_lower[key]
-        css_cls = f"cmd-ref {ctx}" if ctx != "mentioned" else "cmd-ref"
-        return f'<code class="{css_cls}">{m.group(1)}</code>'
-
-    return pattern.sub(_wrap, text)
-
-
-BADGE_LABELS = {"new": "NEW", "fixed": "FIX", "removed": "DEL", "improved": "IMP"}
-
-
-def _cmds_html(commands: list[dict]) -> str:
-    """Build command badges HTML."""
-    if not commands:
-        return '<span class="dim">—</span>'
-    parts = []
-    for c in commands:
-        ctx = c.get("context", "mentioned")
-        badge = ""
-        if ctx in BADGE_LABELS:
-            badge = f'<span class="cmd-badge {ctx}">{BADGE_LABELS[ctx]}</span>'
-        summary_attr = f' title="{esc(c["summary"])}"' if c.get("summary") else ""
-        parts.append(f'<span class="cmd-item"{summary_attr}><code>{esc(c["name"])}</code>{badge}</span>')
-    return " ".join(parts)
-
-
 def _has_new_command(entry: dict) -> bool:
     return any(c["context"] == "new" for c in entry["commands"])
 
@@ -643,598 +596,38 @@ def generate_readme(entries: list[dict], updated: str) -> str:
     return "\n".join(lines) + "\n"
 
 
-def generate_html(entries: list[dict], updated: str) -> str:
-    """Generate a self-contained HTML dashboard."""
-    rows = ""
-    for e in entries:
-        cmds = _cmds_html(e["commands"])
-        cmd_context = {c["name"]: c["context"] for c in e["commands"]} if e["commands"] else None
-        feats_en_html = _feat_html(e["features"], cmd_context)
-        feats_ko_html = _feat_html(e.get("features_ko", e["features"]), cmd_context)
-
-        cls = ' class="has-new"' if _has_new_command(e) else ""
-        rows += (
-            f'    <tr{cls}>'
-            f'<td class="mono">v{e["version"]}</td>'
-            f'<td class="nowrap">{e["date"] or "—"}</td>'
-            f'<td class="cmds">{cmds}</td>'
-            f'<td class="feats">'
-            f'<div class="feat-en">{feats_en_html}</div>'
-            f'<div class="feat-ko" style="display:none">{feats_ko_html}</div>'
-            f'</td>'
-            f'</tr>\n'
-        )
-
-    total = len(entries)
-    with_cmds = sum(1 for e in entries if _has_new_command(e))
-
-    return f"""<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude Code Changelog Dashboard</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {{
-    --bg: #0a0a0b;
-    --surface: #141417;
-    --surface-hover: #1a1a1f;
-    --border: #27272a;
-    --border-subtle: #1e1e22;
-    --text: #fafafa;
-    --text-secondary: #a1a1aa;
-    --text-muted: #71717a;
-    --accent: #d4a574;
-    --accent-dim: rgba(212,165,116,0.08);
-    --accent-border: rgba(212,165,116,0.25);
-    --green: #4ade80;
-    --blue: #60a5fa;
-  }}
-  * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-  body {{
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }}
-  .container {{
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 2.5rem 2rem;
-    flex: 1;
-  }}
-  /* Header */
-  header {{
-    margin-bottom: 2.5rem;
-  }}
-  .header-top {{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-  }}
-  .header-left {{
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }}
-  header h1 {{
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }}
-  header h1 .cc {{ color: var(--accent); }}
-  .badge {{
-    font-size: 0.7rem;
-    font-weight: 500;
-    padding: 0.25rem 0.6rem;
-    border-radius: 100px;
-    background: var(--accent-dim);
-    color: var(--accent);
-    border: 1px solid var(--accent-border);
-  }}
-  .meta {{
-    color: var(--text-muted);
-    font-size: 0.8rem;
-  }}
-  .meta a {{
-    color: var(--text-secondary);
-    text-decoration: none;
-  }}
-  .meta a:hover {{ color: var(--accent); text-decoration: underline; }}
-  /* Stats */
-  .stats {{
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }}
-  .stat {{
-    background: var(--surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 10px;
-    padding: 1rem 1.5rem;
-    flex: 1;
-    min-width: 0;
-  }}
-  .stat .num {{
-    font-size: 1.8rem;
-    font-weight: 700;
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--accent);
-    line-height: 1.2;
-  }}
-  .stat .label {{
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-top: 0.2rem;
-  }}
-  /* Search */
-  .toolbar {{
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    align-items: center;
-  }}
-  .toolbar input[type="text"] {{
-    flex: 1;
-    padding: 0.55rem 1rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 0.85rem;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.15s;
-  }}
-  .toolbar input[type="text"]:focus {{ border-color: var(--accent); }}
-  .toolbar input[type="text"]::placeholder {{ color: var(--text-muted); }}
-  .toggle {{
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    cursor: pointer;
-    white-space: nowrap;
-    user-select: none;
-  }}
-  .toggle input {{ accent-color: var(--accent); }}
-  .lang-btn {{
-    padding: 0.4rem 0.8rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }}
-  .lang-btn:hover {{
-    border-color: var(--accent);
-    color: var(--accent);
-  }}
-  /* Table */
-  .table-wrap {{
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    overflow: hidden;
-  }}
-  table {{
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.82rem;
-  }}
-  thead th {{
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: var(--surface);
-    padding: 0.75rem 1rem;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-muted);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-  }}
-  tbody td {{
-    padding: 0.65rem 1rem;
-    border-bottom: 1px solid var(--border-subtle);
-    vertical-align: top;
-  }}
-  tbody tr:hover {{ background: var(--surface-hover); }}
-  tbody tr.has-new {{
-    background: var(--accent-dim);
-  }}
-  tbody tr.has-new:hover {{
-    background: rgba(212,165,116,0.12);
-  }}
-  tbody tr.has-new td:first-child {{
-    border-left: 3px solid var(--accent);
-  }}
-  .mono {{
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 500;
-    font-size: 0.8rem;
-  }}
-  .nowrap {{
-    white-space: nowrap;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--text-secondary);
-  }}
-  .cmd-item {{
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    margin: 0.1rem 0.15rem;
-  }}
-  .cmds code {{
-    display: inline-block;
-    background: rgba(212,165,116,0.12);
-    padding: 0.15rem 0.45rem;
-    border-radius: 4px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--accent);
-    border: 1px solid var(--accent-border);
-  }}
-  .cmd-badge {{
-    font-size: 0.55rem;
-    font-weight: 600;
-    padding: 0.1rem 0.3rem;
-    border-radius: 3px;
-    letter-spacing: 0.03em;
-    line-height: 1;
-    white-space: nowrap;
-  }}
-  .cmd-badge.new {{
-    background: rgba(74,222,128,0.15);
-    color: var(--green);
-    border: 1px solid rgba(74,222,128,0.3);
-  }}
-  .cmd-badge.fixed {{
-    background: rgba(96,165,250,0.15);
-    color: var(--blue);
-    border: 1px solid rgba(96,165,250,0.3);
-  }}
-  .cmd-badge.removed {{
-    background: rgba(248,113,113,0.15);
-    color: #f87171;
-    border: 1px solid rgba(248,113,113,0.3);
-  }}
-  .cmd-badge.improved {{
-    background: var(--accent-dim);
-    color: var(--accent);
-    border: 1px solid var(--accent-border);
-  }}
-  /* Legend */
-  .legend {{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-  }}
-  .legend-label {{
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-right: 0.25rem;
-  }}
-  .legend-desc {{
-    margin-right: 0.5rem;
-  }}
-  /* Command references in features */
-  .cmd-ref {{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    padding: 0.1rem 0.35rem;
-    border-radius: 3px;
-    background: rgba(255,255,255,0.05);
-    color: var(--text-secondary);
-  }}
-  .cmd-ref.new {{
-    background: rgba(74,222,128,0.1);
-    color: var(--green);
-  }}
-  .cmd-ref.fixed {{
-    background: rgba(96,165,250,0.1);
-    color: var(--blue);
-  }}
-  .cmd-ref.removed {{
-    background: rgba(248,113,113,0.1);
-    color: #f87171;
-  }}
-  .cmd-ref.improved {{
-    background: rgba(212,165,116,0.08);
-    color: var(--accent);
-  }}
-  .feats ul {{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }}
-  .feats li {{
-    position: relative;
-    padding-left: 1rem;
-    margin-bottom: 0.25rem;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    line-height: 1.5;
-  }}
-  .feats li::before {{
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--text-muted);
-  }}
-  .dim {{ color: var(--text-muted); }}
-  /* Footer */
-  footer {{
-    border-top: 1px solid var(--border-subtle);
-    padding: 1.5rem 2rem;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-  }}
-  footer a {{
-    color: var(--text-secondary);
-    text-decoration: none;
-  }}
-  footer a:hover {{ color: var(--accent); }}
-  footer .heart {{ color: var(--accent); }}
-  /* Responsive — card layout on mobile */
-  @media (max-width: 768px) {{
-    html, body {{ overflow-x: hidden; max-width: 100vw; }}
-    .container {{ padding: 1rem 0.75rem; max-width: 100vw; overflow-x: hidden; }}
-    header h1 {{ font-size: 1.2rem; }}
-    .header-top {{ flex-wrap: wrap; gap: 0.3rem; }}
-    .meta {{ font-size: 0.7rem; word-break: break-word; }}
-    .stats {{ flex-direction: row; gap: 0.5rem; }}
-    .stat {{ padding: 0.7rem 0.8rem; }}
-    .stat .num {{ font-size: 1.3rem; }}
-    .stat .label {{ font-size: 0.6rem; }}
-    .toolbar {{ flex-direction: column; gap: 0.5rem; }}
-    .toolbar input[type="text"] {{ font-size: 16px; }}
-    .table-wrap {{ border: none; border-radius: 0; }}
-    table, thead, tbody {{ display: block; width: 100%; }}
-    thead {{ display: none; }}
-    tbody tr {{
-      display: block;
-      background: var(--surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      margin-bottom: 0.6rem;
-      padding: 0.8rem;
-      overflow: hidden;
-      max-width: 100%;
-      word-break: break-word;
-    }}
-    tbody tr.has-new {{
-      border-left: 3px solid var(--accent);
-      background: var(--accent-dim);
-    }}
-    tbody td {{
-      display: block;
-      border: none;
-      padding: 0;
-    }}
-    tbody td.mono {{
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.15rem;
-    }}
-    tbody td.nowrap {{
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }}
-    tbody td.cmds {{ margin-bottom: 0.5rem; overflow-wrap: break-word; }}
-    tbody td.cmds .dim {{ display: none; }}
-    .cmds code {{
-      font-size: 0.72rem;
-      padding: 0.12rem 0.35rem;
-      margin: 0.1rem 0.1rem;
-      word-break: break-all;
-    }}
-    .feats li {{
-      font-size: 0.73rem;
-      line-height: 1.4;
-      margin-bottom: 0.2rem;
-    }}
-    .feats .dim {{ display: none; }}
-    footer {{ padding: 1rem; font-size: 0.7rem; }}
-  }}
-  @media (max-width: 360px) {{
-    .stats {{ flex-direction: column; }}
-    .stat .num {{ font-size: 1.1rem; }}
-  }}
-</style>
-</head>
-<body>
-<div class="container">
-  <header>
-    <div class="header-top">
-      <div class="header-left"><h1><span class="cc">Claude Code</span> Changelog</h1><span class="badge">AUTO-SYNC</span></div>
-      <iframe src="https://ghbtns.com/github-btn.html?user=tryumanshow&amp;repo=claude-code-changelog&amp;type=star&amp;count=true&amp;size=large" frameborder="0" scrolling="0" width="120" height="30" title="GitHub Stars" style="vertical-align: middle;"></iframe>
-    </div>
-    <p class="meta" data-i18n-html="meta">
-      Checked daily at 06:00 KST &middot; Last updated: {updated} &middot;
-      <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot;
-      <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>
-    </p>
-  </header>
-
-  <div class="stats">
-    <div class="stat"><div class="num">{total}</div><div class="label" data-i18n="stat_total">Total Versions</div></div>
-    <div class="stat"><div class="num">{with_cmds}</div><div class="label" data-i18n="stat_cmds">With New Commands</div></div>
-    <div class="stat" id="stat-latest"><div class="num">—</div><div class="label" data-i18n="stat_latest">Latest Release</div></div>
-  </div>
-
-  <div class="toolbar">
-    <input type="text" id="search" placeholder="Search version, command, feature..." data-i18n-placeholder="search_placeholder">
-    <label class="toggle"><input type="checkbox" id="cmds-only"> <span data-i18n="cmds_only">New commands only</span></label>
-    <button class="lang-btn" id="lang-toggle">한국어</button>
-  </div>
-
-  <div class="legend">
-    <span class="legend-label" data-i18n="legend_label">Badge</span>
-    <span class="cmd-badge new">NEW</span> <span class="legend-desc" data-i18n="legend_new">Added</span>
-    <span class="cmd-badge improved">IMP</span> <span class="legend-desc" data-i18n="legend_imp">Improved</span>
-    <span class="cmd-badge fixed">FIX</span> <span class="legend-desc" data-i18n="legend_fix">Fixed</span>
-    <span class="cmd-badge removed">DEL</span> <span class="legend-desc" data-i18n="legend_del">Removed</span>
-  </div>
-
-  <div class="table-wrap">
-  <table>
-    <thead>
-      <tr>
-        <th style="width:90px" data-i18n="th_version">Version</th>
-        <th style="width:100px" data-i18n="th_date">Date</th>
-        <th style="width:200px" data-i18n="th_commands">Commands / Flags</th>
-        <th data-i18n="th_features">Key Features</th>
-      </tr>
-    </thead>
-    <tbody id="tbody">
-{rows}
-    </tbody>
-  </table>
-  </div>
-</div>
-
-<footer>
-  Made with <span class="heart">&hearts;</span> by
-  <a href="https://github.com/tryumanshow">@tryumanshow</a>
-  &middot; Powered by GitHub Actions &middot;
-  Data from <a href="https://github.com/anthropics/claude-code">anthropics/claude-code</a>
-</footer>
-
-<script>
-  const rows = document.querySelectorAll('#tbody tr');
-  const search = document.getElementById('search');
-  const cmdsOnly = document.getElementById('cmds-only');
-
-  // Latest release date
-  const allDates = [...rows].map(r => r.children[1].textContent.trim()).filter(d => d !== '—');
-  document.querySelector('#stat-latest .num').textContent = allDates[0] || '—';
-
-  // --- Filter ---
-  function filter() {{
-    const q = search.value.toLowerCase();
-    const onlyCmds = cmdsOnly.checked;
-    rows.forEach(row => {{
-      const text = row.textContent.toLowerCase();
-      const hasCmd = row.classList.contains('has-new');
-      row.style.display = (!q || text.includes(q)) && (!onlyCmds || hasCmd) ? '' : 'none';
-    }});
-  }}
-  search.addEventListener('input', filter);
-  cmdsOnly.addEventListener('change', filter);
-
-  // --- i18n ---
-  const i18n = {{
-    en: {{
-      th_version: 'Version',
-      th_date: 'Date',
-      th_commands: 'Commands / Flags',
-      th_features: 'Key Features',
-      stat_total: 'Total Versions',
-      stat_cmds: 'With New Commands',
-      stat_latest: 'Latest Release',
-      cmds_only: 'New commands only',
-      search_placeholder: 'Search version, command, feature...',
-      legend_label: 'Badge',
-      legend_new: 'Added',
-      legend_imp: 'Improved',
-      legend_fix: 'Fixed',
-      legend_del: 'Removed',
-      meta: 'Checked daily at 06:00 KST &middot; Last updated: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
-      toggle_label: '한국어',
-    }},
-    ko: {{
-      th_version: '버전',
-      th_date: '날짜',
-      th_commands: '커맨드 / 플래그',
-      th_features: '주요 기능',
-      stat_total: '전체 버전 수',
-      stat_cmds: '커맨드 추가된 버전',
-      stat_latest: '최신 릴리스',
-      cmds_only: '새 커맨드 있는 버전만',
-      search_placeholder: '버전, 커맨드, 기능 검색...',
-      legend_label: '범례',
-      legend_new: '추가',
-      legend_imp: '개선',
-      legend_fix: '수정',
-      legend_del: '삭제',
-      meta: '매일 오전 6시(KST) 확인 &middot; 마지막 업데이트: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
-      toggle_label: 'English',
-    }},
-  }};
-
-  let currentLang = localStorage.getItem('cc-lang') || 'en';
-
-  function applyLang(lang) {{
-    currentLang = lang;
-    localStorage.setItem('cc-lang', lang);
-    const t = i18n[lang];
-    document.querySelectorAll('[data-i18n]').forEach(el => {{
-      const key = el.getAttribute('data-i18n');
-      if (t[key]) el.textContent = t[key];
-    }});
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {{
-      const key = el.getAttribute('data-i18n-html');
-      if (t[key]) el.innerHTML = t[key];
-    }});
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {{
-      const key = el.getAttribute('data-i18n-placeholder');
-      if (t[key]) el.placeholder = t[key];
-    }});
-    document.getElementById('lang-toggle').textContent = t.toggle_label;
-
-    // Toggle feature content (en/ko)
-    const showEn = lang === 'en';
-    document.querySelectorAll('.feat-en').forEach(el => el.style.display = showEn ? '' : 'none');
-    document.querySelectorAll('.feat-ko').forEach(el => el.style.display = showEn ? 'none' : '');
-  }}
-
-  document.getElementById('lang-toggle').addEventListener('click', () => {{
-    applyLang(currentLang === 'en' ? 'ko' : 'en');
-  }});
-
-  applyLang(currentLang);
-</script>
-</body>
-</html>
-"""
+def generate_web_data(entries: list[dict], updated: str) -> dict:
+    """Payload for docs/index.html: every version with typed feature bullets."""
+    return {
+        "updated": updated,
+        "releases": [
+            {
+                "version": e["version"],
+                "date": e["date"],
+                "commands": [{"name": c["name"], "context": c["context"]} for c in e["commands"]],
+                "features": [{"type": _detect_context(f), "text": f} for f in e["features"]],
+            }
+            for e in entries
+        ],
+    }
 
 
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
+def generate_web_translations(entries: list[dict]) -> dict[str, list[str]]:
+    """Korean bullets per version, index-aligned with `features` in the web data."""
+    return {e["version"]: e.get("features_ko", e["features"]) for e in entries}
+
+
+def _compact_json(data) -> str:
+    return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+
 
 def render_outputs(entries: list[dict], updated: str) -> dict[Path, str]:
     """Every generated file and its content, stamped with `updated`."""
     return {
         JSON_FILE: json.dumps(entries, indent=2, ensure_ascii=False),
         RELEASES_FILE: generate_readme(entries, updated),
-        HTML_FILE: generate_html(entries, updated),
+        WEB_DATA_FILE: _compact_json(generate_web_data(entries, updated)),
+        WEB_KO_FILE: _compact_json(generate_web_translations(entries)),
         META_FILE: json.dumps({"updated": updated}, indent=2) + "\n",
     }
 

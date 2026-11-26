@@ -29,7 +29,7 @@ GitHub Actions (daily cron, 06:00 KST)
 2. GitHub Releases API + npm registry → collect release dates
 3. Python parser → extract versions, commands, features
 4. OpenAI API (gpt-4o-mini) → translate key features to Korean (cache-based)
-5. Generate RELEASES.md (table) + docs/index.html (dashboard), only when content changed
+5. Generate RELEASES.md (table) + docs/data.json (dashboard data), only when content changed
 6. git commit & push → GitHub Pages auto-deploy
 ```
 
@@ -49,13 +49,15 @@ claude-code-changelog/
 ├── .github/workflows/
 │   └── track-releases.yml       # GitHub Actions (daily cron, 06:00 KST)
 ├── scripts/
-│   └── parse_changelog.py       # Parser + translator + HTML generator
+│   └── parse_changelog.py       # Parser + translator + data generator
 ├── data/
 │   ├── releases.json            # Structured version data
 │   ├── release_dates.json       # Date cache (GitHub API + npm)
 │   └── translations_cache.json  # Korean translation cache
 ├── docs/
-│   └── index.html               # GitHub Pages dashboard
+│   ├── index.html               # GitHub Pages dashboard (static page)
+│   ├── data.json                # Dashboard data (generated)
+│   └── ko.json                  # Korean bullets, loaded on demand (generated)
 ├── CHANGELOG_RAW.md             # Raw source (auto-fetched)
 ├── RELEASES.md                  # Auto-generated version table
 ├── README.md                    # This file
