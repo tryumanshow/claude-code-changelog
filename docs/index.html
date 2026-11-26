@@ -3,267 +3,229 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude Code Changelog</title>
+<title>Claude Code changelog</title>
 <meta name="description" content="Every Claude Code release: new commands, flags, and key changes. Updated daily.">
-<link rel="alternate" type="application/atom+xml" title="Claude Code Changelog" href="feed.xml">
+<link rel="alternate" type="application/atom+xml" title="Claude Code changelog" href="feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* Continuous-form listing paper: green bars, feed holes, black ink, red for what is new. */
   :root {
-    color-scheme: dark;
-    --bg: #0a0a0b;
-    --surface: #141417;
-    --surface-hover: #1a1a1f;
-    --border: #27272a;
-    --border-subtle: #1e1e22;
-    --text: #fafafa;
-    --text-secondary: #a1a1aa;
-    --text-muted: #71717a;
-    --accent: #d4a574;
-    --accent-dim: rgba(212,165,116,0.08);
-    --accent-border: rgba(212,165,116,0.25);
-    --new: #4ade80;
-    --improved: #d4a574;
-    --fixed: #60a5fa;
-    --removed: #f87171;
-    --mark: rgba(250,204,21,0.28);
+    color-scheme: light;
+    --desk: #dfe4da;
+    --paper: #fbfcf7;
+    --bar: #e4f0e1;
+    --rule: #a9c8ab;
+    --ink: #17262b;
+    --ink-soft: #55676a;
+    --red: #c2311f;
+    --marker: #ffe45c;
+    --sans: 'IBM Plex Sans', 'IBM Plex Sans KR', system-ui, sans-serif;
+    --cond: 'IBM Plex Sans Condensed', 'IBM Plex Sans KR', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', 'IBM Plex Sans KR', ui-monospace, monospace;
+    --strip: 34px;
   }
-  @media (prefers-color-scheme: light) {
+  @media (prefers-color-scheme: dark) {
     :root {
-      color-scheme: light;
-      --bg: #fafaf9;
-      --surface: #ffffff;
-      --surface-hover: #f4f4f2;
-      --border: #d6d3d1;
-      --border-subtle: #e7e5e4;
-      --text: #1c1917;
-      --text-secondary: #44403c;
-      --text-muted: #78716c;
-      --accent: #9a5b22;
-      --accent-dim: rgba(154,91,34,0.06);
-      --accent-border: rgba(154,91,34,0.3);
-      --new: #15803d;
-      --improved: #9a5b22;
-      --fixed: #1d4ed8;
-      --removed: #b91c1c;
-      --mark: rgba(250,204,21,0.45);
+      color-scheme: dark;
+      --desk: #070b09;
+      --paper: #0e1512;
+      --bar: #14211a;
+      --rule: #2f4a3a;
+      --ink: #d9e6da;
+      --ink-soft: #8ba294;
+      --red: #ff7a66;
+      --marker: #6b5a00;
     }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  code, .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
-  a { color: inherit; }
-  .container { width: 100%; max-width: 1040px; margin: 0 auto; padding: 2.5rem 1.5rem 1rem; flex: 1; }
+  html { scroll-padding-top: 9rem; }
+  body { font-family: var(--sans); font-size: 15px; line-height: 1.55; color: var(--ink); background: var(--desk); }
+  a { color: inherit; text-underline-offset: 0.18em; }
+  button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 
-  header { margin-bottom: 1.75rem; }
-  .header-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
-  .header-left { display: flex; align-items: center; gap: 0.75rem; }
-  h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
-  h1 .cc { color: var(--accent); }
-  .pill {
-    font-size: 0.7rem; font-weight: 500; padding: 0.25rem 0.6rem; border-radius: 100px;
-    background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-border);
+  .sheet { position: relative; max-width: 1080px; min-height: 100vh; margin: 0 auto; background: var(--paper); padding: 0 var(--strip); }
+  .sheet::before, .sheet::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: var(--strip);
+    background: radial-gradient(circle, var(--desk) 0 5px, transparent 5.6px) center top / var(--strip) 42px repeat-y;
   }
-  .meta { color: var(--text-muted); font-size: 0.8rem; }
-  .meta a { color: var(--text-secondary); text-decoration: none; }
-  .meta a:hover { color: var(--accent); text-decoration: underline; }
+  .sheet::before { left: 0; border-right: 1px dashed var(--rule); }
+  .sheet::after { right: 0; border-left: 1px dashed var(--rule); }
+  .pad { padding-left: 1.75rem; padding-right: 1.75rem; }
 
-  .stats { display: flex; gap: 0.75rem; margin-bottom: 1.25rem; }
-  .stat { background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 0.85rem 1.25rem; flex: 1; min-width: 0; }
-  .stat .num { font-size: 1.5rem; font-weight: 700; color: var(--accent); line-height: 1.2; }
-  .stat .label { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; }
+  /* listing header line, as printed at the top of a job */
+  .jobline { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 0.9rem; padding-bottom: 0.6rem; border-bottom: 1px dashed var(--rule); font: 0.72rem var(--mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+  .jobline > span { white-space: nowrap; }
 
-  .toolbar {
-    position: sticky; top: 0; z-index: 10;
-    background: var(--bg);
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border-subtle);
-    margin-bottom: 1rem;
+  header { padding-top: 2.5rem; padding-bottom: 2.25rem; }
+  .head-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  h1 { font-family: var(--cond); font-weight: 700; font-size: clamp(1.5rem, 3.6vw, 2.1rem); line-height: 1.05; letter-spacing: -0.01em; }
+  .star { flex-shrink: 0; font: 500 0.8rem var(--mono); text-decoration: none; border: 1.5px solid var(--ink); padding: 0.3rem 0.65rem; white-space: nowrap; transition: background 0.15s, color 0.15s; }
+  .star:hover { background: var(--ink); color: var(--paper); }
+  .star b { font-weight: 600; margin-left: 0.5rem; padding-left: 0.55rem; border-left: 1.5px solid currentColor; }
+  .star b:empty { display: none; }
+  .latest { display: inline-block; margin-top: 1.4rem; font: 600 clamp(3.6rem, 14vw, 8.75rem)/0.92 var(--mono); letter-spacing: -0.055em; text-decoration: none; min-height: 0.92em; }
+  .latest:hover { color: var(--red); }
+  .facts { margin-top: 1.1rem; max-width: 46rem; font-size: 1.05rem; color: var(--ink-soft); }
+  .facts b { font-family: var(--mono); font-weight: 600; color: var(--ink); }
+
+  /* the page prints itself once: the version is struck character by character, then the paper feeds */
+  .latest.print { animation: print 0.85s steps(var(--n, 7)) both; }
+  .facts.print { animation: settle 0.5s 0.8s both; }
+  .rel.feed { animation: feed 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i, 0) * 50ms + var(--base, 0ms)); }
+  .rel.feed .stamp { animation: stamp 0.28s cubic-bezier(0.3, 1.5, 0.5, 1) both; animation-delay: calc(var(--i, 0) * 50ms + var(--base, 0ms) + 0.4s); }
+  .rel-main.unfold li, .rel-main.unfold .group-title { animation: line 0.22s both; animation-delay: calc(min(var(--l, 0), 26) * 16ms); }
+  @keyframes print { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes settle { from { opacity: 0; transform: translateY(6px); } }
+  @keyframes feed { from { opacity: 0; transform: translateY(22px); } }
+  @keyframes stamp { from { opacity: 0; transform: rotate(-3deg) scale(2.4); } }
+  @keyframes line { from { opacity: 0; transform: translateX(-8px); } }
+  @media (prefers-reduced-motion: reduce) {
+    .latest.print, .facts.print, .rel.feed, .rel.feed .stamp, .rel-main.unfold li, .rel-main.unfold .group-title { animation: none; }
   }
-  .toolbar-row { display: flex; gap: 0.75rem; align-items: center; }
-  .search-wrap { position: relative; flex: 1; }
-  #search {
-    width: 100%; padding: 0.55rem 2.6rem 0.55rem 1rem;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-    color: var(--text); font-size: 0.9rem; font-family: inherit; outline: none;
-  }
-  #search:focus { border-color: var(--accent); }
-  #search::placeholder { color: var(--text-muted); }
-  .kbd {
-    position: absolute; right: 0.6rem; top: 50%; transform: translateY(-50%);
-    font-size: 0.7rem; color: var(--text-muted); border: 1px solid var(--border);
-    border-radius: 4px; padding: 0 0.35rem; pointer-events: none;
-  }
+
+  .toolbar { position: sticky; top: 0; z-index: 10; background: var(--paper); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); padding-top: 0.6rem; padding-bottom: 0.6rem; }
+  .bar-row { display: flex; align-items: center; gap: 0.5rem 1.25rem; flex-wrap: wrap; }
+  .bar-row + .bar-row { margin-top: 0.55rem; }
+  .tabs { display: flex; gap: 1.1rem; }
+  .tab, .lang, .type-btn, .more, .chip { font-family: var(--mono); font-size: 0.8rem; }
+  .tab { text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); padding: 0.1rem 0; border-bottom: 2px solid transparent; }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+  .lang { margin-left: auto; text-decoration: underline; }
+  .search-wrap { position: relative; flex: 1 1 100%; }
+  #search { width: 100%; font: 500 0.95rem var(--mono); color: var(--ink); background: transparent; border: 1.5px solid var(--ink); border-radius: 0; padding: 0.5rem 2.4rem 0.5rem 0.75rem; outline-offset: 2px; }
+  #search::placeholder { color: var(--ink-soft); font-weight: 400; }
+  .kbd { position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); font: 0.8rem var(--mono); color: var(--ink-soft); pointer-events: none; }
   #search:focus + .kbd, #search:not(:placeholder-shown) + .kbd { display: none; }
-  .check { display: flex; align-items: center; gap: 0.4rem; color: var(--text-secondary); font-size: 0.8rem; cursor: pointer; white-space: nowrap; user-select: none; }
-  .check input { accent-color: var(--accent); }
-  .btn {
-    padding: 0.4rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-    color: var(--text-secondary); font-size: 0.8rem; font-family: inherit; cursor: pointer; white-space: nowrap;
-  }
-  .btn:hover { border-color: var(--accent); color: var(--accent); }
-  .status { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 0.55rem; font-size: 0.75rem; color: var(--text-muted); }
-  .types { display: flex; gap: 0.35rem; flex-wrap: wrap; }
-  .type-btn { background: none; border: 1px solid transparent; border-radius: 100px; padding: 0.05rem 0.55rem; font: inherit; cursor: pointer; }
-  .type-btn::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 0.35rem; background: currentColor; }
-  .type-btn:hover { border-color: var(--border); }
-  .type-btn[aria-pressed="true"] { border-color: currentColor; background: color-mix(in srgb, currentColor 12%, transparent); }
-
-  .tabs { display: flex; gap: 0.25rem; margin-bottom: 0.25rem; }
-  .tab { background: none; border: none; border-bottom: 2px solid transparent; color: var(--text-muted); font: inherit; font-size: 0.85rem; font-weight: 500; padding: 0.35rem 0.7rem; cursor: pointer; }
-  .tab:hover { color: var(--text); }
-  .tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+  #result-count { font: 0.8rem var(--mono); color: var(--ink-soft); margin-right: auto; }
+  .check { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; cursor: pointer; user-select: none; }
+  .check input { accent-color: var(--ink); }
+  .types { display: flex; gap: 0.15rem; flex-wrap: wrap; }
+  .type-btn { padding: 0.1rem 0.45rem; }
+  .type-btn::before { content: attr(data-mark) ' '; font-weight: 600; }
+  .type-btn:hover { text-decoration: underline; }
+  .type-btn[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
   body.view-commands .versions-only { display: none; }
 
-  .cmd-section { margin-bottom: 1.5rem; }
-  .cmd-section h2 { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 1rem 0 0.5rem; }
-  .cmd-row { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.45rem 0.9rem; border: 1px solid var(--border-subtle); border-top: none; background: var(--surface); font-size: 0.8rem; }
-  .cmd-row:first-of-type { border-top: 1px solid var(--border-subtle); border-radius: 10px 10px 0 0; }
-  .cmd-row:last-of-type { border-radius: 0 0 10px 10px; }
-  .cmd-row:only-of-type { border-radius: 10px; }
-  .cmd-row .chip { flex-shrink: 0; }
-  .cmd-first { color: var(--text-secondary); flex: 1; min-width: 0; }
-  .cmd-first a { text-decoration: none; }
-  .cmd-first a:hover { color: var(--accent); }
-  .cmd-count { color: var(--text-muted); white-space: nowrap; font-size: 0.74rem; }
+  /* one release per bar */
+  .rel { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 0 1.5rem; padding: 1.1rem 1.75rem 1.2rem; }
+  .rel:nth-child(odd) { background: var(--bar); }
+  .rel-side { cursor: pointer; align-self: start; }
+  .ver { display: block; font: 600 1.3rem/1.2 var(--mono); letter-spacing: -0.02em; text-decoration: none; }
+  .ver:hover { text-decoration: underline; }
+  .rel:target .ver { background: var(--marker); }
+  .rel time, .tally { display: block; font: 0.78rem var(--mono); color: var(--ink-soft); }
+  .rel time { margin-top: 0.25rem; }
+  .tally { word-spacing: 0.35em; }
 
-  .new { color: var(--new); }
-  .improved { color: var(--improved); }
-  .fixed { color: var(--fixed); }
-  .removed { color: var(--removed); }
-  .mentioned { color: var(--text-muted); }
+  .intro { font: 500 0.85rem var(--mono); color: var(--red); margin-bottom: 0.45rem; display: flex; flex-wrap: wrap; gap: 0.1rem 0.9rem; align-items: baseline; }
+  .stamp { font-weight: 600; letter-spacing: 0.14em; border: 2px solid var(--red); padding: 0.05rem 0.4rem; font-size: 0.72rem; transform: rotate(-3deg); }
+  .chip { overflow-wrap: anywhere; text-align: left; }
+  .chip:hover { text-decoration: underline; }
+  .chip.new { color: var(--red); font-weight: 500; }
+  .chip.removed { text-decoration: line-through; }
 
-  .rel { border: 1px solid var(--border-subtle); border-radius: 10px; background: var(--surface); margin-bottom: 0.6rem; scroll-margin-top: 7rem; }
-  .rel.has-new { border-left: 3px solid var(--accent); }
-  .rel:target { border-color: var(--accent); }
-  .rel-head { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; padding: 0.7rem 1rem; cursor: pointer; }
-  .rel-head:hover { background: var(--surface-hover); border-radius: 10px; }
-  .ver { font-weight: 600; font-size: 0.9rem; text-decoration: none; color: var(--text); }
-  .ver:hover { color: var(--accent); }
-  .rel time { font-size: 0.76rem; color: var(--text-muted); }
-  .counts { display: flex; gap: 0.6rem; font-size: 0.74rem; font-weight: 500; }
-  .newcmds { display: flex; gap: 0.3rem; flex-wrap: wrap; flex: 1; min-width: 0; }
-  .chip {
-    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.74rem;
-    padding: 0.1rem 0.45rem; border-radius: 4px; border: 1px solid var(--border);
-    background: transparent; color: var(--text-secondary); cursor: pointer; overflow-wrap: anywhere;
-  }
-  .chip:hover { border-color: currentColor; }
-  .chip.new { color: var(--new); border-color: color-mix(in srgb, var(--new) 40%, transparent); }
-  .chip.improved { color: var(--improved); }
-  .chip.fixed { color: var(--fixed); }
-  .chip.removed { color: var(--removed); text-decoration: line-through; }
-  .toggle { margin-left: auto; background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.75rem; font-family: inherit; padding: 0.2rem 0.3rem; white-space: nowrap; }
-  .toggle:hover { color: var(--accent); }
+  .rel-main ul { list-style: none; }
+  .rel-main li { position: relative; padding-left: 1.5rem; margin-bottom: 0.3rem; overflow-wrap: anywhere; }
+  .rel-main li::before { content: attr(data-mark); position: absolute; left: 0; font: 600 0.95rem/1.6 var(--mono); }
+  .rel-main li code { font: 500 0.88em var(--mono); }
+  mark { background: var(--marker); color: inherit; }
+  .group-title { font: 600 0.72rem var(--mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); margin: 0.9rem 0 0.35rem; }
+  .group-title:first-child, .intro + .group-title { margin-top: 0; }
+  .more { margin-top: 0.35rem; text-decoration: underline; color: var(--ink-soft); }
+  .more:hover { color: var(--ink); }
+  .rel-foot { margin-top: 0.9rem; padding-top: 0.6rem; border-top: 1px dashed var(--rule); display: flex; flex-wrap: wrap; gap: 0.15rem 0.9rem; align-items: baseline; font-size: 0.8rem; }
+  .foot-label { font: 600 0.72rem var(--mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+  .rel-foot a { font: 0.8rem var(--mono); }
+  .rel-foot .more { margin: 0 0 0 auto; }
 
-  .rel-body { padding: 0 1rem 0.8rem; }
-  .group-title { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0.7rem 0 0.3rem; }
-  .rel-body ul { list-style: none; }
-  .rel-body li { position: relative; padding-left: 1rem; margin-bottom: 0.25rem; color: var(--text-secondary); font-size: 0.82rem; line-height: 1.5; overflow-wrap: anywhere; }
-  .rel-body li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
-  .rel-body li.new::before { background: var(--new); }
-  .rel-body li.improved::before { background: var(--improved); }
-  .rel-body li.fixed::before { background: var(--fixed); }
-  .rel-body li.removed::before { background: var(--removed); }
-  .rel-body li.mentioned::before { background: var(--text-muted); }
-  .rel-body li code { font-size: 0.76rem; padding: 0.05rem 0.3rem; border-radius: 3px; background: color-mix(in srgb, currentColor 10%, transparent); }
-  mark { background: var(--mark); color: inherit; border-radius: 2px; }
-  .more { margin-top: 0.2rem; padding-left: 1rem; }
-  .rel-foot { display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center; margin-top: 0.8rem; padding-top: 0.7rem; border-top: 1px solid var(--border-subtle); }
-  .rel-foot .foot-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-right: 0.3rem; }
-  .rel-foot a { margin-left: auto; font-size: 0.75rem; color: var(--text-muted); text-decoration: none; white-space: nowrap; }
-  .rel-foot a:hover { color: var(--accent); }
+  /* command index */
+  .cmd-section h2 { font: 600 0.72rem var(--mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); padding: 1.4rem 1.75rem 0.5rem; }
+  .cmd-row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.5fr) 6.5rem 6rem; gap: 0 1rem; align-items: baseline; padding: 0.3rem 1.75rem; font: 0.82rem var(--mono); }
+  .cmd-row:nth-of-type(odd) { background: var(--bar); }
+  .cmd-first, .cmd-date, .cmd-count { color: var(--ink-soft); }
+  .cmd-count { text-align: right; }
 
-  .empty { text-align: center; color: var(--text-muted); padding: 3rem 1rem; font-size: 0.9rem; }
-  .empty .btn { margin-top: 0.9rem; }
+  .empty { padding: 3.5rem 1.75rem; }
+  .empty p { font-size: 1.05rem; }
+  .empty .more { margin-top: 0.6rem; }
 
-  footer { border-top: 1px solid var(--border-subtle); padding: 1.5rem 2rem; text-align: center; color: var(--text-muted); font-size: 0.75rem; }
-  footer a { color: var(--text-secondary); text-decoration: none; }
-  footer a:hover { color: var(--accent); }
+  footer { border-top: 2px solid var(--ink); margin-top: 2rem; padding-top: 1rem; padding-bottom: 2.5rem; font: 0.78rem/1.7 var(--mono); color: var(--ink-soft); }
 
-  @media (max-width: 640px) {
-    .container { padding: 1.25rem 0.9rem 1rem; }
-    h1 { font-size: 1.25rem; }
-    .stats { gap: 0.5rem; }
-    .stat { padding: 0.65rem 0.75rem; }
-    .stat .num { font-size: 1.05rem; }
-    .stat .label { font-size: 0.58rem; }
-    .toolbar-row { flex-wrap: wrap; }
-    .search-wrap { flex-basis: 100%; }
+  @media (max-width: 760px) {
+    :root { --strip: 0px; }
+    .sheet::before, .sheet::after { display: none; }
+    .pad, .rel, .cmd-row, .cmd-section h2, .empty { padding-left: 1rem; padding-right: 1rem; }
+    header { padding-top: 1.75rem; }
+    .jobline > span:nth-child(2) { display: none; }
+    html { scroll-padding-top: 11rem; }
+    .rel { grid-template-columns: minmax(0, 1fr); }
+    .rel-side { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.9rem; margin-bottom: 0.5rem; }
+    .rel time { margin-top: 0; }
     #search { font-size: 16px; }
     .kbd { display: none; }
-    .cmd-row { flex-wrap: wrap; gap: 0.3rem 0.6rem; }
-    .rel-head { gap: 0.5rem; padding: 0.65rem 0.8rem; }
-    .newcmds { flex-basis: 100%; order: 5; }
-    .rel-body { padding: 0 0.8rem 0.7rem; }
+    .cmd-row { grid-template-columns: minmax(0, 1fr) auto; }
+    .cmd-date { display: none; }
+    .cmd-first { grid-column: 1; }
   }
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <div class="header-top">
-      <div class="header-left"><h1><span class="cc">Claude Code</span> Changelog</h1><span class="pill">AUTO-SYNC</span></div>
-      <iframe src="https://ghbtns.com/github-btn.html?user=tryumanshow&amp;repo=claude-code-changelog&amp;type=star&amp;count=true&amp;size=large" frameborder="0" scrolling="0" width="120" height="30" title="GitHub Stars"></iframe>
+<div class="sheet">
+  <div class="jobline pad">
+    <span>claude-code / changelog.md</span>
+    <span id="job-count"></span>
+    <span><span data-i18n="job_updated">updated</span> <span id="updated">—</span></span>
+  </div>
+  <header class="pad">
+    <div class="head-row">
+      <h1>Claude Code changelog</h1>
+      <a class="star" href="https://github.com/tryumanshow/claude-code-changelog" target="_blank" rel="noopener">&#9733; Star<b id="star-count"></b></a>
     </div>
-    <p class="meta">
-      <span data-i18n="meta_checked">Checked daily at 06:00 KST</span> &middot;
-      <span data-i18n="meta_updated">Last updated</span>: <span id="updated">—</span> &middot;
-      <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md" data-i18n="meta_source">Source</a> &middot;
-      <a href="https://github.com/tryumanshow/claude-code-changelog" data-i18n="meta_repo">Repo</a>
-    </p>
+    <a class="latest" id="latest" href="#"></a>
+    <p class="facts" id="facts">&nbsp;</p>
   </header>
 
-  <div class="stats">
-    <div class="stat"><div class="num mono" id="stat-total">—</div><div class="label" data-i18n="stat_total">Total Versions</div></div>
-    <div class="stat"><div class="num mono" id="stat-new">—</div><div class="label" data-i18n="stat_new">With New Commands</div></div>
-    <div class="stat"><div class="num mono" id="stat-latest">—</div><div class="label" id="stat-latest-label" data-i18n="stat_latest">Latest Release</div></div>
-  </div>
-
-  <div class="tabs" role="tablist">
-    <button class="tab" type="button" role="tab" data-view="versions" data-i18n="tab_versions">Versions</button>
-    <button class="tab" type="button" role="tab" data-view="commands" data-i18n="tab_commands">Commands</button>
-  </div>
-
-  <div class="toolbar">
-    <div class="toolbar-row">
-      <div class="search-wrap">
-        <input type="search" id="search" placeholder="Search version, command, feature..." data-i18n-placeholder="search_placeholder" autocomplete="off" spellcheck="false" aria-label="Search">
-        <span class="kbd mono">/</span>
+  <div class="toolbar pad">
+    <div class="bar-row">
+      <div class="tabs" role="tablist">
+        <button class="tab" type="button" role="tab" data-view="versions" data-i18n="tab_versions">Releases</button>
+        <button class="tab" type="button" role="tab" data-view="commands" data-i18n="tab_commands">Commands</button>
       </div>
-      <label class="check versions-only"><input type="checkbox" id="only-new"> <span data-i18n="only_new">New commands only</span></label>
-      <button class="btn" id="lang-toggle" type="button">한국어</button>
+      <button class="lang" id="lang-toggle" type="button">한국어</button>
     </div>
-    <div class="status">
+    <div class="bar-row">
+      <div class="search-wrap">
+        <input type="search" id="search" placeholder="Find a version, command or change" data-i18n-placeholder="search_placeholder" autocomplete="off" spellcheck="false" aria-label="Search">
+        <span class="kbd">/</span>
+      </div>
+    </div>
+    <div class="bar-row">
       <span id="result-count" aria-live="polite"></span>
+      <label class="check versions-only"><input type="checkbox" id="only-new"> <span data-i18n="only_new">Only releases with a new command</span></label>
       <span class="types versions-only" id="types">
-        <button class="type-btn new" type="button" data-type="new" data-i18n="type_new">Added</button>
-        <button class="type-btn improved" type="button" data-type="improved" data-i18n="type_improved">Improved</button>
-        <button class="type-btn fixed" type="button" data-type="fixed" data-i18n="type_fixed">Fixed</button>
-        <button class="type-btn removed" type="button" data-type="removed" data-i18n="type_removed">Removed</button>
+        <button class="type-btn" type="button" data-type="new" data-mark="+" data-i18n="type_new">added</button>
+        <button class="type-btn" type="button" data-type="improved" data-mark="~" data-i18n="type_improved">improved</button>
+        <button class="type-btn" type="button" data-type="fixed" data-mark="*" data-i18n="type_fixed">fixed</button>
+        <button class="type-btn" type="button" data-type="removed" data-mark="-" data-i18n="type_removed">removed</button>
       </span>
     </div>
   </div>
 
-  <main id="list" aria-busy="true"><p class="empty" data-i18n="loading">Loading…</p></main>
+  <main id="list" aria-busy="true"><div class="empty"><p data-i18n="loading">Loading the changelog…</p></div></main>
   <div id="sentinel"></div>
-  <noscript><p class="empty">This page needs JavaScript. The same data is in <a href="https://github.com/tryumanshow/claude-code-changelog/blob/main/RELEASES.md">RELEASES.md</a>.</p></noscript>
-</div>
+  <noscript><div class="empty"><p>This page needs JavaScript. The same data is in <a href="https://github.com/tryumanshow/claude-code-changelog/blob/main/RELEASES.md">RELEASES.md</a>.</p></div></noscript>
 
-<footer>
-  Made by <a href="https://github.com/tryumanshow">@tryumanshow</a>
-  &middot; Powered by GitHub Actions &middot;
-  Data from <a href="https://github.com/anthropics/claude-code">anthropics/claude-code</a>
-  &middot; <a href="feed.xml">Atom feed</a>
-</footer>
+  <footer class="pad">
+    <span data-i18n="foot_source">Parsed every day at 06:00 KST from</span> <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">anthropics/claude-code CHANGELOG.md</a>.<br>
+    <a href="feed.xml" data-i18n="foot_feed">Atom feed</a> &middot;
+    <a href="https://github.com/tryumanshow/claude-code-changelog" data-i18n="foot_repo">Source on GitHub</a> &middot;
+    <a href="https://github.com/tryumanshow">@tryumanshow</a>
+  </footer>
+</div>
 
 <script>
 (function () {
@@ -271,40 +233,45 @@
 
   const I18N = {
     en: {
-      meta_checked: 'Checked daily at 06:00 KST', meta_updated: 'Last updated', meta_source: 'Source', meta_repo: 'Repo',
-      stat_total: 'Total Versions', stat_new: 'With New Commands', stat_latest: 'Latest Release',
-      search_placeholder: 'Search version, command, feature...', only_new: 'New commands only',
-      type_new: 'Added', type_improved: 'Improved', type_fixed: 'Fixed', type_removed: 'Removed', type_mentioned: 'Other',
-      loading: 'Loading…', load_failed: 'Could not load the changelog data. Reload to try again.',
-      count_all: n => `${n} versions`, count_some: (n, total) => `${n} of ${total} versions`,
-      empty: 'No version matches.', clear: 'Clear filters',
-      expand: 'Show all', collapse: 'Show less', more: n => `+ ${n} more`,
-      commands: 'Commands', official: 'Official changelog ↗', toggle_label: '한국어',
-      filter_by: name => `Search for ${name}`,
-      tab_versions: 'Versions', tab_commands: 'Commands',
+      tab_versions: 'Releases', tab_commands: 'Commands', toggle_label: '한국어',
+      search_placeholder: 'Find a version, command or change', only_new: 'Only releases with a new command',
+      type_new: 'added', type_improved: 'improved', type_fixed: 'fixed', type_removed: 'removed', type_mentioned: 'other',
+      facts: (total, withNew, date) => ['Latest release' + (date ? `, ${date}. ` : '. '), `${total}`, ' releases on record; ', `${withNew}`, ' of them introduced a command.'],
+      job_updated: 'updated', job_count: n => `${n} releases`,
+      loading: 'Loading the changelog…', load_failed: 'The changelog data did not load. Reload the page to try again.',
+      count_all: n => `${n} releases`, count_some: (n, total) => `${n} of ${total} releases`,
+      empty: 'No release matches that.', cmd_empty: 'No command matches that.', clear: 'Clear search and filters',
+      more: n => `${n} more`, collapse: 'Fold', stamp: 'NEW',
+      commands: 'Commands in this release', official: 'Official changelog',
+      filter_by: name => `Find releases that mention ${name}`,
       kind_slash: 'Slash commands', kind_flag: 'CLI flags', kind_key: 'Keyboard shortcuts',
-      introduced: 'Introduced in', first_mention: 'First mentioned in',
+      introduced: 'introduced in', first_mention: 'first mentioned in',
       cmd_count_all: n => `${n} commands`, cmd_count_some: (n, total) => `${n} of ${total} commands`,
-      in_versions: n => n === 1 ? '1 version' : `${n} versions`, cmd_empty: 'No command matches.',
+      in_versions: n => n === 1 ? '1 release' : `${n} releases`,
+      foot_source: 'Parsed every day at 06:00 KST from',
+      foot_feed: 'Atom feed', foot_repo: 'Source on GitHub',
     },
     ko: {
-      meta_checked: '매일 오전 6시(KST) 확인', meta_updated: '마지막 업데이트', meta_source: '소스', meta_repo: '저장소',
-      stat_total: '전체 버전 수', stat_new: '새 커맨드가 나온 버전', stat_latest: '최신 릴리스',
-      search_placeholder: '버전, 커맨드, 기능 검색...', only_new: '새 커맨드 있는 버전만',
+      tab_versions: '릴리스', tab_commands: '커맨드', toggle_label: 'English',
+      search_placeholder: '버전, 커맨드, 변경 내용 찾기', only_new: '새 커맨드가 나온 릴리스만',
       type_new: '추가', type_improved: '개선', type_fixed: '수정', type_removed: '삭제', type_mentioned: '기타',
-      loading: '불러오는 중…', load_failed: '데이터를 불러오지 못했어요. 새로고침해 주세요.',
-      count_all: n => `버전 ${n}개`, count_some: (n, total) => `${total}개 중 ${n}개`,
-      empty: '조건에 맞는 버전이 없어요.', clear: '필터 지우기',
-      expand: '전체 보기', collapse: '접기', more: n => `+ ${n}개 더`,
-      commands: '커맨드', official: '공식 changelog ↗', toggle_label: 'English',
-      filter_by: name => `${name} 검색`,
-      tab_versions: '버전', tab_commands: '커맨드',
+      facts: (total, withNew, date) => ['최신 릴리스' + (date ? ` (${date}). ` : '. ') + '지금까지 ', `${total}`, '개가 기록됐고, 그중 ', `${withNew}`, '개에서 새 커맨드가 나왔어요.'],
+      job_updated: '업데이트', job_count: n => `릴리스 ${n}개`,
+      loading: 'changelog 불러오는 중…', load_failed: '데이터를 불러오지 못했어요. 새로고침해 주세요.',
+      count_all: n => `릴리스 ${n}개`, count_some: (n, total) => `${total}개 중 ${n}개`,
+      empty: '조건에 맞는 릴리스가 없어요.', cmd_empty: '조건에 맞는 커맨드가 없어요.', clear: '검색과 필터 지우기',
+      more: n => `${n}개 더`, collapse: '접기', stamp: 'NEW',
+      commands: '이 릴리스의 커맨드', official: '공식 changelog',
+      filter_by: name => `${name} 이 언급된 릴리스 찾기`,
       kind_slash: '슬래시 커맨드', kind_flag: 'CLI 플래그', kind_key: '단축키',
       introduced: '처음 추가', first_mention: '처음 언급',
       cmd_count_all: n => `커맨드 ${n}개`, cmd_count_some: (n, total) => `${total}개 중 ${n}개`,
-      in_versions: n => `버전 ${n}개`, cmd_empty: '조건에 맞는 커맨드가 없어요.',
+      in_versions: n => `릴리스 ${n}개`,
+      foot_source: '매일 오전 6시(KST)에 파싱하는 원본:',
+      foot_feed: 'Atom 피드', foot_repo: 'GitHub 에서 소스 보기',
     },
   };
+  const MARKS = { new: '+', improved: '~', fixed: '*', removed: '-', mentioned: '·' };
   const TYPES = ['new', 'improved', 'fixed', 'removed', 'mentioned'];
   const PREVIEW = 3;          // bullets shown while a version is collapsed
   const MATCH_PREVIEW = 8;    // matching bullets shown while searching
@@ -385,9 +352,8 @@
     while ((m = re.exec(text))) {
       if (!m[0]) { re.lastIndex++; continue; }
       if (m.index > last) parent.append(text.slice(last, m.index));
-      const ctx = cmdCtx.get(m[0].toLowerCase());
-      if (ctx) {
-        const code = el('code', ctx);
+      if (cmdCtx.has(m[0].toLowerCase())) {
+        const code = el('code');
         markInto(code, m[0], toks);
         parent.append(code);
       } else {
@@ -405,7 +371,8 @@
   }
 
   function bullet(rel, i, toks) {
-    const li = el('li', rel.features[i].type);
+    const li = el('li');
+    li.dataset.mark = MARKS[rel.features[i].type];
     renderText(li, featureText(rel, i), rel, toks);
     return li;
   }
@@ -418,14 +385,28 @@
     return b;
   }
 
+  function toggleButton(label, open) {
+    const b = el('button', 'toggle more', label);
+    b.type = 'button';
+    b.setAttribute('aria-expanded', String(open));
+    return b;
+  }
+
   function renderBody(body, item, toks) {
     const rel = item.rel, open = state.open.has(rel.version);
     body.textContent = '';
+    const fresh = rel.commands.filter(c => c.context === 'new');
+    if (fresh.length) {
+      const intro = el('p', 'intro');
+      intro.append(el('span', 'stamp', t.stamp));
+      fresh.forEach(c => intro.append(chip(c)));
+      body.append(intro);
+    }
     if (open) {
       for (const type of TYPES) {
         const idx = rel.features.map((f, i) => f.type === type ? i : -1).filter(i => i >= 0);
         if (!idx.length) continue;
-        body.append(el('div', `group-title ${type}`, `${t['type_' + type]} · ${idx.length}`));
+        body.append(el('div', 'group-title', `${t['type_' + type]} (${idx.length})`));
         const ul = el('ul');
         idx.forEach(i => ul.append(bullet(rel, i, toks)));
         body.append(ul);
@@ -438,7 +419,7 @@
       const link = el('a', null, t.official);
       link.href = `https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#${rel.version.replace(/\./g, '')}`;
       link.target = '_blank'; link.rel = 'noopener';
-      foot.append(link);
+      foot.append(link, toggleButton(t.collapse, true));
       body.append(foot);
       return;
     }
@@ -447,44 +428,32 @@
     const ul = el('ul');
     pick.forEach(i => ul.append(bullet(rel, i, toks)));
     body.append(ul);
-    if (rel.features.length > pick.length) {
-      const more = el('button', 'toggle more', t.more(rel.features.length - pick.length));
-      more.type = 'button';
-      body.append(more);
-    }
+    if (rel.features.length > pick.length) body.append(toggleButton(t.more(rel.features.length - pick.length), false));
   }
 
   function renderRelease(item, toks) {
-    const rel = item.rel, open = state.open.has(rel.version);
-    const art = el('article', 'rel' + (rel.hasNew ? ' has-new' : ''));
+    const rel = item.rel;
+    const art = el('article', 'rel');
     art.id = 'v' + rel.version;
     art.dataset.version = rel.version;
 
-    const head = el('div', 'rel-head');
-    const ver = el('a', 'ver mono', 'v' + rel.version);
+    const side = el('div', 'rel-side');
+    const ver = el('a', 'ver', rel.version);
     ver.href = '#v' + rel.version;
-    head.append(ver);
-    if (rel.date) { const time = el('time', 'mono', rel.date); time.dateTime = rel.date; head.append(time); }
-
-    const counts = el('span', 'counts');
-    for (const type of TYPES.slice(0, 4)) {
-      const n = rel.features.filter(f => f.type === type).length;
-      if (n) { const c = el('span', type, `${t['type_' + type]} ${n}`); counts.append(c); }
+    side.append(ver);
+    if (rel.date) { const time = el('time', null, rel.date); time.dateTime = rel.date; side.append(time); }
+    const counts = TYPES.slice(0, 4)
+      .map(type => [type, rel.features.filter(f => f.type === type).length])
+      .filter(([, n]) => n);
+    if (counts.length) {
+      const tally = el('span', 'tally', counts.map(([type, n]) => MARKS[type] + n).join(' '));
+      tally.title = counts.map(([type, n]) => `${t['type_' + type]} ${n}`).join(', ');
+      side.append(tally);
     }
-    head.append(counts);
 
-    const cmds = el('span', 'newcmds');
-    rel.commands.filter(c => c.context === 'new').forEach(c => cmds.append(chip(c)));
-    head.append(cmds);
-
-    const toggle = el('button', 'toggle', open ? t.collapse : t.expand);
-    toggle.type = 'button';
-    toggle.setAttribute('aria-expanded', String(open));
-    head.append(toggle);
-
-    const body = el('div', 'rel-body');
+    const body = el('div', 'rel-main');
     renderBody(body, item, toks);
-    art.append(head, body);
+    art.append(side, body);
     return art;
   }
 
@@ -522,16 +491,15 @@
       const rows = shown.filter(c => c.kind === kind);
       if (!rows.length) continue;
       const section = el('section', 'cmd-section');
-      section.append(el('h2', null, `${t['kind_' + kind]} · ${rows.length}`));
+      section.append(el('h2', null, `${t['kind_' + kind]} (${rows.length})`));
       for (const c of rows) {
         const row = el('div', 'cmd-row');
         row.append(chip({ name: c.name, context: c.introduced ? 'new' : 'mentioned' }));
         const first = el('span', 'cmd-first');
-        const link = el('a', 'mono', 'v' + c.first.version);
+        const link = el('a', null, c.first.version);
         link.href = '#v' + c.first.version;
         first.append((c.introduced ? t.introduced : t.first_mention) + ' ', link);
-        if (c.first.date) first.append(' · ' + c.first.date);
-        row.append(first, el('span', 'cmd-count', t.in_versions(c.count)));
+        row.append(first, el('span', 'cmd-date', c.first.date || ''), el('span', 'cmd-count', t.in_versions(c.count)));
         section.append(row);
       }
       list.append(section);
@@ -541,21 +509,25 @@
   function renderEmpty(message) {
     const empty = el('div', 'empty');
     empty.append(el('p', null, message));
-    const clear = el('button', 'btn', t.clear);
+    const clear = el('button', 'more', t.clear);
     clear.type = 'button'; clear.id = 'clear';
     empty.append(clear);
     list.append(empty);
   }
 
-  function renderMore() {
+  function renderMore(feed) {
     const toks = tokens();
     const from = list.querySelectorAll('.rel').length;
     const frag = document.createDocumentFragment();
-    filtered.slice(from, state.shown).forEach(item => frag.append(renderRelease(item, toks)));
+    filtered.slice(from, state.shown).forEach((item, i) => {
+      const art = renderRelease(item, toks);
+      if (feed && i < 10) { art.classList.add('feed'); art.style.setProperty('--i', i); }
+      frag.append(art);
+    });
     list.append(frag);
   }
 
-  function render() {
+  function render(feed) {
     document.body.classList.toggle('view-commands', state.view === 'commands');
     document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.view === state.view)));
     document.querySelectorAll('.type-btn').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.type === state.type)));
@@ -566,7 +538,22 @@
     $('result-count').textContent = filtered.length === releases.length
       ? t.count_all(releases.length) : t.count_some(filtered.length, releases.length);
     if (!filtered.length) { renderEmpty(t.empty); return; }
-    renderMore();
+    renderMore(feed);
+  }
+
+  // Header sentence; the odd-numbered parts are the figures.
+  function renderFacts() {
+    const latest = releases[0];
+    if (!latest) return;
+    const parts = t.facts(releases.length, releases.filter(r => r.hasNew).length, latest.date);
+    const big = $('latest');
+    big.textContent = latest.version;
+    big.href = '#v' + latest.version;
+    big.style.setProperty('--n', latest.version.length);
+    $('job-count').textContent = t.job_count(releases.length);
+    const facts = $('facts');
+    facts.textContent = '';
+    parts.forEach(part => facts.append(/^[\d.]+$/.test(part) ? el('b', null, part) : part));
   }
 
   function applyLang() {
@@ -575,6 +562,7 @@
     document.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t[n.dataset.i18n]; });
     document.querySelectorAll('[data-i18n-placeholder]').forEach(n => { n.placeholder = t[n.dataset.i18nPlaceholder]; });
     $('lang-toggle').textContent = t.toggle_label;
+    renderFacts();
   }
 
   function syncUrl() {
@@ -656,7 +644,7 @@
     if (e.target.closest('.rel-foot a')) return;
     const art = e.target.closest('.rel');
     if (!art) return;
-    const isToggle = e.target.closest('.toggle') || e.target.closest('.rel-head');
+    const isToggle = e.target.closest('.toggle') || e.target.closest('.rel-side');
     if (!isToggle || window.getSelection().toString()) return;
     if (e.target.closest('.ver')) e.preventDefault();
     const version = art.dataset.version;
@@ -664,7 +652,13 @@
     if (opening) state.open.add(version); else state.open.delete(version);
     if (e.target.closest('.ver') && opening) history.replaceState(null, '', location.pathname + location.search + '#v' + version);
     const item = filtered.find(x => x.rel.version === version);
-    art.replaceWith(renderRelease(item, tokens()));
+    const next = renderRelease(item, tokens());
+    if (opening) {
+      const main = next.querySelector('.rel-main');
+      main.classList.add('unfold');
+      main.querySelectorAll('.group-title, li').forEach((node, i) => node.style.setProperty('--l', i));
+    }
+    art.replaceWith(next);
   });
 
   $('types').addEventListener('click', e => {
@@ -685,7 +679,8 @@
   new IntersectionObserver(entries => {
     if (entries[0].isIntersecting && state.view === 'versions' && state.shown < filtered.length) {
       state.shown += PAGE;
-      renderMore();
+      list.style.setProperty('--base', '0ms');
+      renderMore(true);
     }
   }, { rootMargin: '600px' }).observe($('sentinel'));
 
@@ -701,6 +696,13 @@
     }
   }
 
+  async function loadStars() {
+    try {
+      const res = await fetch('https://api.github.com/repos/tryumanshow/claude-code-changelog');
+      if (res.ok) $('star-count').textContent = (await res.json()).stargazers_count;
+    } catch (e) { /* the button works without a count */ }
+  }
+
   async function boot() {
     applyLang();
     search.value = state.q;
@@ -714,16 +716,19 @@
       $('updated').textContent = data.updated;
     } catch (e) {
       list.textContent = '';
-      list.append(el('p', 'empty', t.load_failed));
+      const failed = el('div', 'empty');
+      failed.append(el('p', null, t.load_failed));
+      list.append(failed);
       return;
     }
     if (state.lang === 'ko') await loadKo();
-    $('stat-total').textContent = releases.length;
-    $('stat-new').textContent = releases.filter(r => r.hasNew).length;
-    const latest = releases[0];
-    if (latest) $('stat-latest').textContent = latest.date || 'v' + latest.version;
-    render();
+    renderFacts();
+    $('latest').classList.add('print');
+    $('facts').classList.add('print');
+    list.style.setProperty('--base', '650ms');     // let the header print first
+    render(true);
     goToHash();
+    loadStars();
   }
   boot();
 })();
