@@ -78,6 +78,21 @@ def test_highest_priority_context_wins_within_a_version():
     assert cmds == [{"name": "/loop", "context": "new", "summary": "Added `/loop` command"}]
 
 
+@pytest.mark.parametrize("line, expected", [
+    ("- Added `/loop` command", "new"),
+    ("- [VSCode] Fixed a crash on startup", "fixed"),
+    ("- Windows: Improved terminal rendering", "improved"),
+    ("- Remote Control: Fixed stopping the server in worktree mode", "fixed"),
+    ("- Self-hosted runner: Added `--start-dir`", "new"),
+    ("- Removed the legacy installer", "removed"),
+    ("- `/stats` now shows weekly totals", "improved"),
+    ("- Fixed the footer: it no longer overlaps", "fixed"),
+    ("- Bug fixes and reliability improvements", "mentioned"),
+])
+def test_detect_context(line, expected):
+    assert pc._detect_context(line) == expected
+
+
 # --- first appearance ---------------------------------------------------------
 
 CHANGELOG = """# Changelog
@@ -139,9 +154,22 @@ def test_short_command_name_does_not_match_inside_words():
     assert feats == ["Added /t shortcut for the todo list"]
 
 
-def test_highlight_wraps_command_once_and_skips_urls():
-    html = pc._highlight_cmds_in_text("Run /loop, see https://x.dev/loop, then /loop again", {"/loop": "new"})
-    assert html == 'Run <code class="cmd-ref new">/loop</code>, see https://x.dev/loop, then /loop again'
+def test_web_data_types_each_bullet_and_aligns_translations(entries):
+    for e in entries:
+        e["features_ko"] = [f"ko:{f}" for f in e["features"]]
+    data = pc.generate_web_data(entries, "2026-01-01 00:00 UTC")
+    latest = data["releases"][0]
+    assert latest["version"] == "1.2.0"
+    assert latest["features"] == [
+        {"type": "new", "text": "Added a footer hint to /model"},
+        {"type": "fixed", "text": "Fixed /cost rounding"},
+    ]
+    assert latest["commands"] == [
+        {"name": "/model", "context": "improved"},
+        {"name": "/cost", "context": "fixed"},
+    ]
+    ko = pc.generate_web_translations(entries)
+    assert [len(ko[r["version"]]) for r in data["releases"]] == [len(r["features"]) for r in data["releases"]]
 
 
 # --- translation ---------------------------------------------------------------
@@ -214,7 +242,7 @@ def workspace(tmp_path, monkeypatch):
     """Point every input/output path at a temp dir and stub the network."""
     for attr, name in [
         ("RAW_FILE", "CHANGELOG_RAW.md"), ("JSON_FILE", "releases.json"),
-        ("RELEASES_FILE", "RELEASES.md"), ("HTML_FILE", "index.html"),
+        ("RELEASES_FILE", "RELEASES.md"), ("WEB_DATA_FILE", "data.json"), ("WEB_KO_FILE", "ko.json"),
         ("META_FILE", "meta.json"), ("TRANSLATION_CACHE", "translations_cache.json"),
     ]:
         monkeypatch.setattr(pc, attr, tmp_path / name)
