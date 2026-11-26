@@ -29,7 +29,7 @@ GitHub Actions (daily cron, 06:00 KST)
 2. GitHub Releases API + npm registry → collect release dates
 3. Python parser → extract versions, commands, features
 4. OpenAI API (gpt-4o-mini) → translate key features to Korean (cache-based)
-5. Generate RELEASES.md (table) + docs/index.html (dashboard)
+5. Generate RELEASES.md (table) + docs/index.html (dashboard), only when content changed
 6. git commit & push → GitHub Pages auto-deploy
 ```
 

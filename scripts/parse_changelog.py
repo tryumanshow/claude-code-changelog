@@ -11,8 +11,9 @@ import re
 import os
 import subprocess
 import hashlib
+import sys
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
 
@@ -23,6 +24,10 @@ TRANSLATION_CACHE = ROOT / "data" / "translations_cache.json"
 JSON_FILE = ROOT / "data" / "releases.json"
 RELEASES_FILE = ROOT / "RELEASES.md"
 HTML_FILE = ROOT / "docs" / "index.html"
+META_FILE = ROOT / "data" / "meta.json"
+
+# A fetch that returns a truncated or wrong file must not wipe the dashboard
+MIN_VERSION_RATIO = 0.9
 
 
 # ---------------------------------------------------------------------------
@@ -597,11 +602,11 @@ def _has_new_command(entry: dict) -> bool:
     return any(c["context"] == "new" for c in entry["commands"])
 
 
-def generate_readme(entries: list[dict]) -> str:
+def generate_readme(entries: list[dict], updated: str) -> str:
     lines = [
         "# Claude Code Changelog Dashboard",
         "",
-        f"> Auto-updated daily at 06:00 KST | Last sync: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}",
+        f"> Checked daily at 06:00 KST | Last updated: {updated}",
         "",
         "| 버전 | 날짜 | 추가된 커맨드/약어 | 주요 기능 |",
         "|------|------|-------------------|----------|",
@@ -638,7 +643,7 @@ def generate_readme(entries: list[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def generate_html(entries: list[dict]) -> str:
+def generate_html(entries: list[dict], updated: str) -> str:
     """Generate a self-contained HTML dashboard."""
     rows = ""
     for e in entries:
@@ -660,7 +665,6 @@ def generate_html(entries: list[dict]) -> str:
             f'</tr>\n'
         )
 
-    updated = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     total = len(entries)
     with_cmds = sum(1 for e in entries if _has_new_command(e))
 
@@ -1072,7 +1076,7 @@ def generate_html(entries: list[dict]) -> str:
       <iframe src="https://ghbtns.com/github-btn.html?user=tryumanshow&amp;repo=claude-code-changelog&amp;type=star&amp;count=true&amp;size=large" frameborder="0" scrolling="0" width="120" height="30" title="GitHub Stars" style="vertical-align: middle;"></iframe>
     </div>
     <p class="meta" data-i18n-html="meta">
-      Updated daily at 06:00 KST &middot; Last sync: {updated} &middot;
+      Checked daily at 06:00 KST &middot; Last updated: {updated} &middot;
       <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot;
       <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>
     </p>
@@ -1161,7 +1165,7 @@ def generate_html(entries: list[dict]) -> str:
       legend_imp: 'Improved',
       legend_fix: 'Fixed',
       legend_del: 'Removed',
-      meta: 'Updated daily at 06:00 KST &middot; Last sync: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
+      meta: 'Checked daily at 06:00 KST &middot; Last updated: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">Source</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">Repo</a>',
       toggle_label: '한국어',
     }},
     ko: {{
@@ -1179,7 +1183,7 @@ def generate_html(entries: list[dict]) -> str:
       legend_imp: '개선',
       legend_fix: '수정',
       legend_del: '삭제',
-      meta: '매일 오전 6시(KST) 자동 업데이트 &middot; 마지막 동기화: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
+      meta: '매일 오전 6시(KST) 확인 &middot; 마지막 업데이트: {updated} &middot; <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">소스</a> &middot; <a href="https://github.com/tryumanshow/claude-code-changelog">저장소</a>',
       toggle_label: 'English',
     }},
   }};
@@ -1225,14 +1229,60 @@ def generate_html(entries: list[dict]) -> str:
 # Main
 # ---------------------------------------------------------------------------
 
+def render_outputs(entries: list[dict], updated: str) -> dict[Path, str]:
+    """Every generated file and its content, stamped with `updated`."""
+    return {
+        JSON_FILE: json.dumps(entries, indent=2, ensure_ascii=False),
+        RELEASES_FILE: generate_readme(entries, updated),
+        HTML_FILE: generate_html(entries, updated),
+        META_FILE: json.dumps({"updated": updated}, indent=2) + "\n",
+    }
+
+
+def previous_version_count() -> int:
+    try:
+        return len(json.loads(JSON_FILE.read_text(encoding="utf-8")))
+    except (OSError, ValueError):
+        return 0
+
+
+def previous_updated() -> str:
+    try:
+        return json.loads(META_FILE.read_text(encoding="utf-8"))["updated"]
+    except (OSError, ValueError, KeyError):
+        return ""
+
+
+def write_outputs(entries: list[dict]) -> bool:
+    """Write the generated files unless nothing but the timestamp would change.
+
+    Returns True when files were written. The "last updated" stamp only moves
+    when content does, so a quiet day produces no diff and no commit.
+    """
+    unchanged = render_outputs(entries, previous_updated())
+    if all(path.exists() and path.read_text(encoding="utf-8") == text
+           for path, text in unchanged.items()):
+        return False
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    for path, text in render_outputs(entries, now).items():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+        print(f"Wrote {path}")
+    return True
+
+
 def main():
     if not RAW_FILE.exists():
-        print(f"ERROR: {RAW_FILE} not found. Run the GitHub Action first.")
-        return
+        sys.exit(f"ERROR: {RAW_FILE} not found. Run the GitHub Action first.")
 
     text = RAW_FILE.read_text(encoding="utf-8")
     entries = parse_changelog(text)
     print(f"Parsed {len(entries)} versions")
+
+    previous = previous_version_count()
+    if not entries or len(entries) < previous * MIN_VERSION_RATIO:
+        sys.exit(f"ERROR: parsed {len(entries)} versions but the last run had {previous}. "
+                 f"{RAW_FILE.name} looks truncated or wrong; nothing was written.")
 
     # "new" only counts where a command shows up for the first time
     mark_first_appearances(entries)
@@ -1256,21 +1306,8 @@ def main():
     openai_key = os.environ.get("OPENAI_API_KEY", "")
     translate_features(entries, openai_key)
 
-    # Save JSON
-    JSON_FILE.parent.mkdir(parents=True, exist_ok=True)
-    JSON_FILE.write_text(json.dumps(entries, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"Wrote {JSON_FILE}")
-
-    # Generate README
-    readme = generate_readme(entries)
-    RELEASES_FILE.write_text(readme, encoding="utf-8")
-    print(f"Wrote {RELEASES_FILE}")
-
-    # Generate HTML dashboard
-    html = generate_html(entries)
-    HTML_FILE.parent.mkdir(parents=True, exist_ok=True)
-    HTML_FILE.write_text(html, encoding="utf-8")
-    print(f"Wrote {HTML_FILE}")
+    if not write_outputs(entries):
+        print("No content changes; outputs left untouched")
 
 
 if __name__ == "__main__":

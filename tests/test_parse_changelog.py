@@ -205,3 +205,53 @@ def test_without_api_key_cached_translations_are_still_used(cache_file):
     entries = make_entries("Added a thing", "Fixed a thing")
     pc.translate_features(entries, "")
     assert entries[0]["features_ko"] == ["기능 추가", "Fixed a thing"]
+
+
+# --- pipeline guards -----------------------------------------------------------
+
+@pytest.fixture
+def workspace(tmp_path, monkeypatch):
+    """Point every input/output path at a temp dir and stub the network."""
+    for attr, name in [
+        ("RAW_FILE", "CHANGELOG_RAW.md"), ("JSON_FILE", "releases.json"),
+        ("RELEASES_FILE", "RELEASES.md"), ("HTML_FILE", "index.html"),
+        ("META_FILE", "meta.json"), ("TRANSLATION_CACHE", "translations_cache.json"),
+    ]:
+        monkeypatch.setattr(pc, attr, tmp_path / name)
+    monkeypatch.setattr(pc, "fetch_release_dates", lambda needed: {v: "2026-01-01" for v in needed})
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    pc.RAW_FILE.write_text(CHANGELOG)
+    return tmp_path
+
+
+def test_second_run_without_changes_writes_nothing(workspace, capsys, monkeypatch):
+    pc.main()
+    capsys.readouterr()
+    monkeypatch.setattr(Path, "write_text", lambda *a, **k: pytest.fail("output rewritten"))
+    pc.main()
+    assert "No content changes" in capsys.readouterr().out
+
+
+def test_new_version_moves_the_timestamp(workspace):
+    pc.main()
+    pc.META_FILE.write_text('{"updated": "2020-01-01 00:00 UTC"}')
+    pc.RAW_FILE.write_text(CHANGELOG.replace("# Changelog\n", "# Changelog\n\n## 1.3.0\n\n- Added `/fresh` command\n"))
+    pc.main()
+    assert json.loads(pc.META_FILE.read_text())["updated"] != "2020-01-01 00:00 UTC"
+    assert len(json.loads(pc.JSON_FILE.read_text())) == 4
+
+
+def test_truncated_changelog_aborts_without_writing(workspace):
+    pc.main()
+    before = pc.JSON_FILE.read_text()
+    pc.RAW_FILE.write_text("404: Not Found")
+    with pytest.raises(SystemExit) as exc:
+        pc.main()
+    assert "truncated or wrong" in str(exc.value)
+    assert pc.JSON_FILE.read_text() == before
+
+
+def test_missing_changelog_is_an_error(workspace):
+    pc.RAW_FILE.unlink()
+    with pytest.raises(SystemExit):
+        pc.main()

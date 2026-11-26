@@ -29,7 +29,7 @@ GitHub Actions (매일 06:00 KST cron)
 2. GitHub Releases API + npm registry → 릴리스 날짜 수집
 3. Python 파싱 → 버전, 커맨드, 기능 추출
 4. OpenAI API (gpt-4o-mini) → Key Features 한국어 번역 (캐시 기반)
-5. RELEASES.md (표) + docs/index.html (대시보드) 생성
+5. RELEASES.md (표) + docs/index.html (대시보드) 생성 (내용이 바뀐 날에만)
 6. git commit & push → GitHub Pages 자동 배포
 ```
 
