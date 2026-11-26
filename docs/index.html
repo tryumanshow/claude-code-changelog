@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Claude Code Changelog</title>
 <meta name="description" content="Every Claude Code release: new commands, flags, and key changes. Updated daily.">
+<link rel="alternate" type="application/atom+xml" title="Claude Code Changelog" href="feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -110,8 +111,29 @@
   }
   .btn:hover { border-color: var(--accent); color: var(--accent); }
   .status { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 0.55rem; font-size: 0.75rem; color: var(--text-muted); }
-  .legend { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .legend span::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 0.35rem; background: currentColor; }
+  .types { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+  .type-btn { background: none; border: 1px solid transparent; border-radius: 100px; padding: 0.05rem 0.55rem; font: inherit; cursor: pointer; }
+  .type-btn::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 0.35rem; background: currentColor; }
+  .type-btn:hover { border-color: var(--border); }
+  .type-btn[aria-pressed="true"] { border-color: currentColor; background: color-mix(in srgb, currentColor 12%, transparent); }
+
+  .tabs { display: flex; gap: 0.25rem; margin-bottom: 0.25rem; }
+  .tab { background: none; border: none; border-bottom: 2px solid transparent; color: var(--text-muted); font: inherit; font-size: 0.85rem; font-weight: 500; padding: 0.35rem 0.7rem; cursor: pointer; }
+  .tab:hover { color: var(--text); }
+  .tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+  body.view-commands .versions-only { display: none; }
+
+  .cmd-section { margin-bottom: 1.5rem; }
+  .cmd-section h2 { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 1rem 0 0.5rem; }
+  .cmd-row { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.45rem 0.9rem; border: 1px solid var(--border-subtle); border-top: none; background: var(--surface); font-size: 0.8rem; }
+  .cmd-row:first-of-type { border-top: 1px solid var(--border-subtle); border-radius: 10px 10px 0 0; }
+  .cmd-row:last-of-type { border-radius: 0 0 10px 10px; }
+  .cmd-row:only-of-type { border-radius: 10px; }
+  .cmd-row .chip { flex-shrink: 0; }
+  .cmd-first { color: var(--text-secondary); flex: 1; min-width: 0; }
+  .cmd-first a { text-decoration: none; }
+  .cmd-first a:hover { color: var(--accent); }
+  .cmd-count { color: var(--text-muted); white-space: nowrap; font-size: 0.74rem; }
 
   .new { color: var(--new); }
   .improved { color: var(--improved); }
@@ -177,7 +199,8 @@
     .toolbar-row { flex-wrap: wrap; }
     .search-wrap { flex-basis: 100%; }
     #search { font-size: 16px; }
-    .kbd, .legend { display: none; }
+    .kbd { display: none; }
+    .cmd-row { flex-wrap: wrap; gap: 0.3rem 0.6rem; }
     .rel-head { gap: 0.5rem; padding: 0.65rem 0.8rem; }
     .newcmds { flex-basis: 100%; order: 5; }
     .rel-body { padding: 0 0.8rem 0.7rem; }
@@ -205,22 +228,27 @@
     <div class="stat"><div class="num mono" id="stat-latest">—</div><div class="label" id="stat-latest-label" data-i18n="stat_latest">Latest Release</div></div>
   </div>
 
+  <div class="tabs" role="tablist">
+    <button class="tab" type="button" role="tab" data-view="versions" data-i18n="tab_versions">Versions</button>
+    <button class="tab" type="button" role="tab" data-view="commands" data-i18n="tab_commands">Commands</button>
+  </div>
+
   <div class="toolbar">
     <div class="toolbar-row">
       <div class="search-wrap">
         <input type="search" id="search" placeholder="Search version, command, feature..." data-i18n-placeholder="search_placeholder" autocomplete="off" spellcheck="false" aria-label="Search">
         <span class="kbd mono">/</span>
       </div>
-      <label class="check"><input type="checkbox" id="only-new"> <span data-i18n="only_new">New commands only</span></label>
+      <label class="check versions-only"><input type="checkbox" id="only-new"> <span data-i18n="only_new">New commands only</span></label>
       <button class="btn" id="lang-toggle" type="button">한국어</button>
     </div>
     <div class="status">
       <span id="result-count" aria-live="polite"></span>
-      <span class="legend">
-        <span class="new" data-i18n="type_new">Added</span>
-        <span class="improved" data-i18n="type_improved">Improved</span>
-        <span class="fixed" data-i18n="type_fixed">Fixed</span>
-        <span class="removed" data-i18n="type_removed">Removed</span>
+      <span class="types versions-only" id="types">
+        <button class="type-btn new" type="button" data-type="new" data-i18n="type_new">Added</button>
+        <button class="type-btn improved" type="button" data-type="improved" data-i18n="type_improved">Improved</button>
+        <button class="type-btn fixed" type="button" data-type="fixed" data-i18n="type_fixed">Fixed</button>
+        <button class="type-btn removed" type="button" data-type="removed" data-i18n="type_removed">Removed</button>
       </span>
     </div>
   </div>
@@ -234,6 +262,7 @@
   Made by <a href="https://github.com/tryumanshow">@tryumanshow</a>
   &middot; Powered by GitHub Actions &middot;
   Data from <a href="https://github.com/anthropics/claude-code">anthropics/claude-code</a>
+  &middot; <a href="feed.xml">Atom feed</a>
 </footer>
 
 <script>
@@ -252,6 +281,11 @@
       expand: 'Show all', collapse: 'Show less', more: n => `+ ${n} more`,
       commands: 'Commands', official: 'Official changelog ↗', toggle_label: '한국어',
       filter_by: name => `Search for ${name}`,
+      tab_versions: 'Versions', tab_commands: 'Commands',
+      kind_slash: 'Slash commands', kind_flag: 'CLI flags', kind_key: 'Keyboard shortcuts',
+      introduced: 'Introduced in', first_mention: 'First mentioned in',
+      cmd_count_all: n => `${n} commands`, cmd_count_some: (n, total) => `${n} of ${total} commands`,
+      in_versions: n => n === 1 ? '1 version' : `${n} versions`, cmd_empty: 'No command matches.',
     },
     ko: {
       meta_checked: '매일 오전 6시(KST) 확인', meta_updated: '마지막 업데이트', meta_source: '소스', meta_repo: '저장소',
@@ -264,6 +298,11 @@
       expand: '전체 보기', collapse: '접기', more: n => `+ ${n}개 더`,
       commands: '커맨드', official: '공식 changelog ↗', toggle_label: 'English',
       filter_by: name => `${name} 검색`,
+      tab_versions: '버전', tab_commands: '커맨드',
+      kind_slash: '슬래시 커맨드', kind_flag: 'CLI 플래그', kind_key: '단축키',
+      introduced: '처음 추가', first_mention: '처음 언급',
+      cmd_count_all: n => `커맨드 ${n}개`, cmd_count_some: (n, total) => `${total}개 중 ${n}개`,
+      in_versions: n => `버전 ${n}개`, cmd_empty: '조건에 맞는 커맨드가 없어요.',
     },
   };
   const TYPES = ['new', 'improved', 'fixed', 'removed', 'mentioned'];
@@ -278,6 +317,8 @@
   const state = {
     q: params.get('q') || '',
     onlyNew: params.get('new') === '1',
+    type: TYPES.includes(params.get('type')) ? params.get('type') : '',
+    view: params.get('view') === 'commands' ? 'commands' : 'versions',
     lang: params.get('lang') || readPref('cc-lang') || 'en',
     open: new Set(),
     shown: PAGE,
@@ -305,15 +346,16 @@
     if (state.lang === 'ko' && ko && ko[rel.version] && ko[rel.version][i]) return ko[rel.version][i];
     return rel.features[i].text;
   }
+  function typeOk(feature) { return !state.type || feature.type === state.type; }
   function tokens() { return state.q.toLowerCase().split(/\s+/).filter(Boolean); }
 
   // A version matches when every token is found in its version, date, commands or bullets.
   function matchRelease(rel, toks) {
     const head = `v${rel.version} ${rel.date} ${rel.commands.map(c => c.name).join(' ')}`.toLowerCase();
-    const texts = rel.features.map((_, i) => featureText(rel, i).toLowerCase());
+    const texts = rel.features.map((f, i) => typeOk(f) ? featureText(rel, i).toLowerCase() : '');
     if (!toks.every(tok => head.includes(tok) || texts.some(x => x.includes(tok)))) return null;
     const hits = [];
-    texts.forEach((x, i) => { if (toks.some(tok => x.includes(tok))) hits.push(i); });
+    texts.forEach((x, i) => { if (x && toks.some(tok => x.includes(tok))) hits.push(i); });
     return hits;
   }
 
@@ -322,6 +364,7 @@
     filtered = [];
     for (const rel of releases) {
       if (state.onlyNew && !rel.hasNew) continue;
+      if (state.type && !rel.features.some(typeOk)) continue;
       const hits = toks.length ? matchRelease(rel, toks) : [];
       if (hits) filtered.push({ rel, hits });
     }
@@ -399,8 +442,8 @@
       body.append(foot);
       return;
     }
-    const all = rel.features.map((_, i) => i);
-    const pick = item.hits.length ? item.hits.slice(0, MATCH_PREVIEW) : all.slice(0, PREVIEW);
+    const all = rel.features.map((f, i) => typeOk(f) ? i : -1).filter(i => i >= 0);
+    const pick = item.hits.length ? item.hits.slice(0, MATCH_PREVIEW) : all.slice(0, state.type ? MATCH_PREVIEW : PREVIEW);
     const ul = el('ul');
     pick.forEach(i => ul.append(bullet(rel, i, toks)));
     body.append(ul);
@@ -445,6 +488,65 @@
     return art;
   }
 
+  // --- command index ----------------------------------------------------------
+  let commandIndexCache = null;
+  function commandIndex() {
+    if (commandIndexCache) return commandIndexCache;
+    const byName = new Map();
+    for (let i = releases.length - 1; i >= 0; i--) {       // oldest first
+      const rel = releases[i];
+      for (const c of rel.commands) {
+        let entry = byName.get(c.name);
+        if (!entry) {
+          const kind = c.name.startsWith('--') ? 'flag' : c.name.startsWith('/') ? 'slash' : 'key';
+          entry = { name: c.name, kind, first: rel, introduced: c.context === 'new', order: i, count: 0 };
+          byName.set(c.name, entry);
+        }
+        entry.count++;
+      }
+    }
+    commandIndexCache = [...byName.values()].sort((a, b) => a.order - b.order);   // newest first
+    return commandIndexCache;
+  }
+
+  function renderCommands() {
+    const toks = tokens();
+    const all = commandIndex();
+    const shown = all.filter(c => toks.every(tok => c.name.toLowerCase().includes(tok)));
+    list.textContent = '';
+    list.setAttribute('aria-busy', 'false');
+    $('result-count').textContent = shown.length === all.length
+      ? t.cmd_count_all(all.length) : t.cmd_count_some(shown.length, all.length);
+    if (!shown.length) { renderEmpty(t.cmd_empty); return; }
+    for (const kind of ['slash', 'flag', 'key']) {
+      const rows = shown.filter(c => c.kind === kind);
+      if (!rows.length) continue;
+      const section = el('section', 'cmd-section');
+      section.append(el('h2', null, `${t['kind_' + kind]} · ${rows.length}`));
+      for (const c of rows) {
+        const row = el('div', 'cmd-row');
+        row.append(chip({ name: c.name, context: c.introduced ? 'new' : 'mentioned' }));
+        const first = el('span', 'cmd-first');
+        const link = el('a', 'mono', 'v' + c.first.version);
+        link.href = '#v' + c.first.version;
+        first.append((c.introduced ? t.introduced : t.first_mention) + ' ', link);
+        if (c.first.date) first.append(' · ' + c.first.date);
+        row.append(first, el('span', 'cmd-count', t.in_versions(c.count)));
+        section.append(row);
+      }
+      list.append(section);
+    }
+  }
+
+  function renderEmpty(message) {
+    const empty = el('div', 'empty');
+    empty.append(el('p', null, message));
+    const clear = el('button', 'btn', t.clear);
+    clear.type = 'button'; clear.id = 'clear';
+    empty.append(clear);
+    list.append(empty);
+  }
+
   function renderMore() {
     const toks = tokens();
     const from = list.querySelectorAll('.rel').length;
@@ -454,20 +556,16 @@
   }
 
   function render() {
+    document.body.classList.toggle('view-commands', state.view === 'commands');
+    document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.view === state.view)));
+    document.querySelectorAll('.type-btn').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.type === state.type)));
+    if (state.view === 'commands') { renderCommands(); return; }
     applyFilters();
     list.textContent = '';
     list.setAttribute('aria-busy', 'false');
     $('result-count').textContent = filtered.length === releases.length
       ? t.count_all(releases.length) : t.count_some(filtered.length, releases.length);
-    if (!filtered.length) {
-      const empty = el('div', 'empty');
-      empty.append(el('p', null, t.empty));
-      const clear = el('button', 'btn', t.clear);
-      clear.type = 'button'; clear.id = 'clear';
-      empty.append(clear);
-      list.append(empty);
-      return;
-    }
+    if (!filtered.length) { renderEmpty(t.empty); return; }
     renderMore();
   }
 
@@ -483,6 +581,8 @@
     const p = new URLSearchParams();
     if (state.q) p.set('q', state.q);
     if (state.onlyNew) p.set('new', '1');
+    if (state.type) p.set('type', state.type);
+    if (state.view === 'commands') p.set('view', 'commands');
     if (state.lang !== 'en') p.set('lang', state.lang);
     const qs = p.toString();
     history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
@@ -494,14 +594,20 @@
     render();
   }
 
+  function clearFilters() {
+    state.q = ''; state.onlyNew = false; state.type = '';
+    search.value = ''; onlyNew.checked = false;
+  }
+
   // --- deep links -------------------------------------------------------------
   function goToHash() {
     const version = decodeURIComponent(location.hash).replace(/^#v/, '');
     if (!version || !releases.some(r => r.version === version)) return;
+    state.view = 'versions';
+    applyFilters();
     let idx = filtered.findIndex(item => item.rel.version === version);
     if (idx < 0) {            // hidden by the current filters: drop them
-      state.q = ''; state.onlyNew = false;
-      search.value = ''; onlyNew.checked = false;
+      clearFilters();
       applyFilters();
       idx = filtered.findIndex(item => item.rel.version === version);
     }
@@ -538,14 +644,11 @@
   });
 
   list.addEventListener('click', e => {
-    if (e.target.id === 'clear') {
-      state.q = ''; state.onlyNew = false; search.value = ''; onlyNew.checked = false;
-      update(true);
-      return;
-    }
+    if (e.target.id === 'clear') { clearFilters(); update(true); return; }
     const chipBtn = e.target.closest('.chip');
     if (chipBtn) {
       state.q = chipBtn.dataset.cmd; search.value = state.q;
+      state.view = 'versions';
       update(true);
       window.scrollTo({ top: 0 });
       return;
@@ -564,10 +667,23 @@
     art.replaceWith(renderRelease(item, tokens()));
   });
 
+  $('types').addEventListener('click', e => {
+    const btn = e.target.closest('.type-btn');
+    if (!btn) return;
+    state.type = state.type === btn.dataset.type ? '' : btn.dataset.type;
+    update(true);
+  });
+  document.querySelector('.tabs').addEventListener('click', e => {
+    const tab = e.target.closest('.tab');
+    if (!tab || tab.dataset.view === state.view) return;
+    state.view = tab.dataset.view;
+    update(true);
+  });
+
   window.addEventListener('hashchange', goToHash);
 
   new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting && state.shown < filtered.length) {
+    if (entries[0].isIntersecting && state.view === 'versions' && state.shown < filtered.length) {
       state.shown += PAGE;
       renderMore();
     }
