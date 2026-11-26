@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: track-releases
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -20,9 +24,11 @@ jobs:
 
       - name: Fetch latest CHANGELOG.md
         run: |
-          curl -sL \
+          # -f: an HTTP error fails the step instead of saving the error page
+          curl -fsSL --retry 3 \
             https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md \
-            -o CHANGELOG_RAW.md
+            -o CHANGELOG_RAW.md.tmp
+          mv CHANGELOG_RAW.md.tmp CHANGELOG_RAW.md
 
       - name: Parse and generate outputs
         env:
@@ -34,7 +40,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
+          git add CHANGELOG_RAW.md RELEASES.md data docs
           if git diff --staged --quiet; then
             echo "No changes detected"
           else
