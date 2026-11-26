@@ -15,7 +15,7 @@
 
 - 252+ 버전 전수 조사
 - 버전/커맨드/기능 실시간 검색
-- "Commands only" 필터 (커맨드가 추가된 버전만 보기)
+- "New commands only" 필터 (커맨드가 처음 등장한 버전만 보기)
 - 영어/한국어 전환 (localStorage에 저장)
 - 다크 테마 + 모바일 반응형
 
@@ -39,7 +39,7 @@ GitHub Actions (매일 06:00 KST cron)
 |--------|------|------|
 | [CHANGELOG.md](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md) | 버전, 커맨드, 기능 텍스트 | 매일 fetch |
 | [GitHub Releases API](https://github.com/anthropics/claude-code/releases) | 릴리스 날짜 | early-exit 캐시 |
-| [npm registry](https://www.npmjs.com/package/@anthropic-ai/claude-code) | 날짜 보충 (GitHub에 없는 버전) | 캐시 200+ 시 skip |
+| [npm registry](https://www.npmjs.com/package/@anthropic-ai/claude-code) | 날짜 보충 (GitHub에 없는 버전) | 날짜 없는 버전이 있을 때만 조회 |
 | OpenAI API | Key Features 한국어 번역 | 번역 캐시로 재호출 최소화 |
 
 ## 프로젝트 구조
@@ -73,15 +73,17 @@ claude-code-changelog/
 
 ## 커맨드 추출 로직
 
-- **Layer 1**: 전체 changelog body에서 backtick-quoted 패턴 추출 (`` `/effort` ``, `` `--bare` ``, `` `Ctrl+B` ``)
-- **Layer 2**: Unquoted 슬래시 커맨드 추출 (이전 버전에 backtick 없이 쓰인 경우)
-- **Layer 3**: 59개 Known Commands 목록으로 첫 등장 버전 자동 추적
-- **Blocklist**: URL 경로 (`/api`, `/docs`)와 generic 플래그 (`--no`, `--the`) 필터링
+- **Backtick**: backtick 안의 슬래시 커맨드와 플래그 추출 (`` `/effort` ``, `` `--bare` ``, `` `claude --chrome` ``)
+- **Unquoted**: backtick 없이 쓰인 슬래시 커맨드 추출 (이전 버전), 경로와 URL 은 제외
+- **정규화**: 인자를 뗀 기본 커맨드로 통합 (`` `/tui classic` `` → `/tui`), 단축키 표기 통일 (`ctrl+c` → `Ctrl+C`)
+- **Blocklist**: URL 경로 (`/api`, `/docs`), 파일시스템 경로 (`/proc`, `/var`), generic 플래그 (`--no`, `--the`) 필터링
+- **NEW 판정**: changelog 전체에서 처음 등장한 버전에만 NEW 부여, 이후의 "Added ... `/cmd`" 줄은 개선(IMP)으로 분류
 
 ## 번역 캐시
 
 - 한번 번역된 feature는 SHA-256 해시 기반으로 `translations_cache.json`에 저장
 - 새 버전 추가 시 미번역 항목만 OpenAI API 호출 (30개씩 batch)
+- 번역에 실패한 항목은 캐시하지 않고 다음 실행에서 재시도
 - 초회 약 $0.02, 이후 거의 무료
 
 ## 링크
